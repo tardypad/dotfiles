@@ -1,45 +1,56 @@
 function preexec() {
-  timer_start=$SECONDS
+  # register time of command execution
+  COMMAND_TIME_START=$SECONDS
 }
 
 function precmd() {
   vcs_info
 
-  local elapsed_time
-  if [ $timer_start ]; then
-    elapsed_time=$(( $SECONDS - $timer_start ))
-    unset timer_start
+  # define duration time of last command
+  if [ $COMMAND_TIME_START ]; then
+    COMMAND_DURATION="$(( $SECONDS - $COMMAND_TIME_START ))s"
+    unset COMMAND_TIME_START
   else
-    elapsed_time=0
+    COMMAND_DURATION=
   fi
 
+  # calculate actual length of the VCS info message
   local zero='%([BSUbfksu]|([FBK]|){*})'
-  local vcs_info_size=${#${(S%%)vcs_info_msg_0_//$~zero/}}
+  local vcs_info_length=${#${(S%%)vcs_info_msg_0_//$~zero/}}
 
-  local prompt1_size=$(( ${#${(%):-%n@%m }} + $vcs_info_size ))
-  local rprompt1_size=$(( ${#elapsed_time} + 1 ))
-  PROMPT1_FILL="${(l.(( $COLUMNS - $prompt1_size - $rprompt1_size )).. .)}"
-  RPROMPT1="%{$fg[cyan]%}${elapsed_time}s%{$reset_color%}"
+  # define the filler for the prompt first line
+  local left_1_length=$(( ${#${(%):-%n@%m }} + $vcs_info_length ))
+  local right_1_length=${#COMMAND_DURATION}
+  local filler_1_length=$(( $COLUMNS - $left_1_length - $right_1_length ))
+  PROMPT_1_FILLER="${(l.$filler_1_length.. .)}"
 }
 
 function set_prompt() {
-  local user="%(!.%{$fg[red]%}.%{$fg[blue]%})%n%{$reset_color%}"
-  local host="%{$fg[red]%}%m%{$reset_color%}"
+  # define color variables
+  local green='%{%F{green}%}'
+  local red='%{%F{red}%}'
+  local blue='%{%F{blue}%}'
+  local cyan='%{%F{cyan}%}'
+  local stop='%{%f%}'
 
-  local filler_length=$(( ${#${(%):-%n@%m}} - 1 ))
-  local filler="${(l.${filler_length}..~.)}"
+  # define individual items
+  local user="%(!.${red}.${blue})%n${stop}"
+  local host="${red}%m${stop}"
+  local duration="${cyan}"'$COMMAND_DURATION'"${stop}"
+  local left_2_length=$(( ${#${(%):-%n@%m}} - 1 ))
+  local left_2_filler="${(l.${left_2_length}..~.)}"
 
+  # define cwd / git prompt
   zstyle ':vcs_info:*' enable git
-  zstyle ':vcs_info:*' nvcsformats '%{%F{green}%}%~%{%f%}'
-  zstyle ':vcs_info:*' formats '%{%F{green}%}%r%{%f%} (%b) %{%F{green}%}%S%{%f%}'
-  zstyle ':vcs_info:*' actionformats '%{%F{green}%}%r%{%f%} (%a) %{%F{green}%}%S%{%f%}'
+  zstyle ':vcs_info:*' nvcsformats "${green}%~${stop}"
+  zstyle ':vcs_info:*' formats "${green}%r${stop} (%b) ${green}%S${stop}"
+  zstyle ':vcs_info:*' actionformats "${green}%r${stop} (%a) ${green}%S${stop}"
 
+  # build full prompt
   PROMPT=$'\n'
-  PROMPT+="$user@$host "
-  PROMPT+='${vcs_info_msg_0_}'
-  PROMPT+='$PROMPT1_FILL$RPROMPT1'
+  PROMPT+="${user}@${host} "'${vcs_info_msg_0_}$PROMPT_1_FILLER'"${duration}"
   PROMPT+=$'\n'
-  PROMPT+="$filler> "
+  PROMPT+="${left_2_filler}> "
 }
 
 autoload -Uz vcs_info
