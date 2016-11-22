@@ -18,10 +18,14 @@ function precmd() {
   local zero='%([BSUbfksu]|([FBK]|){*})'
   local vcs_info_length=${#${(S%%)vcs_info_msg_0_//$~zero/}}
 
+  # define term width for right alignment
+  # right prompt leaves one space afterwards
+  local term_width=$(( $COLUMNS - 1 ))
+
   # define the filler for the prompt first line
   local left_1_length=$(( ${#${(%):-%n@%m }} + $vcs_info_length ))
   local right_1_length=${#COMMAND_DURATION}
-  local filler_1_length=$(( $COLUMNS - $left_1_length - $right_1_length ))
+  local filler_1_length=$(( $term_width - $left_1_length - $right_1_length ))
   PROMPT_1_FILLER="${(l.$filler_1_length.. .)}"
 }
 
