@@ -1,0 +1,25 @@
+#!/bin/bash
+
+function init_local_files()
+{
+cat > TODO << EOF
+Cleaning:
+
+Bugs:
+
+Testing:
+
+Improvements:
+
+New Features:
+
+Discarded:
+
+Research:
+
+EOF
+}
+
+init_local_files
+
+exit 0

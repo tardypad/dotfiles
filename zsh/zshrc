@@ -1,0 +1,8 @@
+source ~/.zplug/init.zsh
+
+source ~/.zsh/export.zsh
+source ~/.zsh/alias.zsh
+source ~/.zsh/function.zsh
+source ~/.zsh/completion.zsh
+source ~/.zsh/path.zsh
+source ~/.zsh/prompt.zsh

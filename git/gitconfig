@@ -1,0 +1,50 @@
+[push]
+        default = upstream
+[alias]
+        amend = commit --amend -a --no-edit
+        br = branch
+        brd = branch -D
+        cb = checkout -b
+        ci = commit
+        cia = commit -a
+        cl = clone
+        co = checkout
+        coma = checkout master
+        cfg = config --includes
+        cp = cherry-pick
+        df = diff
+        df1 = diff -U0
+        dfc = diff --cached
+        fe = fetch --all
+        fetch-notes = fetch origin "refs/notes/*:refs/notes/*"
+        first-commit = ! git rev-list --max-parents=0 HEAD | tail --lines 1
+        hist = log --oneline -10
+        issue = stamp -r Issue
+        last = whatchanged -1
+        log1 = log --oneline
+        mg = merge
+        pl = pull
+        push-notes = push origin "refs/notes/*"
+        push-perso = "!git push origin --set-upstream HEAD:$(git symbolic-ref --short HEAD) "
+        push-upstream = "!git push upstream HEAD:$(git symbolic-ref --short HEAD) "
+        rb = rebase
+        rbma = rebase -i master
+        rba = rebase --abort
+        rbc = rebase --continue
+        rbi = rebase -i
+        reword = commit --amend
+        sth = stash save --keep-index --include-untracked
+        st = status
+        tag-list = for-each-ref --format '%(align:20,left) %(refname:strip=2) %(end) %(taggerdate:iso) %(align:30,left) %(taggeremail) %(end) %(subject)' refs/tags --sort=taggerdate
+        todo-commit = ! git todo-diff || git notes --ref=todo add -f $(git first-commit) -F $(git root)/TODO
+        todo-diff = ! bash -c 'diff $(git root)/TODO <(git notes --ref=todo show $(git first-commit))'
+        todo-fetch = ! git fetch origin refs/notes/todo:refs/notes/todo
+        todo-init = ! git notes --ref=todo show $(git first-commit) > $(git root)/TODO
+        todo-log = log -p refs/notes/todo
+        todo-push = ! git push origin refs/notes/todo
+[url "github:tardypad/"]
+        insteadOf = github:
+[include]
+        path = .gitconfig.local
+[init]
+        templatedir = ~/.git-template

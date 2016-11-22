@@ -1,0 +1,10 @@
+# personal files
+TODO
+.kateproject*
+*.kdev4
+
+# system files
+*~
+.directory
+*.swp
+*.kate-swp

@@ -1,0 +1,122 @@
+" VIM Configuration
+set nocompatible          " Cancel the compatibility with Vi
+
+" Install the plugin manager and define the plugins
+source ~/.vim/plug.vim
+
+" Define new leader key
+let mapleader = ","
+
+" Disable arrow keys usage to break bad habits
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
+noremap <PageUp> <nop>
+noremap <PageDown> <nop>
+noremap <Home> <nop>
+noremap <End> <nop>
+
+inoremap <Up> <nop>
+inoremap <Down> <nop>
+inoremap <Left> <nop>
+inoremap <Right> <nop>
+inoremap <PageUp> <nop>
+inoremap <PageDown> <nop>
+inoremap <Home> <nop>
+inoremap <End> <nop>
+
+vnoremap <Up> <nop>
+vnoremap <Down> <nop>
+vnoremap <Left> <nop>
+vnoremap <Right> <nop>
+vnoremap <PageUp> <nop>
+vnoremap <PageDown> <nop>
+vnoremap <Home> <nop>
+vnoremap <End> <nop>
+
+" Activate syntax coloring
+syntax enable
+
+" -- Display
+set title                 " Update the title of your window or your terminal
+set number                " Display line numbers
+set ruler                 " Display cursor position
+set wrap                  " Wrap lines when they are too long
+set cursorline            " highlight the current line
+
+set scrolloff=3           " Display at least 3 lines around you cursor
+                          " (for scrolling)
+
+" -- Search
+set ignorecase            " Ignore case when searching
+set smartcase             " If there is an uppercase in your search term
+                          " search case sensitive again
+set incsearch             " Highlight search results when typing
+set hlsearch              " Highlight search results
+
+" Clear last search highlighting with Enter
+nnoremap <silent> <CR> :noh<CR><Esc>
+
+" -- Beep
+set visualbell            " Prevent Vim from beeping
+set noerrorbells          " Prevent Vim from beeping
+
+" enable mouse usage
+set mouse=a
+
+" Backspace behaves as expected
+set backspace=indent,eol,start
+
+" Press twice ; to exit from insert, visual and command line mode
+imap ;; <Esc>
+vmap ;; <Esc>
+cmap ;; <C-e><C-u><Esc>
+
+" Hide buffer (file) instead of abandoning when switching
+" to another buffer
+set hidden
+
+" Activate specific behavior per file type such as syntax and indentation
+filetype on
+filetype plugin on
+filetype indent on
+
+" Define *.md files as markdown filetype
+" fixed in newer vim versions
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+
+" Go to insert mode after/before 2 newlines
+nmap 2o A<CR><CR>
+nmap 2O I<CR><CR><Esc>kki
+
+" Toggle long lines highlighting
+nnoremap <Leader>L :call<SID>LongLineHighlightToggle()<cr>
+
+" Set long lines highlight background color
+highlight OverLength ctermbg=1
+
+" Detection of long lines (superior to 80 characters)
+match OverLength /\%>80v/
+
+" Function to toggle highlighting of long lines
+fun! s:LongLineHighlightToggle()
+ if !exists('w:longlinehl')
+  let w:longlinehl = matchadd('ErrorMsg', '.\%>80v', 0)
+  echo "Long lines highlighted"
+ else
+  call matchdelete(w:longlinehl)
+  unl w:longlinehl
+  echo "Long lines unhighlighted"
+ endif
+endfunction
+
+" Load colorscheme first to handle color usage in plugins
+source ~/.vim/conf/solarized.vim
+
+" Load all the other conf files
+let conf_files = glob("`find ~/.vim/conf/ -name '*.vim' ! -name solarized.vim`")
+for conf in split(conf_files, '\n')
+  exe 'source' conf
+endfor
+
