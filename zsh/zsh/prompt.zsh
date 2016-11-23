@@ -35,14 +35,17 @@ function set_prompt() {
   local red='%{%F{red}%}'
   local blue='%{%F{blue}%}'
   local cyan='%{%F{cyan}%}'
+  local yellow='%{%F{yellow}%}'
   local stop='%{%f%}'
 
   # define individual items
   local user="%(!.${red}.${blue})%n${stop}"
   local host="${red}%m${stop}"
   local duration="${cyan}"'$COMMAND_DURATION'"${stop}"
-  local left_2_length=$(( ${#${(%):-%n@%m}} - 1 ))
-  local left_2_filler="${(l.${left_2_length}..~.)}"
+  local vi_mode="${yellow}"'[$VI_MODE]'"${stop}"
+  local left_2_length=${#${(%):-%n@%m}}
+  local left_2_filler_length=$(( $left_2_length - 6 ))
+  local left_2_filler="${(l.${left_2_filler_length}..~.)}"
 
   # define cwd / git prompt
   zstyle ':vcs_info:*' enable git
@@ -54,7 +57,7 @@ function set_prompt() {
   PROMPT=$'\n'
   PROMPT+="${user}@${host} "'${vcs_info_msg_0_}$PROMPT_1_FILLER'"${duration}"
   PROMPT+=$'\n'
-  PROMPT+="${left_2_filler}> "
+  PROMPT+="${left_2_filler}${vi_mode}> "
 }
 
 autoload -Uz vcs_info
