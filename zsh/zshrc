@@ -1,9 +1,7 @@
+# load plugins manager
 source ~/.zplug/init.zsh
 
-source ~/.zsh/export.zsh
-source ~/.zsh/alias.zsh
-source ~/.zsh/function.zsh
-source ~/.zsh/completion.zsh
-source ~/.zsh/path.zsh
-source ~/.zsh/vi-mode.zsh
-source ~/.zsh/prompt.zsh
+# load all individual configs
+for conf in ~/.zsh/*.zsh; do
+  source "${conf}"
+done
