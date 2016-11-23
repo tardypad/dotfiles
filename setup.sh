@@ -2,30 +2,26 @@
 
 DOTFILES_DIR="$(dirname "$(readlink -f "$0")")"
 
-link() {
-  # Force create/replace the symlink.
-  ln -Tfs "${DOTFILES_DIR}/${1}" "${HOME}/${2}"
-}
-
-scopy() {
-  scp -q "${DOTFILES_DIR}/${1}" "${2}"
+copy() {
+  cp --recursive --force --no-target-directory \
+    "${DOTFILES_DIR}/${1}" "${HOME}/${2}"
 }
 
 setup_git() {
   echo 'setup git'
 
-  # mirror config files
-  link "git/gitconfig" ".gitconfig"
-  link "git/gitconfig.local" ".gitconfig.local"
-  link "git/template" ".git-template"
+  # copy config files
+  copy "git/gitconfig" ".gitconfig"
+  copy "git/gitconfig.local" ".gitconfig.local"
+  copy "git/template" ".git-template"
 }
 
 setup_zsh() {
   echo 'setup zsh'
 
-  # mirror config files
-  link "zsh/zshrc" ".zshrc"
-  link "zsh/zsh" ".zsh"
+  # copy config files
+  copy "zsh/zshrc" ".zshrc"
+  copy "zsh/zsh" ".zsh"
 
   # install the plugins manager if not present
   [[ -d ~/.zplug ]] \
@@ -35,9 +31,12 @@ setup_zsh() {
 setup_vim() {
   echo 'setup vim'
 
-  # mirror config files
-  link "vim/vimrc" ".vimrc"
-  link "vim/vim" ".vim"
+  # copy config files
+  copy "vim/vimrc" ".vimrc"
+  [[ -d ~/.vim ]] || mkdir ~/.vim
+  copy "vim/vim/plug.vim" ".vim/plug.vim"
+  copy "vim/vim/plug" ".vim/plug"
+  copy "vim/vim/conf" ".vim/conf"
 
   # install the plugins manager if not present
   [[ -f ~/.vim/autoload/plug.vim ]] \
@@ -54,8 +53,8 @@ setup_vim() {
 setup_tmux() {
   echo 'setup tmux'
 
-  # mirror config files
-  link "tmux/tmux.conf" ".tmux.conf"
+  # copy config files
+  copy "tmux/tmux.conf" ".tmux.conf"
 }
 
 setup_ssh() {
