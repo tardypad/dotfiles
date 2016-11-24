@@ -57,7 +57,7 @@ function set_prompt() {
   PROMPT=$'\n'
   PROMPT+="${user}@${host} "'${vcs_info_msg_0_}$PROMPT_1_FILLER'"${duration}"
   PROMPT+=$'\n'
-  PROMPT+="${left_2_filler}${vi_mode}> "
+  PROMPT+="${left_2_filler}${vi_mode}$ "
 }
 
 autoload -Uz vcs_info
