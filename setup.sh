@@ -61,7 +61,7 @@ setup_ssh() {
   echo 'setup ssh'
 
   cat "${DOTFILES_DIR}/ssh/config" "${DOTFILES_DIR}/ssh/config.local" \
-    > "${HOME}/.ssh/config"
+    > "${HOME}/.ssh/config" 2>/dev/null
 }
 
 setup_git
