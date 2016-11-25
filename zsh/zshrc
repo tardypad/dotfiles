@@ -1,11 +1,14 @@
 # load plugins manager
 source ~/.zplug/init.zsh
 
-# load all individual configs
-# with their possible local extension/override
+# enable extended globbing features
+setopt extendedglob
+
+# load all individual configs with their possible
+# local extension/override immediately afterwards
 function load_conf() {
   local local_conf
-  for conf in ~/.zsh/*.zsh; do
+  for conf in ~/.zsh/*[^.local].zsh; do
     source "${conf}"
 
     local_conf="${conf%.*}.local.zsh"
