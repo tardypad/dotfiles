@@ -116,10 +116,10 @@ source ~/.vim/conf/solarized.vim
 
 " Load all the other conf files with their possible
 " local extension/override immediately afterwards
-let find_main_cmd = "find ~/.vim/conf/ -name '*.vim'"
+let s:find_conf_cmd = "find ~/.vim/conf/ -name '*.vim'"
                 \ . " ! -name solarized.vim ! -name '*.local.vim'"
-let conf_files = glob("`" . find_cmd . "`")
-for conf in split(conf_files, '\n')
+let s:conf_files = glob("`" . s:find_conf_cmd . "`")
+for conf in split(s:conf_files, '\n')
   exe 'source' conf
 
   let local_conf = substitute(conf, ".vim$", ".local.vim", "")
