@@ -21,6 +21,7 @@ setup_zsh() {
 
   # copy config files
   copy "zsh/zshrc" ".zshrc"
+  copy "zsh/zshenv" ".zshenv"
   copy "zsh/zsh" ".zsh"
 
   # install the plugins manager if not present
