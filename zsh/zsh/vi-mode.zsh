@@ -42,3 +42,6 @@ bindkey -M viins '^p' up-history
 bindkey -M vicmd '^p' up-history
 bindkey -M viins '^n' down-history
 bindkey -M vicmd '^n' down-history
+
+# Use Alt-. to insert last word of previous command
+bindkey -M viins '\e.' insert-last-word
