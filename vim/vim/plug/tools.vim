@@ -17,3 +17,7 @@ Plug 'tpope/vim-fugitive',
 " Text alignment
 Plug 'godlygeek/tabular',
   \ { 'as': 'tabular' }
+
+" Buffer killer
+Plug 'qpkorr/vim-bufkill',
+  \ { 'as': 'bufkill' }
