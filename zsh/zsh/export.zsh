@@ -11,3 +11,6 @@ export TERM=xterm-256color
 # define replacement for redirections with no command
 export NULLCMD=:
 export READNULLCMD=less
+
+# define projects location
+export PROJECTS_DIR="$HOME/Projects"

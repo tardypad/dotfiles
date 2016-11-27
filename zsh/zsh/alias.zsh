@@ -7,3 +7,5 @@ alias rm='rm -i'
 alias ls='ls --color=auto'
 alias lh='ls -lh'
 alias grep='grep --color=auto'
+
+alias pj='goto_project'
