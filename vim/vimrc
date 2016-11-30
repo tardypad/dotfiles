@@ -68,6 +68,18 @@ set mouse=a
 " Backspace behaves as expected
 set backspace=indent,eol,start
 
+" -- Tabs
+set tabstop=4       " number of visual spaces per TAB
+set softtabstop=4   " number of spaces in tab when editing
+set expandtab       " tabs are spaces
+
+" Visual autocomplete for command menu
+set wildmenu
+
+" move vertically by visual line
+nnoremap j gj
+nnoremap k gk
+
 " Press twice ; to exit from insert, visual and command line mode
 imap ;; <Esc>
 vmap ;; <Esc>
