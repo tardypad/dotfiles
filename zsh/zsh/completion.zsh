@@ -13,3 +13,8 @@ else
 fi
 
 source /usr/local/etc/zsh_completion.d/git-extras-completion.zsh
+
+# Tab case insensitive smart completion
+# lowercase letters match lowercase and uppercase letters
+# uppercase letters match only uppercase letters
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
