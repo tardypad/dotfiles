@@ -21,3 +21,6 @@ function load_conf() {
 load_conf
 
 unset -f load_conf
+
+# Disable flow control (Ctrl-q/Ctrl-s)
+setopt noflowcontrol
