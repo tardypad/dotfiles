@@ -2,7 +2,7 @@
 source ~/.zplug/init.zsh
 
 # enable extended globbing features
-setopt extendedglob
+setopt extended_glob
 
 # load all individual configs with their possible
 # local extension/override immediately afterwards
@@ -23,4 +23,4 @@ load_conf
 unset -f load_conf
 
 # Disable flow control (Ctrl-q/Ctrl-s)
-setopt noflowcontrol
+setopt no_flow_control
