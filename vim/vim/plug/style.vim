@@ -9,3 +9,7 @@ Plug 'vim-airline/vim-airline',
 " Statusline themes
 Plug 'vim-airline/vim-airline-themes',
   \ { 'as': 'airline-themes' }
+
+" Status line color in cursorline
+Plug 'ntpeters/vim-airline-colornum',
+  \ { 'as': 'airline-colornum' }
