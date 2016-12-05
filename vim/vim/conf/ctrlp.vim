@@ -13,3 +13,6 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|build$\|\.kdev4$\|\.kateproject.d$',
   \ 'file': '\.kdev4$\|\.kateproject',
   \ }
+
+" Use ,p to navigate between buffers
+nmap <Leader>p :CtrlPBuffer<CR>
