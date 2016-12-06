@@ -13,3 +13,7 @@ Plug 'vim-airline/vim-airline-themes',
 " Status line color in cursorline
 Plug 'ntpeters/vim-airline-colornum',
   \ { 'as': 'airline-colornum' }
+
+" Indicator for indentation
+Plug 'yggdroot/indentLine',
+  \ { 'as': 'indentline' }
