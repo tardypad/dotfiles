@@ -1,11 +1,11 @@
-#compdef goto_project
+#compdef goto_project_main
 
 local projects
 
 # find all project names
 projects=$(
   find "${PROJECTS_DIR}" \
-    -mindepth 2 -maxdepth 2 -type d \
+    -mindepth 1 -maxdepth 1 -type d \
     -printf '%f '
 )
 
