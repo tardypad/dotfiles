@@ -69,9 +69,11 @@ set mouse=a
 set backspace=indent,eol,start
 
 " -- Tabs
-set tabstop=4       " number of visual spaces per TAB
+set tabstop=4       " number of visual spaces per tab
 set softtabstop=4   " number of spaces in tab when editing
-set expandtab       " tabs are spaces
+set expandtab       " tabs are spaces when editing
+set shiftwidth=4    " size of an indentation
+set smarttab        " tab makes cursor goes to next indent when editing new line
 
 " Visual autocomplete for command menu
 set wildmenu
