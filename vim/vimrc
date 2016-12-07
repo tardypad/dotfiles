@@ -62,9 +62,6 @@ nnoremap <silent> <CR> :noh<CR><Esc>
 set visualbell            " Prevent Vim from beeping
 set noerrorbells          " Prevent Vim from beeping
 
-" enable mouse usage
-set mouse=a
-
 " Backspace behaves as expected
 set backspace=indent,eol,start
 
