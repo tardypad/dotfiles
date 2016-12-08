@@ -1,6 +1,6 @@
 function preexec() {
-  # register time of command execution
-  COMMAND_TIME_START=$SECONDS
+  # register time of command execution (in milliseconds)
+  COMMAND_TIME_START=$( date +"%s%3N" )
 }
 
 function precmd() {
@@ -8,7 +8,18 @@ function precmd() {
 
   # define duration time of last command
   if [ $COMMAND_TIME_START ]; then
-    COMMAND_DURATION="$(( $SECONDS - $COMMAND_TIME_START ))s"
+    local command_duration=$(( $( date +"%s%3N" ) - $COMMAND_TIME_START ))
+    local cmd_dur_ms=$(( command_duration % 1000 ))
+    local cmd_dur_sec=$(( command_duration / 1000 % 60 ))
+    local cmd_dur_min=$(( command_duration / 1000 / 60 ))
+    COMMAND_DURATION=
+    if [[ $cmd_dur_min -gt 0 ]]; then
+      COMMAND_DURATION+="${cmd_dur_min}m ${cmd_dur_sec}s "
+    elif [[ $cmd_dur_sec -gt 0 ]]; then
+      COMMAND_DURATION+="${cmd_dur_sec}s "
+    fi
+    COMMAND_DURATION+="${cmd_dur_ms}ms"
+
     unset COMMAND_TIME_START
   else
     COMMAND_DURATION=
