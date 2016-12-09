@@ -75,10 +75,6 @@ set smarttab        " tab makes cursor goes to next indent when editing new line
 " Visual autocomplete for command menu
 set wildmenu
 
-" move vertically by visual line
-nnoremap j gj
-nnoremap k gk
-
 " Press twice ; to exit from insert, visual and command line mode
 imap ;; <Esc>
 vmap ;; <Esc>
