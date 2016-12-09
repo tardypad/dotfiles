@@ -75,6 +75,9 @@ set smarttab        " tab makes cursor goes to next indent when editing new line
 " Visual autocomplete for command menu
 set wildmenu
 
+" Define files to ignore in globbing / expanding / ...
+set wildignore+=*~,*.swp
+
 " Press twice ; to exit from insert, visual and command line mode
 imap ;; <Esc>
 vmap ;; <Esc>
