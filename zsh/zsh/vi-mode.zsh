@@ -33,18 +33,46 @@ function TRAPINT() {
 # use ;; to go to normal mode
 bindkey -M viins ';;' vi-cmd-mode
 
-# C-r to perform backward search in history
-bindkey -M viins '^r' history-incremental-search-backward
-bindkey -M vicmd '^r' history-incremental-search-backward
-
-# C-p and C-n to navigate history
-bindkey -M viins '^p' up-history
-bindkey -M vicmd '^p' up-history
-bindkey -M viins '^n' down-history
-bindkey -M vicmd '^n' down-history
-
 # Use Alt-. to insert last word of previous command
 bindkey -M viins '\e.' insert-last-word
 
 # Tab expansion on the current word up to the cursor
 bindkey -M viins '^I' expand-or-complete-prefix
+
+# define some local history navigation widgets
+local-history-incremental-search-backward() {
+  zle set-local-history 1
+  zle history-incremental-search-backward
+  zle set-local-history 0
+}
+zle -N local-history-incremental-search-backward
+
+up-local-history() {
+  zle set-local-history 1
+  zle up-history
+  zle set-local-history 0
+}
+zle -N up-local-history
+
+down-local-history() {
+  zle set-local-history 1
+  zle down-history
+  zle set-local-history 0
+}
+zle -N down-local-history
+
+# local history navigation (using Ctrl key)
+bindkey -M viins '^r' local-history-incremental-search-backward
+bindkey -M vicmd '^r' local-history-incremental-search-backward
+bindkey -M viins '^p' up-local-history
+bindkey -M vicmd '^p' up-local-history
+bindkey -M viins '^n' down-local-history
+bindkey -M vicmd '^n' down-local-history
+
+# global history navigation (using Alt key)
+bindkey -M viins '\er' history-incremental-search-backward
+bindkey -M vicmd '\er' history-incremental-search-backward
+bindkey -M viins '\ep' up-history
+bindkey -M vicmd '\ep' up-history
+bindkey -M viins '\en' down-history
+bindkey -M vicmd '\en' down-history
