@@ -137,3 +137,7 @@ for conf in split(s:conf_files, '\n')
     exe 'source' local_conf
   endif
 endfor
+
+" "hide" end of buffer sign
+" the line numbers are already marking the end of the buffer
+highlight EndOfBuffer ctermfg=bg
