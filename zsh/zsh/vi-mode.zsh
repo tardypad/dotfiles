@@ -2,8 +2,8 @@
 bindkey -v
 
 # define modes display names
-VI_INS_MODE='INS'
-VI_CMD_MODE='CMD'
+VI_INS_MODE='ins'
+VI_CMD_MODE='cmd'
 
 # define initial mode
 VI_MODE=$VI_INS_MODE

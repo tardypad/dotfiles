@@ -54,7 +54,7 @@ function set_prompt() {
   local user="%(!.${red}.${blue})%n${stop}"
   local host="${red}%m${stop}"
   local duration="%(?.${cyan}.${magenta})"'$COMMAND_DURATION'"${stop}"
-  local vi_mode="${yellow}"'[$VI_MODE]'"${stop}"
+  local vi_mode="${yellow}"' $VI_MODE '"${stop}"
   local left_2_length=${#${(%):-%n@%m}}
   local left_2_filler_length=$(( $left_2_length - 6 ))
   local left_2_filler="${(l.${left_2_filler_length}..~.)}"
