@@ -6,7 +6,11 @@ export LANG=en_US.UTF-8
 export EDITOR=vim
 
 # Use 256 colors in terminal
-export TERM=xterm-256color
+if [[ -n $TMUX ]]; then
+  export TERM=screen-256color
+else
+  export TERM=xterm-256color
+fi
 
 # define replacement for redirections with no command
 export NULLCMD=:
