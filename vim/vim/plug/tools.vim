@@ -21,3 +21,7 @@ Plug 'godlygeek/tabular',
 " Buffer killer
 Plug 'qpkorr/vim-bufkill',
   \ { 'as': 'bufkill' }
+
+" Window maximizer
+Plug 'szw/vim-maximizer',
+  \ { 'as': 'maximizer' }
