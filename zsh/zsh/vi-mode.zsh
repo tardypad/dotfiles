@@ -43,9 +43,13 @@ bindkey -M viins '^I' expand-or-complete-prefix
 local-history-incremental-search-backward() {
   zle set-local-history 1
   zle history-incremental-search-backward
-  zle set-local-history 0
 }
 zle -N local-history-incremental-search-backward
+
+zle-isearch-exit() {
+  zle set-local-history 0
+}
+zle -N zle-isearch-exit
 
 up-local-history() {
   zle set-local-history 1
@@ -64,6 +68,7 @@ zle -N down-local-history
 # local history navigation (using Ctrl key)
 bindkey -M viins '^r' local-history-incremental-search-backward
 bindkey -M vicmd '^r' local-history-incremental-search-backward
+bindkey -M isearch '^r' history-incremental-search-backward
 bindkey -M viins '^p' up-local-history
 bindkey -M vicmd '^p' up-local-history
 bindkey -M viins '^n' down-local-history
@@ -72,6 +77,7 @@ bindkey -M vicmd '^n' down-local-history
 # global history navigation (using Alt key)
 bindkey -M viins '\er' history-incremental-search-backward
 bindkey -M vicmd '\er' history-incremental-search-backward
+bindkey -M isearch '\er' history-incremental-search-backward
 bindkey -M viins '\ep' up-history
 bindkey -M vicmd '\ep' up-history
 bindkey -M viins '\en' down-history
