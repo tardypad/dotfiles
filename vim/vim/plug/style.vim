@@ -17,3 +17,7 @@ Plug 'ntpeters/vim-airline-colornum',
 " Indicator for indentation
 Plug 'yggdroot/indentLine',
   \ { 'as': 'indentline' }
+
+" Use relative line number only in current window
+Plug 'vim-scripts/RelativeNumberCurrentWindow',
+  \ { 'as': 'relativeNumberCurrentWindow' }
