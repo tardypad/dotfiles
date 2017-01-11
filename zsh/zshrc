@@ -24,3 +24,5 @@ unset -f load_conf
 
 # Disable flow control (Ctrl-q/Ctrl-s)
 setopt no_flow_control
+# setopt doesn't seem to be enough when using vim within tmux...
+stty -ixon
