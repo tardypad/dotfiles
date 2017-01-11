@@ -81,7 +81,7 @@ set wildignore+=*~,*.swp
 " Press twice ; to exit from insert, visual and command line mode
 imap ;; <Esc>
 vmap ;; <Esc>
-cmap ;; <C-e><C-u><Esc>
+cmap ;; <C-c>
 
 " Hide buffer (file) instead of abandoning when switching
 " to another buffer
