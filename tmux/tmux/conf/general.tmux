@@ -21,3 +21,6 @@ set -g display-panes-time 1500
 # use vi keybindings
 set -g status-keys vi
 setw -g mode-keys vi
+
+# increase the maximum number of lines in window history
+set -g history-limit 10000
