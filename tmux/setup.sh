@@ -5,6 +5,7 @@ setup_tmux() {
   copy "tmux/tmux.conf" ".tmux.conf"
   [[ -d ~/.tmux ]] || mkdir ~/.tmux
   copy "tmux/tmux/scripts" ".tmux/scripts"
+  copy "tmux/tmux/conf" ".tmux/conf"
 
   # install the plugins manager if not present
   [[ -d ~/.tmux/plugins/tpm ]] \
