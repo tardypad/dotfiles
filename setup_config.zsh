@@ -44,6 +44,11 @@ setup() {
     echo "setup ${target}"
     source "${target}/setup.sh"
     setup_"${target}"
+
+    if [[ -f "${target}/setup.local.sh" ]]; then
+      source "${target}/setup.local.sh"
+      setup_local_"${target}"
+    fi
   done
 }
 
