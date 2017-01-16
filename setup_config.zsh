@@ -34,8 +34,22 @@ error() {
 
 
 copy() {
+  local repo_source_path="$1"
+  local home_target_path="$2"
+
   cp --recursive --force --no-target-directory \
-    "$1" "${HOME}/$2"
+    "${repo_source_path}" "${HOME}/${home_target_path}"
+}
+
+
+remote_copy() {
+  local host="$1"
+  local repo_source_path="$2"
+  local home_target_path="$3"
+
+  ssh "${host}" rm -rf "${HOME}/${home_target_path}"
+  scp -qr "${repo_source_path}" "${host}:${HOME}/${home_target_path}" \
+    2> /dev/null
 }
 
 
