@@ -45,10 +45,10 @@ bind 9 select-window -t :=9
 bind c command-prompt -I '#{host_short}' "new-window -n '%%'"
 bind r command-prompt -I '#{window_name}' "rename-window '%%'"
 bind x confirm-before -p "kill-window #{window_name}? (y/n)" kill-window
-bind | split-window -h
-bind \ split-window -h
-bind - split-window -v
-bind _ split-window -v
+bind | run "~/.tmux/scripts/split_window_ssh.sh #{pane_tty} -h"
+bind \ run "~/.tmux/scripts/split_window_ssh.sh #{pane_tty} -h"
+bind - run "~/.tmux/scripts/split_window_ssh.sh #{pane_tty} -v"
+bind _ run "~/.tmux/scripts/split_window_ssh.sh #{pane_tty} -v"
 
 # panes management (using uppercase except for direct navigation)
 bind Q display-panes
