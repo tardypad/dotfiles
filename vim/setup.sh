@@ -2,11 +2,11 @@
 
 setup_vim() {
   # copy config files
-  copy "vim/vimrc" ".vimrc"
+  local_copy "vim/vimrc" ".vimrc"
   [[ -d ~/.vim ]] || mkdir ~/.vim
-  copy "vim/vim/plug.vim" ".vim/plug.vim"
-  copy "vim/vim/plug" ".vim/plug"
-  copy "vim/vim/conf" ".vim/conf"
+  local_copy "vim/vim/plug.vim" ".vim/plug.vim"
+  local_copy "vim/vim/plug" ".vim/plug"
+  local_copy "vim/vim/conf" ".vim/conf"
 
   # install the plugins manager if not present
   [[ -f ~/.vim/autoload/plug.vim ]] \

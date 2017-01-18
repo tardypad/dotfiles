@@ -2,7 +2,7 @@
 
 setup_git() {
   # copy config files
-  copy "git/gitconfig" ".gitconfig"
-  copy "git/gitconfig.local" ".gitconfig.local"
-  copy "git/template" ".git-template"
+  local_copy "git/gitconfig" ".gitconfig"
+  local_copy "git/gitconfig.local" ".gitconfig.local"
+  local_copy "git/template" ".git-template"
 }

@@ -33,7 +33,7 @@ error() {
 }
 
 
-copy() {
+local_copy() {
   local repo_source_path="$1"
   local home_target_path="$2"
 
