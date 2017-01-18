@@ -16,6 +16,7 @@ bind C-d detach-client
 # tools
 bind : command-prompt
 bind ? list-keys
+bind M-m show-messages
 
 # sessions management (using Ctrl)
 bind C-s choose-tree -S '#(echo #{session_name} | sed "s/^[0-9]*-//")' -W '#{window_name}'
