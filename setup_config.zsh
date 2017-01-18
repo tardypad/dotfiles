@@ -53,15 +53,23 @@ remote_copy() {
 }
 
 
+run_function_if_exists() {
+  command -v "$1" > /dev/null 2>&1 && "$1"
+}
+
+
 setup() {
   for target in ${TARGETS}; do
     echo "setup ${target}"
+
     source "${target}/setup.sh"
-    setup_"${target}"
+    run_function_if_exists "local_setup_${target}"
+    run_function_if_exists "remote_setup_${target}"
 
     if [[ -f "${target}/setup.local.sh" ]]; then
       source "${target}/setup.local.sh"
-      setup_local_"${target}"
+      run_function_if_exists "local_setup_${target}_local"
+      run_function_if_exists "remote_setup_${target}_local"
     fi
   done
 }

@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 
-setup_zsh() {
+local_setup_zsh() {
   # copy config files
   local_copy "zsh/zshrc" ".zshrc"
   local_copy "zsh/zshenv" ".zshenv"

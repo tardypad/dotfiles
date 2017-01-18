@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 
-setup_git() {
+local_setup_git() {
   # copy config files
   local_copy "git/gitconfig" ".gitconfig"
   local_copy "git/gitconfig.local" ".gitconfig.local"

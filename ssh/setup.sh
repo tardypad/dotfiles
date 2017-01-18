@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 
-setup_ssh() {
+local_setup_ssh() {
   cat "ssh/config" "ssh/config.local" \
     > "${HOME}/.ssh/config" 2>/dev/null
 
