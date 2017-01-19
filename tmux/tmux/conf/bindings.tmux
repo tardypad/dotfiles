@@ -1,5 +1,6 @@
 # remove all default bindings
 unbind -T prefix -a
+unbind -T prefix -t vi-choice -a
 unbind -T root -a
 
 # prefix
@@ -72,3 +73,18 @@ bind [ copy-mode
 bind ] paste-buffer
 bind -t vi-copy v begin-selection
 bind -t vi-copy y copy-selection
+
+# choice mode management
+bind -t vi-choice q cancel
+bind -t vi-choice Escape cancel
+bind -t vi-choice Enter choose
+bind -t vi-choice o choose
+bind -t vi-choice g start-of-list
+bind -t vi-choice G end-of-list
+bind -t vi-choice j down
+bind -t vi-choice k up
+bind -t vi-choice h tree-collapse
+bind -t vi-choice l tree-expand
+bind -t vi-choice H tree-collapse-all
+bind -t vi-choice L tree-expand-all
+bind -t vi-choice Space tree-toggle
