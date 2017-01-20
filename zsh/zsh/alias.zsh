@@ -10,3 +10,7 @@ alias grep='grep --color=auto'
 
 alias pj='goto_project_repo'
 alias PJ='goto_project_main'
+
+# lxc-console uses different prefix for escape command
+# (default Ctrl-a), not to conflict with tmux's one
+alias lxc-console="lxc-console --escape='^q'"
