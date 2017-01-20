@@ -1,6 +1,7 @@
 #compdef setup_config.zsh
 
 local targets
+local options
 
 # find all targets
 targets=$(
@@ -10,4 +11,12 @@ targets=$(
     -printf '%f '
 )
 
-_alternative "1:Targets:($targets)"
+options='
+  -h --help
+  -ol --only-local
+  -or --only-remote
+'
+
+_alternative \
+  "1:Options:($options)" \
+  "2:Targets:($targets)"

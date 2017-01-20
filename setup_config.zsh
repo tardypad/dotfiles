@@ -8,6 +8,8 @@ init_variables() {
       | sort
   ) )
   TARGETS=( ${AVAILABLE_TARGETS} )
+  ONLY_LOCAL=false
+  ONLY_REMOTE=false
 }
 
 
@@ -16,10 +18,13 @@ usage() {
 usage: ${COMMAND} [<options>] [<targets>]
 
 Options:
-    -h, --help     show this message only
+    -h,  --help         show this message only
+    -ol, --only-local   only setup local host configs
+    -or, --only-remote  only setup remote hosts configs
 
 Available targets: ${AVAILABLE_TARGETS}
 If no target argument is passed, all of them are setup
+By default both local and remote hosts are setup
 EOF
 }
 
@@ -63,29 +68,50 @@ setup() {
     echo "setup ${target}"
 
     source "${target}/setup.sh"
-    run_function_if_exists "local_setup_${target}"
-    run_function_if_exists "remote_setup_${target}"
+    ${ONLY_REMOTE} || run_function_if_exists "local_setup_${target}"
+    ${ONLY_LOCAL} || run_function_if_exists "remote_setup_${target}"
 
     if [[ -f "${target}/setup.local.sh" ]]; then
       source "${target}/setup.local.sh"
-      run_function_if_exists "local_setup_${target}_local"
-      run_function_if_exists "remote_setup_${target}_local"
+      ${ONLY_REMOTE} || run_function_if_exists "local_setup_${target}_local"
+      ${ONLY_LOCAL} || run_function_if_exists "remote_setup_${target}_local"
     fi
   done
 }
 
 
 parse_options() {
-  if [[ "$1" == '-h' ]] || [[ "$1" == '--help' ]]; then
-    usage
-    exit 0
-  fi
+  while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      -ol|--only-local)
+        ONLY_LOCAL=true
+        shift
+        ;;
+      -or|--only-remote)
+        ONLY_REMOTE=true
+        shift
+        ;;
+      *)
+        break 2
+        ;;
+    esac
+  done
 
-  [[ $# -eq 0 ]] || TARGETS=( "${@:1}" )
+  # Everything after the last recognized option is assumed to be a target
+  [[ $# -eq 0 ]] || TARGETS=( "$@" )
 }
 
 
 validate_options() {
+  # ONLY_LOCAL and ONLY_REMOTE shouldn't both be set
+  if ${ONLY_LOCAL} && ${ONLY_REMOTE}; then
+    error "--only-local and --only-remote flags shouldn't both be set"
+  fi
+
   # validate each target value
   for target in ${TARGETS}; do
     if ! (( ${AVAILABLE_TARGETS[(Ie)${target}]} )); then
