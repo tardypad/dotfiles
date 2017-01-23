@@ -67,6 +67,8 @@ bind -r C-h resize-pane -L 3
 bind -r C-l resize-pane -R 3
 bind Z resize-pane -Z
 bind X confirm-before -p "kill-pane #{pane_index}? (y/n)" kill-pane
+bind { swap-pane -U
+bind } swap-pane -D
 
 # copy mode management
 bind [ copy-mode
