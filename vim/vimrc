@@ -83,6 +83,10 @@ imap ;; <Esc>
 vmap ;; <Esc>
 cmap ;; <C-c>
 
+" automatically reload file when modified outside of vim
+" and not modified locally
+set autoread
+
 " Hide buffer (file) instead of abandoning when switching
 " to another buffer
 set hidden
