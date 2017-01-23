@@ -24,3 +24,6 @@ setw -g mode-keys vi
 
 # increase the maximum number of lines in window history
 set -g history-limit 10000
+
+# use focus events
+set -g focus-events on

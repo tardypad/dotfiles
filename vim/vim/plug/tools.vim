@@ -25,3 +25,7 @@ Plug 'qpkorr/vim-bufkill',
 " Window maximizer
 Plug 'szw/vim-maximizer',
   \ { 'as': 'maximizer' }
+
+" Tmux focus events fixes
+Plug 'tmux-plugins/vim-tmux-focus-events',
+  \ { 'as': 'tmux-focus-events' }
