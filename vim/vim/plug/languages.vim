@@ -29,11 +29,3 @@ Plug 'elmcast/elm-vim',
 " PHP language
 Plug 'stanangeloff/php.vim',
   \ { 'as': 'php', 'for': 'php' }
-
-" PHP QA tools
-Plug 'joonty/vim-phpqa',
-  \ { 'as': 'phpqa', 'for': 'php' }
-
-" PHPUnit
-Plug 'joonty/vim-phpunitqf',
-  \ { 'as': 'phpunitqf', 'for': 'php' }
