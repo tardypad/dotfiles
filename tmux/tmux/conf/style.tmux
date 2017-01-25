@@ -23,6 +23,8 @@ setw -g pane-active-border-style 'bg=colour8,fg=colour3'
 
 setw -g window-status-current-style 'bg=colour3,fg=colour8'
 setw -g window-status-last-style 'fg=colour3'
+setw -g window-status-activity-style 'underscore'
+setw -g window-status-bell-style 'underscore'
 
 setw -g window-status-separator ' '
 setw -g window-status-format ' #{window_index}:#{window_name} '

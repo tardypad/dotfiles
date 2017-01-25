@@ -18,6 +18,8 @@ bind C-d detach-client
 bind : command-prompt
 bind ? list-keys
 bind M-m show-messages
+bind M-a run "~/.tmux/scripts/toggle_monitor_activity.sh"
+bind M-s run "~/.tmux/scripts/toggle_monitor_silence.sh"
 
 # sessions management (using Ctrl)
 bind C-s choose-tree -S '#(echo #{session_name} | sed "s/^[0-9]*-//")' -W '#{window_name}'

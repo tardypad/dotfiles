@@ -27,3 +27,13 @@ set -g history-limit 10000
 
 # use focus events
 set -g focus-events on
+
+# do not monitor activity and silence by default
+setw -g monitor-activity off
+setw -g monitor-silence 0
+
+# do not display message on activity/bell/silence
+# change in the window status style is enough
+set -g visual-activity off
+set -g visual-bell off
+set -g visual-silence off
