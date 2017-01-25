@@ -18,6 +18,9 @@ setw -g pane-base-index 1
 # define time panes indicator are shown when using display-panes
 set -g display-panes-time 1500
 
+# define time messages and indicators are shown
+set -g display-time 1500
+
 # use vi keybindings
 set -g status-keys vi
 setw -g mode-keys vi
