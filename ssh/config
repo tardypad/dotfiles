@@ -1,6 +1,7 @@
 Host *
     PubkeyAcceptedKeyTypes=+ssh-dss
     HashKnownHosts no
+    EscapeChar %
 
 Host github
 	Hostname github.com
