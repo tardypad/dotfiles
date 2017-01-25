@@ -12,7 +12,7 @@ set -g status-left-style 'bg=colour4,fg=colour8'
 set -g status-right-style 'fg=colour4'
 
 set -g status-left-length 30
-set -g status-left '#{?client_prefix,█, }  #(echo #{session_name} | sed "s/^[0-9]*-//")   #[bg=colour8]  '
+set -g status-left '#[fg=colour7]#{?client_prefix,█, }#[default]  #(echo #{session_name} | sed "s/^[0-9]*-//")   #[bg=colour8]  '
 set -g status-right '%a %e %b %Y %H:%M'
 
 setw -g window-style 'bg=colour0'
