@@ -29,3 +29,7 @@ Plug 'szw/vim-maximizer',
 " Tmux focus events fixes
 Plug 'tmux-plugins/vim-tmux-focus-events',
   \ { 'as': 'tmux-focus-events' }
+
+" Tmux panes navigator
+Plug 'christoomey/vim-tmux-navigator',
+  \ { 'as': 'tmux-navigator' }
