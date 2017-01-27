@@ -21,6 +21,9 @@ setw -g window-active-style 'bg=colour8'
 setw -g pane-border-style 'bg=colour0,fg=colour12'
 setw -g pane-active-border-style 'bg=colour8,fg=colour3'
 
+setw -g pane-border-format ' #{pane_current_command} '
+setw -g pane-border-status bottom
+
 setw -g window-status-current-style 'bg=colour3,fg=colour8'
 setw -g window-status-last-style 'fg=colour3'
 setw -g window-status-activity-style 'underscore'
