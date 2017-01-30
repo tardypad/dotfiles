@@ -49,10 +49,10 @@ bind 9 select-window -t :=9
 bind c command-prompt -I '#{host_short}' "new-window -n '%%'"
 bind r command-prompt -I '#{window_name}' "rename-window '%%'"
 bind x confirm-before -p "kill-window #{window_name}? (y/n)" kill-window
-bind | run "~/.tmux/scripts/split_window_ssh.sh #{pane_tty} -h"
-bind \ run "~/.tmux/scripts/split_window_ssh.sh #{pane_tty} -h"
-bind - run "~/.tmux/scripts/split_window_ssh.sh #{pane_tty} -v"
-bind _ run "~/.tmux/scripts/split_window_ssh.sh #{pane_tty} -v"
+bind | run "~/.tmux/scripts/split_window_ssh.sh h"
+bind \ run "~/.tmux/scripts/split_window_ssh.sh h"
+bind - run "~/.tmux/scripts/split_window_ssh.sh v"
+bind _ run "~/.tmux/scripts/split_window_ssh.sh v"
 
 # panes management (using uppercase except for direct navigation)
 bind Q display-panes
@@ -63,11 +63,11 @@ bind X confirm-before -p "kill-pane #{pane_index}? (y/n)" kill-pane
 bind { swap-pane -U
 bind } swap-pane -D
 
-bind -T root M-h run "~/.tmux/scripts/select_pane_vim.sh #{pane_tty} h"
-bind -T root M-j run "~/.tmux/scripts/select_pane_vim.sh #{pane_tty} j"
-bind -T root M-k run "~/.tmux/scripts/select_pane_vim.sh #{pane_tty} k"
-bind -T root M-l run "~/.tmux/scripts/select_pane_vim.sh #{pane_tty} l"
-bind -T root M-a run "~/.tmux/scripts/select_pane_vim.sh #{pane_tty} a"
+bind -T root M-h run "~/.tmux/scripts/select_pane_vim.sh h"
+bind -T root M-j run "~/.tmux/scripts/select_pane_vim.sh j"
+bind -T root M-k run "~/.tmux/scripts/select_pane_vim.sh k"
+bind -T root M-l run "~/.tmux/scripts/select_pane_vim.sh l"
+bind -T root M-a run "~/.tmux/scripts/select_pane_vim.sh a"
 
 bind -T root -r M-H resize-pane -L 3
 bind -T root -r M-J resize-pane -D 3
