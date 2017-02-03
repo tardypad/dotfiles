@@ -27,8 +27,8 @@ bind F1 run "~/.tmux/scripts/do_it_live.sh"
 # sessions management (using Ctrl)
 bind C-s choose-tree -S '#(echo #{session_name} | sed "s/^[0-9]*-//")' -W '#{window_name}'
 bind C-a switch-client -l
-bind C-n switch-client -n
-bind C-p switch-client -p
+bind -r C-n switch-client -n
+bind -r C-p switch-client -p
 bind C-c command-prompt -I '#{host_short}' "new-session -s '%%'"
 bind C-r command-prompt -I '#{session_name}' "rename-session '%%'"
 bind C-x confirm-before -p 'kill-session #(echo #{session_name} | sed "s/^[0-9]*-//")? (y/n)' kill-session
@@ -37,8 +37,8 @@ bind C-x confirm-before -p 'kill-session #(echo #{session_name} | sed "s/^[0-9]*
 bind w choose-window -F '#{window_name}'
 bind f command-prompt "find-window -N -F '#{window_name}' '%%'"
 bind a last-window
-bind n next-window
-bind p previous-window
+bind -r n next-window
+bind -r p previous-window
 bind 0 select-window -t :=0
 bind 1 select-window -t :=1
 bind 2 select-window -t :=2
@@ -59,8 +59,8 @@ bind _ run "~/.tmux/scripts/split_window_ssh.sh v"
 
 # panes management (using uppercase except for direct navigation)
 bind Q display-panes
-bind N select-pane -t :.+
-bind P select-pane -t :.-
+bind -r N select-pane -t :.+
+bind -r P select-pane -t :.-
 bind Z resize-pane -Z
 bind X confirm-before -p "kill-pane #{pane_index}? (y/n)" kill-pane
 bind { swap-pane -U
