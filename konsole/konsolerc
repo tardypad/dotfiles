@@ -1,0 +1,12 @@
+[Desktop Entry]
+DefaultProfile=Shell.profile
+
+[Favorite Profiles]
+Favorites=Shell.profile
+
+[KonsoleWindow]
+ShowAppNameOnTitleBar=false
+ShowMenuBarByDefault=false
+
+[TabBar]
+TabBarVisibility=ShowTabBarWhenNeeded
