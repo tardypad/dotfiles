@@ -29,6 +29,16 @@ bind C-s choose-tree -S '#(echo #{session_name} | sed "s/^[0-9]*-//")' -W '#{win
 bind C-a switch-client -l
 bind -r C-n switch-client -n
 bind -r C-p switch-client -p
+bind C-0 switch-client -t 0-
+bind C-1 switch-client -t 1-
+bind C-2 switch-client -t 2-
+bind C-3 switch-client -t 3-
+bind C-4 switch-client -t 4-
+bind C-5 switch-client -t 5-
+bind C-6 switch-client -t 6-
+bind C-7 switch-client -t 7-
+bind C-8 switch-client -t 8-
+bind C-9 switch-client -t 9-
 bind C-c command-prompt -I '#{host_short}' "new-session -s '%%'"
 bind C-r command-prompt -I '#{session_name}' "rename-session '%%'"
 bind C-x confirm-before -p 'kill-session #(echo #{session_name} | sed "s/^[0-9]*-//")? (y/n)' kill-session
