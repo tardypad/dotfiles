@@ -67,9 +67,11 @@ setup() {
   for target in ${TARGETS}; do
     echo "setup ${target}"
 
-    source "${target}/setup.sh"
-    ${ONLY_REMOTE} || run_function_if_exists "local_setup_${target}"
-    ${ONLY_LOCAL} || run_function_if_exists "remote_setup_${target}"
+    if [[ -f "${target}/setup.sh" ]]; then
+      source "${target}/setup.sh"
+      ${ONLY_REMOTE} || run_function_if_exists "local_setup_${target}"
+      ${ONLY_LOCAL} || run_function_if_exists "remote_setup_${target}"
+    fi
 
     if [[ -f "${target}/setup.local.sh" ]]; then
       source "${target}/setup.local.sh"
