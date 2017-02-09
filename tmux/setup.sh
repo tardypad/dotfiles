@@ -7,6 +7,7 @@ local_setup_tmux() {
   local_copy "tmux/tmux/scripts" ".tmux/scripts"
   local_copy "tmux/tmux/plugins.tmux" ".tmux/plugins.tmux"
   local_copy "tmux/tmux/conf" ".tmux/conf"
+  local_copy "tmux/tmux/images" ".tmux/images"
 
   # install the plugins manager if not present
   [[ -d ~/.tmux/plugins/tpm ]] \
