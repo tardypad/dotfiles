@@ -8,7 +8,7 @@ setopt extended_glob
 # local extension/override immediately afterwards
 function load_conf() {
   local local_conf
-  for conf in ~/.zsh/*[^.local].zsh; do
+  for conf in ~/.zsh/conf/*[^.local].zsh; do
     source "${conf}"
 
     local_conf="${conf%.*}.local.zsh"
