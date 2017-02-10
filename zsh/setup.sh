@@ -12,4 +12,10 @@ local_setup_zsh() {
   # install the plugins manager if not present
   [[ -d ~/.zplug ]] \
     || git clone --quiet https://github.com/zplug/zplug ~/.zplug
+
+  # install the configured plugins if some are missing
+  source ~/.zsh/plugins.zsh
+  if ! zplug check; then
+    zplug install > /dev/null 2>&1
+  fi
 }
