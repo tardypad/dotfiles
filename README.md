@@ -14,3 +14,8 @@ Tools:
 Theme:  
 All tools are configured to use the dark
 [Solarized](http://ethanschoonover.com/solarized) color palette
+
+Plugins managers:
+- tmux: [tpm](https://github.com/tmux-plugins/tpm)
+- vim: [vim-plug](https://github.com/junegunn/vim-plug)
+- zsh: [zplug](https://github.com/zplug/zplug)
