@@ -1,5 +1,5 @@
-# load plugins manager
-source ~/.zplug/init.zsh
+# define and load plugins
+source ~/.zsh/plugins.zsh
 
 # enable extended globbing features
 setopt extended_glob

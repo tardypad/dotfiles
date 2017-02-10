@@ -7,6 +7,7 @@ local_setup_zsh() {
   [[ -d ~/.zsh ]] || mkdir ~/.zsh
   local_copy "zsh/zsh/conf" ".zsh/conf"
   local_copy "zsh/zsh/completion" ".zsh/completion"
+  local_copy "zsh/zsh/plugins.zsh" ".zsh/plugins.zsh"
 
   # install the plugins manager if not present
   [[ -d ~/.zplug ]] \
