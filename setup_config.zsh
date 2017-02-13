@@ -63,9 +63,30 @@ run_function_if_exists() {
 }
 
 
+setup_start() {
+  local target="$1"
+
+  if command -v revolver > /dev/null 2>&1; then
+    revolver --style dots start "setup ${target}"
+  else
+    echo "setup ${target}"
+  fi
+}
+
+
+setup_end() {
+  local target="$1"
+
+  if command -v revolver > /dev/null 2>&1; then
+    revolver stop
+    echo "$(tput setaf 2)✔$(tput sgr0) setup ${target}"
+  fi
+}
+
+
 setup() {
   for target in ${TARGETS}; do
-    echo "setup ${target}"
+    setup_start "${target}"
 
     if [[ -f "${target}/setup.sh" ]]; then
       source "${target}/setup.sh"
@@ -78,6 +99,8 @@ setup() {
       ${ONLY_REMOTE} || run_function_if_exists "local_setup_${target}_local"
       ${ONLY_LOCAL} || run_function_if_exists "remote_setup_${target}_local"
     fi
+
+    setup_end "${target}"
   done
 }
 
