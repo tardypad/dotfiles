@@ -1,8 +1,8 @@
 " VIM Configuration
 set nocompatible          " Cancel the compatibility with Vi
 
-" Install the plugin manager and define the plugins
-source ~/.vim/plug.vim
+" Define the plugins
+source ~/.vim/plugins.vim
 
 " Define new leader key
 let mapleader = ","

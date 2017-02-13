@@ -4,8 +4,7 @@ local_setup_vim() {
   # copy config files
   local_copy "vim/vimrc" ".vimrc"
   [[ -d ~/.vim ]] || mkdir ~/.vim
-  local_copy "vim/vim/plug.vim" ".vim/plug.vim"
-  local_copy "vim/vim/plug" ".vim/plug"
+  local_copy "vim/vim/plugins.vim" ".vim/plugins.vim"
   local_copy "vim/vim/conf" ".vim/conf"
 
   # install the plugins manager if not present
@@ -15,7 +14,7 @@ local_setup_vim() {
          --output ~/.vim/autoload/plug.vim
 
   # load only the plugins definition and install them
-  vim -N --noplugin -u ~/.vim/plug.vim \
+  vim -N --noplugin -u ~/.vim/plugins.vim \
     +PlugInstall +qall \
     > /dev/null 2>&1
 }
