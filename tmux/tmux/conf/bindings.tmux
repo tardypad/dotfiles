@@ -76,6 +76,12 @@ bind X confirm-before -p "kill-pane #{pane_index}? (y/n)" kill-pane
 bind { swap-pane -U
 bind } swap-pane -D
 
+bind ! select-layout even-horizontal
+bind @ select-layout main-vertical
+bind '#' select-layout even-vertical
+bind '$' select-layout main-horizontal
+bind % select-layout tiled
+
 bind -T root M-h run "~/.tmux/scripts/select_pane_vim.sh h"
 bind -T root M-j run "~/.tmux/scripts/select_pane_vim.sh j"
 bind -T root M-k run "~/.tmux/scripts/select_pane_vim.sh k"
