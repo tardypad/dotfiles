@@ -18,6 +18,7 @@ key Ins+KeyPad : "\E[2~"
 key Del+AnyModifier : "\E[3;*~"
 key Del-AnyModifier : "\E[3~"
 key Del+KeyPad : "\E[3~"
+key Del+Ctrl : "\r%."
 key Home+Shift-AppScreen : ScrollUpToTop
 key Home+AnyModifier : "\E[1;*H"
 key Home+AppCursorKeys-AnyModifier : "\EOH"
