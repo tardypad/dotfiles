@@ -25,7 +25,7 @@ bind M-s run "~/.tmux/scripts/toggle_monitor_silence.sh"
 bind F1 run "~/.tmux/scripts/do_it_live.sh"
 
 # sessions management (using Ctrl)
-bind C-s choose-tree -S '#(echo #{session_name} | sed "s/^[0-9]*-//")' -W '#{window_name}'
+bind C-s run "~/.tmux/scripts/choose_tree_left.sh sessions"
 bind C-a switch-client -l
 bind -r C-n switch-client -n
 bind -r C-p switch-client -p
@@ -44,7 +44,7 @@ bind C-r command-prompt -I '#{session_name}' "rename-session '%%'"
 bind C-x confirm-before -p 'kill-session #(echo #{session_name} | sed "s/^[0-9]*-//")? (y/n)' kill-session
 
 # windows management (no extra modifier key)
-bind w choose-window -F '#{window_name}'
+bind w run "~/.tmux/scripts/choose_tree_left.sh windows"
 bind f command-prompt "find-window -N -F '#{window_name}' '%%'"
 bind a last-window
 bind -r n next-window
