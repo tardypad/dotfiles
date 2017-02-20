@@ -6,6 +6,7 @@ local_setup_zsh() {
   local_copy "zsh/zshenv" ".zshenv"
   [[ -d ~/.zsh ]] || mkdir ~/.zsh
   local_copy "zsh/zsh/conf" ".zsh/conf"
+  local_copy "zsh/zsh/scripts" ".zsh/scripts"
   local_copy "zsh/zsh/completion" ".zsh/completion"
   local_copy "zsh/zsh/plugins.zsh" ".zsh/plugins.zsh"
 

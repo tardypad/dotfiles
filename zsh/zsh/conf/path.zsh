@@ -3,6 +3,7 @@ declare -a dirs_to_prepend
 
 dirs_to_prepend=(
  "$HOME/.cabal/bin" # Haskell packages
+ "$HOME/.zsh/scripts"
  /usr/local/share/pebble-sdk/bin
 )
 
