@@ -48,3 +48,9 @@
         path = .gitconfig.local
 [init]
         templatedir = ~/.git-template
+
+# colored git help
+[man]
+        viewer = coloredman
+[man "coloredman"]
+            cmd = coloredman.zsh
