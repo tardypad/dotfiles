@@ -1,5 +1,9 @@
-" Toggle window with Ctrl+n
-map <C-n> :NERDTreeToggle<CR>
+" ,nn go to NERDTree window in its current state
+" ,n! go to NERDTree window in its initial state
+" ,nq hide NERDTree window
+nnoremap <silent> <Leader>nn :NERDTreeFocus<CR>
+nnoremap <silent> <Leader>n! :NERDTree<CR>
+nnoremap <silent> <Leader>nq :NERDTreeClose<CR>
 
 " Close vim if it is the only window open
 autocmd bufenter *

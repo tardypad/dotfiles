@@ -39,7 +39,8 @@ Plug 'christoomey/vim-tmux-navigator',
 
 " Tree explorer
 Plug 'scrooloose/nerdtree',
-  \ { 'as': 'nerdtree', 'on': 'NERDTreeToggle' }
+  \ { 'as': 'nerdtree',
+  \   'on': [ 'NERDTree', 'NERDTreeToggle', 'NERDTreeFocus' ] }
 
 " Fuzzy file, buffer, MRU, tag,... finder
 Plug 'ctrlpvim/ctrlp.vim',
