@@ -1,9 +1,11 @@
 #!/usr/bin/zsh
 
 local_setup_vim() {
+  # create necessary directories
+  mkdir -p ~/.vim
+
   # copy config files
   local_copy "vim/vimrc" ".vimrc"
-  [[ -d ~/.vim ]] || mkdir ~/.vim
   local_copy "vim/vim/plugins.vim" ".vim/plugins.vim"
   local_copy "vim/vim/conf" ".vim/conf"
 

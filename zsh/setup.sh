@@ -1,10 +1,12 @@
 #!/usr/bin/zsh
 
 local_setup_zsh() {
+  # create necessary directories
+  mkdir -p ~/.zsh
+
   # copy config files
   local_copy "zsh/zshrc" ".zshrc"
   local_copy "zsh/zshenv" ".zshenv"
-  [[ -d ~/.zsh ]] || mkdir ~/.zsh
   local_copy "zsh/zsh/conf" ".zsh/conf"
   local_copy "zsh/zsh/scripts" ".zsh/scripts"
   local_copy "zsh/zsh/completion" ".zsh/completion"

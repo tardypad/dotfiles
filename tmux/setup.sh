@@ -1,9 +1,11 @@
 #!/usr/bin/zsh
 
 local_setup_tmux() {
+  # create necessary directories
+  mkdir -p ~/.tmux
+
   # copy config files
   local_copy "tmux/tmux.conf" ".tmux.conf"
-  [[ -d ~/.tmux ]] || mkdir ~/.tmux
   local_copy "tmux/tmux/scripts" ".tmux/scripts"
   local_copy "tmux/tmux/plugins.tmux" ".tmux/plugins.tmux"
   local_copy "tmux/tmux/conf" ".tmux/conf"
