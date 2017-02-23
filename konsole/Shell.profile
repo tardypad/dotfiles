@@ -18,6 +18,9 @@ Parent=FALLBACK/
 ShowTerminalSizeHint=false
 StartInCurrentSessionDir=false
 
+[Interaction Options]
+UnderlineLinksEnabled=false
+
 [Keyboard]
 KeyBindings=default
 
