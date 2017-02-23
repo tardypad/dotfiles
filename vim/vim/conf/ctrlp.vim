@@ -1,3 +1,10 @@
+" ,ef open CtrlP in files mode
+" ,eb open CtrlP in buffers mode
+" ,em open CtrlP in MRU mode
+let g:ctrlp_map = '<Leader>ef'
+nnoremap <silent> <Leader>eb :CtrlPBuffer<CR>
+nnoremap <silent> <Leader>em :CtrlPMRU<CR>
+
 " Search within the current working directory
 " it ignores working path mode
 let g:ctrlp_cmd = 'CtrlPCurWD'
@@ -13,6 +20,3 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|build$\|\.kdev4$\|\.kateproject.d$',
   \ 'file': '\.kdev4$\|\.kateproject',
   \ }
-
-" Use ,p to navigate between buffers
-nmap <Leader>p :CtrlPBuffer<CR>
