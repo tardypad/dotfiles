@@ -24,6 +24,9 @@ unset -f load_conf
 
 eval $( dircolors ~/.dircolors )
 
+# enable changing directories without typing cd
+setopt auto_cd
+
 # Disable flow control (Ctrl-q/Ctrl-s)
 setopt no_flow_control
 # setopt doesn't seem to be enough when using vim within tmux...
