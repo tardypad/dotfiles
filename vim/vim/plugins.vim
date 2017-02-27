@@ -50,6 +50,11 @@ Plug 'ctrlpvim/ctrlp.vim',
 Plug 'mileszs/ack.vim',
   \ { 'as': 'ack' }
 
+" Undo history visualizer
+Plug 'mbbill/undotree',
+  \ { 'as': 'undotree',
+  \   'on': [ 'UndotreeShow', 'UndotreeToggle' ] }
+
 " Colorscheme
 Plug 'altercation/vim-colors-solarized',
   \ { 'as': 'solarized' }
