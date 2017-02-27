@@ -100,6 +100,17 @@ filetype indent on
 nmap 2o A<CR><CR>
 nmap 2O I<CR><CR><Esc>kki
 
+" Enable swap / backup / undo files for buffers
+" and store them preferably separately from the edited file location
+" ^= means prepend to the default directories list
+" // means use the full file path as name (prevent name collisions)
+set swapfile
+set backup
+set undofile
+set directory^=~/.vim/swap//
+set backupdir^=~/.vim/backup//
+set undodir^=~/.vim/undo//
+
 " Toggle long lines highlighting
 nnoremap <Leader>L :call<SID>LongLineHighlightToggle()<cr>
 

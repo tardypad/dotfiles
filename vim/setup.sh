@@ -2,7 +2,7 @@
 
 local_setup_vim() {
   # create necessary directories
-  mkdir -p ~/.vim
+  mkdir -p ~/.vim/{backup,swap,undo}
 
   # copy config files
   local_copy "vim/vimrc" ".vimrc"
