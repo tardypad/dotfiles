@@ -21,9 +21,9 @@ Plug 'tpope/vim-fugitive',
 Plug 'godlygeek/tabular',
   \ { 'as': 'tabular' }
 
-" Buffer killer
-Plug 'qpkorr/vim-bufkill',
-  \ { 'as': 'bufkill' }
+" Sane buffer/window deletion
+Plug 'mhinz/vim-sayonara',
+  \ { 'as': 'sayonara', 'on': 'Sayonara' }
 
 " Window maximizer
 Plug 'szw/vim-maximizer',

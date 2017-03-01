@@ -111,6 +111,11 @@ set directory^=~/.vim/swap//
 set backupdir^=~/.vim/backup//
 set undodir^=~/.vim/undo//
 
+" switch to alternate/previous/next buffer
+nnoremap <silent> <Leader>ba :b#<CR>
+nnoremap <silent> <Leader>bp :bprevious<CR>
+nnoremap <silent> <Leader>bn :bnext<CR>
+
 " Toggle long lines highlighting
 nnoremap <Leader>L :call<SID>LongLineHighlightToggle()<cr>
 
