@@ -1,5 +1,35 @@
+fun! s:SanerSayonara()
+  " we don't want to delete the buffer
+  " for some specific ones
+  " but just close the window
+  if &filetype == 'nerdtree'
+    NERDTreeClose
+    return
+  elseif &filetype == 'undotree'
+    UndotreeHide
+    return
+  endif
+
+  let editable_windows_count =
+    \ len(filter(tabpagebuflist(), 'buflisted(v:val)'))
+
+  " we don't want to close the window
+  " if it's the last "editable" ones among several
+  " but just delete the buffer
+  if editable_windows_count == 1
+      \ && winnr('$') > 1
+      \ && buflisted(bufnr('%'))
+    Sayonara!
+    return
+  endif
+
+  " default behavior
+  Sayonara
+endfunction
+
 " delete the current buffer and close the current window
-nnoremap <silent> <Leader>q :Sayonara<CR>
+" with few exceptions
+nnoremap <silent> <Leader>q :call<SID>SanerSayonara()<CR>
 
 " delete the current buffer and preserve the current window
 nnoremap <silent> <leader>Q :Sayonara!<CR>
