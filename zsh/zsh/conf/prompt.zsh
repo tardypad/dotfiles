@@ -33,18 +33,13 @@ function precmd() {
     COMMAND_TIME_START=
   fi
 
-  # calculate actual length of the VCS info message
-  local zero='%([BSUbfksu]|([FBK]|){*})'
-  local vcs_info_length=${#${(S%%)vcs_info_msg_0_//$~zero/}}
-
   # define term width for right alignment
   # right prompt leaves one space afterwards
   local term_width=$(( $COLUMNS - 1 ))
 
   # define the filler for the prompt first line
-  local left_1_length=$(( ${#${(%):-%n@%m }} + $vcs_info_length ))
   local right_1_length=$(( ${#command_duration} + ${#command_time_start} + 2 ))
-  local filler_1_length=$(( $term_width - $left_1_length - $right_1_length ))
+  local filler_1_length=$(( $term_width - $right_1_length ))
   local prompt_1_filler="${(l.$filler_1_length.. .)}"
 
   # define color variables
@@ -61,15 +56,10 @@ function precmd() {
   local duration="${exit_color}${command_duration}${stop}"
   local time_start="${command_time_start}"
 
-  # define prompt first line
-  prompt_1="\n"
-  prompt_1+="${user}@${host} "
-  prompt_1+="${vcs_info_msg_0_}${prompt_1_filler}"
-  prompt_1+="${duration}  ${time_start}"
-
-  # print prompt first line directly here
-  # prevent issue when resizing terminal
-  print -P "${prompt_1}"
+  # print prompt first lines directly here
+  # to prevent issue when resizing terminal
+  print -P "${prompt_1_filler}${duration}  ${time_start}"
+  print -P "${user}@${host} ${vcs_info_msg_0_}"
 }
 
 function set_prompt() {
