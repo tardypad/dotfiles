@@ -5,6 +5,10 @@ function preexec() {
 }
 
 function precmd() {
+  # save last exit code before vcs_info call
+  # otherwise it seems to get set to 0...
+  local exit_code=$?
+
   vcs_info
 
   # define duration and time of last command
@@ -53,7 +57,8 @@ function precmd() {
   # define individual items
   local user="%(!.${red}.${blue})%n${stop}"
   local host="${red}%m${stop}"
-  local duration="%(?.${cyan}.${magenta})${command_duration}${stop}"
+  [[ ${exit_code} -eq 0 ]] && exit_color="${cyan}" || exit_color="${magenta}"
+  local duration="${exit_color}${command_duration}${stop}"
   local time_start="${command_time_start}"
 
   # define prompt first line
