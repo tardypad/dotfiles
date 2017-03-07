@@ -40,27 +40,14 @@ function precmd() {
   local right_1_length=$(( ${#COMMAND_DURATION} + ${#COMMAND_TIME_START} + 2 ))
   local filler_1_length=$(( $term_width - $left_1_length - $right_1_length ))
   PROMPT_1_FILLER="${(l.$filler_1_length.. .)}"
-}
 
-function set_prompt() {
   # define color variables
   local green='%{%F{green}%}'
   local red='%{%F{red}%}'
   local blue='%{%F{blue}%}'
   local cyan='%{%F{cyan}%}'
-  local yellow='%{%F{yellow}%}'
   local magenta='%{%F{magenta}%}'
   local stop='%{%f%}'
-
-  # define individual items
-  local user="%(!.${red}.${blue})%n${stop}"
-  local host="${red}%m${stop}"
-  local duration="%(?.${cyan}.${magenta})"'$COMMAND_DURATION'"${stop}"
-  local time_start='$COMMAND_TIME_START'
-  local vi_mode="${yellow}"' $VI_MODE '"${stop}"
-  local left_2_length=${#${(%):-%n@%m}}
-  local left_2_filler_length=$(( $left_2_length - 6 ))
-  local left_2_filler="${(l.${left_2_filler_length}..~.)}"
 
   # define cwd / git prompt
   zstyle ':vcs_info:*' enable git
@@ -68,13 +55,36 @@ function set_prompt() {
   zstyle ':vcs_info:*' formats "${green}%r${stop} (%b) ${green}%S${stop}"
   zstyle ':vcs_info:*' actionformats "${green}%r${stop} (%a) ${green}%S${stop}"
 
-  # build full prompt
-  PROMPT=$'\n'
-  PROMPT+="${user}@${host} "
-  PROMPT+='${vcs_info_msg_0_}$PROMPT_1_FILLER'
-  PROMPT+="${duration}  ${time_start}"
-  PROMPT+=$'\n'
-  PROMPT+="${left_2_filler}${vi_mode}$ "
+  # define individual items
+  local user="%(!.${red}.${blue})%n${stop}"
+  local host="${red}%m${stop}"
+  local duration="%(?.${cyan}.${magenta})$COMMAND_DURATION${stop}"
+  local time_start="$COMMAND_TIME_START"
+
+  # define prompt first line
+  prompt_1=$'\n'
+  prompt_1+="${user}@${host} "
+  prompt_1+="${vcs_info_msg_0_}$PROMPT_1_FILLER"
+  prompt_1+="${duration}  ${time_start}"
+
+  # print prompt first line directly here
+  # prevent issue when resizing terminal
+  print -P "${prompt_1}"
+}
+
+function set_prompt() {
+  # define color variables
+  local yellow='%{%F{yellow}%}'
+  local stop='%{%f%}'
+
+  # define individual items
+  local vi_mode="${yellow}"' $VI_MODE '"${stop}"
+  local left_2_length=${#${(%):-%n@%m}}
+  local left_2_filler_length=$(( $left_2_length - 6 ))
+  local left_2_filler="${(l.${left_2_filler_length}..~.)}"
+
+  # build prompt
+  PROMPT="${left_2_filler}${vi_mode}$ "
 }
 
 autoload -Uz vcs_info
