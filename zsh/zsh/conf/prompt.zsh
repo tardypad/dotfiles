@@ -7,23 +7,25 @@ function preexec() {
 function precmd() {
   vcs_info
 
-  # define duration time of last command
+  # define duration and time of last command
+  local command_duration=
+  local command_time_start=
   if [ $COMMAND_TIME_START_MS ]; then
-    local command_duration=$(( $( date +"%s%3N" ) - $COMMAND_TIME_START_MS ))
-    local cmd_dur_ms=$(( command_duration % 1000 ))
-    local cmd_dur_sec=$(( command_duration / 1000 % 60 ))
-    local cmd_dur_min=$(( command_duration / 1000 / 60 ))
-    COMMAND_DURATION=
-    if [[ $cmd_dur_min -gt 0 ]]; then
-      COMMAND_DURATION+="${cmd_dur_min}m ${cmd_dur_sec}s "
-    elif [[ $cmd_dur_sec -gt 0 ]]; then
-      COMMAND_DURATION+="${cmd_dur_sec}s "
-    fi
-    COMMAND_DURATION+="${cmd_dur_ms}ms"
+    local cmd_dur=$(( $( date +"%s%3N" ) - $COMMAND_TIME_START_MS ))
+    local cmd_dur_ms=$(( cmd_dur % 1000 ))
+    local cmd_dur_sec=$(( cmd_dur / 1000 % 60 ))
+    local cmd_dur_min=$(( cmd_dur / 1000 / 60 ))
 
-    unset COMMAND_TIME_START_MS
-  else
-    COMMAND_DURATION=
+    if [[ $cmd_dur_min -gt 0 ]]; then
+      command_duration+="${cmd_dur_min}m ${cmd_dur_sec}s "
+    elif [[ $cmd_dur_sec -gt 0 ]]; then
+      command_duration+="${cmd_dur_sec}s "
+    fi
+    command_duration+="${cmd_dur_ms}ms"
+
+    command_time_start="$COMMAND_TIME_START"
+
+    COMMAND_TIME_START_MS=
     COMMAND_TIME_START=
   fi
 
@@ -37,34 +39,27 @@ function precmd() {
 
   # define the filler for the prompt first line
   local left_1_length=$(( ${#${(%):-%n@%m }} + $vcs_info_length ))
-  local right_1_length=$(( ${#COMMAND_DURATION} + ${#COMMAND_TIME_START} + 2 ))
+  local right_1_length=$(( ${#command_duration} + ${#command_time_start} + 2 ))
   local filler_1_length=$(( $term_width - $left_1_length - $right_1_length ))
-  PROMPT_1_FILLER="${(l.$filler_1_length.. .)}"
+  local prompt_1_filler="${(l.$filler_1_length.. .)}"
 
   # define color variables
-  local green='%{%F{green}%}'
   local red='%{%F{red}%}'
   local blue='%{%F{blue}%}'
   local cyan='%{%F{cyan}%}'
   local magenta='%{%F{magenta}%}'
   local stop='%{%f%}'
 
-  # define cwd / git prompt
-  zstyle ':vcs_info:*' enable git
-  zstyle ':vcs_info:*' nvcsformats "${green}%~${stop}"
-  zstyle ':vcs_info:*' formats "${green}%r${stop} (%b) ${green}%S${stop}"
-  zstyle ':vcs_info:*' actionformats "${green}%r${stop} (%a) ${green}%S${stop}"
-
   # define individual items
   local user="%(!.${red}.${blue})%n${stop}"
   local host="${red}%m${stop}"
-  local duration="%(?.${cyan}.${magenta})$COMMAND_DURATION${stop}"
-  local time_start="$COMMAND_TIME_START"
+  local duration="%(?.${cyan}.${magenta})${command_duration}${stop}"
+  local time_start="${command_time_start}"
 
   # define prompt first line
-  prompt_1=$'\n'
+  prompt_1="\n"
   prompt_1+="${user}@${host} "
-  prompt_1+="${vcs_info_msg_0_}$PROMPT_1_FILLER"
+  prompt_1+="${vcs_info_msg_0_}${prompt_1_filler}"
   prompt_1+="${duration}  ${time_start}"
 
   # print prompt first line directly here
@@ -74,8 +69,15 @@ function precmd() {
 
 function set_prompt() {
   # define color variables
+  local green='%{%F{green}%}'
   local yellow='%{%F{yellow}%}'
   local stop='%{%f%}'
+
+  # define cwd / git prompt
+  zstyle ':vcs_info:*' enable git
+  zstyle ':vcs_info:*' nvcsformats "${green}%~${stop}"
+  zstyle ':vcs_info:*' formats "${green}%r${stop} (%b) ${green}%S${stop}"
+  zstyle ':vcs_info:*' actionformats "${green}%r${stop} (%a) ${green}%S${stop}"
 
   # define individual items
   local vi_mode="${yellow}"' $VI_MODE '"${stop}"
