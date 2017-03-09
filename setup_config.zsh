@@ -90,14 +90,14 @@ setup() {
 
     if [[ -f "${target}/setup.sh" ]]; then
       source "${target}/setup.sh"
-      ${ONLY_REMOTE} || run_function_if_exists "local_setup_${target}"
-      ${ONLY_LOCAL} || run_function_if_exists "remote_setup_${target}"
+      ${ONLY_REMOTE} || run_function_if_exists "${target}::local::setup"
+      ${ONLY_LOCAL} || run_function_if_exists "${target}::remote::setup"
     fi
 
     if [[ -f "${target}/setup.local.sh" ]]; then
       source "${target}/setup.local.sh"
-      ${ONLY_REMOTE} || run_function_if_exists "local_setup_${target}_local"
-      ${ONLY_LOCAL} || run_function_if_exists "remote_setup_${target}_local"
+      ${ONLY_REMOTE} || run_function_if_exists "${target}::local::setup_local"
+      ${ONLY_LOCAL} || run_function_if_exists "${target}::remote::setup_local"
     fi
 
     setup_end "${target}"

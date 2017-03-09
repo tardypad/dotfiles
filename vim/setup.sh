@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 
-local_setup_vim() {
+vim::local::setup() {
   # create necessary directories
   mkdir -p ~/.vim/{backup,swap,undo}
 

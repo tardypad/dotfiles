@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 
-local_setup_tmux() {
+tmux::local::setup() {
   # create necessary directories
   mkdir -p ~/.tmux
 
@@ -22,7 +22,7 @@ local_setup_tmux() {
 }
 
 
-remote_setup_tmux_generic() {
+tmux::remote::setup_generic() {
   local host="$1"
 
   # create necessary directories

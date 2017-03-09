@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 
-local_setup_zsh() {
+zsh::local::setup() {
   # create necessary directories
   mkdir -p ~/.zsh
 

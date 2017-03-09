@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 
-local_setup_openssh() {
+openssh::local::setup() {
   # create necessary directories
   mkdir -p ~/.ssh
 
