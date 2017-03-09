@@ -88,16 +88,17 @@ setup() {
   for target in ${TARGETS}; do
     setup_start "${target}"
 
-    if [[ -f "${target}/setup.sh" ]]; then
-      source "${target}/setup.sh"
-      ${ONLY_REMOTE} || run_function_if_exists "${target}::local::setup"
-      ${ONLY_LOCAL} || run_function_if_exists "${target}::remote::setup"
+    [[ -f "${target}/setup.sh" ]] && source "${target}/setup.sh"
+    [[ -f "${target}/setup.local.sh" ]] && source "${target}/setup.local.sh"
+
+    if ! ${ONLY_REMOTE}; then
+      run_function_if_exists "${target}::local::setup"
+      run_function_if_exists "${target}::local::setup_local"
     fi
 
-    if [[ -f "${target}/setup.local.sh" ]]; then
-      source "${target}/setup.local.sh"
-      ${ONLY_REMOTE} || run_function_if_exists "${target}::local::setup_local"
-      ${ONLY_LOCAL} || run_function_if_exists "${target}::remote::setup_local"
+    if ! ${ONLY_LOCAL}; then
+      run_function_if_exists "${target}::remote::setup"
+      run_function_if_exists "${target}::remote::setup_local"
     fi
 
     setup_end "${target}"
