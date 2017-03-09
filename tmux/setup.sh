@@ -22,7 +22,7 @@ tmux::local::setup() {
 }
 
 
-tmux::remote::setup_generic() {
+tmux::remote::setup() {
   local host="$1"
 
   # create necessary directories

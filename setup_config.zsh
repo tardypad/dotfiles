@@ -59,7 +59,7 @@ remote_copy() {
 
 
 run_function_if_exists() {
-  command -v "$1" > /dev/null 2>&1 && "$1"
+  command -v "$1" > /dev/null 2>&1 && "$1" "${@:2}"
 }
 
 
@@ -96,9 +96,11 @@ setup() {
       run_function_if_exists "${target}::local::setup_local"
     fi
 
-    if ! ${ONLY_LOCAL}; then
-      run_function_if_exists "${target}::remote::setup"
-      run_function_if_exists "${target}::remote::setup_local"
+    if ! ${ONLY_LOCAL} && [[ -f ./remote_hosts ]]; then
+      while read host; do
+        run_function_if_exists "${target}::remote::setup" "${host}"
+        run_function_if_exists "${target}::remote::setup_local" "${host}"
+      done < ./remote_hosts
     fi
 
     setup_end "${target}"
