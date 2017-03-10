@@ -10,17 +10,19 @@ init_variables() {
   TARGETS=( ${AVAILABLE_TARGETS} )
   ONLY_LOCAL=false
   ONLY_REMOTE=false
+  ONLY_REMOTE_HOST=
 }
 
 
 usage() {
   cat << EOF
-usage: ${COMMAND} [<options>] [<targets>]
+usage: ${COMMAND} [<options>] -- [<targets>]
 
 Options:
-    -h,  --help         show this message only
-    -ol, --only-local   only setup local host configs
-    -or, --only-remote  only setup remote hosts configs
+    -h,  --help                 show this message only
+    -ol, --only-local           only setup local host configs
+    -or, --only-remote [HOST]   only setup remote hosts configs
+                                (only setup HOST if set)
 
 Available targets: ${AVAILABLE_TARGETS}
 If no target argument is passed, all of them are setup
@@ -114,12 +116,22 @@ setup() {
       run_function_if_exists "${target}::local::setup_local"
     fi
 
-    if ! ${ONLY_LOCAL} && [[ -f ./remote_hosts ]]; then
-      while read host; do
-        setup_update "${target}" "${host}"
-        run_function_if_exists "${target}::remote::setup" "${host}"
-        run_function_if_exists "${target}::remote::setup_local" "${host}"
-      done < ./remote_hosts
+    if ! ${ONLY_LOCAL}; then
+
+      local hosts=
+      if [[ -n "${ONLY_REMOTE_HOST}" ]]; then
+        hosts="${ONLY_REMOTE_HOST}"
+      elif [[ -f ./remote_hosts ]]; then
+        hosts=$(cat ./remote_hosts)
+      fi
+
+      if [[ -n "${hosts}" ]]; then
+        while read host; do
+          setup_update "${target}" "${host}"
+          run_function_if_exists "${target}::remote::setup" "${host}"
+          run_function_if_exists "${target}::remote::setup_local" "${host}"
+        done < <(echo "${hosts}")
+      fi
     fi
 
     setup_end "${target}"
@@ -140,6 +152,14 @@ parse_options() {
         ;;
       -or|--only-remote)
         ONLY_REMOTE=true
+        shift
+        if [[ "$#" -gt 0 && ! "$1" =~ '-.*' ]]; then
+          # next argument doesn't start with -, it should be the HOST
+          ONLY_REMOTE_HOST="$1"
+          shift
+        fi
+        ;;
+      --)
         shift
         ;;
       *)
