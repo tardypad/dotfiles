@@ -47,6 +47,14 @@ local_copy() {
 }
 
 
+remote_exec() {
+  local host="$1"
+  local cmd="$2"
+
+  ssh -n "${host}" "${cmd}"
+}
+
+
 remote_copy() {
   local host="$1"
   local repo_source_path="$2"
