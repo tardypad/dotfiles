@@ -26,7 +26,7 @@ tmux::remote::setup() {
   local host="$1"
 
   # create necessary directories
-  ssh "${host}" '[[ -d ~/.tmux ]] || mkdir ~/.tmux'
+  ssh -n "${host}" '[[ -d ~/.tmux ]] || mkdir ~/.tmux'
 
   # copy config files
   remote_copy "${host}" "tmux/tmux.conf" ".tmux.conf"
@@ -36,11 +36,11 @@ tmux::remote::setup() {
   remote_copy "${host}" "tmux/tmux/images" ".tmux/images"
 
   # install the plugins manager if not present
-  ssh "${host}" '[[ -d ~/.tmux/plugins/tpm ]] \
+  ssh -n "${host}" '[[ -d ~/.tmux/plugins/tpm ]] \
     || git clone --quiet https://github.com/tmux-plugins/tpm \
        ~/.tmux/plugins/tpm'
 
   # install the configured plugins
-  ssh "${host}" '~/.tmux/plugins/tpm/bin/install_plugins \
+  ssh -n "${host}" '~/.tmux/plugins/tpm/bin/install_plugins \
     > /dev/null 2>&1'
 }

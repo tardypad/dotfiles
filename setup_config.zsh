@@ -52,7 +52,7 @@ remote_copy() {
   local repo_source_path="$2"
   local home_target_path="$3"
 
-  ssh "${host}" rm -rf "${HOME}/${home_target_path}"
+  ssh -n "${host}" rm -rf "${HOME}/${home_target_path}"
   scp -qr "${repo_source_path}" "${host}:${HOME}/${home_target_path}" \
     2> /dev/null
 }
