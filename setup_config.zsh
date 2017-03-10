@@ -82,12 +82,21 @@ setup_start() {
 }
 
 
+setup_update() {
+  local target="$1"
+  local host="$2"
+
+  if command -v revolver > /dev/null 2>&1; then
+    revolver update "setup ${target} [${host}]"
+  fi
+}
+
 setup_end() {
   local target="$1"
 
   if command -v revolver > /dev/null 2>&1; then
     revolver stop
-    echo "$(tput setaf 2)✔$(tput sgr0) setup ${target}"
+    echo "$(tput setaf 2)✔$(tput sgr0) setup ${target}$(tput el)"
   fi
 }
 
@@ -100,12 +109,14 @@ setup() {
     [[ -f "${target}/setup.local.sh" ]] && source "${target}/setup.local.sh"
 
     if ! ${ONLY_REMOTE}; then
+      setup_update "${target}" local
       run_function_if_exists "${target}::local::setup"
       run_function_if_exists "${target}::local::setup_local"
     fi
 
     if ! ${ONLY_LOCAL} && [[ -f ./remote_hosts ]]; then
       while read host; do
+        setup_update "${target}" "${host}"
         run_function_if_exists "${target}::remote::setup" "${host}"
         run_function_if_exists "${target}::remote::setup_local" "${host}"
       done < ./remote_hosts
