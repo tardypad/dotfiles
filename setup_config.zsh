@@ -8,9 +8,14 @@ init_variables() {
       | sort
   ) )
   TARGETS=( ${AVAILABLE_TARGETS} )
+
+  AVAILABLE_REMOTE_HOSTS=( $(
+    [[ -f ./remote_hosts ]] && cat ./remote_hosts
+  ) )
+  REMOTE_HOSTS=( ${AVAILABLE_REMOTE_HOSTS} )
+
   ONLY_LOCAL=false
   ONLY_REMOTE=false
-  ONLY_REMOTE_HOST=
 }
 
 
@@ -117,21 +122,11 @@ setup() {
     fi
 
     if ! ${ONLY_LOCAL}; then
-
-      local hosts=
-      if [[ -n "${ONLY_REMOTE_HOST}" ]]; then
-        hosts="${ONLY_REMOTE_HOST}"
-      elif [[ -f ./remote_hosts ]]; then
-        hosts=$(cat ./remote_hosts)
-      fi
-
-      if [[ -n "${hosts}" ]]; then
-        while read host; do
-          setup_update "${target}" "${host}"
-          run_function_if_exists "${target}::remote::setup" "${host}"
-          run_function_if_exists "${target}::remote::setup_local" "${host}"
-        done < <(echo "${hosts}")
-      fi
+      for host in ${REMOTE_HOSTS}; do
+        setup_update "${target}" "${host}"
+        run_function_if_exists "${target}::remote::setup" "${host}"
+        run_function_if_exists "${target}::remote::setup_local" "${host}"
+      done
     fi
 
     setup_end "${target}"
@@ -155,7 +150,7 @@ parse_options() {
         shift
         if [[ "$#" -gt 0 && ! "$1" =~ '-.*' ]]; then
           # next argument doesn't start with -, it should be the HOST
-          ONLY_REMOTE_HOST="$1"
+          REMOTE_HOSTS=( "$1" )
           shift
         fi
         ;;
