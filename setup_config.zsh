@@ -180,6 +180,13 @@ validate_options() {
       error "invalid target ${target}"
     fi
   done
+
+  # validate each remote host value
+  for host in ${REMOTE_HOSTS}; do
+    if ! (( ${AVAILABLE_REMOTE_HOSTS[(Ie)${host}]} )); then
+      error "invalid remote host ${host}"
+    fi
+  done
 }
 
 
