@@ -14,24 +14,26 @@ init_variables() {
   ) )
   REMOTE_HOSTS=( ${AVAILABLE_REMOTE_HOSTS} )
 
-  ONLY_LOCAL=false
-  ONLY_REMOTE=false
+  DEST=
 }
 
 
 usage() {
   cat << EOF
-usage: ${COMMAND} [<options>] -- [<targets>]
+usage: ${COMMAND} [<options>] [<targets>]
 
 Options:
-    -h,  --help                 show this message only
-    -ol, --only-local           only setup local host configs
-    -or, --only-remote [HOST]   only setup remote hosts configs
-                                (only setup HOST if set)
+  -h,  --help            show this message only
+  -d,  --dest   DEST     only setup destinations DEST (see values below)
+                         by default local and all remote hosts are setup
+
+Destinations:
+  local   setup local host
+  remote  setup all remote hosts
+  HOST    setup remote host HOST
 
 Available targets: ${AVAILABLE_TARGETS}
 If no target argument is passed, all of them are setup
-By default both local and remote hosts are setup
 EOF
 }
 
@@ -115,13 +117,13 @@ setup() {
     [[ -f "${target}/setup.sh" ]] && source "${target}/setup.sh"
     [[ -f "${target}/setup.local.sh" ]] && source "${target}/setup.local.sh"
 
-    if ! ${ONLY_REMOTE}; then
+    if [[ -z "${DEST}" ]] || [[ "${DEST}" == 'local' ]]; then
       setup_update "${target}" local
       run_function_if_exists "${target}::local::setup"
       run_function_if_exists "${target}::local::setup_local"
     fi
 
-    if ! ${ONLY_LOCAL}; then
+    if [[ -z "${DEST}" ]] || [[ "${DEST}" != 'local' ]]; then
       for host in ${REMOTE_HOSTS}; do
         setup_update "${target}" "${host}"
         run_function_if_exists "${target}::remote::setup" "${host}"
@@ -137,25 +139,14 @@ setup() {
 parse_options() {
   while [[ "$#" -gt 0 ]]; do
     case "$1" in
+      -d|--dest)
+        [[ -n "$2" ]] || error 'missing dest value'
+        DEST="$2"
+        shift 2
+        ;;
       -h|--help)
         usage
         exit 0
-        ;;
-      -ol|--only-local)
-        ONLY_LOCAL=true
-        shift
-        ;;
-      -or|--only-remote)
-        ONLY_REMOTE=true
-        shift
-        if [[ "$#" -gt 0 && ! "$1" =~ '-.*' ]]; then
-          # next argument doesn't start with -, it should be the HOST
-          REMOTE_HOSTS=( "$1" )
-          shift
-        fi
-        ;;
-      --)
-        shift
         ;;
       *)
         break 2
@@ -169,9 +160,9 @@ parse_options() {
 
 
 validate_options() {
-  # ONLY_LOCAL and ONLY_REMOTE shouldn't both be set
-  if ${ONLY_LOCAL} && ${ONLY_REMOTE}; then
-    error "--only-local and --only-remote flags shouldn't both be set"
+  # define REMOTE_HOSTS if DEST is a single host
+  if [[ "${DEST}" != 'local' ]] && [[ "${DEST}" != 'remote' ]]; then
+    REMOTE_HOSTS=( "${DEST}" )
   fi
 
   # validate each target value

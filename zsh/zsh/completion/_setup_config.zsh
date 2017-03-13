@@ -13,8 +13,7 @@ targets=$(
 
 options='
   -h --help
-  -ol --only-local
-  -or --only-remote
+  -d --dest
 '
 
 _alternative \
