@@ -22,15 +22,15 @@ usage() {
   cat << EOF
 usage: ${COMMAND} [<options>] [<targets>]
 
+Setup targets' config locally and/or on remote hosts
+
 Options:
   -h,  --help            show this message only
-  -d,  --dest   DEST     only setup destinations DEST (see values below)
+  -d,  --dest   DEST     only setup destinations DEST:
+                           local   only setup local host
+                           remote  only setup all remote hosts
+                           HOST    only setup remote host HOST
                          by default local and all remote hosts are setup
-
-Destinations:
-  local   setup local host
-  remote  setup all remote hosts
-  HOST    setup remote host HOST
 
 Available targets: ${AVAILABLE_TARGETS}
 If no target argument is passed, all of them are setup

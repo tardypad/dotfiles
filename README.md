@@ -19,3 +19,21 @@ Plugins managers:
 - tmux: [tpm](https://github.com/tmux-plugins/tpm)
 - vim: [vim-plug](https://github.com/junegunn/vim-plug)
 - zsh: [zplug](https://github.com/zplug/zplug)
+
+Setup:
+```shell
+usage: setup_config.zsh [<options>] [<targets>]
+
+Setup targets' config locally and/or on remote hosts
+
+Options:
+  -h,  --help            show this message only
+  -d,  --dest   DEST     only setup destinations DEST:
+                           local   only setup local host
+                           remote  only setup all remote hosts
+                           HOST    only setup remote host HOST
+                         by default local and all remote hosts are setup
+
+Available targets: git konsole openssh tmux vim zsh
+If no target argument is passed, all of them are setup
+```
