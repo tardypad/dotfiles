@@ -1,10 +1,10 @@
 #compdef setup_config.zsh
 
-local targets
+local tools
 local options
 
-# find all targets
-targets=$(
+# find all tools
+tools=$(
   find . \
     -maxdepth 1 -type d \
     ! -name '.*' \
@@ -18,4 +18,4 @@ options='
 
 _alternative \
   "1:Options:($options)" \
-  "2:Targets:($targets)"
+  "2:Tools:($tools)"

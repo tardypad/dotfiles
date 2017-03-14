@@ -3,11 +3,11 @@
 COMMAND=${0:t}
 
 init_variables() {
-  AVAILABLE_TARGETS=( $(
+  AVAILABLE_TOOLS=( $(
     find . -maxdepth 1 -type d ! -name '.*' -printf '%f\n' \
       | sort
   ) )
-  TARGETS=( ${AVAILABLE_TARGETS} )
+  TOOLS=( ${AVAILABLE_TOOLS} )
 
   AVAILABLE_REMOTE_HOSTS=( $(
     [[ -f ./remote_hosts ]] && cat ./remote_hosts
@@ -20,9 +20,9 @@ init_variables() {
 
 usage() {
   cat << EOF
-usage: ${COMMAND} [<options>] [<targets>]
+usage: ${COMMAND} [<options>] [<tools>]
 
-Setup targets' config locally and/or on remote hosts
+Setup tools' config locally and/or on remote hosts
 
 Options:
   -h,  --help            show this message only
@@ -32,8 +32,8 @@ Options:
                            HOST    only setup remote host HOST
                          by default local and all remote hosts are setup
 
-Available targets: ${AVAILABLE_TARGETS}
-If no target argument is passed, all of them are setup
+Available tools: ${AVAILABLE_TOOLS}
+If no tool argument is passed, all of them are setup
 EOF
 }
 
@@ -81,57 +81,57 @@ run_function_if_exists() {
 
 
 setup_start() {
-  local target="$1"
+  local tool="$1"
 
   if command -v revolver > /dev/null 2>&1; then
-    revolver --style dots start "setup ${target}"
+    revolver --style dots start "setup ${tool}"
   else
-    echo "setup ${target}"
+    echo "setup ${tool}"
   fi
 }
 
 
 setup_update() {
-  local target="$1"
+  local tool="$1"
   local host="$2"
 
   if command -v revolver > /dev/null 2>&1; then
-    revolver update "setup ${target} [${host}]"
+    revolver update "setup ${tool} [${host}]"
   fi
 }
 
 setup_end() {
-  local target="$1"
+  local tool="$1"
 
   if command -v revolver > /dev/null 2>&1; then
     revolver stop
-    echo "$(tput setaf 2)✔$(tput sgr0) setup ${target}$(tput el)"
+    echo "$(tput setaf 2)✔$(tput sgr0) setup ${tool}$(tput el)"
   fi
 }
 
 
 setup() {
-  for target in ${TARGETS}; do
-    setup_start "${target}"
+  for tool in ${TOOLS}; do
+    setup_start "${tool}"
 
-    [[ -f "${target}/setup.sh" ]] && source "${target}/setup.sh"
-    [[ -f "${target}/setup.local.sh" ]] && source "${target}/setup.local.sh"
+    [[ -f "${tool}/setup.sh" ]] && source "${tool}/setup.sh"
+    [[ -f "${tool}/setup.local.sh" ]] && source "${tool}/setup.local.sh"
 
     if [[ -z "${DEST}" ]] || [[ "${DEST}" == 'local' ]]; then
-      setup_update "${target}" local
-      run_function_if_exists "${target}::local::setup"
-      run_function_if_exists "${target}::local::setup_local"
+      setup_update "${tool}" local
+      run_function_if_exists "${tool}::local::setup"
+      run_function_if_exists "${tool}::local::setup_local"
     fi
 
     if [[ -z "${DEST}" ]] || [[ "${DEST}" != 'local' ]]; then
       for host in ${REMOTE_HOSTS}; do
-        setup_update "${target}" "${host}"
-        run_function_if_exists "${target}::remote::setup" "${host}"
-        run_function_if_exists "${target}::remote::setup_local" "${host}"
+        setup_update "${tool}" "${host}"
+        run_function_if_exists "${tool}::remote::setup" "${host}"
+        run_function_if_exists "${tool}::remote::setup_local" "${host}"
       done
     fi
 
-    setup_end "${target}"
+    setup_end "${tool}"
   done
 }
 
@@ -154,8 +154,8 @@ parse_options() {
     esac
   done
 
-  # Everything after the last recognized option is assumed to be a target
-  [[ $# -eq 0 ]] || TARGETS=( "$@" )
+  # Everything after the last recognized option is assumed to be a tool
+  [[ $# -eq 0 ]] || TOOLS=( "$@" )
 }
 
 
@@ -165,10 +165,10 @@ validate_options() {
     REMOTE_HOSTS=( "${DEST}" )
   fi
 
-  # validate each target value
-  for target in ${TARGETS}; do
-    if ! (( ${AVAILABLE_TARGETS[(Ie)${target}]} )); then
-      error "invalid target ${target}"
+  # validate each tool value
+  for tool in ${TOOLS}; do
+    if ! (( ${AVAILABLE_TOOLS[(Ie)${tool}]} )); then
+      error "invalid tool ${tool}"
     fi
   done
 

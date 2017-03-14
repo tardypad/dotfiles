@@ -22,9 +22,9 @@ Plugins managers:
 
 Setup:
 ```shell
-usage: setup_config.zsh [<options>] [<targets>]
+usage: setup_config.zsh [<options>] [<tools>]
 
-Setup targets' config locally and/or on remote hosts
+Setup tools' config locally and/or on remote hosts
 
 Options:
   -h,  --help            show this message only
@@ -34,6 +34,6 @@ Options:
                            HOST    only setup remote host HOST
                          by default local and all remote hosts are setup
 
-Available targets: git konsole openssh tmux vim zsh
-If no target argument is passed, all of them are setup
+Available tools: git konsole openssh tmux vim zsh
+If no tool argument is passed, all of them are setup
 ```
