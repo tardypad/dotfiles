@@ -1,4 +1,4 @@
-#compdef setup_config.zsh
+#compdef setup_config
 
 local tools
 local options
