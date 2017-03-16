@@ -8,7 +8,7 @@ alias ls='ls --color=auto'
 alias lh='ls -lh'
 alias grep='grep --color=auto'
 
-alias man=coloredman.zsh
+alias man=colored_man
 
 alias pj='goto_project_repo'
 alias PJ='goto_project_main'

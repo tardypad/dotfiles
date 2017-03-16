@@ -53,4 +53,4 @@
 [man]
         viewer = coloredman
 [man "coloredman"]
-            cmd = coloredman.zsh
+            cmd = colored_man
