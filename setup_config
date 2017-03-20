@@ -161,7 +161,9 @@ parse_options() {
 
 validate_options() {
   # define REMOTE_HOSTS if DEST is a single host
-  if [[ "${DEST}" != 'local' ]] && [[ "${DEST}" != 'remote' ]]; then
+  if [[ -n "${DEST}" ]] \
+      && [[ "${DEST}" != 'local' ]] \
+      && [[ "${DEST}" != 'remote' ]]; then
     REMOTE_HOSTS=( "${DEST}" )
   fi
 
