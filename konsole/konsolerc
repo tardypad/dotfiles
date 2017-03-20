@@ -9,4 +9,6 @@ ShowAppNameOnTitleBar=false
 ShowMenuBarByDefault=false
 
 [TabBar]
+TabBarUseUserStyleSheet=true
+TabBarUserStyleSheetFile=file:///home/damien/.kde/share/apps/konsole/tabbar-stylesheet.css
 TabBarVisibility=ShowTabBarWhenNeeded

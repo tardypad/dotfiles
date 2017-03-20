@@ -1,0 +1,19 @@
+QTabBar {
+    background-color: #002b36;
+    alignment: center;
+    icon-size: 0px;
+}
+QTabBar::tab {
+    font-size: 14px;
+    height: 20px;
+    border: 0px;
+    padding: 0px;
+    color: #839496;
+}
+QTabBar::tab:selected {
+    background-color: #859900;
+    color: #002b36;
+}
+QTabBar::tab:hover:!selected {
+    color: #859900;
+}
