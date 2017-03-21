@@ -6,6 +6,7 @@ QTabBar {
 }
 QTabBar::tab {
     font-size: 14px;
+    font-family: "Source Code Pro";
     height: 22px;
     border: 0px;
     padding: 0px;
