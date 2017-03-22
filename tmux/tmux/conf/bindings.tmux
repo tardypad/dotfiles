@@ -66,6 +66,8 @@ bind | run "~/.tmux/scripts/split_window_ssh.sh h"
 bind \ run "~/.tmux/scripts/split_window_ssh.sh h"
 bind - run "~/.tmux/scripts/split_window_ssh.sh v"
 bind _ run "~/.tmux/scripts/split_window_ssh.sh v"
+bind [ swap-window -t -
+bind ] swap-window -t +
 
 # panes management (using uppercase except for direct navigation)
 bind Q display-panes
@@ -95,8 +97,8 @@ bind -T root M-L resize-pane -R 3
 
 
 # copy mode management
-bind [ copy-mode
-bind ] paste-buffer
+bind ( copy-mode
+bind ) paste-buffer
 bind -t vi-copy v begin-selection
 bind -t vi-copy y copy-selection
 
