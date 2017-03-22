@@ -15,6 +15,9 @@ set -g default-terminal "screen-256color"
 set -g base-index 1
 setw -g pane-base-index 1
 
+# automatically renumber windows when one gets closed
+set -g renumber-windows on
+
 # define time panes indicator are shown when using display-panes
 set -g display-panes-time 1500
 
