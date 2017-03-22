@@ -66,8 +66,8 @@ bind | run "~/.tmux/scripts/split_window_ssh.sh h"
 bind \ run "~/.tmux/scripts/split_window_ssh.sh h"
 bind - run "~/.tmux/scripts/split_window_ssh.sh v"
 bind _ run "~/.tmux/scripts/split_window_ssh.sh v"
-bind [ swap-window -t -
-bind ] swap-window -t +
+bind -r [ swap-window -t -
+bind -r ] swap-window -t +
 
 # panes management (using uppercase except for direct navigation)
 bind Q display-panes
@@ -75,8 +75,8 @@ bind -r N select-pane -t :.+
 bind -r P select-pane -t :.-
 bind Z resize-pane -Z
 bind X confirm-before -p "kill-pane #{pane_index}? (y/n)" kill-pane
-bind { swap-pane -U
-bind } swap-pane -D
+bind -r { swap-pane -U
+bind -r } swap-pane -D
 
 bind ! select-layout even-horizontal
 bind @ select-layout main-vertical
