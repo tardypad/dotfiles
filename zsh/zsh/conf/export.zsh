@@ -1,7 +1,3 @@
-# ensure we have the correct locale set
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
 # Make vim the default editor everywhere
 export EDITOR=vim
 

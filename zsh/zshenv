@@ -1,2 +1,6 @@
+# ensure we have the correct locale set
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 # Skip Ubuntu main compinit
 skip_global_compinit=1
