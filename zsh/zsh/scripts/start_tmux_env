@@ -1,0 +1,87 @@
+#!/usr/bin/zsh
+
+COMMAND=${0:t}
+COMMAND_DIR_PATH=${0:A:h}
+
+init_variables() {
+  typeset -Ag TARGET_HOST_MAP
+  TARGET_HOST_MAP=( $(
+    ls "${COMMAND_DIR_PATH}/tmux_env" \
+      | sed -r 's/(.*)_(.*).sh/\1 \2/'
+  ) )
+
+  TARGET=
+}
+
+
+usage() {
+  cat << EOF
+usage: ${COMMAND} [<options>] <target>
+
+Start target tmux environment
+
+Options:
+  -h,  --help     show this message only
+
+Available targets: ${(k)TARGET_HOST_MAP}
+EOF
+}
+
+
+error() {
+  if [[ -n "$1" ]]; then
+    echo "error: $1" >&2
+  fi
+  usage
+  exit 1
+}
+
+
+start_target_tmux_env() {
+  local host="${TARGET_HOST_MAP[${TARGET}]}"
+  local script_path="${COMMAND_DIR_PATH}/tmux_env/${TARGET}_${host}.sh"
+
+  fortune -acws -n 300
+
+  if [[ "${host}" == 'local' ]]; then
+    sh "${script_path}"
+    tmux attach-session
+  else
+    ssh "${host}" 'sh -s' < "${script_path}"
+    ssh -t "${host}" tmux attach-session
+  fi
+}
+
+
+parse_options() {
+  while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      *)
+        break 2
+        ;;
+    esac
+  done
+
+  [[ $# -eq 0 ]] && error 'missing target'
+
+  TARGET="$1"
+}
+
+
+validate_options() {
+  # validate target
+  if [[ -z ${TARGET_HOST_MAP[${TARGET}]} ]]; then
+    error "invalid target ${TARGET}"
+  fi
+}
+
+
+init_variables
+parse_options "$@"
+validate_options
+
+start_target_tmux_env
