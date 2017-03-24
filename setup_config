@@ -9,10 +9,11 @@ init_variables() {
   ) )
   TOOLS=( ${AVAILABLE_TOOLS} )
 
+  typeset -Ag AVAILABLE_REMOTE_HOSTS
   AVAILABLE_REMOTE_HOSTS=( $(
     [[ -f ./remote_hosts ]] && cat ./remote_hosts
   ) )
-  REMOTE_HOSTS=( ${AVAILABLE_REMOTE_HOSTS} )
+  REMOTE_HOSTS_ID=( ${(k)AVAILABLE_REMOTE_HOSTS} )
 
   DEST=
 }
@@ -27,13 +28,16 @@ Setup tools' config locally and/or on remote hosts
 Options:
   -h,  --help            show this message only
   -d,  --dest   DEST     only setup destinations DEST:
-                           local   only setup local host
-                           remote  only setup all remote hosts
-                           HOST    only setup remote host HOST
+                           local    only setup local host
+                           remote   only setup all remote hosts
+                           HOST_ID  only setup remote host HOST
                          by default local and all remote hosts are setup
 
 Available tools: ${AVAILABLE_TOOLS}
 If no tool argument is passed, all of them are setup
+
+Remote hosts are defined in the ./remote_hosts file
+with the format HOST_ID HOST per line
 EOF
 }
 
@@ -124,8 +128,9 @@ setup() {
     fi
 
     if [[ -z "${DEST}" ]] || [[ "${DEST}" != 'local' ]]; then
-      for host in ${REMOTE_HOSTS}; do
-        setup_update "${tool}" "${host}"
+      for host_id in ${REMOTE_HOSTS_ID}; do
+        setup_update "${tool}" "${host_id}"
+        local host="${AVAILABLE_REMOTE_HOSTS[${host_id}]}"
         run_function_if_exists "${tool}::remote::setup" "${host}"
         run_function_if_exists "${tool}::remote::setup_local" "${host}"
       done
@@ -164,7 +169,7 @@ validate_options() {
   if [[ -n "${DEST}" ]] \
       && [[ "${DEST}" != 'local' ]] \
       && [[ "${DEST}" != 'remote' ]]; then
-    REMOTE_HOSTS=( "${DEST}" )
+    REMOTE_HOSTS_ID=( "${DEST}" )
   fi
 
   # validate each tool value
@@ -175,9 +180,9 @@ validate_options() {
   done
 
   # validate each remote host value
-  for host in ${REMOTE_HOSTS}; do
-    if ! (( ${AVAILABLE_REMOTE_HOSTS[(Ie)${host}]} )); then
-      error "invalid remote host ${host}"
+  for host_id in ${REMOTE_HOSTS_ID}; do
+    if [[ -z ${AVAILABLE_REMOTE_HOSTS[${host_id}]} ]]; then
+      error "invalid remote host id ${host_id}"
     fi
   done
 }
