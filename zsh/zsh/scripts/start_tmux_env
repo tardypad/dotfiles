@@ -47,7 +47,7 @@ start_target_tmux_env() {
 
   if [[ "${host}" == 'localhost' ]]; then
     for script_path in ${scripts_path}; do
-      sh "${script_path}"
+      bash "${script_path}"
     done
 
     tmux attach-session
@@ -55,7 +55,7 @@ start_target_tmux_env() {
   else
 
     for script_path in ${scripts_path}; do
-      ssh "${host}" 'sh -s' < "${script_path}"
+      ssh "${host}" 'bash -s' < "${script_path}"
     done
 
     ssh -t "${host}" tmux attach-session
