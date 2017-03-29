@@ -1,15 +1,12 @@
-fun! s:SanerSayonara()
-  " we don't want to delete the buffer
-  " for some specific ones
-  " but just close the window
-  if &filetype == 'nerdtree'
-    NERDTreeClose
-    return
-  elseif &filetype == 'undotree'
-    UndotreeHide
-    return
-  endif
+" we don't want to delete the buffer
+" for some specific ones
+" but just close the window
+let g:sayonara_filetypes = {
+  \ 'nerdtree': 'NERDTreeClose',
+  \ 'undotree': 'UndotreeHide',
+  \ }
 
+fun! s:SanerSayonara()
   let editable_windows_count =
     \ len(filter(tabpagebuflist(), 'buflisted(v:val)'))
 
