@@ -5,10 +5,6 @@ let g:ctrlp_map = '<Leader>ef'
 nnoremap <silent> <Leader>eb :CtrlPBuffer<CR>
 nnoremap <silent> <Leader>em :CtrlPMRU<CR>
 
-" Search within the current working directory
-" it ignores working path mode
-let g:ctrlp_cmd = 'CtrlPCurWD'
-
 " Search follow synlinks
 let g:ctrlp_follow_symlinks=1
 
@@ -20,3 +16,6 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|build$\|\.kdev4$\|\.kateproject.d$',
   \ 'file': '\.kdev4$\|\.kateproject',
   \ }
+
+" Define custom root folder markers
+let g:ctrlp_root_markers = [ '.ctrlp' ]
