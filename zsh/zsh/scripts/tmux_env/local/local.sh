@@ -1,4 +1,4 @@
-if tmux has-session &> /dev/null; then
+if tmux has-session -t '1-Local' &> /dev/null; then
   exit
 fi
 

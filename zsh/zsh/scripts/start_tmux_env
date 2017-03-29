@@ -4,10 +4,8 @@ COMMAND=${0:t}
 COMMAND_DIR_PATH=${0:A:h}
 
 init_variables() {
-  typeset -Ag TARGET_HOST_MAP
-  TARGET_HOST_MAP=( $(
-    ls "${COMMAND_DIR_PATH}/tmux_env" \
-      | sed -r 's/(.*)_(.*).sh/\1 \2/'
+  AVAILABLE_TARGETS=( $(
+    ls "${COMMAND_DIR_PATH}/tmux_env"
   ) )
 
   TARGET=
@@ -23,7 +21,7 @@ Start target tmux environment
 Options:
   -h,  --help     show this message only
 
-Available targets: ${(k)TARGET_HOST_MAP}
+Available targets: ${AVAILABLE_TARGETS}
 EOF
 }
 
@@ -38,16 +36,27 @@ error() {
 
 
 start_target_tmux_env() {
-  local host="${TARGET_HOST_MAP[${TARGET}]}"
-  local script_path="${COMMAND_DIR_PATH}/tmux_env/${TARGET}_${host}.sh"
+  local host="$(
+    cat "${COMMAND_DIR_PATH}/tmux_env/${TARGET}/host"
+  )"
+  local scripts_path=( $(
+    ls "${COMMAND_DIR_PATH}/tmux_env/${TARGET}"/*.sh
+  ) )
 
   fortune -acws -n 300
 
-  if [[ "${host}" == 'local' ]]; then
-    sh "${script_path}"
+  if [[ "${host}" == 'localhost' ]]; then
+    for script_path in ${scripts_path}; do
+      sh "${script_path}"
+    done
+
     tmux attach-session
+
   else
-    ssh "${host}" 'sh -s' < "${script_path}"
+    for script_path in ${scripts_path}; do
+      ssh "${host}" 'sh -s' < "${script_path}"
+    done
+
     ssh -t "${host}" tmux attach-session
   fi
 }
@@ -74,7 +83,7 @@ parse_options() {
 
 validate_options() {
   # validate target
-  if [[ -z ${TARGET_HOST_MAP[${TARGET}]} ]]; then
+  if ! (( ${AVAILABLE_TARGETS[(Ie)${TARGET}]} )); then
     error "invalid target ${TARGET}"
   fi
 }
