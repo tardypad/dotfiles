@@ -1,11 +1,11 @@
 #!/usr/bin/zsh
 
 COMMAND=${0:t}
-COMMAND_DIR_PATH=${0:A:h}
+ENV_DIR_PATH=${0:A:h}/tmux_env
 
 init_variables() {
   AVAILABLE_TARGETS=( $(
-    ls "${COMMAND_DIR_PATH}/tmux_env"
+    ls "${ENV_DIR_PATH}"
   ) )
 
   TARGET=
@@ -37,10 +37,10 @@ error() {
 
 start_target_tmux_env() {
   local host="$(
-    cat "${COMMAND_DIR_PATH}/tmux_env/${TARGET}/host"
+    cat "${ENV_DIR_PATH}/${TARGET}/host"
   )"
   local scripts_path=( $(
-    ls "${COMMAND_DIR_PATH}/tmux_env/${TARGET}"/*.sh
+    ls "${ENV_DIR_PATH}/${TARGET}"/*.sh
   ) )
 
   fortune -acws -n 300
@@ -53,6 +53,7 @@ start_target_tmux_env() {
     tmux attach-session
 
   else
+
     for script_path in ${scripts_path}; do
       ssh "${host}" 'sh -s' < "${script_path}"
     done
