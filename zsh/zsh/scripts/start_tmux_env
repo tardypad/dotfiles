@@ -9,19 +9,21 @@ init_variables() {
   ) )
 
   TARGET=
+  SESSION=
 }
 
 
 usage() {
   cat << EOF
-usage: ${COMMAND} [<options>] <target>
+usage: ${COMMAND} [<options>] <target> [<session>]
 
-Start target tmux environment
+Start target tmux environment sessions
 
 Options:
   -h,  --help     show this message only
 
 Available targets: ${AVAILABLE_TARGETS}
+If session is not defined, all of the target's ones are started
 EOF
 }
 
@@ -39,9 +41,17 @@ start_target_tmux_env() {
   local host="$(
     cat "${ENV_DIR_PATH}/${TARGET}/host"
   )"
-  local scripts_path=( $(
-    ls "${ENV_DIR_PATH}/${TARGET}"/*.sh
-  ) )
+
+  local scripts_path
+  if [[ -n "${SESSION}" ]]; then
+    scripts_path=(
+      "${ENV_DIR_PATH}/${TARGET}/${SESSION}.sh"
+    )
+  else
+    scripts_path=( $(
+      ls "${ENV_DIR_PATH}/${TARGET}"/*.sh
+    ) )
+  fi
 
   fortune -acws -n 300
 
@@ -79,6 +89,7 @@ parse_options() {
   [[ $# -eq 0 ]] && error 'missing target'
 
   TARGET="$1"
+  SESSION="$2"
 }
 
 
@@ -86,6 +97,12 @@ validate_options() {
   # validate target
   if ! (( ${AVAILABLE_TARGETS[(Ie)${TARGET}]} )); then
     error "invalid target ${TARGET}"
+  fi
+
+  # validate target's session if present
+  if [[ -n "${SESSION}" ]] \
+       && [[ ! -f "${ENV_DIR_PATH}/${TARGET}/${SESSION}.sh" ]]; then
+    error "invalid target's session ${SESSION}"
   fi
 }
 
