@@ -37,21 +37,44 @@ error() {
 
 
 get_konsole() {
-  local qdbus_service
+  local -a current_services
 
-  if ! qdbus | grep konsole &> /dev/null; then
-    # if no konsole, start one
-    konsole --profile Shell &> /dev/null
+  # look for current konsole env
+  for service in $( qdbus 'org.kde.konsole*' ); do
+    local app_name=$(
+      qdbus "${service}" /MainApplication org.qtproject.Qt.QCoreApplication.applicationName
+    )
+
+    if [[ "${app_name}" == 'konsole_env' ]]; then
+        # konsole env is found
+        echo "${service}"
+        return
+    fi
+
+    current_services+=( "${service}" )
+  done
+
+  # if no konsole env, start one
+  konsole --profile Shell &> /dev/null
+
+  # use the service of the new konsole
+  local qdbus_service
+  for service in $( qdbus 'org.kde.konsole*' ); do
+    if ! (( ${current_services[(Ie)${service}]} )); then
+      qdbus_service="${service}"
+      break
+    fi
+  done
+
+  # if no new service, use the first konsole one
+  if [[ -z "${qdbus_service}" ]]; then
+    qdbus_service=$(
+      qdbus 'org.kde.konsole*' | head --lines 1
+    )
   fi
 
-  # use the service of the first konsole found
-  qdbus_service=$(
-    qdbus \
-      | grep --max-count 1 konsole \
-      | sed -r 's/.* (.*)/\1/'
-  )
-
   # global environment setup
+  qdbus "${qdbus_service}" /MainApplication org.qtproject.Qt.QCoreApplication.applicationName 'konsole_env' &> /dev/null
   qdbus "${qdbus_service}" /konsole/MainWindow_1 org.qtproject.Qt.QWidget.showFullScreen &> /dev/null
   qdbus "${qdbus_service}" /konsole/MainWindow_1 org.qtproject.Qt.QWidget.windowOpacity 0.9 &> /dev/null
 
