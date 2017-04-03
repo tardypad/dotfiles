@@ -1,0 +1,108 @@
+#!/usr/bin/zsh
+
+COMMAND=${0:t}
+ENV_DIR_PATH=${0:A:h}/konsole_env
+
+init_variables() {
+  AVAILABLE_TARGETS=( $(
+    ls "${ENV_DIR_PATH}" | sed -r 's/(.*).sh/\1/'
+  ) )
+
+  TARGET=
+}
+
+
+usage() {
+  cat << EOF
+usage: ${COMMAND} [<options>] <target>
+
+Start target konsole environment
+
+Options:
+  -h,  --help     show this message only
+
+Available targets: ${AVAILABLE_TARGETS}
+If target is not defined, all of them are started
+EOF
+}
+
+
+error() {
+  if [[ -n "$1" ]]; then
+    echo "error: $1" >&2
+  fi
+  usage
+  exit 1
+}
+
+
+get_konsole() {
+  local qdbus_service
+
+  if ! qdbus | grep konsole &> /dev/null; then
+    # if no konsole, start one
+    konsole --profile Shell &> /dev/null
+  fi
+
+  # use the service of the first konsole found
+  qdbus_service=$(
+    qdbus \
+      | grep --max-count 1 konsole \
+      | sed -r 's/.* (.*)/\1/'
+  )
+
+  echo "${qdbus_service}"
+}
+
+
+start_target_konsole_env() {
+  local qdbus_service="$1"
+
+  local scripts_path
+  if [[ -n "${TARGET}" ]]; then
+    scripts_path=(
+      "${ENV_DIR_PATH}/${TARGET}.sh"
+    )
+  else
+    scripts_path=( $(
+      ls "${ENV_DIR_PATH}"/*.sh
+    ) )
+  fi
+
+  for script_path in ${scripts_path}; do
+    bash "${script_path}" "${qdbus_service}"
+  done
+}
+
+
+parse_options() {
+  while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      *)
+        break 2
+        ;;
+    esac
+  done
+
+  TARGET="$1"
+}
+
+
+validate_options() {
+  # validate target if present
+  if [[ -n "${TARGET}" ]] \
+      && ! (( ${AVAILABLE_TARGETS[(Ie)${TARGET}]} )); then
+    error "invalid target ${TARGET}"
+  fi
+}
+
+init_variables
+parse_options "$@"
+validate_options
+
+qdbus_service=$( get_konsole )
+start_target_konsole_env "${qdbus_service}"
