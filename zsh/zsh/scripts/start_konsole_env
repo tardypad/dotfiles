@@ -51,6 +51,10 @@ get_konsole() {
       | sed -r 's/.* (.*)/\1/'
   )
 
+  # global environment setup
+  qdbus "${qdbus_service}" /konsole/MainWindow_1 org.qtproject.Qt.QWidget.showFullScreen &> /dev/null
+  qdbus "${qdbus_service}" /konsole/MainWindow_1 org.qtproject.Qt.QWidget.windowOpacity 0.9 &> /dev/null
+
   echo "${qdbus_service}"
 }
 
