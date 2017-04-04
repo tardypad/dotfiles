@@ -78,6 +78,14 @@ get_konsole() {
 start_target_konsole_env() {
   local qdbus_service="$1"
 
+  # activate window
+  if command -v xdotool &> /dev/null; then
+    local window_id=$(
+      qdbus "${qdbus_service}" /konsole/MainWindow_1 org.kde.KMainWindow.winId
+    )
+    xdotool windowactivate "${window_id}"
+  fi
+
   local scripts_path
   if [[ -n "${TARGET}" ]]; then
     scripts_path=(
