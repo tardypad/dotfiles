@@ -37,6 +37,27 @@ error() {
 }
 
 
+get_session_pattern() {
+  local script_path="$1"
+
+  local session_name="${script_path:t:r}"
+
+  # there is no way currently to check session name case insensitively
+  # (no flag used in fnmatch internally in tmux)
+  # so we create a pattern manually for it
+  local session_pattern='*'
+  for i in $( seq 0 $(( ${#session_name} - 1 )) ); do
+    local char="${session_name:$i:1}"
+    local char_low=$( echo "${char}" | tr 'A-Z' 'a-z' )
+    local char_up=$( echo "${char}" | tr 'a-z' 'A-Z' )
+    session_pattern+="[${char_low}${char_up}]"
+  done
+  session_pattern+='*'
+
+  echo "${session_pattern}"
+}
+
+
 start_target_tmux_env() {
   local host="$(
     cat "${ENV_DIR_PATH}/${TARGET}/host"
@@ -57,7 +78,10 @@ start_target_tmux_env() {
 
   if [[ "${host}" == 'localhost' ]]; then
     for script_path in ${scripts_path}; do
-      bash "${script_path}"
+      local session_pattern=$( get_session_pattern "${script_path}" )
+      if ! tmux has-session -t "${session_pattern}" &> /dev/null; then
+        bash "${script_path}"
+      fi
     done
 
     tmux attach-session
@@ -65,7 +89,10 @@ start_target_tmux_env() {
   else
 
     for script_path in ${scripts_path}; do
-      ssh "${host}" 'bash -s' < "${script_path}"
+      local session_pattern=$( get_session_pattern "${script_path}" )
+      if ! ssh "${host}" tmux has-session -t "${session_pattern}" &> /dev/null; then
+        ssh "${host}" 'bash -s' < "${script_path}"
+      fi
     done
 
     ssh -t "${host}" tmux attach-session
