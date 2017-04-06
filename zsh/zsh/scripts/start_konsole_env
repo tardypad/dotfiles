@@ -46,12 +46,8 @@ get_konsole() {
     )
 
     if [[ "${app_name}" == 'konsole_env' ]]; then
-        # konsole env is found, create new session
-        local session=$(
-          qdbus "${service}" /Windows/1 org.kde.konsole.Window.newSession
-        )
-
-        echo "${service}" "${session}"
+        # konsole env is found
+        echo "${service}" 0
         return
     fi
 
@@ -75,18 +71,13 @@ get_konsole() {
   qdbus "${qdbus_service}" /konsole/MainWindow_1 org.qtproject.Qt.QWidget.showFullScreen &> /dev/null
   qdbus "${qdbus_service}" /konsole/MainWindow_1 org.qtproject.Qt.QWidget.windowOpacity 0.9 &> /dev/null
 
-  # use session created initially with the window
-  local session=$(
-    qdbus "${service}" /Windows/1 org.kde.konsole.Window.currentSession
-  )
-
-  echo "${qdbus_service}" "${session}"
+  echo "${qdbus_service}" 1
 }
 
 
 start_target_konsole_env() {
   local qdbus_service="$1"
-  local session="$2"
+  local is_new="$2"
 
   # activate window
   if command -v xdotool &> /dev/null; then
@@ -107,7 +98,19 @@ start_target_konsole_env() {
     ) )
   fi
 
+  local session
   for script_path in ${scripts_path}; do
+    if [[ "${is_new}" -eq 1 ]]; then
+      session=$(
+        qdbus "${qdbus_service}" /Windows/1 org.kde.konsole.Window.currentSession
+      )
+    else
+      session=$(
+        qdbus "${qdbus_service}" /Windows/1 org.kde.konsole.Window.newSession
+      )
+    fi
+
+    is_new=0
     bash "${script_path}" "${qdbus_service}" "${session}"
   done
 }
