@@ -47,6 +47,7 @@ function precmd() {
   local blue='%{%F{blue}%}'
   local cyan='%{%F{cyan}%}'
   local magenta='%{%F{magenta}%}'
+  local yellow='%{%F{yellow}%}'
   local stop='%{%f%}'
 
   # define individual items
@@ -54,7 +55,7 @@ function precmd() {
   local host="${red}%m${stop}"
   [[ ${exit_code} -eq 0 ]] && exit_color="${cyan}" || exit_color="${magenta}"
   local duration="${exit_color}${command_duration}${stop}"
-  local time_start="${command_time_start}"
+  local time_start="${yellow}${command_time_start}${stop}"
 
   # print prompt first lines directly here
   # to prevent issue when resizing terminal
