@@ -76,6 +76,42 @@ get_konsole() {
 }
 
 
+get_sessions_title() {
+  local qdbus_service="$1"
+
+  local sessions_number=( $(
+    qdbus "${qdbus_service}" \
+      | grep '/Sessions/' \
+      | sed -r 's/\/Sessions\/([0-9]+)/\1/'
+  ) )
+
+  for i in $sessions_number; do
+     qdbus "${qdbus_service}" "/Sessions/$i" org.kde.konsole.Session.title 1
+  done
+}
+
+
+get_session_pattern() {
+  local script_path="$1"
+
+  local session_name="${script_path:t:r}"
+
+  # there seems to be no way currently to check session name case insensitively
+  # so we create a pattern manually for it
+  local session_pattern='*'
+  for i in $( seq 0 $(( ${#session_name} - 1 )) ); do
+    local char="${session_name:$i:1}"
+    local char_low=$( echo "${char}" | tr 'A-Z' 'a-z' )
+    local char_up=$( echo "${char}" | tr 'a-z' 'A-Z' )
+    session_pattern+="[${char_low}${char_up}]"
+  done
+  session_pattern+='*'
+
+  echo "${session_pattern}"
+}
+
+
+
 start_target_konsole_env() {
   local qdbus_service="$1"
   local is_new="$2"
@@ -88,6 +124,15 @@ start_target_konsole_env() {
     xdotool windowactivate "${window_id}"
   fi
 
+  # get current sessions title
+  local -a sessions_title
+  if [[ "${is_new}" -eq 0 ]]; then
+    sessions_title=( $(
+      get_sessions_title "${qdbus_service}"
+    ) )
+  fi
+
+  # get scripts path to run
   local scripts_path
   if [[ -n "${TARGET}" ]]; then
     scripts_path=(
@@ -102,16 +147,24 @@ start_target_konsole_env() {
   local session
   for script_path in ${scripts_path}; do
     if [[ "${is_new}" -eq 1 ]]; then
+      # use the session created with the window
       session=$(
         qdbus "${qdbus_service}" /Windows/1 org.kde.konsole.Window.currentSession
       )
+      is_new=0
     else
-      session=$(
-        qdbus "${qdbus_service}" /Windows/1 org.kde.konsole.Window.newSession
-      )
+      local session_pattern=$( get_session_pattern "${script_path}" )
+      if (( ${sessions_title[(I)${session_pattern}]} )); then
+        # target session is already present
+        continue;
+      else
+        # create new session
+        session=$(
+          qdbus "${qdbus_service}" /Windows/1 org.kde.konsole.Window.newSession
+        )
+      fi
     fi
 
-    is_new=0
     bash "${script_path}" "${qdbus_service}" "${session}"
   done
 }
