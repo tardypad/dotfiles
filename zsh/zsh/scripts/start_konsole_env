@@ -14,7 +14,7 @@ init_variables() {
 
 usage() {
   cat << EOF
-usage: ${COMMAND} [<options>] <target>
+usage: ${COMMAND} [<options>] [<target>]
 
 Start target konsole environment
 
