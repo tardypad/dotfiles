@@ -17,6 +17,7 @@ usage() {
 usage: ${COMMAND} [<options>] [<target>]
 
 Start target konsole environment
+Each target is a different tab of the main konsole window
 
 Options:
   -h,  --help     show this message only

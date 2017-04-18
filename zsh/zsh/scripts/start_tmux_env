@@ -18,6 +18,7 @@ usage() {
 usage: ${COMMAND} [<options>] <target> [<session>]
 
 Start target tmux environment sessions
+Each target is a different local or remote tmux server
 
 Options:
   -h,  --help     show this message only
