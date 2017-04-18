@@ -121,7 +121,7 @@ start_target_konsole_env() {
     local window_id=$(
       qdbus "${qdbus_service}" /konsole/MainWindow_1 org.kde.KMainWindow.winId
     )
-    xdotool windowactivate "${window_id}"
+    xdotool windowactivate "${window_id}" &> /dev/null
   fi
 
   # get current sessions title
