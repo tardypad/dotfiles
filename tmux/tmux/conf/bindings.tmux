@@ -77,6 +77,7 @@ bind Z resize-pane -Z
 bind X confirm-before -p "kill-pane #{pane_index}? (y/n)" kill-pane
 bind -r { swap-pane -U
 bind -r } swap-pane -D
+bind F5 respawn-pane
 
 bind ! select-layout even-horizontal
 bind @ select-layout main-vertical

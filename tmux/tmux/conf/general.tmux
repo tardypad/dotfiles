@@ -8,6 +8,9 @@ setw -g automatic-rename off
 # don't detach the client when killing a session
 set -g detach-on-destroy off
 
+# don't close windows/panes when initial command exits
+setw -g remain-on-exit on
+
 # define default term type
 set -g default-terminal "screen-256color"
 
