@@ -1,4 +1,4 @@
-function __goto_project() {
+function __get_project_path() {
   local project_level="$1"
   local project_name="$2"
 
@@ -9,16 +9,27 @@ function __goto_project() {
       -name "${project_name}"
   )"
 
-  # go to that directory if it exists, otherwise go the main one
-  [[ "${project_dir}" != '' ]] && cd "${project_dir}" || cd "${PROJECTS_DIR}"
+  echo "${project_dir}"
+}
+
+
+function get_project_main_path() {
+  __get_project_path 1 "$1"
+}
+
+
+function get_project_repo_path() {
+  __get_project_path 2 "$1"
 }
 
 
 function goto_project_main() {
-  __goto_project 1 "$1"
+  local path=$( get_project_main_path "$1" )
+  [[ -n "${path}" ]] && cd "${path}" || cd "${PROJECTS_DIR}"
 }
 
 
 function goto_project_repo() {
-  __goto_project 2 "$1"
+  local path=$( get_project_repo_path "$1" )
+  [[ -n "${path}" ]] && cd "${path}" || cd "${PROJECTS_DIR}"
 }
