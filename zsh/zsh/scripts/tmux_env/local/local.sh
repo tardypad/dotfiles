@@ -12,21 +12,17 @@ tmux new-session -d \
 
 
 window_name='dotfiles'
-tmux new-window -d \
-  -t "${session_name}" \
+tmux new-window \
   -n "${window_name}" \
   -c "${dotfiles_path}"
 tmux split-window -h \
-  -t "${session_name}:${window_name}" \
   -c "${dotfiles_path}" \
   vim
 tmux select-layout \
-  -t "${session_name}:${window_name}" \
   even-horizontal
 
 
 window_name='desktop'
-tmux new-window -d \
-  -t "${session_name}" \
+tmux new-window \
   -n "${window_name}" \
   -c "${desktop_path}"
