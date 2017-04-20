@@ -12,7 +12,7 @@ tmux new-window \
   -n 'dotfiles' \
   -c "${dotfiles_path}" \
   \; \
-  split-window -h \
+  split-window -h -d \
   -c "${dotfiles_path}" \
   vim \
   \; \
@@ -22,3 +22,7 @@ tmux new-window \
 tmux new-window \
   -n 'desktop' \
   -c "${desktop_path}"
+
+
+tmux select-window \
+  -t ':desktop'
