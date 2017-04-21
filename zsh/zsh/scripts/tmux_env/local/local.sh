@@ -14,7 +14,7 @@ tmux new-window \
   \; \
   split-window -h -d \
   -c "${dotfiles_path}" \
-  vim \
+  vim --servername dotfiles \
   \; \
   select-layout even-horizontal
 
