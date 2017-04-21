@@ -74,7 +74,7 @@ bind Q display-panes
 bind -r N select-pane -t :.+
 bind -r P select-pane -t :.-
 bind Z resize-pane -Z
-bind X confirm-before -p "kill-pane #{pane_index}? (y/n)" kill-pane
+bind X kill-pane
 bind -r { swap-pane -U
 bind -r } swap-pane -D
 bind F5 respawn-pane
