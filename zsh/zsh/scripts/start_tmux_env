@@ -10,6 +10,8 @@ init_variables() {
 
   TARGET=
   SESSION=
+
+  HOST=localhost
 }
 
 
@@ -60,9 +62,7 @@ get_session_pattern() {
 
 
 start_target_tmux_env() {
-  local host="$(
-    cat "${ENV_DIR_PATH}/${TARGET}/host"
-  )"
+  source "${ENV_DIR_PATH}/${TARGET}/env"
 
   local scripts_path
   if [[ -n "${SESSION}" ]]; then
@@ -77,7 +77,7 @@ start_target_tmux_env() {
 
   fortune -acws -n 300
 
-  if [[ "${host}" == 'localhost' ]]; then
+  if [[ "${HOST}" == 'localhost' ]]; then
     for script_path in ${scripts_path}; do
       local session_pattern=$( get_session_pattern "${script_path}" )
       if ! tmux has-session -t "${session_pattern}" &> /dev/null; then
@@ -91,12 +91,12 @@ start_target_tmux_env() {
 
     for script_path in ${scripts_path}; do
       local session_pattern=$( get_session_pattern "${script_path}" )
-      if ! ssh "${host}" tmux has-session -t "${session_pattern}" &> /dev/null; then
-        ssh "${host}" 'bash -s' < "${script_path}"
+      if ! ssh "${HOST}" tmux has-session -t "${session_pattern}" &> /dev/null; then
+        ssh "${HOST}" 'bash -s' < "${script_path}"
       fi
     done
 
-    ssh -t "${host}" tmux attach-session
+    ssh -t "${HOST}" tmux attach-session
   fi
 }
 
