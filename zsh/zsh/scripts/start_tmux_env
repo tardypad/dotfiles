@@ -12,6 +12,7 @@ init_variables() {
   SESSION=
 
   HOST=localhost
+  SOCKET=default
 }
 
 
@@ -80,23 +81,25 @@ start_target_tmux_env() {
   if [[ "${HOST}" == 'localhost' ]]; then
     for script_path in ${scripts_path}; do
       local session_pattern=$( get_session_pattern "${script_path}" )
-      if ! tmux has-session -t "${session_pattern}" &> /dev/null; then
-        bash "${script_path}"
+      if ! tmux -L "${SOCKET}" has-session \
+          -t "${session_pattern}" &> /dev/null; then
+        bash "${script_path}" "${SOCKET}"
       fi
     done
 
-    tmux attach-session
+    tmux -L "${SOCKET}" attach-session
 
   else
 
     for script_path in ${scripts_path}; do
       local session_pattern=$( get_session_pattern "${script_path}" )
-      if ! ssh "${HOST}" tmux has-session -t "${session_pattern}" &> /dev/null; then
-        ssh "${HOST}" 'bash -s' < "${script_path}"
+      if ! ssh "${HOST}" tmux -L "${SOCKET}" has-session \
+          -t "${session_pattern}" &> /dev/null; then
+        ssh "${HOST}" 'bash -s' < "${script_path}" "${SOCKET}"
       fi
     done
 
-    ssh -t "${HOST}" tmux attach-session
+    ssh -t "${HOST}" tmux -L "${SOCKET}" attach-session
   fi
 }
 

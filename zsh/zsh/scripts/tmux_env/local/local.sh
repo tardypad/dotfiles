@@ -1,14 +1,18 @@
+socket="$1"
+
 desktop_path=/home/damien/Desktop
 dotfiles_path=/home/damien/Projects/tardypad/dotfiles
 
 
-tmux new-session -d \
+tmux -L "${socket}" \
+  new-session -d \
   -s '1-Local' \
   -n 'root' \
   -c "${desktop_path}"
 
 
-tmux new-window \
+tmux -L "${socket}" \
+  new-window \
   -n 'dotfiles' \
   -c "${dotfiles_path}" \
   \; \
@@ -19,10 +23,12 @@ tmux new-window \
   select-layout even-horizontal
 
 
-tmux new-window \
+tmux -L "${socket}" \
+  new-window \
   -n 'desktop' \
   -c "${desktop_path}"
 
 
-tmux select-window \
+tmux -L "${socket}" \
+  select-window \
   -t ':desktop'
