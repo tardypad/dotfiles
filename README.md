@@ -9,6 +9,7 @@ Tools:
 - openssh [7.3](https://github.com/openssh/openssh-portable/releases/tag/V_7_3_P1)
 - tmux [2.3](https://github.com/tmux/tmux/releases/tag/2.3)
 - vim [8.0](https://github.com/vim/vim/releases/tag/v8.0.0000)
+- weechat [1.7.1](https://github.com/weechat/weechat/releases/tag/v1.7.1)
 - zsh [5.3](https://github.com/zsh-users/zsh/releases/tag/zsh-5.3)
 
 Theme:  
@@ -34,6 +35,6 @@ Options:
                            HOST    only setup remote host HOST
                          by default local and all remote hosts are setup
 
-Available tools: git konsole openssh tmux vim zsh
+Available tools: git konsole openssh tmux vim weechat zsh
 If no tool argument is passed, all of them are setup
 ```
