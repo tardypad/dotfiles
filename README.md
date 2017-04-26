@@ -4,13 +4,13 @@ Dotfiles
 Personal configuration files
 
 Tools:
-- git [2.11](https://github.com/git/git/releases/tag/v2.11.0)
-- konsole
-- openssh [7.3](https://github.com/openssh/openssh-portable/releases/tag/V_7_3_P1)
-- tmux [2.3](https://github.com/tmux/tmux/releases/tag/2.3)
-- vim [8.0](https://github.com/vim/vim/releases/tag/v8.0.0000)
-- weechat [1.7.1](https://github.com/weechat/weechat/releases/tag/v1.7.1)
-- zsh [5.3](https://github.com/zsh-users/zsh/releases/tag/zsh-5.3)
+- version control: git [2.11](https://github.com/git/git/releases/tag/v2.11.0)
+- terminal emulator: konsole
+- secure shell: openssh [7.3](https://github.com/openssh/openssh-portable/releases/tag/V_7_3_P1)
+- terminal multiplexer: tmux [2.3](https://github.com/tmux/tmux/releases/tag/2.3)
+- text editor: vim [8.0](https://github.com/vim/vim/releases/tag/v8.0.0000)
+- chat client: weechat [1.7.1](https://github.com/weechat/weechat/releases/tag/v1.7.1)
+- shell: zsh [5.3](https://github.com/zsh-users/zsh/releases/tag/zsh-5.3)
 
 Theme:  
 All tools are configured to use the dark
