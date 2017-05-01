@@ -15,4 +15,10 @@ weechat::local::setup() {
   local_copy "weechat/weechat/trigger.conf" ".weechat/trigger.conf"
   local_copy "weechat/weechat/weechat.conf" ".weechat/weechat.conf"
   local_copy "weechat/weechat/xfer.conf" ".weechat/xfer.conf"
+
+  # install wee-slack if not present
+  [[ -f ~/.weechat/python/autoload/wee_slack.py ]] \
+    || curl --silent --location --create-dirs \
+         https://raw.githubusercontent.com/rawdigits/wee-slack/master/wee_slack.py \
+         --output ~/.weechat/python/autoload/wee_slack.py
 }
