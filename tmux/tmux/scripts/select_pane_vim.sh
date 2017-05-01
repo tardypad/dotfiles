@@ -20,3 +20,4 @@ case "${key}" in
 esac
 
 tmux select-pane -"${option}"
+exit 0
