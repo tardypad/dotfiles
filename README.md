@@ -42,3 +42,9 @@ Options:
 Available tools: git konsole openssh tmux vim weechat zsh
 If no tool argument is passed, all of them are setup
 ```
+
+Manual steps
+------------
+Weechat:
+- set passphrase for secure storage `/secure passphrase [passphrase]`
+- set slack group token `/secure set slack_token [slack token]`
