@@ -3,7 +3,8 @@ Dotfiles
 
 Personal configuration files
 
-Tools:
+Tools
+-----
 - version control: git [2.11](https://github.com/git/git/releases/tag/v2.11.0)
 - terminal emulator: konsole
 - secure shell: openssh [7.3](https://github.com/openssh/openssh-portable/releases/tag/V_7_3_P1)
@@ -12,16 +13,19 @@ Tools:
 - chat client: weechat [1.7.1](https://github.com/weechat/weechat/releases/tag/v1.7.1)
 - shell: zsh [5.3](https://github.com/zsh-users/zsh/releases/tag/zsh-5.3)
 
-Theme:  
+Theme
+-----
 All tools are configured to use the dark
 [Solarized](http://ethanschoonover.com/solarized) color palette
 
-Plugins managers:
+Plugins managers
+----------------
 - tmux: [tpm](https://github.com/tmux-plugins/tpm)
 - vim: [vim-plug](https://github.com/junegunn/vim-plug)
 - zsh: [zplug](https://github.com/zplug/zplug)
 
-Setup:
+Setup
+-----
 ```shell
 usage: setup_config.zsh [<options>] [<tools>]
 
