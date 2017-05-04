@@ -39,7 +39,7 @@ setw -g window-status-bell-style 'underscore'
 
 setw -g window-status-separator ' '
 setw -g window-status-format ' #{window_index}:#{window_name} '
-setw -g window-status-current-format ' #{window_index}:#{?pane_in_mode,[,}#{window_name}#{?pane_in_mode,],}#{?window_zoomed_flag, Z,} '
+setw -g window-status-current-format ' #{?window_zoomed_flag,~~ ,}#{window_index}:#{?pane_in_mode,[,}#{window_name}#{?pane_in_mode,],}#{?window_zoomed_flag, ~~,} '
 
 setw -g main-pane-width 80
 setw -g main-pane-height 40
