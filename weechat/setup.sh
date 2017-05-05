@@ -2,10 +2,11 @@
 
 weechat::local::setup() {
   # create necessary directories
-  mkdir -p ~/.weechat/python/autoload
+  mkdir -p ~/.weechat/{python,perl}/autoload
 
   # copy config files
   local_copy "weechat/weechat/alias.conf" ".weechat/alias.conf"
+  local_copy "weechat/weechat/buffers.conf" ".weechat/buffers.conf"
   local_copy "weechat/weechat/charset.conf" ".weechat/charset.conf"
   local_copy "weechat/weechat/exec.conf" ".weechat/exec.conf"
   local_copy "weechat/weechat/fifo.conf" ".weechat/fifo.conf"
@@ -26,5 +27,13 @@ weechat::local::setup() {
       https://raw.githubusercontent.com/rawdigits/wee-slack/master/wee_slack.py \
       --output ~/.weechat/python/wee_slack.py
     ln -s ../wee_slack.py ~/.weechat/python/autoload/wee_slack.py
+  fi
+
+  # install buffers.pl script if not present
+  if [[ ! -f ~/.weechat/perl/buffers.pl ]]; then
+    curl --silent --location --create-dirs \
+      https://weechat.org/files/scripts/buffers.pl \
+      --output ~/.weechat/perl/buffers.pl
+    ln -s ../buffers.pl ~/.weechat/perl/autoload/buffers.pl
   fi
 }
