@@ -8,6 +8,7 @@ weechat::local::setup() {
   local_copy "weechat/weechat/alias.conf" ".weechat/alias.conf"
   local_copy "weechat/weechat/buffers.conf" ".weechat/buffers.conf"
   local_copy "weechat/weechat/charset.conf" ".weechat/charset.conf"
+  local_copy "weechat/weechat/colorize_nicks.conf" ".weechat/colorize_nicks.conf"
   local_copy "weechat/weechat/exec.conf" ".weechat/exec.conf"
   local_copy "weechat/weechat/fifo.conf" ".weechat/fifo.conf"
   local_copy "weechat/weechat/irc.conf" ".weechat/irc.conf"
@@ -34,5 +35,13 @@ weechat::local::setup() {
       https://weechat.org/files/scripts/buffers.pl \
       --output ~/.weechat/perl/buffers.pl
     ln -s ../buffers.pl ~/.weechat/perl/autoload/buffers.pl
+  fi
+
+  # install colorize_nicks.py script if not present
+  if [[ ! -f ~/.weechat/python/colorize_nicks.py ]]; then
+    curl --silent --location --create-dirs \
+      https://weechat.org/files/scripts/colorize_nicks.py \
+      --output ~/.weechat/python/colorize_nicks.py
+    ln -s ../colorize_nicks.py ~/.weechat/python/autoload/colorize_nicks.py
   fi
 }
