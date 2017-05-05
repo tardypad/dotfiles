@@ -15,7 +15,6 @@ weechat::local::setup() {
   local_copy "weechat/weechat/plugins.conf" ".weechat/plugins.conf"
   local_copy "weechat/weechat/relay.conf" ".weechat/relay.conf"
   local_copy "weechat/weechat/script.conf" ".weechat/script.conf"
-  local_copy "weechat/weechat/sec.conf" ".weechat/sec.conf"
   local_copy "weechat/weechat/trigger.conf" ".weechat/trigger.conf"
   local_copy "weechat/weechat/weechat.conf" ".weechat/weechat.conf"
   local_copy "weechat/weechat/xfer.conf" ".weechat/xfer.conf"
