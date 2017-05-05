@@ -1,6 +1,9 @@
 #!/usr/bin/zsh
 
 weechat::local::setup() {
+  # create necessary directories
+  mkdir -p ~/.weechat/python/autoload
+
   # copy config files
   local_copy "weechat/weechat/alias.conf" ".weechat/alias.conf"
   local_copy "weechat/weechat/charset.conf" ".weechat/charset.conf"
@@ -17,8 +20,11 @@ weechat::local::setup() {
   local_copy "weechat/weechat/xfer.conf" ".weechat/xfer.conf"
 
   # install wee-slack if not present
-  [[ -f ~/.weechat/python/autoload/wee_slack.py ]] \
-    || curl --silent --location --create-dirs \
-         https://raw.githubusercontent.com/rawdigits/wee-slack/master/wee_slack.py \
-         --output ~/.weechat/python/autoload/wee_slack.py
+  # version from github is more recent than one in weechat scripts repo
+  if [[ ! -f ~/.weechat/python/wee_slack.py ]]; then
+    curl --silent --location --create-dirs \
+      https://raw.githubusercontent.com/rawdigits/wee-slack/master/wee_slack.py \
+      --output ~/.weechat/python/wee_slack.py
+    ln -s ../wee_slack.py ~/.weechat/python/autoload/wee_slack.py
+  fi
 }
