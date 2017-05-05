@@ -19,3 +19,6 @@ let g:ctrlp_custom_ignore = {
 
 " Define custom root folder markers
 let g:ctrlp_root_markers = [ '.ctrlp' ]
+
+" open multiple selected files in only one vertical split window
+let g:ctrlp_open_multiple_files = '1v'
