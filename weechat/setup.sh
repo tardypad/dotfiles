@@ -44,4 +44,12 @@ weechat::local::setup() {
       --output ~/.weechat/python/colorize_nicks.py
     ln -s ../colorize_nicks.py ~/.weechat/python/autoload/colorize_nicks.py
   fi
+
+  # install vimode script if not present
+  if [[ ! -f ~/.weechat/python/vimode.py ]]; then
+    curl --silent --location --create-dirs \
+      https://raw.githubusercontent.com/GermainZ/weechat-vimode/master/vimode.py \
+      --output ~/.weechat/python/vimode.py
+    ln -s ../vimode.py ~/.weechat/python/autoload/vimode.py
+  fi
 }
