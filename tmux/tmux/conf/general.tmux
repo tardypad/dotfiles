@@ -46,3 +46,6 @@ setw -g monitor-silence 0
 set -g visual-activity off
 set -g visual-bell off
 set -g visual-silence off
+
+# decrease the input escape time
+set -g escape-time 100
