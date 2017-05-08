@@ -52,4 +52,12 @@ weechat::local::setup() {
       --output ~/.weechat/python/vimode.py
     ln -s ../vimode.py ~/.weechat/python/autoload/vimode.py
   fi
+
+  # install go.py script if not present
+  if [[ ! -f ~/.weechat/python/go.py ]]; then
+    curl --silent --location --create-dirs \
+      https://weechat.org/files/scripts/go.py \
+      --output ~/.weechat/python/go.py
+    ln -s ../go.py ~/.weechat/python/autoload/go.py
+  fi
 }
