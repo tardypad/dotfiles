@@ -15,6 +15,13 @@ vim::local::setup() {
          https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
          --output ~/.vim/autoload/plug.vim
 
+  # Manually install icinga2 syntax if not present
+  # not a real plugin, just one file of a bigger repository
+  [[ -f ~/.vim/plugged/icinga2/syntax/icinga2.vim ]] \
+    || curl --silent --location --create-dirs \
+         https://raw.githubusercontent.com/Icinga/icinga2/master/tools/syntax/vim/syntax/icinga2.vim \
+         --output ~/.vim/plugged/icinga2/syntax/icinga2.vim
+
   # load only the plugins definition and install them
   vim -N --noplugin -u ~/.vim/plugins.vim \
     +PlugInstall +qall \

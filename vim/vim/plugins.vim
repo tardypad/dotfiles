@@ -103,6 +103,10 @@ Plug 'glench/vim-jinja2-syntax',
 Plug 'kylef/apiblueprint.vim',
   \ { 'as': 'apiblueprint', 'for': 'apiblueprint' }
 
+" Icinga2 syntax
+Plug '~/.vim/plugged/icinga2',
+  \ { 'as': 'icinga2', 'for': 'icinga2' }
+
 " Elm language
 Plug 'elmcast/elm-vim',
   \ { 'as': 'elm', 'for': 'elm' }
