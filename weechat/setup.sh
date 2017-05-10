@@ -60,4 +60,12 @@ weechat::local::setup() {
       --output ~/.weechat/python/go.py
     ln -s ../go.py ~/.weechat/python/autoload/go.py
   fi
+
+  # install urlgrab script if not present
+  if [[ ! -f ~/.weechat/python/urlgrab.py ]]; then
+    curl --silent --location --create-dirs \
+      https://weechat.org/files/scripts/urlgrab.py \
+      --output ~/.weechat/python/urlgrab.py
+    ln -s ../urlgrab.py ~/.weechat/python/autoload/urlgrab.py
+  fi
 }
