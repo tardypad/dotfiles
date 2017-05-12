@@ -1,6 +1,7 @@
 keyboard "Default (XFree 4)"
 key Space+Ctrl : ""
 key Esc : "\E"
+key Tab+Ctrl : "\E[t"
 key Tab+Shift-Ansi : "\t"
 key Tab+Shift+Ansi : "\E[Z"
 key Tab-Shift : "\t"
