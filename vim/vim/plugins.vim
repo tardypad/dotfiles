@@ -13,6 +13,10 @@ Plug 'scrooloose/syntastic',
 Plug 'shougo/neocomplete.vim',
   \ { 'as': 'neocomplete' }
 
+" Code commenter
+Plug 'scrooloose/nerdcommenter',
+  \ { 'as': 'nerdcommenter' }
+
 " Git wrapper
 Plug 'tpope/vim-fugitive',
   \ { 'as': 'fugitive' }
