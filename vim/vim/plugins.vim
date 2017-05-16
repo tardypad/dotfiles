@@ -21,6 +21,10 @@ Plug 'scrooloose/nerdcommenter',
 Plug 'tpope/vim-fugitive',
   \ { 'as': 'fugitive' }
 
+" Git diff gutter
+Plug 'airblade/vim-gitgutter',
+  \ { 'as': 'gitgutter' }
+
 " Text alignment
 Plug 'godlygeek/tabular',
   \ { 'as': 'tabular' }

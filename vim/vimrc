@@ -96,6 +96,9 @@ filetype on
 filetype plugin on
 filetype indent on
 
+" Decrease silent time before swap file gets written
+set updatetime=500
+
 " Go to insert mode after/before 2 newlines
 nmap 2o A<CR><CR>
 nmap 2O I<CR><CR><Esc>kki
