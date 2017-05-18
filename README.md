@@ -1,31 +1,31 @@
-Dotfiles
-========
+# Dotfiles
 
 Personal configuration files
 
-Tools
------
-- version control: git [2.11](https://github.com/git/git/releases/tag/v2.11.0)
-- terminal emulator: konsole
-- secure shell: openssh [7.3](https://github.com/openssh/openssh-portable/releases/tag/V_7_3_P1)
-- terminal multiplexer: tmux [2.3](https://github.com/tmux/tmux/releases/tag/2.3)
-- text editor: vim [8.0](https://github.com/vim/vim/releases/tag/v8.0.0000)
-- chat client: weechat [1.7.1](https://github.com/weechat/weechat/releases/tag/v1.7.1)
-- shell: zsh [5.3](https://github.com/zsh-users/zsh/releases/tag/zsh-5.3)
 
-Theme
------
+## Tools
+
+| Name    | Purpose              |
+| ------- | -------------------- |
+| git     | version control      |
+| konsole | terminal emulator    |
+| openssh | SSH client           |
+| tmux    | terminal multiplexer |
+| vim     | text editor          |
+| weechat | chat client          |
+| zsh     | shell                |
+
+See each individual tool README for more information
+
+
+## Theme
+
 All tools are configured to use the dark
 [Solarized](http://ethanschoonover.com/solarized) color palette
 
-Plugins managers
-----------------
-- tmux: [tpm](https://github.com/tmux-plugins/tpm)
-- vim: [vim-plug](https://github.com/junegunn/vim-plug)
-- zsh: [zplug](https://github.com/zplug/zplug)
 
-Setup
------
+## Setup
+
 ```shell
 usage: setup_config.zsh [<options>] [<tools>]
 
@@ -43,8 +43,4 @@ Available tools: git konsole openssh tmux vim weechat zsh
 If no tool argument is passed, all of them are setup
 ```
 
-Manual steps
-------------
-Weechat:
-- set passphrase for secure storage `/secure passphrase [passphrase]`
-- set slack group token `/secure set slack_token [slack token]`
+Some tools require some additional manual setup steps, check their own README
