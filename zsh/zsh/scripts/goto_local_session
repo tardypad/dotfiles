@@ -1,0 +1,139 @@
+#!/usr/bin/zsh
+
+COMMAND=${0:t}
+
+init_variables() {
+  KONSOLE_TAB_NAME='Local'
+  TMUX_SOCKET_NAME='local'
+  TMUX_SESSION_NB=
+}
+
+
+usage() {
+  cat << EOF
+usage: ${COMMAND} [<options>] <session_nb>
+
+Go to a local tmux session in konsole environment
+
+Options:
+  -h,  --help     show this message only
+EOF
+}
+
+
+error() {
+  if [[ -n "$1" ]]; then
+    echo "error: $1" >&2
+  fi
+  usage
+  exit 1
+}
+
+
+get_konsole() {
+  for service in $( qdbus 'org.kde.konsole*' ); do
+    local app_name=$(
+      qdbus "${service}" /MainApplication org.qtproject.Qt.QCoreApplication.applicationName
+    )
+
+    if [[ "${app_name}" == 'konsole_env' ]]; then
+        echo "${service}"
+        return
+    fi
+  done
+}
+
+
+activate_konsole_window() {
+  local qdbus_service="$1"
+
+  command -v xdotool &> /dev/null || return
+
+  local window_id=$(
+    qdbus "${qdbus_service}" /konsole/MainWindow_1 org.kde.KMainWindow.winId
+  )
+  xdotool windowactivate "${window_id}" &> /dev/null
+}
+
+
+get_konsole_current_tab_name() {
+  local qdbus_service="$1"
+
+  local current_tab=$(
+    qdbus "${qdbus_service}" /Windows/1 org.kde.konsole.Window.currentSession
+  )
+
+  qdbus "${qdbus_service}" "/Sessions/${current_tab}" org.kde.konsole.Session.title 1
+}
+
+
+switch_konsole_tab() {
+  local qdbus_service="$1"
+  local tab_name="$2"
+
+  local initial_tab_name=$( get_konsole_current_tab_name "${qdbus_service}" )
+
+  [[ "${initial_tab_name}" =~ ".*${KONSOLE_TAB_NAME}.*" ]] && return
+
+  local current_tab_name=
+  while [[ ! "${current_tab_name}" =~ ".*${KONSOLE_TAB_NAME}.*" \
+          && "${current_tab_name}" != "${initial_tab_name}" ]]; do
+    qdbus "${qdbus_service}" /Windows/1 org.kde.konsole.Window.nextSession &> /dev/null
+    current_tab_name=$( get_konsole_current_tab_name "${qdbus_service}" )
+  done
+}
+
+
+switch_tmux_session() {
+  local socket_name="$1"
+  local session_nb="$2"
+
+  tmux -L "${socket_name}" switch-client -t "${session_nb}-" &> /dev/null
+}
+
+
+goto_local_session() {
+  qdbus_service=$( get_konsole )
+
+  [[ -n "${qdbus_service}" ]] || return
+
+  switch_konsole_tab "${qdbus_service}" "${KONSOLE_TAB_NAME}"
+  switch_tmux_session "${TMUX_SOCKET_NAME}" "${TMUX_SESSION_NB}"
+  activate_konsole_window "${qdbus_service}"
+}
+
+
+parse_options() {
+  while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      *)
+        break 2
+        ;;
+    esac
+  done
+
+  TMUX_SESSION_NB="$1"
+}
+
+
+validate_options() {
+  # validate that TMUX_SESSION_NB is defined
+  if [[ -z "${TMUX_SESSION_NB}" ]]; then
+    error "missing session number"
+  fi
+
+  # validate that TMUX_SESSION_NB is a number
+  if ! [[ "${TMUX_SESSION_NB}" =~ '^[0-9]+$' ]]; then
+    error "invalid session number '${TMUX_SESSION_NB}'"
+  fi
+}
+
+init_variables
+parse_options "$@"
+validate_options
+
+goto_local_session
