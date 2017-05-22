@@ -71,6 +71,8 @@ bind -r ] swap-window -t +
 
 # panes management (using uppercase except for direct navigation)
 bind Q display-panes
+bind L clear-history \; \
+       display-message "Pane history cleared"
 bind -r N select-pane -t :.+
 bind -r P select-pane -t :.-
 bind Z resize-pane -Z
