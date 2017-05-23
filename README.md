@@ -24,6 +24,8 @@ See each individual tool README for more information
 All tools are configured to use the dark
 [Solarized](http://ethanschoonover.com/solarized) color palette
 
+All tools are configured to use as much as possible vim-like keybindings
+
 
 ## Setup
 
