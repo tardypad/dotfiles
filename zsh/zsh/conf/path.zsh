@@ -20,3 +20,6 @@ done
 unset dirs_to_prepend
 
 export PATH
+
+# add local shared libraries
+export LD_LIBRARY_PATH=/usr/local/lib:${LD_LIBRARY_PATH}
