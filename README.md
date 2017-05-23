@@ -8,6 +8,7 @@ Personal configuration files
 | Name    | Purpose              |
 | ------- | -------------------- |
 | git     | version control      |
+| gnupg   | OpenPGP client
 | konsole | terminal emulator    |
 | openssh | SSH client           |
 | tmux    | terminal multiplexer |
@@ -39,7 +40,7 @@ Options:
                            HOST    only setup remote host HOST
                          by default local and all remote hosts are setup
 
-Available tools: git konsole openssh tmux vim weechat zsh
+Available tools: git gnupg konsole openssh tmux vim weechat zsh
 If no tool argument is passed, all of them are setup
 ```
 
