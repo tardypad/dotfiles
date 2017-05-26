@@ -10,6 +10,7 @@ Personal configuration files
 | git     | version control      |
 | gnupg   | OpenPGP client
 | konsole | terminal emulator    |
+| neomutt | mail client          |
 | openssh | SSH client           |
 | tmux    | terminal multiplexer |
 | vim     | text editor          |
@@ -43,8 +44,8 @@ Options:
                          by default local and all remote hosts are setup
 
 Available tools:
-git     gnupg   konsole openssh tmux
-vim     weechat zsh
+git     gnupg   konsole neomutt openssh
+tmux    vim     weechat zsh
 If no tool argument is passed, all of them are setup
 ```
 
