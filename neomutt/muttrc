@@ -18,3 +18,5 @@ macro index <f3> "<change-folder>imaps://$my_gandi_email@mail.gandi.net<enter>"
 
 # switch to default account
 source "~/.mutt/accounts/gmail_perso"
+
+source "~/.mutt/colors"
