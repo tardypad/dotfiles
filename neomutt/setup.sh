@@ -7,6 +7,7 @@ neomutt::local::setup() {
   # copy config files
   local_copy "neomutt/muttrc" ".mutt/muttrc"
   local_copy "neomutt/accounts" ".mutt/accounts"
+  local_copy "neomutt/mailcap" ".mutt/mailcap"
 
   # add "default" solarized colors if not present
   if [[ ! -f ~/.mutt/colors ]]; then

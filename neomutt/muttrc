@@ -20,3 +20,9 @@ macro index <f3> "<change-folder>imaps://$my_gandi_email@mail.gandi.net<enter>"
 source "~/.mutt/accounts/gmail_perso"
 
 source "~/.mutt/colors"
+
+# view html mail directly in pager
+auto_view text/html
+
+# prefer plain text over html
+alternative_order text/plain text/enriched text/html

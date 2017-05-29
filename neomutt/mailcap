@@ -1,0 +1,4 @@
+# open external browser to view html attachments
+text/html; xdg-open %s; test=RunningX; needsterminal
+# use elinks to display html in pager
+text/html; elinks -dump %s; nametemplate=%s.html; copiousoutput
