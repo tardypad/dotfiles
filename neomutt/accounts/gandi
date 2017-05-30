@@ -7,3 +7,11 @@ set spoolfile = "+INBOX"
 set record = "+Sent"
 set postponed = "+Drafts"
 set trash = "+Trash"
+
+mailboxes "+INBOX" \
+          "+INBOX/Daily comics" \
+          "+INBOX/Daily comics/TODO" \
+          "+INBOX/SomaFM" \
+          "+Drafts" \
+          "+Sent" \
+          "+Trash"

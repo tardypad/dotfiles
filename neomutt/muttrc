@@ -7,6 +7,7 @@ source "gpg --quiet --decrypt ~/.mutt/accounts/gandi.gpg |"
 account-hook "$my_gmail_perso_email" "set imap_user=$my_gmail_perso_email imap_pass=$my_gmail_perso_password"
 account-hook "$my_gmail_work_email" "set imap_user=$my_gmail_work_email imap_pass=$my_gmail_work_password"
 account-hook "$my_gandi_email" "set imap_user=$my_gandi_email imap_pass=$my_gandi_password"
+folder-hook . unmailboxes *
 folder-hook "$my_gmail_perso_email" source "~/.mutt/accounts/gmail_perso"
 folder-hook "$my_gmail_work_email" source "~/.mutt/accounts/gmail_work"
 folder-hook "$my_gandi_email" source "~/.mutt/accounts/gandi"

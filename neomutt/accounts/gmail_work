@@ -7,3 +7,20 @@ set spoolfile = "+INBOX"
 set record = "+[Gmail]/Sent Mail"
 set postponed = "+[Gmail]/Drafts"
 set trash = "+[Gmail]/Trash"
+
+mailboxes "+INBOX" \
+          "+INBOX/Archives" \
+          "+INBOX/loonloon" \
+          "+INBOX/Dallas" \
+          "+INBOX/Dubai" \
+          "+INBOX/G3" \
+          "+INBOX/Orlando" \
+          "+INBOX/Reddy" \
+          "+INBOX/Schiphol" \
+          "+INBOX/Seattle" \
+          "+INBOX/Victron" \
+          "+INBOX/WFC" \
+          "+[Gmail]/Drafts" \
+          "+[Gmail]/Sent Mail" \
+          "+[Gmail]/Spam" \
+          "+[Gmail]/Trash"
