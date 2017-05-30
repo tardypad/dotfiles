@@ -27,3 +27,17 @@ auto_view text/html
 
 # prefer plain text over html
 alternative_order text/plain text/enriched text/html
+
+# display sidebar by default
+set sidebar_visible = yes
+
+# shorten mailbox names in sidebar
+set sidebar_short_path = yes
+
+# indent shortened mailbox names in sidebar
+set sidebar_folder_indent = yes
+
+# bindings for sidebar navigation
+bind index,pager \CK sidebar-prev
+bind index,pager \CJ sidebar-next
+bind index,pager \CO sidebar-open
