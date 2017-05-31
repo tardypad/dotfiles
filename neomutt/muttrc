@@ -22,6 +22,12 @@ source "~/.mutt/accounts/gmail_perso"
 
 source "~/.mutt/colors"
 
+# define some files and folders location
+set header_cache = "~/.mutt/cache/headers"
+set message_cachedir = "~/.mutt/cache/bodies"
+set mailcap_path = "~/.mutt/mailcap"
+set tmpdir = "~/.mutt/tmp"
+
 # view html mail directly in pager
 auto_view text/html
 
@@ -37,7 +43,29 @@ set sidebar_short_path = yes
 # indent shortened mailbox names in sidebar
 set sidebar_folder_indent = yes
 
+# don't wait for a key press after external commands
+set wait_key = no
+
+# don't ask for confirmation to delete mail on closing or synchronizing
+set delete = yes
+
 # bindings for sidebar navigation
 bind index,pager \CK sidebar-prev
 bind index,pager \CJ sidebar-next
 bind index,pager \CO sidebar-open
+
+# sorting mails in threads with more recent ones first
+set sort = threads
+set sort_aux = reverse-last-date-received
+
+# maxixum number of lines from index to display above the pager
+set pager_index_lines = 20
+
+# number of context lines in next/previous page in pager
+set pager_context = 3
+
+# don't go to next message at the end of the current message in pager
+set pager_stop = yes
+
+# do not pause to display informational message when switching folder
+set sleep_time = 0
