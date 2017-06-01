@@ -6,13 +6,12 @@ neomutt::local::setup() {
 
   # copy config files
   local_copy "neomutt/muttrc" ".mutt/muttrc"
-  local_copy "neomutt/accounts" ".mutt/accounts"
-  local_copy "neomutt/mailcap" ".mutt/mailcap"
+  local_copy "neomutt/conf" ".mutt/conf"
 
   # add "default" solarized colors if not present
-  if [[ ! -f ~/.mutt/colors ]]; then
+  if [[ ! -f ~/.mutt/conf/colors ]]; then
     curl --silent --location --create-dirs \
       https://raw.githubusercontent.com/altercation/mutt-colors-solarized/master/mutt-colors-solarized-dark-16.muttrc \
-      --output ~/.mutt/colors
+      --output ~/.mutt/conf/colors
   fi
 }

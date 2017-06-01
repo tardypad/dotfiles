@@ -1,16 +1,16 @@
 # define credentials variables for each account
-source "gpg --quiet --decrypt ~/.mutt/accounts/gmail_work.gpg |"
-source "gpg --quiet --decrypt ~/.mutt/accounts/gmail_perso.gpg |"
-source "gpg --quiet --decrypt ~/.mutt/accounts/gandi.gpg |"
+source "gpg --quiet --decrypt ~/.mutt/conf/accounts/gmail_work.gpg |"
+source "gpg --quiet --decrypt ~/.mutt/conf/accounts/gmail_perso.gpg |"
+source "gpg --quiet --decrypt ~/.mutt/conf/accounts/gandi.gpg |"
 
 # set config per account
 account-hook "$my_gmail_perso_email" "set imap_user=$my_gmail_perso_email imap_pass=$my_gmail_perso_password"
 account-hook "$my_gmail_work_email" "set imap_user=$my_gmail_work_email imap_pass=$my_gmail_work_password"
 account-hook "$my_gandi_email" "set imap_user=$my_gandi_email imap_pass=$my_gandi_password"
 folder-hook . unmailboxes *
-folder-hook "$my_gmail_perso_email" source "~/.mutt/accounts/gmail_perso"
-folder-hook "$my_gmail_work_email" source "~/.mutt/accounts/gmail_work"
-folder-hook "$my_gandi_email" source "~/.mutt/accounts/gandi"
+folder-hook "$my_gmail_perso_email" source "~/.mutt/conf/accounts/gmail_perso"
+folder-hook "$my_gmail_work_email" source "~/.mutt/conf/accounts/gmail_work"
+folder-hook "$my_gandi_email" source "~/.mutt/conf/accounts/gandi"
 
 # macros to change account
 macro index <f1> "<change-folder>imaps://$my_gmail_perso_email@imap.gmail.com<enter>"
@@ -18,14 +18,14 @@ macro index <f2> "<change-folder>imaps://$my_gmail_work_email@imap.gmail.com<ent
 macro index <f3> "<change-folder>imaps://$my_gandi_email@mail.gandi.net<enter>"
 
 # switch to default account
-source "~/.mutt/accounts/gmail_perso"
+source "~/.mutt/conf/accounts/gmail_perso"
 
-source "~/.mutt/colors"
+source "~/.mutt/conf/colors"
 
 # define some files and folders location
 set header_cache = "~/.mutt/cache/headers"
 set message_cachedir = "~/.mutt/cache/bodies"
-set mailcap_path = "~/.mutt/mailcap"
+set mailcap_path = "~/.mutt/conf/mailcap"
 set tmpdir = "~/.mutt/tmp"
 
 # view html mail directly in pager
