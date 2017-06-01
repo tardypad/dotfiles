@@ -22,6 +22,13 @@ vim::local::setup() {
          https://raw.githubusercontent.com/Icinga/icinga2/master/tools/syntax/vim/syntax/icinga2.vim \
          --output ~/.vim/plugged/icinga2/syntax/icinga2.vim
 
+  # Manually install neomutt syntax if not present
+  # not a real plugin, just one file of a bigger repository
+  [[ -f ~/.vim/plugged/neomutt/syntax/neomutt.vim ]] \
+    || curl --silent --location --create-dirs \
+         https://raw.githubusercontent.com/neomutt/neomutt/master/doc/neomutt-syntax.vim \
+         --output ~/.vim/plugged/neomutt/syntax/neomutt.vim
+
   # load only the plugins definition and install them
   vim -N --noplugin -u ~/.vim/plugins.vim \
     +PlugInstall +qall \

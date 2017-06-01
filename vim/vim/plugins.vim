@@ -115,6 +115,10 @@ Plug 'kylef/apiblueprint.vim',
 Plug '~/.vim/plugged/icinga2',
   \ { 'as': 'icinga2', 'for': 'icinga2' }
 
+" Neomutt syntax
+Plug '~/.vim/plugged/neomutt',
+  \ { 'as': 'neomutt', 'for': 'neomutt' }
+
 " Elm language
 Plug 'elmcast/elm-vim',
   \ { 'as': 'elm', 'for': 'elm' }
