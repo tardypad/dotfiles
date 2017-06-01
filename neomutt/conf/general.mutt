@@ -1,0 +1,37 @@
+# define credentials variables for each account
+source "gpg --quiet --decrypt ~/.mutt/conf/accounts/gmail_work.gpg |"
+source "gpg --quiet --decrypt ~/.mutt/conf/accounts/gmail_perso.gpg |"
+source "gpg --quiet --decrypt ~/.mutt/conf/accounts/gandi.gpg |"
+
+# set config per account
+account-hook "$my_gmail_perso_email" "set imap_user=$my_gmail_perso_email imap_pass=$my_gmail_perso_password"
+account-hook "$my_gmail_work_email" "set imap_user=$my_gmail_work_email imap_pass=$my_gmail_work_password"
+account-hook "$my_gandi_email" "set imap_user=$my_gandi_email imap_pass=$my_gandi_password"
+folder-hook . unmailboxes *
+folder-hook "$my_gmail_perso_email" source "~/.mutt/conf/accounts/gmail_perso.mutt"
+folder-hook "$my_gmail_work_email" source "~/.mutt/conf/accounts/gmail_work.mutt"
+folder-hook "$my_gandi_email" source "~/.mutt/conf/accounts/gandi.mutt"
+
+# switch to default account
+source "~/.mutt/conf/accounts/gmail_perso.mutt"
+
+# define some files and folders location
+set header_cache = "~/.mutt/cache/headers"
+set message_cachedir = "~/.mutt/cache/bodies"
+set mailcap_path = "~/.mutt/conf/mailcap"
+set tmpdir = "~/.mutt/tmp"
+
+# view html mail directly in pager
+auto_view text/html
+
+# prefer plain text over html
+alternative_order text/plain text/enriched text/html
+
+# don't wait for a key press after external commands
+set wait_key = no
+
+# don't ask for confirmation to delete mail on closing or synchronizing
+set delete = yes
+
+# do not pause to display informational message when switching folder
+set sleep_time = 0

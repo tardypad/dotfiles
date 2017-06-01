@@ -1,0 +1,9 @@
+# change account
+macro index <f1> "<change-folder>imaps://$my_gmail_perso_email@imap.gmail.com<enter>"
+macro index <f2> "<change-folder>imaps://$my_gmail_work_email@imap.gmail.com<enter>"
+macro index <f3> "<change-folder>imaps://$my_gandi_email@mail.gandi.net<enter>"
+
+# sidebar navigation
+bind index,pager \CK sidebar-prev
+bind index,pager \CJ sidebar-next
+bind index,pager \CO sidebar-open

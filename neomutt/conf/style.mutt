@@ -1,0 +1,23 @@
+source ~/.mutt/conf/colors.mutt
+
+# display sidebar by default
+set sidebar_visible = yes
+
+# shorten mailbox names in sidebar
+set sidebar_short_path = yes
+
+# indent shortened mailbox names in sidebar
+set sidebar_folder_indent = yes
+
+# sorting mails in threads with more recent ones first
+set sort = threads
+set sort_aux = reverse-last-date-received
+
+# maxixum number of lines from index to display above the pager
+set pager_index_lines = 20
+
+# number of context lines in next/previous page in pager
+set pager_context = 3
+
+# don't go to next message at the end of the current message in pager
+set pager_stop = yes
