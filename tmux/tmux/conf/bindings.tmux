@@ -2,6 +2,7 @@
 unbind -T prefix -a
 unbind -T prefix -t vi-choice -a
 unbind -T prefix -t vi-copy -a
+unbind -T prefix -t vi-edit -a
 unbind -T root -a
 
 # prefix
@@ -175,3 +176,51 @@ bind -t vi-choice l tree-expand
 bind -t vi-choice H tree-collapse-all
 bind -t vi-choice L tree-expand-all
 bind -t vi-choice Space tree-toggle
+
+# edit mode management
+bind -t vi-edit C-c cancel
+bind -t vi-edit C-j enter
+bind -t vi-edit Enter enter
+bind -t vi-edit Left cursor-left
+bind -t vi-edit Right cursor-right
+bind -t vi-edit C-p history-up
+bind -t vi-edit C-n history-down
+bind -t vi-edit Escape switch-mode
+bind -t vi-edit Tab complete
+bind -t vi-edit C-h backspace
+bind -t vi-edit BSpace backspace
+bind -t vi-edit C-u delete-line
+bind -t vi-edit C-w delete-word
+
+bind -ct vi-edit C-c cancel
+bind -ct vi-edit C-j enter
+bind -ct vi-edit Enter enter
+bind -ct vi-edit Left cursor-left
+bind -ct vi-edit h cursor-left
+bind -ct vi-edit Right cursor-right
+bind -ct vi-edit l cursor-right
+bind -ct vi-edit C-p history-up
+bind -ct vi-edit k history-up
+bind -ct vi-edit C-n history-down
+bind -ct vi-edit j history-down
+bind -ct vi-edit i switch-mode
+bind -ct vi-edit 0 start-of-line
+bind -ct vi-edit ^ start-of-line
+bind -ct vi-edit $ end-of-line
+bind -ct vi-edit b previous-word
+bind -ct vi-edit B previous-space
+bind -ct vi-edit e next-word-end
+bind -ct vi-edit E next-space-end
+bind -ct vi-edit w next-word
+bind -ct vi-edit W next-space
+bind -ct vi-edit A switch-mode-append-line
+bind -ct vi-edit C switch-mode-change-line
+bind -ct vi-edit D delete-end-of-line
+bind -ct vi-edit I switch-mode-begin-line
+bind -ct vi-edit s switch-mode-substitute
+bind -ct vi-edit S switch-mode-substitute-line
+bind -ct vi-edit a switch-mode-append
+bind -ct vi-edit d delete-line
+bind -ct vi-edit x delete
+bind -ct vi-edit X backspace
+bind -ct vi-edit p paste
