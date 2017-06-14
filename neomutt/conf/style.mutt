@@ -2,6 +2,7 @@ source ~/.mutt/conf/colors.mutt
 
 # display sidebar by default
 set sidebar_visible = yes
+set sidebar_width = 31
 
 # shorten mailbox names in sidebar
 set sidebar_short_path = yes
