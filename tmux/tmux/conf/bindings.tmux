@@ -1,6 +1,7 @@
 # remove all default bindings
 unbind -T prefix -a
 unbind -T prefix -t vi-choice -a
+unbind -T prefix -t vi-copy -a
 unbind -T root -a
 
 # prefix
@@ -99,12 +100,66 @@ bind -T root M-J resize-pane -D 3
 bind -T root M-K resize-pane -U 3
 bind -T root M-L resize-pane -R 3
 
-
-# copy mode management
+# copy/paste
 bind ( copy-mode
 bind ) paste-buffer
+
+# copy mode management
+bind -t vi-copy C-c cancel
+bind -t vi-copy q cancel
+bind -t vi-copy C-b page-up
+bind -t vi-copy C-f page-down
+bind -t vi-copy C-d halfpage-down
+bind -t vi-copy C-u halfpage-up
+bind -t vi-copy C-e scroll-down
+bind -t vi-copy C-y scroll-up
+bind -t vi-copy h cursor-left
+bind -t vi-copy j cursor-down
+bind -t vi-copy k cursor-up
+bind -t vi-copy l cursor-right
+bind -t vi-copy g history-top
+bind -t vi-copy G history-bottom
+bind -t vi-copy H top-line
+bind -t vi-copy M middle-line
+bind -t vi-copy L bottom-line
+bind -t vi-copy D copy-end-of-line
+bind -t vi-copy 0 start-of-line
+bind -t vi-copy ^ back-to-indentation
+bind -t vi-copy $ end-of-line
+bind -t vi-copy b previous-word
+bind -t vi-copy B previous-space
+bind -t vi-copy e next-word-end
+bind -t vi-copy E next-space-end
+bind -t vi-copy w next-word
+bind -t vi-copy W next-space
+bind -t vi-copy f jump-forward
+bind -t vi-copy F jump-backward
+bind -t vi-copy t jump-to-forward
+bind -t vi-copy T jump-to-backward
+bind -t vi-copy \; jump-again
+bind -t vi-copy , jump-reverse
+bind -t vi-copy { previous-paragraph
+bind -t vi-copy } next-paragraph
+bind -t vi-copy o other-end
+bind -t vi-copy : goto-line
+bind -t vi-copy / search-forward
+bind -t vi-copy ? search-backward
+bind -t vi-copy n search-again
+bind -t vi-copy N search-reverse
+bind -t vi-copy '"' start-named-buffer
+bind -t vi-copy 1 start-number-prefix
+bind -t vi-copy 2 start-number-prefix
+bind -t vi-copy 3 start-number-prefix
+bind -t vi-copy 4 start-number-prefix
+bind -t vi-copy 5 start-number-prefix
+bind -t vi-copy 6 start-number-prefix
+bind -t vi-copy 7 start-number-prefix
+bind -t vi-copy 8 start-number-prefix
+bind -t vi-copy 9 start-number-prefix
 bind -t vi-copy v begin-selection
+bind -t vi-copy V select-line
 bind -t vi-copy y copy-selection
+bind -t vi-copy Escape clear-selection
 
 # choice mode management
 bind -t vi-choice q cancel
