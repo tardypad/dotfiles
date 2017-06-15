@@ -22,3 +22,13 @@ set pager_context = 3
 
 # don't go to next message at the end of the current message in pager
 set pager_stop = yes
+
+# hide the top help line
+set help = no
+
+# formats
+set date_format    = "%a %d %b %Y"
+set status_format  = "  [ Folder: %f ]  [ %m messages%?n? (%n new)?%?d? (%d to delete)? ]"
+set index_format   = "[%Z]  %D  %-25.25F  %s"
+set pager_format   = "  %F     %s%> %P"
+set sidebar_format = "%B %> %?N?%N?"

@@ -35,3 +35,7 @@ set delete = yes
 
 # do not pause to display informational message when switching folder
 set sleep_time = 0
+
+# periodically calculate message statistics of mailbox
+# (needed for sidebar display of new mails count)
+set mail_check_stats = yes
