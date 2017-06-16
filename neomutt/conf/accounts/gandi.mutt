@@ -8,6 +8,13 @@ set record = "+Sent"
 set postponed = "+Drafts"
 set trash = "+Trash"
 
+# common folders shortcut
+macro index,pager gi "<change-folder>+INBOX<Enter>"  "go to inbox folder"
+macro index,pager gd "<change-folder>+Drafts<Enter>" "go to drafts folder"
+macro index,pager gs "<change-folder>+Sent<Enter>"   "go to sent folder"
+macro index,pager gj "<enter-command><Enter>"        "noop (no spam folder)"
+macro index,pager gt "<change-folder>+Trash<Enter>"  "go to trash folder"
+
 mailboxes "+INBOX" \
           "+INBOX/Daily comics" \
           "+INBOX/Daily comics/TODO" \

@@ -416,10 +416,13 @@ bind editor \Cw kill-word
 bind editor <Tab> complete
 bind editor <BackSpace> backspace
 
+# Show documentation
+macro generic,pager <Esc>h "<shell-escape>less /usr/local/share/doc/mutt/manual.txt<Enter>" "Show documentation"
+
 # change account
-macro index <F1> "<change-folder>imaps://$my_gmail_perso_email@imap.gmail.com<Enter>"
-macro index <F2> "<change-folder>imaps://$my_gmail_work_email@imap.gmail.com<Enter>"
-macro index <F3> "<change-folder>imaps://$my_gandi_email@mail.gandi.net<Enter>"
+macro index,pager <F1> "<change-folder>imaps://$my_gmail_perso_email@imap.gmail.com<Enter>" "Gmail Perso"
+macro index,pager <F2> "<change-folder>imaps://$my_gmail_work_email@imap.gmail.com<Enter>"  "Gmail Work"
+macro index,pager <F3> "<change-folder>imaps://$my_gandi_email@mail.gandi.net<Enter>"       "Gandi Perso"
 
 # sidebar navigation
 bind index,pager \Cp sidebar-prev
