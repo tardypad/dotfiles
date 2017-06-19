@@ -1,5 +1,3 @@
-source ~/.mutt/conf/colors.mutt
-
 # display sidebar by default
 set sidebar_visible = yes
 set sidebar_width = 31
