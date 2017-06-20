@@ -16,6 +16,9 @@ let NERDTreeMinimalUI = 1
 " Show hidden files by default
 let NERDTreeShowHidden = 1
 
+" Define default width
+let g:NERDTreeWinSize = 30
+
 " Define files and folders to ignore by default
 let NERDTreeIgnore = [ '\.ctrlp$', '\.git$', '\.kdev4$', '.kateproject*', 'build$' ]
 
