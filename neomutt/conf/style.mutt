@@ -26,7 +26,7 @@ set help = no
 
 # formats
 set date_format    = "%a %d %b %Y"
-set status_format  = "  [ Folder: %f ]  [ %m messages%?n? (%n new)?%?d? (%d to delete)? ]"
-set index_format   = "[%Z]  %D  %-25.25F  %s"
+set status_format  = "  Folder: '%f'  %m messages%?n? (%n new)?%?d? (%d to delete)?%| "
+set index_format   = "%D  [%Z]  %-25.25F  %s %> %?M?(%M)?"
 set pager_format   = "  %F     %s%> %P"
 set sidebar_format = "%B %> %?N?%N?"
