@@ -5,3 +5,9 @@ Music server
 Source [Github](https://github.com/mopidy/mopidy)
 
 Version [2.1.0](https://github.com/mopidy/mopidy/releases/tag/v2.1.0)
+
+## Extensions
+
+- SomaFM backend  
+  Source [Github](https://github.com/AlexandrePTJ/mopidy-somafm)  
+  Version [1.0.1](https://github.com/AlexandrePTJ/mopidy-somafm/releases/tag/1.0.1)
