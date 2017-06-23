@@ -8,8 +8,9 @@ Personal configuration files
 | Name    | Purpose              |
 | ------- | -------------------- |
 | git     | version control      |
-| gnupg   | OpenPGP client
+| gnupg   | OpenPGP client       |
 | konsole | terminal emulator    |
+| mopidy  | music server         |
 | neomutt | mail client          |
 | openssh | SSH client           |
 | tmux    | terminal multiplexer |
@@ -44,8 +45,8 @@ Options:
                          by default local and all remote hosts are setup
 
 Available tools:
-git     gnupg   konsole neomutt openssh
-tmux    vim     weechat zsh
+git     gnupg   konsole mopidy  neomutt
+openssh tmux    vim     weechat zsh
 If no tool argument is passed, all of them are setup
 ```
 
