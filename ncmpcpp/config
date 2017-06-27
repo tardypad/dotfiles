@@ -1,0 +1,29 @@
+# disable mouse usage
+mouse_support = no
+
+# local collection directory
+mpd_music_dir = "/home/damien/Music"
+
+# startup screens
+startup_screen = playlist
+startup_slave_screen = media_library
+startup_slave_screen_focus = no
+
+# lyrics
+# storing lyrics in song dir doesn't seem to work...
+# so disabling it
+lyrics_directory = "~/.ncmpcpp/lyrics"
+store_lyrics_in_song_dir = no
+follow_now_playing_lyrics = yes
+fetch_lyrics_for_current_song_in_background = yes
+external_editor = vim
+use_console_editor = yes
+
+# display time of messages
+message_delay_time = 2
+
+# display time of highlight in playlist
+playlist_disable_highlight_delay = 2
+
+# change volume by steps of 5
+volume_change_step = 5

@@ -5,7 +5,7 @@ tmux -L "${socket}" \
   new-session -d \
   -s '4-Music' \
   -n 'client' \
-  ncmpcpp --screen playlist --slave-screen media_library
+  ncmpcpp
 
 
 tmux -L "${socket}" \
