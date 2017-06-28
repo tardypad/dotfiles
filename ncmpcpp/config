@@ -27,3 +27,54 @@ playlist_disable_highlight_delay = 2
 
 # change volume by steps of 5
 volume_change_step = 5
+
+# screen splitting
+locked_screen_width_part = 60
+ask_for_locked_screen_width_part = no
+
+# interface components
+header_visibility = yes
+statusbar_visibility = yes
+titles_visibility = yes
+
+# status bars components
+display_volume_level = yes
+display_bitrate = no
+display_remaining_time = no
+
+# song formats
+song_status_format = "{{%a{ / %y{ / %b}} / }{%t}}|{%f}"
+song_library_format = "{%n - }{%t}|{%f}"
+song_columns_list_format = "(20)[yellow]{a} (20)[green]{b} (6f)[]{nrE} (49)[]{t|f:Title} (7f)[]{lr}"
+
+# markers
+progressbar_look = "━●"
+empty_tag_marker = "--"
+
+# colors
+main_window_color = default
+header_window_color = red
+volume_color = green
+state_line_color = black
+state_flags_color = magenta
+progressbar_color = black
+progressbar_elapsed_color = cyan
+statusbar_color = default
+statusbar_time_color = green
+player_state_color = green
+window_border_color = yellow
+active_window_border = red
+empty_tag_color = default
+color1 = magenta
+color2 = cyan
+
+discard_colors_if_item_is_selected = no
+
+current_item_prefix = $(yellow)$r
+current_item_suffix = $/r$(end)
+current_item_inactive_column_prefix = $(yellow)
+current_item_inactive_column_suffix = $(end)
+now_playing_prefix = $(cyan)
+now_playing_suffix = $(end)
+selected_item_prefix = $(magenta)
+selected_item_suffix = $(end)
