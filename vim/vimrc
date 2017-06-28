@@ -78,11 +78,6 @@ set wildmenu
 " Define files to ignore in globbing / expanding / ...
 set wildignore+=*~,*.swp
 
-" Press twice ; to exit from insert, visual and command line mode
-imap ;; <Esc>
-vmap ;; <Esc>
-cmap ;; <C-c>
-
 " automatically reload file when modified outside of vim
 " and not modified locally
 set autoread

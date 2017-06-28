@@ -30,9 +30,6 @@ function TRAPINT() {
   return $(( 128 + $1 ))
 }
 
-# use ;; to go to normal mode
-bindkey -M viins ';;' vi-cmd-mode
-
 # Use Alt-. to insert last word of previous command
 bindkey -M viins '\e.' insert-last-word
 
