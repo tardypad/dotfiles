@@ -14,3 +14,6 @@ export READNULLCMD=less
 
 # define projects location
 export PROJECTS_DIR="$HOME/Projects"
+
+# decrease key timeout to 50ms
+export KEYTIMEOUT=5
