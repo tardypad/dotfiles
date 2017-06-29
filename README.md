@@ -11,6 +11,7 @@ Personal configuration files
 | gnupg   | OpenPGP client       |
 | konsole | terminal emulator    |
 | mopidy  | music server         |
+| mycli   | MySQL command line   |
 | ncmpcpp | MPD client           |
 | neomutt | mail client          |
 | openssh | SSH client           |
@@ -46,9 +47,9 @@ Options:
                          by default local and all remote hosts are setup
 
 Available tools:
-git     gnupg   konsole mopidy  ncmpcpp
-neomutt openssh tmux    vim     weechat
-zsh
+git     gnupg   konsole mopidy  mycli
+ncmpcpp neomutt openssh tmux    vim
+weechat zsh
 If no tool argument is passed, all of them are setup
 ```
 
