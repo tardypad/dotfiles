@@ -6,4 +6,5 @@ ncmpcpp::local::setup() {
 
   # copy config files
   local_copy "ncmpcpp/config" ".ncmpcpp/config"
+  local_copy "ncmpcpp/bindings" ".ncmpcpp/bindings"
 }
