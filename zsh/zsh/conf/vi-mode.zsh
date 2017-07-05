@@ -79,3 +79,8 @@ bindkey -M viins '\ep' up-history
 bindkey -M vicmd '\ep' up-history
 bindkey -M viins '\en' down-history
 bindkey -M vicmd '\en' down-history
+
+# disable usage of Ctrl-J as Enter
+bindkey -M viins '^j' self-insert
+bindkey -M vicmd '^j' self-insert
+bindkey -M isearch '^j' self-insert

@@ -35,6 +35,9 @@ vnoremap <PageDown> <nop>
 vnoremap <Home> <nop>
 vnoremap <End> <nop>
 
+" disable usage of Ctrl-J as Enter in command mode
+cnoremap <C-J> <nop>
+
 " Activate syntax coloring
 syntax enable
 

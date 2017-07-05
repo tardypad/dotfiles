@@ -179,7 +179,6 @@ bind -t vi-choice  Space tree-toggle
 
 # edit mode management
 bind -t vi-edit    C-c cancel
-bind -t vi-edit    C-j enter
 bind -t vi-edit  Enter enter
 bind -t vi-edit   Left cursor-left
 bind -t vi-edit  Right cursor-right
@@ -193,7 +192,6 @@ bind -t vi-edit    C-u delete-line
 bind -t vi-edit    C-w delete-word
 
 bind -ct vi-edit   C-c cancel
-bind -ct vi-edit   C-j enter
 bind -ct vi-edit Enter enter
 bind -ct vi-edit  Left cursor-left
 bind -ct vi-edit     h cursor-left

@@ -239,12 +239,6 @@ def_key "enter"
     run_action
 def_key "enter"
     play_item
-def_key "ctrl-j"
-    enter_directory
-def_key "ctrl-j"
-    run_action
-def_key "ctrl-j"
-    play_item
 
 
 # delete
