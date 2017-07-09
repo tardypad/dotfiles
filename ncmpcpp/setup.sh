@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/usr/bin/env zsh
 
 ncmpcpp::local::setup() {
   # create necessary directories

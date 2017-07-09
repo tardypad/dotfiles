@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/usr/bin/env zsh
 
 neomutt::local::setup() {
   # create necessary directories

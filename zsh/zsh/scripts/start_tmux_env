@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/usr/bin/env zsh
 
 COMMAND=${0:t}
 ENV_DIR_PATH=${0:A:h}/tmux_env
