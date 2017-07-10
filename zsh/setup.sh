@@ -7,6 +7,7 @@ zsh::local::setup() {
   # copy config files
   local_copy "zsh/zshrc" ".zshrc"
   local_copy "zsh/zshenv" ".zshenv"
+  local_copy "zsh/dircolors" ".dircolors"
   local_copy "zsh/zsh/conf" ".zsh/conf"
   local_copy "zsh/zsh/scripts" ".zsh/scripts"
   local_copy "zsh/zsh/completion" ".zsh/completion"
