@@ -1,6 +1,6 @@
 [Appearance]
 ColorScheme=Solarized
-Font=Source Code Pro,10,-1,5,25,0,0,0,0,0
+Font=Source Code Pro,14,-1,0,57,0,0,0,0,0
 LineSpacing=0
 
 [Cursor Options]

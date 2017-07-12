@@ -2,12 +2,12 @@ QTabBar {
     background-color: #002b36;
     alignment: center;
     icon-size: 0px;
-    border-bottom: 1px solid #859900;
+    border-bottom: 2px solid #859900;
 }
 QTabBar::tab {
-    font-size: 14px;
+    font-size: 22px;
     font-family: "Source Code Pro";
-    height: 22px;
+    height: 36px;
     border: 0px;
     padding: 0px;
     color: #839496;
