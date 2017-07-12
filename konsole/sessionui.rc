@@ -57,9 +57,9 @@
  </Menu>
  <ActionProperties scheme="Default">
   <Action shortcut="" name="adjust-history"/>
-  <Action shortcut="" name="clear-history"/>
+  <Action shortcut="Ctrl+Shift+L" name="clear-history"/>
   <Action shortcut="" name="clear-history-and-reset"/>
-  <Action shortcut="" name="close-session"/>
+  <Action shortcut="Ctrl+Shift+X" name="close-session"/>
   <Action shortcut="" name="copy-input-to"/>
   <Action shortcut="" name="copy-input-to-all-tabs"/>
   <Action shortcut="" name="copy-input-to-none"/>
