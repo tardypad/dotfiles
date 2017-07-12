@@ -11,5 +11,5 @@ ShowMenuBarByDefault=false
 [TabBar]
 TabBarPosition=Top
 TabBarUseUserStyleSheet=true
-TabBarUserStyleSheetFile=file:///home/damien/.kde/share/apps/konsole/tabbar-stylesheet.css
+TabBarUserStyleSheetFile=file:///home/damien/.local/share/konsole/tabbar-stylesheet.css
 TabBarVisibility=ShowTabBarWhenNeeded

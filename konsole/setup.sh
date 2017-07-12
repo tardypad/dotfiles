@@ -3,6 +3,14 @@
 konsole::local::setup() {
   # create necessary directories
   mkdir -p ~/.fonts
+  mkdir -p ~/.config
+  mkdir -p ~/.local/share/konsole
+  mkdir -p ~/.local/share/kxmlgui5/konsole
+
+  # copy config files
+  local_copy "konsole/konsolerc" ".config/konsolerc"
+  local_copy "konsole/konsole" ".local/share/konsole"
+  local_copy "konsole/kxmlgui5" ".local/share/kxmlgui5/konsole"
 
   # install Adobe Source Code Pro font if not present
   if [[ ! -d ~/.fonts/source-code-pro/ ]]; then
