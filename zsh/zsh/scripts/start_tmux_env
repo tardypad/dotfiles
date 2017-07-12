@@ -76,7 +76,9 @@ start_target_tmux_env() {
     ) )
   fi
 
-  fortune -acws -n 300
+  if command -v fortune &> /dev/null; then
+    fortune -acws -n 300
+  fi
 
   if [[ "${HOST}" == 'localhost' ]]; then
     for script_path in ${scripts_path}; do
