@@ -70,7 +70,7 @@ get_konsole() {
   # global environment setup
   qdbus "${qdbus_service}" /MainApplication org.qtproject.Qt.QCoreApplication.applicationName 'konsole_env' &> /dev/null
   qdbus "${qdbus_service}" /konsole/MainWindow_1 org.qtproject.Qt.QWidget.showFullScreen &> /dev/null
-  qdbus "${qdbus_service}" /konsole/MainWindow_1 org.qtproject.Qt.QWidget.windowOpacity 0.9 &> /dev/null
+  qdbus "${qdbus_service}" /konsole/MainWindow_1 org.qtproject.Qt.QWidget.windowOpacity 0.8 &> /dev/null
 
   echo "${qdbus_service}" 1
 }
