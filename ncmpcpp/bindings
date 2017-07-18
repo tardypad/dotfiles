@@ -55,8 +55,6 @@ def_key "="
     dummy
 def_key "~"
     dummy
-def_key "@"
-    dummy
 def_key "."
     dummy
 def_key ","
@@ -65,11 +63,7 @@ def_key "|"
     dummy
 def_key "\\"
     dummy
-def_key "!"
-    dummy
 def_key "`"
-    dummy
-def_key "#"
     dummy
 def_key "B"
     dummy
@@ -230,6 +224,21 @@ def_key "<"
     seek_backward
 def_key ">"
     seek_forward
+
+
+# modes
+def_key "!"
+    toggle_single
+def_key "@"
+    toggle_repeat
+def_key "#"
+    toggle_random
+def_key "$"
+    toggle_consume
+def_key "%"
+    toggle_replay_gain_mode
+def_key "^"
+    toggle_crossfade
 
 
 # enter
