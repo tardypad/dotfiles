@@ -1,0 +1,66 @@
+#command
+
+# general
+q       quit
+:q      quit
+\eh     help
+:h      help
+^L      repaint
+0       digit
+1       digit
+2       digit
+3       digit
+4       digit
+5       digit
+6       digit
+7       digit
+8       digit
+9       digit
+-       toggle-option
+_       display-option
+|       pipe
+!       shell
++       firstcmd
+v       visual
+s       toggle-option o
+=       status
+f       forw-forever
+
+# navigation
+j       forw-line
+^E      forw-line
+k       back-line
+^Y      back-line
+h       left-scroll
+l       right-scroll
+^D      forw-scroll
+^U      back-scroll
+^F      forw-window
+^B      back-window
+g       goto-line
+G       goto-end
+%       percent
+m       set-mark
+'       goto-mark
+
+# search
+/       forw-search
+?       back-search
+n       repeat-search
+N       reverse-search
+\en     repeat-search-all
+\eN     reverse-search-all
+&       filter
+\n      undo-hilite
+
+# files
+^n      next-file
+:n      next-file
+^p      prev-file
+:p      prev-file
+:e      examine
+:d      remove-file
+:1      index-file
+
+# next line prevents less from defining default keybindings
+#stop
