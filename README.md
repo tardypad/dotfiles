@@ -5,6 +5,8 @@ Personal configuration files
 
 ## Tools
 
+All tools selected are open source.
+
 | Name    | Purpose              |
 | ------- | -------------------- |
 | git     | version control      |
@@ -21,15 +23,14 @@ Personal configuration files
 | weechat | chat client          |
 | zsh     | shell                |
 
-See each individual tool README for more information
-
-
-## Theme
+See each individual tool folder README for more information.
 
 All tools are configured to use the dark
-[Solarized](http://ethanschoonover.com/solarized) color palette
+[Solarized](http://ethanschoonover.com/solarized) color palette.
 
-All tools are configured to use as much as possible vim-like keybindings
+Most keybindings are minimalized to keep only relevant ones
+and configured to be as much vim-like as possible.  
+They also try to be consistent across tools.
 
 
 ## Setup
