@@ -62,5 +62,34 @@ N       reverse-search
 :d      remove-file
 :1      index-file
 
-# next line prevents less from defining default keybindings
+# next line prevents less from defining default command keybindings
+#stop
+
+
+#line-edit
+
+\kr     right
+\el     right
+\kl     left
+\eh     left
+^B      home
+^E      end
+\eb     word-left
+\eB     word-left
+\ew     word-right
+\eW     word-right
+\ee     word-right
+\eE     word-right
+\ex     delete
+\kx     delete
+\ed     word-delete
+\eD     word-delete
+^W      word-backspace
+\ku     up
+^P      up
+\kd     down
+^N      down
+\t      forw-complete
+
+# next line prevents less from defining default line-edit keybindings
 #stop
