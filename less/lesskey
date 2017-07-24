@@ -93,3 +93,13 @@ N       reverse-search
 
 # next line prevents less from defining default line-edit keybindings
 #stop
+
+
+#env
+
+# pre/post processors with lesspipe
+LESSOPEN = | lesspipe %s
+LESSCLOSE = lesspipe %s %s
+
+# default arguments
+LESS = --ignore-case --line-numbers
