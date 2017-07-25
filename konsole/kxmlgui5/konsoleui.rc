@@ -74,12 +74,12 @@
   <Action shortcut="Ctrl+Shift+C" name="new-tab"/>
   <Action shortcut="" name="new-window"/>
   <Action shortcut="" name="next-container"/>
-  <Action shortcut="Ctrl+Shift+N" name="next-view"/>
+  <Action shortcut="Ctrl+Shift+N; Ctrl+Shift+L" name="next-view"/>
   <Action shortcut="" name="options_configure"/>
   <Action shortcut="" name="options_configure_keybinding"/>
   <Action shortcut="" name="options_configure_notifications"/>
   <Action shortcut="Ctrl+Shift+M" name="options_show_menubar"/>
-  <Action shortcut="Ctrl+Shift+P" name="previous-view"/>
+  <Action shortcut="Ctrl+Shift+P; Ctrl+Shift+H" name="previous-view"/>
   <Action shortcut="" name="shrink-active-view"/>
   <Action shortcut="" name="split-view-left-right"/>
   <Action shortcut="" name="split-view-top-bottom"/>

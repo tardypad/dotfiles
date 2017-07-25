@@ -30,7 +30,9 @@ bind F1 run "~/.tmux/scripts/do_it_live.sh"
 bind    C-s run "~/.tmux/scripts/choose_tree_left.sh sessions"
 bind    C-a switch-client -l
 bind -r C-n switch-client -n
+bind -r C-j switch-client -n
 bind -r C-p switch-client -p
+bind -r C-k switch-client -p
 bind    C-0 switch-client -t 0-
 bind    C-1 switch-client -t 1-
 bind    C-2 switch-client -t 2-
@@ -50,7 +52,9 @@ bind    w run "~/.tmux/scripts/choose_tree_left.sh windows"
 bind    f command-prompt "find-window -N -F '#{window_name}' '%%'"
 bind    a last-window
 bind -r n next-window
+bind -r l next-window
 bind -r p previous-window
+bind -r h previous-window
 bind    0 select-window -t :=0
 bind    1 select-window -t :=1
 bind    2 select-window -t :=2
