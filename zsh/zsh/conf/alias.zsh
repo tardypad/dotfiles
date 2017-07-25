@@ -18,3 +18,6 @@ alias PJ='goto_project_main'
 alias lxc-console="lxc-console --escape='^q'"
 
 alias mycli='mycli --defaults-group-suffix=_mycli'
+
+# flush all .log files recursively in the current dir
+alias flush_logs="find . -type f -name '*.log' -exec /bin/sh -c \"> '{}'\" \;"
