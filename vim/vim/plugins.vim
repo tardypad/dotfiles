@@ -25,6 +25,10 @@ Plug 'tpope/vim-fugitive',
 Plug 'airblade/vim-gitgutter',
   \ { 'as': 'gitgutter' }
 
+" Tag bar
+Plug 'majutsushi/tagbar',
+  \ { 'as': 'tagbar' }
+
 " Text alignment
 Plug 'godlygeek/tabular',
   \ { 'as': 'tabular' }
