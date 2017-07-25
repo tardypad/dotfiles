@@ -131,5 +131,9 @@ Plug 'elmcast/elm-vim',
 Plug 'stanangeloff/php.vim',
   \ { 'as': 'php', 'for': 'php' }
 
+" Improved tag bar for PHP
+Plug 'vim-php/tagbar-phpctags.vim',
+  \ { 'as': 'tagbar-phpctags' }
+
 
 call plug#end()
