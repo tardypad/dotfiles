@@ -359,6 +359,7 @@ bind index <Return> display-message
 bind index,pager m mail
 bind index,pager f forward-message
 bind index,pager r reply
+bind index,pager s save-message
 
 # navigation
 bind generic,index,pager j next-entry
@@ -399,6 +400,8 @@ bind index,pager ut undelete-thread
 # attachments
 bind index,pager v view-attachments
 bind attach v view-mailcap
+bind attach <Return> view-attach
+macro attach s <save-entry><bol>/home/damien/Downloads/<eol>
 
 # threads
 bind index za collapse-thread
