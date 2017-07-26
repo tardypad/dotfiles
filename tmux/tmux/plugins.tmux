@@ -6,5 +6,5 @@ set -g @shell_mode 'vi'
 
 # define plugins
 set -g @plugin 'tmux-plugins/tpm'
-if -F "$DISPLAY" "set -g @plugin 'tmux-plugins/tmux-yank'"
-if -F "$DISPLAY" "set -g @plugin 'tmux-plugins/tmux-open'"
+set -g @plugin 'tmux-plugins/tmux-yank'
+set -g @plugin 'tmux-plugins/tmux-open'
