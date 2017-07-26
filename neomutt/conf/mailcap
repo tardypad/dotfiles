@@ -1,4 +1,13 @@
+# open plain text in less pager
+text/plain; less '%s'; needsterminal
+
 # open external browser to view html attachments
 text/html; xdg-open %s; test=test -n "$DISPLAY"; needsterminal
 # use elinks to display html in pager
 text/html; elinks -dump %s; nametemplate=%s.html; copiousoutput
+
+# use default GUI application to view other type of attachments
+image/*; xdg-open %s; test=test -n "$DISPLAY";
+audio/*; xdg-open %s; test=test -n "$DISPLAY";
+video/*; xdg-open %s; test=test -n "$DISPLAY";
+application/*; xdg-open %s; test=test -n "$DISPLAY";
