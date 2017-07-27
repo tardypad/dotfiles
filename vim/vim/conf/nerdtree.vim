@@ -1,6 +1,6 @@
-" ,nn go to NERDTree window in its current state
-" ,n! go to NERDTree window in its initial state
-" ,nq hide NERDTree window
+" \nn go to NERDTree window in its current state
+" \n! go to NERDTree window in its initial state
+" \nq hide NERDTree window
 nnoremap <silent> <Leader>nn :NERDTreeFocus<CR>
 nnoremap <silent> <Leader>n! :NERDTree<CR>
 nnoremap <silent> <Leader>nq :NERDTreeClose<CR>

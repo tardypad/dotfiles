@@ -4,9 +4,6 @@ set nocompatible          " Cancel the compatibility with Vi
 " Define the plugins
 source ~/.vim/plugins.vim
 
-" Define new leader key
-let mapleader = ","
-
 " Disable arrow keys usage to break bad habits
 noremap <Up> <nop>
 noremap <Down> <nop>

@@ -1,5 +1,5 @@
-" ,tt go to Tagbar window
-" ,tq hide Tagbar window
+" \tt go to Tagbar window
+" \tq hide Tagbar window
 nnoremap <silent> <Leader>tt :TagbarOpen j<CR>
 nnoremap <silent> <Leader>tq :TagbarClose<CR>
 

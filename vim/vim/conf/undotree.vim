@@ -1,5 +1,5 @@
-" ,uu go to Undotree window
-" ,uq hide Undotree window
+" \uu go to Undotree window
+" \uq hide Undotree window
 nnoremap <silent> <Leader>uu :UndotreeShow<CR>
 nnoremap <silent> <Leader>uq :UndotreeHide<CR>
 

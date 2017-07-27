@@ -1,6 +1,6 @@
-" ,ef open CtrlP in files mode
-" ,eb open CtrlP in buffers mode
-" ,em open CtrlP in MRU mode
+" \ef open CtrlP in files mode
+" \eb open CtrlP in buffers mode
+" \em open CtrlP in MRU mode
 let g:ctrlp_map = '<Leader>ef'
 nnoremap <silent> <Leader>eb :CtrlPBuffer<CR>
 nnoremap <silent> <Leader>em :CtrlPMRU<CR>

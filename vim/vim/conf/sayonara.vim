@@ -29,4 +29,4 @@ endfunction
 nnoremap <silent> <Leader>q :call<SID>SanerSayonara()<CR>
 
 " delete the current buffer and preserve the current window
-nnoremap <silent> <leader>Q :Sayonara!<CR>
+nnoremap <silent> <Leader>Q :Sayonara!<CR>
