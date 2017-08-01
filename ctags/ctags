@@ -1,0 +1,9 @@
+--recurse=yes
+
+--exclude=.git
+--exclude=build
+--exclude=vendor
+
+--exclude=*.min.js
+
+--languages=-html,css,json,ant,xslt

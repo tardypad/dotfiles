@@ -9,6 +9,7 @@ All tools selected are open source.
 
 | Name    | Purpose              |
 | ------- | -------------------- |
+| ctags   | sources indexation   |
 | git     | version control      |
 | gnupg   | OpenPGP client       |
 | konsole | terminal emulator    |
@@ -49,9 +50,9 @@ Options:
                          by default local and all remote hosts are setup
 
 Available tools:
-git     gnupg   konsole less    mopidy
-mycli   ncmpcpp neomutt openssh tmux
-vim     weechat zsh
+ctags   git     gnupg   konsole less
+mopidy  mycli   ncmpcpp neomutt openssh
+tmux    vim     weechat zsh
 If no tool argument is passed, all of them are setup
 ```
 
