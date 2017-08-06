@@ -56,7 +56,10 @@ get_konsole() {
   done
 
   # if no konsole env, start one in a separate service
-  konsole --separate --profile Shell &> /dev/null
+  konsole --separate --profile Shell &> /dev/null &
+
+  # need to wait a bit for the qdbus service to get "registered"
+  sleep 0.1
 
   # use the service of the new konsole
   local qdbus_service
