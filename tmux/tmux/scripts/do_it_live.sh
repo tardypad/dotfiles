@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env zsh
 
 image_path=~/.tmux/images/doitlive
 session_name="Fuck it, we will do it live!"
