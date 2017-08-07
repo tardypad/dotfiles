@@ -56,30 +56,19 @@ activate_konsole_window() {
 }
 
 
-get_konsole_current_tab_name() {
-  local qdbus_service="$1"
-
-  local current_tab=$(
-    qdbus "${qdbus_service}" /Windows/1 org.kde.konsole.Window.currentSession
-  )
-
-  qdbus "${qdbus_service}" "/Sessions/${current_tab}" org.kde.konsole.Session.title 1
-}
-
-
 switch_konsole_tab() {
   local qdbus_service="$1"
-  local tab_name="$2"
+  local target_tab_name="$2"
 
-  local initial_tab_name=$( get_konsole_current_tab_name "${qdbus_service}" )
+  for id in $(qdbus "${qdbus_service}" /Windows/1 org.kde.konsole.Window.sessionList); do
+    local tab_name=$(
+      qdbus "${qdbus_service}" "/Sessions/${id}" org.kde.konsole.Session.title 1
+    )
 
-  [[ "${initial_tab_name}" =~ ".*${KONSOLE_TAB_NAME}.*" ]] && return
-
-  local current_tab_name=
-  while [[ ! "${current_tab_name}" =~ ".*${KONSOLE_TAB_NAME}.*" \
-          && "${current_tab_name}" != "${initial_tab_name}" ]]; do
-    qdbus "${qdbus_service}" /Windows/1 org.kde.konsole.Window.nextSession &> /dev/null
-    current_tab_name=$( get_konsole_current_tab_name "${qdbus_service}" )
+    if [[ "${tab_name}" =~ ".*${target_tab_name}.*" ]]; then
+      qdbus "${qdbus_service}" /Windows/1 org.kde.konsole.Window.setCurrentSession "${id}" &> /dev/null
+      return
+    fi
   done
 }
 

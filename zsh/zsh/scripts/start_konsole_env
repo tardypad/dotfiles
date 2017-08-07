@@ -82,14 +82,8 @@ get_konsole() {
 get_sessions_title() {
   local qdbus_service="$1"
 
-  local sessions_number=( $(
-    qdbus "${qdbus_service}" \
-      | grep '/Sessions/' \
-      | sed -r 's/\/Sessions\/([0-9]+)/\1/'
-  ) )
-
-  for i in $sessions_number; do
-     qdbus "${qdbus_service}" "/Sessions/$i" org.kde.konsole.Session.title 1
+  for id in $(qdbus "${qdbus_service}" /Windows/1 org.kde.konsole.Window.sessionList); do
+     qdbus "${qdbus_service}" "/Sessions/${id}" org.kde.konsole.Session.title 1
   done
 }
 
