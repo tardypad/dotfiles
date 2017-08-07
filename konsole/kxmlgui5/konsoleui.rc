@@ -53,6 +53,7 @@
   <Action shortcut="Ctrl+Shift+F10" name="activate-menu"/>
   <Action shortcut="" name="add_bookmark"/>
   <Action shortcut="" name="add_bookmarks_list"/>
+  <Action shortcut="Alt+`" name="alternate-tab"/>
   <Action shortcut="" name="clone-tab"/>
   <Action shortcut="" name="close-active-view"/>
   <Action shortcut="" name="close-other-views"/>
