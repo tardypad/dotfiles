@@ -1,8 +1,10 @@
 #!/bin/bash
 
-function init_local_files()
+function init_todo()
 {
-cat > TODO << EOF
+  [[ -f TODO ]] && return
+
+  cat > TODO << EOF
 Cleaning:
 
 Bugs:
@@ -20,6 +22,6 @@ Research:
 EOF
 }
 
-init_local_files
+init_todo
 
 exit 0
