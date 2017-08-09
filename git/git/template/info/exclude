@@ -1,10 +1,5 @@
-# personal files
+# personal
 TODO
-.kateproject*
-*.kdev4
 
-# system files
-*~
-.directory
-*.swp
-*.kate-swp
+# build
+build/

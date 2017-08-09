@@ -1,0 +1,11 @@
+# tools
+.kateproject*
+*.kdev4
+
+# system
+.directory
+
+# temporary
+*~
+*.swp
+*.kate-swp
