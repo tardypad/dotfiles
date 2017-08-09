@@ -1,8 +1,11 @@
 #!/usr/bin/env zsh
 
 git::local::setup() {
+  # create necessary directories
+  mkdir -p ~/.config/git
+
   # copy config files
-  local_copy "git/gitconfig" ".gitconfig"
-  local_copy "git/gitconfig.local" ".gitconfig.local"
-  local_copy "git/template" ".git-template"
+  local_copy "git/git/config" ".config/git/config"
+  local_copy "git/git/config.local" ".config/git/config.local"
+  local_copy "git/git/template" ".config/git/template"
 }

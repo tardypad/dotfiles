@@ -45,9 +45,9 @@
 [url "github:tardypad/"]
         insteadOf = github:
 [include]
-        path = .gitconfig.local
+        path = ~/.config/git/config.local
 [init]
-        templatedir = ~/.git-template
+        templatedir = ~/.config/git/template
 
 # colored git help
 [man]
