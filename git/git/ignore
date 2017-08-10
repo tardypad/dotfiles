@@ -1,6 +1,8 @@
 # tools
 .kateproject*
 *.kdev4
+.tags*
+.notags
 
 # system
 .directory
