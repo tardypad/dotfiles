@@ -29,6 +29,10 @@ Plug 'airblade/vim-gitgutter',
 Plug 'majutsushi/tagbar',
   \ { 'as': 'tagbar' }
 
+" Tag management
+Plug 'ludovicchabant/vim-gutentags',
+  \ { 'as': 'gutentags' }
+
 " Text alignment
 Plug 'godlygeek/tabular',
   \ { 'as': 'tabular' }
