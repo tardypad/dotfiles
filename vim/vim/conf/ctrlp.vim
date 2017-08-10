@@ -14,11 +14,11 @@ let g:ctrlp_show_hidden = 1
 " Define files and folders to ignore
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|build$\|\.kdev4$\|\.kateproject.d$',
-  \ 'file': '\.kdev4$\|\.kateproject\|\.ctrlp$',
+  \ 'file': '\.kdev4$\|\.kateproject\|\.root$',
   \ }
 
 " Define custom root folder markers
-let g:ctrlp_root_markers = [ '.ctrlp' ]
+let g:ctrlp_root_markers = [ '.root' ]
 
 " open multiple selected files in only one vertical split window
 let g:ctrlp_open_multiple_files = '1v'
