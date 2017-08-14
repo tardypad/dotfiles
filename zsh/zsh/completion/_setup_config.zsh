@@ -1,21 +1,28 @@
 #compdef setup_config
 
-local tools
-local options
+_tools() {
+  local tools=( $(
+    find . \
+      -maxdepth 1 -type d \
+      ! -name '.*' \
+      -printf '%f '
+  ) )
 
-# find all tools
-tools=$(
-  find . \
-    -maxdepth 1 -type d \
-    ! -name '.*' \
-    -printf '%f '
-)
+  compadd "$@" $tools
+}
 
-options='
-  -h --help
-  -d --dest
-'
+_destinations() {
+  typeset -Ag remote_hosts
+  remote_hosts=( $(
+    [[ -f ./remote_hosts ]] && cat ./remote_hosts
+  ) )
+  local destinations=( ${(k)remote_hosts} )
+  destinations+=( local remote )
 
-_alternative \
-  "1:Options:($options)" \
-  "2:Tools:($tools)"
+  compadd "$@" $destinations
+}
+
+_arguments \
+  '(-d --dest)'{-d,--dest}'[destination to setup]:destination:_destinations' \
+  '(-h --help)'{-h,--help}'[display the help]' \
+  '*:tools:_tools'
