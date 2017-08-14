@@ -5,7 +5,7 @@ desktop_path=/home/damien/Desktop
 
 tmux -L "${socket}" \
   new-session -d \
-  -s '1-Terminal' \
+  -s '01-Terminal' \
   -n 'root' \
   -c "${desktop_path}"
 

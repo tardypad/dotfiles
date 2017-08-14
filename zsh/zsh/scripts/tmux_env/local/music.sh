@@ -3,7 +3,7 @@ socket="$1"
 
 tmux -L "${socket}" \
   new-session -d \
-  -s '4-Music' \
+  -s '04-Music' \
   -n 'client' \
   ncmpcpp
 

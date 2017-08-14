@@ -3,7 +3,7 @@ socket="$1"
 
 tmux -L "${socket}" \
   new-session -d \
-  -s '3-Mail' \
+  -s '03-Mail' \
   -n 'client' \
   mutt
 

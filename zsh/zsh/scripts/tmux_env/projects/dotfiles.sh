@@ -5,7 +5,7 @@ dotfiles_path=/home/damien/Projects/tardypad/dotfiles
 
 tmux -L "${socket}" \
   new-session -d \
-  -s '1-Dotfiles' \
+  -s '01-Dotfiles' \
   -n 'terminal' \
   -c "${dotfiles_path}"
 
