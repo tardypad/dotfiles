@@ -2,7 +2,7 @@
 
 ncmpcpp::local::setup() {
   # create necessary directories
-  mkdir -p ~/.ncmpcpp
+  mkdir -p "${HOME}/.ncmpcpp"
 
   # copy config files
   local_copy "ncmpcpp/config" ".ncmpcpp/config"

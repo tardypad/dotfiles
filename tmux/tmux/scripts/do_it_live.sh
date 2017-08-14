@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-image_path=~/.tmux/images/doitlive
+image_path="${HOME}/.tmux/images/doitlive"
 session_name="Fuck it, we will do it live!"
 window_name="What could possibly go wrong?"
 

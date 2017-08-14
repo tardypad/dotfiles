@@ -2,7 +2,7 @@
 mouse_support = no
 
 # local collection directory
-mpd_music_dir = "/home/damien/Music"
+mpd_music_dir = ~/Music
 
 # startup screens
 startup_screen = playlist
@@ -12,7 +12,7 @@ startup_slave_screen_focus = no
 # lyrics
 # storing lyrics in song dir doesn't seem to work...
 # so disabling it
-lyrics_directory = "~/.ncmpcpp/lyrics"
+lyrics_directory = ~/.ncmpcpp/lyrics
 store_lyrics_in_song_dir = no
 follow_now_playing_lyrics = yes
 fetch_lyrics_for_current_song_in_background = yes

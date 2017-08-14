@@ -2,7 +2,7 @@
 
 weechat::local::setup() {
   # create necessary directories
-  mkdir -p ~/.weechat/{python,perl}/autoload
+  mkdir -p "${HOME}/.weechat/"{python,perl}/autoload
 
   # copy config files
   local_copy "weechat/weechat/alias.conf" ".weechat/alias.conf"
@@ -22,50 +22,50 @@ weechat::local::setup() {
 
   # install wee-slack if not present
   # version from github is more recent than one in weechat scripts repo
-  if [[ ! -f ~/.weechat/python/wee_slack.py ]]; then
+  if [[ ! -f "${HOME}/.weechat/python/wee_slack.py" ]]; then
     curl --silent --location --create-dirs \
       https://raw.githubusercontent.com/rawdigits/wee-slack/master/wee_slack.py \
-      --output ~/.weechat/python/wee_slack.py
-    ln -s ../wee_slack.py ~/.weechat/python/autoload/wee_slack.py
+      --output "${HOME}/.weechat/python/wee_slack.py"
+    ln -s ../wee_slack.py "${HOME}/.weechat/python/autoload/wee_slack.py"
   fi
 
   # install buffers.pl script if not present
-  if [[ ! -f ~/.weechat/perl/buffers.pl ]]; then
+  if [[ ! -f "${HOME}/.weechat/perl/buffers.pl" ]]; then
     curl --silent --location --create-dirs \
       https://weechat.org/files/scripts/buffers.pl \
-      --output ~/.weechat/perl/buffers.pl
-    ln -s ../buffers.pl ~/.weechat/perl/autoload/buffers.pl
+      --output "${HOME}/.weechat/perl/buffers.pl"
+    ln -s ../buffers.pl "${HOME}/.weechat/perl/autoload/buffers.pl"
   fi
 
   # install colorize_nicks.py script if not present
-  if [[ ! -f ~/.weechat/python/colorize_nicks.py ]]; then
+  if [[ ! -f "${HOME}/.weechat/python/colorize_nicks.py" ]]; then
     curl --silent --location --create-dirs \
       https://weechat.org/files/scripts/colorize_nicks.py \
-      --output ~/.weechat/python/colorize_nicks.py
-    ln -s ../colorize_nicks.py ~/.weechat/python/autoload/colorize_nicks.py
+      --output "${HOME}/.weechat/python/colorize_nicks.py"
+    ln -s ../colorize_nicks.py "${HOME}/.weechat/python/autoload/colorize_nicks.py"
   fi
 
   # install vimode script if not present
-  if [[ ! -f ~/.weechat/python/vimode.py ]]; then
+  if [[ ! -f "${HOME}/.weechat/python/vimode.py" ]]; then
     curl --silent --location --create-dirs \
       https://raw.githubusercontent.com/GermainZ/weechat-vimode/master/vimode.py \
-      --output ~/.weechat/python/vimode.py
-    ln -s ../vimode.py ~/.weechat/python/autoload/vimode.py
+      --output "${HOME}/.weechat/python/vimode.py"
+    ln -s ../vimode.py "${HOME}/.weechat/python/autoload/vimode.py"
   fi
 
   # install go.py script if not present
-  if [[ ! -f ~/.weechat/python/go.py ]]; then
+  if [[ ! -f "${HOME}/.weechat/python/go.py" ]]; then
     curl --silent --location --create-dirs \
       https://weechat.org/files/scripts/go.py \
-      --output ~/.weechat/python/go.py
-    ln -s ../go.py ~/.weechat/python/autoload/go.py
+      --output "${HOME}/.weechat/python/go.py"
+    ln -s ../go.py "${HOME}/.weechat/python/autoload/go.py"
   fi
 
   # install urlgrab script if not present
-  if [[ ! -f ~/.weechat/python/urlgrab.py ]]; then
+  if [[ ! -f "${HOME}/.weechat/python/urlgrab.py" ]]; then
     curl --silent --location --create-dirs \
       https://weechat.org/files/scripts/urlgrab.py \
-      --output ~/.weechat/python/urlgrab.py
-    ln -s ../urlgrab.py ~/.weechat/python/autoload/urlgrab.py
+      --output "${HOME}/.weechat/python/urlgrab.py"
+    ln -s ../urlgrab.py "${HOME}/.weechat/python/autoload/urlgrab.py"
   fi
 }

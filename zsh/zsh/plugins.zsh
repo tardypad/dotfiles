@@ -1,5 +1,5 @@
 # load plugins manager
-source ~/.zplug/init.zsh
+source "${HOME}/.zplug/init.zsh"
 
 # a progress spinner for ZSH scripts
 zplug "molovo/revolver", \

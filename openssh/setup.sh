@@ -2,7 +2,7 @@
 
 openssh::local::setup() {
   # create necessary directories
-  mkdir -p ~/.ssh
+  mkdir -p "${HOME}/.ssh"
 
   # copy config files
   cat "openssh/config" "openssh/config.local" \
@@ -18,7 +18,7 @@ openssh::remote::setup() {
   local host="$1"
 
   # create necessary directories
-  remote_exec "${host}" 'mkdir -p ~/.ssh'
+  remote_exec "${host}" 'mkdir -p "${HOME}/.ssh"'
 
   # copy config files
   remote_copy "${host}" "openssh/config_${host}" ".ssh/config"

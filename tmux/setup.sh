@@ -2,7 +2,7 @@
 
 tmux::local::setup() {
   # create necessary directories
-  mkdir -p ~/.tmux
+  mkdir -p "${HOME}/.tmux"
 
   # copy config files
   local_copy "tmux/tmux.conf" ".tmux.conf"
@@ -12,12 +12,12 @@ tmux::local::setup() {
   local_copy "tmux/tmux/images" ".tmux/images"
 
   # install the plugins manager if not present
-  [[ -d ~/.tmux/plugins/tpm ]] \
+  [[ -d "${HOME}/.tmux/plugins/tpm" ]] \
     || git clone --quiet https://github.com/tmux-plugins/tpm \
-       ~/.tmux/plugins/tpm
+       "${HOME}/.tmux/plugins/tpm"
 
   # install the configured plugins
-  ~/.tmux/plugins/tpm/bin/install_plugins \
+  "${HOME}/.tmux/plugins/tpm/bin/install_plugins" \
     > /dev/null 2>&1
 }
 
@@ -26,7 +26,7 @@ tmux::remote::setup() {
   local host="$1"
 
   # create necessary directories
-  remote_exec "${host}" '[[ -d ~/.tmux ]] || mkdir ~/.tmux'
+  remote_exec "${host}" '[[ -d "${HOME}/.tmux" ]] || mkdir "${HOME}/.tmux"'
 
   # copy config files
   remote_copy "${host}" "tmux/tmux.conf" ".tmux.conf"
@@ -36,11 +36,11 @@ tmux::remote::setup() {
   remote_copy "${host}" "tmux/tmux/images" ".tmux/images"
 
   # install the plugins manager if not present
-  remote_exec "${host}" '[[ -d ~/.tmux/plugins/tpm ]] \
+  remote_exec "${host}" '[[ -d "${HOME}/.tmux/plugins/tpm" ]] \
     || git clone --quiet https://github.com/tmux-plugins/tpm \
-       ~/.tmux/plugins/tpm'
+       "${HOME}/.tmux/plugins/tpm"'
 
   # install the configured plugins
-  remote_exec "${host}" '~/.tmux/plugins/tpm/bin/install_plugins \
+  remote_exec "${host}" '"${HOME}/tmux/plugins/tpm/bin/install_plugins" \
     > /dev/null 2>&1'
 }

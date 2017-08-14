@@ -1,12 +1,12 @@
 # register local completions folder
-fpath=(~/.zsh/completion/ $fpath)
+fpath=("${HOME}/.zsh/completion/" $fpath)
 
 autoload -Uz compinit
 
 # Speed up startup by only checking once a day
 # if the cached .zcompdump file should be regenerated
-if [[ ! -f ~/.zcompdump ]] \
-   || [[ $( date +'%Y%j' ) > $( date +'%Y%j' -r ~/.zcompdump ) ]]; then
+if [[ ! -f "${HOME}/.zcompdump" ]] \
+   || [[ $( date +'%Y%j' ) > $( date +'%Y%j' -r "${HOME}/.zcompdump" ) ]]; then
   compinit
 else
   compinit -C
@@ -19,7 +19,7 @@ source /usr/local/etc/zsh_completion.d/git-extras-completion.zsh
 # uppercase letters match only uppercase letters
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
-# Disable hosts completion for ssh an scp
+# Disable hosts completion for ssh and scp
 # from /etc/hosts and ~/.ssh/known_hosts
 # so that completion only reads aliases from ~/.ssh/config
 zstyle -e ':completion:*:*:(scp|ssh):*:*' hosts 'reply=()'

@@ -2,7 +2,7 @@
 
 git::local::setup() {
   # create necessary directories
-  mkdir -p ~/.config/git
+  mkdir -p "${HOME}/.config/git"
 
   # copy config files
   local_copy "git/git/config" ".config/git/config"

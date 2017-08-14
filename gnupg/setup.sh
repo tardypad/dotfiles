@@ -2,7 +2,7 @@
 
 gnupg::local::setup() {
   # create necessary directories
-  mkdir -p ~/.gnupg
+  mkdir -p "${HOME}/.gnupg"
 
   # copy config files
   local_copy "gnupg/gpg.conf" ".gnupg/gpg.conf"

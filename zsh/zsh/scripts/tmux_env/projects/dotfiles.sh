@@ -1,6 +1,6 @@
 socket="$1"
 
-dotfiles_path=/home/damien/Projects/tardypad/dotfiles
+dotfiles_path="${HOME}/Projects/tardypad/dotfiles"
 
 
 tmux -L "${socket}" \

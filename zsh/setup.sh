@@ -2,7 +2,7 @@
 
 zsh::local::setup() {
   # create necessary directories
-  mkdir -p ~/.zsh
+  mkdir -p "${HOME}/.zsh"
 
   # copy config files
   local_copy "zsh/zshrc" ".zshrc"
@@ -14,11 +14,11 @@ zsh::local::setup() {
   local_copy "zsh/zsh/plugins.zsh" ".zsh/plugins.zsh"
 
   # install the plugins manager if not present
-  [[ -d ~/.zplug ]] \
-    || git clone --quiet https://github.com/zplug/zplug ~/.zplug
+  [[ -d "${HOME}/.zplug" ]] \
+    || git clone --quiet https://github.com/zplug/zplug "${HOME}/.zplug"
 
   # install the configured plugins if some are missing
-  source ~/.zsh/plugins.zsh
+  source "${HOME}/.zsh/plugins.zsh"
   if ! zplug check; then
     zplug install > /dev/null 2>&1
   fi

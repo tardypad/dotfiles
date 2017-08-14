@@ -1,6 +1,6 @@
 socket="$1"
 
-desktop_path=/home/damien/Desktop
+desktop_path="${HOME}/Desktop"
 
 
 tmux -L "${socket}" \
