@@ -7,22 +7,23 @@ Personal configuration files
 
 All tools selected are open source.
 
-| Name    | Purpose              |
-| ------- | -------------------- |
-| ctags   | sources indexation   |
-| git     | version control      |
-| gnupg   | OpenPGP client       |
-| konsole | terminal emulator    |
-| less    | pager                |
-| mopidy  | music server         |
-| mycli   | MySQL command line   |
-| ncmpcpp | MPD client           |
-| neomutt | mail client          |
-| openssh | SSH client           |
-| tmux    | terminal multiplexer |
-| vim     | text editor          |
-| weechat | chat client          |
-| zsh     | shell                |
+| Name       | Purpose              |
+|------------|----------------------|
+| ctags      | sources indexation   |
+| git        | version control      |
+| gnupg      | OpenPGP client       |
+| konsole    | terminal emulator    |
+| less       | pager                |
+| mopidy     | music server         |
+| mycli      | MySQL command line   |
+| ncmpcpp    | MPD client           |
+| neomutt    | mail client          |
+| newsbeuter | RSS reader           |
+| openssh    | SSH client           |
+| tmux       | terminal multiplexer |
+| vim        | text editor          |
+| weechat    | chat client          |
+| zsh        | shell                |
 
 See each individual tool folder README for more information.
 
@@ -50,9 +51,11 @@ Options:
                          by default local and all remote hosts are setup
 
 Available tools:
-ctags   git     gnupg   konsole less
-mopidy  mycli   ncmpcpp neomutt openssh
-tmux    vim     weechat zsh
+ctags           git             gnupg
+konsole         less            mopidy
+mycli           ncmpcpp         neomutt
+newsbeuter      openssh         tmux
+vim             weechat         zsh
 If no tool argument is passed, all of them are setup
 ```
 

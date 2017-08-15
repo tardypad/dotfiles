@@ -34,7 +34,7 @@ Options:
                          by default local and all remote hosts are setup
 
 Available tools:
-$( printf '%s\n' "${AVAILABLE_TOOLS[@]}" | column -c 40 -x )
+$( printf '%s\n' "${AVAILABLE_TOOLS[@]}" | column -c 50 -x )
 If no tool argument is passed, all of them are setup
 
 Remote hosts are defined in the ./remote_hosts file
