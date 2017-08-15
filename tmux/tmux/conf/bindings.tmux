@@ -55,7 +55,7 @@ bind -r n next-window
 bind -r l next-window
 bind -r p previous-window
 bind -r h previous-window
-bind    0 select-window -t :=0
+bind    0 select-window -t :=10
 bind    1 select-window -t :=1
 bind    2 select-window -t :=2
 bind    3 select-window -t :=3
