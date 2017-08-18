@@ -5,7 +5,7 @@ Personal configuration files
 
 ## Tools
 
-All tools selected are open source.
+All tools selected are [Free Software](https://www.gnu.org/philosophy/free-sw.en.html)
 
 | Name       | Purpose              |
 |------------|----------------------|
