@@ -32,7 +32,8 @@ All tools are configured to use the dark
 
 Most keybindings are minimalized to keep only relevant ones
 and configured to be as much vim-like as possible.  
-They also try to be consistent across tools.
+
+Colors and keybindings usage try to be consistent across tools.
 
 
 ## Setup
