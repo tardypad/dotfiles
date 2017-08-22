@@ -93,6 +93,7 @@
   <Action shortcut="Alt+7" name="switch-to-tab-6"/>
   <Action shortcut="Alt+8" name="switch-to-tab-7"/>
   <Action shortcut="Alt+9" name="switch-to-tab-8"/>
+  <Action shortcut="Alt+0" name="switch-to-tab-9"/>
   <Action shortcut="" name="switch-to-tab-10"/>
   <Action shortcut="" name="switch-to-tab-11"/>
   <Action shortcut="" name="switch-to-tab-12"/>
