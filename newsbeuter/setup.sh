@@ -7,4 +7,5 @@ newsbeuter::local::setup() {
   # copy config file
   local_copy "newsbeuter/newsbeuter/urls" ".config/newsbeuter/urls"
   local_copy "newsbeuter/newsbeuter/config" ".config/newsbeuter/config"
+  local_copy "newsbeuter/newsbeuter/conf" ".config/newsbeuter/conf"
 }

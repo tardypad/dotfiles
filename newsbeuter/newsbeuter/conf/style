@@ -1,0 +1,20 @@
+# colors
+color background        default default
+color listnormal        default default
+color listfocus         black   yellow
+color listnormal_unread magenta default
+color listfocus_unread  black   yellow  bold
+color info              black   color11
+color article           default default
+
+# only show title bar at the bottom
+show-keymap-hint     no
+swap-title-and-hints yes
+
+# formats
+datetime-format          "%a %d %b"
+feedlist-format          "[%n%S] %11u  %t"
+articlelist-format       "%D  [%f]  %t"
+feedlist-title-format    "Your feeds (%u unread, %t total)"
+articlelist-title-format "Articles in feed (%u unread, %t total) %T"
+itemview-title-format    "Article %T (%u unread, %t total) %F"
