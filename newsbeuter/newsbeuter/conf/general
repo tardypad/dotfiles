@@ -8,8 +8,8 @@ goto-next-feed no
 # only keep articles from last 30 days
 keep-articles-days 30
 
-# use common pager
-pager "less %f"
-
 # use common browser
 browser "xdg-open %u"
+
+# mark article as read when selected in article list
+mark-as-read-on-hover yes

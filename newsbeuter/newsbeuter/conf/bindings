@@ -80,22 +80,34 @@ bind-key ^F pagedown
 bind-key ^B pageup
 bind-key j down
 bind-key k up
+
+# J/K goes to the next/prev unread item in current list
 bind-key J next-unread feedlist
 bind-key K prev-unread feedlist
 bind-key J next-unread articlelist
 bind-key K prev-unread articlelist
+
+# ^N/^P goes to:
+# - the next/prev unread article of the current feed
+# - the next/prev feed list containing unread articles
 bind-key ^N next-unread article
 bind-key ^P prev-unread article
 bind-key ^N next-unread-feed articlelist
 bind-key ^P prev-unread-feed articlelist
 
-# feed
-bind-key f reload
-bind-key F reload-all
-bind-key r mark-feed-read
-bind-key R mark-all-feeds-read
+# o opens current article in browser
+bind-key o open-in-browser-and-mark-read articlelist
+bind-key o open-in-browser article
 
-# article
-bind-key o open-in-browser-and-mark-read
+# F/R fetchs/marks as read all items of the current list
+# f/r fetchs/mark as read current feed item in feed list
+bind-key f reload feedlist
+bind-key F reload-all feedlist
+bind-key F reload articlelist
+bind-key r mark-feed-read feedlist
+bind-key R mark-all-feeds-read feedlist
+bind-key R mark-feed-read articlelist
+
+# article urls
 bind-key u show-urls
 bind-key "#" goto-url
