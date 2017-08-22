@@ -1,3 +1,22 @@
+# general
+
+# refresh all feeds at start and every 4H
+auto-reload yes
+reload-time 240
+
+# next and prev unread command stick to the current feed
+goto-next-feed no
+
+# only keep articles from last 30 days
+keep-articles-days 30
+
+# use common pager
+pager "less %f"
+
+# use common browser
+browser "xdg-open %u"
+
+
 # style
 color background        default default
 color listnormal        default default
