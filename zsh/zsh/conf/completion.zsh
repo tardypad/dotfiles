@@ -1,5 +1,5 @@
-# register local completions folder
-fpath=("${HOME}/.zsh/completion/" $fpath)
+# register local and tools completions folder
+fpath=("${HOME}/.zsh/completion/" /usr/local/etc/zsh_completion.d/ $fpath)
 
 autoload -Uz compinit
 
