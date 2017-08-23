@@ -19,6 +19,7 @@ All tools selected are [Free Software](https://www.gnu.org/philosophy/free-sw.en
 | ncmpcpp    | MPD client           |
 | neomutt    | mail client          |
 | newsbeuter | RSS reader           |
+| notes      | notes management     |
 | openssh    | SSH client           |
 | tmux       | terminal multiplexer |
 | vim        | text editor          |
@@ -55,8 +56,9 @@ Available tools:
 ctags           git             gnupg
 konsole         less            mopidy
 mycli           ncmpcpp         neomutt
-newsbeuter      openssh         tmux
-vim             weechat         zsh
+newsbeuter      notes           openssh
+tmux            vim             weechat
+zsh
 If no tool argument is passed, all of them are setup
 ```
 
