@@ -12,6 +12,7 @@ All tools selected are [Free Software](https://www.gnu.org/philosophy/free-sw.en
 | ctags      | sources indexation   |
 | git        | version control      |
 | gnupg      | OpenPGP client       |
+| httpie     | HTTP client          |
 | konsole    | terminal emulator    |
 | less       | pager                |
 | mopidy     | music server         |
@@ -54,11 +55,11 @@ Options:
 
 Available tools:
 ctags           git             gnupg
-konsole         less            mopidy
-mycli           ncmpcpp         neomutt
-newsbeuter      notes           openssh
-tmux            vim             weechat
-zsh
+httpie          konsole         less
+mopidy          mycli           ncmpcpp
+neomutt         newsbeuter      notes
+openssh         tmux            vim
+weechat         zsh
 If no tool argument is passed, all of them are setup
 ```
 
