@@ -21,3 +21,6 @@ alias mycli='mycli --defaults-group-suffix=_mycli'
 
 # flush all .log files recursively in the current dir
 alias flush_logs="find . -type f -name '*.log' -exec /bin/sh -c \"> '{}'\" \;"
+
+# HTTPie other schemes
+alias https='http --default-scheme=https'
