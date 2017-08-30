@@ -1,5 +1,5 @@
-# register local and tools completions folder
-fpath=("${HOME}/.zsh/completion/" /usr/local/etc/zsh_completion.d/ $fpath)
+# register local completions folder
+fpath=("${HOME}/.zsh/completion/" $fpath)
 
 autoload -Uz compinit
 
@@ -12,7 +12,7 @@ else
   compinit -C
 fi
 
-source /usr/local/etc/zsh_completion.d/git-extras-completion.zsh
+source /usr/local/share/zsh/site-functions/git-extras-completion.zsh
 
 # Tab case insensitive smart completion
 # lowercase letters match lowercase and uppercase letters
