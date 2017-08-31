@@ -7,7 +7,7 @@ pane_current_command=$(
 )
 
 if [ "${pane_current_command}" != 'ssh' ]; then
-  tmux split-window -"${option}"
+  tmux split-window -"${option}" -c '#{pane_current_path}'
   exit
 fi
 
