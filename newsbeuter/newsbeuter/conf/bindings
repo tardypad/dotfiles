@@ -96,8 +96,10 @@ bind-key ^N next-unread-feed articlelist
 bind-key ^P prev-unread-feed articlelist
 
 # o opens current article in browser
+# O opens all unread ones
 bind-key o open-in-browser-and-mark-read articlelist
 bind-key o open-in-browser article
+bind-key O open-all-unread-in-browser-and-mark-read articlelist
 
 # F/R fetchs/marks as read all items of the current list
 # f/r fetchs/mark as read current feed item in feed list
