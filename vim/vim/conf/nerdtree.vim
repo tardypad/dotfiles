@@ -20,7 +20,7 @@ let NERDTreeShowHidden = 1
 let g:NERDTreeWinSize = 30
 
 " Define files and folders to ignore by default
-let NERDTreeIgnore = [ '\.root$', '\.git$', '\.kdev4$', '.kateproject*', 'build$', '\.tags', '\.notags$' ]
+let NERDTreeIgnore = [ '\.root$', '\.git$', '\.kdev4$', '\.kateproject*', 'build$', '\.tags', '\.notags$', '\.pyc$' ]
 
 " Ignore files defined in wildignore too
 let NERDTreeRespectWildIgnore = 1

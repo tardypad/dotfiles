@@ -14,7 +14,7 @@ let g:ctrlp_show_hidden = 1
 " Define files and folders to ignore
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|build$\|\.kdev4$\|\.kateproject.d$',
-  \ 'file': '\.kdev4$\|\.kateproject\|\.root$\|\.tags\|\.notags$',
+  \ 'file': '\.kdev4$\|\.kateproject\|\.root$\|\.tags\|\.notags$\|\.pyc$',
   \ }
 
 " Define custom root folder markers
