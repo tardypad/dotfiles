@@ -33,3 +33,8 @@ function goto_project_repo() {
   local path=$( get_project_repo_path "$1" )
   [[ -n "${path}" ]] && cd "${path}" || cd "${PROJECTS_DIR}"
 }
+
+
+function http_prompt_env() {
+    http-prompt --env "${HOME}/.local/share/http-prompt/env/$1.hp"
+}
