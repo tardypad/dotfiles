@@ -52,8 +52,8 @@ get_session_pattern() {
   local session_pattern='*'
   for i in $( seq 0 $(( ${#session_name} - 1 )) ); do
     local char="${session_name:$i:1}"
-    local char_low=$( echo "${char}" | tr 'A-Z' 'a-z' )
-    local char_up=$( echo "${char}" | tr 'a-z' 'A-Z' )
+    local char_low=$( echo "${char}" | tr 'A-Z_' 'a-z ' )
+    local char_up=$( echo "${char}" | tr 'a-z ' 'A-Z_' )
     session_pattern+="[${char_low}${char_up}]"
   done
   session_pattern+='*'
