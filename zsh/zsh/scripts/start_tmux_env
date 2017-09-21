@@ -10,6 +10,7 @@ init_variables() {
 
   TARGET=
   SESSION=
+  SKIP=false
 
   HOST=localhost
   SOCKET=default
@@ -25,6 +26,7 @@ Each target is a different local or remote tmux server
 
 Options:
   -h,  --help     show this message only
+  -s,  --skip     skip fortune display
 
 Available targets: ${AVAILABLE_TARGETS}
 If session is not defined, all of the target's ones are started
@@ -76,7 +78,7 @@ start_target_tmux_env() {
     ) )
   fi
 
-  if command -v fortune &> /dev/null; then
+  if ! $SKIP && command -v fortune &> /dev/null; then
     fortune -acws -n 300
   fi
 
@@ -112,6 +114,10 @@ parse_options() {
       -h|--help)
         usage
         exit 0
+        ;;
+      -s|--skip)
+        SKIP=true
+        shift
         ;;
       *)
         break 2
