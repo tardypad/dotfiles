@@ -1,6 +1,8 @@
 socket="$1"
 
-dotfiles_path="${HOME}/Projects/tardypad/dotfiles"
+source ~/.zsh/conf/function.zsh
+
+dotfiles_path=$( get_project_repo_path dotfiles )
 
 
 tmux -L "${socket}" \
