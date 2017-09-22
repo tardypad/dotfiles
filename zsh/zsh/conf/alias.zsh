@@ -12,6 +12,7 @@ alias man=colored_man
 
 alias pj='goto_project_repo'
 alias PJ='goto_project_main'
+alias logs='goto_project_logs'
 
 # lxc-console uses different prefix for escape command
 # (default Ctrl-a), not to conflict with tmux's one
