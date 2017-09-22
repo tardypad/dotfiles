@@ -50,6 +50,21 @@ function goto_project_logs() {
 }
 
 
+function get_project_docs_path() {
+  local project_name="$1"
+
+  find "${PROJECTS_DOCS_DIR}" \
+    -mindepth 1 -maxdepth 1 -type d \
+    -name "${project_name}"
+}
+
+
+function goto_project_docs() {
+  local path=$( get_project_docs_path "$1" )
+  [[ -n "${path}" ]] && cd "${path}" || cd "${PROJECTS_DOCS_DIR}"
+}
+
+
 function http_prompt_env() {
     http-prompt --env "${HOME}/.local/share/http-prompt/env/$1.hp"
 }
