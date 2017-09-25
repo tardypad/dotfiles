@@ -48,19 +48,30 @@ get_session_pattern() {
 
   local session_name="${script_path:t:r}"
 
-  # there is no way currently to check session name case insensitively
-  # (no flag used in fnmatch internally in tmux)
-  # so we create a pattern manually for it
-  local session_pattern='*'
+  local session_pattern='.*'
   for i in $( seq 0 $(( ${#session_name} - 1 )) ); do
     local char="${session_name:$i:1}"
     local char_low=$( echo "${char}" | tr 'A-Z_' 'a-z ' )
     local char_up=$( echo "${char}" | tr 'a-z ' 'A-Z_' )
     session_pattern+="[${char_low}${char_up}]"
   done
-  session_pattern+='*'
+  session_pattern+='.*'
 
   echo "${session_pattern}"
+}
+
+
+is_session_present() {
+  local session_names="$1"
+  local session_pattern="$2"
+
+  for session_name in ${(f)session_names}; do
+    if [[ "${session_name}" =~ "${session_pattern}" ]]; then
+      return 0
+    fi
+  done
+
+  return 1
 }
 
 
@@ -83,10 +94,12 @@ start_target_tmux_env() {
   fi
 
   if [[ "${HOST}" == 'localhost' ]]; then
+    local session_names=$(
+      tmux -L "${SOCKET}" list-sessions -F '#{session_name}'
+    )
     for script_path in ${scripts_path}; do
       local session_pattern=$( get_session_pattern "${script_path}" )
-      if ! tmux -L "${SOCKET}" has-session \
-          -t "${session_pattern}" &> /dev/null; then
+      if ! is_session_present "${session_names}" "${session_pattern}"; then
         bash "${script_path}" "${SOCKET}"
       fi
     done
@@ -95,10 +108,12 @@ start_target_tmux_env() {
 
   else
 
+    local session_names=$(
+      ssh "${HOST}" "tmux -L ${SOCKET} list-sessions -F '#{session_name}'"
+    )
     for script_path in ${scripts_path}; do
       local session_pattern=$( get_session_pattern "${script_path}" )
-      if ! ssh "${HOST}" tmux -L "${SOCKET}" has-session \
-          -t "${session_pattern}" &> /dev/null; then
+      if ! is_session_present "${session_names}" "${session_pattern}"; then
         ssh "${HOST}" 'bash -s' < "${script_path}" "${SOCKET}"
       fi
     done
