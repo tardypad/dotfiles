@@ -9,4 +9,5 @@ _targets() {
 }
 
 _arguments \
+  '(-h --help)'{-h,--help}'[display the help]' \
   '1:target:_targets'
