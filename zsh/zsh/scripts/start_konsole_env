@@ -109,6 +109,23 @@ get_session_pattern() {
 
 
 
+switch_konsole_tab() {
+  local qdbus_service="$1"
+  local target_tab_pattern="$2"
+
+  for id in $(qdbus "${qdbus_service}" /Windows/1 org.kde.konsole.Window.sessionList); do
+    local tab_name=$(
+      qdbus "${qdbus_service}" "/Sessions/${id}" org.kde.konsole.Session.title 1
+    )
+
+    if [[ "${tab_name}" =~ "${target_tab_pattern}" ]]; then
+      qdbus "${qdbus_service}" /Windows/1 org.kde.konsole.Window.setCurrentSession "${id}" &> /dev/null
+      return
+    fi
+  done
+}
+
+
 start_target_konsole_env() {
   local qdbus_service="$1"
   local is_new="$2"
@@ -153,6 +170,12 @@ start_target_konsole_env() {
       local session_pattern=$( get_session_pattern "${script_path}" )
       if (( ${sessions_title[(I)${session_pattern}]} )); then
         # target session is already present
+        if [[ -n "${TARGET}" ]]; then
+          # switch to it if it was the only session asked
+          # adapt pattern format
+          local target_tab_pattern=$( echo "${session_pattern}" | sed 's/*/.*/g' )
+          switch_konsole_tab "${qdbus_service}" "${target_tab_pattern}"
+        fi
         continue;
       else
         # create new session
