@@ -7,26 +7,27 @@ Personal configuration files
 
 All tools selected are [Free Software](https://www.gnu.org/philosophy/free-sw.en.html)
 
-| Name        | Purpose                 |
-|-------------|-------------------------|
-| ctags       | sources indexation      |
-| git         | version control         |
-| gnupg       | OpenPGP client          |
-| httpie      | HTTP client             |
-| http-prompt | HTTP interactive client |
-| konsole     | terminal emulator       |
-| less        | pager                   |
-| mopidy      | music server            |
-| mycli       | MySQL command line      |
-| ncmpcpp     | MPD client              |
-| neomutt     | mail client             |
-| newsbeuter  | RSS reader              |
-| notes       | notes management        |
-| openssh     | SSH client              |
-| tmux        | terminal multiplexer    |
-| vim         | text editor             |
-| weechat     | chat client             |
-| zsh         | shell                   |
+| Name            | Purpose                 |
+|-----------------|-------------------------|
+| ctags           | sources indexation      |
+| git             | version control         |
+| gnupg           | OpenPGP client          |
+| httpie          | HTTP client             |
+| http-prompt     | HTTP interactive client |
+| konsole         | terminal emulator       |
+| less            | pager                   |
+| mopidy          | music server            |
+| mycli           | MySQL command line      |
+| ncmpcpp         | MPD client              |
+| neomutt         | mail client             |
+| newsbeuter      | RSS reader              |
+| notes           | notes management        |
+| openssh         | SSH client              |
+| tmux            | terminal multiplexer    |
+| translate-shell | translator              |
+| vim             | text editor             |
+| weechat         | chat client             |
+| zsh             | shell                   |
 
 See each individual tool folder README for more information.
 
@@ -60,7 +61,8 @@ httpie          http-prompt     konsole
 less            mopidy          mycli
 ncmpcpp         neomutt         newsbeuter
 notes           openssh         tmux
-vim             weechat         zsh
+translate-shell vim             weechat
+zsh
 If no tool argument is passed, all of them are setup
 ```
 

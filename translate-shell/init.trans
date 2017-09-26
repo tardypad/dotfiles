@@ -1,0 +1,10 @@
+{
+ :translate-shell     "0.9.0"
+ :verbose             true
+ :engine              "google"
+ :show-original       false
+ :show-prompt-message false
+ :hl                  "en"
+ :sl                  "en"
+ :tl                  "fr"
+}
