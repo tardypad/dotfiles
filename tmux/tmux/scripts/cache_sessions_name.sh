@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 tmux list-sessions -F "#{session_name}" \
   | xargs -I {} tmux run -b '#(echo {} | sed "s/^[0-9]*-//")'
