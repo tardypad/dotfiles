@@ -44,18 +44,15 @@ error() {
 
 
 get_session_pattern() {
-  local script_path="$1"
+  local session_name="$1"
 
-  local session_name="${script_path:t:r}"
-
-  local session_pattern='.*'
+  local session_pattern=''
   for i in $( seq 0 $(( ${#session_name} - 1 )) ); do
     local char="${session_name:$i:1}"
     local char_low=$( echo "${char}" | tr 'A-Z_' 'a-z ' )
     local char_up=$( echo "${char}" | tr 'a-z ' 'A-Z_' )
     session_pattern+="[${char_low}${char_up}]"
   done
-  session_pattern+='.*'
 
   echo "${session_pattern}"
 }
@@ -98,13 +95,19 @@ start_target_tmux_env() {
       tmux -L "${SOCKET}" list-sessions -F '#{session_name}'
     )
     for script_path in ${scripts_path}; do
-      local session_pattern=$( get_session_pattern "${script_path}" )
+      local session_name="${script_path:t:r}"
+      local session_pattern=".*$( get_session_pattern "${session_name}" ).*"
       if ! is_session_present "${session_names}" "${session_pattern}"; then
         bash "${script_path}" "${SOCKET}"
       fi
     done
 
-    tmux -L "${SOCKET}" attach-session
+    if [[ -n "${SESSION}" ]]; then
+      local session_pattern="*$( get_session_pattern "${SESSION}" )*"
+      tmux -L "${SOCKET}" attach-session -t "${session_pattern}"
+    else
+      tmux -L "${SOCKET}" attach-session
+    fi
 
   else
 
@@ -112,13 +115,19 @@ start_target_tmux_env() {
       ssh "${HOST}" "tmux -L ${SOCKET} list-sessions -F '#{session_name}'"
     )
     for script_path in ${scripts_path}; do
-      local session_pattern=$( get_session_pattern "${script_path}" )
+      local session_name="${script_path:t:r}"
+      local session_pattern=".*$( get_session_pattern "${session_name}" ).*"
       if ! is_session_present "${session_names}" "${session_pattern}"; then
         ssh "${HOST}" 'bash -s' < "${script_path}" "${SOCKET}"
       fi
     done
 
-    ssh -t "${HOST}" tmux -L "${SOCKET}" attach-session
+    if [[ -n "${SESSION}" ]]; then
+      local session_pattern="*$( get_session_pattern "${SESSION}" )*"
+      ssh -t "${HOST}" tmux -L "${SOCKET}" attach-session -t "${session_pattern}"
+    else
+      ssh -t "${HOST}" tmux -L "${SOCKET}" attach-session
+    fi
   fi
 }
 
