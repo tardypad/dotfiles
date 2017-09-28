@@ -397,6 +397,10 @@ bind index,pager uu undelete-message
 bind index UU undelete-pattern
 bind index,pager ut undelete-thread
 
+# purge deleted messages from Spam folder on sync
+folder-hook . "macro index,pager $ <sync-mailbox> 'sync mailbox'"
+folder-hook .*/Spam "macro index,pager $ <tag-pattern>~D<enter><tag-prefix><purge-message><sync-mailbox> 'purge deleted messages and sync mailbox'"
+
 # attachments
 bind index,pager v view-attachments
 bind attach v view-mailcap
