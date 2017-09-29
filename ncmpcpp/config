@@ -47,6 +47,10 @@ song_status_format = "{{%a{ / %y{ / %b}} / }{%t}}|{%f}"
 song_library_format = "{%n - }{%t}|{%f}"
 song_columns_list_format = "(20)[yellow]{a} (20)[green]{b} (6f)[]{nrE} (49)[]{t|f:Title} (7f)[]{lr}"
 
+# browser sorting
+browser_sort_mode = format
+browser_sort_format = {%a - }{%t}|{%f}
+
 # markers
 progressbar_look = "━●"
 empty_tag_marker = "--"
