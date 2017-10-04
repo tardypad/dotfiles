@@ -1,0 +1,69 @@
+#!/usr/bin/env zsh
+
+# display the options in oNederlandsy one column
+old_columns=$COLUMNS
+export COLUMNS=1
+
+PS3='Select translation option: '
+
+choices=(
+  'English    -> Français'
+  'English    -> Nederlands'
+  'Français   -> English'
+  'Français   -> Nederlands'
+  'Nederlands -> English'
+  'Nederlands -> Français'
+  'quit'
+)
+
+SOURCE_LANGUAGE=
+TARGET_LANGUAGE=
+
+select choice in ${choices}; do
+  case $choice in
+    'English    -> Français')
+      SOURCE_LANGUAGE='en'
+      TARGET_LANGUAGE='fr'
+      break
+      ;;
+    'English    -> Nederlands')
+      SOURCE_LANGUAGE='en'
+      TARGET_LANGUAGE='nl'
+      break
+      ;;
+    'Français   -> English')
+      SOURCE_LANGUAGE='fr'
+      TARGET_LANGUAGE='en'
+      break
+      ;;
+    'Français   -> Nederlands')
+      SOURCE_LANGUAGE='fr'
+      TARGET_LANGUAGE='nl'
+      break
+      ;;
+    'Nederlands -> English')
+      SOURCE_LANGUAGE='nl'
+      TARGET_LANGUAGE='en'
+      break
+      ;;
+    'Nederlands -> Français')
+      SOURCE_LANGUAGE='nl'
+      TARGET_LANGUAGE='fr'
+      break
+      ;;
+    'quit')
+      break
+      ;;
+    *)
+      echo 'invalid option'
+      ;;
+  esac
+done
+
+COLUMNS=$old_columns
+
+if [[ -z "${SOURCE_LANGUAGE}" || -z "${TARGET_LANGUAGE}" ]]; then
+  exit
+fi
+
+trans --shell "${SOURCE_LANGUAGE}:${TARGET_LANGUAGE}"
