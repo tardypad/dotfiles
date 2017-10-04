@@ -2,6 +2,11 @@
 
 panel_width=60
 
+# abort if the translation command doesn't exist
+if ! command -v trans &> /dev/null; then
+  exit 0
+fi
+
 # abort if there is already a translate panel in the current window
 tmux list-panes -F '#{pane_start_command}' \
   | grep -q 'trans'
