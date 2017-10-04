@@ -3,7 +3,7 @@
 panel_width=60
 
 # abort if the translation command doesn't exist
-if ! command -v trans &> /dev/null; then
+if ! command -v translate_shell &> /dev/null; then
   exit 0
 fi
 
@@ -23,7 +23,7 @@ current_window_layout=$( tmux display -p '#{window_visible_layout}' )
 # launch translation shell and at its end
 # close panel, restore layout and active pane
 translate_command="\
-  trans --shell \
+  translate_shell \
   && tmux kill-pane \; \
      select-layout '${current_window_layout}' \; \
      select-pane -t :.${current_pane_index} \
