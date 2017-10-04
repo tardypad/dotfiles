@@ -32,6 +32,8 @@ esac
 # create new active menu pane
 # with an unexisting command just to set the pane title
 # full window height, on most left part, with fixed width
+# (using the -l width option of split-window seems not to be working
+# in case of multiple panes, so we use resize-pane after creation)
 tmux \
   select-pane -t :.left \; \
   split-window -hbf "${pane_title}" \; \
