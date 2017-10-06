@@ -389,6 +389,9 @@ bind generic,index,pager ? search-reverse
 bind generic,index,pager n search-next
 bind generic,index,pager N search-opposite
 
+# browser
+bind browser v view-file
+
 # (un)deletion
 bind index,pager dd delete-message
 bind index DD delete-pattern
