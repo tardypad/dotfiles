@@ -63,6 +63,14 @@ function precmd() {
   print -P "${user}@${host} ${vcs_info_msg_0_}"
 }
 
+# add flag to git unstaged flag if there are untracked files
+function +vi-git-untracked(){
+if [[ $( git rev-parse --is-inside-work-tree 2> /dev/null ) == 'true' ]] \
+    && git status --porcelain | grep '^??' &> /dev/null ; then
+  hook_com[unstaged]+='?'
+  fi
+}
+
 function set_prompt() {
   # define color variables
   local green='%{%F{green}%}'
@@ -72,8 +80,12 @@ function set_prompt() {
   # define cwd / git prompt
   zstyle ':vcs_info:*' enable git
   zstyle ':vcs_info:*' nvcsformats "${green}%~${stop}"
-  zstyle ':vcs_info:*' formats "${green}%r${stop} (%b) ${green}%S${stop}"
-  zstyle ':vcs_info:*' actionformats "${green}%r${stop} (%a) ${green}%S${stop}"
+  zstyle ':vcs_info:*' formats "${green}%r${stop} (%b) ${yellow}[%c%u]${stop} ${green}%S${stop}"
+  zstyle ':vcs_info:*' actionformats "${green}%r${stop} (%a) ${yellow}[%c%u]${stop} ${green}%S${stop}"
+  zstyle ':vcs_info:*' check-for-changes true
+  zstyle ':vcs_info:*' stagedstr '+'
+  zstyle ':vcs_info:*' unstagedstr '!'
+  zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 
   # define individual items
   local vi_mode="${yellow}"' $VI_MODE '"${stop}"
