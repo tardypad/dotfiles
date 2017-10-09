@@ -5,6 +5,8 @@ function init_todo()
   [[ -f TODO ]] && return
 
   cat > TODO << EOF
+Periodic:
+
 Cleaning:
 
 Bugs:
