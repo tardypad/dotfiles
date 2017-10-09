@@ -22,7 +22,7 @@ bind   ? list-keys
 bind M-m show-messages
 bind M-a run "~/.tmux/scripts/toggle_monitor_activity.sh"
 bind M-s run "~/.tmux/scripts/toggle_monitor_silence.sh"
-bind M-t run "~/.tmux/scripts/translate_panel.sh"
+bind M-t run "~/.tmux/scripts/temporary_panel.sh translate_shell 60"
 
 # Do it live!
 bind F1 run "~/.tmux/scripts/do_it_live.sh"
