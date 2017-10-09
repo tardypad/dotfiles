@@ -35,15 +35,15 @@ bind -r C-j switch-client -n
 bind -r C-p switch-client -p
 bind -r C-k switch-client -p
 bind    C-0 switch-client -t 10-
-bind    c-1 switch-client -t 01-
-bind    c-2 switch-client -t 02-
-bind    c-3 switch-client -t 03-
-bind    c-4 switch-client -t 04-
-bind    c-5 switch-client -t 05-
-bind    c-6 switch-client -t 06-
-bind    c-7 switch-client -t 07-
-bind    c-8 switch-client -t 08-
-bind    c-9 switch-client -t 09-
+bind    C-1 switch-client -t 01-
+bind    C-2 switch-client -t 02-
+bind    C-3 switch-client -t 03-
+bind    C-4 switch-client -t 04-
+bind    C-5 switch-client -t 05-
+bind    C-6 switch-client -t 06-
+bind    C-7 switch-client -t 07-
+bind    C-8 switch-client -t 08-
+bind    C-9 switch-client -t 09-
 bind    C-c command-prompt -I '#{host_short}' "new-session -s '%%'"
 bind    C-r command-prompt -I '#{session_name}' "rename-session '%%'"
 bind    C-x confirm-before -p 'kill-session #(echo #{session_name} | sed "s/^[0-9]*-//")? (y/n)' kill-session
