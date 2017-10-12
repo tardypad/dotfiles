@@ -16,7 +16,7 @@ tmux -L "${socket}" \
   new-window \
   -n 'code' \
   -c "${dotfiles_path}" \
-  vim --servername dotfiles
+  vim --servername dotfiles -c NERDTree
 
 
 tmux -L "${socket}" \
