@@ -61,3 +61,17 @@ case "${type}" in
       -b "${choose_command}"
     ;;
 esac
+
+# as long as the menu pane is open
+# check regularly if the choice tree is still available or if it was closed (with q or Escape)
+# if closed (equals pane no more in mode), close the menu pane
+# this is done in a new process so as not to block the user actions
+# need to escape the #{...} variables in -F arguments, otherwise they get replaced immediately
+tmux run -b \
+  'while tmux -S #{socket_path} list-panes -F "#""{pane_start_command}" | grep -q choose_; do
+     sleep 0.3
+     tmux -S #{socket_path} list-panes -F "#""{pane_id},"#""{pane_in_mode},"#""{pane_start_command}" \
+       | grep "0,choose_" \
+       | cut -d "," -f 1 \
+       | xargs -I {} tmux -S #{socket_path} kill-pane -t .{}
+   done'
