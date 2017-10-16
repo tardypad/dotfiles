@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+
+if man "$1" &> /dev/null; then
+  colored_man "$1"
+elif "$1" --help &> /dev/null; then
+  "$1" --help | less -FX
+else
+  echo "no help for $1 :("
+fi
