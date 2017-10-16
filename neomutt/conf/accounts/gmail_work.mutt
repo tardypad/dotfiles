@@ -18,7 +18,6 @@ macro index,pager gt "<change-folder>+[Gmail]/Trash<Enter>"     "go to trash fol
 mailboxes "+INBOX" \
           "+INBOX/Ahold" \
           "+INBOX/Archives" \
-          "+INBOX/loonloon" \
           "+INBOX/Dallas" \
           "+INBOX/Dubai" \
           "+INBOX/G3" \
@@ -28,6 +27,7 @@ mailboxes "+INBOX" \
           "+INBOX/Seattle" \
           "+INBOX/Victron" \
           "+INBOX/WFC" \
+          "+INBOX/loonloon" \
           "+[Gmail]/Drafts" \
           "+[Gmail]/Sent Mail" \
           "+[Gmail]/Spam" \
