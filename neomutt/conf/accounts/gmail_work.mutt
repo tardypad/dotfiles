@@ -16,6 +16,7 @@ macro index,pager gj "<change-folder>+[Gmail]/Spam<Enter>"      "go to junk fold
 macro index,pager gt "<change-folder>+[Gmail]/Trash<Enter>"     "go to trash folder"
 
 mailboxes "+INBOX" \
+          "+INBOX/Ahold" \
           "+INBOX/Archives" \
           "+INBOX/loonloon" \
           "+INBOX/Dallas" \
