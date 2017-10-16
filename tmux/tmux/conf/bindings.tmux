@@ -87,7 +87,7 @@ bind       L clear-history \; \
 bind -r    N select-pane -t :.+
 bind -r    P select-pane -t :.-
 bind       Z resize-pane -Z
-bind       X kill-pane
+bind       X if '[ #{window_panes} -ne 1 ]' kill-pane 'confirm-before -p "kill-window #{window_name}? (y/n)" kill-window'
 bind -r    { swap-pane -U
 bind -r    } swap-pane -D
 bind      F5 respawn-pane
