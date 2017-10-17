@@ -2,7 +2,7 @@
 
 _projects_repos() {
   local projects_repos=( $(
-    find "${PROJECTS_DIR}" \
+    find "$( xdg-user-dir PROJECTS )" \
       -mindepth 2 -maxdepth 2 -type d \
       -printf '%f '
   ) )

@@ -2,7 +2,7 @@
 
 _logs_folders() {
   local logs_folders=( $(
-    find "${PROJECTS_LOGS_DIR}" \
+    find "$( xdg-user-dir PROJECTS_LOGS )" \
       -mindepth 1 -maxdepth 1 -type d \
       -printf '%f '
   ) )

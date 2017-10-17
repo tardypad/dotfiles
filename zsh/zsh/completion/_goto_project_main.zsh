@@ -2,7 +2,7 @@
 
 _main_projects() {
   local main_projects=( $(
-    find "${PROJECTS_DIR}" \
+    find "$( xdg-user-dir PROJECTS )" \
       -mindepth 1 -maxdepth 1 -type d \
       -printf '%f '
   ) )

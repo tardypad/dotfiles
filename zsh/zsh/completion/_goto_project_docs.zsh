@@ -2,7 +2,7 @@
 
 _docs_folders() {
   local docs_folders=( $(
-    find "${PROJECTS_DOCS_DIR}" \
+    find "$( xdg-user-dir PROJECTS_DOCS )" \
       -mindepth 1 -maxdepth 1 -type d \
       -printf '%f '
   ) )

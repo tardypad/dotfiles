@@ -4,7 +4,7 @@ function __get_project_path() {
 
   # find the project directory with this name
   local project_dir="$(
-    find "${PROJECTS_DIR}" \
+    find "$( xdg-user-dir PROJECTS )" \
       -mindepth "${project_level}" -maxdepth "${project_level}" -type d \
       -name "${project_name}"
   )"
@@ -25,20 +25,20 @@ function get_project_repo_path() {
 
 function goto_project_main() {
   local path=$( get_project_main_path "$1" )
-  [[ -n "${path}" ]] && cd "${path}" || cd "${PROJECTS_DIR}"
+  [[ -n "${path}" ]] && cd "${path}" || cd "$( xdg-user-dir PROJECTS )"
 }
 
 
 function goto_project_repo() {
   local path=$( get_project_repo_path "$1" )
-  [[ -n "${path}" ]] && cd "${path}" || cd "${PROJECTS_DIR}"
+  [[ -n "${path}" ]] && cd "${path}" || cd "$( xdg-user-dir PROJECTS )"
 }
 
 
 function get_project_logs_path() {
   local project_name="$1"
 
-  find "${PROJECTS_LOGS_DIR}" \
+  find "$( xdg-user-dir PROJECTS_LOGS )" \
     -mindepth 1 -maxdepth 1 -type d \
     -name "${project_name}"
 }
@@ -46,14 +46,14 @@ function get_project_logs_path() {
 
 function goto_project_logs() {
   local path=$( get_project_logs_path "$1" )
-  [[ -n "${path}" ]] && cd "${path}" || cd "${PROJECTS_LOGS_DIR}"
+  [[ -n "${path}" ]] && cd "${path}" || cd "$( xdg-user-dir PROJECTS_LOGS )"
 }
 
 
 function get_project_docs_path() {
   local project_name="$1"
 
-  find "${PROJECTS_DOCS_DIR}" \
+  find "$( xdg-user-dir PROJECTS_DOCS )" \
     -mindepth 1 -maxdepth 1 -type d \
     -name "${project_name}"
 }
@@ -61,7 +61,7 @@ function get_project_docs_path() {
 
 function goto_project_docs() {
   local path=$( get_project_docs_path "$1" )
-  [[ -n "${path}" ]] && cd "${path}" || cd "${PROJECTS_DOCS_DIR}"
+  [[ -n "${path}" ]] && cd "${path}" || cd "$( xdg-user-dir PROJECTS_DOCS )"
 }
 
 

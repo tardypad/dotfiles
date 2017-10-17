@@ -12,11 +12,6 @@ fi
 export NULLCMD=:
 export READNULLCMD=less
 
-# define projects location
-export PROJECTS_DIR="$HOME/Projects"
-export PROJECTS_LOGS_DIR='/var/log/projects'
-export PROJECTS_DOCS_DIR="$HOME/Documents/Projects"
-
 # decrease key timeout to 50ms
 export KEYTIMEOUT=5
 
