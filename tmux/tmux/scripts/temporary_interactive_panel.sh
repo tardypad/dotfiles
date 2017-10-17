@@ -29,10 +29,10 @@ current_window_layout=$( tmux display -p '#{window_visible_layout}' )
 # launch panel with command and at its end
 # close panel, restore layout and active pane
 panel_full_command="\
-  ${panel_command} \
-  && tmux kill-pane \; \
-     select-layout '${current_window_layout}' \; \
-     select-pane -t :.${current_pane_index} \
+  ${panel_command}; \
+  tmux kill-pane \; \
+    select-layout '${current_window_layout}' \; \
+    select-pane -t :.${current_pane_index} \
 "
 
 # create new active pane
