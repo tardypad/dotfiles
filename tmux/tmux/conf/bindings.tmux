@@ -25,7 +25,7 @@ bind M-s run "~/.tmux/scripts/toggle_monitor_silence.sh"
 
 # temporary panels
 bind M-t run "~/.tmux/scripts/temporary_panel.sh translate_shell 60"
-bind M-h command-prompt -p 'help:' "run '~/.tmux/scripts/temporary_panel.sh \"colored_man %%\" 80'"
+bind M-h command-prompt -p 'help:' "run '~/.tmux/scripts/temporary_panel.sh \"help -i %%\" 80'"
 bind M-n command-prompt -p 'notes:' "run '~/.tmux/scripts/temporary_panel.sh \"notes open %%\" 80'"
 
 # Do it live!

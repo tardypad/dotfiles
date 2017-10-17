@@ -1,9 +1,27 @@
 #!/usr/bin/env zsh
 
-if man "$1" &> /dev/null; then
-  colored_man "$1"
-elif "$1" --help &> /dev/null; then
-  "$1" --help | less -FX
+FORCE_INTERACTIVE=false
+
+if [[ "$1" = '-i' ]]; then
+  FORCE_INTERACTIVE=true
+  topic="$2"
 else
-  echo "no help for $1 :("
+  topic="$1"
+fi
+
+if man "${topic}" &> /dev/null; then
+  colored_man "${topic}"
+elif "${topic}" --help &> /dev/null; then
+  if $FORCE_INTERACTIVE; then
+    "${topic}" --help | less
+  else
+    "${topic}" --help | less -FX
+  fi
+else
+  if $FORCE_INTERACTIVE; then
+    echo "no help for ${topic} :(" \
+      && read -s -d q
+  else
+    echo "no help for ${topic} :("
+  fi
 fi
