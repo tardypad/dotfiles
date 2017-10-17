@@ -1,4 +1,4 @@
-source ~/.mutt/conf/general.mutt
-source ~/.mutt/conf/bindings.mutt
-source ~/.mutt/conf/style.mutt
-source ~/.mutt/conf/colors.mutt
+source ~/.config/mutt/conf/general.mutt
+source ~/.config/mutt/conf/bindings.mutt
+source ~/.config/mutt/conf/style.mutt
+source ~/.config/mutt/conf/colors.mutt
