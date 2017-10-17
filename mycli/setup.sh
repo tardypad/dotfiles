@@ -2,6 +2,6 @@
 
 mycli::local::setup() {
   # copy config files
-  local_copy "mycli/myclirc" ".myclirc"
-  local_copy "mycli/my.cnf" ".my.cnf"
+  local_copy "mycli/myclirc" "${HOME}/.myclirc"
+  local_copy "mycli/my.cnf" "${HOME}/.my.cnf"
 }

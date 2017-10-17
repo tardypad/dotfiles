@@ -66,5 +66,5 @@ function goto_project_docs() {
 
 
 function http_prompt_env() {
-    http-prompt --env "${HOME}/.local/share/http-prompt/env/$1.hp"
+    http-prompt --env "${XDG_DATA_HOME:-$HOME/.local/share}/http-prompt/env/$1.hp"
 }

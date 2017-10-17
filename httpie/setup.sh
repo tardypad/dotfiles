@@ -5,5 +5,5 @@ httpie::local::setup() {
   mkdir -p "${HOME}/.httpie"
 
   # copy config file
-  local_copy "httpie/config.json" ".httpie/config.json"
+  local_copy "httpie/config.json" "${HOME}/.httpie/config.json"
 }

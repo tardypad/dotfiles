@@ -16,6 +16,10 @@ init_variables() {
   REMOTE_HOSTS_ID=( ${(k)AVAILABLE_REMOTE_HOSTS} )
 
   DEST=
+
+  CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}"
+  DATA_DIR="${XDG_DATA_HOME:-$HOME/.local/share}"
+  CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}"
 }
 
 
@@ -54,12 +58,12 @@ error() {
 
 local_copy() {
   local repo_source_path="$1"
-  local home_target_path="$2"
+  local target_path="$2"
 
   [ -e "${repo_source_path}" ] || return 1
 
   cp --recursive --force --no-target-directory \
-    "${repo_source_path}" "${HOME}/${home_target_path}"
+    "${repo_source_path}" "${target_path}"
 }
 
 
@@ -78,8 +82,8 @@ remote_copy() {
 
   [ -e "${repo_source_path}" ] || return 1
 
-  ssh -n "${host}" rm -rf "${HOME}/${home_target_path}"
-  scp -qr "${repo_source_path}" "${host}:${HOME}/${home_target_path}" \
+  ssh -n "${host}" rm -rf "${target_path}"
+  scp -qr "${repo_source_path}" "${host}:${target_path}" \
     2> /dev/null
 }
 

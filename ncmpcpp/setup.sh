@@ -5,6 +5,6 @@ ncmpcpp::local::setup() {
   mkdir -p "${HOME}/.ncmpcpp"
 
   # copy config files
-  local_copy "ncmpcpp/config" ".ncmpcpp/config"
-  local_copy "ncmpcpp/bindings" ".ncmpcpp/bindings"
+  local_copy "ncmpcpp/config" "${HOME}/.ncmpcpp/config"
+  local_copy "ncmpcpp/bindings" "${HOME}/.ncmpcpp/bindings"
 }

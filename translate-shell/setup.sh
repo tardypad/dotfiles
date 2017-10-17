@@ -2,8 +2,8 @@
 
 translate-shell::local::setup() {
   # create necessary directories
-  mkdir -p "${HOME}/.config/translate-shell"
+  mkdir -p "${CONFIG_DIR}/translate-shell"
 
   # copy config file
-  local_copy "translate-shell/init.trans" ".config/translate-shell/init.trans"
+  local_copy "translate-shell/init.trans" "${CONFIG_DIR}/translate-shell/init.trans"
 }

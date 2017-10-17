@@ -5,9 +5,9 @@ vim::local::setup() {
   mkdir -p "${HOME}/.vim/"{backup,swap,undo}
 
   # copy config files
-  local_copy "vim/vimrc" ".vimrc"
-  local_copy "vim/vim/plugins.vim" ".vim/plugins.vim"
-  local_copy "vim/vim/conf" ".vim/conf"
+  local_copy "vim/vimrc" "${HOME}/.vimrc"
+  local_copy "vim/vim/plugins.vim" "${HOME}/.vim/plugins.vim"
+  local_copy "vim/vim/conf" "${HOME}/.vim/conf"
 
   # install the plugins manager if not present
   [[ -f "${HOME}/.vim/autoload/plug.vim" ]] \

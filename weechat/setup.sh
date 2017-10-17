@@ -5,20 +5,20 @@ weechat::local::setup() {
   mkdir -p "${HOME}/.weechat/"{python,perl}/autoload
 
   # copy config files
-  local_copy "weechat/weechat/alias.conf" ".weechat/alias.conf"
-  local_copy "weechat/weechat/buffers.conf" ".weechat/buffers.conf"
-  local_copy "weechat/weechat/charset.conf" ".weechat/charset.conf"
-  local_copy "weechat/weechat/colorize_nicks.conf" ".weechat/colorize_nicks.conf"
-  local_copy "weechat/weechat/exec.conf" ".weechat/exec.conf"
-  local_copy "weechat/weechat/fifo.conf" ".weechat/fifo.conf"
-  local_copy "weechat/weechat/irc.conf" ".weechat/irc.conf"
-  local_copy "weechat/weechat/logger.conf" ".weechat/logger.conf"
-  local_copy "weechat/weechat/plugins.conf" ".weechat/plugins.conf"
-  local_copy "weechat/weechat/relay.conf" ".weechat/relay.conf"
-  local_copy "weechat/weechat/script.conf" ".weechat/script.conf"
-  local_copy "weechat/weechat/trigger.conf" ".weechat/trigger.conf"
-  local_copy "weechat/weechat/weechat.conf" ".weechat/weechat.conf"
-  local_copy "weechat/weechat/xfer.conf" ".weechat/xfer.conf"
+  local_copy "weechat/weechat/alias.conf" "${HOME}/.weechat/alias.conf"
+  local_copy "weechat/weechat/buffers.conf" "${HOME}/.weechat/buffers.conf"
+  local_copy "weechat/weechat/charset.conf" "${HOME}/.weechat/charset.conf"
+  local_copy "weechat/weechat/colorize_nicks.conf" "${HOME}/.weechat/colorize_nicks.conf"
+  local_copy "weechat/weechat/exec.conf" "${HOME}/.weechat/exec.conf"
+  local_copy "weechat/weechat/fifo.conf" "${HOME}/.weechat/fifo.conf"
+  local_copy "weechat/weechat/irc.conf" "${HOME}/.weechat/irc.conf"
+  local_copy "weechat/weechat/logger.conf" "${HOME}/.weechat/logger.conf"
+  local_copy "weechat/weechat/plugins.conf" "${HOME}/.weechat/plugins.conf"
+  local_copy "weechat/weechat/relay.conf" "${HOME}/.weechat/relay.conf"
+  local_copy "weechat/weechat/script.conf" "${HOME}/.weechat/script.conf"
+  local_copy "weechat/weechat/trigger.conf" "${HOME}/.weechat/trigger.conf"
+  local_copy "weechat/weechat/weechat.conf" "${HOME}/.weechat/weechat.conf"
+  local_copy "weechat/weechat/xfer.conf" "${HOME}/.weechat/xfer.conf"
 
   # install wee-slack if not present
   # version from github is more recent than one in weechat scripts repo

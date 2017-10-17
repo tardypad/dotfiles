@@ -5,6 +5,6 @@ gnupg::local::setup() {
   mkdir -p "${HOME}/.gnupg"
 
   # copy config files
-  local_copy "gnupg/gpg.conf" ".gnupg/gpg.conf"
-  local_copy "gnupg/gpg-agent.conf" ".gnupg/gpg-agent.conf"
+  local_copy "gnupg/gpg.conf" "${HOME}/.gnupg/gpg.conf"
+  local_copy "gnupg/gpg-agent.conf" "${HOME}/.gnupg/gpg-agent.conf"
 }

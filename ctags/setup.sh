@@ -2,5 +2,5 @@
 
 ctags::local::setup() {
   # copy config file
-  local_copy "ctags/ctags" ".ctags"
+  local_copy "ctags/ctags" "${HOME}/.ctags"
 }

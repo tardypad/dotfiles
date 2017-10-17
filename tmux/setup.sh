@@ -5,11 +5,11 @@ tmux::local::setup() {
   mkdir -p "${HOME}/.tmux"
 
   # copy config files
-  local_copy "tmux/tmux.conf" ".tmux.conf"
-  local_copy "tmux/tmux/scripts" ".tmux/scripts"
-  local_copy "tmux/tmux/plugins.tmux" ".tmux/plugins.tmux"
-  local_copy "tmux/tmux/conf" ".tmux/conf"
-  local_copy "tmux/tmux/images" ".tmux/images"
+  local_copy "tmux/tmux.conf" "${HOME}/.tmux.conf"
+  local_copy "tmux/tmux/scripts" "${HOME}/.tmux/scripts"
+  local_copy "tmux/tmux/plugins.tmux" "${HOME}/.tmux/plugins.tmux"
+  local_copy "tmux/tmux/conf" "${HOME}/.tmux/conf"
+  local_copy "tmux/tmux/images" "${HOME}/.tmux/images"
 
   # install the plugins manager if not present
   [[ -d "${HOME}/.tmux/plugins/tpm" ]] \
@@ -29,11 +29,11 @@ tmux::remote::setup() {
   remote_exec "${host}" '[[ -d "${HOME}/.tmux" ]] || mkdir "${HOME}/.tmux"'
 
   # copy config files
-  remote_copy "${host}" "tmux/tmux.conf" ".tmux.conf"
-  remote_copy "${host}" "tmux/tmux/scripts" ".tmux/scripts"
-  remote_copy "${host}" "tmux/tmux/plugins.tmux" ".tmux/plugins.tmux"
-  remote_copy "${host}" "tmux/tmux/conf" ".tmux/conf"
-  remote_copy "${host}" "tmux/tmux/images" ".tmux/images"
+  remote_copy "${host}" "tmux/tmux.conf" "${HOME}/.tmux.conf"
+  remote_copy "${host}" "tmux/tmux/scripts" "${HOME}/.tmux/scripts"
+  remote_copy "${host}" "tmux/tmux/plugins.tmux" "${HOME}/.tmux/plugins.tmux"
+  remote_copy "${host}" "tmux/tmux/conf" "${HOME}/.tmux/conf"
+  remote_copy "${host}" "tmux/tmux/images" "${HOME}/.tmux/images"
 
   # install the plugins manager if not present
   remote_exec "${host}" '[[ -d "${HOME}/.tmux/plugins/tpm" ]] \

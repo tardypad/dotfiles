@@ -5,13 +5,13 @@ zsh::local::setup() {
   mkdir -p "${HOME}/.zsh"
 
   # copy config files
-  local_copy "zsh/zshrc" ".zshrc"
-  local_copy "zsh/zshenv" ".zshenv"
-  local_copy "zsh/dircolors" ".dircolors"
-  local_copy "zsh/zsh/conf" ".zsh/conf"
-  local_copy "zsh/zsh/scripts" ".zsh/scripts"
-  local_copy "zsh/zsh/completion" ".zsh/completion"
-  local_copy "zsh/zsh/plugins.zsh" ".zsh/plugins.zsh"
+  local_copy "zsh/zshrc" "${HOME}/.zshrc"
+  local_copy "zsh/zshenv" "${HOME}/.zshenv"
+  local_copy "zsh/dircolors" "${HOME}/.dircolors"
+  local_copy "zsh/zsh/conf" "${HOME}/.zsh/conf"
+  local_copy "zsh/zsh/scripts" "${HOME}/.zsh/scripts"
+  local_copy "zsh/zsh/completion" "${HOME}/.zsh/completion"
+  local_copy "zsh/zsh/plugins.zsh" "${HOME}/.zsh/plugins.zsh"
 
   # install the plugins manager if not present
   [[ -d "${HOME}/.zplug" ]] \
