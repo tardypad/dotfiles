@@ -1,27 +1,115 @@
 #!/usr/bin/env zsh
 
-FORCE_INTERACTIVE=false
+COMMAND=${0:t}
 
-if [[ "$1" = '-i' ]]; then
-  FORCE_INTERACTIVE=true
-  topic="$2"
-else
-  topic="$1"
-fi
+init_variables() {
+  FORCE_INTERACTIVE=false
+  TOPIC=
+}
 
-if man "${topic}" &> /dev/null; then
-  colored_man "${topic}"
-elif "${topic}" --help &> /dev/null; then
-  if $FORCE_INTERACTIVE; then
-    "${topic}" --help | less
-  else
-    "${topic}" --help | less -FX
+
+usage() {
+  cat << EOF
+usage: ${COMMAND} [<options>] [<topic>]
+
+Get help about a topic
+
+Options:
+  -h,  --help           show this message only
+  -i,  --interactive    force the help display to be interactive
+EOF
+}
+
+
+search_help() {
+  if [[ -z "${TOPIC}" ]]; then
+      echo -n 'about? '
+      read TOPIC
   fi
-else
-  if $FORCE_INTERACTIVE; then
-    echo "no help for ${topic} :(" \
-      && read -s -d q
+
+  if man "${TOPIC}" &> /dev/null; then
+    display_man
+  elif "${TOPIC}" --help &> /dev/null; then
+    display_help
   else
-    echo "no help for ${topic} :("
+    display_no_help
   fi
-fi
+}
+
+
+display_man() {
+  colored_man "${TOPIC}"
+  return 0
+}
+
+
+display_help() {
+  if $FORCE_INTERACTIVE; then
+    "${TOPIC}" --help | less
+  else
+    "${TOPIC}" --help | less -FX
+  fi
+  return 0
+}
+
+
+display_no_help() {
+  echo "no help for '${TOPIC}' :("
+
+  PS3='What to do now? '
+
+  choices=(
+    'another topic'
+    "search help online for '${TOPIC}'"
+    'rage quit'
+  )
+
+  select choice in ${choices}; do
+    case $choice in
+        'another topic')
+          TOPIC=
+          return 1
+          ;;
+        "search help online for '${TOPIC}'")
+          xdg-open "http://www.google.com/search?q=man+${TOPIC}"
+          return 0
+          ;;
+        'rage quit')
+          return 0
+          ;;
+    esac
+  done
+}
+
+
+parse_options() {
+  while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      -i|--interactive)
+        FORCE_INTERACTIVE=true
+        shift
+        ;;
+      *)
+        break 2
+        ;;
+    esac
+  done
+
+  TOPIC="$1"
+}
+
+
+init_variables
+parse_options "$@"
+
+
+old_columns=$COLUMNS
+export COLUMNS=1
+
+until search_help; do : ; done
+
+COLUMNS=$old_columns
