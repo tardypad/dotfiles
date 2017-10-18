@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-# display the options in oNederlandsy one column
+# display the options in one column
 old_columns=$COLUMNS
 export COLUMNS=1
 
