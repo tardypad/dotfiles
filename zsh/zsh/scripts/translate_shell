@@ -13,6 +13,7 @@ choices=(
   'Français   -> Nederlands'
   'Nederlands -> English'
   'Nederlands -> Français'
+  'manual'
   'quit'
 )
 
@@ -51,6 +52,13 @@ select choice in ${choices}; do
       TARGET_LANGUAGE='fr'
       break
       ;;
+    'manual')
+       echo -n 'source language code? '
+       read SOURCE_LANGUAGE
+       echo -n 'target language code? '
+       read TARGET_LANGUAGE
+       break
+       ;;
     'quit')
       break
       ;;
