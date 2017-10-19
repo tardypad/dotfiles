@@ -23,6 +23,7 @@ All tools selected are [Free Software](https://www.gnu.org/philosophy/free-sw.en
 | newsbeuter      | RSS reader                |
 | notes           | notes management          |
 | openssh         | SSH client                |
+| rbtools         | Review Board command line |
 | tmux            | terminal multiplexer      |
 | translate-shell | translator                |
 | vim             | text editor               |
@@ -61,9 +62,9 @@ ctags           git             gnupg
 httpie          http-prompt     konsole
 less            mopidy          mycli
 ncmpcpp         neomutt         newsbeuter
-notes           openssh         tmux
-translate-shell vim             weechat
-xdg             zsh
+notes           openssh         rbtools
+tmux            translate-shell vim
+weechat         xdg             zsh
 If no tool argument is passed, all of them are setup
 ```
 

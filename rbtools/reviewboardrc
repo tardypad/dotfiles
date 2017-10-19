@@ -1,0 +1,4 @@
+TRACKING_BRANCH = "origin/master"
+STAMP_WHEN_POSTING = True
+OPEN_BROWSER = True
+PUBLISH = False
