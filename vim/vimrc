@@ -32,6 +32,13 @@ vnoremap <PageDown> <nop>
 vnoremap <Home> <nop>
 vnoremap <End> <nop>
 
+" Use space as leader
+let mapleader = "\<Space>"
+
+" Disable space moves cursor in non editing mode
+noremap <Space> <nop>
+vnoremap <Space> <nop>
+
 " disable usage of Ctrl-J as Enter in command mode
 cnoremap <C-J> <nop>
 
