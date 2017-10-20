@@ -36,5 +36,18 @@ ALIASES = {
     'submit-last': '! \
         review_id=`git last-review-id`; \
         rbt close --close-type submitted "${review_id}"; \
+    ',
+    'apply': '! \
+        rbt patch --commit-no-edit $1; \
+        git commit --amend \
+            -m \'`  \
+                git log -1 --pretty=%s \
+                | sed "s/^\[.*\] //" \
+            `\' \
+            -m \'` \
+                git log -1 --pretty=%b \
+                    | sed "/Testing Done/,/^\s*$/{d}" \
+                    | sed "s/^Bugs closed/Issue/"\
+            `\' \
     '
 }

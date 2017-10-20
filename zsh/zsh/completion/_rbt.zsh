@@ -6,6 +6,7 @@ _commands() {
     publish-last
     submit-last
     discard-last
+    apply
     status
   )
 
