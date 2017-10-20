@@ -24,5 +24,17 @@ ALIASES = {
             --review-request-id "$review_id" \
             --parent HEAD~; \
         fi \
+    ',
+    'publish-last': '! \
+        review_id=`git last-review-id`; \
+        rbt publish "${review_id}"; \
+    ',
+    'discard-last': '! \
+        review_id=`git last-review-id`; \
+        rbt close --close-type discarded "${review_id}"; \
+    ',
+    'submit-last': '! \
+        review_id=`git last-review-id`; \
+        rbt close --close-type submitted "${review_id}"; \
     '
 }
