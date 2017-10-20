@@ -12,6 +12,7 @@
         coma = checkout master
         cfg = config --includes
         cp = cherry-pick
+        current-branch = symbolic-ref --short HEAD
         df = diff
         df1 = diff -U0
         dfc = diff --cached
@@ -21,6 +22,17 @@
         hist = log --oneline -10
         issue = stamp -r Issue
         last = whatchanged -1
+        last-description = ! git log -1 --pretty=%b \
+            | grep -vE 'Issue|Reviewed at|^$'
+        last-issue-id = ! git log -1 --pretty=%b \
+            | grep 'Issue' \
+            | tail --lines 1 \
+            | sed -r 's%.* ([A-Za-z0-9-]+).*%\\1%'
+        last-review-id = ! git log -1 --pretty=%b \
+            | grep 'Reviewed at' \
+            | tail --lines 1 \
+            | sed -r 's%.*/r/([0-9]+)/%\\1%'
+        last-subject = log -1 --pretty=%s
         log1 = log --oneline
         mg = merge
         pl = pull
