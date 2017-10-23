@@ -73,10 +73,8 @@ bind    9 select-window -t :=9
 bind    c command-prompt -I '#{host_short}' "new-window -n '%%'"
 bind    r command-prompt -I '#{window_name}' "rename-window '%%'"
 bind    x confirm-before -p "kill-window #{window_name}? (y/n)" kill-window
-bind    | run "~/.tmux/scripts/split_window_ssh.sh h"
-bind    \ run "~/.tmux/scripts/split_window_ssh.sh h"
-bind    - run "~/.tmux/scripts/split_window_ssh.sh v"
-bind    _ run "~/.tmux/scripts/split_window_ssh.sh v"
+bind    v run "~/.tmux/scripts/split_window_ssh.sh h"
+bind    s run "~/.tmux/scripts/split_window_ssh.sh v"
 bind -r [ swap-window -t -
 bind -r ] swap-window -t +
 
