@@ -90,8 +90,8 @@ bind       Z resize-pane -Z
 bind       X if '[ #{window_panes} -ne 1 ]' kill-pane 'confirm-before -p "kill-window #{window_name}? (y/n)" kill-window'
 bind -r    { swap-pane -U
 bind -r    } swap-pane -D
-bind      F5 respawn-pane
-bind    M-F5 respawn-pane -k
+bind    BSpace respawn-pane
+bind    M-BSpace respawn-pane -k
 
 bind   ! select-layout even-horizontal
 bind   @ select-layout main-vertical
