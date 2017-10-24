@@ -24,3 +24,7 @@ let NERDTreeIgnore = [ '\.root$', '\.git$', '\.kdev4$', '\.kateproject*', 'build
 
 " Ignore files defined in wildignore too
 let NERDTreeRespectWildIgnore = 1
+
+" Redefine splits mapping to be usual v and s
+let NERDTreeMapOpenSplit = 's'
+let NERDTreeMapOpenVSplit = 'v'
