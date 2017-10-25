@@ -87,14 +87,6 @@ Plug 'vim-airline/vim-airline-themes',
 Plug 'ntpeters/vim-airline-colornum',
   \ { 'as': 'airline-colornum' }
 
-" Indicator for indentation
-Plug 'yggdroot/indentLine',
-  \ { 'as': 'indentline' }
-
-" Use relative line number only in current window
-Plug 'vim-scripts/RelativeNumberCurrentWindow',
-  \ { 'as': 'relativeNumberCurrentWindow' }
-
 " A better JSON
 Plug 'elzr/vim-json',
   \ { 'as': 'json', 'for': 'json' }
