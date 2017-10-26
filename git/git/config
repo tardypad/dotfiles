@@ -56,6 +56,8 @@
         todo-init = ! git notes --ref=todo show $(git first-commit) > $(git root)/TODO
         todo-log = log -p refs/notes/todo
         todo-push = ! git push origin refs/notes/todo
+[log]
+        decorate = false
 [url "github:tardypad/"]
         insteadOf = github:
 [include]
