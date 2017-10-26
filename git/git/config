@@ -46,7 +46,7 @@
         rbi = rebase -i
         reword = commit --amend
         sth = stash save --keep-index --include-untracked
-        st = status
+        st = status --short
         tag-list = tag --format '%(align:20,left) %(refname:strip=2) %(end) %(taggerdate:iso) %(align:30,left) %(taggeremail) %(end) %(subject)' --sort=taggerdate
         todo-commit = ! git todo-diff || git notes --ref=todo add -f $(git first-commit) -F $(git root)/TODO
         todo-diff = ! bash -c 'diff $(git root)/TODO <(git notes --ref=todo show $(git first-commit))'
