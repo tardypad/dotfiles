@@ -10,4 +10,4 @@ Version [2.14.3](https://github.com/git/git/releases/tag/v2.14.3)
 
 - Git Extras  
   Source [Github](https://github.com/tj/git-extras)  
-  Version [4.3.0](https://github.com/tj/git-extras/releases/tag/4.3.0)
+  Version [4.4.0](https://github.com/tj/git-extras/releases/tag/4.4.0)
