@@ -35,6 +35,8 @@
         last-subject = log -1 --pretty=%s
         log1 = log --oneline
         mg = merge
+        mga = merge --abort
+        mgc = merge --continue
         pl = pull
         push-notes = push origin "refs/notes/*"
         push-perso = "!git push origin --set-upstream HEAD:$(git symbolic-ref --short HEAD) "
