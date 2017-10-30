@@ -5,7 +5,7 @@ tmux -L "${socket}" \
   new-session -d \
   -s '05-News' \
   -n 'reader' \
-  newsbeuter
+  newsboat
 
 
 tmux -L "${socket}" \

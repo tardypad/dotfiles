@@ -1,0 +1,3 @@
+include ~/.config/newsboat/conf/general
+include ~/.config/newsboat/conf/style
+include ~/.config/newsboat/conf/bindings
