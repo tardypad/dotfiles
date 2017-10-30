@@ -70,6 +70,25 @@ function +vi-git-untracked(){
   fi
 }
 
+# add info to git branch about branch vs upstream
+function +vi-git-upstream(){
+  local remote=$(git rev-parse --abbrev-ref --symbolic-full-name @{upstream} 2> /dev/null)
+
+  if [[ -n "${remote}" ]]; then
+    local ahead=$(git rev-list "${remote}"..HEAD --count)
+    local behind=$(git rev-list HEAD.."${remote}" --count)
+
+    hook_com[branch]+=' '
+
+    if [[ "${ahead}" == 0 && "${behind}" == 0 ]]; then
+      hook_com[branch]+='✔'
+    else
+      [[ "${ahead}" != 0 ]] && hook_com[branch]+="↑${ahead}"
+      [[ "${behind}" != 0 ]] && hook_com[branch]+="↓${behind}"
+    fi
+  fi
+}
+
 function set_prompt() {
   # define color variables
   local green='%{%F{green}%}'
@@ -84,7 +103,7 @@ function set_prompt() {
   zstyle ':vcs_info:*' check-for-changes true
   zstyle ':vcs_info:*' stagedstr '+'
   zstyle ':vcs_info:*' unstagedstr '!'
-  zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
+  zstyle ':vcs_info:git*+set-message:*' hooks git-untracked git-upstream
 
   # define individual items
   local vi_mode="${yellow}"' $VI_MODE '"${stop}"
