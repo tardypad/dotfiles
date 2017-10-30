@@ -20,7 +20,7 @@ All tools selected are [Free Software](https://www.gnu.org/philosophy/free-sw.en
 | mycli           | MySQL command line        |
 | ncmpcpp         | MPD client                |
 | neomutt         | mail client               |
-| newsbeuter      | RSS reader                |
+| newsboat        | RSS reader                |
 | notes           | notes management          |
 | openssh         | SSH client                |
 | rbtools         | Review Board command line |
@@ -61,7 +61,7 @@ Available tools:
 ctags           git             gnupg
 httpie          http-prompt     konsole
 less            mopidy          mycli
-ncmpcpp         neomutt         newsbeuter
+ncmpcpp         neomutt         newsboat
 notes           openssh         rbtools
 tmux            translate-shell vim
 weechat         xdg             zsh
