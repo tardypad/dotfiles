@@ -5,7 +5,7 @@ tmux -L "${socket}" \
   new-session -d \
   -s '03-Mail' \
   -n 'client' \
-  mutt
+  neomutt
 
 
 tmux -L "${socket}" \
