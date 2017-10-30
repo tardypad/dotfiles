@@ -1,3 +1,4 @@
+source ~/.config/mutt/conf/clean-bindings.mutt
 source ~/.config/mutt/conf/general.mutt
 source ~/.config/mutt/conf/bindings.mutt
 source ~/.config/mutt/conf/style.mutt
