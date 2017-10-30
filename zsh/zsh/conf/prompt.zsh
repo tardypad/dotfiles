@@ -65,9 +65,8 @@ function precmd() {
 
 # add flag to git unstaged flag if there are untracked files
 function +vi-git-untracked(){
-if [[ $( git rev-parse --is-inside-work-tree 2> /dev/null ) == 'true' ]] \
-    && git status --porcelain | grep '^??' &> /dev/null ; then
-  hook_com[unstaged]+='?'
+  if git status --porcelain | grep '^??' &> /dev/null ; then
+    hook_com[unstaged]+='?'
   fi
 }
 
