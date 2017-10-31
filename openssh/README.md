@@ -4,4 +4,4 @@ SSH client
 
 Source [Github](https://github.com/openssh/openssh-portable)
 
-Version [7.3](https://github.com/openssh/openssh-portable/releases/tag/V_7_3_P1)
+Version [7.6](https://github.com/openssh/openssh-portable/releases/tag/V_7_6_P1)
