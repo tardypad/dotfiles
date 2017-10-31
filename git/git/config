@@ -47,6 +47,7 @@
         rbma = rebase -i master
         rba = rebase --abort
         rbc = rebase --continue
+        rbh = "!r(){ git rebase -i HEAD~$1; }; r"
         rbi = rebase -i
         reword = commit --amend
         sth = stash save --keep-index --include-untracked
