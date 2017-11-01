@@ -56,7 +56,7 @@ case "${type}" in
     ;;
   sessions)
     tmux choose-tree \
-      -S '#(echo #{session_name} | sed "s/^[0-9]*-//")' \
+      -S '#{session_name}' \
       -W '#{window_name}' \
       -b "${choose_command}"
     ;;

@@ -47,7 +47,7 @@ bind    C-8 switch-client -t 08-
 bind    C-9 switch-client -t 09-
 bind    C-c command-prompt -I '#{host_short}' "new-session -s '%%'"
 bind    C-r command-prompt -I '#{session_name}' "rename-session '%%'"
-bind    C-x confirm-before -p 'kill-session #(echo #{session_name} | sed "s/^[0-9]*-//")? (y/n)' kill-session
+bind    C-x confirm-before -p 'kill-session #{session_name}? (y/n)' kill-session
 
 # windows management (no extra modifier key)
 bind    w run "~/.tmux/scripts/choose_tree_left.sh windows"
