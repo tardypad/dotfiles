@@ -1,8 +1,5 @@
 # remove all default bindings
 unbind -T prefix -a
-unbind -T prefix -t vi-choice -a
-unbind -T prefix -t vi-copy -a
-unbind -T prefix -t vi-edit -a
 unbind -T root -a
 
 # prefix
@@ -50,7 +47,7 @@ bind    C-8 switch-client -t 08-
 bind    C-9 switch-client -t 09-
 bind    C-c command-prompt -I '#{host_short}' "new-session -s '%%'"
 bind    C-r command-prompt -I '#{session_name}' "rename-session '%%'"
-bind    C-x confirm-before -p 'kill-session #(echo #{session_name} | sed "s/^[0-9]*-//")? (y/n)' kill-session
+bind    C-x confirm-before -p 'kill-session #{session_name}? (y/n)' kill-session
 
 # windows management (no extra modifier key)
 bind    w run "~/.tmux/scripts/choose_tree_left.sh windows"
@@ -113,119 +110,11 @@ bind ( copy-mode
 bind ) paste-buffer
 
 # copy mode management
-bind -t vi-copy    C-c cancel
-bind -t vi-copy      q cancel
-bind -t vi-copy    C-b page-up
-bind -t vi-copy    C-f page-down
-bind -t vi-copy    C-d halfpage-down
-bind -t vi-copy    C-u halfpage-up
-bind -t vi-copy    C-e scroll-down
-bind -t vi-copy    C-y scroll-up
-bind -t vi-copy      h cursor-left
-bind -t vi-copy      j cursor-down
-bind -t vi-copy      k cursor-up
-bind -t vi-copy      l cursor-right
-bind -t vi-copy      g history-top
-bind -t vi-copy      G history-bottom
-bind -t vi-copy      H top-line
-bind -t vi-copy      M middle-line
-bind -t vi-copy      L bottom-line
-bind -t vi-copy      D copy-end-of-line
-bind -t vi-copy      0 start-of-line
-bind -t vi-copy      ^ back-to-indentation
-bind -t vi-copy      $ end-of-line
-bind -t vi-copy      b previous-word
-bind -t vi-copy      B previous-space
-bind -t vi-copy      e next-word-end
-bind -t vi-copy      E next-space-end
-bind -t vi-copy      w next-word
-bind -t vi-copy      W next-space
-bind -t vi-copy      f jump-forward
-bind -t vi-copy      F jump-backward
-bind -t vi-copy      t jump-to-forward
-bind -t vi-copy      T jump-to-backward
-bind -t vi-copy     \; jump-again
-bind -t vi-copy      , jump-reverse
-bind -t vi-copy      { previous-paragraph
-bind -t vi-copy      } next-paragraph
-bind -t vi-copy      o other-end
-bind -t vi-copy      : goto-line
-bind -t vi-copy      / search-forward
-bind -t vi-copy      ? search-backward
-bind -t vi-copy      n search-again
-bind -t vi-copy      N search-reverse
-bind -t vi-copy    '"' start-named-buffer
-bind -t vi-copy      1 start-number-prefix
-bind -t vi-copy      2 start-number-prefix
-bind -t vi-copy      3 start-number-prefix
-bind -t vi-copy      4 start-number-prefix
-bind -t vi-copy      5 start-number-prefix
-bind -t vi-copy      6 start-number-prefix
-bind -t vi-copy      7 start-number-prefix
-bind -t vi-copy      8 start-number-prefix
-bind -t vi-copy      9 start-number-prefix
-bind -t vi-copy      v begin-selection
-bind -t vi-copy      V select-line
-bind -t vi-copy      y copy-selection
-bind -t vi-copy Escape clear-selection
+unbind -T copy-mode-vi Space
+unbind -T copy-mode-vi Enter
+unbind -T copy-mode-vi A
 
-# choice mode management
-bind -t vi-choice      q cancel
-bind -t vi-choice Escape cancel
-bind -t vi-choice  Enter choose
-bind -t vi-choice      o choose
-bind -t vi-choice      g start-of-list
-bind -t vi-choice      G end-of-list
-bind -t vi-choice      j down
-bind -t vi-choice      k up
-bind -t vi-choice      h tree-collapse
-bind -t vi-choice      l tree-expand
-bind -t vi-choice      H tree-collapse-all
-bind -t vi-choice      L tree-expand-all
-bind -t vi-choice  Space tree-toggle
-
-# edit mode management
-bind -t vi-edit    C-c cancel
-bind -t vi-edit  Enter enter
-bind -t vi-edit   Left cursor-left
-bind -t vi-edit  Right cursor-right
-bind -t vi-edit    C-p history-up
-bind -t vi-edit    C-n history-down
-bind -t vi-edit Escape switch-mode
-bind -t vi-edit    Tab complete
-bind -t vi-edit    C-h backspace
-bind -t vi-edit BSpace backspace
-bind -t vi-edit    C-u delete-line
-bind -t vi-edit    C-w delete-word
-
-bind -ct vi-edit   C-c cancel
-bind -ct vi-edit Enter enter
-bind -ct vi-edit  Left cursor-left
-bind -ct vi-edit     h cursor-left
-bind -ct vi-edit Right cursor-right
-bind -ct vi-edit     l cursor-right
-bind -ct vi-edit   C-p history-up
-bind -ct vi-edit     k history-up
-bind -ct vi-edit   C-n history-down
-bind -ct vi-edit     j history-down
-bind -ct vi-edit     i switch-mode
-bind -ct vi-edit     0 start-of-line
-bind -ct vi-edit     ^ start-of-line
-bind -ct vi-edit     $ end-of-line
-bind -ct vi-edit     b previous-word
-bind -ct vi-edit     B previous-space
-bind -ct vi-edit     e next-word-end
-bind -ct vi-edit     E next-space-end
-bind -ct vi-edit     w next-word
-bind -ct vi-edit     W next-space
-bind -ct vi-edit     A switch-mode-append-line
-bind -ct vi-edit     C switch-mode-change-line
-bind -ct vi-edit     D delete-end-of-line
-bind -ct vi-edit     I switch-mode-begin-line
-bind -ct vi-edit     s switch-mode-substitute
-bind -ct vi-edit     S switch-mode-substitute-line
-bind -ct vi-edit     a switch-mode-append
-bind -ct vi-edit     d delete-line
-bind -ct vi-edit     x delete
-bind -ct vi-edit     X backspace
-bind -ct vi-edit     p paste
+bind -T copy-mode-vi C-c send -X cancel
+bind -T copy-mode-vi   y send -X copy-selection-and-cancel
+bind -T copy-mode-vi   v send -X begin-selection
+bind -T copy-mode-vi C-v send -X rectangle-toggle

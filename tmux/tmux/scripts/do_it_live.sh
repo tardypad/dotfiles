@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 image_path="${HOME}/.tmux/images/doitlive"
-session_name="Fuck it, we will do it live!"
+session_name="Fuck it, we'll do it live!"
 window_name="What could possibly go wrong?"
 
 # define left margin for centered image on left pane
@@ -31,4 +31,4 @@ tmux new-session -d -s "${session_name}" -n "${window_name}"
 tmux split-window -h -b \
   -t "${session_name}:${window_name}.1" \
   "${display_command}"
-tmux switch-client -t "${session_name}:${window_name}.1"
+tmux switch-client -t "${session_name}:${window_name}.2"

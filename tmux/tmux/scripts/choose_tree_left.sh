@@ -17,6 +17,7 @@ fi
 # ¯\_(ツ)_/¯
 current_pane_index=$( tmux display -p '#{pane_index}' )
 current_window_layout=$( tmux display -p '#{window_visible_layout}' )
+current_session_name=$( tmux display -p '#{session_name}' )
 
 case "${type}" in
   windows)
@@ -30,7 +31,7 @@ case "${type}" in
 esac
 
 # create new active menu pane
-# with an unexisting command just to set the pane title
+# with an unexisting command just to set the pane title and make the pane dead
 # full window height, on most left part, with fixed width
 # (using the -l width option of split-window seems not to be working
 # in case of multiple panes, so we use resize-pane after creation)
@@ -48,17 +49,28 @@ choose_command=" \
   ${select_command} \
 "
 
+format='#{?pane_format,'
+  format+='#{pane_current_command}'
+format+=','
+  format+='#{?window_format,'
+    format+='#{window_name}'
+  format+=','
+  format+='}'
+format+='}'
+
 case "${type}" in
   windows)
-    tmux choose-tree -w \
-      -W '#{window_name}' \
-      -c "${choose_command}"
+    tmux choose-tree -N -w \
+      -F "${format}" \
+      -f "#{==:#{session_name},${current_session_name}}"
+      -O name \
+      "${choose_command}"
     ;;
   sessions)
-    tmux choose-tree \
-      -S '#(echo #{session_name} | sed "s/^[0-9]*-//")' \
-      -W '#{window_name}' \
-      -b "${choose_command}"
+    tmux choose-tree -N -s -w \
+      -F "${format}" \
+      -O name \
+      "${choose_command}"
     ;;
 esac
 
