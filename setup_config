@@ -78,7 +78,7 @@ remote_exec() {
 remote_copy() {
   local host="$1"
   local repo_source_path="$2"
-  local home_target_path="$3"
+  local target_path="$3"
 
   [ -e "${repo_source_path}" ] || return 1
 
