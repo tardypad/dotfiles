@@ -4,7 +4,7 @@ Chat client
 
 Source [Github](https://github.com/weechat/weechat)
 
-Version [1.7.1](https://github.com/weechat/weechat/releases/tag/v1.7.1)
+Version [1.9.1](https://github.com/weechat/weechat/releases/tag/v1.9.1)
 
 Manual setup steps:
 - set passphrase for secure storage `/secure passphrase [passphrase]`

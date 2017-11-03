@@ -6,7 +6,7 @@ weechat::local::setup() {
 
   # copy config files
   local_copy "weechat/weechat/alias.conf" "${HOME}/.weechat/alias.conf"
-  local_copy "weechat/weechat/buffers.conf" "${HOME}/.weechat/buffers.conf"
+  local_copy "weechat/weechat/buflist.conf" "${HOME}/.weechat/buflist.conf"
   local_copy "weechat/weechat/charset.conf" "${HOME}/.weechat/charset.conf"
   local_copy "weechat/weechat/colorize_nicks.conf" "${HOME}/.weechat/colorize_nicks.conf"
   local_copy "weechat/weechat/exec.conf" "${HOME}/.weechat/exec.conf"
@@ -27,14 +27,6 @@ weechat::local::setup() {
       https://raw.githubusercontent.com/rawdigits/wee-slack/master/wee_slack.py \
       --output "${HOME}/.weechat/python/wee_slack.py"
     ln -s ../wee_slack.py "${HOME}/.weechat/python/autoload/wee_slack.py"
-  fi
-
-  # install buffers.pl script if not present
-  if [[ ! -f "${HOME}/.weechat/perl/buffers.pl" ]]; then
-    curl --silent --location --create-dirs \
-      https://weechat.org/files/scripts/buffers.pl \
-      --output "${HOME}/.weechat/perl/buffers.pl"
-    ln -s ../buffers.pl "${HOME}/.weechat/perl/autoload/buffers.pl"
   fi
 
   # install colorize_nicks.py script if not present
