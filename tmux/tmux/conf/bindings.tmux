@@ -1,6 +1,7 @@
 # remove all default bindings
 unbind -T prefix -a
 unbind -T root -a
+unbind -T copy-mode -a
 
 # prefix
 bind C-a send-prefix
