@@ -2,6 +2,7 @@
 unbind -T prefix -a
 unbind -T root -a
 unbind -T copy-mode -a
+unbind -T copy-mode-vi -a
 
 # prefix
 bind C-a send-prefix
@@ -111,11 +112,58 @@ bind ( copy-mode
 bind ) paste-buffer
 
 # copy mode management
-unbind -T copy-mode-vi Space
-unbind -T copy-mode-vi Enter
-unbind -T copy-mode-vi A
-
-bind -T copy-mode-vi C-c send -X cancel
-bind -T copy-mode-vi   y send -X copy-selection-and-cancel
-bind -T copy-mode-vi   v send -X begin-selection
-bind -T copy-mode-vi C-v send -X rectangle-toggle
+bind -T copy-mode-vi    C-c send-keys -X cancel
+bind -T copy-mode-vi      q send-keys -X cancel
+bind -T copy-mode-vi    C-b send-keys -X page-up
+bind -T copy-mode-vi    C-f send-keys -X page-down
+bind -T copy-mode-vi    C-u send-keys -X halfpage-up
+bind -T copy-mode-vi    C-d send-keys -X halfpage-down
+bind -T copy-mode-vi    C-e send-keys -X scroll-down
+bind -T copy-mode-vi    C-y send-keys -X scroll-up
+bind -T copy-mode-vi      h send-keys -X cursor-left
+bind -T copy-mode-vi      j send-keys -X cursor-down
+bind -T copy-mode-vi      k send-keys -X cursor-up
+bind -T copy-mode-vi      l send-keys -X cursor-right
+bind -T copy-mode-vi      g send-keys -X history-top
+bind -T copy-mode-vi      G send-keys -X history-bottom
+bind -T copy-mode-vi      H send-keys -X top-line
+bind -T copy-mode-vi      M send-keys -X middle-line
+bind -T copy-mode-vi      L send-keys -X bottom-line
+bind -T copy-mode-vi      D send-keys -X copy-end-of-line
+bind -T copy-mode-vi      0 send-keys -X start-of-line
+bind -T copy-mode-vi      ^ send-keys -X back-to-indentation
+bind -T copy-mode-vi    '$' send-keys -X end-of-line
+bind -T copy-mode-vi      b send-keys -X previous-word
+bind -T copy-mode-vi      B send-keys -X previous-space
+bind -T copy-mode-vi      e send-keys -X next-word-end
+bind -T copy-mode-vi      E send-keys -X next-space-end
+bind -T copy-mode-vi      w send-keys -X next-word
+bind -T copy-mode-vi      W send-keys -X next-space
+bind -T copy-mode-vi      f command-prompt -1 -p "(jump forward)" "send -X jump-forward \"%%%\""
+bind -T copy-mode-vi      F command-prompt -1 -p "(jump backward)" "send -X jump-backward \"%%%\""
+bind -T copy-mode-vi      t command-prompt -1 -p "(jump to forward)" "send -X jump-to-forward \"%%%\""
+bind -T copy-mode-vi      T command-prompt -1 -p "(jump to backward)" "send -X jump-to-backward \"%%%\""
+bind -T copy-mode-vi     \; send-keys -X jump-again
+bind -T copy-mode-vi      , send-keys -X jump-reverse
+bind -T copy-mode-vi      { send-keys -X previous-paragraph
+bind -T copy-mode-vi      } send-keys -X next-paragraph
+bind -T copy-mode-vi      o send-keys -X other-end
+bind -T copy-mode-vi      : command-prompt -p "(goto line)" "send -X goto-line \"%%%\""
+bind -T copy-mode-vi      / command-prompt -p "(search down)" "send -X search-forward \"%%%\""
+bind -T copy-mode-vi      ? command-prompt -p "(search up)" "send -X search-backward \"%%%\""
+bind -T copy-mode-vi      n send-keys -X search-again
+bind -T copy-mode-vi      N send-keys -X search-reverse
+bind -T copy-mode-vi      1 command-prompt -N -I 1 -p (repeat) "send -N \"%%%\""
+bind -T copy-mode-vi      2 command-prompt -N -I 2 -p (repeat) "send -N \"%%%\""
+bind -T copy-mode-vi      3 command-prompt -N -I 3 -p (repeat) "send -N \"%%%\""
+bind -T copy-mode-vi      4 command-prompt -N -I 4 -p (repeat) "send -N \"%%%\""
+bind -T copy-mode-vi      5 command-prompt -N -I 5 -p (repeat) "send -N \"%%%\""
+bind -T copy-mode-vi      6 command-prompt -N -I 6 -p (repeat) "send -N \"%%%\""
+bind -T copy-mode-vi      7 command-prompt -N -I 7 -p (repeat) "send -N \"%%%\""
+bind -T copy-mode-vi      8 command-prompt -N -I 8 -p (repeat) "send -N \"%%%\""
+bind -T copy-mode-vi      9 command-prompt -N -I 9 -p (repeat) "send -N \"%%%\""
+bind -T copy-mode-vi      v send-keys -X begin-selection
+bind -T copy-mode-vi      V send-keys -X select-line
+bind -T copy-mode-vi    C-v send-keys -X rectangle-toggle
+bind -T copy-mode-vi      y send -X copy-selection-and-cancel
+bind -T copy-mode-vi Escape send-keys -X clear-selection
