@@ -1,8 +1,11 @@
-# overridde default bindings
+# tpm overrides
 set -g @tpm-install 'M-i'
 set -g @tpm-update 'M-u'
 set -g @tpm-clean 'M-c'
-set -g @shell_mode 'vi'
+
+# tmux-open overrides
+set -g @open-editor 'O'
+set -g @open-S 'https://www.google.com/search?q='
 
 # define plugins
 set -g @plugin 'tmux-plugins/tpm'
