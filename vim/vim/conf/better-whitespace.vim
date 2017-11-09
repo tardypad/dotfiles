@@ -8,6 +8,9 @@ fun! FiletypeFilteredStripWhitespace()
   StripWhitespace
 endfun
 
+" always highlight whitespace
+let g:better_whitespace_filetypes_blacklist=[]
+
 " Strip all whitespaces on saving based on filetype
 autocmd BufWritePre * call FiletypeFilteredStripWhitespace()
 
