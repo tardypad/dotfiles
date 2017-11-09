@@ -11,7 +11,7 @@ Version [5.4.2](https://github.com/zsh-users/zsh/releases/tag/zsh-5.4.2)
 - zplug  
   Plugins manager  
   Source [Github](https://github.com/zplug/zplug)  
-  Version [9fdb3889](https://github.com/zplug/zplug/commit/9fdb3889e0a131bf2af7bb5cc7ad91ccbf8213e4)
+  Version [9fdb388](https://github.com/zplug/zplug/commit/9fdb3889e0a131bf2af7bb5cc7ad91ccbf8213e4)
 
 - revolver  
   Progress spinner for scripts  

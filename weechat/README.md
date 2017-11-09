@@ -25,7 +25,7 @@ To join multiple teams (here 2), the last command should be:
 - vimode  
   Vim-like mode and keybindings  
   Source [Github](https://github.com/GermainZ/weechat-vimode)  
-  Version [b7047257](https://github.com/GermainZ/weechat-vimode/commit/b7047257836c6100893e2fa36649214d6e1bae9c)
+  Version [b704725](https://github.com/GermainZ/weechat-vimode/commit/b7047257836c6100893e2fa36649214d6e1bae9c)
 
 - go  
   Quick jump to buffers  
@@ -40,4 +40,4 @@ To join multiple teams (here 2), the last command should be:
 - wee_slack  
   Slack integration  
   Source [Github](https://github.com/wee-slack/wee-slack)  
-  Version [3eff1de4](https://github.com/wee-slack/wee-slack/commit/3eff1de49d3aba1d991b7b6953e6b55a24fdecd9)
+  Version [3eff1de](https://github.com/wee-slack/wee-slack/commit/3eff1de49d3aba1d991b7b6953e6b55a24fdecd9)
