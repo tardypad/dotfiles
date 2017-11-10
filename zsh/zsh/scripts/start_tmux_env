@@ -92,7 +92,7 @@ start_target_tmux_env() {
 
   if [[ "${HOST}" == 'localhost' ]]; then
     local session_names=$(
-      tmux -L "${SOCKET}" list-sessions -F '#{session_name}'
+      tmux -L "${SOCKET}" list-sessions -F '#{session_name}' 2> /dev/null
     )
     for script_path in ${scripts_path}; do
       local session_name="${script_path:t:r}"
@@ -112,7 +112,7 @@ start_target_tmux_env() {
   else
 
     local session_names=$(
-      ssh "${HOST}" "tmux -L ${SOCKET} list-sessions -F '#{session_name}'"
+      ssh "${HOST}" "tmux -L ${SOCKET} list-sessions -F '#{session_name}'" 2> /dev/null
     )
     for script_path in ${scripts_path}; do
       local session_name="${script_path:t:r}"
