@@ -40,7 +40,7 @@ weechat::local::setup() {
   # install vimode script if not present
   if [[ ! -f "${HOME}/.weechat/python/vimode.py" ]]; then
     curl --silent --location --create-dirs \
-      https://raw.githubusercontent.com/GermainZ/weechat-vimode/master/vimode.py \
+      https://raw.githubusercontent.com/tardypad/weechat-vimode/master/vimode.py \
       --output "${HOME}/.weechat/python/vimode.py"
     ln -s ../vimode.py "${HOME}/.weechat/python/autoload/vimode.py"
   fi

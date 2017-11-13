@@ -24,8 +24,8 @@ To join multiple teams (here 2), the last command should be:
 
 - vimode  
   Vim-like mode and keybindings  
-  Source [Github](https://github.com/GermainZ/weechat-vimode)  
-  Version [b704725](https://github.com/GermainZ/weechat-vimode/commit/b7047257836c6100893e2fa36649214d6e1bae9c)
+  Source [Github](https://github.com/tardypad/weechat-vimode)  
+  Version [d460776](https://github.com/tardypad/weechat-vimode/commit/d460776130ec8e2010d7189bbd24dda3f6a0aa46)
 
 - go  
   Quick jump to buffers  
