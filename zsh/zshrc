@@ -31,3 +31,16 @@ setopt auto_cd
 setopt no_flow_control
 # setopt doesn't seem to be enough when using vim within tmux...
 stty -ixon
+
+# reuse ssh-agent across ttys
+ssh-add -l &>/dev/null
+if [ "$?" -eq 2 ]; then
+  test -r ~/.cache/ssh-agent && \
+  eval "$(<~/.cache/ssh-agent)" >/dev/null
+
+  ssh-add -l &>/dev/null
+  if [ "$?" -eq 2 ]; then
+    (umask 066; ssh-agent > ~/.cache/ssh-agent)
+    eval "$(<~/.cache/ssh-agent)" >/dev/null
+  fi
+fi
