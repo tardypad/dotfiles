@@ -2,6 +2,7 @@ Host *
     PubkeyAcceptedKeyTypes=+ssh-dss
     HashKnownHosts no
     EscapeChar %
+    ForwardAgent no
     AddKeysToAgent yes
 
 Host github
