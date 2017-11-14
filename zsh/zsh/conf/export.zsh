@@ -14,6 +14,3 @@ export READNULLCMD=less
 
 # decrease key timeout to 50ms
 export KEYTIMEOUT=5
-
-# needed for use of GnuPG Curses based Pinentry
-export GPG_TTY=$(tty)
