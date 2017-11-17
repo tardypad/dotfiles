@@ -166,3 +166,7 @@ highlight EndOfBuffer ctermfg=bg
 " lighter vertical split display
 set fillchars+=vert:│
 highlight VertSplit ctermbg=NONE
+
+" Mail config
+autocmd BufRead,BufNewFile *mutt-* setfiletype mail
+autocmd FileType mail setlocal formatoptions+=aw textwidth=72
