@@ -11,6 +11,7 @@ bind index <Return> display-message
 bind index,pager m mail
 bind index,pager f forward-message
 bind index,pager r reply
+bind index,pager a group-reply
 bind index,pager s save-message
 
 # navigation
@@ -90,3 +91,13 @@ macro index,pager <F3> "<change-folder>imaps://$my_gandi_email@mail.gandi.net<En
 bind index,pager \Cp sidebar-prev
 bind index,pager \Cn sidebar-next
 bind index,pager \Co sidebar-open
+
+# compose message
+bind compose ef edit-from
+bind compose et edit-to
+bind compose ec edit-cc
+bind compose es edit-subject
+bind compose em edit-message
+bind compose <Return> view-attach
+bind compose y send-message
+bind compose a attach-file

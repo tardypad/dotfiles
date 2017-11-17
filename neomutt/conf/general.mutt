@@ -39,3 +39,24 @@ set sleep_time = 0
 # periodically calculate message statistics of mailbox
 # (needed for sidebar display of new mails count)
 set mail_check_stats = yes
+
+# Better display of message
+set text_flowed = yes
+
+# show headers while composing message
+set edit_headers = yes
+
+# skip recipients and subject directly to compose when replying
+set fast_reply = yes
+
+# ask fo CC before editing
+set askcc = yes
+
+# subject format for forwards
+set forward_format = "Fwd: %s"
+
+# include message in replies
+set include = yes
+
+# include message in forwards
+set forward_quote = yes
