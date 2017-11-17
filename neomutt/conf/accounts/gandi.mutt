@@ -3,6 +3,7 @@ set folder = "imaps://$my_gandi_email@mail.gandi.net"
 set from = "$my_gandi_email"
 set smtp_url = "smtps://$my_gandi_email@mail.gandi.net"
 set smtp_pass = "$my_gandi_password"
+set signature = ~/.config/neomutt/conf/signatures/simple
 set spoolfile = "+INBOX"
 set record = "+Sent"
 set postponed = "+Drafts"
