@@ -78,6 +78,11 @@ Version [8.0](https://github.com/vim/vim/releases/tag/v8.0.0000)
   Source [Github](https://github.com/christoomey/vim-tmux-navigator)  
   Version [d724094](https://github.com/christoomey/vim-tmux-navigator/commit/d724094e7128acd7375cc758008f1e1688130877)
 
+- vim-tmux-clipboard  
+  Tmux clipboard sharing  
+  Source [Github](https://github.com/roxma/vim-tmux-clipboard)  
+  Version [24e6363](https://github.com/roxma/vim-tmux-clipboard/commit/24e636396cc02ee9b5a952cec1576c8309674ac2)
+
 - nerdtree  
   Tree explorer  
   Source [Github](https://github.com/scrooloose/nerdtree)  

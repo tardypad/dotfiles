@@ -66,6 +66,11 @@ Plug 'christoomey/vim-tmux-navigator',
   \ { 'as': 'tmux-navigator',
   \   'commit': 'd724094' }
 
+" Tmux clipboard sharing
+Plug 'roxma/vim-tmux-clipboard',
+  \ { 'as': 'tmux-clipboard',
+  \   'commit': '24e6363' }
+
 " Tree explorer
 Plug 'scrooloose/nerdtree',
   \ { 'as': 'nerdtree',
