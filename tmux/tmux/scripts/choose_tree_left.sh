@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 
-menu_width=40
-
 type="$1"
 
 # abort if there is already a choice tree in the current window
 tmux list-panes -F '#{pane_start_command}' \
-  | grep -qE 'choose_window|choose_session'
+  | grep -qE 'choose_window|choose_session|choose_buffer'
 if [[ $? -eq 0 ]]; then
   exit 0
 fi
@@ -21,12 +19,19 @@ current_session_name=$( tmux display -p '#{session_name}' )
 
 case "${type}" in
   windows)
+    menu_width=40
     select_command="select-window -t '%%'"
     pane_title='choose_window'
     ;;
   sessions)
+    menu_width=40
     select_command="switch-client -t '%%'"
     pane_title='choose_session'
+    ;;
+  buffers)
+    menu_width=50
+    select_command="paste-buffer -b '%%'"
+    pane_title='choose_buffer'
     ;;
 esac
 
@@ -40,7 +45,7 @@ tmux \
   split-window -hbf "${pane_title}" \; \
   resize-pane -x "${menu_width}"
 
-# before switching sessions/windows
+# before executing the command
 # close menu, restore layout and active pane
 choose_command=" \
   kill-pane ; \
@@ -70,6 +75,12 @@ case "${type}" in
     tmux choose-tree -N -s -w \
       -F "${format}" \
       -O name \
+      "${choose_command}"
+    ;;
+  buffers)
+    tmux choose-buffer -N \
+      -F "#{buffer_sample}" \
+      -O time \
       "${choose_command}"
     ;;
 esac
