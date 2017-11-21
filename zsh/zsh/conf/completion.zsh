@@ -1,6 +1,9 @@
 # register local completions folder
 fpath=("${HOME}/.zsh/completion/" $fpath)
 
+# register ZSH additional completions folder
+fpath=(/usr/local/share/zsh/site-functions/zsh-completions/ $fpath)
+
 autoload -Uz compinit
 
 # Speed up startup by only checking once a day
