@@ -16,6 +16,10 @@ Version [5.4.2](https://github.com/zsh-users/zsh/releases/tag/zsh-5.4.2)
   Source [Github](https://github.com/zsh-users/zsh-syntax-highlighting)  
   Version [0.6.0](https://github.com/zsh-users/zsh-syntax-highlighting/releases/tag/0.6.0)
 
+- Fish-like autosuggestions  
+  Source [Github](https://github.com/zsh-users/zsh-autosuggestions)  
+  Version [0.4.0](https://github.com/zsh-users/zsh-autosuggestions/releases/tag/v0.4.0)
+
 ## Plugins
 
 - zplug  
