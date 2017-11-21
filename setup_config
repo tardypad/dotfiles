@@ -96,11 +96,7 @@ run_function_if_exists() {
 setup_start() {
   local tool="$1"
 
-  if command -v revolver > /dev/null 2>&1; then
-    revolver --style dots start "setup ${tool}"
-  else
-    echo "setup ${tool}"
-  fi
+  echo -n "… setup ${tool}"
 }
 
 
@@ -108,18 +104,13 @@ setup_update() {
   local tool="$1"
   local host="$2"
 
-  if command -v revolver > /dev/null 2>&1; then
-    revolver update "setup ${tool} [${host}]"
-  fi
+  echo -ne "\r… setup ${tool} [${host}]"
 }
 
 setup_end() {
   local tool="$1"
 
-  if command -v revolver > /dev/null 2>&1; then
-    revolver stop
-    echo "$(tput setaf 2)✔$(tput sgr0) setup ${tool}$(tput el)"
-  fi
+  echo -e "\r$(tput setaf 2)✔$(tput sgr0) setup ${tool}$(tput el)"
 }
 
 
