@@ -44,3 +44,7 @@ if [ "$?" -eq 2 ]; then
     eval "$(<~/.cache/ssh-agent)" >/dev/null
   fi
 fi
+
+# important to source the syntax highlighting at the end
+# because it needs all widgets to be already created
+source /usr/local/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

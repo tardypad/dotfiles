@@ -12,6 +12,10 @@ Version [5.4.2](https://github.com/zsh-users/zsh/releases/tag/zsh-5.4.2)
   Source [Github](https://github.com/zsh-users/zsh-completions)  
   Version [0.27.0](https://github.com/zsh-users/zsh-completions/releases/tag/0.27.0)
 
+- Syntax highlighting  
+  Source [Github](https://github.com/zsh-users/zsh-syntax-highlighting)  
+  Version [0.6.0](https://github.com/zsh-users/zsh-syntax-highlighting/releases/tag/0.6.0)
+
 ## Plugins
 
 - zplug  
