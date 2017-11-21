@@ -23,15 +23,3 @@ Version [5.4.2](https://github.com/zsh-users/zsh/releases/tag/zsh-5.4.2)
 - Fish-like history substring search  
   Source [Github](https://github.com/zsh-users/zsh-history-substring-search)  
   Version [d44159b](https://github.com/zsh-users/zsh-history-substring-search/commit/d44159b5e87cbdc8fdaa448f09523e12193d7d6d)
-
-## Plugins
-
-- zplug  
-  Plugins manager  
-  Source [Github](https://github.com/zplug/zplug)  
-  Version [9fdb388](https://github.com/zplug/zplug/commit/9fdb3889e0a131bf2af7bb5cc7ad91ccbf8213e4)
-
-- revolver  
-  Progress spinner for scripts  
-  Source [Github](https://github.com/molovo/revolver)  
-  Version [0.2.4](https://github.com/molovo/revolver/releases/tag/v0.2.4)
