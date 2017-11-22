@@ -8,6 +8,7 @@ _commands() {
     discard-last
     apply
     status
+    submit-all
   )
 
   compadd "$@" $commands

@@ -37,6 +37,13 @@ ALIASES = {
         review_id=`git last-review-id`; \
         rbt close --close-type submitted "${review_id}"; \
     ',
+    'submit-all': '! \
+        rbt status \
+          | cut -f2 -d/ \
+          | cut -f1 -d- \
+          | tr -d " " \
+          | xargs -I {} rbt close --close-type submitted {}; \
+    ',
     'apply': '! \
         rbt patch --commit-no-edit $1; \
         git commit --amend \
