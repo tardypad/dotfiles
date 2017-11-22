@@ -1,0 +1,103 @@
+#!/usr/bin/env zsh
+
+if [[ "$1" == '-a' ]]; then
+  ANIMATE=true
+  NAME="$2"
+else
+  ANIMATE=false
+  NAME="$1"
+fi
+
+
+function frame {
+  # put some whitespaces before
+  # so that the cursor is not over the display
+  echo -ne "    $1\033[0K\r"
+  sleep 0.2
+}
+
+function fliptable {
+  if ! $ANIMATE; then
+    echo '(╯°□°)╯︵┻━┻'
+    return
+  fi
+
+  frame '( °-°) ┬─┬'
+  frame '( °-°) ┬─┬'
+  frame '( °-°) ┬─┬'
+  frame '( °-°) ┬─┬'
+  frame '( °□°) ┬─┬'
+  frame '(╯°□°)╯┬─┬'
+  frame '(╯°□°)╯︵ ┻━┻'
+  frame '(╯°□°)╯        ┻━┻'
+  frame '(╯°□°)╯           ┻━┻'
+  echo
+}
+
+function cool {
+  if ! $ANIMATE; then
+    echo '(⌐■_■)'
+    return
+  fi
+
+  frame '( •_•)'
+  frame '( •_•)'
+  frame '( •_•)'
+  frame '( •_•)'
+  frame '( •_•)     ⌐■-■'
+  frame '( •_•)   ⌐■-■'
+  frame '( •_•)>⌐■-■'
+  frame '(⌐■_■)'
+  echo
+}
+
+function shrug {
+  if ! $ANIMATE; then
+    echo '¯\_(ツ)_/¯'
+    return
+  fi
+
+  frame '_╭-(ツ)-╮_'
+  frame '_╭-(ツ)-╮_'
+  frame '_╭-(ツ)-╮_'
+  frame '_╭-(ツ)-╮_'
+  frame '¯\_(ツ)_/¯'
+  echo
+}
+
+function disapprove {
+  if ! $ANIMATE; then
+    echo 'ಠ_ಠ'
+    return
+  fi
+
+  frame 'ʘ‿ʘ'
+  frame 'ʘ‿ʘ'
+  frame 'ʘ‿ʘ'
+  frame 'ʘ‿ʘ'
+  frame 'ʘ_ʘ'
+  frame 'ʘ_ʘ'
+  frame 'ಠ_ಠ'
+  echo
+}
+
+function happygary {
+  if ! $ANIMATE; then
+    echo 'ᕕ(ᐛ)ᕗ'
+    return
+  fi
+
+  frame 'ᕕ(ᐛ)ᕗ'
+  frame 'ᕕ(ᐛ)ᕗ'
+  frame 'ᕙ(ᐖ)ᕡ'
+  frame 'ᕙ(ᐖ)ᕡ'
+  frame 'ᕕ(ᐛ)ᕗ'
+  frame 'ᕕ(ᐛ)ᕗ'
+  frame 'ᕙ(ᐖ)ᕡ'
+  frame 'ᕙ(ᐖ)ᕡ'
+  frame 'ᕕ(ᐛ)ᕗ'
+  echo
+}
+
+
+$NAME 2> /dev/null
