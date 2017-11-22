@@ -3,9 +3,11 @@
 if [[ "$1" == '-a' ]]; then
   ANIMATE=true
   NAME="$2"
+  EXTRA="$3"
 else
   ANIMATE=false
   NAME="$1"
+  EXTRA="$2"
 fi
 
 
@@ -16,21 +18,80 @@ function frame {
   sleep 0.2
 }
 
+function upside-down {
+  local text="$1"
+  local result_text
+
+  # can't use tr on non ascii characters...
+  for (( i=0; i<${#text}; i++ )); do
+    case "${text:$i:1}" in
+      'a') result_text+='ɐ' ;;
+      'b') result_text+='q' ;;
+      'c') result_text+='ɔ' ;;
+      'd') result_text+='p' ;;
+      'e') result_text+='ǝ' ;;
+      'f') result_text+='ɟ' ;;
+      'g') result_text+='ɓ' ;;
+      'h') result_text+='ɥ' ;;
+      'i') result_text+='ᴉ' ;;
+      'j') result_text+='ɾ' ;;
+      'k') result_text+='ʞ' ;;
+      'l') result_text+='l' ;;
+      'm') result_text+='ɯ' ;;
+      'n') result_text+='u' ;;
+      'o') result_text+='o' ;;
+      'p') result_text+='d' ;;
+      'q') result_text+='b' ;;
+      'r') result_text+='ɹ' ;;
+      's') result_text+='s' ;;
+      't') result_text+='ʇ' ;;
+      'u') result_text+='n' ;;
+      'v') result_text+='ʌ' ;;
+      'w') result_text+='ʍ' ;;
+      'x') result_text+='x' ;;
+      'y') result_text+='ʎ' ;;
+      'z') result_text+='z' ;;
+    esac
+  done
+
+  echo "$result_text" | rev
+}
+
 function fliptable {
+  local text="$1"
+  local upside_down_text=$( upside-down ${text} )
+
   if ! $ANIMATE; then
-    echo '(╯°□°)╯︵┻━┻'
+    if [[ -n "${text}" ]]; then
+      echo "(╯°□°)╯︵${upside_down_text}"
+    else
+      echo '(╯°□°)╯︵┻━┻'
+    fi
     return
   fi
 
-  frame '( °-°) ┬─┬'
-  frame '( °-°) ┬─┬'
-  frame '( °-°) ┬─┬'
-  frame '( °-°) ┬─┬'
-  frame '( °□°) ┬─┬'
-  frame '(╯°□°)╯┬─┬'
-  frame '(╯°□°)╯︵ ┻━┻'
-  frame '(╯°□°)╯        ┻━┻'
-  frame '(╯°□°)╯           ┻━┻'
+  if [[ -n "${text}" ]]; then
+    frame "( °-°) ${text}"
+    frame "( °-°) ${text}"
+    frame "( °-°) ${text}"
+    frame "( °-°) ${text}"
+    frame "( °□°) ${text}"
+    frame "(╯°□°)╯${text}"
+    frame "(╯°□°)╯︵ ${upside_down_text}"
+    frame "(╯°□°)╯        ${upside_down_text}"
+    frame "(╯°□°)╯           ${upside_down_text}"
+  else
+    frame '( °-°) ┬─┬'
+    frame '( °-°) ┬─┬'
+    frame '( °-°) ┬─┬'
+    frame '( °-°) ┬─┬'
+    frame '( °□°) ┬─┬'
+    frame '(╯°□°)╯┬─┬'
+    frame '(╯°□°)╯︵ ┻━┻'
+    frame '(╯°□°)╯        ┻━┻'
+    frame '(╯°□°)╯           ┻━┻'
+  fi
+
   echo
 }
 
@@ -100,4 +161,4 @@ function happygary {
 }
 
 
-$NAME 2> /dev/null
+$NAME $EXTRA 2> /dev/null
