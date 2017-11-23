@@ -60,3 +60,6 @@ set include = yes
 
 # include message in forwards
 set forward_quote = yes
+
+# automatically apply index function to all tagged messages if any
+set auto_tag = yes
