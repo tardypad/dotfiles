@@ -31,7 +31,6 @@
               echo 'Improvements:\n' >> \"${todo_file}\"; \
               echo 'New Features:\n' >> \"${todo_file}\"; \
               echo 'Research:\n'     >> \"${todo_file}\"; \
-              echo 'Resources:\n'    >> \"${todo_file}\"; \
               git add \"${todo_file}\"; \
               git ci \"${todo_file}\" -m 'Add TODO file skeleton'; \
             }; t"
