@@ -49,6 +49,8 @@ color index_date          $my_base00    default                                 
 color index_collapsed     $my_cyan      default                                 # number of messages in collapsed thread
 color index_flags         $my_base02    $my_red        "~D"                     # highlight flags for deleted message
 color index_flags         $my_base02    $my_red        "~v~(~D)"                # highlight flags for collapsed thread with some deleted messages
+color index_flags         $my_base02    $my_violet     "~T"                     # highlight flags for tagged message
+color index_flags         $my_base02    $my_violet     "~v~(~T)"                # highlight flags for collapsed thread with some tagged messages
 
 # message headers
 color hdrdefault    $my_base01      default                                     # default for pager header
