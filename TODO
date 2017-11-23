@@ -32,24 +32,6 @@ New Features:
   - readline config for vi mode in cli tools (mysql, redis, influxdb, mycli?,...)
   - https://github.com/1995eaton/chromium-vim cvimrc
 
-Discarded:
-  - combine ssh remote commands to lower execution times
-    by decreasing number of connections
-    => not really needed for now, better keep things clear
-  - split setup script (display/helper/... functions)
-    => not really needed for now, better keep structure simple
-  - add script to update all tools' plugins (including plugins managers themselves)
-    => better be done manually to see the changes and make adaptation
-  - move all tools to XDG base directories as much as possible
-    => moved the ones that support it natively
-       some might be worked around https://wiki.archlinux.org/index.php/XDG_Base_Directory_support
-       but it's not worth it given that some would stay fully hardcoded outside them
-       (or maybe we should create symlinks then?...)
-  - tmux env: the layouts are not set correctly
-    this seems to be because the terminal sizes from which the tmux commands are run
-    might be different than the ones from where the client is attached afterwards
-    => not a big problem
-
 Research:
   - file browser: ranger / vifm
   - https://www.reddit.com/r/commandline/comments/36h2cj/fuzzy_matchers_overview/

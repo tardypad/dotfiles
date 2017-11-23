@@ -30,7 +30,6 @@
               echo 'Testing:\n'      >> \"${todo_file}\"; \
               echo 'Improvements:\n' >> \"${todo_file}\"; \
               echo 'New Features:\n' >> \"${todo_file}\"; \
-              echo 'Discarded:\n'    >> \"${todo_file}\"; \
               echo 'Research:\n'     >> \"${todo_file}\"; \
               echo 'Resources:\n'    >> \"${todo_file}\"; \
               git add \"${todo_file}\"; \
