@@ -23,7 +23,7 @@
         hist = log --oneline -10
         init-todo = "! \
             t() { \
-              local todo_file=\"$( git root )/TODO\"; \
+              local todo_file=\"$( git root )/TODO.md\"; \
               echo 'Periodic:\n'     >> \"${todo_file}\"; \
               echo 'Cleaning:\n'     >> \"${todo_file}\"; \
               echo 'Bugs:\n'         >> \"${todo_file}\"; \
