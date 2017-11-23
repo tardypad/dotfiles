@@ -42,16 +42,23 @@ bind generic,index,pager ? search-reverse
 bind generic,index,pager n search-next
 bind generic,index,pager N search-opposite
 
+# tagging
+bind generic t       tag-entry
+bind index   Tp      tag-pattern
+bind index   Tt      tag-thread
+bind index   <Esc>Tp untag-pattern
+bind generic \;      tag-prefix
+
 # browser
 bind browser v view-file
 
-# (un)deletion
-bind index,pager dd delete-message
-bind index DD delete-pattern
-bind index,pager dt delete-thread
-bind index,pager uu undelete-message
-bind index UU undelete-pattern
-bind index,pager ut undelete-thread
+# deletion
+bind index,pager d       delete-message
+bind index       Dp      delete-pattern
+bind index,pager Dt      delete-thread
+bind index,pager <Esc>d  undelete-message
+bind index       <Esc>Dp undelete-pattern
+bind index,pager <Esc>Dt undelete-thread
 
 # purge deleted messages from Spam folder on sync
 folder-hook . "macro index,pager $ <sync-mailbox> 'sync mailbox'"
