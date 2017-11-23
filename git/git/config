@@ -37,18 +37,18 @@
               git ci \"${todo_file}\" -m 'Add TODO file skeleton'; \
             }; t"
         issue = stamp -r Issue
-        last = whatchanged -1
-        last-description = ! git log -1 --pretty=%b \
+        head = whatchanged -1
+        head-description = ! git log -1 --pretty=%b \
             | grep -vE 'Issue|Reviewed at|^$'
-        last-issue-id = ! git log -1 --pretty=%b \
+        head-issue-id = ! git log -1 --pretty=%b \
             | grep 'Issue' \
             | tail --lines 1 \
             | sed -r 's%.* ([A-Za-z0-9-]+).*%\\1%'
-        last-review-id = ! git log -1 --pretty=%b \
+        head-review-id = ! git log -1 --pretty=%b \
             | grep 'Reviewed at' \
             | tail --lines 1 \
             | sed -r 's%.*/r/([0-9]+)/%\\1%'
-        last-subject = log -1 --pretty=%s
+        head-subject = log -1 --pretty=%s
         log1 = log --oneline
         mg = merge
         mga = merge --abort

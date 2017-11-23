@@ -2,10 +2,10 @@
 
 _commands() {
   local commands=(
-    post-last
-    publish-last
-    submit-last
-    discard-last
+    post-head
+    publish-head
+    submit-head
+    discard-head
     apply
     status
     submit-all
