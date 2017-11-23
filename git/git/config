@@ -19,9 +19,23 @@
         df1 = diff -U0
         dfc = diff --cached
         fe = fetch --all
-        fetch-notes = fetch origin "refs/notes/*:refs/notes/*"
         first-commit = ! git rev-list --max-parents=0 HEAD | tail --lines 1
         hist = log --oneline -10
+        init-todo = "! \
+            t() { \
+              local todo_file=\"$( git root )/TODO\"; \
+              echo 'Periodic:\n'     >> \"${todo_file}\"; \
+              echo 'Cleaning:\n'     >> \"${todo_file}\"; \
+              echo 'Bugs:\n'         >> \"${todo_file}\"; \
+              echo 'Testing:\n'      >> \"${todo_file}\"; \
+              echo 'Improvements:\n' >> \"${todo_file}\"; \
+              echo 'New Features:\n' >> \"${todo_file}\"; \
+              echo 'Discarded:\n'    >> \"${todo_file}\"; \
+              echo 'Research:\n'     >> \"${todo_file}\"; \
+              echo 'Resources:\n'    >> \"${todo_file}\"; \
+              git add \"${todo_file}\"; \
+              git ci \"${todo_file}\" -m 'Add TODO file skeleton'; \
+            }; t"
         issue = stamp -r Issue
         last = whatchanged -1
         last-description = ! git log -1 --pretty=%b \
@@ -40,7 +54,6 @@
         mga = merge --abort
         mgc = merge --continue
         pl = pull
-        push-notes = push origin "refs/notes/*"
         push-perso = "!git push origin --set-upstream HEAD:$(git symbolic-ref --short HEAD) "
         push-upstream = "!git push upstream HEAD:$(git symbolic-ref --short HEAD) "
         rb = rebase
@@ -53,12 +66,6 @@
         sth = stash save --keep-index --include-untracked
         st = status --short
         tag-list = tag --format '%(align:20,left) %(refname:strip=2) %(end) %(taggerdate:iso) %(align:30,left) %(taggeremail) %(end) %(subject)' --sort=taggerdate
-        todo-commit = ! git todo-diff || git notes --ref=todo add -f $(git first-commit) -F $(git root)/TODO
-        todo-diff = ! bash -c 'diff $(git root)/TODO <(git notes --ref=todo show $(git first-commit))'
-        todo-fetch = ! git fetch origin refs/notes/todo:refs/notes/todo
-        todo-init = ! git notes --ref=todo show $(git first-commit) > $(git root)/TODO
-        todo-log = log -p refs/notes/todo
-        todo-push = ! git push origin refs/notes/todo
 [log]
         decorate = false
 [url "github:tardypad/"]
