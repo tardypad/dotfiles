@@ -1,0 +1,5 @@
+local project_name="$1"
+
+find "$( xdg-user-dir PROJECTS_LOGS )" \
+  -mindepth 1 -maxdepth 1 -type d \
+  -name "${project_name}"

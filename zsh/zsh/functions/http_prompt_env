@@ -1,0 +1,1 @@
+http-prompt --env "${XDG_DATA_HOME:-$HOME/.local/share}/http-prompt/env/$1.hp"

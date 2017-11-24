@@ -1,0 +1,2 @@
+local path=$( get_project_main_path "$1" )
+[[ -n "${path}" ]] && cd "${path}" || cd "$( xdg-user-dir PROJECTS )"

@@ -4,6 +4,25 @@ source "${HOME}/.zsh/plugins.zsh"
 # enable extended globbing features
 setopt extended_glob
 
+# add personal functions directories to be autoloaded
+fpath=(
+  "${HOME}/.zsh/functions"/**/
+  $fpath
+)
+
+autoload -Uz \
+  __get_project_path \
+  get_project_docs_path \
+  get_project_logs_path \
+  get_project_main_path \
+  get_project_repo_path \
+  goto_project_docs \
+  goto_project_logs \
+  goto_project_main \
+  goto_project_repo \
+  http_prompt_env
+
+
 # load all individual configs with their possible
 # local extension/override immediately afterwards
 function load_conf() {
