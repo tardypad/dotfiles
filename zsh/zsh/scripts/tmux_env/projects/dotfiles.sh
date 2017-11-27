@@ -1,7 +1,5 @@
 socket="$1"
 
-source ~/.zsh/conf/function.zsh
-
 dotfiles_path=$( get_project_repo_path dotfiles )
 
 

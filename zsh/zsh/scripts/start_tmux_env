@@ -98,7 +98,7 @@ start_target_tmux_env() {
       local session_name="${script_path:t:r}"
       local session_pattern=".*$( get_session_pattern "${session_name}" ).*"
       if ! is_session_present "${session_names}" "${session_pattern}"; then
-        bash "${script_path}" "${SOCKET}"
+        zsh "${script_path}" "${SOCKET}"
       fi
     done
 
