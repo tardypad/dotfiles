@@ -1,6 +1,3 @@
-# define and load plugins
-source "${HOME}/.zsh/plugins.zsh"
-
 # enable extended globbing features
 setopt extended_glob
 
