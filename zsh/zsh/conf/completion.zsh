@@ -1,5 +1,8 @@
-# register local completions folder
-fpath=("${HOME}/.zsh/completion/" $fpath)
+# register local completions folders
+fpath=(
+  "${HOME}/.zsh/completions"/**/
+  $fpath
+)
 
 # register ZSH additional completions folder
 fpath=(/usr/local/share/zsh/site-functions/zsh-completions/ $fpath)

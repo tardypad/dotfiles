@@ -11,5 +11,5 @@ zsh::local::setup() {
   local_copy "zsh/zsh/conf" "${HOME}/.zsh/conf"
   local_copy "zsh/zsh/scripts" "${HOME}/.zsh/scripts"
   local_copy "zsh/zsh/functions" "${HOME}/.zsh/functions"
-  local_copy "zsh/zsh/completion" "${HOME}/.zsh/completion"
+  local_copy "zsh/zsh/completions" "${HOME}/.zsh/completions"
 }
