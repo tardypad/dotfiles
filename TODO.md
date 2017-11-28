@@ -24,8 +24,6 @@
     for readline, fonts, mysql? config
   - move scripts into a bin "tool"  
     better than put them in zsh since they are general usually
-  - add info in tool README about common info to put in .local files  
-    like user.email for git
 
 # New Features
   - vim and zsh config for remote servers
