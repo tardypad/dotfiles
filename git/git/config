@@ -1,3 +1,9 @@
+[user]
+        name = Damien Tardy-Panis
+[url "ssh://tardypad/~/damien.git/"]
+        insteadOf = perso:
+[url "ssh://tardypad/~/damien.old/"]
+        insteadOf = perso_old:
 [push]
         default = upstream
 [alias]
