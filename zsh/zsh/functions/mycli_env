@@ -1,0 +1,1 @@
+mycli $( cat "${XDG_DATA_HOME:-$HOME/.local/share}/mycli/env/$1.mc" )

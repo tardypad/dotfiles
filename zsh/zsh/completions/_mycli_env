@@ -1,0 +1,9 @@
+#compdef mycli_env
+
+_envs() {
+  _path_files -g '*.mc(:r)' -W "${XDG_DATA_HOME:-$HOME/.local/share}/mycli/env/"
+}
+
+_arguments \
+  '1:env:_envs'
+
