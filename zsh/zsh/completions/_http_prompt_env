@@ -1,9 +1,31 @@
 #compdef http_prompt_env
 
+local env_dir_path="${XDG_DATA_HOME:-$HOME/.local/share}/http-prompt/env/"
+
+_projects() {
+  local folders=( $(
+    find "${env_dir_path}" \
+      -mindepth 1 \
+      -type d \
+      -printf "%f\n"
+  ) )
+  local files=( $(
+    find "${env_dir_path}" \
+      -mindepth 1 \
+      -maxdepth 1 \
+      -type f \
+      -name '*.hp' \
+      -printf "%f\n" \
+      | sed 's/\.hp//'
+  ) )
+
+  compadd "$@" $folders $files
+}
+
 _envs() {
-  _path_files -g '*.hp(:r)' -W "${XDG_DATA_HOME:-$HOME/.local/share}/http-prompt/env/"
+  _path_files -g '*.hp(:r)' -W "${env_dir_path}/$words[CURRENT-1]"
 }
 
 _arguments \
-  '1:env:_envs'
-
+  '1:project:_projects' \
+  '2:env:_envs'
