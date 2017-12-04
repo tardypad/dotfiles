@@ -24,6 +24,7 @@ All tools selected are [Free Software](https://www.gnu.org/philosophy/free-sw.en
 | notes           | notes management          |
 | openssh         | SSH client                |
 | rbtools         | Review Board command line |
+| termite         | terminal emulator         |
 | tmux            | terminal multiplexer      |
 | translate-shell | translator                |
 | vim             | text editor               |
@@ -58,13 +59,14 @@ Options:
                          by default local and all remote hosts are setup
 
 Available tools:
-ctags           git             gnupg
-httpie          http-prompt     konsole
-less            mopidy          mycli
-ncmpcpp         neomutt         newsboat
-notes           openssh         rbtools
-tmux            translate-shell vim
-weechat         xdg             zsh
+ctags		git		gnupg
+httpie		http-prompt	konsole
+less		mopidy		mycli
+ncmpcpp		neomutt		newsboat
+notes		openssh		rbtools
+termite		tmux		translate-shell
+vim		weechat		xdg
+zsh
 If no tool argument is passed, all of them are setup
 ```
 
