@@ -47,15 +47,10 @@ Colors and keybindings usage try to be consistent across tools.
 ```shell
 usage: setup_config.zsh [<options>] [<tools>]
 
-Setup tools' config locally and/or on remote hosts
+Setup tools' config locally
 
 Options:
   -h,  --help            show this message only
-  -d,  --dest   DEST     only setup destinations DEST:
-                           local   only setup local host
-                           remote  only setup all remote hosts
-                           HOST    only setup remote host HOST
-                         by default local and all remote hosts are setup
 
 Available tools:
 ctags           git             gnupg

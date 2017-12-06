@@ -1,11 +1,11 @@
 #!/usr/bin/env zsh
 
-mycli::local::setup() {
+mycli::setup() {
   # create necessary directories
   mkdir -p "${DATA_DIR}/mycli/env"
 
   # copy config files
-  local_copy "mycli/myclirc" "${HOME}/.myclirc"
-  local_copy "mycli/my.cnf" "${HOME}/.my.cnf"
-  local_copy "mycli/env" "${DATA_DIR}/mycli/env"
+  copy "mycli/myclirc" "${HOME}/.myclirc"
+  copy "mycli/my.cnf" "${HOME}/.my.cnf"
+  copy "mycli/env" "${DATA_DIR}/mycli/env"
 }

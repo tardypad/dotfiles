@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-konsole::local::setup() {
+konsole::setup() {
   # create necessary directories
   mkdir -p "${CONFIG_DIR}"
   mkdir -p "${DATA_DIR}/konsole"
@@ -8,9 +8,9 @@ konsole::local::setup() {
   mkdir -p "${DATA_DIR}/fonts"
 
   # copy config files
-  local_copy "konsole/konsolerc" "${CONFIG_DIR}/konsolerc"
-  local_copy "konsole/konsole" "${DATA_DIR}/konsole"
-  local_copy "konsole/kxmlgui5" "${DATA_DIR}/kxmlgui5/konsole"
+  copy "konsole/konsolerc" "${CONFIG_DIR}/konsolerc"
+  copy "konsole/konsole" "${DATA_DIR}/konsole"
+  copy "konsole/kxmlgui5" "${DATA_DIR}/kxmlgui5/konsole"
 
   # install Adobe Source Code Pro font if not present
   if [[ ! -d "${DATA_DIR}/fonts/source-code-pro/" ]]; then

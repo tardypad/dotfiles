@@ -1,13 +1,13 @@
 #!/usr/bin/env zsh
 
-vim::local::setup() {
+vim::setup() {
   # create necessary directories
   mkdir -p "${HOME}/.vim/"{backup,swap,undo}
 
   # copy config files
-  local_copy "vim/vimrc" "${HOME}/.vimrc"
-  local_copy "vim/vim/plugins.vim" "${HOME}/.vim/plugins.vim"
-  local_copy "vim/vim/conf" "${HOME}/.vim/conf"
+  copy "vim/vimrc" "${HOME}/.vimrc"
+  copy "vim/vim/plugins.vim" "${HOME}/.vim/plugins.vim"
+  copy "vim/vim/conf" "${HOME}/.vim/conf"
 
   # install the plugins manager if not present
   [[ -f "${HOME}/.vim/autoload/plug.vim" ]] \

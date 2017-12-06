@@ -1,24 +1,24 @@
 #!/usr/bin/env zsh
 
-weechat::local::setup() {
+weechat::setup() {
   # create necessary directories
   mkdir -p "${HOME}/.weechat/"{python,perl}/autoload
 
   # copy config files
-  local_copy "weechat/weechat/alias.conf" "${HOME}/.weechat/alias.conf"
-  local_copy "weechat/weechat/buflist.conf" "${HOME}/.weechat/buflist.conf"
-  local_copy "weechat/weechat/charset.conf" "${HOME}/.weechat/charset.conf"
-  local_copy "weechat/weechat/colorize_nicks.conf" "${HOME}/.weechat/colorize_nicks.conf"
-  local_copy "weechat/weechat/exec.conf" "${HOME}/.weechat/exec.conf"
-  local_copy "weechat/weechat/fifo.conf" "${HOME}/.weechat/fifo.conf"
-  local_copy "weechat/weechat/irc.conf" "${HOME}/.weechat/irc.conf"
-  local_copy "weechat/weechat/logger.conf" "${HOME}/.weechat/logger.conf"
-  local_copy "weechat/weechat/plugins.conf" "${HOME}/.weechat/plugins.conf"
-  local_copy "weechat/weechat/relay.conf" "${HOME}/.weechat/relay.conf"
-  local_copy "weechat/weechat/script.conf" "${HOME}/.weechat/script.conf"
-  local_copy "weechat/weechat/trigger.conf" "${HOME}/.weechat/trigger.conf"
-  local_copy "weechat/weechat/weechat.conf" "${HOME}/.weechat/weechat.conf"
-  local_copy "weechat/weechat/xfer.conf" "${HOME}/.weechat/xfer.conf"
+  copy "weechat/weechat/alias.conf" "${HOME}/.weechat/alias.conf"
+  copy "weechat/weechat/buflist.conf" "${HOME}/.weechat/buflist.conf"
+  copy "weechat/weechat/charset.conf" "${HOME}/.weechat/charset.conf"
+  copy "weechat/weechat/colorize_nicks.conf" "${HOME}/.weechat/colorize_nicks.conf"
+  copy "weechat/weechat/exec.conf" "${HOME}/.weechat/exec.conf"
+  copy "weechat/weechat/fifo.conf" "${HOME}/.weechat/fifo.conf"
+  copy "weechat/weechat/irc.conf" "${HOME}/.weechat/irc.conf"
+  copy "weechat/weechat/logger.conf" "${HOME}/.weechat/logger.conf"
+  copy "weechat/weechat/plugins.conf" "${HOME}/.weechat/plugins.conf"
+  copy "weechat/weechat/relay.conf" "${HOME}/.weechat/relay.conf"
+  copy "weechat/weechat/script.conf" "${HOME}/.weechat/script.conf"
+  copy "weechat/weechat/trigger.conf" "${HOME}/.weechat/trigger.conf"
+  copy "weechat/weechat/weechat.conf" "${HOME}/.weechat/weechat.conf"
+  copy "weechat/weechat/xfer.conf" "${HOME}/.weechat/xfer.conf"
 
   # install wee-slack if not present
   # version from github is more recent than one in weechat scripts repo

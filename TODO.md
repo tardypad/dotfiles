@@ -5,8 +5,8 @@
 # Cleaning
 
 # Bugs
-  - local_copy doesn't remove old files from the target directories  
-    probably we should use rsync or so (in remote_copy to then)  
+  - copy doesn't remove old files from the target directories  
+    probably we should use rsync or so  
     need to be careful because some manual config files should be kept (mutt gpg config)
   - http prompt issue with body value "products:='[]'"
 
@@ -26,7 +26,6 @@
     better than put them in zsh since they are general usually
 
 # New Features
-  - vim and zsh config for remote servers
   - ALSA equalizer presets
     * [thread](http://www.pclinuxos.com/forum/index.php?topic=110087.0)
   - htop config
