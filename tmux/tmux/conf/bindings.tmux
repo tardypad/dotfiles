@@ -112,8 +112,8 @@ bind -T root M-K resize-pane -U 3
 bind -T root M-L resize-pane -R 3
 
 # copy/paste
-bind ( copy-mode
-bind ) paste-buffer
+bind Space copy-mode
+bind Enter paste-buffer
 
 # replacement of tmux-open
 bind -T copy-mode-vi C-o send-keys -X copy-pipe-and-cancel "xargs -I {} tmux send-keys 'vim -- \"{}\"'; tmux send-keys Enter"
