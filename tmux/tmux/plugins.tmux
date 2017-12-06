@@ -5,4 +5,3 @@ set -g @tpm-clean 'M-c'
 
 # define plugins
 set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'tmux-plugins/tmux-yank'

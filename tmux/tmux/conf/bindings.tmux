@@ -120,6 +120,10 @@ bind -T copy-mode-vi C-o send-keys -X copy-pipe-and-cancel "xargs -I {} tmux sen
 bind -T copy-mode-vi   S send-keys -X copy-pipe-and-cancel "xargs -I {} tmux run-shell 'xdg-open https://www.google.com/search?q=\"{}\" > /dev/null'"
 bind -T copy-mode-vi   O send-keys -X copy-pipe-and-cancel "xargs -I {} tmux run-shell 'xdg-open \"{}\" > /dev/null'"
 
+# replacement of tmux-yank
+bind -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "tmux paste-buffer"
+bind -T copy-mode-vi     y send-keys -X copy-pipe-and-cancel "xclip -in -selection clipboard > /dev/null"
+
 # copy mode management
 bind -T copy-mode-vi    C-c send-keys -X cancel
 bind -T copy-mode-vi      q send-keys -X cancel
@@ -174,5 +178,4 @@ bind -T copy-mode-vi      9 command-prompt -N -I 9 -p (repeat) "send -N \"%%%\""
 bind -T copy-mode-vi      v send-keys -X begin-selection
 bind -T copy-mode-vi      V send-keys -X select-line
 bind -T copy-mode-vi    C-v send-keys -X rectangle-toggle
-bind -T copy-mode-vi      y send -X copy-selection-and-cancel
 bind -T copy-mode-vi Escape send-keys -X clear-selection
