@@ -51,36 +51,14 @@ copy() {
 }
 
 
-run_function_if_exists() {
-  command -v "$1" > /dev/null 2>&1 && "$1" "${@:2}"
-}
-
-
-setup_start() {
-  local tool="$1"
-
-  echo -n "… setup ${tool}"
-}
-
-
-setup_end() {
-  local tool="$1"
-
-  echo -e "\r$(tput setaf 2)✔$(tput sgr0) setup ${tool}$(tput el)"
-}
-
-
 setup() {
   for tool in ${TOOLS}; do
-    setup_start "${tool}"
+    echo -n "… setup ${tool}"
 
-    [[ -f "${tool}/setup.sh" ]] && source "${tool}/setup.sh"
-    [[ -f "${tool}/setup.local.sh" ]] && source "${tool}/setup.local.sh"
+    source "${tool}/setup.sh"
+    "${tool}::setup"
 
-    run_function_if_exists "${tool}::setup"
-    run_function_if_exists "${tool}::setup_local"
-
-    setup_end "${tool}"
+    echo -e "\r$(tput setaf 2)✔$(tput sgr0) setup ${tool}$(tput el)"
   done
 }
 
