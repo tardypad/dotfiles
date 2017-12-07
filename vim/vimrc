@@ -66,7 +66,7 @@ set hlsearch              " Highlight search results
 nnoremap <silent> <CR> :noh<CR><Esc>
 
 " -- Beep
-set visualbell            " Prevent Vim from beeping
+set novisualbell          " Prevent Vim from beeping
 set noerrorbells          " Prevent Vim from beeping
 
 " Backspace behaves as expected
