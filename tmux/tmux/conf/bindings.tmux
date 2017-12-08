@@ -28,8 +28,10 @@ bind M-t run "~/.tmux/scripts/temporary_interactive_panel.sh translate_shell 60"
 bind M-h command-prompt -p 'help:' "run '~/.tmux/scripts/temporary_interactive_panel.sh \"help -i %%\" 80'"
 bind M-n command-prompt -p 'notes:' "run '~/.tmux/scripts/temporary_interactive_panel.sh \"notes open %%\" 80'"
 
-# emojis
-bind M-e command-prompt -p 'emoji:' "run 'tmux send-keys -l \"$(emoji %%)\"'"
+# insert emojis or symbols
+bind M-i command-prompt \
+         -p 'insert:,name:' \
+         "run 'tmux send-keys -l \"$(insert_%1 %2)\"'"
 
 # Do it live!
 bind F1 run "~/.tmux/scripts/do_it_live.sh"

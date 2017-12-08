@@ -16,11 +16,11 @@ alias logs='goto_project_logs'
 alias docs='goto_project_docs'
 
 # animated emojis
-alias fliptable='emoji -a fliptable'
-alias cool='emoji -a cool'
-alias shrug='emoji -a shrug'
-alias disapprove='emoji -a disapprove'
-alias happygary='emoji -a happygary'
+alias fliptable='insert_emoji -a fliptable'
+alias cool='insert_emoji -a cool'
+alias shrug='insert_emoji -a shrug'
+alias disapprove='insert_emoji -a disapprove'
+alias happygary='insert_emoji -a happygary'
 
 # lxc-console uses different prefix for escape command
 # (default Ctrl-a), not to conflict with tmux's one
