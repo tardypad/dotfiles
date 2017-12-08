@@ -16,11 +16,11 @@ let g:tagbar_autoshowtag = 1
 let g:tagbar_iconchars = ['▸', '▾']
 
 " change color of some items
-highlight TagbarFoldIcon ctermfg=4
-highlight TagbarScope ctermfg=4
-highlight TagbarKind ctermfg=4
-highlight TagbarNestedKind ctermfg=6
-highlight TagbarType ctermfg=2
-highlight TagbarVisibilityPublic ctermfg=3
-highlight TagbarVisibilityProtected ctermfg=3
-highlight TagbarVisibilityPrivate ctermfg=3
+highlight TagbarFoldIcon ctermfg=4 guifg=#268bd2
+highlight TagbarScope ctermfg=4 guifg=#268bd2
+highlight TagbarKind ctermfg=4 guifg=#268bd2
+highlight TagbarNestedKind ctermfg=6 guifg=#2aa198
+highlight TagbarType ctermfg=2 guifg=#859900
+highlight TagbarVisibilityPublic ctermfg=3 guifg=#b58900
+highlight TagbarVisibilityProtected ctermfg=3 guifg=#b58900
+highlight TagbarVisibilityPrivate ctermfg=3 guifg=#b58900

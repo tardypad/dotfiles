@@ -15,4 +15,4 @@ let g:better_whitespace_filetypes_blacklist=[]
 autocmd BufWritePre * call FiletypeFilteredStripWhitespace()
 
 " Set extra whitespace highlight background color
-highlight ExtraWhitespace ctermbg=10
+highlight ExtraWhitespace ctermbg=10 guibg=#586e75

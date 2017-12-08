@@ -94,9 +94,9 @@ Plug 'mbbill/undotree',
   \   'commit': 'cdbb902' }
 
 " Colorscheme
-Plug 'altercation/vim-colors-solarized',
+Plug 'lifepillar/vim-solarized8',
   \ { 'as': 'solarized',
-  \   'commit': '528a59f' }
+  \   'tag': 'v1.0.1' }
 
 " Fancier statusline
 Plug 'vim-airline/vim-airline',

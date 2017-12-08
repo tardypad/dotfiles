@@ -103,10 +103,10 @@ Version [8.0](https://github.com/vim/vim/releases/tag/v8.0.0000)
   Source [Github](https://github.com/mbbill/undotree)  
   Version [cdbb902](https://github.com/mbbill/undotree/commit/cdbb9022b8972d3e156b8d60af33bf795625b058)
 
-- vim-colors-solarized  
+- vim-solarized8  
   Colorscheme  
-  Source [Github](https://github.com/altercation/vim-colors-solarized)  
-  Version [528a59f](https://github.com/altercation/vim-colors-solarized/commit/528a59f26d12278698bb946f8fb82a63711eec21)
+  Source [Github](https://github.com/lifepillar/vim-solarized8)  
+  Version [1.0.1](https://github.com/lifepillar/vim-solarized8/releases/tag/v1.0.1)
 
 - vim-airline  
   Fancier statusline  

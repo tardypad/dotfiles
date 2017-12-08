@@ -125,7 +125,7 @@ nnoremap <silent> <Leader>bn :bnext<CR>
 nnoremap <Leader>L :call<SID>LongLineHighlightToggle()<cr>
 
 " Set long lines highlight background color
-highlight OverLength ctermbg=1
+highlight OverLength ctermbg=1 guibg=#dc322f
 
 " Detection of long lines (superior to 80 characters)
 match OverLength /\%>80v/
