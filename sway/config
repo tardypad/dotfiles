@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term urxvt
+set $term termite
 # Your preferred application launcher
 set $menu dmenu_run
 
@@ -51,10 +51,10 @@ output * bg ~/.local/share/sway/wallpaper.jpg fill
     bindsym $mod+Return exec $term
 
     # kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+Shift+x kill
 
     # start your launcher
-    bindsym $mod+d exec $menu
+    bindsym $mod+space exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -64,10 +64,10 @@ output * bg ~/.local/share/sway/wallpaper.jpg fill
     floating_modifier $mod normal
 
     # reload the configuration file
-    bindsym $mod+Shift+c reload
+    bindsym $mod+Shift+r reload
 
     # exit sway (logs you out of your wayland session)
-    bindsym $mod+Shift+e exit
+    bindsym $mod+Shift+q exit
 #
 # Moving around:
 #
@@ -137,10 +137,10 @@ output * bg ~/.local/share/sway/wallpaper.jpg fill
     bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+    #bindsym $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+    #bindsym $mod+space focus mode_toggle
 
     # move focus to the parent container
     bindsym $mod+a focus parent
