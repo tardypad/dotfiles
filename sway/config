@@ -20,8 +20,8 @@ set $menu dmenu_run
 
 ### Output configuration
 #
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+# Define wallpaper
+output * bg ~/.local/share/sway/wallpaper.jpg fill
 #
 # Example configuration:
 #
