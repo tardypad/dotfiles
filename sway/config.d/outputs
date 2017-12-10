@@ -1,0 +1,2 @@
+# Define wallpaper
+output * bg ~/.local/share/sway/wallpaper.jpg fill
