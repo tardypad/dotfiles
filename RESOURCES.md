@@ -5,6 +5,7 @@
   - [Masaki ISHIYAMA dotfiles](https://github.com/b4b4r07/dotfiles)
   - [Yan Pritzker dotfiles](https://github.com/skwp/dotfiles)
   - [Robert Schütz dotfiles](https://github.com/dotlambda/dotfiles)
+  - [aouelete dotfiles](https://github.com/aouelete/dotfiles)
 
 # Git
   - [git-tips](https://github.com/git-tips/tips)
