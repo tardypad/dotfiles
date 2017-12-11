@@ -20,6 +20,9 @@
     and let the setup script concatenate and rename them if needed
   - add a misc "tool"  
     for readline, fonts, mysql? config
+  - review and improve copy paste workflow between terminals/vim/tmux/...
+    * [extrackto](https://github.com/laktak/extrakto) tmux search and copy/insert/...
+    * [yank](https://github.com/mptre/yank) copy output to clipboard
 
 # New Features
   - ALSA equalizer presets
@@ -61,7 +64,6 @@
     * [progress](https://github.com/Xfennec/progress) show progress for cp, mv,...
     * [qalc](https://github.com/Qalculate/libqalculate) "calculator"
     * [lnav](https://github.com/tstack/lnav) log file navigator
-    * [yank](https://github.com/mptre/yank) copy output to clipboard
   - vim session usage
     * [vim-session](https://github.com/xolox/vim-session)
   - vim tab usage
@@ -82,6 +84,9 @@
     * [split-manpage](https://github.com/ludwig/split-manpage.vim)
     * [vim-dokumentary](https://github.com/gastonsimone/vim-dokumentary)
     * [investigate.vim](https://github.com/keith/investigate.vim)
-  - tmux search and copy url/hash/files/...
-    * [copycat](https://github.com/tmux-plugins/tmux-copycat)
-    * [extrackto](https://github.com/laktak/extrakto)
+  - terminal image viewer
+    * [timg](https://github.com/hzeller/timg)
+    * [fim](http://www.nongnu.org/fbi-improved/)
+    * [tv](https://github.com/daleroberts/tv)
+    * [termimage](https://github.com/nabijaczleweli/termimage)
+    * [explosion](https://github.com/Tenzer/explosion)
