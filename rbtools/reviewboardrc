@@ -30,6 +30,14 @@ ALIASES = {
         review_id=`git head-review-id`; \
         rbt publish "${review_id}"; \
     ',
+    'publish-all': '! \
+        rbt status \
+          | grep "\*" \
+          | cut -f2 -d/ \
+          | cut -f1 -d- \
+          | tr -d " " \
+          | xargs -I {} rbt publish {}; \
+    ',
     'discard-head': '! \
         review_id=`git head-review-id`; \
         rbt close --close-type discarded "${review_id}"; \
