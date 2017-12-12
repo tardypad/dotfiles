@@ -32,13 +32,14 @@ All tools selected are [Free Software](https://www.gnu.org/philosophy/free-sw.en
 | xdg             | X Window interoperability |
 | zsh             | shell                     |
 
-See each individual tool folder README for more information.
+See each individual tool folder README for more information
+about versions, extensions, plugins,...
 
 All tools are configured to use the dark
 [Solarized](http://ethanschoonover.com/solarized) color palette.
 
 Most keybindings are minimalized to keep only relevant ones
-and configured to be as much vim-like as possible.  
+and configured to be as much vim-like as possible.
 
 Colors and keybindings usage try to be consistent across tools.
 
@@ -66,3 +67,17 @@ If no tool argument is passed, all of them are setup
 ```
 
 Some tools require some additional manual setup steps, check their own README
+
+
+## Extra tools
+
+Tools required in the setup which have no dotfiles config.  
+Either they don't support it or none is needed.  
+Doesn't include "common" GNU command line tools
+such as the ones from coreutils, sed, grep,... and the likes.
+
+| Name                | Purpose            |
+|---------------------|--------------------|
+| curl                | HTTP client        |
+| the silver searcher | code search        |
+| xdotool             | X inputs simulator |
