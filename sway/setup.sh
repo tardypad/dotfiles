@@ -9,4 +9,5 @@ sway::local::setup() {
   local_copy "sway/config" "${CONFIG_DIR}/sway/config"
   local_copy "sway/config.d" "${CONFIG_DIR}/sway/config.d"
   local_copy "sway/wallpaper.jpg" "${DATA_DIR}/sway/wallpaper.jpg"
+  local_copy "sway/wallpaper-lock.jpg" "${DATA_DIR}/sway/wallpaper-lock.jpg"
 }

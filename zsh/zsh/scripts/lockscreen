@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+
+swaylock \
+  --image "${XDG_DATA_HOME:-$HOME/.local/share}/sway/wallpaper-lock.jpg" \
+  --scaling fill \
+  --indicator-radius 250 \
+  --indicator-thickness 15 \
+  --insidecolor 00000077 \
+  --insidevercolor 00000077 \
+  --insidewrongcolor 00000077 \
+  --bshlcolor bab7beff \
+  --keyhlcolor bab7beff \
+  --ringcolor 343233ff \
+  --ringvercolor 4f595aff \
+  --ringwrongcolor 543231ff \
+  --linecolor 00000000 \
+  --separatorcolor 00000000 \
+  --textcolor 00000000

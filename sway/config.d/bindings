@@ -6,6 +6,9 @@ bindsym $mod+Return exec $term
 # kill focused window
 bindsym $mod+Shift+x kill
 
+# lock the screen
+bindsym $mod+Escape exec lockscreen
+
 # start your launcher
 bindsym $mod+space exec $menu
 
