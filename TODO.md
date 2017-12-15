@@ -18,11 +18,11 @@
   - split core configuration files between general / style / bindings .conf files  
     (or other meaningful split, like by extensions type for mopidy)  
     and let the setup script concatenate and rename them if needed
-  - add a misc "tool"  
-    for readline, fonts, mysql? config
   - review and improve copy paste workflow between terminals/vim/tmux/...
     * [extrackto](https://github.com/laktak/extrakto) tmux search and copy/insert/...
     * [yank](https://github.com/mptre/yank) copy output to clipboard
+  - improve zsh extensions colors and bindings
+  - fontconfig replace some fonts families used in Chromium
 
 # New Features
   - ALSA equalizer presets
