@@ -10,6 +10,7 @@ All tools selected are [Free Software](https://www.gnu.org/philosophy/free-sw.en
 | Name            | Purpose                   |
 |-----------------|---------------------------|
 | ctags           | sources indexation        |
+| fontconfig      | fonts management          |
 | git             | version control           |
 | gnupg           | OpenPGP client            |
 | htop            | system processes manager  |
@@ -55,14 +56,14 @@ Options:
   -h,  --help            show this message only
 
 Available tools:
-ctags           git             gnupg
-htop            httpie          http-prompt
-konsole         less            mopidy
-mycli           ncmpcpp         neomutt
-newsboat        notes           openssh
-rbtools         tmux            translate-shell
-vim             weechat         xdg
-zsh
+ctags           fontconfig      git
+gnupg           htop            httpie
+http-prompt     konsole         less
+mopidy          mycli           ncmpcpp
+neomutt         newsboat        notes
+openssh         rbtools         tmux
+translate-shell vim             weechat
+xdg             zsh
 If no tool argument is passed, all of them are setup
 ```
 
