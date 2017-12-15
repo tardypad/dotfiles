@@ -16,6 +16,7 @@ All tools selected are [Free Software](https://www.gnu.org/philosophy/free-sw.en
 | http-prompt     | HTTP interactive client   |
 | konsole         | terminal emulator         |
 | less            | pager                     |
+| login           | session starter           |
 | mopidy          | music server              |
 | mycli           | MySQL command line        |
 | ncmpcpp         | MPD client                |
@@ -60,14 +61,14 @@ Options:
                          by default local and all remote hosts are setup
 
 Available tools:
-tags		    git		    gnupg
-httpie		    http-prompt	konsole
-less		    mopidy		mycli
-ncmpcpp		    neomutt		newsboat
-notes		    openssh		rbtools
-sway		    termite		tmux
-translate-shell	vim		    weechat
-xdg		        zsh
+ctags		git		           gnupg
+httpie		http-prompt	       konsole
+less		login		       mopidy
+mycli		ncmpcpp		       neomutt
+newsboat	notes		       openssh
+rbtools		sway		       termite
+tmux		translate-shell    vim
+weechat		xdg		           zsh
 If no tool argument is passed, all of them are setup
 ```
 
