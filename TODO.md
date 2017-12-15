@@ -20,8 +20,6 @@
   - split core configuration files between general / style / bindings .conf files  
     (or other meaningful split, like by extensions type for mopidy)  
     and let the setup script concatenate and rename them if needed
-  - add a misc "tool"  
-    for readline, fonts, mysql? config
   - move scripts into a bin "tool"  
     better than put them in zsh since they are general usually
 
