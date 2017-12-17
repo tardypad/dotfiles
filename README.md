@@ -9,6 +9,7 @@ All tools selected are [Free Software](https://www.gnu.org/philosophy/free-sw.en
 
 | Name                   | Purpose                              |
 |------------------------|--------------------------------------|
+| coreutils              | basic utilities                      |
 | ctags                  | sources indexation                   |
 | fontconfig             | fonts management                     |
 | git                    | version control                      |
@@ -66,7 +67,7 @@ Some tools require some additional manual setup steps, check their own README
 Tools required in the setup which have no dotfiles config.  
 Either they don't support it or none is needed.  
 Doesn't include "common" GNU command line tools
-such as the ones from coreutils, sed, grep,... and the likes.
+such as sed, grep,... and the likes.
 
 | Name                   | Purpose                              |
 |------------------------|--------------------------------------|

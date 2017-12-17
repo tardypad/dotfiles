@@ -7,7 +7,6 @@ zsh::setup() {
   # copy config files
   copy "zsh/zshrc" "${HOME}/.zshrc"
   copy "zsh/zshenv" "${HOME}/.zshenv"
-  copy "zsh/dircolors" "${HOME}/.dircolors"
   copy "zsh/zsh/conf" "${HOME}/.zsh/conf"
   copy "zsh/zsh/scripts" "${HOME}/.zsh/scripts"
   copy "zsh/zsh/functions" "${HOME}/.zsh/functions"
