@@ -7,31 +7,31 @@ Personal configuration files
 
 All tools selected are [Free Software](https://www.gnu.org/philosophy/free-sw.en.html)
 
-| Name            | Purpose                   |
-|-----------------|---------------------------|
-| ctags           | sources indexation        |
-| fontconfig      | fonts management          |
-| git             | version control           |
-| gnupg           | OpenPGP client            |
-| htop            | system processes manager  |
-| httpie          | HTTP client               |
-| http-prompt     | HTTP interactive client   |
-| konsole         | terminal emulator         |
-| less            | pager                     |
-| mopidy          | music server              |
-| mycli           | MySQL command line        |
-| ncmpcpp         | MPD client                |
-| neomutt         | mail client               |
-| newsboat        | RSS reader                |
-| notes           | notes management          |
-| openssh         | SSH client                |
-| rbtools         | Review Board command line |
-| tmux            | terminal multiplexer      |
-| translate-shell | translator                |
-| vim             | text editor               |
-| weechat         | chat client               |
-| xdg             | X Window interoperability |
-| zsh             | shell                     |
+| Name                   | Purpose                              |
+|------------------------|--------------------------------------|
+| ctags                  | sources indexation                   |
+| fontconfig             | fonts management                     |
+| git                    | version control                      |
+| gnupg                  | OpenPGP client                       |
+| htop                   | system processes manager             |
+| httpie                 | HTTP client                          |
+| http-prompt            | HTTP interactive client              |
+| konsole                | terminal emulator                    |
+| less                   | pager                                |
+| mopidy                 | music server                         |
+| mycli                  | MySQL command line                   |
+| ncmpcpp                | MPD client                           |
+| neomutt                | mail client                          |
+| newsboat               | RSS reader                           |
+| notes                  | notes management                     |
+| openssh                | SSH client                           |
+| rbtools                | Review Board command line            |
+| tmux                   | terminal multiplexer                 |
+| translate-shell        | translator                           |
+| vim                    | text editor                          |
+| weechat                | chat client                          |
+| xdg                    | X Window interoperability            |
+| zsh                    | shell                                |
 
 See each individual tool folder README for more information
 about versions, extensions, plugins,...
@@ -77,8 +77,8 @@ Either they don't support it or none is needed.
 Doesn't include "common" GNU command line tools
 such as the ones from coreutils, sed, grep,... and the likes.
 
-| Name                | Purpose            |
-|---------------------|--------------------|
-| curl                | HTTP client        |
-| the silver searcher | code search        |
-| xdotool             | X inputs simulator |
+| Name                   | Purpose                              |
+|------------------------|--------------------------------------|
+| curl                   | HTTP client                          |
+| the silver searcher    | code search                          |
+| xdotool                | X inputs simulator                   |
