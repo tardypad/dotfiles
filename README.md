@@ -2,6 +2,7 @@
 
 Personal configuration files
 
+Used on a [Arch Linux](https://www.archlinux.org/) system
 
 ## Tools
 
