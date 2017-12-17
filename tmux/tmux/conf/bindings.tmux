@@ -28,8 +28,10 @@ bind M-t run "~/.tmux/scripts/temporary_interactive_panel.sh translate_shell 60"
 bind M-h command-prompt -p 'help:' "run '~/.tmux/scripts/temporary_interactive_panel.sh \"help -i %%\" 80'"
 bind M-n command-prompt -p 'notes:' "run '~/.tmux/scripts/temporary_interactive_panel.sh \"notes open %%\" 80'"
 
-# emojis
-bind M-e command-prompt -p 'emoji:' "run 'tmux send-keys -l \"$(emoji %%)\"'"
+# insert emojis or symbols
+bind M-i command-prompt \
+         -p 'insert:,name:' \
+         "run 'tmux send-keys -l \"$(insert_%1 %2)\"'"
 
 # Do it live!
 bind F1 run "~/.tmux/scripts/do_it_live.sh"
@@ -112,8 +114,17 @@ bind -T root M-K resize-pane -U 3
 bind -T root M-L resize-pane -R 3
 
 # copy/paste
-bind ( copy-mode
-bind ) paste-buffer
+bind Space copy-mode
+bind Enter paste-buffer
+
+# replacement of tmux-open
+bind -T copy-mode-vi C-o send-keys -X copy-pipe-and-cancel "xargs -I {} tmux send-keys 'vim -- \"{}\"'; tmux send-keys Enter"
+bind -T copy-mode-vi   S send-keys -X copy-pipe-and-cancel "xargs -I {} tmux run-shell 'xdg-open https://www.google.com/search?q=\"{}\" > /dev/null'"
+bind -T copy-mode-vi   O send-keys -X copy-pipe-and-cancel "xargs -I {} tmux run-shell 'xdg-open \"{}\" > /dev/null'"
+
+# replacement of tmux-yank
+bind -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "tmux paste-buffer"
+bind -T copy-mode-vi     y send-keys -X copy-pipe-and-cancel "xclip -in -selection clipboard > /dev/null"
 
 # copy mode management
 bind -T copy-mode-vi    C-c send-keys -X cancel
@@ -169,5 +180,4 @@ bind -T copy-mode-vi      9 command-prompt -N -I 9 -p (repeat) "send -N \"%%%\""
 bind -T copy-mode-vi      v send-keys -X begin-selection
 bind -T copy-mode-vi      V send-keys -X select-line
 bind -T copy-mode-vi    C-v send-keys -X rectangle-toggle
-bind -T copy-mode-vi      y send -X copy-selection-and-cancel
 bind -T copy-mode-vi Escape send-keys -X clear-selection

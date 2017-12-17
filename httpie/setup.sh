@@ -1,9 +1,9 @@
 #!/usr/bin/env zsh
 
-httpie::local::setup() {
+httpie::setup() {
   # create necessary directories
   mkdir -p "${HOME}/.httpie"
 
   # copy config file
-  local_copy "httpie/config.json" "${HOME}/.httpie/config.json"
+  copy "httpie/config.json" "${HOME}/.httpie/config.json"
 }

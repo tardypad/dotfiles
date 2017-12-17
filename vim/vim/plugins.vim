@@ -51,11 +51,6 @@ Plug 'mhinz/vim-sayonara',
   \ { 'as': 'sayonara', 'on': 'Sayonara',
   \   'commit': '357135c' }
 
-" Window maximizer
-Plug 'szw/vim-maximizer',
-  \ { 'as': 'maximizer',
-  \   'commit': '2e54952' }
-
 " Tmux focus events fixes
 Plug 'tmux-plugins/vim-tmux-focus-events',
   \ { 'as': 'tmux-focus-events',

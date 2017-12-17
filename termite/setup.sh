@@ -1,9 +1,9 @@
 #!/usr/bin/env zsh
 
-termite::local::setup() {
+termite::setup() {
   # create necessary directories
   mkdir -p "${CONFIG_DIR}/termite"
 
   # copy config files
-  local_copy "termite/config" "${CONFIG_DIR}/termite/config"
+  copy "termite/config" "${CONFIG_DIR}/termite/config"
 }

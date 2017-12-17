@@ -17,6 +17,7 @@ ALIASES = {
               --description "${commit_description:-$commit_subject} " \
               --branch "${current_branch}" \
               --bugs-closed "${issue_id}" \
+              --testing-done "unit tests" \
               --parent HEAD~; \
         else \
           rbt post \
@@ -28,6 +29,14 @@ ALIASES = {
     'publish-head': '! \
         review_id=`git head-review-id`; \
         rbt publish "${review_id}"; \
+    ',
+    'publish-all': '! \
+        rbt status \
+          | grep "\*" \
+          | cut -f2 -d/ \
+          | cut -f1 -d- \
+          | tr -d " " \
+          | xargs -I {} rbt publish {}; \
     ',
     'discard-head': '! \
         review_id=`git head-review-id`; \

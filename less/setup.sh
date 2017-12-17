@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-less::local::setup() {
+less::setup() {
   # generate config file
   lesskey "less/lesskey"
 }

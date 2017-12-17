@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-rbtools::local::setup() {
+rbtools::setup() {
   # copy config files
-  local_copy "rbtools/reviewboardrc" "${HOME}/.reviewboardrc"
+  copy "rbtools/reviewboardrc" "${HOME}/.reviewboardrc"
 }

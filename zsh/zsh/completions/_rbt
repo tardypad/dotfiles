@@ -4,6 +4,7 @@ _commands() {
   local commands=(
     post-head
     publish-head
+    publish-all
     submit-head
     discard-head
     apply

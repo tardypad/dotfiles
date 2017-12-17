@@ -63,11 +63,6 @@ Version [8.0](https://github.com/vim/vim/releases/tag/v8.0.0000)
   Source [Github](https://github.com/mhinz/vim-sayonara)  
   Version [357135c](https://github.com/mhinz/vim-sayonara/commit/357135ce127581fab2c0caf45d4b3fec4603aa77)
 
-- vim-maximizer  
-  Window maximizer  
-  Source [Github](https://github.com/szw/vim-maximizer)  
-  Version [2e54952](https://github.com/szw/vim-maximizer/commit/2e54952fe91e140a2e69f35f22131219fcd9c5f1)
-
 - vim-tmux-focus-events  
   Tmux focus events fixes  
   Source [Github](https://github.com/tmux-plugins/vim-tmux-focus-events)  

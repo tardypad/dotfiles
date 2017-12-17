@@ -9,14 +9,6 @@ init_variables() {
   ) )
   TOOLS=( ${AVAILABLE_TOOLS} )
 
-  typeset -Ag AVAILABLE_REMOTE_HOSTS
-  AVAILABLE_REMOTE_HOSTS=( $(
-    [[ -f ./remote_hosts ]] && cat ./remote_hosts
-  ) )
-  REMOTE_HOSTS_ID=( ${(k)AVAILABLE_REMOTE_HOSTS} )
-
-  DEST=
-
   CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}"
   DATA_DIR="${XDG_DATA_HOME:-$HOME/.local/share}"
   CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}"
@@ -27,22 +19,12 @@ usage() {
   cat << EOF
 usage: ${COMMAND} [<options>] [<tools>]
 
-Setup tools' config locally and/or on remote hosts
+Setup tools' config locally
 
 Options:
-  -h,  --help            show this message only
-  -d,  --dest   DEST     only setup destinations DEST:
-                           local    only setup local host
-                           remote   only setup all remote hosts
-                           HOST_ID  only setup remote host HOST
-                         by default local and all remote hosts are setup
+  -h,  --help     show this message only
 
-Available tools:
-$( printf '%s\n' "${AVAILABLE_TOOLS[@]}" | column -c 50 -x )
 If no tool argument is passed, all of them are setup
-
-Remote hosts are defined in the ./remote_hosts file
-with the format HOST_ID HOST per line
 EOF
 }
 
@@ -56,7 +38,7 @@ error() {
 }
 
 
-local_copy() {
+copy() {
   local repo_source_path="$1"
   local target_path="$2"
 
@@ -67,76 +49,14 @@ local_copy() {
 }
 
 
-remote_exec() {
-  local host="$1"
-  local cmd="$2"
-
-  ssh -n "${host}" "${cmd}"
-}
-
-
-remote_copy() {
-  local host="$1"
-  local repo_source_path="$2"
-  local target_path="$3"
-
-  [ -e "${repo_source_path}" ] || return 1
-
-  ssh -n "${host}" rm -rf "${target_path}"
-  scp -qr "${repo_source_path}" "${host}:${target_path}" \
-    2> /dev/null
-}
-
-
-run_function_if_exists() {
-  command -v "$1" > /dev/null 2>&1 && "$1" "${@:2}"
-}
-
-
-setup_start() {
-  local tool="$1"
-
-  echo -n "… setup ${tool}"
-}
-
-
-setup_update() {
-  local tool="$1"
-  local host="$2"
-
-  echo -ne "\r… setup ${tool} [${host}]"
-}
-
-setup_end() {
-  local tool="$1"
-
-  echo -e "\r$(tput setaf 2)✔$(tput sgr0) setup ${tool}$(tput el)"
-}
-
-
 setup() {
   for tool in ${TOOLS}; do
-    setup_start "${tool}"
+    echo -n "… setup ${tool}"
 
-    [[ -f "${tool}/setup.sh" ]] && source "${tool}/setup.sh"
-    [[ -f "${tool}/setup.local.sh" ]] && source "${tool}/setup.local.sh"
+    source "${tool}/setup.sh"
+    "${tool}::setup"
 
-    if [[ -z "${DEST}" ]] || [[ "${DEST}" == 'local' ]]; then
-      setup_update "${tool}" local
-      run_function_if_exists "${tool}::local::setup"
-      run_function_if_exists "${tool}::local::setup_local"
-    fi
-
-    if [[ -z "${DEST}" ]] || [[ "${DEST}" != 'local' ]]; then
-      for host_id in ${REMOTE_HOSTS_ID}; do
-        setup_update "${tool}" "${host_id}"
-        local host="${AVAILABLE_REMOTE_HOSTS[${host_id}]}"
-        run_function_if_exists "${tool}::remote::setup" "${host}"
-        run_function_if_exists "${tool}::remote::setup_local" "${host}"
-      done
-    fi
-
-    setup_end "${tool}"
+    echo -e "\r$(tput setaf 2)✔$(tput sgr0) setup ${tool}$(tput el)"
   done
 }
 
@@ -144,11 +64,6 @@ setup() {
 parse_options() {
   while [[ "$#" -gt 0 ]]; do
     case "$1" in
-      -d|--dest)
-        [[ -n "$2" ]] || error 'missing dest value'
-        DEST="$2"
-        shift 2
-        ;;
       -h|--help)
         usage
         exit 0
@@ -165,24 +80,10 @@ parse_options() {
 
 
 validate_options() {
-  # define REMOTE_HOSTS if DEST is a single host
-  if [[ -n "${DEST}" ]] \
-      && [[ "${DEST}" != 'local' ]] \
-      && [[ "${DEST}" != 'remote' ]]; then
-    REMOTE_HOSTS_ID=( "${DEST}" )
-  fi
-
   # validate each tool value
   for tool in ${TOOLS}; do
     if ! (( ${AVAILABLE_TOOLS[(Ie)${tool}]} )); then
       error "invalid tool ${tool}"
-    fi
-  done
-
-  # validate each remote host value
-  for host_id in ${REMOTE_HOSTS_ID}; do
-    if [[ -z ${AVAILABLE_REMOTE_HOSTS[${host_id}]} ]]; then
-      error "invalid remote host id ${host_id}"
     fi
   done
 }

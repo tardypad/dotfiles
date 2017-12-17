@@ -1,1 +1,3 @@
-mycli $( cat "${XDG_DATA_HOME:-$HOME/.local/share}/mycli/env/$1.mc" )
+# copy of of mycli alias (didn't manage to load here)
+mycli --defaults-group-suffix=_mycli \
+  $( cat "${XDG_DATA_HOME:-$HOME/.local/share}/mycli/env/$1.mc" )

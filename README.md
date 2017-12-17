@@ -8,40 +8,44 @@ Used on a [Arch Linux](https://www.archlinux.org/) system
 
 All tools selected are [Free Software](https://www.gnu.org/philosophy/free-sw.en.html)
 
-| Name            | Purpose                   |
-|-----------------|---------------------------|
-| ctags           | sources indexation        |
-| git             | version control           |
-| gnupg           | OpenPGP client            |
-| httpie          | HTTP client               |
-| http-prompt     | HTTP interactive client   |
-| konsole         | terminal emulator         |
-| less            | pager                     |
-| login           | session starter           |
-| mopidy          | music server              |
-| mycli           | MySQL command line        |
-| ncmpcpp         | MPD client                |
-| neomutt         | mail client               |
-| newsboat        | RSS reader                |
-| notes           | notes management          |
-| openssh         | SSH client                |
-| rbtools         | Review Board command line |
-| sway            | window manager            |
-| termite         | terminal emulator         |
-| tmux            | terminal multiplexer      |
-| translate-shell | translator                |
-| vim             | text editor               |
-| weechat         | chat client               |
-| xdg             | X Window interoperability |
-| zsh             | shell                     |
+| Name                   | Purpose                              |
+|------------------------|--------------------------------------|
+| coreutils              | basic utilities                      |
+| ctags                  | sources indexation                   |
+| fontconfig             | fonts management                     |
+| git                    | version control                      |
+| gnupg                  | OpenPGP client                       |
+| htop                   | system processes manager             |
+| httpie                 | HTTP client                          |
+| http-prompt            | HTTP interactive client              |
+| konsole                | terminal emulator                    |
+| less                   | pager                                |
+| login                  | session starter                      |
+| mopidy                 | music server                         |
+| mycli                  | MySQL command line                   |
+| ncmpcpp                | MPD client                           |
+| neomutt                | mail client                          |
+| newsboat               | RSS reader                           |
+| notes                  | notes management                     |
+| openssh                | SSH client                           |
+| rbtools                | Review Board command line            |
+| sway                   | window manager                       |
+| termite                | terminal emulator                    |
+| tmux                   | terminal multiplexer                 |
+| translate-shell        | translator                           |
+| vim                    | text editor                          |
+| weechat                | chat client                          |
+| xdg                    | X Window interoperability            |
+| zsh                    | shell                                |
 
-See each individual tool folder README for more information.
+See each individual tool folder README for more information
+about versions, extensions, plugins,...
 
 All tools are configured to use the dark
 [Solarized](http://ethanschoonover.com/solarized) color palette.
 
 Most keybindings are minimalized to keep only relevant ones
-and configured to be as much vim-like as possible.  
+and configured to be as much vim-like as possible.
 
 Colors and keybindings usage try to be consistent across tools.
 
@@ -51,26 +55,26 @@ Colors and keybindings usage try to be consistent across tools.
 ```shell
 usage: setup_config.zsh [<options>] [<tools>]
 
-Setup tools' config locally and/or on remote hosts
+Setup tools' config locally
 
 Options:
   -h,  --help            show this message only
-  -d,  --dest   DEST     only setup destinations DEST:
-                           local   only setup local host
-                           remote  only setup all remote hosts
-                           HOST    only setup remote host HOST
-                         by default local and all remote hosts are setup
 
-Available tools:
-ctags		git		           gnupg
-httpie		http-prompt	       konsole
-less		login		       mopidy
-mycli		ncmpcpp		       neomutt
-newsboat	notes		       openssh
-rbtools		sway		       termite
-tmux		translate-shell    vim
-weechat		xdg		           zsh
 If no tool argument is passed, all of them are setup
 ```
 
 Some tools require some additional manual setup steps, check their own README
+
+
+## Extra tools
+
+Tools required in the setup which have no dotfiles config.  
+Either they don't support it or none is needed.  
+Doesn't include "common" GNU command line tools
+such as sed, grep,... and the likes.
+
+| Name                   | Purpose                              |
+|------------------------|--------------------------------------|
+| curl                   | HTTP client                          |
+| the silver searcher    | code search                          |
+| xdotool                | X inputs simulator                   |

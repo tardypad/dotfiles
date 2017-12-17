@@ -5,8 +5,8 @@
 # Cleaning
 
 # Bugs
-  - local_copy doesn't remove old files from the target directories  
-    probably we should use rsync or so (in remote_copy to then)  
+  - copy doesn't remove old files from the target directories  
+    probably we should use rsync or so  
     need to be careful because some manual config files should be kept (mutt gpg config)
   - http prompt issue with body value "products:='[]'"
 
@@ -15,20 +15,18 @@
   - idem for vim gutentags root marker
 
 # Improvements
-  - add sourcing of local tmux config files
-  - start_konsole_env: order tabs by title number after all launches
   - split core configuration files between general / style / bindings .conf files  
     (or other meaningful split, like by extensions type for mopidy)  
     and let the setup script concatenate and rename them if needed
-  - move scripts into a bin "tool"  
-    better than put them in zsh since they are general usually
+  - review and improve copy paste workflow between terminals/vim/tmux/...
+    * [extrackto](https://github.com/laktak/extrakto) tmux search and copy/insert/...
+    * [yank](https://github.com/mptre/yank) copy output to clipboard
+  - improve zsh extensions colors and bindings
+  - fontconfig replace some fonts families used in Chromium
 
 # New Features
-  - vim and zsh config for remote servers
   - ALSA equalizer presets
     * [thread](http://www.pclinuxos.com/forum/index.php?topic=110087.0)
-  - htop config
-    * (with vim key bindings? [htop-vim](https://github.com/KoffeinFlummi/htop-vim))
   - readline config for vi mode in cli tools (mysql, redis, influxdb,...)
   - [chromium-vim](https://github.com/1995eaton/chromium-vim) cvimrc
 
@@ -66,7 +64,6 @@
     * [progress](https://github.com/Xfennec/progress) show progress for cp, mv,...
     * [qalc](https://github.com/Qalculate/libqalculate) "calculator"
     * [lnav](https://github.com/tstack/lnav) log file navigator
-    * [yank](https://github.com/mptre/yank) copy output to clipboard
   - vim session usage
     * [vim-session](https://github.com/xolox/vim-session)
   - vim tab usage
@@ -87,6 +84,9 @@
     * [split-manpage](https://github.com/ludwig/split-manpage.vim)
     * [vim-dokumentary](https://github.com/gastonsimone/vim-dokumentary)
     * [investigate.vim](https://github.com/keith/investigate.vim)
-  - tmux search and copy url/hash/files/...
-    * [copycat](https://github.com/tmux-plugins/tmux-copycat)
-    * [extrackto](https://github.com/laktak/extrakto)
+  - terminal image viewer
+    * [timg](https://github.com/hzeller/timg)
+    * [fim](http://www.nongnu.org/fbi-improved/)
+    * [tv](https://github.com/daleroberts/tv)
+    * [termimage](https://github.com/nabijaczleweli/termimage)
+    * [explosion](https://github.com/Tenzer/explosion)

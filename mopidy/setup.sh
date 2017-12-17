@@ -1,9 +1,9 @@
 #!/usr/bin/env zsh
 
-mopidy::local::setup() {
+mopidy::setup() {
   # create necessary directories
   mkdir -p "${CONFIG_DIR}/mopidy"
 
   # copy config files
-  local_copy "mopidy/mopidy.conf" "${CONFIG_DIR}/mopidy/mopidy.conf"
+  copy "mopidy/mopidy.conf" "${CONFIG_DIR}/mopidy/mopidy.conf"
 }

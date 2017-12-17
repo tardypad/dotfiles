@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-openssh::local::setup() {
+openssh::setup() {
   # create necessary directories
   mkdir -p "${HOME}/.ssh"
 
@@ -11,19 +11,4 @@ openssh::local::setup() {
   # adjust permissions
   chmod 700 "${HOME}/.ssh"
   chmod 600 "${HOME}/.ssh/config"
-}
-
-
-openssh::remote::setup() {
-  local host="$1"
-
-  # create necessary directories
-  remote_exec "${host}" 'mkdir -p "${HOME}/.ssh"'
-
-  # copy config files
-  remote_copy "${host}" "openssh/config_${host}" ".ssh/config"
-
-  # adjust permissions
-  remote_exec "${host}" 'chmod 700 "${HOME}/.ssh"'
-  remote_exec "${host}" 'chmod 600 "${HOME}/.ssh/config"'
 }

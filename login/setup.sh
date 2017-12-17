@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-login::local::setup() {
+login::setup() {
   # copy config files
-  local_copy "login/hushlogin" "${HOME}/.hushlogin"
+  copy "login/hushlogin" "${HOME}/.hushlogin"
 }
