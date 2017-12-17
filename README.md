@@ -55,15 +55,6 @@ Setup tools' config locally
 Options:
   -h,  --help            show this message only
 
-Available tools:
-ctags           fontconfig      git
-gnupg           htop            httpie
-http-prompt     konsole         less
-mopidy          mycli           ncmpcpp
-neomutt         newsboat        notes
-openssh         rbtools         tmux
-translate-shell vim             weechat
-xdg             zsh
 If no tool argument is passed, all of them are setup
 ```
 

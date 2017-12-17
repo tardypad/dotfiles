@@ -24,8 +24,6 @@ Setup tools' config locally
 Options:
   -h,  --help     show this message only
 
-Available tools:
-$( printf '%s\n' "${AVAILABLE_TOOLS[@]}" | column -c 50 -x )
 If no tool argument is passed, all of them are setup
 EOF
 }
