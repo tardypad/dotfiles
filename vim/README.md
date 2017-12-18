@@ -98,7 +98,7 @@ Version [8.0](https://github.com/vim/vim/releases/tag/v8.0.0000)
   Source [Github](https://github.com/mbbill/undotree)  
   Version [cdbb902](https://github.com/mbbill/undotree/commit/cdbb9022b8972d3e156b8d60af33bf795625b058)
 
-- .vim/plugged/pass  
+- pass  
   Prevent storing of purely temporary files in plain text on the system  
   Source [zx2c4](https://git.zx2c4.com/password-store/tree/contrib/vim/noplaintext.vim)  
   Version [1.7.1](https://git.zx2c4.com/password-store/tag/?h=1.7.1)
@@ -153,12 +153,12 @@ Version [8.0](https://github.com/vim/vim/releases/tag/v8.0.0000)
   Source [Github](https://github.com/kylef/apiblueprint.vim)  
   Version [776b986](https://github.com/kylef/apiblueprint.vim/commit/776b9863e32a8ba59bf8a9656770a77c148c6e9c)
 
-- .vim/plugged/icinga2  
+- icinga2  
   Icinga2 syntax  
   Source [Github](https://github.com/Icinga/icinga2/blob/master/tools/syntax/vim/syntax/icinga2.vim)  
   Version [daa067d](https://github.com/Icinga/icinga2/commit/daa067dabe388d1a26e7581937202d1e78b53175)
 
-- .vim/plugged/neomutt  
+- neomutt  
   Neomutt syntax  
   Source [Github](https://github.com/neomutt/neomutt/blob/master/doc/neomutt-syntax.vim)  
   Version [5c60099](https://github.com/neomutt/neomutt/commit/5c600997cd0e028a237fe6847ddffa1f2c340ea6)
