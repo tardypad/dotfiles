@@ -15,9 +15,6 @@
   - idem for vim gutentags root marker
 
 # Improvements
-  - split core configuration files between general / style / bindings .conf files  
-    (or other meaningful split, like by extensions type for mopidy)  
-    and let the setup script concatenate and rename them if needed
   - review and improve copy paste workflow between terminals/vim/tmux/...
     * [extrackto](https://github.com/laktak/extrakto) tmux search and copy/insert/...
     * [yank](https://github.com/mptre/yank) copy output to clipboard
@@ -44,11 +41,6 @@
     * [abook](https://sourceforge.net/p/abook/git)
     * [goobook](https://gitlab.com/goobook/goobook)
   - keyboard config files with xkb
-  - tmux env: switch to root user with password  
-    and maybe store other information with it
-    * [pass](https://www.passwordstore.org/)
-    * [git-crypt](https://www.agwa.name/projects/git-crypt/)
-    * [git-secret](https://github.com/sobolevn/git-secret)
   - docs in terminal
     * [rfc](https://github.com/bfontaine/rfc)
     * [http](https://github.com/bfontaine/httpdoc)
