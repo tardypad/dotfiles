@@ -88,6 +88,10 @@ Plug 'mbbill/undotree',
   \   'on': [ 'UndotreeShow', 'UndotreeToggle' ],
   \   'commit': 'cdbb902' }
 
+" No plaintext storing of temporary files
+Plug '~/.vim/plugged/pass',
+  \ { 'as': 'pass' }
+
 " Colorscheme
 Plug 'altercation/vim-colors-solarized',
   \ { 'as': 'solarized',

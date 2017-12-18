@@ -98,6 +98,11 @@ Version [8.0](https://github.com/vim/vim/releases/tag/v8.0.0000)
   Source [Github](https://github.com/mbbill/undotree)  
   Version [cdbb902](https://github.com/mbbill/undotree/commit/cdbb9022b8972d3e156b8d60af33bf795625b058)
 
+- .vim/plugged/pass  
+  Prevent storing of purely temporary files in plain text on the system  
+  Source [zx2c4](https://git.zx2c4.com/password-store/tree/contrib/vim/noplaintext.vim)  
+  Version [1.7.1](https://git.zx2c4.com/password-store/tag/?h=1.7.1)
+
 - vim-colors-solarized  
   Colorscheme  
   Source [Github](https://github.com/altercation/vim-colors-solarized)  
