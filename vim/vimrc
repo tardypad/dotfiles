@@ -115,6 +115,7 @@ set undofile
 set directory^=~/.vim/swap//
 set backupdir^=~/.vim/backup//
 set undodir^=~/.vim/undo//
+set viminfo+=n~/.vim/viminfo
 
 " switch to alternate/previous/next buffer
 nnoremap <silent> <Leader>ba :b#<CR>
