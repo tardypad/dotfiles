@@ -24,7 +24,6 @@
 # New Features
   - ALSA equalizer presets
     * [thread](http://www.pclinuxos.com/forum/index.php?topic=110087.0)
-  - readline config for vi mode in cli tools (mysql, redis, influxdb,...)
   - [chromium-vim](https://github.com/1995eaton/chromium-vim) cvimrc
 
 # Research

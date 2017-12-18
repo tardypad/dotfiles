@@ -27,6 +27,7 @@ All tools selected are [Free Software](https://www.gnu.org/philosophy/free-sw.en
 | notes                  | notes management                     |
 | openssh                | SSH client                           |
 | rbtools                | Review Board command line            |
+| readline               | command line library
 | tmux                   | terminal multiplexer                 |
 | translate-shell        | translator                           |
 | vim                    | text editor                          |
