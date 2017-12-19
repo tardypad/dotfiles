@@ -131,3 +131,6 @@ bindsym $mod+r mode "resize"
 bindsym XF86AudioRaiseVolume exec amixer -q set Master unmute 5%+
 bindsym XF86AudioLowerVolume exec amixer -q set Master unmute 5%-
 bindsym XF86AudioMute exec amixer -q set Master toggle
+
+# Microphone key
+bindsym XF86AudioMicMute exec amixer -q set Capture toggle
