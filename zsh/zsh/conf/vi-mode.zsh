@@ -84,3 +84,9 @@ bindkey -M vicmd '\en' down-history
 bindkey -M viins '^j' self-insert
 bindkey -M vicmd '^j' self-insert
 bindkey -M isearch '^j' self-insert
+
+# bind Ctrl-S to get a clean git overview in the screen
+# clear screen, abort action, replace current line and then run each command
+bindkey -M viins -s '^s' '^L\ESgit fe^Mgit hist^Mgit log1 HEAD...origin/master^Mgit st^M'
+bindkey -M vicmd -s '^s' '^L\ESgit fe^Mgit hist^Mgit log1 HEAD...origin/master^Mgit st^M'
+bindkey -M isearch -s '^s' '^L\ESgit fe^Mgit hist^Mgit log1 HEAD...origin/master^Mgit st^M'
