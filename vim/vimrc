@@ -42,6 +42,9 @@ vnoremap <Space> <nop>
 " disable usage of Ctrl-J as Enter in command mode
 cnoremap <C-J> <nop>
 
+" remove ex mode binding
+nmap Q <nop>
+
 " Activate syntax coloring
 syntax enable
 
