@@ -15,9 +15,6 @@ set $term termite
 # browser
 set $browser chromium
 
-# application launcher
-set $menu dmenu_run
-
 # Solarized colors
 set $base03  #002b36
 set $base02  #073642
@@ -38,6 +35,14 @@ set $green   #859900
 
 # similar background transparency as terminal
 set $background #002b36f2
+
+# application launcher
+set $menu dmenu_run \
+          -fn 'Source Sans Pro-16' \
+          -nb '$base03' \
+          -nf '$base0' \
+          -sb '$green' \
+          -sf '$base03'
 
 # include all config files
 include ~/.config/sway/config.d/*
