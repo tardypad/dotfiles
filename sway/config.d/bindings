@@ -3,6 +3,9 @@
 # start a terminal
 bindsym $mod+Return exec $term
 
+# start a browser
+bindsym $mod+Shift+Return exec $browser
+
 # kill focused window
 bindsym $mod+Shift+x kill
 

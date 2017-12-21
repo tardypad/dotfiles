@@ -12,6 +12,9 @@ set $right l
 # terminal emulator
 set $term termite
 
+# browser
+set $browser chromium
+
 # application launcher
 set $menu dmenu_run
 
