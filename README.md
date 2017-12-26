@@ -28,6 +28,7 @@ All tools selected are [Free Software](https://www.gnu.org/philosophy/free-sw.en
 | newsboat               | RSS reader                           |
 | notes                  | notes management                     |
 | openssh                | SSH client                           |
+| pacman                 | packages manager                     |
 | rbtools                | Review Board command line            |
 | sway                   | window manager                       |
 | termite                | terminal emulator                    |
