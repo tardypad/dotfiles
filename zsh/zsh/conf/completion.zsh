@@ -15,7 +15,7 @@ else
   compinit -C
 fi
 
-source /usr/local/share/zsh/site-functions/git-extras-completion.zsh
+source /usr/share/zsh/site-functions/git-extras-completion.zsh
 
 # Tab case insensitive smart completion
 # lowercase letters match lowercase and uppercase letters
