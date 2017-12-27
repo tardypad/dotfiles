@@ -134,3 +134,7 @@ bindsym XF86AudioMute exec amixer -q set Master toggle
 
 # Microphone key
 bindsym XF86AudioMicMute exec amixer -q set Capture toggle
+
+# Backlight keys
+bindsym XF86MonBrightnessUp   exec light -A 10
+bindsym XF86MonBrightnessDown exec light -U 10
