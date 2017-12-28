@@ -118,6 +118,11 @@ Plug 'keith/tmux.vim',
   \ { 'as': 'tmux', 'for': 'tmux',
   \   'commit': '2b8f628' }
 
+" Sway conf syntax highlighting
+Plug 'aouelete/sway-vim-syntax',
+  \ { 'as': 'sway', 'for': 'sway',
+  \   'commit': '0aa0626' }
+
 " A faster YAML
 Plug 'stephpy/vim-yaml',
   \ { 'as': 'yaml', 'for': [ 'yaml', 'sls' ],
