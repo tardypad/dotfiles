@@ -58,16 +58,6 @@ set cursorline            " highlight the current line
 set scrolloff=3           " Display at least 3 lines around you cursor
                           " (for scrolling)
 
-" -- Search
-set ignorecase            " Ignore case when searching
-set smartcase             " If there is an uppercase in your search term
-                          " search case sensitive again
-set incsearch             " Highlight search results when typing
-set hlsearch              " Highlight search results
-
-" Clear last search highlighting with Enter
-nnoremap <silent> <CR> :noh<CR><Esc>
-
 " -- Beep
 set visualbell            " Prevent Vim from beeping
 set noerrorbells          " Prevent Vim from beeping
@@ -190,3 +180,43 @@ highlight VertSplit ctermbg=NONE
 " Mail config
 autocmd BufRead,BufNewFile *mutt-* setfiletype mail
 autocmd FileType mail setlocal formatoptions+=aw textwidth=72
+
+" Search config
+
+set ignorecase " ignore case when searching
+set smartcase  " search sensitive if there is an uppercase in the search term
+set incsearch  " highlight search results when typing
+set hlsearch   " highlight search results
+set nowrapscan " search stops at the end of file
+
+" clear last search highlighting with Enter
+nnoremap <silent> <CR> :noh<CR><Esc>
+
+" initial search direction
+let s:search_direction = 'down'
+
+" move cursor on top/bottom of the page on new page
+function s:SearchFixPosition(reverse)
+  if (s:search_direction == 'down' || (s:search_direction == 'up' && a:reverse))
+    \ && winline() == winheight(0) - &scrolloff
+    normal! zt
+  elseif (s:search_direction == 'up' || (s:search_direction == 'down' && a:reverse))
+    \ && winline() == &scrolloff + 1
+    normal! zb
+  endif
+endfunction
+
+" define search direction
+function s:SetSearchDirection(direction)
+  let s:search_direction = a:direction
+endfunction
+
+" remap search related keys
+nnoremap <silent> n n:call <SID>SearchFixPosition(0)<CR>
+nnoremap <silent> N N:call <SID>SearchFixPosition(1)<CR>
+nnoremap <silent> * *:call <SID>SetSearchDirection('down')<CR>:call <SID>SearchFixPosition(0)<CR>
+nnoremap <silent> # #:call <SID>SetSearchDirection('up')<CR>:call <SID>SearchFixPosition(0)<CR>
+nnoremap <silent> g* g*:call <SID>SetSearchDirection('down')<CR>:call <SID>SearchFixPosition(0)<CR>
+nnoremap <silent> g# g#:call <SID>SetSearchDirection('up')<CR>:call <SID>SearchFixPosition(0)<CR>
+nnoremap / :call <SID>SetSearchDirection('down')<CR>/
+nnoremap ? :call <SID>SetSearchDirection('up')<CR>?
