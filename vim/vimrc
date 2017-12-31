@@ -98,6 +98,9 @@ set updatetime=500
 nmap 2o A<CR><CR>
 nmap 2O I<CR><CR><Esc>kki
 
+" correct joining of lines if comments
+set formatoptions+=j
+
 " Enable swap / backup / undo files for buffers
 " and store them preferably separately from the edited file location
 " ^= means prepend to the default directories list
