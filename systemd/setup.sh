@@ -9,4 +9,7 @@ systemd::setup() {
 
   # reload daemon
   systemctl --user daemon-reload
+
+  # enable services
+  systemctl --user enable mopidy.service &> /dev/null
 }
