@@ -31,6 +31,7 @@ All tools selected are [Free Software](https://www.gnu.org/philosophy/free-sw.en
 | pacman                 | packages manager                     |
 | rbtools                | Review Board command line            |
 | sway                   | window manager                       |
+| systemd                | system and service manager           |
 | termite                | terminal emulator                    |
 | tmux                   | terminal multiplexer                 |
 | translate-shell        | translator                           |
