@@ -1,0 +1,3 @@
+# display monitor as floating window
+for_window [title="monitor"] floating enable, \
+                             resize set 1500 1000
