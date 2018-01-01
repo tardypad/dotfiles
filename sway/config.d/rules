@@ -1,3 +1,6 @@
 # display monitor as floating window
 for_window [title="monitor"] floating enable, \
                              resize set 1500 1000
+
+# assign browser to workspace 2
+assign [class="Chromium"] 2

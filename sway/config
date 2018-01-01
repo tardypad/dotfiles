@@ -52,3 +52,7 @@ set $menu dmenu_run \
 
 # include all config files
 include ~/.config/sway/config.d/*
+
+# autostart programs at the end
+# so that rules and other config are set before
+include ~/.config/sway/autostart
