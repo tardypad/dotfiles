@@ -14,6 +14,9 @@ setw -g remain-on-exit on
 # define default term type
 set -g default-terminal "screen-256color"
 
+# add truecolor support
+set -g terminal-overrides ",xterm-256color:Tc"
+
 # start windows and panes numbering at 1
 set -g base-index 1
 setw -g pane-base-index 1
