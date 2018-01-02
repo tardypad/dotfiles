@@ -24,12 +24,14 @@
 # New Features
   - ALSA equalizer presets
     * [thread](http://www.pclinuxos.com/forum/index.php?topic=110087.0)
-  - [chromium-vim](https://github.com/1995eaton/chromium-vim) cvimrc
+  - keyboard focused browser
+    * [qutebrowser](https://www.qutebrowser.org/)
+  - keyboard focused document viewer
+    * [zathura](https://pwmt.org/projects/zathura/)
+  - files browser
+    * [vifm](https://github.com/vifm/vifm)
 
 # Research
-  - files browser
-    * [ranger](https://github.com/ranger/ranger)
-    * [vifm](https://github.com/vifm/vifm)
   - [fuzzy matchers](https://www.reddit.com/r/commandline/comments/36h2cj/fuzzy_matchers_overview/)
   - calendar app
     * [khal](https://github.com/pimutils/khal)
@@ -48,6 +50,7 @@
   - presentations
     * [tpp](https://github.com/cbbrowne/tpp)
     * [mdp](https://github.com/visit1985/mdp)
+    * [patat](https://github.com/jaspervdj/patat)
     * [doitlive](https://github.com/sloria/doitlive)
   - better git?
     * [gitsome](https://github.com/donnemartin/gitsome)
