@@ -78,4 +78,3 @@ such as sed, grep,... and the likes.
 |------------------------|--------------------------------------|
 | curl                   | HTTP client                          |
 | the silver searcher    | code search                          |
-| xdotool                | X inputs simulator                   |
