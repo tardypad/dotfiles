@@ -14,7 +14,7 @@ tmux -L "${socket}" \
   new-window \
   -n 'code' \
   -c "${dotfiles_path}" \
-  vim --servername dotfiles -c NERDTree
+  vim --servername dotfiles -c NERDTree -c 'wincmd l' -- TODO.md
 
 
 tmux -L "${socket}" \
