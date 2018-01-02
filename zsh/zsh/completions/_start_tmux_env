@@ -18,6 +18,5 @@ _sessions() {
 
 _arguments \
   '(-h --help)'{-h,--help}'[display the help]' \
-  '(-s --skip)'{-s,--skip}'[skip fortune]' \
   '1:target:_targets' \
   '2:session:_sessions'
