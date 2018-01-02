@@ -18,7 +18,6 @@ All tools selected are [Free Software](https://www.gnu.org/philosophy/free-sw.en
 | htop                   | system processes manager             |
 | httpie                 | HTTP client                          |
 | http-prompt            | HTTP interactive client              |
-| konsole                | terminal emulator                    |
 | less                   | pager                                |
 | login                  | session starter                      |
 | mopidy                 | music server                         |
