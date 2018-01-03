@@ -146,6 +146,11 @@ Plug 'kylef/apiblueprint.vim',
 Plug '~/.vim/plugged/icinga2',
   \ { 'as': 'icinga2', 'for': 'icinga2' }
 
+" Vifm conf syntax highligting
+Plug 'vifm/vifm.vim',
+  \ { 'as': 'vifm', 'for': 'vifm',
+  \   'tag': 'v0.9' }
+
 " Neomutt syntax
 Plug '~/.vim/plugged/neomutt',
   \ { 'as': 'neomutt', 'for': 'neomutt' }

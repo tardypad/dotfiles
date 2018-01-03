@@ -158,6 +158,11 @@ Version [8.0](https://github.com/vim/vim/releases/tag/v8.0.0000)
   Source [Github](https://github.com/Icinga/icinga2/blob/master/tools/syntax/vim/syntax/icinga2.vim)  
   Version [daa067d](https://github.com/Icinga/icinga2/commit/daa067dabe388d1a26e7581937202d1e78b53175)
 
+- vifm.vim  
+  Vifm conf syntax highligting  
+  Source [Github](https://github.com/vifm/vifm.vim)  
+  Version [0.9](https://github.com/vifm/vifm.vim/releases/tag/v0.9)
+
 - neomutt  
   Neomutt syntax  
   Source [Github](https://github.com/neomutt/neomutt/blob/master/doc/neomutt-syntax.vim)  
