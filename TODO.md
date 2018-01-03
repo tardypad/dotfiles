@@ -28,8 +28,6 @@
     * [qutebrowser](https://www.qutebrowser.org/)
   - keyboard focused document viewer
     * [zathura](https://pwmt.org/projects/zathura/)
-  - files browser
-    * [vifm](https://github.com/vifm/vifm)
 
 # Research
   - [fuzzy matchers](https://www.reddit.com/r/commandline/comments/36h2cj/fuzzy_matchers_overview/)
