@@ -59,7 +59,6 @@ bind    C-x confirm-before -p 'kill-session #{session_name}? (y/n)' kill-session
 
 # windows management (no extra modifier key)
 bind    w run "~/.tmux/scripts/choose_tree_left.sh windows"
-bind    f command-prompt "find-window -N -F '#{window_name}' '%%'"
 bind    a last-window
 bind -r n next-window
 bind -r l next-window
