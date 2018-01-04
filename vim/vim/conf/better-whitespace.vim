@@ -2,7 +2,7 @@
 " the plugin better_whitespace_filetypes_blacklist variable
 " only affects the usage of the highlighting
 fun! FiletypeFilteredStripWhitespace()
-  if &ft =~ 'markdown'
+  if &ft =~ 'markdown\|apiblueprint'
     return
   endif
   StripWhitespace
