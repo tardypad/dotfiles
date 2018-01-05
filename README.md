@@ -33,7 +33,8 @@ All tools selected are [Free Software](https://www.gnu.org/philosophy/free-sw.en
 | vifm                   | file manager                         |
 | vim                    | text editor                          |
 | weechat                | chat client                          |
-| xdg                    | X Window interoperability            |
+| xdg-user-dirs          | user directories manager             |
+| xdg-utils              | applications manager                 |
 | zsh                    | shell                                |
 
 See each individual tool folder README for more information
