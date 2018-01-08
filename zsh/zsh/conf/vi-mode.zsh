@@ -90,3 +90,9 @@ bindkey -M isearch '^j' self-insert
 bindkey -M viins -s '^s' '^L\ESgit fe^Mgit hist^Mgit log1 HEAD...origin/master^Mgit st^M'
 bindkey -M vicmd -s '^s' '^L\ESgit fe^Mgit hist^Mgit log1 HEAD...origin/master^Mgit st^M'
 bindkey -M isearch -s '^s' '^L\ESgit fe^Mgit hist^Mgit log1 HEAD...origin/master^Mgit st^M'
+
+# bind Alt-F to launch file browser
+# abort action, replace current line and run vifm
+bindkey -M viins -s '\ef' '\ESvifm^M'
+bindkey -M vicmd -s '\ef' '\ESvifm^M'
+bindkey -M isearch -s '\ef' '\ESvifm^M'
