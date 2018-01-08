@@ -1,16 +1,14 @@
 highlight clear
 
-highlight TopLine         cterm=none ctermfg=blue       ctermbg=none
-highlight TopLineSel      cterm=none ctermfg=blue       ctermbg=none
-highlight StatusLine      cterm=none ctermfg=blue       ctermbg=none
-highlight Border          cterm=none ctermfg=blue       ctermbg=none
-
-highlight Selected        cterm=bold ctermfg=magenta    ctermbg=default
-highlight CurrLine        cterm=bold ctermfg=default    ctermbg=blue
-
-highlight WildMenu        cterm=underline,reverse ctermfg=white ctermbg=black
-highlight CmdLine         cterm=none ctermfg=white ctermbg=black
-highlight ErrorMsg        cterm=none ctermfg=red ctermbg=black
+highlight TopLine    cterm=none  ctermfg=red     ctermbg=none
+highlight TopLineSel cterm=bold  ctermfg=red     ctermbg=none
+highlight StatusLine cterm=none  ctermfg=8       ctermbg=11
+highlight Border     cterm=none  ctermfg=0       ctermbg=none
+highlight Selected   cterm=none  ctermfg=magenta ctermbg=default
+highlight CurrLine   cterm=none  ctermfg=8       ctermbg=yellow
+highlight WildMenu   cterm=none  ctermfg=8       ctermbg=12
+highlight CmdLine    cterm=none  ctermfg=12      ctermbg=none
+highlight ErrorMsg   cterm=none  ctermfg=red     ctermbg=none
 
 
 " following is generated with
