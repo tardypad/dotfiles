@@ -196,7 +196,7 @@ nnoremap <silent> <CR> :noh<CR><Esc>
 let s:search_direction = 'down'
 
 " move cursor on top/bottom of the page on new page
-function s:SearchFixPosition(reverse)
+function! s:SearchFixPosition(reverse)
   if (s:search_direction == 'down' || (s:search_direction == 'up' && a:reverse))
     \ && line('.') > s:search_last_line
     normal! zt
@@ -207,13 +207,13 @@ function s:SearchFixPosition(reverse)
 endfunction
 
 " register current position
-function s:SearchRegisterPosition()
+function! s:SearchRegisterPosition()
   let s:search_first_line = line('.') - winline() + 1
   let s:search_last_line = s:search_first_line + winheight(0) - 1
 endfunction
 
 " define search direction
-function s:SearchSetDirection(direction)
+function! s:SearchSetDirection(direction)
   let s:search_direction = a:direction
 endfunction
 
