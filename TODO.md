@@ -25,9 +25,11 @@
   - ALSA equalizer presets
     * [thread](http://www.pclinuxos.com/forum/index.php?topic=110087.0)
   - keyboard focused browser
-    * [qutebrowser](https://www.qutebrowser.org/)
+    * [qutebrowser](https://www.qutebrowser.org/)  
+      see [config](https://github.com/etnadji/dotfiles/blob/master/Softwares_Configs/qutebrowser/.config/qutebrowser/config.py#L529)
   - keyboard focused document viewer
     * [zathura](https://pwmt.org/projects/zathura/)
+  - backup of notes, ncmpcpp lyrics,... 
 
 # Research
   - [fuzzy matchers](https://www.reddit.com/r/commandline/comments/36h2cj/fuzzy_matchers_overview/)
@@ -82,3 +84,11 @@
     * [tv](https://github.com/daleroberts/tv)
     * [termimage](https://github.com/nabijaczleweli/termimage)
     * [explosion](https://github.com/Tenzer/explosion)
+  - spellchecking
+    * only vim own internal spell
+    * [aspell](http://aspell.net/)
+    * [hunspell](http://hunspell.github.io/)
+  - extra password tools
+    * [2fa](https://github.com/rsc/2fa)
+    * [passotp](https://github.com/tadfisher/pass-otp)
+    * [browserpass](https://github.com/dannyvankooten/browserpass)
