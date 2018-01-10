@@ -51,6 +51,10 @@ syntax enable
 " Show keys typed in status line
 set showcmd
 
+" Do not show mode in last line
+" since already present in status line
+set noshowmode
+
 " -- Display
 set title                 " Update the title of your window or your terminal
 set relativenumber        " Display relative line numbers
