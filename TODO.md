@@ -1,6 +1,7 @@
 # Periodic
-  - upgrade tools and plugins
-  - remove unused plugins and such
+  - upgrade tools, plugins, extensions,...
+  - remove unused plugins, aliases, functions,...
+  - replace unnecessary dependencies with own simpler config, scripts,...
 
 # Cleaning
 
