@@ -39,3 +39,6 @@ alias reload_vim="
   vim --serverlist \
   | xargs -I {} vim --servername {} --remote-send '<Esc>:source \$MYVIMRC<CR>'
 "
+
+# reload all interactive zsh shells
+alias reload_zsh='killall --signal USR1 zsh'
