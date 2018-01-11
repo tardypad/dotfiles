@@ -1,0 +1,44 @@
+highlight clear
+
+highlight TopLine    cterm=none  ctermfg=red     ctermbg=none
+highlight TopLineSel cterm=bold  ctermfg=red     ctermbg=none
+highlight StatusLine cterm=none  ctermfg=8       ctermbg=11
+highlight Border     cterm=none  ctermfg=0       ctermbg=none
+highlight Selected   cterm=none  ctermfg=magenta ctermbg=default
+highlight CurrLine   cterm=none  ctermfg=8       ctermbg=yellow
+highlight WildMenu   cterm=none  ctermfg=8       ctermbg=12
+highlight CmdLine    cterm=none  ctermfg=12      ctermbg=none
+highlight ErrorMsg   cterm=none  ctermfg=red     ctermbg=none
+
+
+" following is generated with
+" vifm-convert-dircolors ~/.dircolors
+
+" generic file types
+highlight BrokenLink cterm=none ctermfg=white ctermbg=red
+highlight Device cterm=none ctermfg=white ctermbg=blue
+highlight Directory cterm=none ctermfg=blue ctermbg=default
+highlight Executable cterm=bold ctermfg=red ctermbg=default
+highlight Fifo cterm=none ctermfg=black ctermbg=blue
+highlight Link cterm=none ctermfg=magenta ctermbg=default
+highlight Socket cterm=none ctermfg=magenta ctermbg=blue
+highlight Win cterm=none ctermfg=default ctermbg=default
+
+" file name specific highlight
+highlight /.*\.ANSI-01;30-brblack$/I cterm=bold ctermfg=black ctermbg=default
+highlight /.*\.ANSI-01;31-brred$|.*\.app$|.*\.bat$|.*\.cmd$|.*\.com$|.*\.exe$|.*\.reg$/I cterm=bold ctermfg=red ctermbg=default
+highlight /.*#$|.*\.ANSI-01;32-brgreen$|.*\.log$|.*~$/I cterm=bold ctermfg=green ctermbg=default
+highlight /.*,v$|.*\.ANSI-01;33-bryellow$|.*\.BAK$|.*\.DIST$|.*\.OFF$|.*\.OLD$|.*\.ORIG$|.*\.bak$|.*\.dist$|.*\.off$|.*\.old$|.*\.org_archive$|.*\.orig$|.*\.swo$|.*\.swp$/I cterm=bold ctermfg=yellow ctermbg=default
+highlight /.*\.ANSI-01;34-brblue$/I cterm=bold ctermfg=blue ctermbg=default
+highlight /.*\.ANSI-01;35-brmagenta$/I cterm=bold ctermfg=magenta ctermbg=default
+highlight /.*\.ANSI-01;36-brcyan$/I cterm=bold ctermfg=cyan ctermbg=default
+highlight /.*\.ANSI-01;37-brwhite$/I cterm=bold ctermfg=white ctermbg=default
+highlight /.*\.7z$|.*\.Z$|.*\.apk$|.*\.arj$|.*\.bin$|.*\.bz$|.*\.bz2$|.*\.cab$|.*\.deb$|.*\.dmg$|.*\.gem$|.*\.gz$|.*\.iso$|.*\.jar$|.*\.msi$|.*\.rar$|.*\.rpm$|.*\.tar$|.*\.tbz$|.*\.tbz2$|.*\.tgz$|.*\.tx$|.*\.war$|.*\.xpi$|.*\.xz$|.*\.z$|.*\.zip$/I cterm=bold ctermfg=magenta ctermbg=default
+highlight /.*\.ANSI-30-black$/I cterm=none ctermfg=black ctermbg=default
+highlight /.*\.ANSI-31-red$|.*\.doc$|.*\.docx$|.*\.dot$|.*\.dotx$|.*\.fla$|.*\.odp$|.*\.ods$|.*\.odt$|.*\.otp$|.*\.ots$|.*\.ott$|.*\.ppt$|.*\.pptx$|.*\.psd$|.*\.rtf$|.*\.xls$|.*\.xlsx$/I cterm=none ctermfg=red ctermbg=default
+highlight /.*\.0$|.*\.1$|.*\.2$|.*\.3$|.*\.4$|.*\.5$|.*\.6$|.*\.7$|.*\.8$|.*\.9$|.*\.ANSI-32-green$|.*\.C$|.*\.bash$|.*\.c$|.*\.cc$|.*\.cl$|.*\.coffee$|.*\.cpp$|.*\.csh$|.*\.css$|.*\.csv$|.*\.cxx$|.*\.el$|.*\.erb$|.*\.go$|.*\.h$|.*\.haml$|.*\.hpp$|.*\.hs$|.*\.htm$|.*\.html$|.*\.java$|.*\.js$|.*\.l$|.*\.less$|.*\.man$|.*\.md$|.*\.mkd$|.*\.n$|.*\.objc$|.*\.org$|.*\.p$|.*\.php$|.*\.pl$|.*\.pm$|.*\.pod$|.*\.py$|.*\.rb$|.*\.rdf$|.*\.sass$|.*\.scss$|.*\.sh$|.*\.shtml$|.*\.sql$|.*\.tex$|.*\.txt$|.*\.vim$|.*\.xml$|.*\.zsh$/I cterm=none ctermfg=green ctermbg=default
+highlight /.*\.ANSI-33-yellow$|.*\.JPG$|.*\.MOV$|.*\.PNG$|.*\.aac$|.*\.anx$|.*\.asf$|.*\.au$|.*\.avi$|.*\.axv$|.*\.bmp$|.*\.cgm$|.*\.dl$|.*\.dvi$|.*\.emf$|.*\.eps$|.*\.flac$|.*\.flc$|.*\.fli$|.*\.flv$|.*\.gif$|.*\.gl$|.*\.jpeg$|.*\.jpg$|.*\.m2v$|.*\.m4a$|.*\.m4v$|.*\.mid$|.*\.midi$|.*\.mka$|.*\.mkv$|.*\.mng$|.*\.mov$|.*\.mp3$|.*\.mp4$|.*\.mp4v$|.*\.mpa$|.*\.mpeg$|.*\.mpg$|.*\.nuv$|.*\.ogg$|.*\.ogm$|.*\.ogv$|.*\.ogx$|.*\.opus$|.*\.pbm$|.*\.pcx$|.*\.pdf$|.*\.pgm$|.*\.png$|.*\.ppm$|.*\.pps$|.*\.ppsx$|.*\.ps$|.*\.qt$|.*\.ra$|.*\.rm$|.*\.rmvb$|.*\.svg$|.*\.svgz$|.*\.swf$|.*\.tga$|.*\.tif$|.*\.tiff$|.*\.vob$|.*\.wav$|.*\.webm$|.*\.wmv$|.*\.xbm$|.*\.xcf$|.*\.xpm$|.*\.xwd$|.*\.yuv$/I cterm=none ctermfg=yellow ctermbg=default
+highlight /.*\.3des$|.*\.ANSI-34-blue$|.*\.aes$|.*\.asc$|.*\.enc$|.*\.gpg$|.*\.pgp$|.*\.sqlite$/I cterm=none ctermfg=blue ctermbg=default
+highlight /.*\.ANSI-35-magenta$/I cterm=none ctermfg=magenta ctermbg=default
+highlight /.*\.ANSI-36-cyan$/I cterm=none ctermfg=cyan ctermbg=default
+highlight /.*\.ANSI-37-white$/I cterm=none ctermfg=white ctermbg=default

@@ -88,6 +88,10 @@ Plug 'mbbill/undotree',
   \   'on': [ 'UndotreeShow', 'UndotreeToggle' ],
   \   'commit': 'cdbb902' }
 
+" No plaintext storing of temporary files
+Plug '~/.vim/plugged/pass',
+  \ { 'as': 'pass' }
+
 " Colorscheme
 Plug 'lifepillar/vim-solarized8',
   \ { 'as': 'solarized',
@@ -146,6 +150,11 @@ Plug 'kylef/apiblueprint.vim',
 " Icinga2 syntax
 Plug '~/.vim/plugged/icinga2',
   \ { 'as': 'icinga2', 'for': 'icinga2' }
+
+" Vifm conf syntax highligting
+Plug 'vifm/vifm.vim',
+  \ { 'as': 'vifm', 'for': 'vifm',
+  \   'tag': 'v0.9' }
 
 " Neomutt syntax
 Plug '~/.vim/plugged/neomutt',

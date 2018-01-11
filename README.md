@@ -29,14 +29,17 @@ All tools selected are [Free Software](https://www.gnu.org/philosophy/free-sw.en
 | openssh                | SSH client                           |
 | pacman                 | packages manager                     |
 | rbtools                | Review Board command line            |
+| readline               | command line library                 |
 | sway                   | window manager                       |
 | systemd                | system and service manager           |
 | termite                | terminal emulator                    |
 | tmux                   | terminal multiplexer                 |
 | translate-shell        | translator                           |
+| vifm                   | file manager                         |
 | vim                    | text editor                          |
 | weechat                | chat client                          |
-| xdg                    | X Window interoperability            |
+| xdg-user-dirs          | user directories manager             |
+| xdg-utils              | applications manager                 |
 | zsh                    | shell                                |
 
 See each individual tool folder README for more information
@@ -77,4 +80,5 @@ such as sed, grep,... and the likes.
 | Name                   | Purpose                              |
 |------------------------|--------------------------------------|
 | curl                   | HTTP client                          |
+| pass                   | password manager                     |
 | the silver searcher    | code search                          |

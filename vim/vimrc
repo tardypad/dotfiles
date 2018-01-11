@@ -42,8 +42,18 @@ vnoremap <Space> <nop>
 " disable usage of Ctrl-J as Enter in command mode
 cnoremap <C-J> <nop>
 
+" remove ex mode binding
+nmap Q <nop>
+
 " Activate syntax coloring
 syntax enable
+
+" Show keys typed in status line
+set showcmd
+
+" Do not show mode in last line
+" since already present in status line
+set noshowmode
 
 " -- Display
 set title                 " Update the title of your window or your terminal
@@ -54,16 +64,6 @@ set cursorline            " highlight the current line
 
 set scrolloff=3           " Display at least 3 lines around you cursor
                           " (for scrolling)
-
-" -- Search
-set ignorecase            " Ignore case when searching
-set smartcase             " If there is an uppercase in your search term
-                          " search case sensitive again
-set incsearch             " Highlight search results when typing
-set hlsearch              " Highlight search results
-
-" Clear last search highlighting with Enter
-nnoremap <silent> <CR> :noh<CR><Esc>
 
 " -- Beep
 set novisualbell          " Prevent Vim from beeping
@@ -105,6 +105,9 @@ set updatetime=500
 nmap 2o A<CR><CR>
 nmap 2O I<CR><CR><Esc>kki
 
+" correct joining of lines if comments
+set formatoptions+=j
+
 " Enable swap / backup / undo files for buffers
 " and store them preferably separately from the edited file location
 " ^= means prepend to the default directories list
@@ -115,6 +118,7 @@ set undofile
 set directory^=~/.vim/swap//
 set backupdir^=~/.vim/backup//
 set undodir^=~/.vim/undo//
+set viminfo+=n~/.vim/viminfo
 
 " switch to alternate/previous/next buffer
 nnoremap <silent> <Leader>ba :b#<CR>
@@ -123,12 +127,6 @@ nnoremap <silent> <Leader>bn :bnext<CR>
 
 " Toggle long lines highlighting
 nnoremap <Leader>L :call<SID>LongLineHighlightToggle()<cr>
-
-" Set long lines highlight background color
-highlight OverLength ctermbg=1 guibg=#dc322f
-
-" Detection of long lines (superior to 80 characters)
-match OverLength /\%>80v/
 
 " Function to toggle highlighting of long lines
 fun! s:LongLineHighlightToggle()
@@ -181,3 +179,59 @@ set fillchars+=vert:│
 " Mail config
 autocmd BufRead,BufNewFile *mutt-* setfiletype mail
 autocmd FileType mail setlocal formatoptions+=aw textwidth=72
+
+" Search config
+
+set ignorecase " ignore case when searching
+set smartcase  " search sensitive if there is an uppercase in the search term
+set incsearch  " highlight search results when typing
+set hlsearch   " highlight search results
+set nowrapscan " search stops at the end of file
+
+" clear last search highlighting with Enter
+nnoremap <silent> <CR> :noh<CR><Esc>
+
+" initial search direction
+let s:search_direction = 'down'
+
+" move cursor on top/bottom of the page on new page
+function! s:SearchFixPosition(reverse)
+  if (s:search_direction == 'down' || (s:search_direction == 'up' && a:reverse))
+    \ && line('.') > s:search_last_line
+    normal! zt
+  elseif (s:search_direction == 'up' || (s:search_direction == 'down' && a:reverse))
+    \ && line('.') < s:search_first_line
+    normal! zb
+  endif
+endfunction
+
+" register current position
+function! s:SearchRegisterPosition()
+  let s:search_first_line = line('.') - winline() + 1
+  let s:search_last_line = s:search_first_line + winheight(0) - 1
+endfunction
+
+" define search direction
+function! s:SearchSetDirection(direction)
+  let s:search_direction = a:direction
+endfunction
+
+" remap search related keys
+nnoremap <silent> n :call <SID>SearchRegisterPosition()<CR>n
+                    \:call <SID>SearchFixPosition(0)<CR>
+nnoremap <silent> N :call <SID>SearchRegisterPosition()<CR>N
+                    \:call <SID>SearchFixPosition(1)<CR>
+nnoremap <silent> * :call <SID>SearchRegisterPosition()<CR>*
+                    \:call <SID>SearchSetDirection('down')<CR>
+                    \:call <SID>SearchFixPosition(0)<CR>
+nnoremap <silent> # :call <SID>SearchRegisterPosition()<CR>#
+                    \:call <SID>SearchSetDirection('up')<CR>
+                    \:call <SID>SearchFixPosition(0)<CR>
+nnoremap <silent> g* :call <SID>SearchRegisterPosition()<CR>g*
+                     \:call <SID>SearchSetDirection('down')<CR>
+                     \:call <SID>SearchFixPosition(0)<CR>
+nnoremap <silent> g# :call <SID>SearchRegisterPosition()<CR>g#
+                     \:call <SID>SearchSetDirection('up')<CR>
+                     \:call <SID>SearchFixPosition(0)<CR>
+nnoremap / :call <SID>SearchSetDirection('down')<CR>/
+nnoremap ? :call <SID>SearchSetDirection('up')<CR>?

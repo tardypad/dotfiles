@@ -33,3 +33,12 @@ alias flush_logs="find . -type f -name '*.log' -exec /bin/sh -c \"> '{}'\" \;"
 
 # HTTPie other schemes
 alias https='http --default-scheme=https'
+
+# Reload all named vim servers config
+alias reload_all_vim="
+  vim --serverlist \
+  | xargs -I {} vim --servername {} --remote-send '<Esc>:source \$MYVIMRC<CR>'
+"
+
+# reload all interactive zsh shells
+alias reload_all_zsh='killall --signal USR1 zsh'

@@ -1,2 +1,2 @@
 # define where notes are stored
-NOTES_DIRECTORY=~/Notes
+NOTES_DIRECTORY=$( xdg-user-dir NOTES )

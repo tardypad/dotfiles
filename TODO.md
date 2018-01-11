@@ -1,6 +1,7 @@
 # Periodic
-  - upgrade tools and plugins
-  - remove unused plugins and such
+  - upgrade tools, plugins, extensions,...
+  - remove unused plugins, aliases, functions,...
+  - replace unnecessary dependencies with own simpler config, scripts,...
 
 # Cleaning
 
@@ -15,9 +16,6 @@
   - idem for vim gutentags root marker
 
 # Improvements
-  - split core configuration files between general / style / bindings .conf files  
-    (or other meaningful split, like by extensions type for mopidy)  
-    and let the setup script concatenate and rename them if needed
   - review and improve copy paste workflow between terminals/vim/tmux/...
     * [extrackto](https://github.com/laktak/extrakto) tmux search and copy/insert/...
     * [yank](https://github.com/mptre/yank) copy output to clipboard
@@ -27,13 +25,14 @@
 # New Features
   - ALSA equalizer presets
     * [thread](http://www.pclinuxos.com/forum/index.php?topic=110087.0)
-  - readline config for vi mode in cli tools (mysql, redis, influxdb,...)
-  - [chromium-vim](https://github.com/1995eaton/chromium-vim) cvimrc
+  - keyboard focused browser
+    * [qutebrowser](https://www.qutebrowser.org/)  
+      see [config](https://github.com/etnadji/dotfiles/blob/master/Softwares_Configs/qutebrowser/.config/qutebrowser/config.py#L529)
+  - keyboard focused document viewer
+    * [zathura](https://pwmt.org/projects/zathura/)
+  - backup of notes, ncmpcpp lyrics,... 
 
 # Research
-  - files browser
-    * [ranger](https://github.com/ranger/ranger)
-    * [vifm](https://github.com/vifm/vifm)
   - [fuzzy matchers](https://www.reddit.com/r/commandline/comments/36h2cj/fuzzy_matchers_overview/)
   - calendar app
     * [khal](https://github.com/pimutils/khal)
@@ -44,11 +43,6 @@
     * [abook](https://sourceforge.net/p/abook/git)
     * [goobook](https://gitlab.com/goobook/goobook)
   - keyboard config files with xkb
-  - tmux env: switch to root user with password  
-    and maybe store other information with it
-    * [pass](https://www.passwordstore.org/)
-    * [git-crypt](https://www.agwa.name/projects/git-crypt/)
-    * [git-secret](https://github.com/sobolevn/git-secret)
   - docs in terminal
     * [rfc](https://github.com/bfontaine/rfc)
     * [http](https://github.com/bfontaine/httpdoc)
@@ -57,6 +51,7 @@
   - presentations
     * [tpp](https://github.com/cbbrowne/tpp)
     * [mdp](https://github.com/visit1985/mdp)
+    * [patat](https://github.com/jaspervdj/patat)
     * [doitlive](https://github.com/sloria/doitlive)
   - better git?
     * [gitsome](https://github.com/donnemartin/gitsome)
@@ -90,3 +85,11 @@
     * [tv](https://github.com/daleroberts/tv)
     * [termimage](https://github.com/nabijaczleweli/termimage)
     * [explosion](https://github.com/Tenzer/explosion)
+  - spellchecking
+    * only vim own internal spell
+    * [aspell](http://aspell.net/)
+    * [hunspell](http://hunspell.github.io/)
+  - extra password tools
+    * [2fa](https://github.com/rsc/2fa)
+    * [passotp](https://github.com/tadfisher/pass-otp)
+    * [browserpass](https://github.com/dannyvankooten/browserpass)

@@ -1,0 +1,9 @@
+" color scheme
+colorscheme solarized-dark
+
+" Tab completion in a popup
+set wildmenu
+set wildstyle=popup
+
+" always start with quick file view on
+view!

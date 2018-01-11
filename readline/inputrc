@@ -1,0 +1,11 @@
+# Use vi style editing
+set editing-mode vi
+
+# Command mode
+set keymap vi-command
+"\C-l": clear-screen
+
+# Insert Mode
+set keymap vi-insert
+"\e.":yank-last-arg
+"\C-l": clear-screen
