@@ -33,7 +33,6 @@
   - backup of notes, ncmpcpp lyrics,... 
 
 # Research
-  - [fuzzy matchers](https://www.reddit.com/r/commandline/comments/36h2cj/fuzzy_matchers_overview/)
   - calendar app
     * [khal](https://github.com/pimutils/khal)
     * [calendar-cli](https://github.com/tobixen/calendar-cli)

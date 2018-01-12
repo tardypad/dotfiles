@@ -75,6 +75,7 @@ such as sed, grep,... and the likes.
 | Name                   | Purpose                              |
 |------------------------|--------------------------------------|
 | curl                   | HTTP client                          |
+| fzf                    | fuzzy finder                         |
 | pass                   | password manager                     |
 | the silver searcher    | code search                          |
 | xdotool                | X inputs simulator                   |

@@ -14,3 +14,6 @@ export READNULLCMD=less
 
 # decrease key timeout to 50ms
 export KEYTIMEOUT=5
+
+# fzf config
+export FZF_DEFAULT_OPTS="--reverse --height=20"
