@@ -10,13 +10,13 @@ bindsym $mod+Shift+Return exec $browser
 bindsym $mod+Shift+x kill
 
 # lock the screen
-bindsym $mod+Escape exec lockscreen
+bindsym $mod+Backspace exec lockscreen
 
 # start your launcher
-bindsym $mod+space exec $menu
+bindsym $mod+Space exec $menu
 
 # display monitor
-bindsym $mod+Tab exec monitor
+bindsym $mod+Escape exec monitor
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
