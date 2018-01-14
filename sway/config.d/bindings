@@ -12,8 +12,8 @@ bindsym $mod+Shift+x kill
 # lock the screen
 bindsym $mod+Backspace exec lockscreen
 
-# start your launcher
-bindsym $mod+Space exec $menu
+# start the main launcher
+bindsym $mod+Space exec menu launch_command
 
 # display monitor
 bindsym $mod+Escape exec monitor
