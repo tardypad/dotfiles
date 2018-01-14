@@ -1,13 +1,13 @@
 #!/usr/bin/env zsh
 
 # try to focus existing window if it exists
-FOCUS=$(swaymsg -t command '[title="monitor"]' focus)
+FOCUS=$(swaymsg -t command '[title="sway_monitor"]' focus)
 [[ ! "${FOCUS}" =~ 'error' ]] && exit
 
 # launch new monitor otherwise
 swaymsg -t command exec '\
   termite \
     --exec htop \
-    --title monitor \
+    --title sway_monitor \
     --geometry 1500x1000 \
 '
