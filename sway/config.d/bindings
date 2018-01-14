@@ -16,7 +16,7 @@ bindsym $mod+Escape exec lockscreen
 bindsym $mod+space exec $menu
 
 # display monitor
-bindsym $mod+Tab exec $monitor
+bindsym $mod+Tab exec monitor
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.

@@ -15,12 +15,6 @@ set $term termite
 # browser
 set $browser chromium
 
-# monitor
-set $monitor termite \
-            --exec htop \
-            --title monitor \
-            --geometry 1500x1000
-
 # Solarized colors
 set $base03  #002b36
 set $base02  #073642
