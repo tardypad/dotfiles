@@ -9,6 +9,7 @@ sway::setup() {
   copy "sway/config" "${CONFIG_DIR}/sway/config"
   copy "sway/config.d" "${CONFIG_DIR}/sway/config.d"
   copy "sway/autostart" "${CONFIG_DIR}/sway/autostart"
+  copy "sway/scripts" "${CONFIG_DIR}/sway/scripts"
   copy "sway/wallpaper.jpg" "${DATA_DIR}/sway/wallpaper.jpg"
   copy "sway/wallpaper-lock.jpg" "${DATA_DIR}/sway/wallpaper-lock.jpg"
 }
