@@ -17,6 +17,7 @@ weechat::setup() {
   copy "weechat/weechat/relay.conf" "${HOME}/.weechat/relay.conf"
   copy "weechat/weechat/script.conf" "${HOME}/.weechat/script.conf"
   copy "weechat/weechat/trigger.conf" "${HOME}/.weechat/trigger.conf"
+  copy "weechat/weechat/urlgrab.conf" "${HOME}/.weechat/urlgrab.conf"
   copy "weechat/weechat/weechat.conf" "${HOME}/.weechat/weechat.conf"
   copy "weechat/weechat/xfer.conf" "${HOME}/.weechat/xfer.conf"
 

@@ -6,6 +6,8 @@
   - [Yan Pritzker dotfiles](https://github.com/skwp/dotfiles)
   - [Robert Schütz dotfiles](https://github.com/dotlambda/dotfiles)
   - [aouelete dotfiles](https://github.com/aouelete/dotfiles)
+  - [Junegunn Choi dotfiles](https://github.com/junegunn/dotfiles)
+  - [Tom Ryder dotfiles](https://sanctum.geek.nz/cgit/dotfiles.git/tree/)
 
 # Git
   - [git-tips](https://github.com/git-tips/tips)

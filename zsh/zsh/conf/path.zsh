@@ -6,7 +6,6 @@ dirs_to_prepend=(
  "$HOME/.cabal/bin" # Haskell packages
  "$HOME/.zsh/scripts"
  "$HOME/.config/sway/scripts"
- /usr/local/share/pebble-sdk/bin
 )
 
 # Prepend directories to PATH
