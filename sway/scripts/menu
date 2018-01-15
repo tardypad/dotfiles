@@ -10,6 +10,7 @@ FOCUS=$(swaymsg -t command '[title="sway_menu"]' focus)
 swaymsg -t command exec "\
   termite \
     --exec ${COMMAND} \
+    --config ${HOME}/.config/termite/config_menu \
     --title sway_menu \
-    --geometry 500x300 \
+    --geometry 700x400 \
 "

@@ -4,7 +4,7 @@ for_window [title="sway_monitor"] floating enable, \
 
 # display menu as floating window
 for_window [title="sway_menu"] floating enable, \
-                               resize set 500 300
+                               resize set 700 400
 
 # assign browser to workspace 2
 assign [class="Chromium"] 2

@@ -9,5 +9,9 @@ echo -n "${PATH}" \
        2> /dev/null \
   | sort -u \
   | fzf --reverse \
+        --no-multi \
+        --margin 1,2,0,2 \
+        --prompt 'run ' \
+        --color info:8 \
   | xargs -I{} \
     -- swaymsg -t command exec {}
