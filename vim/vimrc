@@ -125,6 +125,9 @@ nnoremap <silent> <Leader>ba :b#<CR>
 nnoremap <silent> <Leader>bp :bprevious<CR>
 nnoremap <silent> <Leader>bn :bnext<CR>
 
+" better display of tabs in Makefiles
+autocmd Filetype make setlocal listchars=tab:>\  list
+
 " Toggle long lines highlighting
 nnoremap <Leader>L :call<SID>LongLineHighlightToggle()<cr>
 
