@@ -51,15 +51,17 @@ Colors and keybindings usage try to be consistent across tools.
 
 ## Setup
 
+Setup is done using [Gnu Make](https://www.gnu.org/software/make/)
+
 ```shell
-usage: setup_config.zsh [<options>] [<tools>]
+# install config files of all tools
+make
 
-Setup tools' config locally
+# install config files of a single tool
+make tmux
 
-Options:
-  -h,  --help            show this message only
-
-If no tool argument is passed, all of them are setup
+# install config files of a selection of tools
+make tmux vim zsh
 ```
 
 Some tools require some additional manual setup steps, check their own README
