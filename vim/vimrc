@@ -125,9 +125,12 @@ nnoremap <silent> <Leader>ba :b#<CR>
 nnoremap <silent> <Leader>bp :bprevious<CR>
 nnoremap <silent> <Leader>bn :bnext<CR>
 
+" Define special characters highlight display
+set listchars=tab:>\ ,trail:·
+
 " Enable display of meaningful special characters per filetype
-autocmd Filetype make setlocal listchars=tab:>\  list
-autocmd Filetype markdown,apiblueprint setlocal listchars=trail:· list
+autocmd Filetype make setlocal list
+autocmd Filetype markdown,apiblueprint setlocal list
 
 " Strip trailing whitespaces except for certain filetypes
 fun! s:FiletypeFilteredStripTrailingWhitespace()
