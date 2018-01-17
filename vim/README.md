@@ -13,11 +13,6 @@ Version [8.0](https://github.com/vim/vim/releases/tag/v8.0.0000)
   Source [Github](https://github.com/junegunn/vim-plug)  
   Version [9813d5e](https://github.com/junegunn/vim-plug/commit/9813d5ead5b6f419e9ca55fc767d9548baed6b40)
 
-- vim-better-whitespace  
-  Trailing whitespace handling  
-  Source [Github](https://github.com/ntpeters/vim-better-whitespace)  
-  Version [688837f](https://github.com/ntpeters/vim-better-whitespace/commit/688837f23daa953a921a56c1780464d182577e6c)
-
 - syntastic  
   Syntac checking  
   Source [Github](https://github.com/scrooloose/syntastic)  

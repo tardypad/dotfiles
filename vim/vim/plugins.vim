@@ -1,11 +1,6 @@
 call plug#begin()
 
 
-" Trailing whitespaces handling
-Plug 'ntpeters/vim-better-whitespace',
-  \ { 'as': 'better-whitespace',
-  \   'commit': '688837f' }
-
 " Syntax checking
 Plug 'scrooloose/syntastic',
   \ { 'as': 'syntastic',
