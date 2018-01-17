@@ -7,3 +7,6 @@ set wildstyle=popup
 
 " always start with quick file view on
 view!
+
+" create compressed archive of selected items to Desktop
+command! tgz tar --create --gzip --file ~/Desktop/%a.tgz %f
