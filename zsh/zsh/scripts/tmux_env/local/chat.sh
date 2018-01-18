@@ -3,7 +3,7 @@ socket="$1"
 
 tmux -L "${socket}" \
   new-session -d \
-  -s '02-Chat' \
+  -s '01-Chat' \
   -n 'client' \
   weechat
 

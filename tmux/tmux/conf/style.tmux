@@ -1,10 +1,10 @@
-TMUX_BLACK_LIGHT='colour0'
 TMUX_RED='colour1'
 TMUX_YELLOW='colour3'
 TMUX_BLUE='colour4'
 TMUX_WHITE='colour7'
 TMUX_BLACK='colour8'
-TMUX_GREY='colour12'
+TMUX_FOREGROUND_DIM='colour11'
+TMUX_FOREGROUND='colour12'
 
 set -g message-command-style "bg=$TMUX_YELLOW,fg=$TMUX_BLACK"
 set -g message-style "bg=$TMUX_YELLOW,fg=$TMUX_BLACK"
@@ -15,19 +15,19 @@ set -g display-panes-active-colour "$TMUX_RED"
 
 set -g status-justify centre
 
-set -g status-style "bg=$TMUX_BLACK,fg=$TMUX_GREY"
+set -g status-style "bg=default,fg=$TMUX_FOREGROUND"
 set -g status-left-style "bg=$TMUX_BLUE,fg=$TMUX_BLACK"
 set -g status-right-style "fg=$TMUX_BLUE"
 
 set -g status-left-length 40
-set -g status-left "#[fg=$TMUX_WHITE]#{?client_prefix,█, }#[default]  #{session_name}   #[bg=$TMUX_BLACK]  "
+set -g status-left "#[fg=$TMUX_WHITE]#{?client_prefix,█, }#[default]  #{session_name}   #[bg=default]  "
 set -g status-right '  %a %e %b %Y %H:%M'
 
-setw -g window-style "bg=$TMUX_BLACK_LIGHT"
-setw -g window-active-style "bg=$TMUX_BLACK"
+setw -g window-style "bg=default,fg=$TMUX_FOREGROUND_DIM"
+setw -g window-active-style "bg=default,fg=$TMUX_FOREGROUND"
 
-setw -g pane-border-style "bg=$TMUX_BLACK_LIGHT,fg=$TMUX_GREY"
-setw -g pane-active-border-style "bg=$TMUX_BLACK,fg=$TMUX_YELLOW"
+setw -g pane-border-style "bg=default,fg=$TMUX_FOREGROUND"
+setw -g pane-active-border-style "bg=default,fg=$TMUX_YELLOW"
 
 setw -g pane-border-format ' #{pane_current_command} '
 setw -g pane-border-status bottom

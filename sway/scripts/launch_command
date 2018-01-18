@@ -1,0 +1,17 @@
+#! /usr/bin/env zsh
+
+echo -n "${PATH}" \
+  | xargs --delimiter=: -I{} \
+    -- find -L {} \
+       -maxdepth 1 -mindepth 1 \
+       -type f -executable \
+       -printf '%P\n' \
+       2> /dev/null \
+  | sort -u \
+  | fzf --reverse \
+        --no-multi \
+        --margin 1,2,0,2 \
+        --prompt 'run ' \
+        --color info:8 \
+  | xargs -I{} \
+    -- swaymsg -t command exec {}

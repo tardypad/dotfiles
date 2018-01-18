@@ -1,0 +1,44 @@
+### Variables
+
+# Super key as modifier
+set $mod Mod4
+
+# vim-like direction keys
+set $left h
+set $down j
+set $up k
+set $right l
+
+# terminal emulator
+set $term termite
+
+# browser
+set $browser chromium
+
+# Solarized colors
+set $base03  #002b36
+set $base02  #073642
+set $base01  #586e75
+set $base00  #657b83
+set $base0   #839496
+set $base1   #93a1a1
+set $base2   #eee8d5
+set $base3   #fdf6e3
+set $yellow  #b58900
+set $orange  #cb4b16
+set $red     #dc322f
+set $magenta #d33682
+set $violet  #6c71c4
+set $blue    #268bd2
+set $cyan    #2aa198
+set $green   #859900
+
+# similar background transparency as terminal
+set $background #002b36f2
+
+# include all config files
+include ~/.config/sway/config.d/*
+
+# autostart programs at the end
+# so that rules and other config are set before
+include ~/.config/sway/autostart

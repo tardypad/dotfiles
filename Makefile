@@ -24,6 +24,7 @@ include httpie/Makefile
 include http-prompt/Makefile
 include konsole/Makefile
 include less/Makefile
+include login/Makefile
 include mopidy/Makefile
 include mycli/Makefile
 include ncmpcpp/Makefile
@@ -31,9 +32,13 @@ include neomutt/Makefile
 include newsboat/Makefile
 include notes/Makefile
 include openssh/Makefile
+include pacman/Makefile
 include rbtools/Makefile
 include readline/Makefile
 include tmux/Makefile
+include sway/Makefile
+include systemd/Makefile
+include termite/Makefile
 include translate-shell/Makefile
 include vifm/Makefile
 include vim/Makefile

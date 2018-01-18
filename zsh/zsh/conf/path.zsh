@@ -5,6 +5,7 @@ dirs_to_prepend=(
  "$HOME/.local/bin"
  "$HOME/.cabal/bin" # Haskell packages
  "$HOME/.zsh/scripts"
+ "$HOME/.config/sway/scripts"
 )
 
 # Prepend directories to PATH

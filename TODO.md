@@ -10,6 +10,10 @@
     probably we should use rsync or so  
     need to be careful because some manual config files should be kept (mutt gpg config)
   - http prompt issue with body value "products:='[]'"
+  - termite --class argument seems not to work  
+    need to make sway rule with title then
+  - needs to set both termite size at start and in sway rule  
+    to have it respected and the window centered when floating
 
 # Testing
   - vim ctrlp root marker doesn't seem to work correctly with multiple repos

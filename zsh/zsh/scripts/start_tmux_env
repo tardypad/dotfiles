@@ -26,7 +26,6 @@ Each target is a different local or remote tmux server
 
 Options:
   -h,  --help     show this message only
-  -s,  --skip     skip fortune display
 
 Available targets: ${AVAILABLE_TARGETS}
 If session is not defined, all of the target's ones are started
@@ -84,10 +83,6 @@ start_target_tmux_env() {
     scripts_path=( $(
       ls "${ENV_DIR_PATH}/${TARGET}"/*.sh
     ) )
-  fi
-
-  if ! $SKIP && command -v fortune &> /dev/null; then
-    fortune -acws -n 300
   fi
 
   if [[ "${HOST}" == 'localhost' ]]; then

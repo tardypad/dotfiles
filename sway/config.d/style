@@ -1,0 +1,22 @@
+# new window default border is without title bar
+default_border pixel 2
+
+# put some gaps between views
+gaps inner 20
+
+# only put gaps if there are several views
+smart_gaps on
+
+# don't show border when to any screen edge
+hide_edge_borders both
+
+# title bar font
+font Source Sans Pro 14
+
+# need to click to select window
+focus_follows_mouse no
+
+# windows decorations colors
+client.focused          $green $green $base03 $blue $green
+client.focused_inactive $background $background $green $background $background
+client.unfocused        $background $background $base0 $background $background

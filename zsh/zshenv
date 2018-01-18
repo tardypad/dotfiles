@@ -2,9 +2,6 @@
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# Skip Ubuntu main compinit
-skip_global_compinit=1
-
 # following configs could be in zshrc config file
 # but they are moved here mainly for some tmux use cases
 # where a non interactive shell is invoked for running commands

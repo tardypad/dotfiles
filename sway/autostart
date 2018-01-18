@@ -1,0 +1,5 @@
+# start initial browser
+exec chromium
+
+# start initial terminal
+exec termite --directory=/home/damien/Desktop

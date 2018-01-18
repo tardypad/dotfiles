@@ -2,6 +2,7 @@
 
 Personal configuration files
 
+Used on a [Arch Linux](https://www.archlinux.org/) system
 
 ## Tools
 
@@ -17,8 +18,8 @@ All tools selected are [Free Software](https://www.gnu.org/philosophy/free-sw.en
 | htop                   | system processes manager             |
 | httpie                 | HTTP client                          |
 | http-prompt            | HTTP interactive client              |
-| konsole                | terminal emulator                    |
 | less                   | pager                                |
+| login                  | session starter                      |
 | mopidy                 | music server                         |
 | mycli                  | MySQL command line                   |
 | ncmpcpp                | MPD client                           |
@@ -26,8 +27,12 @@ All tools selected are [Free Software](https://www.gnu.org/philosophy/free-sw.en
 | newsboat               | RSS reader                           |
 | notes                  | notes management                     |
 | openssh                | SSH client                           |
+| pacman                 | packages manager                     |
 | rbtools                | Review Board command line            |
 | readline               | command line library                 |
+| sway                   | window manager                       |
+| systemd                | system and service manager           |
+| termite                | terminal emulator                    |
 | tmux                   | terminal multiplexer                 |
 | translate-shell        | translator                           |
 | vifm                   | file manager                         |
@@ -83,4 +88,3 @@ such as sed, grep,... and the likes.
 | fzf                    | fuzzy finder                         |
 | pass                   | password manager                     |
 | the silver searcher    | code search                          |
-| xdotool                | X inputs simulator                   |

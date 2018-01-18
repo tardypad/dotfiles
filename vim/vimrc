@@ -66,7 +66,7 @@ set scrolloff=3           " Display at least 3 lines around you cursor
                           " (for scrolling)
 
 " -- Beep
-set visualbell            " Prevent Vim from beeping
+set novisualbell          " Prevent Vim from beeping
 set noerrorbells          " Prevent Vim from beeping
 
 " Backspace behaves as expected
@@ -191,13 +191,8 @@ for conf in split(s:conf_files, '\n')
   endif
 endfor
 
-" "hide" end of buffer sign
-" the line numbers are already marking the end of the buffer
-highlight EndOfBuffer ctermfg=bg
-
 " lighter vertical split display
 set fillchars+=vert:│
-highlight VertSplit ctermbg=NONE
 
 " Mail config
 autocmd BufRead,BufNewFile *mutt-* setfiletype mail

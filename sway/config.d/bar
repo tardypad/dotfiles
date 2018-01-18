@@ -1,0 +1,10 @@
+bar {
+    position top
+    font Source Sans Pro 14
+    colors {
+        statusline $base0
+        background $background
+        focused_workspace $orange $orange $base03
+        inactive_workspace $base03 $base03 $base0
+    }
+}

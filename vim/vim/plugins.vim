@@ -88,9 +88,9 @@ Plug '~/.vim/plugged/pass',
   \ { 'as': 'pass' }
 
 " Colorscheme
-Plug 'altercation/vim-colors-solarized',
+Plug 'lifepillar/vim-solarized8',
   \ { 'as': 'solarized',
-  \   'commit': '528a59f' }
+  \   'tag': 'v1.0.1' }
 
 " Fancier statusline
 Plug 'vim-airline/vim-airline',
@@ -116,6 +116,11 @@ Plug 'elzr/vim-json',
 Plug 'keith/tmux.vim',
   \ { 'as': 'tmux', 'for': 'tmux',
   \   'commit': '2b8f628' }
+
+" Sway conf syntax highlighting
+Plug 'aouelete/sway-vim-syntax',
+  \ { 'as': 'sway', 'for': 'sway',
+  \   'commit': '0aa0626' }
 
 " A faster YAML
 Plug 'stephpy/vim-yaml',

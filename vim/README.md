@@ -100,8 +100,8 @@ Version [8.0](https://github.com/vim/vim/releases/tag/v8.0.0000)
 
 - vim-colors-solarized  
   Colorscheme  
-  Source [Github](https://github.com/altercation/vim-colors-solarized)  
-  Version [528a59f](https://github.com/altercation/vim-colors-solarized/commit/528a59f26d12278698bb946f8fb82a63711eec21)
+  Source [Github](https://github.com/lifepillar/vim-solarized8)  
+  Version [1.0.1](https://github.com/lifepillar/vim-solarized8/releases/tag/v1.0.1)
 
 - vim-airline  
   Fancier statusline  
@@ -127,6 +127,11 @@ Version [8.0](https://github.com/vim/vim/releases/tag/v8.0.0000)
   Tmux conf syntax highligting  
   Source [Github](https://github.com/keith/tmux.vim)  
   Version [2b8f628](https://github.com/keith/tmux.vim/commit/2b8f6284b3fd98c3350a37b9170446f19b8267d7)
+
+- sway-vim-syntax  
+  Sway conf syntax highligting  
+  Source [Github](https://github.com/aouelete/sway-vim-syntax)  
+  Version [0aa0626](https://github.com/aouelete/sway-vim-syntax/commit/0aa0626eebdd3fae97bb7c876035008d34d5f3cc)
 
 - vim-yaml  
   A faster YAML  
