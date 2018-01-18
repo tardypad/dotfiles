@@ -22,7 +22,6 @@ include gnupg/Makefile
 include htop/Makefile
 include httpie/Makefile
 include http-prompt/Makefile
-include konsole/Makefile
 include less/Makefile
 include login/Makefile
 include mopidy/Makefile
