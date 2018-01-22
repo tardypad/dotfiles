@@ -123,11 +123,6 @@ Version [8.0](https://github.com/vim/vim/releases/tag/v8.0.0000)
   Source [Github](https://github.com/elzr/vim-json)  
   Version [f5e3181](https://github.com/elzr/vim-json/commit/f5e3181d0b33a9c51377bb7ea8492feddca8b503)
 
-- tmux.vim  
-  Tmux conf syntax highligting  
-  Source [Github](https://github.com/keith/tmux.vim)  
-  Version [2b8f628](https://github.com/keith/tmux.vim/commit/2b8f6284b3fd98c3350a37b9170446f19b8267d7)
-
 - sway-vim-syntax  
   Sway conf syntax highligting  
   Source [Github](https://github.com/aouelete/sway-vim-syntax)  
@@ -162,11 +157,6 @@ Version [8.0](https://github.com/vim/vim/releases/tag/v8.0.0000)
   Vifm conf syntax highligting  
   Source [Github](https://github.com/vifm/vifm.vim)  
   Version [0.9](https://github.com/vifm/vifm.vim/releases/tag/v0.9)
-
-- neomutt  
-  Neomutt syntax  
-  Source [Github](https://github.com/neomutt/neomutt.vim)  
-  Version [af59518](https://github.com/neomutt/neomutt.vim/commit/af59518f6355b59a6279bc70648d23f7b7bdfe5c)
 
 - elm-vim  
   Elm language  

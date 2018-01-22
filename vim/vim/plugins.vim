@@ -112,11 +112,6 @@ Plug 'elzr/vim-json',
   \ { 'as': 'json', 'for': 'json',
   \   'commit': 'f5e3181' }
 
-" Tmux conf syntax highlighting
-Plug 'keith/tmux.vim',
-  \ { 'as': 'tmux', 'for': 'tmux',
-  \   'commit': '2b8f628' }
-
 " Sway conf syntax highlighting
 Plug 'aouelete/sway-vim-syntax',
   \ { 'as': 'sway', 'for': 'sway',
@@ -150,10 +145,6 @@ Plug '~/.vim/plugged/icinga2',
 Plug 'vifm/vifm.vim',
   \ { 'as': 'vifm', 'for': 'vifm',
   \   'tag': 'v0.9' }
-
-" Neomutt syntax
-Plug 'neomutt/neomutt.vim',
-  \ { 'as': 'neomutt', 'for': 'neomutt' }
 
 " Elm language
 Plug 'elmcast/elm-vim',

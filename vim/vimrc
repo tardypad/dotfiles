@@ -198,6 +198,12 @@ set fillchars+=vert:│
 autocmd BufRead,BufNewFile *mutt-* setfiletype mail
 autocmd FileType mail setlocal formatoptions+=aw textwidth=72
 
+" Tmux own filetype detection
+autocmd BufNewFile,BufRead *.tmux set filetype=tmux
+
+" Neomutt own filetype detection
+autocmd BufNewFile,BufRead *.mutt set filetype=neomuttrc
+
 " Search config
 
 set ignorecase " ignore case when searching
