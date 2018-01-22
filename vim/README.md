@@ -165,8 +165,8 @@ Version [8.0](https://github.com/vim/vim/releases/tag/v8.0.0000)
 
 - neomutt  
   Neomutt syntax  
-  Source [Github](https://github.com/neomutt/neomutt/blob/master/doc/neomutt-syntax.vim)  
-  Version [5c60099](https://github.com/neomutt/neomutt/commit/5c600997cd0e028a237fe6847ddffa1f2c340ea6)
+  Source [Github](https://github.com/neomutt/neomutt.vim)  
+  Version [af59518](https://github.com/neomutt/neomutt.vim/commit/af59518f6355b59a6279bc70648d23f7b7bdfe5c)
 
 - elm-vim  
   Elm language  

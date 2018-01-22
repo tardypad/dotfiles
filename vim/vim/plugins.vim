@@ -152,7 +152,7 @@ Plug 'vifm/vifm.vim',
   \   'tag': 'v0.9' }
 
 " Neomutt syntax
-Plug '~/.vim/plugged/neomutt',
+Plug 'neomutt/neomutt.vim',
   \ { 'as': 'neomutt', 'for': 'neomutt' }
 
 " Elm language

@@ -25,14 +25,6 @@ vim:
 			--output "$(HOME)/.vim/plugged/icinga2/syntax/icinga2.vim"; \
 	fi
 
-    # Manually install neomutt syntax if not present
-    # not a real plugin, just one file of a bigger repository
-	@if [[ ! -f "$(HOME)/.vim/plugged/neomutt/syntax/neomutt.vim" ]]; then \
-		curl --silent --location --create-dirs \
-			https://raw.githubusercontent.com/neomutt/neomutt/master/doc/neomutt-syntax.vim \
-			--output "$(HOME)/.vim/plugged/neomutt/syntax/neomutt.vim"; \
-	fi
-
     # Manually install pass noplaintext feature if not present
     # not a real plugin, just one file of a bigger repository
 	@if [[ ! -f "$(HOME)/.vim/plugged/pass/plugin/noplaintext.vim" ]]; then \
