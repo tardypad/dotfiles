@@ -87,7 +87,7 @@ bind editor <Tab> complete
 bind editor <BackSpace> backspace
 
 # Show documentation
-macro generic,pager <Esc>h "<shell-escape>less /usr/local/share/doc/mutt/manual.txt<Enter>" "Show documentation"
+macro generic,pager <Esc>h "<shell-escape>less /usr/share/doc/neomutt/manual.txt<Enter>" "Show documentation"
 
 # change account
 macro index,pager <F1> "<change-folder>imaps://$my_gmail_perso_email@imap.gmail.com<Enter>" "Gmail Perso"
