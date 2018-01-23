@@ -40,6 +40,7 @@ All tools selected are [Free Software](https://www.gnu.org/philosophy/free-sw.en
 | weechat                | chat client                          |
 | xdg-user-dirs          | user directories manager             |
 | xdg-utils              | applications manager                 |
+| zathura                | document viewer                      |
 | zsh                    | shell                                |
 
 See each individual tool folder README for more information

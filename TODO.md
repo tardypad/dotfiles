@@ -32,8 +32,6 @@
   - keyboard focused browser
     * [qutebrowser](https://www.qutebrowser.org/)  
       see [config](https://github.com/etnadji/dotfiles/blob/master/Softwares_Configs/qutebrowser/.config/qutebrowser/config.py#L529)
-  - keyboard focused document viewer
-    * [zathura](https://pwmt.org/projects/zathura/)
   - backup of notes, ncmpcpp lyrics,... 
 
 # Research

@@ -44,4 +44,5 @@ include vim/Makefile
 include weechat/Makefile
 include xdg-user-dirs/Makefile
 include xdg-utils/Makefile
+include zathura/Makefile
 include zsh/Makefile
