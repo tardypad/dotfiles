@@ -12,7 +12,7 @@ set -g detach-on-destroy off
 setw -g remain-on-exit on
 
 # define default term type
-set -g default-terminal "screen-256color"
+set -g default-terminal "tmux-256color"
 
 # add truecolor support
 set -g terminal-overrides ",xterm-256color:Tc"
