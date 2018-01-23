@@ -85,8 +85,8 @@ bindsym $mod+s splitv
 bindsym $mod+t layout toggle split
 bindsym $mod+Shift+t layout tabbed
 
-# fullscreen window
-bindsym $mod+f fullscreen
+# fullscreen window (zoom)
+bindsym $mod+Shift+z fullscreen
 
 # move focus to the parent container
 bindsym $mod+a focus parent
