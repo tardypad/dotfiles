@@ -6,5 +6,7 @@ zathura:
 
     # copy config files
 	@cp "zathura/zathurarc" "$(CONFIG_DIR)/zathura/zathurarc"
+	@cp --recursive --force --no-target-directory \
+		"zathura/config.d" "$(CONFIG_DIR)/zathura/config.d"
 
 	@echo -e "\r✔ setup zathura"
