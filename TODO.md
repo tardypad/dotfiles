@@ -4,6 +4,7 @@
   - replace unnecessary dependencies with own simpler config, scripts,...
 
 # Cleaning
+  - reorganize vim/zsh/tmux/... config splitting into folders/files
 
 # Bugs
   - copy doesn't remove old files from the target directories  
@@ -14,6 +15,8 @@
     need to make sway rule with title then
   - needs to set both termite size at start and in sway rule  
     to have it respected and the window centered when floating
+  - in a local tmux, ssh connects to a remote server  
+    tmux terminfo is missing there which messes up vim and other stuff
 
 # Testing
   - vim ctrlp root marker doesn't seem to work correctly with multiple repos
@@ -25,6 +28,9 @@
     * [yank](https://github.com/mptre/yank) copy output to clipboard
   - improve zsh extensions colors and bindings
   - fontconfig replace some fonts families used in Chromium
+  - next version of tmux has if/else that we can use for remote hosts specific settings
+    * disabling bindings of copy paste/xdg-open (no X server)
+    * defining TERM to use screen instead of tmux (no tmux terminfo on old system)
 
 # New Features
   - ALSA equalizer presets
@@ -35,6 +41,9 @@
   - backup of notes, ncmpcpp lyrics,... 
 
 # Research
+  - [vim surround](https://github.com/tpope/vim-surround) plugin
+  - evaluate replacing vim CtrlP with fzf.vim
+  - evaluate replacing vim NERDTree with vifm.vim
   - calendar app
     * [khal](https://github.com/pimutils/khal)
     * [calendar-cli](https://github.com/tobixen/calendar-cli)
