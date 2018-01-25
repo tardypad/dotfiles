@@ -1,0 +1,176 @@
+# remove all default key bindings,
+# only keep default mouse bindings
+# because most can't be redefined (Scroll, Hold)
+
+# remove all existing normal mode bindings
+unmap a
+unmap d
+unmap f
+unmap h
+unmap j
+unmap k
+unmap l
+unmap m
+unmap n
+unmap o
+unmap q
+unmap r
+unmap s
+unmap t
+unmap y
+unmap F
+unmap G
+unmap H
+unmap J
+unmap K
+unmap L
+unmap N
+unmap O
+unmap R
+unmap <C-b>
+unmap <C-c>
+unmap <C-d>
+unmap <C-f>
+unmap <C-i>
+unmap <C-j>
+unmap <C-k>
+unmap <C-m>
+unmap <C-n>
+unmap <C-o>
+unmap <C-p>
+unmap <C-r>
+unmap <C-t>
+unmap <C-u>
+unmap <C-y>
+unmap :
+unmap /
+unmap ?
+unmap +
+unmap -
+unmap =
+unmap "'"
+unmap gg
+unmap zi
+unmap zI
+unmap zo
+unmap zO
+unmap zz
+unmap zZ
+unmap z0
+unmap PgDn
+unmap PgUp
+unmap Left
+unmap Right
+unmap Down
+unmap Up
+unmap Tab
+unmap Space
+unmap <S-Space>
+unmap Escape
+unmap F5
+unmap F11
+
+# remove all existing fullscreen mode bindings
+unmap [fullscreen] a
+unmap [fullscreen] d
+unmap [fullscreen] f
+unmap [fullscreen] h
+unmap [fullscreen] j
+unmap [fullscreen] k
+unmap [fullscreen] l
+unmap [fullscreen] m
+unmap [fullscreen] n
+unmap [fullscreen] o
+unmap [fullscreen] q
+unmap [fullscreen] r
+unmap [fullscreen] s
+unmap [fullscreen] t
+unmap [fullscreen] y
+unmap [fullscreen] F
+unmap [fullscreen] G
+unmap [fullscreen] H
+unmap [fullscreen] J
+unmap [fullscreen] K
+unmap [fullscreen] L
+unmap [fullscreen] N
+unmap [fullscreen] O
+unmap [fullscreen] R
+unmap [fullscreen] <C-b>
+unmap [fullscreen] <C-c>
+unmap [fullscreen] <C-d>
+unmap [fullscreen] <C-f>
+unmap [fullscreen] <C-i>
+unmap [fullscreen] <C-j>
+unmap [fullscreen] <C-k>
+unmap [fullscreen] <C-m>
+unmap [fullscreen] <C-n>
+unmap [fullscreen] <C-o>
+unmap [fullscreen] <C-p>
+unmap [fullscreen] <C-r>
+unmap [fullscreen] <C-t>
+unmap [fullscreen] <C-u>
+unmap [fullscreen] <C-y>
+unmap [fullscreen] :
+unmap [fullscreen] /
+unmap [fullscreen] ?
+unmap [fullscreen] +
+unmap [fullscreen] -
+unmap [fullscreen] =
+unmap [fullscreen] "'"
+unmap [fullscreen] gg
+unmap [fullscreen] zi
+unmap [fullscreen] zI
+unmap [fullscreen] zo
+unmap [fullscreen] zO
+unmap [fullscreen] zz
+unmap [fullscreen] zZ
+unmap [fullscreen] z0
+unmap [fullscreen] PgDn
+unmap [fullscreen] PgUp
+unmap [fullscreen] Left
+unmap [fullscreen] Right
+unmap [fullscreen] Down
+unmap [fullscreen] Up
+unmap [fullscreen] Tab
+unmap [fullscreen] Space
+unmap [fullscreen] <S-Space>
+unmap [fullscreen] Escape
+unmap [fullscreen] F11
+
+# remove all existing presentation mode bindings
+unmap [presentation] q
+unmap [presentation] J
+unmap [presentation] K
+unmap [presentation] <C-c>
+unmap [presentation] PgDn
+unmap [presentation] PgUp
+unmap [presentation] Left
+unmap [presentation] Right
+unmap [presentation] Down
+unmap [presentation] Up
+unmap [presentation] Space
+unmap [presentation] <S-Space>
+unmap [presentation] BackSpace
+unmap [presentation] Escape
+unmap [presentation] F5
+
+# remove all existing presentation mode bindings
+unmap [index] h
+unmap [index] j
+unmap [index] k
+unmap [index] l
+unmap [index] q
+unmap [index] G
+unmap [index] H
+unmap [index] L
+unmap [index] <C-c>
+unmap [index] <C-j>
+unmap [index] <C-[>
+unmap [index] gg
+unmap [index] Left
+unmap [index] Right
+unmap [index] Down
+unmap [index] Up
+unmap [index] Space
+unmap [index] Return
+unmap [index] Escape

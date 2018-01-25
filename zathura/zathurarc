@@ -1,2 +1,4 @@
 include config.d/general
+include config.d/clean-bindings
+include config.d/bindings
 include config.d/style

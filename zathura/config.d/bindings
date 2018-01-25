@@ -1,0 +1,106 @@
+# normal mode
+map      q quit
+map  <C-c> abort
+map Escape abort
+map      : focus_inputbar :
+map      o focus_inputbar ':open '
+map      R reload
+map    Tab toggle_index
+map      h scroll left
+map      j scroll down
+map      k scroll up
+map      l scroll right
+map  <C-f> scroll full-down
+map  <C-b> scroll full-up
+map  <C-d> scroll half-down
+map  <C-u> scroll half-up
+map  <C-e> scroll down
+map  <C-y> scroll up
+map     gg goto top
+map      G goto bottom
+map      H scroll page-top
+map      L scroll page-bottom
+map  <C-i> jumplist forward
+map  <C-o> jumplist backward
+map      m mark_add
+map    "'" mark_evaluate
+map      / focus_inputbar /
+map      ? focus_inputbar ?
+map      n search forward
+map      N search backward
+map      f follow
+map  <C--> zoom out
+map  <C-+> zoom in
+map  <C-=> zoom specific
+map     zf adjust_window best-fit
+map     zw adjust_window width
+map      d toggle_page_mode
+map      Z toggle_fullscreen
+map  <C-p> toggle_presentation
+
+# fullscreen mode
+# (mostly duplicated from normal mode...)
+map [fullscreen]     q quit
+map [fullscreen] <C-c> abort
+map [fullscreen]Escape abort
+map [fullscreen]     : focus_inputbar :
+map [fullscreen]     o focus_inputbar ':open '
+map [fullscreen]     R reload
+map [fullscreen]   Tab toggle_index
+map [fullscreen]     h scroll left
+map [fullscreen]     j scroll down
+map [fullscreen]     k scroll up
+map [fullscreen]     l scroll right
+map [fullscreen] <C-f> scroll full-down
+map [fullscreen] <C-b> scroll full-up
+map [fullscreen] <C-d> scroll half-down
+map [fullscreen] <C-u> scroll half-up
+map [fullscreen] <C-e> scroll down
+map [fullscreen] <C-y> scroll up
+map [fullscreen]    gg goto top
+map [fullscreen]     G goto bottom
+map [fullscreen]     H scroll page-top
+map [fullscreen]     L scroll page-bottom
+map [fullscreen] <C-i> jumplist forward
+map [fullscreen] <C-o> jumplist backward
+map [fullscreen]     m mark_add
+map [fullscreen]   "'" mark_evaluate
+map [fullscreen]     / focus_inputbar /
+map [fullscreen]     ? focus_inputbar ?
+map [fullscreen]     n search forward
+map [fullscreen]     N search backward
+map [fullscreen]     f follow
+map [fullscreen] <C--> zoom out
+map [fullscreen] <C-+> zoom in
+map [fullscreen] <C-=> zoom specific
+map [fullscreen]    zf adjust_window best-fit
+map [fullscreen]    zw adjust_window width
+map [fullscreen]     d toggle_page_mode
+map [fullscreen]     Z toggle_fullscreen
+
+# index mode
+map [index]      j navigate_index down
+map [index]      k navigate_index up
+map [index]     gg navigate_index top
+map [index]      G navigate_index bottom
+map [index]      h navigate_index collapse
+map [index]      l navigate_index expand
+map [index]      H navigate_index collapse-all
+map [index]      L navigate_index expand-all
+map [index]  <C-m> navigate_index select
+map [index] Return navigate_index select
+map [index]    Tab toggle_index
+map [index]  <C-c> toggle_index
+map [index] Escape toggle_index
+map [index]      q toggle_index
+
+# presentation mode
+map [presentation]      k navigate previous
+map [presentation]      j navigate next
+map [presentation]  Space navigate next
+map [presentation]     gg goto top
+map [presentation]      G goto bottom
+map [presentation]  <C-c> toggle_presentation
+map [presentation] Escape toggle_presentation
+map [presentation]  <C-p> toggle_presentation
+map [presentation]      q toggle_presentation
