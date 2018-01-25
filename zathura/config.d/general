@@ -1,0 +1,13 @@
+# only display file basename
+set window-title-basename true
+set statusbar-basename true
+
+# number of completion items
+set n-completion-items 10
+set show-recent 5
+
+# half/full page scroll stop at page boundaries
+set scroll-page-aware true
+
+# increase zoom step
+set zoom-step 50

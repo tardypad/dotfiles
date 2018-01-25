@@ -3,8 +3,6 @@ set guioptions 'cs'
 
 set font 'Source Code Pro 14'
 
-set n-completion-items 10
-
 set highlight-transparency 0.4
 
 # paddings
