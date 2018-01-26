@@ -41,7 +41,6 @@
   - backup of notes, ncmpcpp lyrics,... 
 
 # Research
-  - [vim surround](https://github.com/tpope/vim-surround) plugin
   - evaluate replacing vim CtrlP with fzf.vim
   - evaluate replacing vim NERDTree with vifm.vim
   - calendar app

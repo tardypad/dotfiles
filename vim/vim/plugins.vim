@@ -1,6 +1,11 @@
 call plug#begin()
 
 
+" Surroundings editor
+Plug 'tpope/vim-surround',
+  \ { 'as': 'surround',
+  \   'commit': 'e49d6c2' }
+
 " Syntax checking
 Plug 'scrooloose/syntastic',
   \ { 'as': 'syntastic',

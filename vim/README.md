@@ -13,6 +13,11 @@ Version [8.0](https://github.com/vim/vim/releases/tag/v8.0.0000)
   Source [Github](https://github.com/junegunn/vim-plug)  
   Version [9813d5e](https://github.com/junegunn/vim-plug/commit/9813d5ead5b6f419e9ca55fc767d9548baed6b40)
 
+- surround  
+  Surroundings editor  
+  Source [Github](https://github.com/tpope/vim-surround)  
+  Version [e49d6c2](https://github.com/tpope/vim-surround/commit/e49d6c2459e0f5569ff2d533b4df995dd7f98313)
+
 - syntastic  
   Syntac checking  
   Source [Github](https://github.com/scrooloose/syntastic)  
