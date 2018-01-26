@@ -15,8 +15,6 @@
     need to make sway rule with title then
   - needs to set both termite size at start and in sway rule  
     to have it respected and the window centered when floating
-  - in a local tmux, ssh connects to a remote server  
-    tmux terminfo is missing there which messes up vim and other stuff
 
 # Testing
   - vim ctrlp root marker doesn't seem to work correctly with multiple repos
