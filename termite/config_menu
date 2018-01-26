@@ -2,7 +2,7 @@
 audible_bell = false
 mouse_autohide = true
 allow_bold = true
-clickable_url = true
+clickable_url = false
 font = Source Code Pro 18
 cursor_blink = off
 cursor_shape = block
