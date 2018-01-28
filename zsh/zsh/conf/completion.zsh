@@ -10,7 +10,8 @@ autoload -Uz compinit
 # if the cached .zcompdump file should be regenerated
 if [[ ! -f "${HOME}/.zcompdump" ]] \
    || [[ $( date +'%Y%j' ) > $( date +'%Y%j' -r "${HOME}/.zcompdump" ) ]]; then
-  compinit
+  # skip security checks on completion permissions for when switching to root
+  compinit -u
 else
   compinit -C
 fi
