@@ -13,6 +13,9 @@ alias man=colored_man
 # most remote hosts don't have the tmux terminfo we use within tmux
 alias ssh='TERM=xterm-256color ssh'
 
+# switch to root
+alias root='sudo --preserve-env --shell'
+
 alias pj='goto_project_repo'
 alias PJ='goto_project_main'
 alias logs='goto_project_logs'

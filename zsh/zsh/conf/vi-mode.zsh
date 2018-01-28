@@ -96,3 +96,8 @@ bindkey -M isearch -s '^s' '^L\ESgit fe^Mgit hist^Mgit log1 HEAD...origin/master
 bindkey -M viins -s '\ef' '\ESvifm^M'
 bindkey -M vicmd -s '\ef' '\ESvifm^M'
 bindkey -M isearch -s '\ef' '\ESvifm^M'
+
+# bind Alt-S to switch to root
+bindkey -M viins -s '\es' '\ESroot^M'
+bindkey -M vicmd -s '\es' '\ESroot^M'
+bindkey -M isearch -s '\es' '\ESroot^M'
