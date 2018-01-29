@@ -40,7 +40,6 @@
 
 # Research
   - evaluate replacing vim CtrlP with fzf.vim
-  - evaluate replacing vim NERDTree with vifm.vim
   - calendar app
     * [khal](https://github.com/pimutils/khal)
     * [calendar-cli](https://github.com/tobixen/calendar-cli)

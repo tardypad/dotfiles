@@ -1,5 +1,4 @@
-" do not load the plugin
-" only use for the conf syntax highligting
-let loaded_vifm=1
+" Alt+f to open file picker
+nnoremap <silent> f :EditVifm<CR>
 
 autocmd BufNewFile,BufRead *.vifm set filetype=vifm

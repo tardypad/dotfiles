@@ -66,11 +66,11 @@ Plug 'roxma/vim-tmux-clipboard',
   \ { 'as': 'tmux-clipboard',
   \   'commit': '24e6363' }
 
-" Tree explorer
-Plug 'scrooloose/nerdtree',
-  \ { 'as': 'nerdtree',
-  \   'on': [ 'NERDTree', 'NERDTreeToggle', 'NERDTreeFocus' ],
-  \   'commit': '97433ed' }
+" File picker
+Plug 'vifm/vifm.vim',
+  \ { 'as': 'vifm',
+  \   'on': [ 'EditVifm', 'VsplitVifm', 'SplitVifm', 'DiffVifm', 'TabVifm' ],
+  \   'tag': 'v0.9' }
 
 " Fuzzy file, buffer, MRU, tag,... finder
 Plug 'ctrlpvim/ctrlp.vim',
@@ -145,11 +145,6 @@ Plug 'kylef/apiblueprint.vim',
 " Icinga2 syntax
 Plug '~/.vim/plugged/icinga2',
   \ { 'as': 'icinga2', 'for': 'icinga2' }
-
-" Vifm conf syntax highligting
-Plug 'vifm/vifm.vim',
-  \ { 'as': 'vifm', 'for': 'vifm',
-  \   'tag': 'v0.9' }
 
 " Elm language
 Plug 'elmcast/elm-vim',

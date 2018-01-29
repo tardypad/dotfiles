@@ -78,10 +78,10 @@ Version [8.0](https://github.com/vim/vim/releases/tag/v8.0.0000)
   Source [Github](https://github.com/roxma/vim-tmux-clipboard)  
   Version [24e6363](https://github.com/roxma/vim-tmux-clipboard/commit/24e636396cc02ee9b5a952cec1576c8309674ac2)
 
-- nerdtree  
-  Tree explorer  
-  Source [Github](https://github.com/scrooloose/nerdtree)  
-  Version [97433ed](https://github.com/scrooloose/nerdtree/commit/97433edd43f3a4a95c84389bcaafbe7a047cf756)
+- vifm.vim  
+  File picker  
+  Source [Github](https://github.com/vifm/vifm.vim)  
+  Version [0.9](https://github.com/vifm/vifm.vim/releases/tag/v0.9)
 
 - ctrlp.vim  
   Fuzzy file, buffer, MRU, tag,... finder  
@@ -157,11 +157,6 @@ Version [8.0](https://github.com/vim/vim/releases/tag/v8.0.0000)
   Icinga2 syntax  
   Source [Github](https://github.com/Icinga/icinga2/blob/master/tools/syntax/vim/syntax/icinga2.vim)  
   Version [daa067d](https://github.com/Icinga/icinga2/commit/daa067dabe388d1a26e7581937202d1e78b53175)
-
-- vifm.vim  
-  Vifm conf syntax highligting  
-  Source [Github](https://github.com/vifm/vifm.vim)  
-  Version [0.9](https://github.com/vifm/vifm.vim/releases/tag/v0.9)
 
 - elm-vim  
   Elm language  
