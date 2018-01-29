@@ -70,6 +70,7 @@ Plug 'roxma/vim-tmux-clipboard',
 Plug 'vifm/vifm.vim',
   \ { 'as': 'vifm',
   \   'on': [ 'EditVifm', 'VsplitVifm', 'SplitVifm', 'DiffVifm', 'TabVifm' ],
+  \   'for': 'vifm',
   \   'tag': 'v0.9' }
 
 " Fuzzy file, buffer, MRU, tag,... finder
