@@ -12,7 +12,7 @@ Manual setup steps:
 set my_gmail_perso_email = "[email]"
 set my_gmail_perso_password = "[password]"
 ```
-`gpg -r [ID] -o ~/.config/mutt/conf/accounts/gmail_perso.gpg -e gmail_perso`
+`gpg -r [ID] -o ~/.config/neomutt/conf/accounts/gmail_perso.gpg -e gmail_perso`
 
 Don't forget to remove (shred) the `gmail_perso` file and any vim backup/swap/undo files afterwards  
 (would contain the credentials in clear text)
