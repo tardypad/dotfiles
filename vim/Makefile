@@ -33,9 +33,9 @@ vim:
 			--output "$(HOME)/.vim/plugged/pass/plugin/noplaintext.vim"; \
 	fi
 
-    # load only the plugins definition and install them
+    # load only the plugins definition and install/clean/update them
 	@vim -N --noplugin -u "$(HOME)/.vim/plugins.vim" \
-		+PlugInstall +qall \
+		+PlugInstall +PlugClean! +PlugUpdate +qall \
 		> /dev/null 2>&1
 
 	@echo -e "\r✔ setup vim"
