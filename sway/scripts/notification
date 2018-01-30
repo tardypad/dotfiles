@@ -1,0 +1,12 @@
+#! /usr/bin/env zsh
+
+TITLE="$1"
+TEXT_FILE="$2"
+
+swaymsg -t command exec "\
+  termite \
+    --exec 'sh -c \"display_notification \\\"${TITLE}\\\" ${TEXT_FILE}\"' \
+    --config ${HOME}/.config/termite/config_notification \
+    --title sway_notification \
+    --geometry 500X300 \
+"

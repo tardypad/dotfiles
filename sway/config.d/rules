@@ -6,5 +6,16 @@ for_window [title="sway_monitor"] floating enable, \
 for_window [title="sway_menu"] floating enable, \
                                resize set 700 400
 
+# display notification as floating window
+# in top right corner without focusing it
+for_window [title="sway_notification"] floating enable, \
+                                       resize set 500 300, \
+                                       move right 3000, \
+                                       move up 3000
+no_focus [title="sway_notification"]
+
+# location depends on screen and put margin around
+# and put below bar
+
 # assign browser to workspace 2
 assign [class="Chromium"] 2
