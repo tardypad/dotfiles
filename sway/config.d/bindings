@@ -91,11 +91,14 @@ bindsym $mod+Shift+z fullscreen
 # move focus to the parent container
 bindsym $mod+a focus parent
 
-# Toggle the current focus between tiling and floating mode
-#bindsym $mod+Shift+space floating toggle
 
-# Swap focus between the tiling area and the floating area
-#bindsym $mod+space focus mode_toggle
+## Floating stuff
+
+# toggle the current focus between tiling and floating mode
+bindsym $mod+Shift+f floating toggle
+
+# swap focus between the tiling area and the floating area
+bindsym $mod+f focus mode_toggle
 
 
 ### Scratchpad
