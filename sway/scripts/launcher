@@ -3,14 +3,14 @@
 COMMAND="$1"
 
 # try to focus existing window if it exists
-FOCUS=$(swaymsg -t command '[title="sway_menu"]' focus)
+FOCUS=$(swaymsg -t command '[title="sway_launcher"]' focus)
 [[ ! "${FOCUS}" =~ 'error' ]] && exit
 
-# launch new menu otherwise
+# launch new launcher otherwise
 swaymsg -t command exec "\
   termite \
     --exec ${COMMAND} \
-    --config ${HOME}/.config/termite/config_menu \
-    --title sway_menu \
+    --config ${HOME}/.config/termite/config_launcher \
+    --title sway_launcher \
     --geometry 700x400 \
 "
