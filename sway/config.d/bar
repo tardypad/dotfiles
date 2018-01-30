@@ -1,10 +1,13 @@
 bar {
     position top
     font Source Sans Pro 14
+    binding_mode_indicator yes
     colors {
         statusline $base0
         background $background
         focused_workspace $orange $orange $base03
         inactive_workspace $base03 $base03 $base0
+        active_workspace $base03 $base03 $orange
+        binding_mode $base2 $base2 $base03
     }
 }
