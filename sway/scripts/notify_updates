@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-RESULT_FILE=$(mktemp)
+TMP_RESULT_FILE=$(mktemp)
 
 # construct notification text
 checkupdates \
@@ -11,10 +11,10 @@ checkupdates \
   | cut --fields 3- --delimiter ' ' \
   | paste --delimiters @ - - \
   | column --separator @ --table \
-  > "${RESULT_FILE}"
+  > "${TMP_RESULT_FILE}"
 
 # exit if no updates available
-[[ -s "${RESULT_FILE}" ]] || exit
+[[ -s "${TMP_RESULT_FILE}" ]] || exit
 
 # display notification otherwise
-notification 'Packages updates available' "${RESULT_FILE}"
+notification 'Packages updates available' "${TMP_RESULT_FILE}"

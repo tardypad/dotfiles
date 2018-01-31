@@ -1,14 +1,10 @@
 #! /usr/bin/env zsh
 
 TITLE="$1"
-TEXT_FILE="$2"
+TMP_TEXT_FILE="$2"
 
-RESULT_FILE=$(mktemp)
-
-# construct notification text
-# with a green background for title
-echo "$(tput setab 2)$(tput setaf 0)${TITLE}$(tput sgr0)" > "${RESULT_FILE}"
-cat "${TEXT_FILE}" >> "${RESULT_FILE}"
+# prepend title to text
+sed --in-place "1s;^;$(tput setab 2)$(tput setaf 0)${TITLE}$(tput sgr0)\n;" "${TMP_TEXT_FILE}"
 
 # display full text with colors and minimal prompt
-less --RAW-CONTROL-CHARS --prompt=s -- "${RESULT_FILE}"
+less --RAW-CONTROL-CHARS --prompt=s -- "${TMP_TEXT_FILE}"
