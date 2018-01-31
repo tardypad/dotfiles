@@ -1,17 +1,35 @@
 #!/usr/bin/env zsh
 
+function add_notification_text()
+{
+  local packages_list="$1"
+  local result_file="$2"
+
+   echo "${packages_list}" \
+    | cut --fields 1 --delimiter ' ' \
+    | xargs -I {} pacman --query --info {} \
+    | grep --extended-regexp '^Name|^Description' \
+    | tr --squeeze-repeats ' ' \
+    | cut --fields 3- --delimiter ' ' \
+    | paste --delimiters @ - - \
+    | column --separator @ --table \
+    >> "${result_file}"
+}
+
 TMP_RESULT_FILE=$(mktemp)
 
-# construct notification text
-checkupdates \
-  | cut --fields 1 --delimiter ' ' \
-  | xargs -I {} pacman --query --info {} \
-  | grep --extended-regexp '^Name|^Description' \
-  | tr --squeeze-repeats ' ' \
-  | cut --fields 3- --delimiter ' ' \
-  | paste --delimiters @ - - \
-  | column --separator @ --table \
-  > "${TMP_RESULT_FILE}"
+# construct all notification texts
+PACMAN_UPDATES=$(checkupdates)
+if [[ -n "${PACMAN_UPDATES}" ]]; then
+  echo "\n$(tput bold)Pacman" >> "${TMP_RESULT_FILE}"
+  add_notification_text "${PACMAN_UPDATES}" "${TMP_RESULT_FILE}"
+fi
+
+AUR_UPDATES=$(aurcheck -d aur)
+if [[ -n "${AUR_UPDATES}" ]]; then
+  echo "\n$(tput bold)AUR" >> "${TMP_RESULT_FILE}"
+  add_notification_text "${AUR_UPDATES}" "${TMP_RESULT_FILE}"
+fi
 
 # exit if no updates available
 [[ -s "${TMP_RESULT_FILE}" ]] || exit
