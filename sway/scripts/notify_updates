@@ -1,0 +1,20 @@
+#!/usr/bin/env zsh
+
+RESULT_FILE=$(mktemp)
+
+# construct notification text
+checkupdates \
+  | cut --fields 1 --delimiter ' ' \
+  | xargs -I {} pacman --query --info {} \
+  | grep --extended-regexp '^Name|^Description' \
+  | tr --squeeze-repeats ' ' \
+  | cut --fields 3- --delimiter ' ' \
+  | paste --delimiters @ - - \
+  | column --separator @ --table \
+  > "${RESULT_FILE}"
+
+# exit if no updates available
+[[ -s "${RESULT_FILE}" ]] || exit
+
+# display notification otherwise
+notification 'Packages updates available' "${RESULT_FILE}"
