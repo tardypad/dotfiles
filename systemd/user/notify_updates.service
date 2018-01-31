@@ -1,0 +1,6 @@
+[Unit]
+Description=Notify about packages updates
+
+[Service]
+Type=oneshot
+ExecStart=/home/damien/.config/sway/scripts/notify_updates

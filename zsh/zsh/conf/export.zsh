@@ -22,3 +22,8 @@ export FZF_DEFAULT_OPTS="
 --no-bold
 --color=bg:8,fg:12,hl:3,fg+:8,bg+:3,info:4,prompt:4,pointer:8,marker:7,spinner:4
 "
+
+# set SWAYSOCK in systemd user environment if sway is running
+if env | grep --quiet SWAYSOCK; then
+  systemctl --user import-environment SWAYSOCK
+fi

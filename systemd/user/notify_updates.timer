@@ -1,0 +1,9 @@
+[Unit]
+Description=Notify about packages updates
+
+[Timer]
+OnBootSec=1h
+OnUnitActiveSec=1d
+
+[Install]
+WantedBy=timers.target
