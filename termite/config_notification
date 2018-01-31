@@ -3,7 +3,7 @@ audible_bell = false
 mouse_autohide = true
 allow_bold = true
 clickable_url = false
-font = Source Code Pro 14
+font = Source Code Pro 10
 cursor_blink = off
 cursor_shape = block
 
@@ -11,6 +11,7 @@ cursor_shape = block
 foreground = #839496
 foreground_bold = #93a1a1
 background = #002b36
+cursor = #002b36
 
 color0 = #073642
 color1 = #dc322f

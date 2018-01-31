@@ -29,6 +29,8 @@
   - next version of tmux has if/else that we can use for remote hosts specific settings
     * disabling bindings of copy paste/xdg-open (no X server)
     * defining TERM to use screen instead of tmux (no tmux terminfo on old system)
+  - sway notification title background should cover the full line and text be centered  
+    in the initial display (don't take into account horizontal scrolling)
 
 # New Features
   - ALSA equalizer presets

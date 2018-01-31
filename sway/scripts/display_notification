@@ -4,7 +4,11 @@ TITLE="$1"
 TMP_TEXT_FILE="$2"
 
 # prepend title to text
-sed --in-place "1s;^;$(tput setab 2)$(tput setaf 0)${TITLE}$(tput sgr0)\n;" "${TMP_TEXT_FILE}"
+sed --in-place "1s;^;$(tput setab 2)$(tput setaf 0)   ${TITLE}   $(tput sgr0)\n;" "${TMP_TEXT_FILE}"
 
 # display full text with colors and minimal prompt
-less --RAW-CONTROL-CHARS --prompt=s -- "${TMP_TEXT_FILE}"
+less \
+  --RAW-CONTROL-CHARS \
+  --chop-long-lines \
+  --prompt=s"$(tput sgr0)…"  \
+  -- "${TMP_TEXT_FILE}"
