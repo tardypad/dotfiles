@@ -59,9 +59,9 @@ set noshowmode
 set title                 " Update the title of your window or your terminal
 set relativenumber        " Display relative line numbers
 set ruler                 " Display cursor position
-set wrap                  " Wrap lines when they are too long
+set nowrap                " Don't wrap lines when they are too long
+set sidescroll=10         " horizontal scroll of columns
 set cursorline            " highlight the current line
-
 set scrolloff=3           " Display at least 3 lines around you cursor
                           " (for scrolling)
 
