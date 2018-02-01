@@ -8,6 +8,6 @@ Version [2.1.0](https://github.com/mopidy/mopidy/releases/tag/v2.1.0)
 
 ## Extensions
 
-- SomaFM backend  
-  Source [Github](https://github.com/AlexandrePTJ/mopidy-somafm)  
-  Version [1.1.0](https://github.com/AlexandrePTJ/mopidy-somafm/releases/tag/1.1.0)
+| Name                | Purpose                   | Source                                                      | Version                                                                          |
+|---------------------|---------------------------|-------------------------------------------------------------|----------------------------------------------------------------------------------|
+| SomaFM backend      | SomaFM radio stations     | [Github](https://github.com/AlexandrePTJ/mopidy-somafm)     | [1.1.0](https://github.com/AlexandrePTJ/mopidy-somafm/releases/tag/1.1.0)        |
