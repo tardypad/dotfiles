@@ -1,0 +1,4 @@
+[time]
+label=
+command=date '+%a %e %b %Y   %H:%M'
+interval=10

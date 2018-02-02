@@ -22,6 +22,7 @@ include gnupg/Makefile
 include htop/Makefile
 include httpie/Makefile
 include http-prompt/Makefile
+include i3blocks/Makefile
 include less/Makefile
 include login/Makefile
 include mopidy/Makefile
