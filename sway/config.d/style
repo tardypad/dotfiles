@@ -11,7 +11,7 @@ smart_gaps on
 hide_edge_borders both
 
 # title bar font
-font Source Sans Pro 14
+font Source Sans Pro, Font Awesome 14
 
 # need to click to select window
 focus_follows_mouse no
