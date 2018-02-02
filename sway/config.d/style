@@ -18,5 +18,5 @@ focus_follows_mouse no
 
 # windows decorations colors
 client.focused          $green $green $base03 $blue $green
-client.focused_inactive $background $background $green $background $background
-client.unfocused        $background $background $base0 $background $background
+client.focused_inactive $background $background $green $background $blue
+client.unfocused        $background $background $base0 $background $blue
