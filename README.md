@@ -76,9 +76,9 @@ Some tools require some additional manual setup steps, check their own README
 ## Extra tools
 
 Tools required in the setup which have no own dotfiles config:
-- no support for it (the silver searcher)
-- none is needed (curl, only used for initial downloads)
-- config is part of another tool (fzf, config part of shell)
+- no support for configuration (the silver searcher)
+- none is needed, use defaults (curl, only used for downloads during setup)
+- config is part of another tool (fzf, variables part of shell config)
 
 Doesn't include "common" GNU command line tools
 such as sed, grep,... and the likes.
