@@ -7,15 +7,16 @@ for_window [title="sway_launcher"] floating enable, \
                                    resize set 700 400
 
 # display notification as floating window
-# in top right corner without focusing it
+# move it at the maximum top right corner
+# and then remove it back a bit to create small margin around
 for_window [title="sway_notification"] floating enable, \
+                                       sticky enable, \
                                        resize set 500 300, \
                                        move right 3000, \
-                                       move up 3000
+                                       move up 3000, \
+                                       move left 30, \
+                                       move down 30
 no_focus [title="sway_notification"]
-
-# location depends on screen and put margin around
-# and put below bar
 
 # assign browser to workspace 2
 assign [class="Chromium"] 2
