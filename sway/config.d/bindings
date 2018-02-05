@@ -70,6 +70,13 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+# go to prev/next workspace on current output
+bindsym $mod+n workspace next_on_output
+bindsym $mod+p workspace prev_on_output
+
+# repeat switch workspace command goes back to previous workspace
+workspace_auto_back_and_forth yes
+
 
 ### Layout stuff
 
