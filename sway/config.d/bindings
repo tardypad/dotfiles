@@ -77,6 +77,14 @@ bindsym $mod+p workspace prev_on_output
 # repeat switch workspace command goes back to previous workspace
 workspace_auto_back_and_forth yes
 
+# go back to previous workspace
+# (needs previous setting to work)
+bindsym $mod+grave exec sh -c " \
+  swaymsg -t get_workspaces \
+  | jq '.[]|select(.focused==true)|.name' \
+  | xargs -I {} swaymsg -t command workspace {} \
+  "
+
 
 ### Layout stuff
 
