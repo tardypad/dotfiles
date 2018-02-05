@@ -18,5 +18,5 @@ for_window [title="sway_notification"] floating enable, \
                                        move down 30
 no_focus [title="sway_notification"]
 
-# assign browser to workspace 2
-assign [class="Chromium"] 2
+# assign browser to its workspace
+assign [class="Chromium"] $ws10
