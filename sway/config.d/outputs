@@ -1,2 +1,6 @@
 # Define wallpaper
 output * bg ~/.local/share/sway/wallpaper.jpg fill
+
+# monitors
+output eDP-1 pos 0,0 res 2560x1440
+output DP-1 pos 2560,0 res 2560x1440
