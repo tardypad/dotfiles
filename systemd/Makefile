@@ -11,8 +11,4 @@ systemd:
     # reload daemon
 	@systemctl --user daemon-reload
 
-    # enable services and timers
-	@systemctl --user enable mopidy.service &> /dev/null
-	@systemctl --user enable notify_updates.timer &> /dev/null
-
 	@echo -e "\r✔ setup systemd"
