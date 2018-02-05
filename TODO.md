@@ -15,6 +15,10 @@
     need to make sway rule with title then
   - needs to set both termite size at start and in sway rule  
     to have it respected and the window centered when floating
+  - notification display from systemd fails to show bold/italic  
+    maybe it's a problem with tput  
+    we will wait for release of ncurses 6.1 to see if it fixes it  
+    otherwise we will replace tput with espace sequences
 
 # Testing
   - vim gutentags root marker doesn't seem to work correctly with multiple repos
