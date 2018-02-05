@@ -1,0 +1,16 @@
+#!/usr/bin/env zsh
+
+TMP_RESULT_FILE=$(mktemp)
+
+cat << EOF > "${TMP_RESULT_FILE}"
+
+- exercise your eyes
+
+- stretch your legs
+
+- fix your posture
+
+- focus your mind
+EOF
+
+notification 'Take a break' "${TMP_RESULT_FILE}"
