@@ -73,11 +73,6 @@ Plug 'vifm/vifm.vim',
   \   'for': 'vifm',
   \   'tag': 'v0.9' }
 
-" Fuzzy file, buffer, MRU, tag,... finder
-Plug 'ctrlpvim/ctrlp.vim',
-  \ { 'as': 'ctrlp',
-  \   'commit': 'bde7a29' }
-
 " Search text and pattern in files
 Plug 'mileszs/ack.vim',
   \ { 'as': 'ack',

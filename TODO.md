@@ -17,8 +17,7 @@
     to have it respected and the window centered when floating
 
 # Testing
-  - vim ctrlp root marker doesn't seem to work correctly with multiple repos
-  - idem for vim gutentags root marker
+  - vim gutentags root marker doesn't seem to work correctly with multiple repos
 
 # Improvements
   - review and improve copy paste workflow between terminals/vim/tmux/...
@@ -41,7 +40,6 @@
   - backup of notes, ncmpcpp lyrics,... 
 
 # Research
-  - evaluate replacing vim CtrlP with fzf.vim
   - calendar app
     * [khal](https://github.com/pimutils/khal)
     * [calendar-cli](https://github.com/tobixen/calendar-cli)
