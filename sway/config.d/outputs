@@ -4,3 +4,9 @@ output * bg ~/.local/share/sway/wallpaper.jpg fill
 # monitors
 output eDP-1 pos 0,0 res 2560x1440
 output DP-1 pos 2560,0 res 2560x1440
+
+# named workspaces per output
+workspace $ws1  output DP-1
+workspace $ws2  output DP-1
+workspace $ws3  output DP-1
+workspace $ws10 output eDP-1
