@@ -1,0 +1,6 @@
+[Unit]
+Description=Notify to take a break
+
+[Service]
+Type=oneshot
+ExecStart=/home/damien/.config/sway/scripts/notify_break
