@@ -4,7 +4,8 @@
   - replace unnecessary dependencies with own simpler config, scripts,...
 
 # Cleaning
-  - reorganize vim/zsh/tmux/... config splitting into folders/files
+  - reorganize vim/zsh/tmux/... config splitting into folders/files  
+    for vim use ftdetect folders and such
 
 # Bugs
   - copy doesn't remove old files from the target directories  
@@ -19,6 +20,9 @@
     maybe it's a problem with tput  
     we will wait for release of ncurses 6.1 to see if it fixes it  
     otherwise we will replace tput with espace sequences
+  - sometimes vim exits unexpectedly while closing a buffer/window using custom bindings  
+    might be a bug in the sayonara plugin  
+    maybe we can do without this one now
 
 # Testing
   - vim gutentags root marker doesn't seem to work correctly with multiple repos
@@ -32,8 +36,12 @@
   - next version of tmux has if/else that we can use for remote hosts specific settings
     * disabling bindings of copy paste/xdg-open (no X server)
     * defining TERM to use screen instead of tmux (no tmux terminfo on old system)
+    * remove time display in status line for local tmux (date already present in sway bar)
   - sway notification title background should cover the full line and text be centered  
     in the initial display (don't take into account horizontal scrolling)
+  - add manual project root marker usage in vifm and fzf use in vim
+  - vim fzf should ignore some files/folders like CtrlP previously
+  - use fzf in vim to switch between buffers
 
 # New Features
   - ALSA equalizer presets
@@ -41,9 +49,28 @@
   - keyboard focused browser
     * [qutebrowser](https://www.qutebrowser.org/)  
       see [config](https://github.com/etnadji/dotfiles/blob/master/Softwares_Configs/qutebrowser/.config/qutebrowser/config.py#L529)
-  - backup of notes, ncmpcpp lyrics,... 
+  - backup of notes, ncmpcpp lyrics,...
+  - show notification 5 min after boot containing a fortune
+  - specific sway menus (maybe accessible from main one with some fzf shorcuts?):
+    * suspend/lock/reboot/poweroff/logout/...
+    * launch common terminal applications directly (mail, news, chat,...)  
+      instead of having to launch a terminal and then launch the application  
+      investigate usage of desktop files maybe
 
 # Research
+  - starting music should display ncmpcpp in a sway scratchpad window  
+    and launch mopidy beforehand (no need to enable its service)
+  - replace sway "autostart" with custom script using swaymsg with marks
+  - evaluate making scripts POSIX compliant  
+    https://drewdevault.com/2018/02/05/Introduction-to-POSIX-shell.html
+  - usage of subreddit [MadeMeSmile](https://www.reddit.com/r/MadeMeSmile/random) random in workflow
+  - replace custom temporary tmux panels/sessions scripts  
+    with sway scripts that launches new terminal windows  
+    check usability of it  
+    (can be launched everywhere outside tmux then but the display might be less good)
+  - more use of fzf all over:
+    * [README](https://github.com/junegunn/fzf#usage)
+    * [wiki](https://github.com/junegunn/fzf/wiki)
   - calendar app
     * [khal](https://github.com/pimutils/khal)
     * [calendar-cli](https://github.com/tobixen/calendar-cli)
@@ -103,3 +130,4 @@
     * [2fa](https://github.com/rsc/2fa)
     * [passotp](https://github.com/tadfisher/pass-otp)
     * [browserpass](https://github.com/dannyvankooten/browserpass)
+  - download and display album art with [bum](https://github.com/dylanaraps/bum)
