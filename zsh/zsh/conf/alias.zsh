@@ -10,6 +10,12 @@ alias grep='grep --color=auto'
 
 alias man=colored_man
 
+# reverse fzf when used in a terminal
+# not included in FZF_DEFAULT_OPTS
+# because we don't want this when used within vim
+# (and there is no --noreverse option currently to overwrite it there)
+alias fzf='fzf --reverse'
+
 # most remote hosts don't have the tmux terminfo we use within tmux
 alias ssh='TERM=xterm-256color ssh'
 
