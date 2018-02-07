@@ -60,7 +60,6 @@
 # Research
   - starting music should display ncmpcpp in a sway scratchpad window  
     and launch mopidy beforehand (no need to enable its service)
-  - replace sway "autostart" with custom script using swaymsg with marks
   - evaluate making scripts POSIX compliant  
     https://drewdevault.com/2018/02/05/Introduction-to-POSIX-shell.html
   - usage of subreddit [MadeMeSmile](https://www.reddit.com/r/MadeMeSmile/random) random in workflow

@@ -18,8 +18,16 @@ for_window [title="sway_notification"] floating enable, \
                                        move down 30
 no_focus [title="sway_notification"]
 
+# assign specific windows to workspaces
+assign [title="sway_projects"] $ws1
+assign [title="sway_servers"] $ws2
+assign [title="sway_chat"] $ws3
+
 # assign browser to its workspace
 assign [class="Chromium"] $ws10
 
-# assign specific windows to workspaces
-assign [title="sway_projects"] $ws1
+# specific workspaces layout
+for_window [workspace=$ws1] layout splith
+for_window [workspace=$ws2] layout tabbed
+for_window [workspace=$ws3] layout tabbed
+for_window [workspace=$ws10] layout splith

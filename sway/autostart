@@ -1,7 +1,16 @@
 # start initial browser
 exec chromium
 
-# start initial terminal
+# Projects terminal
 exec termite \
-  --directory /home/damien/Desktop \
+  --exec tmux \
   --title sway_projects
+
+# Servers terminal
+exec termite \
+  --title sway_servers
+
+# Chat terminal
+exec termite \
+  --exec weechat \
+  --title sway_chat
