@@ -20,3 +20,6 @@ no_focus [title="sway_notification"]
 
 # assign browser to its workspace
 assign [class="Chromium"] $ws10
+
+# assign specific windows to workspaces
+assign [title="sway_projects"] $ws1

@@ -2,4 +2,6 @@
 exec chromium
 
 # start initial terminal
-exec termite --directory=/home/damien/Desktop
+exec termite \
+  --directory /home/damien/Desktop \
+  --title sway_projects
