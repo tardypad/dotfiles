@@ -3,6 +3,14 @@
 TITLE="$1"
 TMP_TEXT_FILE="$2"
 
+# do nothing if the lockscreen is on
+# there seems to be a bug where the notification is displayed over the lockscreen
+# when launched for the systemd service
+if pgrep swaylock &> /dev/null; then
+  exit
+fi
+
+
 swaymsg -t command exec "\
   termite \
     --exec 'sh -c \"display_notification \\\"${TITLE}\\\" ${TMP_TEXT_FILE}\"' \
