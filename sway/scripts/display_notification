@@ -7,8 +7,10 @@ TMP_TEXT_FILE="$2"
 sed --in-place "1s;^;$(tput setab 4)$(tput setaf 0)   ${TITLE}   $(tput sgr0)\n;" "${TMP_TEXT_FILE}"
 
 # display full text with colors and minimal prompt
+# don't show blank lines with starting ~
 less \
   --RAW-CONTROL-CHARS \
   --chop-long-lines \
   --prompt=s"$(tput sgr0)…"  \
+  --tilde \
   -- "${TMP_TEXT_FILE}"

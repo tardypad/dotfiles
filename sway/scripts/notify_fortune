@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+TMP_RESULT_FILE=$(mktemp)
+
+# display any short fortune with its origin on a separate line
+echo '' >  "${TMP_RESULT_FILE}"
+fortune -acs -n 300 \
+  | sed 's/^%$//' \
+>> "${TMP_RESULT_FILE}"
+
+notification 'Fortune of the day' "${TMP_RESULT_FILE}"

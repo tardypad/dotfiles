@@ -57,7 +57,6 @@
     * [qutebrowser](https://www.qutebrowser.org/)  
       see [config](https://github.com/etnadji/dotfiles/blob/master/Softwares_Configs/qutebrowser/.config/qutebrowser/config.py#L529)
   - backup of notes, ncmpcpp lyrics,...
-  - show notification 5 min after boot containing a fortune
   - specific sway menus (maybe accessible from main one with some fzf shorcuts?):
     * suspend/lock/reboot/poweroff/logout/...
     * launch common terminal applications directly (mail, news, chat,...)  

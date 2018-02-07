@@ -1,0 +1,8 @@
+[Unit]
+Description=Notify about the fortune of the day
+
+[Timer]
+OnBootSec=5m
+
+[Install]
+WantedBy=timers.target
