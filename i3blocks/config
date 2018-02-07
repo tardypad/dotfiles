@@ -1,3 +1,8 @@
+command=~/.config/i3blocks/scripts/$BLOCK_NAME
+
+[power]
+interval=30
+
 [time]
 label=
 command=date '+%a %e %b %Y   %H:%M'
