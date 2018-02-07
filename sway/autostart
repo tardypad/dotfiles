@@ -3,7 +3,7 @@ exec chromium
 
 # Projects terminal
 exec termite \
-  --exec tmux \
+  --exec 'sh -c "TERM=xterm-256color tmux"' \
   --title sway_projects
 
 # Servers terminal
