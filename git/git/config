@@ -72,6 +72,10 @@
         tag-list = tag --format '%(align:20,left) %(refname:strip=2) %(end) %(taggerdate:iso) %(align:30,left) %(taggeremail) %(end) %(subject)' --sort=taggerdate
 [log]
         decorate = false
+[core]
+        # LESS default options apparently break the display
+        # so we redefine needed options here
+        pager = less --ignore-case --line-numbers --chop-long-lines --RAW-CONTROL-CHARS --no-init --quit-if-one-screen
 [url "github:tardypad/"]
         insteadOf = github:
 [include]
