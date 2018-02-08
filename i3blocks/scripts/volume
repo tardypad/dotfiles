@@ -1,0 +1,29 @@
+#! /usr/bin/env zsh
+
+VOLUME_INFO=$(
+  amixer get Master \
+    | grep \
+        --extended-regex \
+        --max-count 1 \
+        --only-matching '\[[0-9][0-9]?%\] \[(on|off)\]' \
+)
+
+echo "${VOLUME_INFO}" | grep --quiet 'on'
+IS_VOLUME_MUTED=$?
+
+VOLUME_PERCENT=$(
+  echo "${VOLUME_INFO}" \
+    | sed --regexp-extended 's/\[([0-9]+)%\].*/\1/'
+)
+
+if [[ "${VOLUME_PERCENT}" -lt 50 ]]; then
+  VOLUME_ICON=''
+else
+  VOLUME_ICON=''
+fi
+
+if [[ "${IS_VOLUME_MUTED}" -eq 1 ]]; then
+  echo ''
+else
+  echo "${VOLUME_ICON} ${VOLUME_PERCENT}%"
+fi

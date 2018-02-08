@@ -1,5 +1,9 @@
 command=~/.config/i3blocks/scripts/$BLOCK_NAME
 
+[volume]
+interval=once
+signal=1
+
 [power]
 interval=30
 
