@@ -6,7 +6,15 @@ output eDP-1 pos 0,0 res 2560x1440
 output DP-1 pos 2560,0 res 2560x1440
 
 # named workspaces per output
+# all workspaces are on the main output
+# lateral output is only used for the web browsing workspace
 workspace $ws1  output DP-1
 workspace $ws2  output DP-1
 workspace $ws3  output DP-1
+workspace $ws4  output DP-1
+workspace $ws5  output DP-1
+workspace $ws6  output DP-1
+workspace $ws7  output DP-1
+workspace $ws8  output DP-1
+workspace $ws9  output DP-1
 workspace $ws10 output eDP-1
