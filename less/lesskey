@@ -98,7 +98,7 @@ N       reverse-search
 #env
 
 # default arguments
-LESS = --ignore-case --line-numbers
+LESS = --ignore-case --line-numbers --chop-long-lines
 
 # pre/post processors with lesspipe
 LESSOPEN = | lesspipe.sh %s
