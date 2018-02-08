@@ -10,7 +10,10 @@ bar {
         active_workspace $base03 $base03 $orange
         binding_mode $base2 $base2 $base03
     }
+
+    # status part
     status_command i3blocks
+    separator_symbol ' '
 
     # only show on main output
     output DP-1
