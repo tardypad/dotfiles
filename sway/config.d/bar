@@ -11,4 +11,7 @@ bar {
         binding_mode $base2 $base2 $base03
     }
     status_command i3blocks
+
+    # only show on main output
+    output DP-1
 }
