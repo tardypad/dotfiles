@@ -1,24 +1,6 @@
-# Directories to be prepended to PATH
-declare -a dirs_to_prepend
-
-dirs_to_prepend=(
- "$HOME/.local/bin"
- "$HOME/.cabal/bin" # Haskell packages
- "$HOME/.zsh/scripts"
- "$HOME/.config/sway/scripts"
-)
-
-# Prepend directories to PATH
-for dir in ${dirs_to_prepend[@]}
-do
-    if [ -d $dir ]; then
-        # If these bins exist, then prepend them to existing PATH
-        PATH="$dir:$PATH"
-    fi
-done
-
-unset dirs_to_prepend
-
+# add customer scripts paths
+PATH="$HOME/.zsh/scripts:$PATH"
+PATH="$HOME/.config/sway/scripts:$PATH"
 export PATH
 
 # add local shared libraries
