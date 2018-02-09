@@ -7,7 +7,12 @@ signal=1
 [power]
 interval=30
 
+[date]
+label=
+command=date '+%a %e %b'
+interval=10
+
 [time]
 label=
-command=date '+%a %e %b %Y   %H:%M'
+command=date '+%H:%M'
 interval=10
