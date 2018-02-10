@@ -27,9 +27,6 @@
     but only when launched from the systemd service it seems
   - in sway setting initial workspace layout doesn't apply to autostart windows  
     only to the ones launched afterwards
-  - problem with launching a termite terminal executing neomutt  
-    because the GPG_TTY is then wrong making it impossible to unlock GPG keys  
-    probably need to create a `mail` script that set it correctly beforehand
 
 # Testing
   - vim gutentags root marker doesn't seem to work correctly with multiple repos

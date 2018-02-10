@@ -22,6 +22,7 @@ no_focus [title="sway_notification"]
 assign [title="sway_projects"] $ws1
 assign [title="sway_servers"] $ws2
 assign [title="sway_chat"] $ws3
+assign [title="sway_mail"] $ws3
 
 # assign browser to its workspace
 assign [class="Chromium"] $ws10
