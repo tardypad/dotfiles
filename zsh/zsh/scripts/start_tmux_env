@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 COMMAND=${0:t}
-ENV_DIR_PATH=${0:A:h}/tmux_env
+ENV_DIR_PATH="${XDG_DATA_HOME:-$HOME/.local/share}/tmux/env/"
 
 init_variables() {
   AVAILABLE_TARGETS=( $(
