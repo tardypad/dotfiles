@@ -204,6 +204,9 @@ autocmd BufNewFile,BufRead *.tmux set filetype=tmux
 " Neomutt own filetype detection
 autocmd BufNewFile,BufRead *.mutt set filetype=neomuttrc
 
+" zsh functions own filetype detection
+autocmd BufNewFile,BufRead *zsh/functions/* set filetype=zsh
+
 " fzf config
 
 nnoremap <silent> <Leader>ef :FZF<CR>
