@@ -14,6 +14,10 @@ setw -g remain-on-exit on
 # define default term type
 set -g default-terminal "tmux-256color"
 
+# define command for new windows
+# prevents use of default behavior which creates a login shell
+set -g default-command "exec /bin/zsh"
+
 # add truecolor support
 set -g terminal-overrides ",xterm-256color:Tc"
 
