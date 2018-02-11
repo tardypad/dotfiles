@@ -15,7 +15,7 @@ export READNULLCMD=less
 # default less options
 # defining them in the #env part of lesskey
 # seems to break even more stuff around...
-export LESS='--ignore-case --line-numbers --chop-long-lines'
+export LESS='--ignore-case --line-numbers --chop-long-lines --RAW-CONTROL-CHARS'
 
 # decrease key timeout to 50ms
 export KEYTIMEOUT=5
