@@ -1,4 +1,4 @@
-#compdef start_tmux_env
+#compdef tmux_env
 
 local env_dir_path="${XDG_DATA_HOME:-$HOME/.local/share}/tmux/env/"
 

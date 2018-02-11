@@ -1,0 +1,165 @@
+# init variables
+local command=${0:t}
+local env_dir_path="${XDG_DATA_HOME:-$HOME/.local/share}/tmux/env/"
+
+local available_targets=( $(
+  ls "${env_dir_path}"
+) )
+
+local target=
+local session=
+local skip=false
+
+local host=localhost
+local socket=default
+
+
+usage() {
+  cat << EOF
+usage: ${command} [<options>] <target> [<session>]
+
+Start target tmux environment sessions
+Each target is a different local or remote tmux server
+
+Options:
+  -h,  --help     show this message only
+
+Available targets: ${available_targets}
+If session is not defined, all of the target's ones are started
+EOF
+}
+
+
+error() {
+  if [[ -n "$1" ]]; then
+    echo "error: $1" >&2
+  fi
+  usage
+}
+
+
+get_session_pattern() {
+  local session_name="$1"
+
+  local session_pattern=''
+  for i in $( seq 0 $(( ${#session_name} - 1 )) ); do
+    local char="${session_name:$i:1}"
+    local char_low=$( echo "${char}" | tr 'A-Z_' 'a-z ' )
+    local char_up=$( echo "${char}" | tr 'a-z ' 'A-Z_' )
+    session_pattern+="[${char_low}${char_up}]"
+  done
+
+  echo "${session_pattern}"
+}
+
+
+is_session_present() {
+  local session_names="$1"
+  local session_pattern="$2"
+
+  for session_name in ${(f)session_names}; do
+    if [[ "${session_name}" =~ "${session_pattern}" ]]; then
+      return 0
+    fi
+  done
+
+  return 1
+}
+
+
+start_target_tmux_env() {
+  source "${env_dir_path}/${target}/env"
+
+  local scripts_path
+  if [[ -n "${session}" ]]; then
+    scripts_path=(
+      "${env_dir_path}/${target}/${session}.sh"
+    )
+  else
+    scripts_path=( $(
+      ls "${env_dir_path}/${target}"/*.sh
+    ) )
+  fi
+
+  if [[ "${host}" == 'localhost' ]]; then
+    local session_names=$(
+      tmux -L "${socket}" list-sessions -F '#{session_name}' 2> /dev/null
+    )
+    for script_path in ${scripts_path}; do
+      local session_name="${script_path:t:r}"
+      local session_pattern=".*$( get_session_pattern "${session_name}" ).*"
+      if ! is_session_present "${session_names}" "${session_pattern}"; then
+        zsh "${script_path}" "${socket}"
+      fi
+    done
+
+    if [[ -n "${session}" ]]; then
+      local session_pattern="*$( get_session_pattern "${session}" )*"
+      tmux -L "${socket}" attach-session -t "${session_pattern}"
+    else
+      tmux -L "${socket}" attach-session
+    fi
+
+  else
+
+    local session_names=$(
+      ssh "${host}" "tmux -L ${socket} list-sessions -F '#{session_name}'" 2> /dev/null
+    )
+    for script_path in ${scripts_path}; do
+      local session_name="${script_path:t:r}"
+      local session_pattern=".*$( get_session_pattern "${session_name}" ).*"
+      if ! is_session_present "${session_names}" "${session_pattern}"; then
+        ssh "${host}" 'bash -s' < "${script_path}" "${socket}"
+      fi
+    done
+
+    if [[ -n "${session}" ]]; then
+      local session_pattern="*$( get_session_pattern "${session}" )*"
+      ssh -t "${host}" tmux -L "${socket}" attach-session -t "${session_pattern}"
+    else
+      ssh -t "${host}" tmux -L "${socket}" attach-session
+    fi
+  fi
+}
+
+
+# parse options
+while [[ "$#" -gt 0 ]]; do
+  case "$1" in
+    -h|--help)
+      usage
+      return 0
+      ;;
+    -s|--skip)
+      skip=true
+      shift
+      ;;
+    *)
+      break 2
+      ;;
+  esac
+done
+
+if [[ $# -eq 0 ]]; then
+  error 'missing target'
+  return 1
+fi
+
+target="$1"
+session="$2"
+
+# validate target
+if ! (( ${available_targets[(Ie)${target}]} )); then
+  error "invalid target ${target}"
+  return 1
+fi
+
+# validate target's session if present
+if [[ -n "${session}" ]] \
+     && [[ ! -f "${env_dir_path}/${target}/${session}.sh" ]]; then
+  error "invalid target's session ${session}"
+  return 1
+fi
+
+
+start_target_tmux_env
