@@ -8,6 +8,7 @@ zsh:
 	@cp "zsh/zshrc" "$(HOME)/.zshrc"
 	@cp "zsh/zshenv" "$(HOME)/.zshenv"
 	@cp "zsh/zlogin" "$(HOME)/.zlogin"
+	@cp "zsh/zprofile" "$(HOME)/.zprofile"
 	@cp --recursive --force --no-target-directory \
 		"zsh/zsh/conf" "$(HOME)/.zsh/conf"
 	@cp --recursive --force --no-target-directory \

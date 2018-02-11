@@ -31,3 +31,6 @@ export FZF_DEFAULT_OPTS="
 if env | grep --quiet SWAYSOCK; then
   systemctl --user import-environment SWAYSOCK
 fi
+
+# set PATH in systemd user environment
+systemctl --user import-environment PATH
