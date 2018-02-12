@@ -36,10 +36,10 @@ fi
 
 if [[ "${IS_ADAPTER_ON}" -eq 1 ]]; then
   if [[ "${IS_ANY_BATTERY_CHARGING}" -eq 1 ]]; then
-    echo " ${BATTERY_ICON} ${TOTAL_ENERGY_PERCENT}%"
+    echo "<span foreground='#2aa198'> ${BATTERY_ICON}</span> ${TOTAL_ENERGY_PERCENT}%"
   else
-    echo ' AC'
+    echo "<span foreground='#2aa198'></span> AC"
   fi
 else
-  echo "${BATTERY_ICON} ${TOTAL_ENERGY_PERCENT}%"
+  echo "<span foreground='#2aa198'>${BATTERY_ICON}</span> ${TOTAL_ENERGY_PERCENT}%"
 fi

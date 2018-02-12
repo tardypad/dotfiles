@@ -27,9 +27,9 @@ WIFI_CONNECTION=$(
 
 # NetworkManager automatically favors wired connections over wireless
 if [[ "${IS_ETHERNET_CONNECTED}" -eq 1 ]]; then
-  echo ' Wired'
+  echo "<span foreground='#2aa198'></span> Wired"
 elif [[ "${IS_WIFI_CONNECTED}" -eq 1 ]]; then
-  echo " ${WIFI_CONNECTION}"
+  echo "<span foreground='#2aa198'></span> ${WIFI_CONNECTION}"
 else
-  echo " Disconnected"
+  echo "<span foreground='#2aa198'></span> Disconnected"
 fi
