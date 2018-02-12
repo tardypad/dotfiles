@@ -1,0 +1,35 @@
+#! /usr/bin/env zsh
+
+NETWORK_INFO=$(
+  nmcli --fields type,state,connection device status \
+    | tr --squeeze-repeats ' '
+)
+
+if echo "${NETWORK_INFO}" \
+     | grep --quiet 'ethernet connected'; then
+  IS_ETHERNET_CONNECTED=1
+else
+  IS_ETHERNET_CONNECTED=0
+fi
+
+if echo "${NETWORK_INFO}" \
+     | grep --quiet 'wifi connected'; then
+  IS_WIFI_CONNECTED=1
+else
+  IS_WIFI_CONNECTED=0
+fi
+
+WIFI_CONNECTION=$(
+  echo "${NETWORK_INFO}" \
+    | grep 'wifi connected' \
+    | cut --delimiter ' ' --fields 3-
+)
+
+# NetworkManager automatically favors wired connections over wireless
+if [[ "${IS_ETHERNET_CONNECTED}" -eq 1 ]]; then
+  echo ' Wired'
+elif [[ "${IS_WIFI_CONNECTED}" -eq 1 ]]; then
+  echo " ${WIFI_CONNECTION}"
+else
+  echo " Disconnected"
+fi

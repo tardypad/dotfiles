@@ -1,5 +1,8 @@
 command=~/.config/i3blocks/scripts/$BLOCK_NAME
 
+[network]
+interval=30
+
 [volume]
 interval=once
 signal=1
