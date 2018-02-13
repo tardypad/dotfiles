@@ -1,0 +1,22 @@
+#! /usr/bin/env zsh
+
+ACTION=$(
+echo -n \
+"Lock screen\n"\
+"Suspend\n"\
+"Logout\n"\
+"Shutdown\n"\
+"Reboot"\
+  | fzf --reverse \
+        --no-multi \
+        --margin 1,2,0,2 \
+        --color info:8 \
+)
+
+case "${ACTION}" in
+  'Lock screen') lockscreen;;
+  'Suspend')     systemctl suspend;;
+  'Logout')      swaymsg -t command exit;;
+  'Shutdown')    systemctl poweroff;;
+  'Reboot')      systemctl reboot;;
+esac

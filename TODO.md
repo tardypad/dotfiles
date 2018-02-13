@@ -54,11 +54,9 @@
     * [qutebrowser](https://www.qutebrowser.org/)  
       see [config](https://github.com/etnadji/dotfiles/blob/master/Softwares_Configs/qutebrowser/.config/qutebrowser/config.py#L529)
   - backup of notes, ncmpcpp lyrics,...
-  - specific sway menus (maybe accessible from main one with some fzf shorcuts?):
-    * suspend/lock/reboot/poweroff/logout/...
-    * launch common terminal applications directly (mail, news, chat,...)  
-      instead of having to launch a terminal and then launch the application  
-      investigate usage of desktop files maybe
+  - specific sway menu to launch common terminal applications directly (mail, news, chat,...)  
+    instead of having to launch a terminal and then launch the application  
+    investigate usage of desktop files maybe
 
 # Research
   - starting music should display ncmpcpp in a sway scratchpad window  
