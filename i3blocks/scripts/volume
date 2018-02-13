@@ -23,7 +23,7 @@ else
 fi
 
 if [[ "${IS_VOLUME_MUTED}" -eq 1 ]]; then
-  echo "<span foreground='#2aa198'></span>"
+  echo "<span foreground='#2aa198'></span> Muted"
 else
   echo "<span foreground='#2aa198'>${VOLUME_ICON}</span> ${VOLUME_PERCENT}%"
 fi
