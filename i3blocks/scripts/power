@@ -41,5 +41,10 @@ if [[ "${IS_ADAPTER_ON}" -eq 1 ]]; then
     echo "<span foreground='#2aa198'></span> AC"
   fi
 else
-  echo "<span foreground='#2aa198'>${BATTERY_ICON}</span> ${TOTAL_ENERGY_PERCENT}%"
+  if [[ "${TOTAL_ENERGY_PERCENT}" -lt 10 ]]; then
+    echo "<span foreground='#dc322f'>${BATTERY_ICON} ${TOTAL_ENERGY_PERCENT}%</span>"
+    exit 33
+  else
+    echo "<span foreground='#2aa198'>${BATTERY_ICON}</span> ${TOTAL_ENERGY_PERCENT}%"
+  fi
 fi

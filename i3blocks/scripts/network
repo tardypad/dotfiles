@@ -32,4 +32,6 @@ elif [[ "${IS_WIFI_CONNECTED}" -eq 1 ]]; then
   echo "<span foreground='#2aa198'></span> ${WIFI_CONNECTION}"
 else
   echo "<span foreground='#2aa198'></span> Disconnected"
+  echo
+  echo '#cb4b16'
 fi
