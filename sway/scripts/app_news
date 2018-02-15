@@ -1,5 +1,10 @@
 #! /usr/bin/env zsh
 
+# try to focus existing window if it exists
+FOCUS=$(swaymsg -t command '[title="sway_news"]' focus)
+[[ ! "${FOCUS}" =~ 'error' ]] && exit
+
+# launch new app otherwise
 swaymsg -t command \
   exec "termite \
           --title sway_news \
