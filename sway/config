@@ -53,4 +53,6 @@ include ~/.config/sway/config.d/*
 
 # autostart programs at the end
 # so that rules and other config are set before
-include ~/.config/sway/autostart
+exec dex \
+  --autostart \
+  --search-paths ~/.config/autostart
