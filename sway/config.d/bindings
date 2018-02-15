@@ -22,7 +22,7 @@ bindsym $mod+Space exec launcher launch_command
 bindsym $mod+Shift+Space exec launcher launch_app
 
 # display monitor
-bindsym $mod+Escape exec monitor
+bindsym $mod+Escape exec app_monitor
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.

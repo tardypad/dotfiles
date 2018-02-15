@@ -4,10 +4,9 @@
 FOCUS=$(swaymsg -t command '[title="sway_monitor"]' focus)
 [[ ! "${FOCUS}" =~ 'error' ]] && exit
 
-# launch new monitor otherwise
-swaymsg -t command exec '\
-  termite \
-    --exec htop \
-    --title sway_monitor \
-    --geometry 1500x1000 \
-'
+# launch new app otherwise
+swaymsg -t command \
+  exec "termite \
+          --exec htop \
+          --title sway_monitor \
+          --geometry 1500x1000"
