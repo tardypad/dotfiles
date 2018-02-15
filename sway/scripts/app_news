@@ -1,0 +1,6 @@
+#! /usr/bin/env zsh
+
+swaymsg -t command \
+  exec "termite \
+          --title sway_news \
+          --exec newsboat"

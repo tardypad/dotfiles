@@ -1,0 +1,8 @@
+#! /usr/bin/env zsh
+
+# needs a shell started before to have correct GPG_TTY
+# so that the pinentry is displayed in the new terminal
+swaymsg -t command \
+  exec "termite \
+          --title sway_mail \
+          --exec 'zsh -c neomutt'"

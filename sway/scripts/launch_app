@@ -1,0 +1,32 @@
+#! /usr/bin/env zsh
+
+APP_DESKTOP_FILES_PATH="${XDG_DATA_HOME:-$HOME/.local/share}/applications"
+
+typeset -A APPS
+
+for APP_DESKTOP_FILE in "${APP_DESKTOP_FILES_PATH}"/*.desktop; do
+  APP_NAME=$(
+    grep '^Name='  "${APP_DESKTOP_FILE}" \
+      | cut --delimiter = --fields 2
+  )
+  APPS[${APP_NAME}]="${APP_DESKTOP_FILE}"
+done
+
+APP=$(
+  for APP_NAME in ${(k)APPS}; do
+    echo "${APP_NAME}"
+  done \
+    | sort \
+    | fzf --reverse \
+          --no-multi \
+          --margin 1,2,0,2 \
+          --prompt 'run app ' \
+          --color info:8
+)
+
+if [[ -n "${APP}" ]]; then
+  # not sure why running dex directly without using swaymsg
+  # doesn't work when ran from the launcher
+  swaymsg -t command \
+      exec "dex ${APPS[$APP]}"
+fi

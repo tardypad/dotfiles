@@ -18,6 +18,9 @@ bindsym $mod+Shift+Backspace exec launcher launch_system
 # start the main launcher
 bindsym $mod+Space exec launcher launch_command
 
+# start the apps launcher
+bindsym $mod+Shift+Space exec launcher launch_app
+
 # display monitor
 bindsym $mod+Escape exec monitor
 

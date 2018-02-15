@@ -1,0 +1,8 @@
+#! /usr/bin/env zsh
+
+# needs TERM defined properly beforehand
+# for proper color within vim
+swaymsg -t command \
+  exec "termite \
+         --title sway_projects \
+         --exec 'sh -c \"TERM=xterm-256color tmux\"'"
