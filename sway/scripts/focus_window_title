@@ -1,0 +1,12 @@
+#! /usr/bin/env zsh
+
+# small wrapper to focus a window by title
+# returns proper status code for error/success
+
+TITLE="$1"
+
+FOCUS=$(
+  swaymsg -t command "[title=\"${TITLE}\"]" focus
+)
+
+[[ "${FOCUS}" =~ 'error' ]] && exit 1

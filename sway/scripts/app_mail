@@ -1,13 +1,19 @@
 #! /usr/bin/env zsh
 
+TITLE='sway_mail'
+
 # try to focus existing window if it exists
-FOCUS=$(swaymsg -t command '[title="sway_mail"]' focus)
-[[ ! "${FOCUS}" =~ 'error' ]] && exit
+focus_window_title "${TITLE}" && exit
 
 # launch new app otherwise
 # needs a shell started before to have correct GPG_TTY
 # so that the pinentry is displayed in the new terminal
 swaymsg -t command \
   exec "termite \
-          --title sway_mail \
+          --title ${TITLE} \
           --exec 'zsh -c neomutt'"
+
+# focus the window (not automatic if different workspace)
+# need to wait a bit for the window to be registered
+sleep 0.1
+focus_window_title "${TITLE}"
