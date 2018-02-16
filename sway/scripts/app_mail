@@ -1,6 +1,6 @@
 #! /usr/bin/env zsh
 
-TITLE='sway_mail'
+TITLE=' Mail client'
 
 # try to focus existing window if it exists
 focus_window_title "${TITLE}" && exit
@@ -10,7 +10,7 @@ focus_window_title "${TITLE}" && exit
 # so that the pinentry is displayed in the new terminal
 swaymsg -t command \
   exec "termite \
-          --title ${TITLE} \
+          --title \"${TITLE}\" \
           --exec 'zsh -c neomutt'"
 
 # focus the window (not automatic if different workspace)
