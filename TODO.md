@@ -91,7 +91,6 @@
     * [gitsome](https://github.com/donnemartin/gitsome)
   - small tools (look for alternatives)
     * [progress](https://github.com/Xfennec/progress) show progress for cp, mv,...
-    * [qalc](https://github.com/Qalculate/libqalculate) "calculator"
     * [lnav](https://github.com/tstack/lnav) log file navigator
   - vim session usage
     * [vim-session](https://github.com/xolox/vim-session)

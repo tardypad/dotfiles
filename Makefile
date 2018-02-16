@@ -33,6 +33,7 @@ include newsboat/Makefile
 include notes/Makefile
 include openssh/Makefile
 include pacman/Makefile
+include qalculate/Makefile
 include rbtools/Makefile
 include readline/Makefile
 include tmux/Makefile
