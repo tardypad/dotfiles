@@ -1,0 +1,4 @@
+[Desktop Entry]
+Exec=termite --title ' File manager' --exec vifm
+Name=File manager
+Type=Application

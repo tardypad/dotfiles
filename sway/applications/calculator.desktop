@@ -1,0 +1,4 @@
+[Desktop Entry]
+Exec=termite --title ' Calculator' --exec qalc
+Name=Calculator
+Type=Application
