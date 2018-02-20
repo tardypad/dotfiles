@@ -47,9 +47,20 @@ TRAPUSR1() {
   fi
 }
 
-# Fish-like autosuggestions
+### Fish-like autosuggestions
+
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=10
+
+# Ctrl+Enter accepts and executes suggestion
+bindkey '^[[27;5;13~' autosuggest-execute
+bindkey -M vicmd '^[[27;5;13~' autosuggest-execute
+
+# only accept line with EOL widgets
+export ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=(
+  vi-end-of-line
+  vi-add-eol
+)
 
 # important to source the syntax highlighting at the end
 # because it needs all widgets to be already created

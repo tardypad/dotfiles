@@ -23,6 +23,8 @@
     but only when launched from the systemd service it seems
   - in sway setting initial workspace layout doesn't apply to autostart windows  
     only to the ones launched afterwards
+  - zsh fish-like autosuggestions partial accept doesn't work in normal mode  
+    https://github.com/zsh-users/zsh-autosuggestions/issues/188
 
 # Testing
   - vim gutentags root marker doesn't seem to work correctly with multiple repos
@@ -31,7 +33,6 @@
   - review and improve copy paste workflow between terminals/vim/tmux/...
     * [extrackto](https://github.com/laktak/extrakto) tmux search and copy/insert/...
     * [yank](https://github.com/mptre/yank) copy output to clipboard
-  - improve zsh extensions colors and bindings
   - fontconfig replace some fonts families used in Chromium
   - next version of tmux has if/else that we can use for remote hosts specific settings
     * disabling bindings of copy paste/xdg-open (no X server)
