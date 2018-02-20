@@ -10,3 +10,5 @@ FOCUS=$(
 )
 
 [[ "${FOCUS}" =~ 'error' ]] && exit 1
+
+exit 0
