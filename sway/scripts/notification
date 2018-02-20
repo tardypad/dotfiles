@@ -7,6 +7,7 @@ TMP_TEXT_FILE="$2"
 # there seems to be a bug where the notification is displayed over the lockscreen
 # when launched for the systemd service
 if pgrep swaylock &> /dev/null; then
+  rm "${TMP_TEXT_FILE}"
   exit
 fi
 
