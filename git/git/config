@@ -67,7 +67,6 @@
         rbh = "!r(){ git rebase -i HEAD~$1; }; r"
         rbi = rebase -i
         reword = commit --amend
-        sth = stash save --keep-index --include-untracked
         st = status --short
         tag-list = tag --format '%(align:20,left) %(refname:strip=2) %(end) %(taggerdate:iso) %(align:30,left) %(taggeremail) %(end) %(subject)' --sort=taggerdate
 [log]
