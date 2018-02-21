@@ -4,7 +4,7 @@ Text editor
 
 Source [Github](https://github.com/vim/vim)
 
-Version [8.0](https://github.com/vim/vim/releases/tag/v8.0.0000)
+Version [8.0.1476](https://github.com/vim/vim/releases/tag/v8.0.1476)
 
 ## Plugins
 

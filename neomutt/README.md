@@ -4,7 +4,7 @@ Mail client
 
 Source [Github](https://github.com/neomutt/neomutt)
 
-Version [20171027](https://github.com/neomutt/neomutt/releases/tag/neomutt-20171027)
+Version [20171215](https://github.com/neomutt/neomutt/releases/tag/neomutt-20171215)
 
 Manual setup steps:
 - create encrypted credentials file for each account

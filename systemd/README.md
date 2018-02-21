@@ -4,4 +4,4 @@ System and service manager
 
 Source [Github](https://github.com/systemd/systemd)
 
-Version [236](https://github.com/systemd/systemd/releases/tag/v236)
+Version [237](https://github.com/systemd/systemd/releases/tag/v237)

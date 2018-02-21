@@ -4,4 +4,4 @@ Sources indexation
 
 Source [Github](https://github.com/universal-ctags/ctags)
 
-Version [8465ce7](https://github.com/universal-ctags/ctags/commit/8465ce771ca71329c1d12494f154b21b2cad8fec)
+Version [66b4867b](https://github.com/universal-ctags/ctags/commit/66b4867b290f3d0925dbc868d11a90740a583479)
