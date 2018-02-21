@@ -25,6 +25,12 @@
     only to the ones launched afterwards
   - zsh fish-like autosuggestions partial accept doesn't work in normal mode  
     https://github.com/zsh-users/zsh-autosuggestions/issues/188
+  - when not connecting the second monitor, sway bar is not displayed at all  
+    since the laptop monitor normally doesn't display it in case of 2 monitors
+  - when switching to sway floating spaces  
+    after closing the floating window (or toggling the scratchpad)  
+    it comes back to the wrong tiling window (always first one)  
+    doesn't happen if just switching back to tiling space
 
 # Testing
   - vim gutentags root marker doesn't seem to work correctly with multiple repos
@@ -43,6 +49,13 @@
   - add manual project root marker usage in vifm and fzf use in vim
   - vim fzf should ignore some files/folders like CtrlP previously
   - use fzf in vim to switch between buffers
+  - add desktop files to start servers environment
+  - mark bug or limitation inside config file  
+    and check with upgrades if they can be fixed or improved
+  - rbt post should open directly not the main page but the diff  
+    since that's the page we want to check
+  - reput arrow usage for zsh autosuggestions to keep consistent with other tools  
+    mycli and http_prompt line accept binding cannot be changed
 
 # New Features
   - ALSA equalizer presets
@@ -53,6 +66,8 @@
   - backup of notes, ncmpcpp lyrics,...
 
 # Research
+  - check use of zsh run-help command for replacement/completion for our own help script  
+    (has support for man 1p and so, help for zsh function)
   - starting music should display ncmpcpp in a sway scratchpad window  
     and launch mopidy beforehand (no need to enable its service)
   - evaluate making scripts POSIX compliant  
@@ -84,6 +99,7 @@
     * [mdp](https://github.com/visit1985/mdp)
     * [patat](https://github.com/jaspervdj/patat)
     * [doitlive](https://github.com/sloria/doitlive)
+    * [asciinema](https://asciinema.org)
   - better git?
     * [gitsome](https://github.com/donnemartin/gitsome)
   - small tools (look for alternatives)
