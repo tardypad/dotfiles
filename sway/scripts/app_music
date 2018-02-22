@@ -9,7 +9,8 @@ focus_window_title "${TITLE}" && exit
 swaymsg -t command \
   exec "termite \
           --title \"${TITLE}\" \
-          --exec ncmpcpp"
+          --exec ncmpcpp \
+          --geometry 1200x800"
 
 # focus the window (not automatic if different workspace)
 # need to wait a bit for the window to be registered
