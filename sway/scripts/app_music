@@ -5,7 +5,11 @@ TITLE='sway_music'
 # try to focus existing window if it exists
 focus_window_title "${TITLE}" && exit
 
-# launch new app otherwise
+# launch music server and app otherwise
+if ! systemctl --user is-active mopidy.service; then
+  systemctl --user start mopidy.service
+fi
+
 swaymsg -t command \
   exec "termite \
           --title \"${TITLE}\" \
