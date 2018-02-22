@@ -21,6 +21,7 @@ no_focus [title="sway_notification"]
 # assign specific windows to workspaces
 assign [title=" Projects environment"] $ws1
 assign [title=" Servers"] $ws2
+assign [title=" Personal server"] $ws2
 assign [title=" Chat client"] $ws3
 assign [title=" Mail client"] $ws3
 assign [title=" News reader"] $ws3

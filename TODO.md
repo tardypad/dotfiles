@@ -49,7 +49,6 @@
   - add manual project root marker usage in vifm and fzf use in vim
   - vim fzf should ignore some files/folders like CtrlP previously
   - use fzf in vim to switch between buffers
-  - add desktop files to start servers environment
   - mark bug or limitation inside config file  
     and check with upgrades if they can be fixed or improved
   - rbt post should open directly not the main page but the diff  
