@@ -9,6 +9,19 @@ FOCUS=$(
   swaymsg -t command "[title=\"${TITLE}\"]" focus
 )
 
+# error happens if the window doesn't exist
 [[ "${FOCUS}" =~ 'error' ]] && exit 1
+
+SCRATCHPAD_FOCUSED=$(
+  swaymsg -t get_tree \
+    | jq ".scratchpad[] | select(.name==\"${TITLE}\") | .focused"
+)
+
+if [[ "${SCRATCHPAD_FOCUSED}" == 'false' ]]; then
+  # focus didn't raise an error but
+  # the window is still hidden in the scratchpad
+  swaymsg -t command \
+    "[title=\"${TITLE}\"]" scratchpad show
+fi
 
 exit 0
