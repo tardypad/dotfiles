@@ -1,0 +1,20 @@
+#! /usr/bin/env zsh
+
+ENV_NAME="$1"
+TITLE="$2"
+
+# try to focus existing window if it exists
+focus_window_title "${TITLE}" && exit
+
+# launch new app otherwise
+# needs TERM defined properly beforehand
+# for proper color within vim
+swaymsg -t command \
+  exec "termite \
+          --title \"${TITLE}\" \
+          --exec 'zsh -c \"TERM=xterm-256color tmux_env ${ENV_NAME}\"'"
+
+# focus the window (not automatic if different workspace)
+# need to wait a bit for the window to be registered
+sleep 0.1
+focus_window_title "${TITLE}"
