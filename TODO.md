@@ -39,7 +39,6 @@
   - review and improve copy paste workflow between terminals/vim/tmux/...
     * [extrackto](https://github.com/laktak/extrakto) tmux search and copy/insert/...
     * [yank](https://github.com/mptre/yank) copy output to clipboard
-  - fontconfig replace some fonts families used in Chromium
   - next version of tmux has if/else that we can use for remote hosts specific settings
     * disabling bindings of copy paste/xdg-open (no X server)
     * defining TERM to use screen instead of tmux (no tmux terminfo on old system)
@@ -55,8 +54,6 @@
     mycli and http_prompt line accept binding cannot be changed
 
 # New Features
-  - ALSA equalizer presets
-    * [thread](http://www.pclinuxos.com/forum/index.php?topic=110087.0)
   - keyboard focused browser
     * [qutebrowser](https://www.qutebrowser.org/)  
       see [config](https://github.com/etnadji/dotfiles/blob/master/Softwares_Configs/qutebrowser/.config/qutebrowser/config.py#L529)
@@ -83,18 +80,6 @@
     * [khard](https://github.com/scheibler/khard)
     * [abook](https://sourceforge.net/p/abook/git)
     * [goobook](https://gitlab.com/goobook/goobook)
-  - keyboard config files with xkb
-  - docs in terminal
-    * [rfc](https://github.com/bfontaine/rfc)
-    * [http](https://github.com/bfontaine/httpdoc)
-  - spreadsheet
-    * [sc-im](https://github.com/andmarti1424/sc-im)
-  - presentations
-    * [tpp](https://github.com/cbbrowne/tpp)
-    * [mdp](https://github.com/visit1985/mdp)
-    * [patat](https://github.com/jaspervdj/patat)
-    * [doitlive](https://github.com/sloria/doitlive)
-    * [asciinema](https://asciinema.org)
   - better git?
     * [gitsome](https://github.com/donnemartin/gitsome)
   - small tools (look for alternatives)
@@ -120,12 +105,6 @@
     * [split-manpage](https://github.com/ludwig/split-manpage.vim)
     * [vim-dokumentary](https://github.com/gastonsimone/vim-dokumentary)
     * [investigate.vim](https://github.com/keith/investigate.vim)
-  - terminal image viewer
-    * [timg](https://github.com/hzeller/timg)
-    * [fim](http://www.nongnu.org/fbi-improved/)
-    * [tv](https://github.com/daleroberts/tv)
-    * [termimage](https://github.com/nabijaczleweli/termimage)
-    * [explosion](https://github.com/Tenzer/explosion)
   - spellchecking
     * only vim own internal spell
     * [aspell](http://aspell.net/)
@@ -134,4 +113,3 @@
     * [2fa](https://github.com/rsc/2fa)
     * [passotp](https://github.com/tadfisher/pass-otp)
     * [browserpass](https://github.com/dannyvankooten/browserpass)
-  - download and display album art with [bum](https://github.com/dylanaraps/bum)
