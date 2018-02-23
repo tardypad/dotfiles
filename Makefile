@@ -34,6 +34,7 @@ include notes/Makefile
 include openssh/Makefile
 include pacman/Makefile
 include qalculate/Makefile
+include qutebrowser/Makefile
 include rbtools/Makefile
 include readline/Makefile
 include tmux/Makefile

@@ -52,9 +52,8 @@
     mycli and http_prompt line accept binding cannot be changed
 
 # New Features
-  - keyboard focused browser
-    * [qutebrowser](https://www.qutebrowser.org/)  
-      see [config](https://github.com/etnadji/dotfiles/blob/master/Softwares_Configs/qutebrowser/.config/qutebrowser/config.py#L529)
+  - qutebrowser host blocking list  
+    see [config](https://github.com/etnadji/dotfiles/blob/master/Softwares_Configs/qutebrowser/.config/qutebrowser/config.py#L529)
   - backup of notes, ncmpcpp lyrics,...
 
 # Research
