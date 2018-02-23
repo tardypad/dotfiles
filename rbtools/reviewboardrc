@@ -1,6 +1,6 @@
 TRACKING_BRANCH = "origin/master"
 STAMP_WHEN_POSTING = True
-OPEN_BROWSER = True
+OPEN_BROWSER = False
 PUBLISH = False
 
 ALIASES = {
@@ -12,19 +12,22 @@ ALIASES = {
             commit_description=`git head-description`; \
             current_branch=`git current-branch`; \
             issue_id=`git head-issue-id`; \
-            rbt post \
+            diff_url=`rbt post \
               --summary "[${repository}] ${commit_subject}" \
               --description "${commit_description:-$commit_subject} " \
               --branch "${current_branch}" \
               --bugs-closed "${issue_id}" \
               --testing-done "unit tests" \
-              --parent HEAD~; \
+              --parent HEAD~ \
+              | grep diff`; \
         else \
-          rbt post \
+          diff_url=`rbt post \
             --update \
             --review-request-id "$review_id" \
-            --parent HEAD~; \
-        fi \
+            --parent HEAD~ \
+            | grep diff`; \
+        fi; \
+        xdg-open "${diff_url}"; \
     ',
     'publish-head': '! \
         review_id=`git head-review-id`; \

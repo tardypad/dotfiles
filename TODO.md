@@ -51,8 +51,6 @@
   - use fzf in vim to switch between buffers
   - mark bug or limitation inside config file  
     and check with upgrades if they can be fixed or improved
-  - rbt post should open directly not the main page but the diff  
-    since that's the page we want to check
   - reput arrow usage for zsh autosuggestions to keep consistent with other tools  
     mycli and http_prompt line accept binding cannot be changed
 
