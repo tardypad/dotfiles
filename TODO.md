@@ -43,8 +43,6 @@
     * disabling bindings of copy paste/xdg-open (no X server)
     * defining TERM to use screen instead of tmux (no tmux terminfo on old system)
     * remove time display in status line for local tmux (date already present in sway bar)
-  - sway notification title background should cover the full line and text be centered  
-    in the initial display (don't take into account horizontal scrolling)
   - add manual project root marker usage in vifm and fzf use in vim
   - vim fzf should ignore some files/folders like CtrlP previously
   - use fzf in vim to switch between buffers
