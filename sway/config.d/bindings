@@ -15,11 +15,11 @@ bindsym $mod+Backspace exec lockscreen
 # start the system launcher
 bindsym $mod+Shift+Backspace exec launcher launch_system
 
-# start the main launcher
-bindsym $mod+Space exec launcher launch_command
-
 # start the apps launcher
-bindsym $mod+Shift+Space exec launcher launch_app
+bindsym $mod+Space exec launcher launch_app
+
+# start the generic launcher
+bindsym $mod+Shift+Space exec launcher launch_command
 
 # display monitor
 bindsym $mod+Escape exec app_monitor
