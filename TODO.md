@@ -23,8 +23,6 @@
     but only when launched from the systemd service it seems
   - in sway setting initial workspace layout doesn't apply to autostart windows  
     only to the ones launched afterwards
-  - zsh fish-like autosuggestions partial accept doesn't work in normal mode  
-    https://github.com/zsh-users/zsh-autosuggestions/issues/188
   - when not connecting the second monitor, sway bar is not displayed at all  
     since the laptop monitor normally doesn't display it in case of 2 monitors
   - when switching to sway floating spaces  
@@ -48,8 +46,6 @@
   - use fzf in vim to switch between buffers
   - mark bug or limitation inside config file  
     and check with upgrades if they can be fixed or improved
-  - reput arrow usage for zsh autosuggestions to keep consistent with other tools  
-    mycli and http_prompt line accept binding cannot be changed
 
 # New Features
   - qutebrowser host blocking list  

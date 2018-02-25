@@ -56,12 +56,6 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=10
 bindkey '^[[27;5;13~' autosuggest-execute
 bindkey -M vicmd '^[[27;5;13~' autosuggest-execute
 
-# only accept line with EOL widgets
-ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=(
-  vi-end-of-line
-  vi-add-eol
-)
-
 ### Syntax highlighting
 
 # important to source the syntax highlighting at the end
