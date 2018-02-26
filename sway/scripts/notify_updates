@@ -5,15 +5,24 @@ function add_notification_text()
   local packages_list="$1"
   local result_file="$2"
 
-   echo "${packages_list}" \
+  local tmp_result_file=$( mktemp )
+
+  echo "${packages_list}" \
     | cut --fields 1 --delimiter ' ' \
     | xargs -I {} pacman --query --info {} \
     | grep --extended-regexp '^Name|^Description' \
     | tr --squeeze-repeats ' ' \
     | cut --fields 3- --delimiter ' ' \
     | paste --delimiters @ - - \
+    >> "${tmp_result_file}"
+
+  echo "${packages_list}" \
+    | cut --fields 2- --delimiter ' ' \
+    | paste --delimiters @ "${tmp_result_file}" - \
     | column --separator @ --table \
     >> "${result_file}"
+
+  rm "${tmp_result_file}"
 }
 
 TMP_RESULT_FILE=$(mktemp)
