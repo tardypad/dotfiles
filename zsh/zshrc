@@ -71,6 +71,7 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(
 
 # highlight potentially dangerous commands that requires extra attention
 ZSH_HIGHLIGHT_PATTERNS=('rm -(rf|fr) *' 'bg=red,fg=black,bold')
+ZSH_HIGHLIGHT_PATTERNS+=('rm * -(rf|fr)' 'bg=red,fg=black,bold')
 
 # brackets matching colors
 ZSH_HIGHLIGHT_STYLES[bracket-error]='fg=red,bold'
