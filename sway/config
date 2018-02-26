@@ -13,7 +13,7 @@ set $right l
 set $term termite
 
 # browser
-set $browser chromium
+set $browser qutebrowser
 
 # Solarized colors
 set $base03  #002b36
