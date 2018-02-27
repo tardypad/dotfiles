@@ -5,3 +5,6 @@
 
 # Uncomment this to still load settings configured via autoconfig.yml
 # config.load_autoconfig()
+
+# restore previous session on opening
+c.auto_save.session = True
