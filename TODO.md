@@ -57,7 +57,6 @@
     (has support for man 1p and so, help for zsh function)
   - evaluate making scripts POSIX compliant  
     https://drewdevault.com/2018/02/05/Introduction-to-POSIX-shell.html
-  - usage of subreddit [MadeMeSmile](https://www.reddit.com/r/MadeMeSmile/random) random in workflow
   - replace custom temporary tmux panels/sessions scripts  
     with sway scripts that launches new terminal windows  
     check usability of it  
