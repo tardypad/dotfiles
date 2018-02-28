@@ -1,4 +1,5 @@
 [Desktop Entry]
 Exec=gimp
-Name=Raster graphics editor
+Name=GIMP
+GenericName=Raster graphics editor
 Type=Application

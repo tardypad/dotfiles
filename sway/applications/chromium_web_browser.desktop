@@ -1,4 +1,5 @@
 [Desktop Entry]
 Exec=chromium
-Name=Chromium web browser
+Name=Chromium
+GenericName=Web browser
 Type=Application

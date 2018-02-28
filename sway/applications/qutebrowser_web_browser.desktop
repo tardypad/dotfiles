@@ -1,4 +1,5 @@
 [Desktop Entry]
 Exec=qutebrowser
-Name=qutebrowser web browser
+Name=qutebrowser
+GenericName=Web browser
 Type=Application

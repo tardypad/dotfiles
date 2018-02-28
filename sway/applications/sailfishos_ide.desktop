@@ -1,4 +1,5 @@
 [Desktop Entry]
 Exec=/opt/SailfishOS/SDK/bin/qtcreator
-Name=SailfishOS IDE
+Name=Qt Creator
+GenericName=SailfishOS IDE
 Type=Application

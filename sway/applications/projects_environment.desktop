@@ -1,4 +1,5 @@
 [Desktop Entry]
 Exec=app_projects
-Name=Projects environment
+Name=tmux
+GenericName=Projects environment
 Type=Application

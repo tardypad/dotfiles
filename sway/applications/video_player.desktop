@@ -1,4 +1,5 @@
 [Desktop Entry]
 Exec=vlc
-Name=Video player
+Name=VLC
+GenericName=Video player
 Type=Application

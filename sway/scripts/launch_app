@@ -5,16 +5,23 @@ APP_DESKTOP_FILES_PATH="${XDG_DATA_HOME:-$HOME/.local/share}/applications"
 typeset -A AVAILABLE_APPS
 
 for APP_DESKTOP_FILE in "${APP_DESKTOP_FILES_PATH}"/*.desktop; do
-  APP_NAME=$(
-    grep '^Name='  "${APP_DESKTOP_FILE}" \
-      | cut --delimiter = --fields 2
+  APP_NAMES=$(
+    grep --extended-regexp '^Name=|^GenericName=' "${APP_DESKTOP_FILE}" \
+      | sort \
+      | cut --delimiter = --fields 2 \
+      | paste --delimiters @ - -
   )
-  AVAILABLE_APPS[${APP_NAME}]="${APP_DESKTOP_FILE}"
+  FILLER_LENGTH=$(( COLUMNS - ${#APP_NAMES} - 6 ))
+  FILLER="${(l.$FILLER_LENGTH.. .)}"
+  STYLED_APP_NAMES=$(
+    echo "${APP_NAMES}" | sed "s/@/${FILLER}/"
+  )
+  AVAILABLE_APPS[${STYLED_APP_NAMES}]="${APP_DESKTOP_FILE}"
 done
 
 APPS=$(
-  for APP_NAME in ${(k)AVAILABLE_APPS}; do
-    echo "${APP_NAME}"
+  for STYLED_APP_NAMES in ${(k)AVAILABLE_APPS}; do
+    echo "${STYLED_APP_NAMES}"
   done \
     | sort \
     | fzf --reverse \

@@ -1,4 +1,5 @@
 [Desktop Entry]
 Exec=firefox
-Name=Firefox web browser
+Name=Firefox
+GenericName=Web browser
 Type=Application
