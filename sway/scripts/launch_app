@@ -1,28 +1,57 @@
 #! /usr/bin/env zsh
 
 APP_DESKTOP_FILES_PATH="${XDG_DATA_HOME:-$HOME/.local/share}/applications"
+CACHE_APPS_LIST_PATH="${XDG_CACHE_HOME:-$HOME/.cache}/sway/launch_app"
 
 typeset -A AVAILABLE_APPS
 
-for APP_DESKTOP_FILE in "${APP_DESKTOP_FILES_PATH}"/*.desktop; do
-  APP_NAMES=$(
-    grep --extended-regexp '^Name=|^GenericName=' "${APP_DESKTOP_FILE}" \
-      | sort \
-      | cut --delimiter = --fields 2 \
-      | paste --delimiters @ - -
-  )
-  FILLER_LENGTH=$(( COLUMNS - ${#APP_NAMES} - 6 ))
-  FILLER="${(l.$FILLER_LENGTH.. .)}"
-  STYLED_APP_NAMES=$(
-    echo "${APP_NAMES}" | sed "s/@/${FILLER}/"
-  )
-  AVAILABLE_APPS[${STYLED_APP_NAMES}]="${APP_DESKTOP_FILE}"
-done
+function build_available_apps() {
+  for app_desktop_file in "${APP_DESKTOP_FILES_PATH}"/*.desktop; do
+    local app_names=$(
+      grep --extended-regexp '^Name=|^GenericName=' "${app_desktop_file}" \
+        | sort \
+        | cut --delimiter = --fields 2 \
+        | paste --delimiters @ - -
+    )
+    local filler_length=$(( COLUMNS - ${#app_names} - 6 ))
+    local filler="${(l.$filler_length.. .)}"
+    local styled_app_names=$(
+      echo "${app_names}" | sed "s/@/${filler}/"
+    )
+    AVAILABLE_APPS[${styled_app_names}]="${app_desktop_file}"
+  done
+}
 
-APPS=$(
-  for STYLED_APP_NAMES in ${(k)AVAILABLE_APPS}; do
-    echo "${STYLED_APP_NAMES}"
-  done \
+function check_build_cache() {
+  if [[ -e "${CACHE_APPS_LIST_PATH}" ]]; then
+    local cache_last_modified=$(
+      stat --format '%Y' "${CACHE_APPS_LIST_PATH}"
+    )
+  else
+    local cache_last_modified=0
+  fi
+
+  local files_last_modified=$(
+    find "${APP_DESKTOP_FILES_PATH}" -type f -exec stat --format '%Y' {} \; \
+      | sort \
+      | tail --lines 1
+  )
+
+  if [[ "${cache_last_modified}" -lt "${files_last_modified}" ]]; then
+    mkdir --parents "${XDG_CACHE_HOME:-$HOME/.cache}/sway/"
+
+    build_available_apps
+
+    for styled_app_names in ${(k)AVAILABLE_APPS}; do
+      echo "${styled_app_names}"
+    done > "${CACHE_APPS_LIST_PATH}"
+  fi
+}
+
+check_build_cache
+
+SELECTED_APPS=$(
+  cat "${CACHE_APPS_LIST_PATH}" \
     | sort \
     | fzf --reverse \
           --multi \
@@ -31,12 +60,14 @@ APPS=$(
           --color info:8
 )
 
-if [[ -n "${APPS}" ]]; then
+if [[ -n "${SELECTED_APPS}" ]]; then
+  [[ -n "${AVAILABLE_APPS}" ]] || build_available_apps
+
   IFS=$'\n'
-  for APP in $( echo ${APPS} ); do
+  for SELECTED_APP in $( echo ${SELECTED_APPS} ); do
     # not sure why running dex directly without using swaymsg
     # doesn't work when ran from the launcher
     swaymsg -t command \
-      exec "dex ${AVAILABLE_APPS[$APP]}"
+      exec "dex ${AVAILABLE_APPS[$SELECTED_APP]}"
   done
 fi
