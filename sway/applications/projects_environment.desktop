@@ -2,4 +2,5 @@
 Exec=app_projects
 Name=tmux
 GenericName=Projects environment
+Icon=
 Type=Application

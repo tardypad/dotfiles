@@ -7,16 +7,26 @@ typeset -A AVAILABLE_APPS
 
 function build_available_apps() {
   for app_desktop_file in "${APP_DESKTOP_FILES_PATH}"/*.desktop; do
-    local app_names=$(
-      grep --extended-regexp '^Name=|^GenericName=' "${app_desktop_file}" \
-        | sort \
-        | cut --delimiter = --fields 2 \
-        | paste --delimiters @ - -
+    local app_name=$(
+      grep '^Name=' "${app_desktop_file}" \
+        | cut --delimiter = --fields 2
     )
-    local filler_length=$(( COLUMNS - ${#app_names} - 6 ))
+    local app_generic_name=$(
+      grep '^GenericName=' "${app_desktop_file}" \
+        | cut --delimiter = --fields 2
+    )
+    local app_icon=$(
+      grep '^Icon=' "${app_desktop_file}" \
+        | cut --delimiter = --fields 2
+    )
+
+    local filler_length=$((
+      COLUMNS - ${#app_name} - ${#app_generic_name} - ${#app_icon} - 10
+    ))
     local filler="${(l.$filler_length.. .)}"
+
     local styled_app_names=$(
-      echo "${app_names}" | sed "s/@/${filler}/"
+      echo "${app_icon}  ${app_generic_name}${filler}${app_name}"
     )
     AVAILABLE_APPS[${styled_app_names}]="${app_desktop_file}"
   done

@@ -2,4 +2,5 @@
 Exec=app_chat
 Name=Weechat
 GenericName=Chat client
+Icon=
 Type=Application

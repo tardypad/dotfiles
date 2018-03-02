@@ -2,4 +2,5 @@
 Exec=qutebrowser
 Name=qutebrowser
 GenericName=Web browser
+Icon=
 Type=Application

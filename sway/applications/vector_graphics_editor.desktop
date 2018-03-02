@@ -2,4 +2,5 @@
 Exec=inkscape
 Name=Inkscape
 GenericName=Vector graphics editor
+Icon=
 Type=Application

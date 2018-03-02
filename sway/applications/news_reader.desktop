@@ -2,4 +2,5 @@
 Exec=app_news
 Name=Newsboat
 GenericName=News reader
+Icon=
 Type=Application

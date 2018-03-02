@@ -2,4 +2,5 @@
 Exec=zathura
 Name=Zathura
 GenericName=Document viewer
+Icon=
 Type=Application

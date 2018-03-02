@@ -2,4 +2,5 @@
 Exec=app_monitor
 Name=htop
 GenericName=System monitor
+Icon=
 Type=Application

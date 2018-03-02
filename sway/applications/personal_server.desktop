@@ -2,4 +2,5 @@
 Exec=app_personal_server
 Name=tardypad
 GenericName=Personal server
+Icon=
 Type=Application

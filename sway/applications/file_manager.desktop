@@ -2,4 +2,5 @@
 Exec=termite --title " File manager" --exec vifm
 Name=Vifm
 GenericName=File manager
+Icon=
 Type=Application
