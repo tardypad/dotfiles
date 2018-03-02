@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=termite --title ' File manager' --exec vifm
+Exec=termite --title " File manager" --exec vifm
 Name=Vifm
 GenericName=File manager
 Type=Application
