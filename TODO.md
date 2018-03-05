@@ -2,6 +2,7 @@
   - upgrade tools, plugins, extensions,...
   - remove unused plugins, aliases, functions,...
   - replace unnecessary dependencies with own simpler config, scripts,...
+  - update qutebrowser adblock lists with `:adblock-update`
 
 # Cleaning
   - reorganize vim/zsh/tmux/... config splitting into folders/files  
@@ -48,8 +49,6 @@
     and check with upgrades if they can be fixed or improved
 
 # New Features
-  - qutebrowser host blocking list  
-    see [config](https://github.com/etnadji/dotfiles/blob/master/Softwares_Configs/qutebrowser/.config/qutebrowser/config.py#L529)
   - backup of notes, ncmpcpp lyrics,...
 
 # Research
