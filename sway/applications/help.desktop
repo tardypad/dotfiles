@@ -1,0 +1,6 @@
+[Desktop Entry]
+Exec=termite --title " Help" --exec "help -i"
+Name=help
+GenericName=Help
+Icon=
+Type=Application

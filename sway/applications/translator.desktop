@@ -1,0 +1,6 @@
+[Desktop Entry]
+Exec=termite --title " Translator" --exec translate_shell
+Name=translate-shell
+GenericName=Translator
+Icon=
+Type=Application

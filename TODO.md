@@ -47,6 +47,8 @@
   - use fzf in vim to switch between buffers
   - mark bug or limitation inside config file  
     and check with upgrades if they can be fixed or improved
+  - interactively choose note to open with notes editor  
+    maybe same for help topic and translator languages
 
 # New Features
   - backup of notes, ncmpcpp lyrics,...
@@ -56,10 +58,6 @@
     (has support for man 1p and so, help for zsh function)
   - evaluate making scripts POSIX compliant  
     https://drewdevault.com/2018/02/05/Introduction-to-POSIX-shell.html
-  - replace custom temporary tmux panels/sessions scripts  
-    with sway scripts that launches new terminal windows  
-    check usability of it  
-    (can be launched everywhere outside tmux then but the display might be less good)
   - more use of fzf all over:
     * [README](https://github.com/junegunn/fzf#usage)
     * [wiki](https://github.com/junegunn/fzf/wiki)

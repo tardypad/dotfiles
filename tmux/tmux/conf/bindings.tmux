@@ -23,12 +23,6 @@ bind M-a run "~/.tmux/scripts/toggle_monitor_activity.sh"
 bind M-s run "~/.tmux/scripts/toggle_monitor_silence.sh"
 bind M-b run "~/.tmux/scripts/choose_tree_left.sh buffers"
 
-# temporary panels
-bind M-t run "~/.tmux/scripts/temporary_interactive_panel.sh translate_shell 60"
-bind M-h command-prompt -p 'help:' "run '~/.tmux/scripts/temporary_interactive_panel.sh \"help -i %%\" 80'"
-bind M-n command-prompt -p 'notes:' "run '~/.tmux/scripts/temporary_interactive_panel.sh \"notes open %%\" 80'"
-bind M-c run "~/.tmux/scripts/temporary_interactive_panel.sh qalc 60"
-
 # insert emojis or symbols
 bind M-i command-prompt \
          -p 'insert:,name:' \
