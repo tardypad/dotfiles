@@ -85,8 +85,22 @@
 [diff-so-fancy]
         markEmptyLines = false
         changeHunkIndicators = true
-        stripLeadingSymbols = true
+        stripLeadingSymbols = false
         useUnicodeRuler = false
+[color "diff"]
+        commit = yellow
+        context = normal
+        frag = blue
+        func = cyan
+        meta = 11 italic
+        new = green
+        old = red
+        whitespace = reverse
+[color "diff-highlight"]
+        oldNormal = red
+        oldHighlight = red ul
+        newNormal = green
+        newHighlight = green ul
 [url "github:tardypad/"]
         insteadOf = github:
 [include]
