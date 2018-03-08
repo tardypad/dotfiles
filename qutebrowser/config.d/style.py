@@ -1,0 +1,24 @@
+# fonts
+c.fonts.completion.category       = "bold 14pt monospace"
+c.fonts.completion.entry          = "14pt monospace"
+c.fonts.debug_console             = "14pt monospace"
+c.fonts.downloads                 = "14pt Source Sans Pro"
+c.fonts.hints                     = "bold 14pt monospace"
+c.fonts.keyhint                   = "14pt monospace"
+c.fonts.messages.error            = "14pt Source Sans Pro"
+c.fonts.messages.info             = "14pt Source Sans Pro"
+c.fonts.messages.warning          = "14pt Source Sans Pro"
+c.fonts.monospace                 = "Source Code Pro"
+c.fonts.prompts                   = "14pt Source Sans Pro"
+c.fonts.statusbar                 = "14pt monospace"
+c.fonts.tabs                      = "14pt Source Sans Pro"
+c.fonts.web.family.cursive        = ""
+c.fonts.web.family.fantasy        = ""
+c.fonts.web.family.fixed          = "Source Code Pro"
+c.fonts.web.family.sans_serif     = "Source Sans Pro"
+c.fonts.web.family.serif          = "Source Serif Pro"
+c.fonts.web.family.standard       = "Source Sans Pro"
+c.fonts.web.size.default          = 16
+c.fonts.web.size.default_fixed    = 13
+c.fonts.web.size.minimum          = 0
+c.fonts.web.size.minimum_logical  = 6
