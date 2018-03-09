@@ -19,6 +19,7 @@ include ctags/Makefile
 include fontconfig/Makefile
 include git/Makefile
 include gnupg/Makefile
+include gnuplot/Makefile
 include htop/Makefile
 include httpie/Makefile
 include http-prompt/Makefile
