@@ -1,0 +1,3 @@
+local file="$1"
+
+gnuplot -e "plot '${file}' pt '*'"
