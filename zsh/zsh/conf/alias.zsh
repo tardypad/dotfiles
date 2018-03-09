@@ -22,6 +22,10 @@ alias ssh='TERM=xterm-256color ssh'
 # switch to root
 alias root='sudo --preserve-env --shell'
 
+# simple linters
+alias json_lint='python -m json.tool'
+alias xml_lint='xmllint --format -'
+
 alias pj='goto_project_repo'
 alias PJ='goto_project_main'
 alias logs='goto_project_logs'
