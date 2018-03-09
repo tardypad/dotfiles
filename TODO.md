@@ -49,6 +49,7 @@
     and check with upgrades if they can be fixed or improved
   - interactively choose note to open with notes editor  
     maybe same for help topic and translator languages
+  - qutebrowser full bindings reworking like other tools
 
 # New Features
   - backup of notes, ncmpcpp lyrics,...
