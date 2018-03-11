@@ -24,6 +24,7 @@ assign [title=" .*server.*"] $ws2
 assign [title=" Chat client"] $ws3
 assign [title=" Mail client"] $ws3
 assign [title=" News reader"] $ws3
+assign [title=" Do it LIVE!"] $ws9
 
 # assign all browsers to their workspace
 assign [class="Chromium"] $ws10

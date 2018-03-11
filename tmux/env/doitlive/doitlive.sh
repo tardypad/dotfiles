@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+socket="$1"
 
-image_path="${HOME}/.tmux/images/doitlive"
+image_path="${XDG_DATA_HOME:-$HOME/.local/share}/sway/images/doitlive"
 session_name="Fuck it, we'll do it live!"
 window_name="What could possibly go wrong?"
 
@@ -22,13 +22,21 @@ display_command="cat <( echo \"${margin_top}\" ) ${image_path} \
   && read -s -d q"
 
 # better do things live on a clean plate
-if tmux has-session -t "${session_name}"; then
-  tmux kill-session -t "${session_name}"
+if tmux -L "${socket}" has-session -t "${session_name}"; then
+  tmux -L "${socket}" kill-session -t "${session_name}"
 fi
 
 # new FIWDIL session with image on the left and work on the right
-tmux new-session -d -s "${session_name}" -n "${window_name}"
-tmux split-window -h -b \
+tmux -L "${socket}" \
+  new-session -d \
+  -s "${session_name}" \
+  -n "${window_name}"
+
+tmux -L "${socket}" \
+  split-window -h -b \
   -t "${session_name}:${window_name}.1" \
   "${display_command}"
-tmux switch-client -t "${session_name}:${window_name}.2"
+
+tmux -L "${socket}" \
+  select-pane \
+  -t "${session_name}:${window_name}.2"

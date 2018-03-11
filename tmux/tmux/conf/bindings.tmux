@@ -28,9 +28,6 @@ bind M-i command-prompt \
          -p 'insert:,name:' \
          "run 'tmux send-keys -l \"$(insert_%1 %2)\"'"
 
-# Do it live!
-bind F1 run "~/.tmux/scripts/do_it_live.sh"
-
 # sessions management (using Ctrl)
 bind    C-s run "~/.tmux/scripts/choose_tree_left.sh sessions"
 bind    C-a switch-client -l
