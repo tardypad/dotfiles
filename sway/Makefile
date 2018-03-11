@@ -17,7 +17,7 @@ sway:
 		"sway/applications" "${DATA_DIR}/applications"
 	@cp --recursive --force --no-target-directory \
 		"sway/autostart" "${CONFIG_DIR}/autostart"
-	@cp "sway/wallpaper.jpg" "${DATA_DIR}/sway/wallpaper.jpg"
-	@cp "sway/wallpaper-lock.jpg" "${DATA_DIR}/sway/wallpaper-lock.jpg"
+	@cp --recursive --force --no-target-directory \
+		"sway/images" "${DATA_DIR}/sway/images"
 
 	@echo -e "\r✔ setup sway"
