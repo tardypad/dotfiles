@@ -1,3 +1,0 @@
-local string="$1"
-
-base64 --decode <( echo -n "${string}" )

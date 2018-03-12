@@ -1,3 +1,6 @@
-local string="$1"
+local options=${@:1:$(( # - 1 ))}
+local string="${@: -1}"
 
-base64 <( echo -n "${string}" )
+base64 \
+  $options \
+  <( echo -n "${string}" )
