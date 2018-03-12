@@ -1,0 +1,15 @@
+#! /usr/bin/env zsh
+
+NOTE=$(
+  notes ls \
+  | fzf --reverse \
+        --no-multi \
+        --margin 1,2,0,2 \
+        --prompt 'open note ' \
+        --color info:8 \
+)
+
+[[ -n "${NOTE}" ]] || exit
+
+swaymsg -t command \
+  exec "termite --title ' Notes' --exec 'notes open ${NOTE}'"

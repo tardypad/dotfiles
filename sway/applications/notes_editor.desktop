@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=termite --title " Notes" --exec "notes open todo"
+Exec=launcher launch_note
 Name=notes
 GenericName=Notes editor
 Icon=
