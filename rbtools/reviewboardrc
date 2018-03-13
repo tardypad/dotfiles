@@ -16,7 +16,7 @@ ALIASES = {
               --summary "[${repository}] ${commit_subject}" \
               --description "${commit_description:-$commit_subject} " \
               --branch "${current_branch}" \
-              --bugs-closed "${issue_id}" \
+              --bugs-closed "${issue_id:-NONE}" \
               --testing-done "unit tests" \
               --parent HEAD~ \
               | grep diff`; \
