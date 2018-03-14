@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=app_projects
+Exec=app_tmux_env projects " Projects environment"
 Name=tmux
 GenericName=Projects environment
 Icon=
