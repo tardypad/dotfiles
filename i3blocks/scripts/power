@@ -45,10 +45,8 @@ else
     echo "<span foreground='#dc322f'>${BATTERY_ICON} ${TOTAL_ENERGY_PERCENT}%</span>"
 
     # play alert sound
-    vlc \
-      --intf dummy \
-      --play-and-exit \
-      "${XDG_DATA_HOME:-$HOME/.local/share}/i3blocks/sounds/low_battery.ogg" \
+    aplay \
+      "${XDG_DATA_HOME:-$HOME/.local/share}/i3blocks/sounds/low_battery.wav" \
       &> /dev/null
 
     exit 33
