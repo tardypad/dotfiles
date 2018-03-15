@@ -2,14 +2,14 @@ command=~/.config/i3blocks/scripts/$BLOCK_NAME
 markup=pango
 
 [network]
-interval=30
+interval=10
 
 [volume]
 interval=once
 signal=1
 
 [power]
-interval=30
+interval=10
 
 [date]
 interval=10
