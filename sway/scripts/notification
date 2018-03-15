@@ -6,9 +6,11 @@ TMP_TEXT_FILE="$2"
 EXTRA_COMMAND="$3"
 
 # do nothing if the lockscreen is on
-# there seems to be a bug where the notification is displayed over the lockscreen
-# when launched for the systemd service
-if pgrep swaylock &> /dev/null; then
+#   there seems to be a bug where the notification is displayed over the lockscreen
+#   when launched for the systemd service
+# or if the "Do not disturb" mode is on
+if pgrep swaylock &> /dev/null \
+     || [[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/sway/do_not_disturb" ]]; then
   rm "${TMP_TEXT_FILE}"
   exit
 fi

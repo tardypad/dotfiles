@@ -1,6 +1,10 @@
 command=~/.config/i3blocks/scripts/$BLOCK_NAME
 markup=pango
 
+[do_not_disturb]
+interval=once
+signal=2
+
 [network]
 interval=10
 

@@ -21,8 +21,9 @@ bindsym $mod+Space exec launcher launch_app
 # start the generic launcher
 bindsym $mod+Shift+Space exec launcher launch_command
 
-# display monitor
-bindsym $mod+Escape exec app_monitor
+# do not disturb toggle
+bindsym $mod+Escape exec toggle_do_not_disturb \
+                         && pkill -RTMIN+2 i3blocks
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
