@@ -1,0 +1,114 @@
+#!/usr/bin/env zsh
+
+COMMAND=${0:t}
+
+init_variables() {
+  RUN_COMMAND=
+  COUNT=
+  INTERVAL=0
+  TIME=
+}
+
+
+error() {
+  [[ -z "$1" ]] || echo "$1" >&2
+  usage
+  exit 1
+}
+
+
+usage() {
+  cat << EOF
+usage: ${COMMAND} [<options>] command
+
+Execute a command in a loop
+
+Options:
+  -c,  --count     COUNT      stops after COUNT runs of the command
+  -h,  --help                 show this message only
+  -i,  --interval  INTERVAL   wait INTERVAL seconds between each command run
+                              default is 0, floating number are accepted
+  -t,  --time      TIME       stops command runs after a TIME seconds period
+EOF
+}
+
+
+loop_command() {
+    local end_time=
+    [[ -n "${TIME}" ]] && end_time=$(( SECONDS + TIME ))
+
+    local run_count=0
+
+    while : ; do
+      eval "${RUN_COMMAND}"
+
+      ((run_count+=1))
+
+      [[ -n "${TIME}" && "${SECONDS}" -ge "${end_time}" ]] && return 0
+      [[ -n "${COUNT}" && "${run_count}" -ge "${COUNT}" ]] && return 0
+
+      sleep "${INTERVAL}"
+    done
+}
+
+
+parse_options() {
+  while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+      -c|--count)
+        [[ -n "$2" ]] || error 'Missing --count value'
+        COUNT="$2"
+        shift 2
+        ;;
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      -i|--interval)
+        [[ -n "$2" ]] || error 'Missing --interactive value'
+        INTERVAL="$2"
+        shift 2
+        ;;
+      -t|--time)
+        [[ -n "$2" ]] || error 'Missing --time value'
+        TIME="$2"
+        shift 2
+        ;;
+      *)
+        break 2
+        ;;
+    esac
+  done
+
+  RUN_COMMAND="$@"
+}
+
+
+validate_options() {
+  if [[ -z "${COUNT}" && -z "${TIME}" ]]; then
+    error 'you must specify at least --count or --time options'
+  fi
+
+  if [[ -n "${COUNT}" && ! ${COUNT} =~ ^[1-9][0-9]*$ ]]; then
+    error 'count must be a strictly positive integer'
+  fi
+
+  if [[ -n "${TIME}" && ! ${TIME} =~ ^[1-9][0-9]*$ ]]; then
+    error 'time must be a strictly positive integer'
+  fi
+
+  if [[ ! ${INTERVAL} =~ ^[0-9]+(\.[0-9]*)?$ ]]; then
+    error 'interval must be a number'
+  fi
+
+  if [[ -z "${RUN_COMMAND}" ]]; then
+    error 'no command to run'
+  fi
+}
+
+
+init_variables
+parse_options "$@"
+validate_options
+
+loop_command
