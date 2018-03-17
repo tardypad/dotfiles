@@ -11,9 +11,10 @@ TOOLS := $(subst /,, $(dir $(wildcard */Makefile)))
 all: $(TOOLS)
 .PHONY: all $(TOOLS)
 
-# all Makefiles be included with "include */Makefile"
+# all Makefiles could be included with "include */Makefile"
 # or "$(foreach tool, $(TOOLS), $(eval include $(tool)/Makefile))"
 # but then we lose the autocompletion in the command line :(
+include aria2/Makefile
 include coreutils/Makefile
 include ctags/Makefile
 include fontconfig/Makefile
