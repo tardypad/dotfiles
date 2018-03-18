@@ -1,6 +1,6 @@
 #! /usr/bin/env zsh
 
-COMMAND="$1"
+COMMAND="$@"
 
 # try to focus existing window if it exists
 FOCUS=$(swaymsg -t command '[title="sway_launcher"]' focus)
@@ -9,7 +9,7 @@ FOCUS=$(swaymsg -t command '[title="sway_launcher"]' focus)
 # launch new launcher otherwise
 swaymsg -t command exec "\
   termite \
-    --exec ${COMMAND} \
+    --exec \"${COMMAND}\" \
     --config ${HOME}/.config/termite/config_launcher \
     --title sway_launcher \
     --geometry 700x400 \

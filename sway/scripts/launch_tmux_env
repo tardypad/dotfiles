@@ -1,0 +1,19 @@
+#! /usr/bin/env zsh
+
+ENV_NAME="$1"
+TITLE="$2"
+
+ENV_PATH="${XDG_DATA_HOME:-$HOME/.local/share}/tmux/env/${ENV_NAME}"
+
+SESSION=$(
+  print -l -- "${ENV_PATH}"/*.sh(:t:r) \
+  | fzf --reverse \
+        --no-multi \
+        --margin 1,2,0,2 \
+        --prompt 'open session ' \
+        --color info:8 \
+)
+
+[[ -n "${SESSION}" ]] || exit
+
+app_tmux_env "${ENV_NAME}" "${TITLE}" "${SESSION}"
