@@ -103,7 +103,7 @@ start_target_tmux_env() {
         tmux -L "${SOCKET}" attach-session
       fi
     else
-        tmux -L "${SOCKET}" switch-client -t "${session_pattern}"
+        tmux -L "${SOCKET}" switch-client -t "${session_pattern}" &> /dev/null
     fi
 
   else
@@ -127,7 +127,7 @@ start_target_tmux_env() {
         ssh -t "${HOST}" tmux -L "${SOCKET}" attach-session
       fi
     else
-        ssh -t "${HOST}" tmux -L "${SOCKET}" switch-client -t "${session_pattern}"
+        ssh -t "${HOST}" tmux -L "${SOCKET}" switch-client -t "${session_pattern}" &> /dev/null
     fi
   fi
 }
