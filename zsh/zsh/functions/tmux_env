@@ -5,6 +5,7 @@ local env_dir_path="${XDG_DATA_HOME:-$HOME/.local/share}/tmux/env/"
 local available_targets=( $(
   ls "${env_dir_path}"
 ) )
+local background=false
 
 local target=
 local session=
@@ -22,7 +23,8 @@ Start target tmux environment sessions
 Each target is a different local or remote tmux server
 
 Options:
-  -h,  --help     show this message only
+  -b,  --background     launch in background, no attach
+  -h,  --help           show this message only
 
 Available targets: ${available_targets}
 If session is not defined, all of the target's ones are started
@@ -93,11 +95,15 @@ start_target_tmux_env() {
       fi
     done
 
-    if [[ -n "${session}" ]]; then
-      local session_pattern="*$( get_session_pattern "${session}" )*"
-      tmux -L "${SOCKET}" attach-session -t "${session_pattern}"
+    local session_pattern="*$( get_session_pattern "${session}" )*"
+    if ! $background; then
+      if [[ -n "${session}" ]]; then
+        tmux -L "${SOCKET}" attach-session -t "${session_pattern}"
+      else
+        tmux -L "${SOCKET}" attach-session
+      fi
     else
-      tmux -L "${SOCKET}" attach-session
+        tmux -L "${SOCKET}" switch-client -t "${session_pattern}"
     fi
 
   else
@@ -113,11 +119,15 @@ start_target_tmux_env() {
       fi
     done
 
-    if [[ -n "${session}" ]]; then
-      local session_pattern="*$( get_session_pattern "${session}" )*"
-      ssh -t "${HOST}" tmux -L "${SOCKET}" attach-session -t "${session_pattern}"
+    local session_pattern="*$( get_session_pattern "${session}" )*"
+    if ! $background; then
+      if [[ -n "${session}" ]]; then
+        ssh -t "${HOST}" tmux -L "${SOCKET}" attach-session -t "${session_pattern}"
+      else
+        ssh -t "${HOST}" tmux -L "${SOCKET}" attach-session
+      fi
     else
-      ssh -t "${HOST}" tmux -L "${SOCKET}" attach-session
+        ssh -t "${HOST}" tmux -L "${SOCKET}" switch-client -t "${session_pattern}"
     fi
   fi
 }
@@ -126,6 +136,10 @@ start_target_tmux_env() {
 # parse options
 while [[ "$#" -gt 0 ]]; do
   case "$1" in
+    -b|--background)
+      background=true
+      shift
+      ;;
     -h|--help)
       usage
       return 0
