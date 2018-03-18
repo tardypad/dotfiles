@@ -1,7 +1,7 @@
 #! /usr/bin/env zsh
 
-ENV_NAME="$1"
-TITLE="$2"
+TITLE="$1"
+ENV_NAME="$2"
 SESSION_NAME="$3"
 
 # create env in background
