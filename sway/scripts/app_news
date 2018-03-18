@@ -8,7 +8,7 @@ focus_window_title "${TITLE}" && exit
 # launch new app otherwise
 swaymsg -t command \
   exec "termite \
-g         --title \"${TITLE}\" \
+          --title \"${TITLE}\" \
           --exec newsboat"
 
 # focus the window (not automatic if different workspace)
