@@ -6,7 +6,7 @@ ENV_NAME="$2"
 ENV_PATH="${XDG_DATA_HOME:-$HOME/.local/share}/tmux/env/${ENV_NAME}"
 
 SESSION=$(
-  print -l -- "${ENV_PATH}"/*.sh(:t:r) \
+  print -l -- all "${ENV_PATH}"/*.sh(:t:r) \
   | fzf --reverse \
         --no-multi \
         --margin 1,2,0,2 \
@@ -15,5 +15,7 @@ SESSION=$(
 )
 
 [[ -n "${SESSION}" ]] || exit
+
+[[ "${SESSION}" == 'all' ]] && SESSION=
 
 app_tmux_env "${TITLE}" "${ENV_NAME}" "${SESSION}"
