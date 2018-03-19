@@ -22,3 +22,11 @@ config.bind('<Alt-0>', 'tab-focus 10', mode='normal')
 config.bind('<Alt-`>', 'tab-focus last', mode='normal')
 config.bind('gt', 'tab-focus', mode='normal')
 config.bind('gT', 'tab-prev', mode='normal')
+
+# zooming
+config.unbind('-', mode='normal')
+config.unbind('+', mode='normal')
+config.unbind('=', mode='normal')
+config.bind('<Ctrl-->', 'zoom-out', mode='normal')
+config.bind('<Ctrl-Shift-+>', 'zoom-in', mode='normal')
+config.bind('<Ctrl-=>', 'zoom', mode='normal')
