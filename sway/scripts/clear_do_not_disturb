@@ -1,7 +1,0 @@
-#! /usr/bin/env zsh
-
-FILE_PATH="${XDG_DATA_HOME:-$HOME/.local/share}/sway/do_not_disturb"
-
-[[ -f "${FILE_PATH}" ]] && rm "${FILE_PATH}"
-
-exit 0

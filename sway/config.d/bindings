@@ -22,7 +22,7 @@ bindsym $mod+Space exec launcher launch_app
 bindsym $mod+Shift+Space exec launcher launch_command
 
 # do not disturb toggle
-bindsym $mod+Escape exec toggle_do_not_disturb \
+bindsym $mod+Escape exec do_not_disturb toggle \
                          && pkill -RTMIN+2 i3blocks
 
 # Drag floating windows by holding down $mod and left mouse button.

@@ -1,0 +1,15 @@
+#! /usr/bin/env zsh
+
+OPTION="$1"
+
+FILE_PATH="${XDG_DATA_HOME:-$HOME/.local/share}/sway/do_not_disturb"
+
+if [[ "${OPTION}" == 'toggle' ]]; then
+  if [[ -f "${FILE_PATH}" ]]; then
+    rm "${FILE_PATH}"
+  else
+    touch "${FILE_PATH}"
+  fi
+elif [[ "${OPTION}" == 'remove' ]]; then
+  rm "${FILE_PATH}"
+fi
