@@ -5,7 +5,7 @@ pkgbuilds_path=$( get_project_repo_path pkgbuilds_path )
 
 tmux -L "${socket}" \
   new-session -d \
-  -s '02-Pkgbuilds' \
+  -s 'Pkgbuilds' \
   -n 'terminal' \
   -c "${pkgbuilds_path}"
 
