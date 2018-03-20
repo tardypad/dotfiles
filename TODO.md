@@ -76,8 +76,6 @@
     * [lnav](https://github.com/tstack/lnav) log file navigator
   - vim session usage
     * [vim-session](https://github.com/xolox/vim-session)
-  - vim tab usage
-    * [taboo](https://github.com/gcmt/taboo.vim)
   - distraction free mode  
     and scripts to disable tmux status bar, increase tmux pane,...
     * [vim limelight](https://github.com/junegunn/limelight.vim)

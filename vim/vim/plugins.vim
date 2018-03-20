@@ -108,6 +108,11 @@ Plug 'ntpeters/vim-airline-colornum',
   \ { 'as': 'airline-colornum',
   \   'tag': '0.1.0' }
 
+" Tab utilities
+Plug 'gcmt/taboo.vim',
+  \ { 'as': 'taboo',
+  \   'commit': '1367baf' }
+
 " A better JSON
 Plug 'elzr/vim-json',
   \ { 'as': 'json', 'for': 'json',
