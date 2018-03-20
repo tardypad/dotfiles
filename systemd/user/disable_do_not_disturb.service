@@ -5,4 +5,4 @@ Before=shutdown.target
 
 [Service]
 Type=oneshot
-ExecStart=/home/damien/.config/sway/scripts/do_not_disturb remove
+ExecStart=/home/damien/.config/sway/scripts/do_not_disturb disable
