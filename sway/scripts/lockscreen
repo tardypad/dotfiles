@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 swaylock \
-  --image "${XDG_DATA_HOME:-$HOME/.local/share}/sway/images/wallpaper-lock.jpg" \
+  --image "${XDG_CONFIG_HOME:-$HOME/.config}/sway/images/wallpaper-lock.jpg" \
   --scaling fill \
   --indicator-radius 250 \
   --indicator-thickness 15 \

@@ -1,6 +1,6 @@
 # init variables
 local command=${0:t}
-local env_dir_path="${XDG_DATA_HOME:-$HOME/.local/share}/tmux/env/"
+local env_dir_path="${XDG_CONFIG_HOME:-$HOME/.config}/tmux/env/"
 
 local available_targets=( $(
   ls "${env_dir_path}"

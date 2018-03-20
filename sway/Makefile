@@ -18,6 +18,6 @@ sway:
 	@cp --recursive --force --no-target-directory \
 		"sway/autostart" "${CONFIG_DIR}/autostart"
 	@cp --recursive --force --no-target-directory \
-		"sway/images" "${DATA_DIR}/sway/images"
+		"sway/images" "${CONFIG_DIR}/sway/images"
 
 	@echo -e "\r✔ setup sway"

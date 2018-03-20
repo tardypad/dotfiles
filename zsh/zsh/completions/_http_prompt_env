@@ -1,6 +1,6 @@
 #compdef http_prompt_env
 
-local env_dir_path="${XDG_DATA_HOME:-$HOME/.local/share}/http-prompt/env/"
+local env_dir_path="${XDG_CONFIG_HOME:-$HOME/.config}/http-prompt/env/"
 
 _projects() {
   local folders=( $(

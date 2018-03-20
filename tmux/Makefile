@@ -3,7 +3,7 @@ tmux:
 
     # create necessary directories
 	@mkdir -p "$(HOME)/.tmux"
-	@mkdir -p "$(DATA_DIR)/tmux/env"
+	@mkdir -p "$(CONFIG_DIR)/tmux"
 
     # copy config files
 	@cp "tmux/tmux.conf" "$(HOME)/.tmux.conf"
@@ -12,6 +12,6 @@ tmux:
 	@cp --recursive --force --no-target-directory \
 		"tmux/tmux/conf" "$(HOME)/.tmux/conf"
 	@cp --recursive --force --no-target-directory \
-		"tmux/env" "$(DATA_DIR)/tmux/env"; \
+		"tmux/env" "$(CONFIG_DIR)/tmux/env"; \
 
 	@echo -e "\r✔ setup tmux"

@@ -3,7 +3,7 @@
 TITLE="$1"
 ENV_NAME="$2"
 
-ENV_PATH="${XDG_DATA_HOME:-$HOME/.local/share}/tmux/env/${ENV_NAME}"
+ENV_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/tmux/env/${ENV_NAME}"
 
 SESSION=$(
   print -l -- all "${ENV_PATH}"/*.sh(:t:r) \

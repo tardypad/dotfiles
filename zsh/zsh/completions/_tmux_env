@@ -1,6 +1,6 @@
 #compdef tmux_env
 
-local env_dir_path="${XDG_DATA_HOME:-$HOME/.local/share}/tmux/env/"
+local env_dir_path="${XDG_CONFIG_HOME:-$HOME/.config}/tmux/env/"
 
 _targets() {
   local targets=( $(

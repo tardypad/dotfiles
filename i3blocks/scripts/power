@@ -46,7 +46,7 @@ else
 
     # play alert sound
     aplay \
-      "${XDG_DATA_HOME:-$HOME/.local/share}/i3blocks/sounds/low_battery.wav" \
+      "${XDG_CONFIG_HOME:-$HOME/.config}/i3blocks/sounds/low_battery.wav" \
       &> /dev/null
 
     exit 33
