@@ -1,0 +1,54 @@
+#! /usr/bin/env zsh
+
+typeset -A LIST
+
+LIST=(
+  'Cool'                 '(⌐■_■)'
+  'Copyright'            '©'
+  'Degree'               '°'
+  'Euro'                 '€'
+  'Flipping table'       '(╯°□°)╯︵┻━┻'
+  'Happy Gary'           'ᕕ(ᐛ)ᕗ'
+  'Look of Disapproval'  'ಠ_ಠ'
+  'Registered'           '®'
+  'Shrug'                '¯\_(ツ)_/¯'
+  'Trademark'            '™'
+)
+
+display_item() {
+  local name="$1"
+
+  # there is a length calculation issue for character such as ツ
+  # which are counted as 1 but are displayed on 2 cells
+  local item=$LIST[${NAME}]
+  local filler_length=$((
+    COLUMNS - ${#name} - ${#item} - 8
+  ))
+  local filler="${(l.$filler_length.. .)}"
+
+  echo "${name}${filler}${item}"
+}
+
+TYPE=$(
+  for NAME in "${(@k)LIST}"; do
+    display_item "${NAME}"
+  done \
+    | sort \
+    | fzf --reverse \
+          --no-multi \
+          --margin 1,2,0,2 \
+          --prompt 'copy ' \
+          --color info:8
+)
+
+[[ -n "${TYPE}" ]] || exit
+
+# if there ever are 2 items where one full name is the beginning of another
+# then the loop search will need to start with items of longer length
+# to match the proper item
+for NAME in "${(@k)LIST}"; do
+  if [[ "${TYPE}" =~ "${NAME}*" ]]; then
+    swaymsg clipboard  "$LIST[${NAME}]"
+    exit
+  fi
+done

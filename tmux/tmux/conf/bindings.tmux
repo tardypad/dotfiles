@@ -23,11 +23,6 @@ bind M-a run "~/.tmux/scripts/toggle_monitor_activity.sh"
 bind M-s run "~/.tmux/scripts/toggle_monitor_silence.sh"
 bind M-b run "~/.tmux/scripts/choose_tree_left.sh buffers"
 
-# insert emojis or symbols
-bind M-i command-prompt \
-         -p 'insert:,name:' \
-         "run 'tmux send-keys -l \"$(insert_%1 %2)\"'"
-
 # sessions management (using Ctrl)
 bind    C-s run "~/.tmux/scripts/choose_tree_left.sh sessions"
 bind    C-a switch-client -l

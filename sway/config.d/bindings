@@ -21,6 +21,9 @@ bindsym $mod+Space exec launcher launch_app
 # start the generic launcher
 bindsym $mod+Shift+Space exec launcher launch_command
 
+# start the clipboard launcher
+bindsym $mod+Shift+c exec launcher launch_clipboard
+
 # do not disturb toggle
 bindsym $mod+Escape exec do_not_disturb toggle \
                          && pkill -RTMIN+2 i3blocks
