@@ -8,6 +8,7 @@ LIST=(
   'Degree'               '°'
   'Euro'                 '€'
   'Flipping table'       '(╯°□°)╯︵┻━┻'
+  'Flipping text'        '(╯°□°)╯︵ʇxǝʇ'
   'Happy Gary'           'ᕕ(ᐛ)ᕗ'
   'Look of Disapproval'  'ಠ_ಠ'
   'Registered'           '®'
@@ -29,6 +30,47 @@ display_item() {
   echo "${name}${filler}${item}"
 }
 
+upside_down() {
+  local text="$1"
+  local result_text
+
+  # can't use tr on non ascii characters...
+  for (( i=0; i<${#text}; i++ )); do
+    case "${text:$i:1}" in
+      'a') result_text+='ɐ' ;;
+      'b') result_text+='q' ;;
+      'c') result_text+='ɔ' ;;
+      'd') result_text+='p' ;;
+      'e') result_text+='ǝ' ;;
+      'f') result_text+='ɟ' ;;
+      'g') result_text+='ɓ' ;;
+      'h') result_text+='ɥ' ;;
+      'i') result_text+='ᴉ' ;;
+      'j') result_text+='ɾ' ;;
+      'k') result_text+='ʞ' ;;
+      'l') result_text+='l' ;;
+      'm') result_text+='ɯ' ;;
+      'n') result_text+='u' ;;
+      'o') result_text+='o' ;;
+      'p') result_text+='d' ;;
+      'q') result_text+='b' ;;
+      'r') result_text+='ɹ' ;;
+      's') result_text+='s' ;;
+      't') result_text+='ʇ' ;;
+      'u') result_text+='n' ;;
+      'v') result_text+='ʌ' ;;
+      'w') result_text+='ʍ' ;;
+      'x') result_text+='x' ;;
+      'y') result_text+='ʎ' ;;
+      'z') result_text+='z' ;;
+      ' ') result_text+=' ' ;;
+    esac
+  done
+
+  echo "$result_text" | rev
+}
+
+
 TYPE=$(
   for NAME in "${(@k)LIST}"; do
     display_item "${NAME}"
@@ -42,6 +84,19 @@ TYPE=$(
 )
 
 [[ -n "${TYPE}" ]] || exit
+
+
+# Special case
+if [[ "${TYPE}" =~ 'Flipping text*' ]]; then
+  echo 'What to flip? (╯°□°)╯︵'
+  read FLIP_TEXT
+  FLIP_TEXT=$( echo "${FLIP_TEXT}" | tr --delete '\n' )
+
+  [[ -n "${FLIP_TEXT}" ]] || exit
+
+  swaymsg clipboard "(╯°□°)╯︵$( upside_down ${FLIP_TEXT} )"
+  exit
+fi
 
 # if there ever are 2 items where one full name is the beginning of another
 # then the loop search will need to start with items of longer length
