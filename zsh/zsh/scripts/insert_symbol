@@ -1,9 +1,0 @@
-#!/usr/bin/env zsh
-
-case "$1" in
-  'copyright')  echo ©;;
-  'degree')     echo °;;
-  'euro')       echo €;;
-  'registered') echo ®;;
-  'trademark')  echo ™;;
-esac

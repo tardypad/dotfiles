@@ -1,14 +1,7 @@
 #!/usr/bin/env zsh
 
-if [[ "$1" == '-a' ]]; then
-  ANIMATE=true
-  NAME="$2"
-  EXTRA="$3"
-else
-  ANIMATE=false
-  NAME="$1"
-  EXTRA="$2"
-fi
+NAME="$1"
+EXTRA="$2"
 
 
 function frame {
@@ -61,15 +54,6 @@ function fliptable {
   local text="$1"
   local upside_down_text=$( upside-down ${text} )
 
-  if ! $ANIMATE; then
-    if [[ -n "${text}" ]]; then
-      echo "(╯°□°)╯︵${upside_down_text}"
-    else
-      echo '(╯°□°)╯︵┻━┻'
-    fi
-    return
-  fi
-
   if [[ -n "${text}" ]]; then
     frame "( °-°) ${text}"
     frame "( °-°) ${text}"
@@ -96,11 +80,6 @@ function fliptable {
 }
 
 function cool {
-  if ! $ANIMATE; then
-    echo '(⌐■_■)'
-    return
-  fi
-
   frame '( •_•)'
   frame '( •_•)'
   frame '( •_•)'
@@ -113,11 +92,6 @@ function cool {
 }
 
 function shrug {
-  if ! $ANIMATE; then
-    echo '¯\_(ツ)_/¯'
-    return
-  fi
-
   frame '_╭-(ツ)-╮_'
   frame '_╭-(ツ)-╮_'
   frame '_╭-(ツ)-╮_'
@@ -127,11 +101,6 @@ function shrug {
 }
 
 function disapprove {
-  if ! $ANIMATE; then
-    echo 'ಠ_ಠ'
-    return
-  fi
-
   frame 'ʘ‿ʘ'
   frame 'ʘ‿ʘ'
   frame 'ʘ‿ʘ'
@@ -143,11 +112,6 @@ function disapprove {
 }
 
 function happygary {
-  if ! $ANIMATE; then
-    echo 'ᕕ(ᐛ)ᕗ'
-    return
-  fi
-
   frame 'ᕕ(ᐛ)ᕗ'
   frame 'ᕕ(ᐛ)ᕗ'
   frame 'ᕙ(ᐖ)ᕡ'
