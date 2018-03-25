@@ -8,7 +8,7 @@ local available_targets=( $(
 local background=false
 
 local target=
-local session=
+local sessions=
 
 # variables coming from env files
 local HOST=localhost
@@ -17,7 +17,7 @@ local SOCKET=default
 
 usage() {
   cat << EOF
-usage: ${command} [<options>] <target> [<session>]
+usage: ${command} [<options>] <target> [<session>...]
 
 Start target tmux environment sessions
 Each target is a different local or remote tmux server
@@ -27,7 +27,7 @@ Options:
   -h,  --help           show this message only
 
 Available targets: ${available_targets}
-If session is not defined, all of the target's ones are started
+If no session is defined, all of the target's ones are started
 EOF
 }
 
@@ -72,11 +72,13 @@ is_session_present() {
 start_target_tmux_env() {
   source "${env_dir_path}/${target}/env"
 
-  local scripts_path
-  if [[ -n "${session}" ]]; then
-    scripts_path=(
-      "${env_dir_path}/${target}/${session}.sh"
-    )
+  local scripts_path=()
+  if [[ -n "${sessions}" ]]; then
+    for session in ${sessions}; do
+      scripts_path+=(
+        "${env_dir_path}/${target}/${session}.sh"
+      )
+    done
   else
     scripts_path=( $(
       ls "${env_dir_path}/${target}"/*.sh
@@ -156,7 +158,7 @@ if [[ $# -eq 0 ]]; then
 fi
 
 target="$1"
-session="$2"
+sessions=( ${@:2} )
 
 # validate target
 if ! (( ${available_targets[(Ie)${target}]} )); then
@@ -164,12 +166,13 @@ if ! (( ${available_targets[(Ie)${target}]} )); then
   return 1
 fi
 
-# validate target's session if present
-if [[ -n "${session}" ]] \
-     && [[ ! -f "${env_dir_path}/${target}/${session}.sh" ]]; then
-  error "invalid target's session ${session}"
-  return 1
-fi
+# validate target's sessions if present
+for session in ${sessions}; do
+  if [[ ! -f "${env_dir_path}/${target}/${session}.sh" ]]; then
+    error "invalid target's session ${session}"
+    return 1
+  fi
+done
 
 
 start_target_tmux_env

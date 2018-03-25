@@ -11,11 +11,11 @@ _targets() {
 }
 
 _sessions() {
-  _path_files -g '*.sh(:r)' -W "${env_dir_path}/$words[CURRENT-1]"
+  _path_files -g '*.sh(:r)' -W "${env_dir_path}/$words[1]"
 }
 
 _arguments \
   '(-b --background)'{-b,--background}'[launch in background, no attach]' \
   '(-h --help)'{-h,--help}'[display the help]' \
   '1:target:_targets' \
-  '2:session:_sessions'
+  '*::sessions:_sessions'
