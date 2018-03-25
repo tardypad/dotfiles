@@ -5,17 +5,17 @@ ENV_NAME="$2"
 
 ENV_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/tmux/env/${ENV_NAME}"
 
-SESSION=$(
+SESSIONS=($(
   print -l -- all "${ENV_PATH}"/*.sh(:t:r) \
   | fzf --reverse \
-        --no-multi \
+        --multi \
         --margin 1,2,0,2 \
         --prompt 'open session ' \
         --color info:8 \
-)
+))
 
-[[ -n "${SESSION}" ]] || exit
+[[ -n "${SESSIONS}" ]] || exit
 
-[[ "${SESSION}" == 'all' ]] && SESSION=
+(( ${SESSIONS[(Ie)all]} )) && SESSIONS=
 
-app_tmux_env "${TITLE}" "${ENV_NAME}" "${SESSION}"
+app_tmux_env "${TITLE}" "${ENV_NAME}" ${SESSIONS}
