@@ -66,7 +66,7 @@ SELECTED_APPS=$(
     | fzf --reverse \
           --multi \
           --margin 1,2,0,2 \
-          --prompt 'run app ' \
+          --prompt 'run apps ' \
           --color info:8
 )
 

@@ -10,7 +10,7 @@ SESSIONS=($(
   | fzf --reverse \
         --multi \
         --margin 1,2,0,2 \
-        --prompt 'open session ' \
+        --prompt 'open sessions ' \
         --color info:8 \
 ))
 
