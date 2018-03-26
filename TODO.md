@@ -2,6 +2,7 @@
   - upgrade tools, plugins, extensions,...
   - remove unused plugins, aliases, functions,...
   - replace unnecessary dependencies with own simpler config, scripts,...
+  - update files which are downloaded automatically initially during make
   - update qutebrowser adblock lists with `:adblock-update`
 
 # Cleaning
@@ -42,6 +43,7 @@
     * disabling bindings of copy paste/xdg-open (no X server)
     * defining TERM to use screen instead of tmux (no tmux terminfo on old system)
     * remove time display in status line for local tmux (date already present in sway bar)
+    * remote servers should use bash instead of zsh as default command
   - add manual project root marker usage in vifm and fzf use in vim
   - vim fzf should ignore some files/folders like CtrlP previously
   - use fzf in vim to switch between buffers
@@ -49,6 +51,9 @@
     and check with upgrades if they can be fixed or improved
   - interactively choose help topic and translator languages
   - qutebrowser full bindings reworking like other tools
+  - review usage of zsh functions vs scripts  
+    some functions may better be a script to be called outside zsh  
+    and maybe vice-versa
 
 # New Features
   - backup of notes, ncmpcpp lyrics,...
