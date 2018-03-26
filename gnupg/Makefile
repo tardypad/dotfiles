@@ -1,12 +1,8 @@
 gnupg:
 	$(start_setup)
 
-    # create necessary directories
-	@mkdir -p "$(HOME)/.gnupg"
-
-    # copy config files
-	@cp "gnupg/gpg.conf" "$(HOME)/.gnupg/gpg.conf"
-	@cp "gnupg/gpg-agent.conf" "$(HOME)/.gnupg/gpg-agent.conf"
+	$(call copy_file,gpg.conf,$(HOME)/.gnupg/gpg.conf)
+	$(call copy_file,gpg-agent.conf,$(HOME)/.gnupg/gpg-agent.conf)
 
     # adjust permissions
 	@chmod 700 "$(HOME)/.gnupg"

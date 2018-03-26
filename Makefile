@@ -15,6 +15,16 @@ all: $(TOOLS)
 start_setup = @echo -n "… setup $@"
 end_setup   = @echo -e "\r✔ setup $@"
 
+# copy macros
+define copy_file
+	@mkdir --parents $(dir $(2))
+	@cp $@/$(1) $(2)
+endef
+define copy_folder
+	@mkdir --parents $(dir $(2))
+	@cp --recursive --force --no-target-directory $@/$(1) $(2)
+endef
+
 # all Makefiles could be included with "include */Makefile"
 # or "$(foreach tool, $(TOOLS), $(eval include $(tool)/Makefile))"
 # but then we lose the autocompletion in the command line :(

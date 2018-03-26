@@ -1,7 +1,6 @@
 readline:
 	$(start_setup)
 
-    # copy config files
-	@cp "readline/inputrc" "$(HOME)/.inputrc"
+	$(call copy_file,inputrc,$(HOME)/.inputrc)
 
 	$(end_setup)

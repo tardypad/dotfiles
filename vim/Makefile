@@ -1,14 +1,14 @@
 vim:
 	$(start_setup)
 
-    # create necessary directories
-	@mkdir -p "$(HOME)/.vim/"{backup,swap,undo}
+    # create necessary runtime directories
+	@mkdir --parents $(HOME)/.vim/backup
+	@mkdir --parents $(HOME)/.vim/swap
+	@mkdir --parents $(HOME)/.vim/undo
 
-    # copy config files
-	@cp "vim/vimrc" "$(HOME)/.vimrc"
-	@cp "vim/vim/plugins.vim" "$(HOME)/.vim/plugins.vim"
-	@cp --recursive --force --no-target-directory \
-		"vim/vim/conf" "$(HOME)/.vim/conf"
+	$(call copy_file,vimrc,$(HOME)/.vimrc)
+	$(call copy_file,vim/plugins.vim,$(HOME)/.vim/plugins.vim)
+	$(call copy_folder,vim/conf,$(HOME)/.vim/conf)
 
     # install the plugins manager if not present
 	@if [[ ! -f "$(HOME)/.vim/autoload/plug.vim" ]]; then \

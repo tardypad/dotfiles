@@ -1,11 +1,12 @@
 pacman:
 	$(start_setup)
 
-    # create necessary directories
-	@mkdir -p "$(CONFIG_DIR)/pacman"
-	@mkdir -p "$(HOME)/build/"{packages,sources,srcpackages,makepkglogs}
+    # create necessary runtime directories
+	@mkdir --parents $(HOME)/build/packages
+	@mkdir --parents $(HOME)/build/sources
+	@mkdir --parents $(HOME)/build/srcpackages
+	@mkdir --parents $(HOME)/build/makepkglogs
 
-    # copy config files
-	@cp "pacman/makepkg.conf" "$(CONFIG_DIR)/pacman/makepkg.conf"
+	$(call copy_file,makepkg.conf,$(CONFIG_DIR)/pacman/makepkg.conf)
 
 	$(end_setup)

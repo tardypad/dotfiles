@@ -1,7 +1,6 @@
 login:
 	$(start_setup)
 
-    # copy config files
-	@cp "login/hushlogin" "$(HOME)/.hushlogin"
+	$(call copy_file,hushlogin,$(HOME)/.hushlogin)
 
 	$(end_setup)

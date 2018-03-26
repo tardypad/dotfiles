@@ -1,13 +1,12 @@
 neomutt:
 	$(start_setup)
 
-    # create necessary directories
-	@mkdir -p "$(CONFIG_DIR)/neomutt"
-	@mkdir -p "$(CACHE_DIR)/neomutt/"{headers,bodies,tmp}
+    # create necessary runtime directories
+	@mkdir --parents $(CACHE_DIR)/neomutt/headers
+	@mkdir --parents $(CACHE_DIR)/neomutt/bodies
+	@mkdir --parents $(CACHE_DIR)/neomutt/tmp
 
-    # copy config files
-	@cp "neomutt/neomuttrc" "$(CONFIG_DIR)/neomutt/neomuttrc"
-	@cp --recursive --force --no-target-directory \
-		"neomutt/conf" "$(CONFIG_DIR)/neomutt/conf"
+	$(call copy_file,neomuttrc,$(CONFIG_DIR)/neomutt/neomuttrc)
+	$(call copy_folder,conf,$(CONFIG_DIR)/neomutt/conf)
 
 	$(end_setup)

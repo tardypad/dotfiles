@@ -1,12 +1,10 @@
 ncmpcpp:
 	$(start_setup)
 
-    # create necessary directories
-	@mkdir -p "$(CONFIG_DIR)/ncmpcpp"
-	@mkdir -p "$(DATA_DIR)/ncmpcpp"
+    # create necessary runtime directories
+	@mkdir --parents $(DATA_DIR)/ncmpcpp
 
-    # copy config files
-	@cp "ncmpcpp/config" "$(CONFIG_DIR)/ncmpcpp/config"
-	@cp "ncmpcpp/bindings" "$(CONFIG_DIR)/ncmpcpp/bindings"
+	$(call copy_file,config,$(CONFIG_DIR)/ncmpcpp/config)
+	$(call copy_file,bindings,$(CONFIG_DIR)/ncmpcpp/bindings)
 
 	$(end_setup)

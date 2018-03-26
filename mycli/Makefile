@@ -1,15 +1,10 @@
 mycli:
 	$(start_setup)
 
-    # create necessary directories
-	@mkdir -p "$(CONFIG_DIR)/mycli/env"
-
-    # copy config files
-	@cp "mycli/myclirc" "$(HOME)/.myclirc"
-	@cp "mycli/my.cnf" "$(HOME)/.my.cnf"
-	@if [[ -d "mycli/env" ]]; then \
-		cp --recursive --force --no-target-directory \
-			"mycli/env" "$(CONFIG_DIR)/mycli/env"; \
-	fi
+	$(call copy_file,myclirc,$(HOME)/.myclirc)
+	$(call copy_file,my.cnf,$(HOME)/.my.cnf)
+ifneq (,$(wildcard mycli/env))
+	$(call copy_folder,env,$(CONFIG_DIR)/mycli/env)
+endif
 
 	$(end_setup)

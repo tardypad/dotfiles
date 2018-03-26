@@ -1,7 +1,6 @@
 gnuplot:
 	$(start_setup)
 
-    # copy config files
-	@cp "gnuplot/gnuplot" "$(HOME)/.gnuplot"
+	$(call copy_file,gnuplot,$(HOME)/.gnuplot)
 
 	$(end_setup)

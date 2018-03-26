@@ -1,23 +1,11 @@
 sway:
 	$(start_setup)
 
-    # create necessary directories
-	@mkdir -p "$(CONFIG_DIR)/sway"
-	@mkdir -p "$(DATA_DIR)/sway"
-	@mkdir -p "$(DATA_DIR)/applications"
-	@mkdir -p "$(CONFIG_DIR)/autostart"
-
-    # copy config files
-	@cp "sway/config" "${CONFIG_DIR}/sway/config"
-	@cp --recursive --force --no-target-directory \
-		"sway/config.d" "${CONFIG_DIR}/sway/config.d"
-	@cp --recursive --force --no-target-directory \
-		"sway/scripts" "${CONFIG_DIR}/sway/scripts"
-	@cp --recursive --force --no-target-directory \
-		"sway/applications" "${DATA_DIR}/applications"
-	@cp --recursive --force --no-target-directory \
-		"sway/autostart" "${CONFIG_DIR}/autostart"
-	@cp --recursive --force --no-target-directory \
-		"sway/images" "${CONFIG_DIR}/sway/images"
+	$(call copy_file,config,${CONFIG_DIR}/sway/config)
+	$(call copy_folder,config.d,${CONFIG_DIR}/sway/config.d)
+	$(call copy_folder,scripts,${CONFIG_DIR}/sway/scripts)
+	$(call copy_folder,applications,${DATA_DIR}/applications)
+	$(call copy_folder,autostart,${CONFIG_DIR}/autostart)
+	$(call copy_folder,images,${CONFIG_DIR}/sway/images)
 
 	$(end_setup)

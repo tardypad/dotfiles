@@ -1,10 +1,9 @@
 openssh:
 	$(start_setup)
 
-    # create necessary directories
-	@mkdir -p "$(HOME)/.ssh"
+    # create necessary installation directories
+	@mkdir --parents $(HOME)/.ssh
 
-    # copy config files
 	@cat "openssh/config" "openssh/config.local" \
 		> "$(HOME)/.ssh/config" 2>/dev/null
 
