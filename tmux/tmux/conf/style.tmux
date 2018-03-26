@@ -20,7 +20,7 @@ set -g status-left-style "bg=$TMUX_BLUE,fg=$TMUX_BLACK"
 set -g status-right-style "fg=$TMUX_BLUE"
 
 set -g status-left-length 40
-set -g status-left "#[fg=$TMUX_WHITE]#{?client_prefix,█, }#[default]  #{session_name}   #[bg=default]  "
+set -g status-left "#[fg=$TMUX_WHITE]#{?client_prefix,█, }#[default]  #{session_name}   "
 set -g status-right '  %a %e %b %Y %H:%M'
 
 setw -g window-style "bg=default,fg=$TMUX_FOREGROUND_DIM"
