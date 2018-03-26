@@ -1,5 +1,5 @@
 httpie:
-	@echo -n "… setup httpie"
+	$(start_setup)
 
     # create necessary directories
 	@mkdir -p "$(HOME)/.httpie"
@@ -7,4 +7,4 @@ httpie:
     # copy config files
 	@cp "httpie/config.json" "$(HOME)/.httpie/config.json"
 
-	@echo -e "\r✔ setup httpie"
+	$(end_setup)

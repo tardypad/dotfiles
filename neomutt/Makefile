@@ -1,5 +1,5 @@
 neomutt:
-	@echo -n "… setup neomutt"
+	$(start_setup)
 
     # create necessary directories
 	@mkdir -p "$(CONFIG_DIR)/neomutt"
@@ -10,4 +10,4 @@ neomutt:
 	@cp --recursive --force --no-target-directory \
 		"neomutt/conf" "$(CONFIG_DIR)/neomutt/conf"
 
-	@echo -e "\r✔ setup neomutt"
+	$(end_setup)

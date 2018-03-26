@@ -1,5 +1,5 @@
 pacman:
-	@echo -n "… setup pacman"
+	$(start_setup)
 
     # create necessary directories
 	@mkdir -p "$(CONFIG_DIR)/pacman"
@@ -8,4 +8,4 @@ pacman:
     # copy config files
 	@cp "pacman/makepkg.conf" "$(CONFIG_DIR)/pacman/makepkg.conf"
 
-	@echo -e "\r✔ setup pacman"
+	$(end_setup)

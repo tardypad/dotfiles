@@ -1,5 +1,5 @@
 qalculate:
-	@echo -n "… setup qalculate"
+	$(start_setup)
 
     # create necessary directories
 	@mkdir -p "$(CONFIG_DIR)/qalculate"
@@ -7,4 +7,4 @@ qalculate:
     # copy config files
 	@cp "qalculate/qalc.cfg" "$(CONFIG_DIR)/qalculate/qalc.cfg"
 
-	@echo -e "\r✔ setup qalculate"
+	$(end_setup)

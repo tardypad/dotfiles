@@ -1,5 +1,5 @@
 vim:
-	@echo -n "… setup vim"
+	$(start_setup)
 
     # create necessary directories
 	@mkdir -p "$(HOME)/.vim/"{backup,swap,undo}
@@ -38,4 +38,4 @@ vim:
 		+PlugInstall +PlugClean! +PlugUpdate +qall \
 		> /dev/null 2>&1
 
-	@echo -e "\r✔ setup vim"
+	$(end_setup)

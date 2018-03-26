@@ -1,7 +1,7 @@
 readline:
-	@echo -n "… setup readline"
+	$(start_setup)
 
     # copy config files
 	@cp "readline/inputrc" "$(HOME)/.inputrc"
 
-	@echo -e "\r✔ setup readline"
+	$(end_setup)

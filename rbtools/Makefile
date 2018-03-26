@@ -1,7 +1,7 @@
 rbtools:
-	@echo -n "… setup rbtools"
+	$(start_setup)
 
     # copy config files
 	@cp "rbtools/reviewboardrc" "$(HOME)/.reviewboardrc"
 
-	@echo -e "\r✔ setup rbtools"
+	$(end_setup)

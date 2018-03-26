@@ -1,5 +1,5 @@
 ncmpcpp:
-	@echo -n "… setup ncmpcpp"
+	$(start_setup)
 
     # create necessary directories
 	@mkdir -p "$(CONFIG_DIR)/ncmpcpp"
@@ -9,4 +9,4 @@ ncmpcpp:
 	@cp "ncmpcpp/config" "$(CONFIG_DIR)/ncmpcpp/config"
 	@cp "ncmpcpp/bindings" "$(CONFIG_DIR)/ncmpcpp/bindings"
 
-	@echo -e "\r✔ setup ncmpcpp"
+	$(end_setup)

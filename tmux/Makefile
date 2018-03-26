@@ -1,5 +1,5 @@
 tmux:
-	@echo -n "… setup tmux"
+	$(start_setup)
 
     # create necessary directories
 	@mkdir -p "$(HOME)/.tmux"
@@ -14,4 +14,4 @@ tmux:
 	@cp --recursive --force --no-target-directory \
 		"tmux/env" "$(CONFIG_DIR)/tmux/env"; \
 
-	@echo -e "\r✔ setup tmux"
+	$(end_setup)

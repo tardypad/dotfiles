@@ -1,7 +1,7 @@
 gnuplot:
-	@echo -n "… setup gnuplot"
+	$(start_setup)
 
     # copy config files
 	@cp "gnuplot/gnuplot" "$(HOME)/.gnuplot"
 
-	@echo -e "\r✔ setup gnuplot"
+	$(end_setup)

@@ -1,5 +1,5 @@
 mycli:
-	@echo -n "… setup mycli"
+	$(start_setup)
 
     # create necessary directories
 	@mkdir -p "$(CONFIG_DIR)/mycli/env"
@@ -12,4 +12,4 @@ mycli:
 			"mycli/env" "$(CONFIG_DIR)/mycli/env"; \
 	fi
 
-	@echo -e "\r✔ setup mycli"
+	$(end_setup)

@@ -1,5 +1,5 @@
 zathura:
-	@echo -n "… setup zathura"
+	$(start_setup)
 
     # create necessary directories
 	@mkdir -p "$(CONFIG_DIR)/zathura"
@@ -9,4 +9,4 @@ zathura:
 	@cp --recursive --force --no-target-directory \
 		"zathura/config.d" "$(CONFIG_DIR)/zathura/config.d"
 
-	@echo -e "\r✔ setup zathura"
+	$(end_setup)

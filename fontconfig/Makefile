@@ -1,5 +1,5 @@
 fontconfig:
-	@echo -n "… setup fontconfig"
+	$(start_setup)
 
     # create necessary directories
 	@mkdir -p "$(CONFIG_DIR)/fontconfig"
@@ -10,4 +10,4 @@ fontconfig:
     # rebuild fonts cache
 	@fc-cache -f
 
-	@echo -e "\r✔ setup fontconfig"
+	$(end_setup)

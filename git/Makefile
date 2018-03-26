@@ -1,5 +1,5 @@
 git:
-	@echo -n "… setup git"
+	$(start_setup)
 
     # create necessary directories
 	@mkdir -p "$(CONFIG_DIR)/git"
@@ -13,4 +13,4 @@ git:
 	@cp --recursive --force --no-target-directory \
 		"git/git/template" "$(CONFIG_DIR)/git/template"
 
-	@echo -e "\r✔ setup git"
+	$(end_setup)

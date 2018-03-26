@@ -1,5 +1,5 @@
 htop:
-	@echo -n "… setup htop"
+	$(start_setup)
 
     # create necessary directories
 	@mkdir -p "$(CONFIG_DIR)/htop"
@@ -7,4 +7,4 @@ htop:
     # copy config files
 	@cp "htop/htoprc" "$(CONFIG_DIR)/htop/htoprc"
 
-	@echo -e "\r✔ setup htop"
+	$(end_setup)

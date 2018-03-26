@@ -1,5 +1,5 @@
 zsh:
-	@echo -n "… setup zsh"
+	$(start_setup)
 
     # create necessary directories
 	@mkdir -p "$(HOME)/.zsh"
@@ -18,4 +18,4 @@ zsh:
 	@cp --recursive --force --no-target-directory \
 		"zsh/zsh/completions" "$(HOME)/.zsh/completions"
 
-	@echo -e "\r✔ setup zsh"
+	$(end_setup)

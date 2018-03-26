@@ -1,5 +1,5 @@
 systemd:
-	@echo -n "… setup systemd"
+	$(start_setup)
 
     # create necessary directories
 	@mkdir -p "$(CONFIG_DIR)/systemd/user"
@@ -11,4 +11,4 @@ systemd:
     # reload daemon
 	@systemctl --user daemon-reload
 
-	@echo -e "\r✔ setup systemd"
+	$(end_setup)

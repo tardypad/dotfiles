@@ -1,5 +1,5 @@
 gnupg:
-	@echo -n "… setup gnupg"
+	$(start_setup)
 
     # create necessary directories
 	@mkdir -p "$(HOME)/.gnupg"
@@ -13,4 +13,4 @@ gnupg:
 	@chmod 600 "$(HOME)/.gnupg/gpg.conf"
 	@chmod 600 "$(HOME)/.gnupg/gpg-agent.conf"
 
-	@echo -e "\r✔ setup gnupg"
+	$(end_setup)

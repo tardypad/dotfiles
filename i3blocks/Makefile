@@ -1,5 +1,5 @@
 i3blocks:
-	@echo -n "… setup i3blocks"
+	$(start_setup)
 
     # create necessary directories
 	@mkdir -p "$(CONFIG_DIR)/i3blocks"
@@ -11,4 +11,4 @@ i3blocks:
 	@cp --recursive --force --no-target-directory \
 		"i3blocks/sounds" "$(CONFIG_DIR)/i3blocks/sounds"
 
-	@echo -e "\r✔ setup i3blocks"
+	$(end_setup)

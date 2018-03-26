@@ -1,5 +1,5 @@
 http-prompt:
-	@echo -n "… setup http-prompt"
+	$(start_setup)
 
     # create necessary directories
 	@mkdir -p "$(CONFIG_DIR)/http-prompt"
@@ -11,4 +11,4 @@ http-prompt:
 			"http-prompt/env" "$(CONFIG_DIR)/http-prompt/env"; \
 	fi
 
-	@echo -e "\r✔ setup http-prompt"
+	$(end_setup)

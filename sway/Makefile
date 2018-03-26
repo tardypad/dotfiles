@@ -1,5 +1,5 @@
 sway:
-	@echo -n "… setup sway"
+	$(start_setup)
 
     # create necessary directories
 	@mkdir -p "$(CONFIG_DIR)/sway"
@@ -20,4 +20,4 @@ sway:
 	@cp --recursive --force --no-target-directory \
 		"sway/images" "${CONFIG_DIR}/sway/images"
 
-	@echo -e "\r✔ setup sway"
+	$(end_setup)

@@ -11,6 +11,10 @@ TOOLS := $(subst /,, $(dir $(wildcard */Makefile)))
 all: $(TOOLS)
 .PHONY: all $(TOOLS)
 
+# info display macros
+start_setup = @echo -n "… setup $@"
+end_setup   = @echo -e "\r✔ setup $@"
+
 # all Makefiles could be included with "include */Makefile"
 # or "$(foreach tool, $(TOOLS), $(eval include $(tool)/Makefile))"
 # but then we lose the autocompletion in the command line :(

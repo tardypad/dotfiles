@@ -1,5 +1,5 @@
 weechat:
-	@echo -n "… setup weechat"
+	$(start_setup)
 
     # create necessary directories
 	@mkdir -p "$(HOME)/.weechat/"{python,perl}/autoload
@@ -62,4 +62,4 @@ weechat:
 		ln -s ../urlgrab.py "$(HOME)/.weechat/python/autoload/urlgrab.py"; \
 	fi
 
-	@echo -e "\r✔ setup weechat"
+	$(end_setup)

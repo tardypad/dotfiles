@@ -1,5 +1,5 @@
 termite:
-	@echo -n "… setup termite"
+	$(start_setup)
 
     # create necessary directories
 	@mkdir -p "$(CONFIG_DIR)/termite"
@@ -9,4 +9,4 @@ termite:
 	@cp "termite/config_launcher" "$(CONFIG_DIR)/termite/config_launcher"
 	@cp "termite/config_notification" "$(CONFIG_DIR)/termite/config_notification"
 
-	@echo -e "\r✔ setup termite"
+	$(end_setup)

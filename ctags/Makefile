@@ -1,5 +1,5 @@
 ctags:
-	@echo -n "… setup ctags"
+	$(start_setup)
 
     # create necessary directories
 	@mkdir -p "$(HOME)/.ctags.d"
@@ -7,4 +7,4 @@ ctags:
     # copy config files
 	@cp "ctags/main.ctags" "$(HOME)/.ctags.d/main.ctags"
 
-	@echo -e "\r✔ setup ctags"
+	$(end_setup)

@@ -1,5 +1,5 @@
 vifm:
-	@echo -n "… setup vifm"
+	$(start_setup)
 
     # create necessary directories
 	@mkdir -p "$(CONFIG_DIR)/vifm"
@@ -9,4 +9,4 @@ vifm:
 	@cp "vifm/vifmrc" "$(CONFIG_DIR)/vifm/vifmrc"
 	@cp "vifm/solarized-dark.vifm" "$(CONFIG_DIR)/vifm/colors/solarized-dark.vifm"
 
-	@echo -e "\r✔ setup vifm"
+	$(end_setup)

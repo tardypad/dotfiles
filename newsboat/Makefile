@@ -1,5 +1,5 @@
 newsboat:
-	@echo -n "… setup newsboat"
+	$(start_setup)
 
     # create necessary directories
 	@mkdir -p "$(CONFIG_DIR)/newsboat"
@@ -10,4 +10,4 @@ newsboat:
 	@cp --recursive --force --no-target-directory \
 		"newsboat/newsboat/conf" "$(CONFIG_DIR)/newsboat/conf"
 
-	@echo -e "\r✔ setup newsboat"
+	$(end_setup)

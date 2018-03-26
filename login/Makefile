@@ -1,7 +1,7 @@
 login:
-	@echo -n "… setup login"
+	$(start_setup)
 
     # copy config files
 	@cp "login/hushlogin" "$(HOME)/.hushlogin"
 
-	@echo -e "\r✔ setup login"
+	$(end_setup)

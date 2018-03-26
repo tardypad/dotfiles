@@ -1,7 +1,7 @@
 coreutils:
-	@echo -n "… setup coreutils"
+	$(start_setup)
 
     # copy config files
 	@cp "coreutils/dircolors" "$(HOME)/.dircolors"
 
-	@echo -e "\r✔ setup coreutils"
+	$(end_setup)

@@ -1,5 +1,5 @@
 qutebrowser:
-	@echo -n "… setup qutebrowser"
+	$(start_setup)
 
     # create necessary directories
 	@mkdir -p "$(CONFIG_DIR)/qutebrowser"
@@ -9,4 +9,4 @@ qutebrowser:
 	@cp --recursive --force --no-target-directory \
 		"qutebrowser/config.d" "${CONFIG_DIR}/qutebrowser/config.d"
 
-	@echo -e "\r✔ setup qutebrowser"
+	$(end_setup)

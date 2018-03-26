@@ -1,5 +1,5 @@
 openssh:
-	@echo -n "… setup openssh"
+	$(start_setup)
 
     # create necessary directories
 	@mkdir -p "$(HOME)/.ssh"
@@ -12,4 +12,4 @@ openssh:
 	@chmod 700 "$(HOME)/.ssh"
 	@chmod 600 "$(HOME)/.ssh/config"
 
-	@echo -e "\r✔ setup openssh"
+	$(end_setup)
