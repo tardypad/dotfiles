@@ -9,5 +9,5 @@ c.content.host_blocking.whitelist = [ 'analytics.google.com' ]
 # search engines
 c.url.searchengines = {
     "DEFAULT": "https://duckduckgo.com/?q={}",
-    "google": "https://www.google.com/search?q={}"
+    "gg": "https://www.google.com/search?q={}"
 }
