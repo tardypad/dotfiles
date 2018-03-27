@@ -1,5 +1,5 @@
 # define prefix
-set -g prefix C-a
+set -g prefix C-Space
 
 # don't let programs rename window name
 setw -g allow-rename off

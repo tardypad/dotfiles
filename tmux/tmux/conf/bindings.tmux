@@ -5,7 +5,7 @@ unbind -T copy-mode -a
 unbind -T copy-mode-vi -a
 
 # prefix
-bind C-a send-prefix
+bind C-Space send-prefix
 
 # reload configuration
 bind M-r source-file ~/.tmux.conf \; \
