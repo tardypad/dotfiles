@@ -31,10 +31,6 @@ alias PJ='goto_project_main'
 alias logs='goto_project_logs'
 alias docs='goto_project_docs'
 
-# lxc-console uses different prefix for escape command
-# (default Ctrl-a), not to conflict with tmux's one
-alias lxc-console="lxc-console --escape='^q'"
-
 alias mycli='mycli --defaults-group-suffix=_mycli'
 
 # flush all .log files recursively in the current dir
