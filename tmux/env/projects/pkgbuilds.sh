@@ -1,6 +1,6 @@
 socket="$1"
 
-pkgbuilds_path=$( get_project_repo_path pkgbuilds_path )
+pkgbuilds_path=$( get_project_repo_path pkgbuilds )
 
 
 tmux -L "${socket}" \
