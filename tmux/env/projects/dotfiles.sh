@@ -14,7 +14,10 @@ tmux -L "${socket}" \
   new-window \
   -n 'code' \
   -c "${dotfiles_path}" \
-  vim --servername dotfiles -- TODO.md
+  vim --servername dotfiles \
+    -c 'TabooRename TODO' \
+    -c 'tabnew' \
+    -- TODO.md
 
 
 tmux -L "${socket}" \
