@@ -38,7 +38,7 @@
               echo 'New Features:\n' >> \"${todo_file}\"; \
               echo 'Research:\n'     >> \"${todo_file}\"; \
               git add \"${todo_file}\"; \
-              git ci \"${todo_file}\" -m 'Add TODO file skeleton'; \
+              git ci \"${todo_file}\" -m 'add TODO file skeleton'; \
             }; t"
         issue = stamp -r Issue
         head = whatchanged -1
