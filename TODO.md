@@ -4,6 +4,7 @@
   - replace unnecessary dependencies with own simpler config, scripts,...
   - update files which are downloaded automatically initially during make
   - update qutebrowser adblock lists with `:adblock-update`
+  - check tools version with the `check_versions.sh` script
 
 # Cleaning
   - reorganize vim/zsh/tmux/... config splitting into folders/files  
