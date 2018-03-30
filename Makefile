@@ -30,16 +30,16 @@ endef
 # but then we lose the autocompletion in the command line :(
 include aria2/Makefile
 include coreutils/Makefile
-include ctags/Makefile
 include fontconfig/Makefile
 include git/Makefile
 include gnupg/Makefile
 include gnuplot/Makefile
-include htop/Makefile
+include htop-vim/Makefile
 include httpie/Makefile
 include http-prompt/Makefile
 include i3blocks/Makefile
 include less/Makefile
+include libqalculate/Makefile
 include login/Makefile
 include mopidy/Makefile
 include mycli/Makefile
@@ -49,7 +49,6 @@ include newsboat/Makefile
 include notes/Makefile
 include openssh/Makefile
 include pacman/Makefile
-include qalculate/Makefile
 include qutebrowser/Makefile
 include rbtools/Makefile
 include readline/Makefile
@@ -58,6 +57,7 @@ include sway/Makefile
 include systemd/Makefile
 include termite/Makefile
 include translate-shell/Makefile
+include universal-ctags/Makefile
 include vifm/Makefile
 include vim/Makefile
 include weechat/Makefile

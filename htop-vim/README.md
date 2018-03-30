@@ -1,8 +1,8 @@
-# Htop
+# Htop-vim
 
 System processes manager
 
-Using patches from fork with more vim-style keybindings
+Using patches from htop fork with more vim-style keybindings
 
 Source [Github](https://github.com/KoffeinFlummi/htop-vim)
 

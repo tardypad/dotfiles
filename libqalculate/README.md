@@ -1,4 +1,4 @@
-# Qalculate!
+# libqalculate
 
 Calculator
 

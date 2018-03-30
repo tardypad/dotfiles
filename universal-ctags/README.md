@@ -1,4 +1,4 @@
-# Ctags
+# Universal ctags
 
 Sources indexation
 
