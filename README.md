@@ -102,3 +102,16 @@ such as sed, grep,... and the likes.
 | pass                   | password manager                     | [zx2c4.com](https://git.zx2c4.com/password-store/)                                     | [1.7.1](https://git.zx2c4.com/password-store/tag/?h=1.7.1)                                                             |
 | shellcheck             | shell script analysis tool           | [Github](https://github.com/koalaman/shellcheck)                                       | [0.4.7](https://github.com/koalaman/shellcheck/releases/tag/v0.4.7)                                                    |
 | the_silver_searcher    | code search                          | [Github](https://github.com/ggreer/the_silver_searcher)                                | [2.1.0](https://github.com/ggreer/the_silver_searcher/releases/tag/2.1.0)                                              |
+
+
+## Quotes
+
+```
+"Simplicity is prerequisite for reliability"
+        Edsger Wybe Dijkstra
+```
+
+```
+"If a craftsman wants to do good work, he must first sharpen his tools"
+        Confucius
+```
