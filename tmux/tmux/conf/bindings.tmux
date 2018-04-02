@@ -25,7 +25,7 @@ bind M-b run "~/.tmux/scripts/choose_tree_left.sh buffers"
 
 # sessions management (using Ctrl)
 bind    C-s run "~/.tmux/scripts/choose_tree_left.sh sessions"
-bind    C-a switch-client -l
+bind    C-a if '[ #{client_last_session} != "" ]' 'switch-client -l' 'switch-client -n'
 bind -r C-n switch-client -n
 bind -r C-j switch-client -n
 bind -r C-p switch-client -p
