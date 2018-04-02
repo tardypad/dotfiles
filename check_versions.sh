@@ -12,10 +12,22 @@ function main_readme_version() {
 function individual_readme_version() {
   local tool="$1"
 
-  [[ -d "${tool}" ]] || return
+  if [[ ! -d "${tool}" ]]; then
+    echo '.'
+    return
+  fi
 
   grep '^Version \[' "${tool}/README.md" \
     | sed 's#^Version \[\(.*\)\].*#\1#'
+}
+
+
+function extension_readme_version() {
+  local extension="$1"
+
+  grep --extended-regexp '^\|.*\|.*\|.*\| \[.*\].*\|$' */README.md \
+    | grep "| ${extension}" \
+    | sed "s#^.*/README.md:| ${extension} *|.*|.*| \[\(.*\)\].*|#\1#"
 }
 
 
@@ -47,19 +59,46 @@ function pacman_version() {
 }
 
 
+function report_tools() {
+  for tool in ${TOOLS}; do
+    echo -n "${tool}"
+    echo -n ' '
+    echo -n $( pacman_version "${tool}" )
+    echo -n ' '
+    echo -n $( main_readme_version "${tool}" )
+    echo -n ' '
+    echo -n $( individual_readme_version "${tool}" )
+    echo
+  done
+}
+
+
+function report_extensions() {
+  for extension in ${EXTENSIONS}; do
+    echo -n "${extension}"
+    echo -n ' '
+    echo -n $( pacman_version "${extension}" )
+    echo -n ' '
+    echo -n '.'
+    echo -n ' '
+    echo -n $( extension_readme_version "${extension}" )
+    echo
+  done
+}
+
+
 TOOLS=($(
   grep --extended-regexp '^\|.*\|.*\|.*\| \[.*\].*\|$' README.md \
     | sed 's#^| \([^ ]*\) .*#\1#'
 ))
 
-for TOOL in ${TOOLS}; do
-  echo -n "${TOOL}"
-  echo -n ' '
-  echo -n $( pacman_version "${TOOL}" )
-  echo -n ' '
-  echo -n $( main_readme_version "${TOOL}" )
-  echo -n ' '
-  echo -n $( individual_readme_version "${TOOL}" )
-  echo
-done \
+# exclude vim and weechat plugins (not managed by package manager)
+EXTENSIONS=($(
+  grep --extended-regexp '^\|.*\|.*\|.*\| \[.*\].*\|$' */README.md \
+    | grep --invert-match --extended-regexp '^vim|^weechat' \
+    | sed 's#^.*/README.md:| \([^ ]*\) .*#\1#'
+))
+
+
+{ report_tools; report_extensions; } \
   | column --table
