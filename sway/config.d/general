@@ -1,0 +1,3 @@
+# default layout with 1 master window on the left
+workspace_layout auto left
+layout auto master set 1
