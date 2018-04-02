@@ -8,9 +8,13 @@
   - [aouelete dotfiles](https://github.com/aouelete/dotfiles)
   - [Junegunn Choi dotfiles](https://github.com/junegunn/dotfiles)
   - [Tom Ryder dotfiles](https://sanctum.geek.nz/cgit/dotfiles.git/tree/)
+  - [John Kerl scripts](https://github.com/johnkerl/scripts)
 
 # Git
   - [git-tips](https://github.com/git-tips/tips)
+
+# i3blocks
+  - [Anachron i3blocks](https://github.com/Anachron/i3blocks)
 
 # Tmux
   - [Gregory Pakosz config](https://github.com/gpakosz/.tmux)
