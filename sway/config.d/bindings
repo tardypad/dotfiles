@@ -102,9 +102,18 @@ bindsym $mod+a exec sh -c " \
 bindsym $mod+v splith
 bindsym $mod+s splitv
 
-# select container layout
-bindsym $mod+t layout toggle split
-bindsym $mod+Shift+t layout tabbed
+mode "layout" {
+    bindsym Shift+1 layout splith
+    bindsym Shift+2 layout auto left
+    bindsym Shift+3 layout splitv
+    bindsym Shift+4 layout auto top
+    bindsym Shift+5 layout tabbed
+
+    # return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+t mode "layout"
 
 # fullscreen window (zoom)
 bindsym $mod+Shift+z fullscreen
