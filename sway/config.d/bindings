@@ -125,10 +125,10 @@ bindsym $mod+f focus mode_toggle
 ### Scratchpad
 
 # move current window to scratchpad
-bindsym $mod+Shift+s move scratchpad
+bindsym $mod+Shift+d move scratchpad
 
 # show next window from the scratchpad
-bindsym $mod+s scratchpad show
+bindsym $mod+d scratchpad show
 
 
 ### Resizing containers
