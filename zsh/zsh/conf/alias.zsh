@@ -22,6 +22,14 @@ alias ssh='TERM=xterm-256color ssh'
 # switch to root
 alias root='sudo --preserve-env --shell'
 
+# all packages update
+alias packages_update="
+  checkupdates \
+  && aurcheck -d aur \
+  && sudo pacman --sync --refresh --sysupgrade \
+  && aursync --update --repo aur
+"
+
 # simple linters
 alias json_lint='python -m json.tool'
 alias xml_lint='xmllint --format -'
