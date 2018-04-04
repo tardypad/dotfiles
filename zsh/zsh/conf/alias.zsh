@@ -26,8 +26,10 @@ alias root='sudo --preserve-env --shell'
 alias packages_update="
   checkupdates \
   && aurcheck -d aur \
+  && aurcheck -d tardypad \
   && sudo pacman --sync --refresh --sysupgrade \
-  && aursync --update --repo aur
+  && aursync --update --repo aur \
+  && aursync --update --repo tardypad
 "
 
 # simple linters

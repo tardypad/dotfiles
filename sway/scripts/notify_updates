@@ -28,13 +28,13 @@ function add_notification_text()
 TMP_RESULT_FILE=$(mktemp)
 
 # construct all notification texts
-PACMAN_UPDATES=$(checkupdates)
+PACMAN_UPDATES=$( checkupdates )
 if [[ -n "${PACMAN_UPDATES}" ]]; then
   echo "\n\e[1mPacman\e[0m" >> "${TMP_RESULT_FILE}"
   add_notification_text "${PACMAN_UPDATES}" "${TMP_RESULT_FILE}"
 fi
 
-AUR_UPDATES=$(aurcheck -d aur)
+AUR_UPDATES=$( aurcheck -d aur; aurcheck -d tardypad )
 if [[ -n "${AUR_UPDATES}" ]]; then
   echo "\n\e[1mAUR\e[0m" >> "${TMP_RESULT_FILE}"
   add_notification_text "${AUR_UPDATES}" "${TMP_RESULT_FILE}"
