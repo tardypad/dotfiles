@@ -147,6 +147,11 @@ Plug 'kylef/apiblueprint.vim',
 Plug '~/.vim/plugged/icinga2',
   \ { 'as': 'icinga2', 'for': 'icinga2' }
 
+" QML syntax
+Plug 'peterhoeg/vim-qml',
+  \ { 'as': 'qml', 'for': 'qml',
+  \   'commit': 'c438f10' }
+
 " Elm language
 Plug 'elmcast/elm-vim',
   \ { 'as': 'elm', 'for': 'elm',
