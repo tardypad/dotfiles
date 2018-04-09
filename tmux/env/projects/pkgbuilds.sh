@@ -14,7 +14,7 @@ tmux -L "${socket}" \
   new-window \
   -n 'code' \
   -c "${pkgbuilds_path}" \
-  vim --servername pkgbuilds \
+  vim \
     -c 'TabooRename TODO' \
     -c 'tabnew' \
     -- TODO.md
