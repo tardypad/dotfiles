@@ -4,7 +4,7 @@ Shell
 
 Source [Github](https://github.com/zsh-users/zsh)
 
-Version [5.4.2](https://github.com/zsh-users/zsh/releases/tag/zsh-5.4.2)
+Version [5.5](https://github.com/zsh-users/zsh/releases/tag/zsh-5.5)
 
 ## Extensions
 
