@@ -1,6 +1,5 @@
 # need to click to select window
 focus_follows_mouse no
 
-# default layout with 1 master window on the left
+# default layout master window on the left
 workspace_layout auto left
-layout auto master set 1
