@@ -1,0 +1,13 @@
+#compdef pacman_pkgdiff
+
+_packages() {
+  local package_names=( $(
+    pacman --query --native --quiet
+  ) )
+
+  compadd "$@" $package_names
+}
+
+_arguments \
+  '1:package:_packages'
+
