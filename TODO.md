@@ -9,6 +9,8 @@
 # Cleaning
   - reorganize vim/zsh/tmux/... config splitting into folders/files  
     for vim use ftdetect folders and such
+  - add description to zsh functions (maybe add --help option)  
+    and inputs validation too
 
 # Bugs
   - copy doesn't remove old files from the target directories  
@@ -55,6 +57,9 @@
   - review usage of zsh functions vs scripts  
     some functions may better be a script to be called outside zsh  
     and maybe vice-versa
+  - Makefile makes use of DESTDIR  
+    as recommended in [manual](https://www.gnu.org/prep/standards/html_node/DESTDIR.html)
+    (might be used to make a package?)
 
 # New Features
   - backup of notes, ncmpcpp lyrics,...
@@ -106,3 +111,5 @@
     * [2fa](https://github.com/rsc/2fa)
     * [passotp](https://github.com/tadfisher/pass-otp)
     * [browserpass](https://github.com/dannyvankooten/browserpass)
+  - [youtube-dl](https://github.com/rg3/youtube-dl)
+  - investigate vim Python plugins
