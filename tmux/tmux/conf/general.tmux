@@ -16,7 +16,11 @@ set -g default-terminal "tmux-256color"
 
 # define command for new windows
 # prevents use of default behavior which creates a login shell
+%if #{!=:,#(ls /bin/zsh 2> /dev/null)}
 set -g default-command "exec /bin/zsh"
+%else
+set -g default-command "exec /bin/bash"
+%endif
 
 # add truecolor support
 set -g terminal-overrides ",xterm-256color:Tc"
