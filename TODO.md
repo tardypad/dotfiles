@@ -42,8 +42,6 @@
   - review and improve copy paste workflow between terminals/vim/tmux/...
     * [extrackto](https://github.com/laktak/extrakto) tmux search and copy/insert/...
     * [yank](https://github.com/mptre/yank) copy output to clipboard
-  - next version of tmux has if/else that we can use for remote hosts specific settings
-    * defining TERM to use screen instead of tmux (no tmux terminfo on old system)
   - add manual project root marker usage in vifm and fzf use in vim
   - vim fzf should ignore some files/folders like CtrlP previously
   - use fzf in vim to switch between buffers

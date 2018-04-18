@@ -12,7 +12,11 @@ set -g detach-on-destroy off
 setw -g remain-on-exit on
 
 # define default term type
+%if #{!=:,#(ls /usr/share/terminfo/t/tmux-256color 2> /dev/null)}
 set -g default-terminal "tmux-256color"
+%else
+set -g default-terminal "screen-256color"
+%endif
 
 # define command for new windows
 # prevents use of default behavior which creates a login shell
