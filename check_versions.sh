@@ -34,6 +34,8 @@ function extension_readme_version() {
 function pacman_version() {
   local tool="$1"
 
+  [[ "${tool}" == 'notes' ]] && tool='notes-pimterry'
+
   local pacman_info=$(
     pacman --query --info "${tool}" 2> /dev/null
   )
