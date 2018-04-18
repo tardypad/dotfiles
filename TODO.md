@@ -45,7 +45,6 @@
   - next version of tmux has if/else that we can use for remote hosts specific settings
     * disabling bindings of copy paste/xdg-open (no X server)
     * defining TERM to use screen instead of tmux (no tmux terminfo on old system)
-    * remove time display in status line for local tmux (date already present in sway bar)
     * remote servers should use bash instead of zsh as default command
   - add manual project root marker usage in vifm and fzf use in vim
   - vim fzf should ignore some files/folders like CtrlP previously
