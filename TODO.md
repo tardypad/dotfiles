@@ -58,8 +58,10 @@
 
 # New Features
   - backup of notes, ncmpcpp lyrics,...
+  - display music status in i3blocks stop/pause/playing and maybe artist/title
 
 # Research
+  - adapt notify_break to be more Pomodoro Technique like
   - check use of zsh run-help command for replacement/completion for our own help script  
     (has support for man 1p and so, help for zsh function)
   - evaluate making scripts POSIX compliant  
