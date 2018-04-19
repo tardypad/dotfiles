@@ -23,6 +23,8 @@ set -g status-left-length 40
 set -g status-left "#[fg=$TMUX_WHITE]#{?client_prefix,█, }#[default]  #{session_name}   "
 %if #{==:,#(echo $DISPLAY)}
 set -g status-right '  %a %e %b %Y %H:%M'
+%else
+set -g status-right ''
 %endif
 
 setw -g window-style "bg=default,fg=$TMUX_FOREGROUND_DIM"
