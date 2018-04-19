@@ -21,10 +21,10 @@ bind   ? list-keys
 bind M-m show-messages
 bind M-a run "~/.tmux/scripts/toggle_monitor_activity.sh"
 bind M-s run "~/.tmux/scripts/toggle_monitor_silence.sh"
-bind M-b run "~/.tmux/scripts/choose_tree_left.sh buffers"
+bind M-b choose-buffer -Z -F '#{buffer_sample}' -O time
 
 # sessions management (using Ctrl)
-bind    C-s run "~/.tmux/scripts/choose_tree_left.sh sessions"
+bind    C-s choose-tree -Z -s -w -F '#{?pane_format,#{pane_current_command},#{?window_format,#{window_name},}}' -O index
 bind    C-a if '[ #{client_last_session} != "" ]' 'switch-client -l' 'switch-client -n'
 bind -r C-n switch-client -n
 bind -r C-j switch-client -n
@@ -45,7 +45,7 @@ bind    C-r command-prompt -I '#{session_name}' "rename-session '%%'"
 bind    C-x confirm-before -p 'kill-session #{session_name}? (y/n)' kill-session
 
 # windows management (no extra modifier key)
-bind    w run "~/.tmux/scripts/choose_tree_left.sh windows"
+bind    w choose-tree -Z -w -F '#{?pane_format,#{pane_current_command},#{?window_format,#{window_name},}}' -f "#{!=:0,#{session_attached}}" -O index
 bind    a last-window
 bind -r n next-window
 bind -r l next-window
