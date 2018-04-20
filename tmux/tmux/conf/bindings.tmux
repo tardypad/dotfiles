@@ -40,7 +40,7 @@ bind    C-7 switch-client -t $6
 bind    C-8 switch-client -t $7
 bind    C-9 switch-client -t $8
 bind    C-0 switch-client -t $9
-bind    C-c command-prompt -I '#{host_short}' "new-session -s '%%'"
+bind    C-c new-session \; rename-session '#{host_short} #{s/$//:session_id}'
 bind    C-r command-prompt -I '#{session_name}' "rename-session '%%'"
 bind    C-x confirm-before -p 'kill-session #{session_name}? (y/n)' kill-session
 
@@ -61,7 +61,7 @@ bind    6 select-window -t :=6
 bind    7 select-window -t :=7
 bind    8 select-window -t :=8
 bind    9 select-window -t :=9
-bind    c command-prompt -I '#{host_short}' "new-window -n '%%'"
+bind    c new-window
 bind    r command-prompt -I '#{window_name}' "rename-window '%%'"
 bind    x confirm-before -p "kill-window #{window_name}? (y/n)" kill-window
 bind    v run "~/.tmux/scripts/split_window_ssh.sh h"

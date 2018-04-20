@@ -134,7 +134,7 @@ autocmd TabLeave * let g:alternatetab = tabpagenr()
 autocmd TabClosed * let g:alternatetab = 1
 
 " tabs management
-nnoremap          <Leader>tc :TabooOpen tab
+nnoremap          <Leader>tc :tabnew<CR>
 nnoremap <silent> <Leader>tx :tabclose<CR>
 nnoremap          <Leader>tr :TabooRename<Space>
 
