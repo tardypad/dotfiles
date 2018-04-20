@@ -12,7 +12,7 @@ set -g detach-on-destroy off
 setw -g remain-on-exit on
 
 # define default term type
-%if #{!=:,#(ls /usr/share/terminfo/t/tmux-256color 2> /dev/null)}
+%if #{||:#{==:Guinguette,#{host_short}},#{==:Spinach,#{host_short}}}
 set -g default-terminal "tmux-256color"
 %else
 set -g default-terminal "screen-256color"
@@ -20,7 +20,7 @@ set -g default-terminal "screen-256color"
 
 # define command for new windows
 # prevents use of default behavior which creates a login shell
-%if #{!=:,#(ls /bin/zsh 2> /dev/null)}
+%if #{||:#{==:Guinguette,#{host_short}},#{==:Spinach,#{host_short}}}
 set -g default-command "exec /bin/zsh"
 %else
 set -g default-command "exec /bin/bash"

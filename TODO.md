@@ -34,6 +34,7 @@
     after closing the floating window (or toggling the scratchpad)  
     it comes back to the wrong tiling window (always first one)  
     doesn't happen if just switching back to tiling space
+  - tmux %if doesn't seem to support having execution #() expanded
 
 # Testing
   - vim gutentags root marker doesn't seem to work correctly with multiple repos
