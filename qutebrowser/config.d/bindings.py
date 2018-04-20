@@ -4,9 +4,9 @@ config.unbind('J', mode='normal')
 config.unbind('d', mode='normal')
 config.unbind('D', mode='normal')
 config.unbind('<Ctrl-W>', mode='normal')
-config.bind('<Space>tc', 'set-cmd-text -s :open -t ', mode='normal')
+config.bind('<Space>tc', 'open -t about:blank ;; set-cmd-text -s :open', mode='normal')
 config.bind('<Space>tx', 'tab-close', mode='normal')
-config.bind('<Space>tr', 'set-cmd-text -s :open ', mode='normal')
+config.bind('<Space>tr', 'set-cmd-text -s :open', mode='normal')
 config.bind('X', 'tab-close', mode='normal')
 
 # tabs navigation
