@@ -5,21 +5,21 @@ weechat:
 	@mkdir --parents $(HOME)/.weechat/python/autoload
 	@mkdir --parents $(HOME)/.weechat/perl/autoload
 
-	$(call copy_file,weechat/alias.conf,$(HOME)/.weechat/alias.conf)
-	$(call copy_file,weechat/buflist.conf,$(HOME)/.weechat/buflist.conf)
-	$(call copy_file,weechat/charset.conf,$(HOME)/.weechat/charset.conf)
-	$(call copy_file,weechat/colorize_nicks.conf,$(HOME)/.weechat/colorize_nicks.conf)
-	$(call copy_file,weechat/exec.conf,$(HOME)/.weechat/exec.conf)
-	$(call copy_file,weechat/fifo.conf,$(HOME)/.weechat/fifo.conf)
-	$(call copy_file,weechat/irc.conf,$(HOME)/.weechat/irc.conf)
-	$(call copy_file,weechat/logger.conf,$(HOME)/.weechat/logger.conf)
-	$(call copy_file,weechat/plugins.conf,$(HOME)/.weechat/plugins.conf)
-	$(call copy_file,weechat/relay.conf,$(HOME)/.weechat/relay.conf)
-	$(call copy_file,weechat/script.conf,$(HOME)/.weechat/script.conf)
-	$(call copy_file,weechat/trigger.conf,$(HOME)/.weechat/trigger.conf)
-	$(call copy_file,weechat/urlgrab.conf,$(HOME)/.weechat/urlgrab.conf)
-	$(call copy_file,weechat/weechat.conf,$(HOME)/.weechat/weechat.conf)
-	$(call copy_file,weechat/xfer.conf,$(HOME)/.weechat/xfer.conf)
+	$(call copy_file,alias.conf,$(HOME)/.weechat/alias.conf)
+	$(call copy_file,buflist.conf,$(HOME)/.weechat/buflist.conf)
+	$(call copy_file,charset.conf,$(HOME)/.weechat/charset.conf)
+	$(call copy_file,colorize_nicks.conf,$(HOME)/.weechat/colorize_nicks.conf)
+	$(call copy_file,exec.conf,$(HOME)/.weechat/exec.conf)
+	$(call copy_file,fifo.conf,$(HOME)/.weechat/fifo.conf)
+	$(call copy_file,irc.conf,$(HOME)/.weechat/irc.conf)
+	$(call copy_file,logger.conf,$(HOME)/.weechat/logger.conf)
+	$(call copy_file,plugins.conf,$(HOME)/.weechat/plugins.conf)
+	$(call copy_file,relay.conf,$(HOME)/.weechat/relay.conf)
+	$(call copy_file,script.conf,$(HOME)/.weechat/script.conf)
+	$(call copy_file,trigger.conf,$(HOME)/.weechat/trigger.conf)
+	$(call copy_file,urlgrab.conf,$(HOME)/.weechat/urlgrab.conf)
+	$(call copy_file,weechat.conf,$(HOME)/.weechat/weechat.conf)
+	$(call copy_file,xfer.conf,$(HOME)/.weechat/xfer.conf)
 
     # install wee-slack if not present
     # version from github is more recent than one in weechat scripts repo
