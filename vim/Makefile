@@ -7,8 +7,8 @@ vim:
 	@mkdir --parents $(HOME)/.vim/undo
 
 	$(call copy_file,vimrc,$(HOME)/.vimrc)
-	$(call copy_file,vim/plugins.vim,$(HOME)/.vim/plugins.vim)
-	$(call copy_folder,vim/conf,$(HOME)/.vim/conf)
+	$(call copy_file,plugins.vim,$(HOME)/.vim/plugins.vim)
+	$(call copy_folder,conf,$(HOME)/.vim/conf)
 
     # install the plugins manager if not present
 	@if [[ ! -f "$(HOME)/.vim/autoload/plug.vim" ]]; then \
