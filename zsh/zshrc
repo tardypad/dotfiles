@@ -2,7 +2,7 @@
 # local extension/override immediately afterwards
 function load_conf() {
   local local_conf
-  for conf in "${HOME}/.zsh/conf/"*[^.local].zsh; do
+  for conf in "${HOME}/.zsh/config.d/"*[^.local].zsh; do
     source "${conf}"
 
     local_conf="${conf%.*}.local.zsh"
