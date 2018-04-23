@@ -218,11 +218,11 @@ function! s:ZoomToggle()
 endfunction
 
 " Load colorscheme first to handle color usage in plugins
-source ~/.vim/conf/solarized.vim
+source ~/.vim/config.d/solarized.vim
 
 " Load all the other conf files with their possible
 " local extension/override immediately afterwards
-let s:find_conf_cmd = "find ~/.vim/conf/ -name '*.vim'"
+let s:find_conf_cmd = "find ~/.vim/config.d/ -name '*.vim'"
                 \ . " ! -name solarized.vim ! -name '*.local.vim'"
 let s:conf_files = glob("`" . s:find_conf_cmd . "`")
 for conf in split(s:conf_files, '\n')
