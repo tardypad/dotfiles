@@ -103,29 +103,15 @@ set fillchars+=vert:│
 autocmd FileType mail setlocal formatoptions+=aw textwidth=72
 
 " Load all conf files with their possible
-" local extension/override immediately afterwards
 let s:find_conf_cmd = "find ~/.vim/config.d/ -maxdepth 1 -name '*.vim'"
-                \ . " ! -name '*.local.vim'"
 let s:conf_files = glob("`" . s:find_conf_cmd . "`")
 for conf in split(s:conf_files, '\n')
   exe 'source' conf
-
-  let local_conf = substitute(conf, ".vim$", ".local.vim", "")
-  if filereadable(local_conf)
-    exe 'source' local_conf
-  endif
 endfor
 
 " Load all plugins conf files with their possible
-" local extension/override immediately afterwards
 let s:find_plugins_conf_cmd = "find ~/.vim/config.d/plugins -name '*.vim'"
-                \ . " ! -name '*.local.vim'"
 let s:plugins_conf_files = glob("`" . s:find_plugins_conf_cmd . "`")
 for conf in split(s:plugins_conf_files, '\n')
   exe 'source' conf
-
-  let local_conf = substitute(conf, ".vim$", ".local.vim", "")
-  if filereadable(local_conf)
-    exe 'source' local_conf
-  endif
 endfor

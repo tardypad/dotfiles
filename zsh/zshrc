@@ -1,20 +1,8 @@
-# load all individual configs with their possible
-# local extension/override immediately afterwards
-function load_conf() {
-  local local_conf
-  for conf in "${HOME}/.zsh/config.d/"*[^.local].zsh; do
-    source "${conf}"
-
-    local_conf="${conf%.*}.local.zsh"
-    if [[ -f "${local_conf}" ]]; then
-      source "${local_conf}"
-    fi
-  done
-}
-
-load_conf
-
-unset -f load_conf
+# load all individual configs
+for conf in "${HOME}/.zsh/config.d/"*.zsh; do
+  source "${conf}"
+done
+unset conf
 
 eval $( dircolors "${HOME}/.dircolors" )
 

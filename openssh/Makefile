@@ -1,11 +1,7 @@
 openssh:
 	$(start_setup)
 
-    # create necessary installation directories
-	@mkdir --parents $(HOME)/.ssh
-
-	@cat "openssh/config" "openssh/config.local" \
-		> "$(HOME)/.ssh/config" 2>/dev/null
+	$(call copy_file,config,$(HOME)/.ssh/config)
 
     # adjust permissions
 	@chmod 700 "$(HOME)/.ssh"
