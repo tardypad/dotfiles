@@ -4,34 +4,6 @@ set nocompatible          " Cancel the compatibility with Vi
 " Define the plugins
 source ~/.vim/plugins.vim
 
-" Disable arrow keys usage to break bad habits
-noremap <Up> <nop>
-noremap <Down> <nop>
-noremap <Left> <nop>
-noremap <Right> <nop>
-noremap <PageUp> <nop>
-noremap <PageDown> <nop>
-noremap <Home> <nop>
-noremap <End> <nop>
-
-inoremap <Up> <nop>
-inoremap <Down> <nop>
-inoremap <Left> <nop>
-inoremap <Right> <nop>
-inoremap <PageUp> <nop>
-inoremap <PageDown> <nop>
-inoremap <Home> <nop>
-inoremap <End> <nop>
-
-vnoremap <Up> <nop>
-vnoremap <Down> <nop>
-vnoremap <Left> <nop>
-vnoremap <Right> <nop>
-vnoremap <PageUp> <nop>
-vnoremap <PageDown> <nop>
-vnoremap <Home> <nop>
-vnoremap <End> <nop>
-
 " Use space as leader
 let mapleader = "\<Space>"
 
@@ -120,110 +92,20 @@ set backupdir^=~/.vim/backup//
 set undodir^=~/.vim/undo//
 set viminfo+=n~/.vim/viminfo
 
-" buffers bindings
-nnoremap <silent> <Leader>ba :b#<CR>
-nnoremap <silent> <Leader>bp :bprevious<CR>
-nnoremap <silent> <Leader>bn :bnext<CR>
-nnoremap <silent> <Leader>bc :vnew<CR>
-nnoremap <silent> <Leader>bx :bdelete<CR>
-nnoremap          <Leader>br :write<Space>
-
-" manage alternate tab
-let g:alternatetab = 1
-autocmd TabLeave * let g:alternatetab = tabpagenr()
-autocmd TabClosed * let g:alternatetab = 1
-
-" tabs management
-nnoremap          <Leader>tc :tabnew<CR>
-nnoremap <silent> <Leader>tx :tabclose<CR>
-nnoremap          <Leader>tr :TabooRename<Space>
-
-" tabs navigation
-nnoremap <silent> <Leader>t1 :tabnext 1<CR>
-nnoremap <silent> <Leader>t2 :tabnext 2<CR>
-nnoremap <silent> <Leader>t3 :tabnext 3<CR>
-nnoremap <silent> <Leader>t4 :tabnext 4<CR>
-nnoremap <silent> <Leader>t5 :tabnext 5<CR>
-nnoremap <silent> <Leader>t6 :tabnext 6<CR>
-nnoremap <silent> <Leader>t7 :tabnext 7<CR>
-nnoremap <silent> <Leader>t8 :tabnext 8<CR>
-nnoremap <silent> <Leader>t9 :tabnext 9<CR>
-nnoremap <silent> <Leader>t0 :tabnext 10<CR>
-nnoremap <silent> <Leader>ta :execute "tabnext " . g:alternatetab<CR>
-nnoremap <silent> <Leader>th :tabprevious<CR>
-nnoremap <silent> <Leader>tp :tabprevious<CR>
-nnoremap <silent> <Leader>tl :tabnext<CR>
-nnoremap <silent> <Leader>tn :tabnext<CR>
-
-" tabs moving
-nnoremap <silent> <Leader>tm1 :tabmove 0<CR>
-nnoremap <silent> <Leader>tm2 :tabmove 1<CR>
-nnoremap <silent> <Leader>tm3 :tabmove 2<CR>
-nnoremap <silent> <Leader>tm4 :tabmove 3<CR>
-nnoremap <silent> <Leader>tm5 :tabmove 4<CR>
-nnoremap <silent> <Leader>tm6 :tabmove 5<CR>
-nnoremap <silent> <Leader>tm7 :tabmove 6<CR>
-nnoremap <silent> <Leader>tm8 :tabmove 7<CR>
-nnoremap <silent> <Leader>tm9 :tabmove 8<CR>
-nnoremap <silent> <Leader>tm0 :tabmove 9<CR>
-nnoremap <silent> <Leader>tmh :tabmove -<CR>
-nnoremap <silent> <Leader>tmp :tabmove -<CR>
-nnoremap <silent> <Leader>tml :tabmove +<CR>
-nnoremap <silent> <Leader>tmn :tabmove +<CR>
-
 " Define special characters highlight display
 set listchars=extends:>,tab:>\ ,trail:·
 set list
 
-" Strip trailing whitespaces except for certain filetypes
-fun! s:FiletypeFilteredStripTrailingWhitespace()
-  if &ft =~ 'markdown\|apiblueprint'
-    return
-  endif
-  %s/\s\+$//e
-endfun
+" lighter vertical split display
+set fillchars+=vert:│
 
-" Strip all trailing whitespaces on saving based on filetype
-autocmd BufWritePre * call <SID>FiletypeFilteredStripTrailingWhitespace()
+" Mail config
+autocmd FileType mail setlocal formatoptions+=aw textwidth=72
 
-" Toggle long lines highlighting
-nnoremap <Leader>L :call<SID>LongLineHighlightToggle()<cr>
-
-" Function to toggle highlighting of long lines
-fun! s:LongLineHighlightToggle()
- if !exists('w:longlinehl')
-  let w:longlinehl = matchadd('ErrorMsg', '.\%>80v', 0)
-  echo "Long lines highlighted"
- else
-  call matchdelete(w:longlinehl)
-  unl w:longlinehl
-  echo "Long lines unhighlighted"
- endif
-endfunction
-
-" Toggle window zoom
-nnoremap <C-W>Z :call<SID>ZoomToggle()<cr>
-
-" Function to toggle zoom of window
-function! s:ZoomToggle()
-  if exists('t:zoomed') && t:zoomed
-    execute t:zoom_winrestcmd
-    let t:zoomed = 0
-  else
-    let t:zoom_winrestcmd = winrestcmd()
-    resize
-    vertical resize
-    let t:zoomed = 1
-  endif
-endfunction
-
-" Load colorscheme first to handle color usage in plugins
-source ~/.vim/config.d/solarized.vim
-
-" Load all the other conf files with their possible
+" Load all conf files with their possible
 " local extension/override immediately afterwards
-let s:find_conf_cmd = "find ~/.vim/config.d/ -name '*.vim'"
-                \ . " ! -name solarized.vim ! -name '*.local.vim'"
+let s:find_conf_cmd = "find ~/.vim/config.d/ -maxdepth 1 -name '*.vim'"
+                \ . " ! -name '*.local.vim'"
 let s:conf_files = glob("`" . s:find_conf_cmd . "`")
 for conf in split(s:conf_files, '\n')
   exe 'source' conf
@@ -234,90 +116,16 @@ for conf in split(s:conf_files, '\n')
   endif
 endfor
 
-" lighter vertical split display
-set fillchars+=vert:│
+" Load all plugins conf files with their possible
+" local extension/override immediately afterwards
+let s:find_plugins_conf_cmd = "find ~/.vim/config.d/plugins -name '*.vim'"
+                \ . " ! -name '*.local.vim'"
+let s:plugins_conf_files = glob("`" . s:find_plugins_conf_cmd . "`")
+for conf in split(s:plugins_conf_files, '\n')
+  exe 'source' conf
 
-" Mail config
-autocmd BufRead,BufNewFile *mutt-* setfiletype mail
-autocmd FileType mail setlocal formatoptions+=aw textwidth=72
-
-" Tmux own filetype detection
-autocmd BufNewFile,BufRead *.tmux set filetype=tmux
-
-" Neomutt own filetype detection
-autocmd BufNewFile,BufRead *.mutt set filetype=neomuttrc
-
-" zsh functions own filetype detection
-autocmd BufNewFile,BufRead *zsh/functions/* set filetype=zsh
-
-" fzf config
-
-nnoremap <silent> <Leader>ef :FZF<CR>
-
-" extra bindings
-let g:fzf_action = {
-  \ 'ctrl-s': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-" same height as in terminal usage
-let g:fzf_layout = { 'down': '20' }
-
-" enable history
-let g:fzf_history_dir = '~/.local/share/fzf-history'
-
-
-" Search config
-
-set ignorecase " ignore case when searching
-set smartcase  " search sensitive if there is an uppercase in the search term
-set incsearch  " highlight search results when typing
-set hlsearch   " highlight search results
-set nowrapscan " search stops at the end of file
-
-" clear last search highlighting with Enter
-nnoremap <silent> <CR> :noh<CR><Esc>
-
-" initial search direction
-let s:search_direction = 'down'
-
-" move cursor on top/bottom of the page on new page
-function! s:SearchFixPosition(reverse)
-  if (s:search_direction == 'down' || (s:search_direction == 'up' && a:reverse))
-    \ && line('.') > s:search_last_line
-    normal! zt
-  elseif (s:search_direction == 'up' || (s:search_direction == 'down' && a:reverse))
-    \ && line('.') < s:search_first_line
-    normal! zb
+  let local_conf = substitute(conf, ".vim$", ".local.vim", "")
+  if filereadable(local_conf)
+    exe 'source' local_conf
   endif
-endfunction
-
-" register current position
-function! s:SearchRegisterPosition()
-  let s:search_first_line = line('.') - winline() + 1
-  let s:search_last_line = s:search_first_line + winheight(0) - 1
-endfunction
-
-" define search direction
-function! s:SearchSetDirection(direction)
-  let s:search_direction = a:direction
-endfunction
-
-" remap search related keys
-nnoremap <silent> n :call <SID>SearchRegisterPosition()<CR>n
-                    \:call <SID>SearchFixPosition(0)<CR>
-nnoremap <silent> N :call <SID>SearchRegisterPosition()<CR>N
-                    \:call <SID>SearchFixPosition(1)<CR>
-nnoremap <silent> * :call <SID>SearchRegisterPosition()<CR>*
-                    \:call <SID>SearchSetDirection('down')<CR>
-                    \:call <SID>SearchFixPosition(0)<CR>
-nnoremap <silent> # :call <SID>SearchRegisterPosition()<CR>#
-                    \:call <SID>SearchSetDirection('up')<CR>
-                    \:call <SID>SearchFixPosition(0)<CR>
-nnoremap <silent> g* :call <SID>SearchRegisterPosition()<CR>g*
-                     \:call <SID>SearchSetDirection('down')<CR>
-                     \:call <SID>SearchFixPosition(0)<CR>
-nnoremap <silent> g# :call <SID>SearchRegisterPosition()<CR>g#
-                     \:call <SID>SearchSetDirection('up')<CR>
-                     \:call <SID>SearchFixPosition(0)<CR>
-nnoremap / :call <SID>SearchSetDirection('down')<CR>/
-nnoremap ? :call <SID>SearchSetDirection('up')<CR>?
+endfor

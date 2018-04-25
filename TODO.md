@@ -7,8 +7,6 @@
   - check tools version with the `check_versions.sh` script
 
 # Cleaning
-  - reorganize vim/zsh/tmux/... config splitting into folders/files  
-    for vim use ftdetect folders and such
   - add description to zsh functions (maybe add --help option)  
     and inputs validation too
 
