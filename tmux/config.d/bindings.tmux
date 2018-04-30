@@ -22,6 +22,8 @@ bind M-m show-messages
 bind M-a run "~/.tmux/scripts/toggle_monitor_activity.sh"
 bind M-s run "~/.tmux/scripts/toggle_monitor_silence.sh"
 bind M-b choose-buffer -Z -F '#{buffer_sample}' -O time
+bind M-l clear-history \; \
+         display-message "Pane history cleared"
 
 # sessions management (using Ctrl)
 bind    C-s choose-tree -Z -s -w -F '#{?pane_format,#{pane_current_command},#{?window_format,#{window_name},}}' -O index
@@ -71,8 +73,11 @@ bind -r ] swap-window -t +
 
 # panes management (using uppercase except for direct navigation)
 bind       Q display-panes
-bind       L clear-history \; \
-             display-message "Pane history cleared"
+bind -r    A select-pane -l
+bind -r    H select-pane -L
+bind -r    J select-pane -D
+bind -r    K select-pane -U
+bind -r    L select-pane -R
 bind -r    N select-pane -t :.+
 bind -r    P select-pane -t :.-
 bind       Z resize-pane -Z
