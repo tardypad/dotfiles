@@ -1,1 +1,3 @@
+#!/usr/bin/env zsh
+
 mysql $( cat "${XDG_CONFIG_HOME:-$HOME/.config}/mycli/env/$1.mc" )

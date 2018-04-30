@@ -48,9 +48,6 @@
     and check with upgrades if they can be fixed or improved
   - interactively choose help topic and translator languages
   - qutebrowser full bindings reworking like other tools
-  - review usage of zsh functions vs scripts  
-    some functions may better be a script to be called outside zsh  
-    and maybe vice-versa
   - Makefile makes use of DESTDIR  
     as recommended in [manual](https://www.gnu.org/prep/standards/html_node/DESTDIR.html)
     (might be used to make a package?)

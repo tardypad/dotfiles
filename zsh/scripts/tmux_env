@@ -1,23 +1,25 @@
+#!/usr/bin/env zsh
+
 # init variables
-local command=${0:t}
-local env_dir_path="${XDG_CONFIG_HOME:-$HOME/.config}/tmux/env/"
+COMMAND=${0:t}
+ENV_DIR_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/tmux/env/"
 
-local available_targets=( $(
-  ls "${env_dir_path}"
+AVAILABLE_TARGETS=( $(
+  ls "${ENV_DIR_PATH}"
 ) )
-local background=false
+BACKGROUND=false
 
-local target=
-local sessions=
+TARGET=
+SESSIONS=
 
 # variables coming from env files
-local HOST=localhost
-local SOCKET=default
+HOST=localhost
+SOCKET=default
 
 
 usage() {
   cat << EOF
-usage: ${command} [<options>] <target> [<session>...]
+usage: ${COMMAND} [<options>] <target> [<session>...]
 
 Start target tmux environment sessions
 Each target is a different local or remote tmux server
@@ -26,7 +28,7 @@ Options:
   -b,  --background     launch in background, no attach
   -h,  --help           show this message only
 
-Available targets: ${available_targets}
+Available targets: ${AVAILABLE_TARGETS}
 If no session is defined, all of the target's ones are started
 EOF
 }
@@ -70,18 +72,18 @@ is_session_present() {
 
 
 start_target_tmux_env() {
-  source "${env_dir_path}/${target}/env"
+  source "${ENV_DIR_PATH}/${TARGET}/env"
 
   local scripts_path=()
-  if [[ -n "${sessions}" ]]; then
-    for session in ${sessions}; do
+  if [[ -n "${SESSIONS}" ]]; then
+    for session in ${SESSIONS}; do
       scripts_path+=(
-        "${env_dir_path}/${target}/${session}.sh"
+        "${ENV_DIR_PATH}/${TARGET}/${session}.sh"
       )
     done
   else
     scripts_path=( $(
-      ls "${env_dir_path}/${target}"/*.sh
+      ls "${ENV_DIR_PATH}/${TARGET}"/*.sh
     ) )
   fi
 
@@ -98,7 +100,7 @@ start_target_tmux_env() {
     done
 
     local session_pattern="*$( get_session_pattern "${session}" )*"
-    if ! $background; then
+    if ! $BACKGROUND; then
       if [[ -n "${session}" ]]; then
         tmux -L "${SOCKET}" attach-session -t "${session_pattern}"
       else
@@ -122,7 +124,7 @@ start_target_tmux_env() {
     done
 
     local session_pattern="*$( get_session_pattern "${session}" )*"
-    if ! $background; then
+    if ! $BACKGROUND; then
       if [[ -n "${session}" ]]; then
         ssh -t "${HOST}" tmux -L "${SOCKET}" attach-session -t "${session_pattern}"
       else
@@ -139,7 +141,7 @@ start_target_tmux_env() {
 while [[ "$#" -gt 0 ]]; do
   case "$1" in
     -b|--background)
-      background=true
+      BACKGROUND=true
       shift
       ;;
     -h|--help)
@@ -157,18 +159,18 @@ if [[ $# -eq 0 ]]; then
   return 1
 fi
 
-target="$1"
-sessions=( ${@:2} )
+TARGET="$1"
+SESSIONS=( ${@:2} )
 
 # validate target
-if ! (( ${available_targets[(Ie)${target}]} )); then
-  error "invalid target ${target}"
+if ! (( ${AVAILABLE_TARGETS[(Ie)${TARGET}]} )); then
+  error "invalid target ${TARGET}"
   return 1
 fi
 
 # validate target's sessions if present
-for session in ${sessions}; do
-  if [[ ! -f "${env_dir_path}/${target}/${session}.sh" ]]; then
+for session in ${SESSIONS}; do
+  if [[ ! -f "${ENV_DIR_PATH}/${TARGET}/${session}.sh" ]]; then
     error "invalid target's session ${session}"
     return 1
   fi

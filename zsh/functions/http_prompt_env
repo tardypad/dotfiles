@@ -1,9 +1,0 @@
-local env_dir_path="${XDG_CONFIG_HOME:-$HOME/.config}/http-prompt/env/"
-
-if [[ -n "$2" ]]; then
-  local env_path="${env_dir_path}/$1/$2.hp"
-else
-  local env_path="${env_dir_path}/$1.hp"
-fi
-
-http-prompt --env "$env_path"

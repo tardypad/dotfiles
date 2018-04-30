@@ -1,0 +1,28 @@
+#!/usr/bin/env zsh
+
+PACKAGE_NAME="$1"
+
+PACKAGE_VERSION=$(
+  pacman --query "${PACKAGE_NAME}" \
+    | cut --field 2 --delimiter ' '
+)
+
+# need double --check argument to show modified files
+PACKAGE_MODIFIED_FILES=( $(
+  pacman --query --check --check "${PACKAGE_NAME}" \
+    | grep '^backup file:' \
+    | cut --field 4 --delimiter ' ' \
+    | uniq
+) )
+
+# if it happens we have packages with many modified files
+# we'll better extract first a single time instead of doing for each file
+for PACKAGE_MODIFIED_FILE in ${PACKAGE_MODIFIED_FILES}; do
+  echo "${PACKAGE_MODIFIED_FILE}"
+  tar --extract --to-stdout \
+    --file /var/cache/pacman/pkg/${PACKAGE_NAME}-${PACKAGE_VERSION}-*.pkg.tar.xz \
+    "${PACKAGE_MODIFIED_FILE/\//}" \
+    2> /dev/null \
+  | diff - "${PACKAGE_MODIFIED_FILE}"
+  echo
+done

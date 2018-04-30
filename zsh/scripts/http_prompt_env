@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+ENV_DIR_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/http-prompt/env/"
+
+if [[ -n "$2" ]]; then
+  ENV_PATH="${ENV_DIR_PATH}/$1/$2.hp"
+else
+  ENV_PATH="${ENV_DIR_PATH}/$1.hp"
+fi
+
+http-prompt --env "$ENV_PATH"
