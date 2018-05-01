@@ -1,1 +1,5 @@
-__get_project_path 2 "$1"
+local project_name="$1"
+
+find "$( xdg-user-dir PROJECTS )" \
+  -mindepth 2 -maxdepth 2 -type d \
+  -name "${project_name}"
