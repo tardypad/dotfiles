@@ -1,11 +1,16 @@
 # Change current directory to a project main folder
 #
-# Use projects main folder given no argument or invalid one
+# Use projects main folder given no argument
+
+if [[ -z "$1" ]]; then
+  cd "$( xdg-user-dir PROJECTS)"
+  return
+fi
 
 local main_path=$( get_project_main_path "$1" )
 
 if [[ -n "${main_path}" ]]; then
   cd "${main_path}"
 else
-  cd "$( xdg-user-dir PROJECTS )"
+  echo "No such main project"
 fi

@@ -1,11 +1,16 @@
 # Change current directory to a project documents folder
 #
-# Use projects main documents folder given no argument or invalid one
+# Use projects main documents folder given no argument
+
+if [[ -z "$1" ]]; then
+  cd "$( xdg-user-dir PROJECTS_DOCS )"
+  return
+fi
 
 local docs_path=$( get_project_docs_path "$1" )
 
 if [[ -n "${docs_path}" ]]; then
   cd "${docs_path}"
 else
-  cd "$( xdg-user-dir PROJECTS_DOCS )"
+  echo "No such project docs"
 fi

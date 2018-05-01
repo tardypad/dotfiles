@@ -1,11 +1,16 @@
 # Change current directory to a project logs folder
 #
-# Use projects main logs folder given no argument or invalid one
+# Use projects main logs folder given no argument
+
+if [[ -z "$1" ]]; then
+  cd "$( xdg-user-dir PROJECTS_LOGS )"
+  return
+fi
 
 local logs_path=$( get_project_logs_path "$1" )
 
 if [[ -n "${logs_path}" ]]; then
   cd "${logs_path}"
 else
-  cd "$( xdg-user-dir PROJECTS_LOGS )"
+  echo "No such project logs"
 fi

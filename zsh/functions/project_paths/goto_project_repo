@@ -1,11 +1,16 @@
 # Change current directory to a project repository folder
 #
-# Use projects main folder given no argument or invalid one
+# Use projects main folder given no argument
+
+if [[ -z "$1" ]]; then
+  cd "$( xdg-user-dir PROJECTS )"
+  return
+fi
 
 local repo_path=$( get_project_repo_path "$1" )
 
 if [[ -n "${repo_path}" ]]; then
   cd "${repo_path}"
 else
-  cd "$( xdg-user-dir PROJECTS )"
+  echo "No such project repository"
 fi
