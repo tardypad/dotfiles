@@ -5,12 +5,15 @@ markup=pango
 interval=once
 signal=2
 
-[network]
+[music]
 interval=10
 
 [volume]
 interval=once
 signal=1
+
+[network]
+interval=10
 
 [power]
 interval=10

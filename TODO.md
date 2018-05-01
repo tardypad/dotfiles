@@ -52,7 +52,6 @@
 
 # New Features
   - backup of notes, ncmpcpp lyrics,...
-  - display music status in i3blocks stop/pause/playing and maybe artist/title
 
 # Research
   - adapt notify_break to be more Pomodoro Technique like

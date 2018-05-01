@@ -1,0 +1,30 @@
+#! /usr/bin/env zsh
+
+MUSIC_INFO=$(
+  mpc status --format '[[%artist% / ]%title%]|[%file%]' 2> /dev/null
+)
+
+# only display something if the MPD is on
+# and the songs queue is not empty
+if [[ -z "${MUSIC_INFO}" \
+    || $( mpc playlist | wc --lines ) -eq 0 ]]; then
+  exit 0
+fi
+
+
+if echo "${MUSIC_INFO}" | grep --quiet '^\[playing\]'; then
+  MUSIC_ICON=''
+  MUSIC_TEXT=$(
+    echo "${MUSIC_INFO}" \
+      | head --lines 1 \
+      | cut --characters -50
+  )
+elif echo "${MUSIC_INFO}" | grep --quiet '^\[paused\]'; then
+  MUSIC_ICON=''
+  MUSIC_TEXT='Paused'
+else
+  MUSIC_ICON=''
+  MUSIC_TEXT='Stopped'
+fi
+
+echo "<span foreground='#2aa198'>${MUSIC_ICON}</span> <span style='italic'>${MUSIC_TEXT}</span>"
