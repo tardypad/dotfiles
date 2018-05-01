@@ -1,3 +1,12 @@
+# Display the base64 encoding of a string
+#
+# Helper done because I always forget to remove the echo newline
+# which then creates a different encoding result
+#
+# It can use the same options as the usual base64 command
+# (except --help and --version)
+# but is not pipe friendly
+
 local options=${@:1:$(( # - 1 ))}
 local string="${@: -1}"
 

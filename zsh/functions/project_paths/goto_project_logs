@@ -1,2 +1,11 @@
+# Change current directory to a project logs folder
+#
+# Use projects main logs folder given no argument or invalid one
+
 local logs_path=$( get_project_logs_path "$1" )
-[[ -n "${logs_path}" ]] && cd "${logs_path}" || cd "$( xdg-user-dir PROJECTS_LOGS )"
+
+if [[ -n "${logs_path}" ]]; then
+  cd "${logs_path}"
+else
+  cd "$( xdg-user-dir PROJECTS_LOGS )"
+fi

@@ -1,2 +1,11 @@
+# Change current directory to a project main folder
+#
+# Use projects main folder given no argument or invalid one
+
 local main_path=$( get_project_main_path "$1" )
-[[ -n "${main_path}" ]] && cd "${main_path}" || cd "$( xdg-user-dir PROJECTS )"
+
+if [[ -n "${main_path}" ]]; then
+  cd "${main_path}"
+else
+  cd "$( xdg-user-dir PROJECTS )"
+fi

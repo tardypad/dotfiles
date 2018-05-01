@@ -1,3 +1,17 @@
+# Plot the data of a file
+
 local file="$1"
+
+if [[ -z "${file}" ]]; then
+  echo "Missing file argument"
+  echo "usage: plot FILE"
+  return 1
+fi
+
+if [[ ! -f "${file}" ]]; then
+  echo "File ${file} does not exist"
+  echo "usage: plot FILE"
+  return 1
+fi
 
 gnuplot -e "plot '${file}' pt '*'"

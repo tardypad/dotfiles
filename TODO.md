@@ -7,8 +7,6 @@
   - check tools version with the `check_versions.sh` script
 
 # Cleaning
-  - add description to zsh functions (maybe add --help option)  
-    and inputs validation too
 
 # Bugs
   - copy doesn't remove old files from the target directories  
