@@ -171,6 +171,9 @@ bindsym XF86MonBrightnessUp   exec light -A 10
 bindsym XF86MonBrightnessDown exec light -U 10
 
 # Media keys
-bindsym XF86AudioPlay exec mpc toggle
-bindsym XF86AudioNext exec mpc next
-bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioPlay exec mpc toggle \
+                           && pkill -RTMIN+3 i3blocks
+bindsym XF86AudioNext exec mpc next \
+                           && pkill -RTMIN+3 i3blocks
+bindsym XF86AudioPrev exec mpc prev \
+                           && pkill -RTMIN+3 i3blocks
