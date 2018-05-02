@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=termite --title " Help" --exec "help -i"
+Exec=termite --title " Help" --exec help
 Name=help
 GenericName=Help
 Icon=

@@ -3,7 +3,6 @@
 COMMAND=${0:t}
 
 init_variables() {
-  FORCE_INTERACTIVE=false
   TOPIC=
 }
 
@@ -16,7 +15,6 @@ Get help about a topic
 
 Options:
   -h,  --help           show this message only
-  -i,  --interactive    force the help display to be interactive
 EOF
 }
 
@@ -44,11 +42,7 @@ display_man() {
 
 
 display_help() {
-  if $FORCE_INTERACTIVE; then
-    "${TOPIC}" --help | less
-  else
-    "${TOPIC}" --help | less -FX
-  fi
+  "${TOPIC}" --help | less
   return 0
 }
 
@@ -88,10 +82,6 @@ parse_options() {
       -h|--help)
         usage
         exit 0
-        ;;
-      -i|--interactive)
-        FORCE_INTERACTIVE=true
-        shift
         ;;
       *)
         break 2
