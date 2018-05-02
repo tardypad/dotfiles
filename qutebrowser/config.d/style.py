@@ -122,3 +122,8 @@ c.colors.tabs.selected.even.fg                  = solarized['base2']
 c.colors.tabs.selected.odd.bg                   = solarized['cyan']
 c.colors.tabs.selected.odd.fg                   = solarized['base2']
 c.colors.webpage.bg                             = solarized['base3']
+
+# bars position
+c.statusbar.position = 'bottom'
+c.downloads.position = 'bottom'
+c.tabs.position      = 'top'
