@@ -55,3 +55,6 @@ alias ag='ag --smart-case --skip-vcs-ignores --follow'
 
 # reload all interactive zsh shells
 alias reload_all_zsh='killall --signal USR1 zsh'
+
+# quick temper
+alias :w="echo 'Do I look like vim to you?...'"
