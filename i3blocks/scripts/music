@@ -27,4 +27,7 @@ else
   MUSIC_TEXT='Stopped'
 fi
 
+# HACK: sway bar seems to crash if a text to be displayed contains the character '&'
+MUSIC_TEXT=$( echo "${MUSIC_TEXT}" | tr --delete '&' )
+
 echo "<span foreground='#2aa198'>${MUSIC_ICON}</span> <span style='italic'>${MUSIC_TEXT}</span>"

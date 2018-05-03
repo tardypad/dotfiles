@@ -5,6 +5,7 @@
   - update files which are downloaded automatically initially during make
   - update qutebrowser adblock lists with `:adblock-update`
   - check tools version with the `check_versions.sh` script
+  - look for HACK/BUG/... tags to see if they can be removed with new upgrades fixing it
 
 # Cleaning
 
@@ -42,8 +43,6 @@
   - add manual project root marker usage in vifm and fzf use in vim
   - vim fzf should ignore some files/folders like CtrlP previously
   - use fzf in vim to switch between buffers
-  - mark bug or limitation inside config file  
-    and check with upgrades if they can be fixed or improved
   - interactively choose help topic and translator languages
   - qutebrowser full bindings reworking like other tools
   - Makefile makes use of DESTDIR  
