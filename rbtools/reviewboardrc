@@ -39,6 +39,7 @@ ALIASES = {
           | cut -f2 -d/ \
           | cut -f1 -d- \
           | tr -d " " \
+          | tac \
           | xargs -I {} rbt publish {}; \
     ',
     'discard-head': '! \
@@ -54,6 +55,7 @@ ALIASES = {
           | cut -f2 -d/ \
           | cut -f1 -d- \
           | tr -d " " \
+          | tac \
           | xargs -I {} rbt close --close-type submitted {}; \
     ',
     'apply': '! \
