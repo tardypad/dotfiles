@@ -9,6 +9,9 @@ export LANG=en_US.UTF-8
 # needed for use of GnuPG Curses based Pinentry
 export GPG_TTY=$(tty)
 
+# use less as pager
+export PAGER=less
+
 # enable extended globbing features
 setopt extended_glob
 
