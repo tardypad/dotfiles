@@ -54,8 +54,6 @@
 
 # Research
   - adapt notify_break to be more Pomodoro Technique like
-  - check use of zsh run-help command for replacement/completion for our own help script  
-    (has support for man 1p and so, help for zsh function)
   - evaluate making scripts POSIX compliant  
     https://drewdevault.com/2018/02/05/Introduction-to-POSIX-shell.html
   - more use of fzf all over:

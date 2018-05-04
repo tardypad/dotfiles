@@ -2,6 +2,10 @@
 
 COMMAND=${0:t}
 
+# use run-help utility
+unalias run-help
+autoload -Uz run-help
+
 init_variables() {
   TOPIC=
 }
@@ -25,23 +29,31 @@ search_help() {
       read TOPIC
   fi
 
-  if man "${TOPIC}" &> /dev/null; then
-    display_man
+  # capture run-help error messages
+  local help_result=$( run-help "${TOPIC}" 2>&1 1> /dev/null )
+
+  # If there is no possible help for the topic
+  # run-help will output 'No manual entry for [topic]'
+  # from a last fail "man" command
+  # There doesn't seem to be another way to check success or failure
+  # (return code is always 0)
+  if [[ ! "${help_result}" =~ '.*No manual entry for.*' ]]; then
+    display_run_help
   elif "${TOPIC}" --help &> /dev/null; then
-    display_help
+    display_help_argument
   else
     display_no_help
   fi
 }
 
 
-display_man() {
-  man "${TOPIC}"
+display_run_help() {
+  run-help "${TOPIC}"
   return 0
 }
 
 
-display_help() {
+display_help_argument() {
   "${TOPIC}" --help | less
   return 0
 }
