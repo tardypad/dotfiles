@@ -107,9 +107,3 @@
         path = ~/.config/git/config.local
 [init]
         templatedir = ~/.config/git/template
-
-# colored git help
-[man]
-        viewer = coloredman
-[man "coloredman"]
-            cmd = colored_man

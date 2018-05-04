@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+# colored man
+
 # mb: start blink        -> red foreground
 # md: start bold         -> orange foreground
 # me: end all attributes -> end all attributes
@@ -16,4 +18,4 @@ env \
   LESS_TERMCAP_se=$(tput sgr0) \
   LESS_TERMCAP_us=$(tput setaf 4) \
   LESS_TERMCAP_ue=$(tput sgr0) \
-  man "$@"
+  /usr/bin/man "$@"

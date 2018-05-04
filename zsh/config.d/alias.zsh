@@ -8,9 +8,6 @@ alias ls='ls --color=auto'
 alias lh='ls -lh'
 alias grep='grep --color=auto'
 
-# All men are created equal
-alias man=colored_man
-
 # reverse fzf when used in a terminal
 # not included in FZF_DEFAULT_OPTS
 # because we don't want this when used within vim

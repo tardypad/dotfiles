@@ -36,7 +36,7 @@ search_help() {
 
 
 display_man() {
-  colored_man "${TOPIC}"
+  man "${TOPIC}"
   return 0
 }
 
