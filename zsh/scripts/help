@@ -62,6 +62,10 @@ display_help_argument() {
 display_no_help() {
   echo "no help for '${TOPIC}' :("
 
+  # display the options in one column
+  old_columns=$COLUMNS
+  export COLUMNS=1
+
   PS3='What to do now? '
 
   choices=(
@@ -85,6 +89,8 @@ display_no_help() {
           ;;
     esac
   done
+
+  COLUMNS=$old_columns
 }
 
 
@@ -109,9 +115,4 @@ init_variables
 parse_options "$@"
 
 
-old_columns=$COLUMNS
-export COLUMNS=1
-
 until search_help; do : ; done
-
-COLUMNS=$old_columns
