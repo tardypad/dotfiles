@@ -13,25 +13,6 @@
   - copy doesn't remove old files from the target directories  
     probably we should use rsync or so  
     need to be careful because some manual config files should be kept (mutt gpg config)
-  - http prompt issue with body value "products:='[]'"
-  - termite --class argument seems not to work  
-    need to make sway rule with title then
-  - needs to set both termite size at start and in sway rule  
-    to have it respected and the window centered when floating
-  - sometimes vim exits unexpectedly while closing a buffer/window using custom bindings  
-    might be a bug in the sayonara plugin  
-    maybe we can do without this one now
-  - sway notifications are displayed on top of the lockscreen  
-    but only when launched from the systemd service it seems
-  - in sway setting initial workspace layout doesn't apply to autostart windows  
-    only to the ones launched afterwards
-  - when not connecting the second monitor, sway bar is not displayed at all  
-    since the laptop monitor normally doesn't display it in case of 2 monitors
-  - when switching to sway floating spaces  
-    after closing the floating window (or toggling the scratchpad)  
-    it comes back to the wrong tiling window (always first one)  
-    doesn't happen if just switching back to tiling space
-  - tmux %if doesn't seem to support having execution #() expanded
 
 # Testing
   - vim gutentags root marker doesn't seem to work correctly with multiple repos

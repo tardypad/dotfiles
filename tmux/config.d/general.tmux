@@ -12,6 +12,7 @@ set -g detach-on-destroy off
 setw -g remain-on-exit on
 
 # define default term type
+# TODO: when possible detect if tmux terminfo is present instead of hardcoding host names
 %if #{||:#{==:Guinguette,#{host_short}},#{==:Spinach,#{host_short}}}
 set -g default-terminal "tmux-256color"
 %else
@@ -20,6 +21,7 @@ set -g default-terminal "screen-256color"
 
 # define command for new windows
 # prevents use of default behavior which creates a login shell
+# TODO: when possible detect if zsh is present instead of hardcoding host names
 %if #{||:#{==:Guinguette,#{host_short}},#{==:Spinach,#{host_short}}}
 set -g default-command "exec /bin/zsh"
 %else

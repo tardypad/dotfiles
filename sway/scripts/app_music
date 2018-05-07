@@ -10,6 +10,9 @@ if ! systemctl --user is-active mopidy.service; then
   systemctl --user start mopidy.service
 fi
 
+# HACK: need to set termite size at start,
+# also present in sway rules, to have it respected
+# and to have the window centered when floating
 swaymsg -t command \
   exec "termite \
           --title \"${TITLE}\" \

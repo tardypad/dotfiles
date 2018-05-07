@@ -1,3 +1,6 @@
+# HACK: termite --class argument seems not to work
+# so we need to rely on title to make most rules
+
 # display monitor as floating window
 for_window [title="sway_monitor"] floating enable, \
                                    resize set 1500 1000

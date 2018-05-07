@@ -110,6 +110,7 @@ bind Enter paste-buffer
 
 # replacement of tmux-open
 bind -T copy-mode-vi C-o send-keys -X copy-pipe-and-cancel "xargs -I {} tmux send-keys 'vim -- \"{}\"'; tmux send-keys Enter"
+# TODO: when possible detect if xdg-open exists instead of hardcoding host names
 %if #{||:#{==:Guinguette,#{host_short}},#{==:Spinach,#{host_short}}}
 bind -T copy-mode-vi   S send-keys -X copy-pipe-and-cancel "xargs -I {} tmux run-shell 'xdg-open https://www.google.com/search?q=\"{}\" > /dev/null'"
 bind -T copy-mode-vi   O send-keys -X copy-pipe-and-cancel "xargs -I {} tmux run-shell 'xdg-open \"{}\" > /dev/null'"
@@ -117,6 +118,7 @@ bind -T copy-mode-vi   O send-keys -X copy-pipe-and-cancel "xargs -I {} tmux run
 
 # replacement of tmux-yank
 bind -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "tmux paste-buffer"
+# TODO: when possible detect if swaymsg exists instead of hardcoding host names
 %if #{||:#{==:Guinguette,#{host_short}},#{==:Spinach,#{host_short}}}
 bind -T copy-mode-vi     y send-keys -X copy-pipe-and-cancel "xargs -I {} swaymsg clipboard {}"
 %else

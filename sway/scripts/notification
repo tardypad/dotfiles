@@ -5,16 +5,18 @@ TMP_TEXT_FILE="$2"
 
 EXTRA_COMMAND="$3"
 
-# do nothing if the lockscreen is on
-#   there seems to be a bug where the notification is displayed over the lockscreen
-#   when launched for the systemd service
-# or if the "Do not disturb" mode is on
+# do nothing if the "Do not disturb" mode is on
+# or if the lockscreen is on
+# HACK: the notification window is displayed over the lockscreen
+# when launched for the systemd service
 if pgrep swaylock &> /dev/null \
      || [[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/sway/do_not_disturb" ]]; then
   rm "${TMP_TEXT_FILE}"
   exit
 fi
 
+# HACK: need to set termite size at start,
+# also present in sway rules, to have it respected
 FULL_COMMAND="\
   termite \
     --exec 'sh -c \"display_notification \\\"${TITLE}\\\" ${TMP_TEXT_FILE}\"' \
