@@ -14,3 +14,6 @@ c.url.searchengines = {
     "aur": "https://aur.archlinux.org/packages/?K={}",
     "wiki": "https://wiki.archlinux.org/index.php?search={}"
 }
+
+# open new tabs from middle/ctrl click in the background
+c.tabs.background = True
