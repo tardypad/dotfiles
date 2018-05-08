@@ -9,5 +9,5 @@ _packages() {
 }
 
 _arguments \
+  '(-h --help)'{-h,--help}'[display the help]' \
   '1:package:_packages'
-
