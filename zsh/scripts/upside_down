@@ -1,6 +1,12 @@
 #! /usr/bin/env zsh
 
+# output arguments, or piped text, upside down
+
 TEXT="$@"
+
+if [[ -z "${TEXT}" ]]; then
+  read TEXT
+fi
 
 RESULT_TEXT=
 
@@ -34,6 +40,7 @@ for (( i=0; i<${#TEXT}; i++ )); do
     'y') RESULT_TEXT+='ʎ' ;;
     'z') RESULT_TEXT+='z' ;;
     ' ') RESULT_TEXT+=' ' ;;
+    # ignore other characters for now
   esac
 done
 
