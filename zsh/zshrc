@@ -15,7 +15,7 @@ setopt no_flow_control
 stty -ixon
 
 # use run-help utility
-unalias run-help
+unalias run-help 2> /dev/null
 autoload -Uz run-help
 
 # reuse ssh-agent across ttys
