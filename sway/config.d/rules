@@ -1,4 +1,4 @@
-# HACK: termite --class argument seems not to work
+# termite as a native Wayland app doesn't support --class argument
 # so we need to rely on title to make most rules
 
 # display monitor as floating window
