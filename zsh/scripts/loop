@@ -10,13 +10,6 @@ init_variables() {
 }
 
 
-error() {
-  [[ -z "$1" ]] || echo "$1" >&2
-  usage
-  exit 1
-}
-
-
 usage() {
   cat << EOF
 usage: ${COMMAND} [<options>] command
@@ -30,6 +23,13 @@ Options:
                               default is 0, floating number are accepted
   -t,  --time      TIME       stops command runs after a TIME seconds period
 EOF
+}
+
+
+error() {
+  [[ -z "$1" ]] || echo "error: $1" >&2
+  usage
+  exit 1
 }
 
 

@@ -1,28 +1,90 @@
 #!/usr/bin/env zsh
 
-PACKAGE_NAME="$1"
+COMMAND=${0:t}
 
-PACKAGE_VERSION=$(
-  pacman --query "${PACKAGE_NAME}" \
-    | cut --field 2 --delimiter ' '
-)
+init_variables() {
+  PACKAGE_NAME=
+}
 
-# need double --check argument to show modified files
-PACKAGE_MODIFIED_FILES=( $(
-  pacman --query --check --check "${PACKAGE_NAME}" \
-    | grep '^backup file:' \
-    | cut --field 4 --delimiter ' ' \
-    | uniq
-) )
 
-# if it happens we have packages with many modified files
-# we'll better extract first a single time instead of doing for each file
-for PACKAGE_MODIFIED_FILE in ${PACKAGE_MODIFIED_FILES}; do
-  echo "${PACKAGE_MODIFIED_FILE}"
-  tar --extract --to-stdout \
-    --file /var/cache/pacman/pkg/${PACKAGE_NAME}-${PACKAGE_VERSION}-*.pkg.tar.xz \
-    "${PACKAGE_MODIFIED_FILE/\//}" \
-    2> /dev/null \
-  | diff - "${PACKAGE_MODIFIED_FILE}"
-  echo
-done
+usage() {
+  cat << EOF
+usage: ${COMMAND} [<options>] package
+
+Display a diff of a package modified files
+
+Options:
+  -h,  --help    show this message only
+EOF
+}
+
+
+error() {
+  [[ -z "$1" ]] || echo "$1" >&2
+  usage
+  exit 1
+}
+
+
+diff_package() {
+  local package_version=$(
+    pacman --query "${PACKAGE_NAME}" 2> /dev/null \
+      | cut --field 2 --delimiter ' '
+  )
+
+  # need double --check argument to show modified files
+  local package_modified_files=( $(
+    pacman --query --check --check "${PACKAGE_NAME}" \
+      | grep '^backup file:' \
+      | cut --field 4 --delimiter ' ' \
+      | uniq
+  ) )
+
+  # OPTIMIZE: if it happens we have packages with many modified files
+  # we maybe better extract first a single time instead of doing for each file
+  local package_modified_file
+  for package_modified_file in ${package_modified_files}; do
+    echo "${package_modified_file}"
+    tar --extract --to-stdout \
+      --file /var/cache/pacman/pkg/${PACKAGE_NAME}-${package_version}-*.pkg.tar.xz \
+      "${package_modified_file/\//}" \
+      2> /dev/null \
+    | diff - "${package_modified_file}"
+    echo
+  done
+}
+
+
+parse_options() {
+  while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      *)
+        break 2
+        ;;
+    esac
+  done
+
+  PACKAGE_NAME="$1"
+}
+
+
+validate_options() {
+  if [[ -z "${PACKAGE_NAME}" ]]; then
+    error 'missing package name'
+  fi
+
+  if ! pacman --query "${PACKAGE_NAME}" &> /dev/null; then
+    error "invalid package name ${PACKAGE_NAME}"
+  fi
+}
+
+
+init_variables
+parse_options "$@"
+validate_options
+
+diff_package

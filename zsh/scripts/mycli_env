@@ -1,5 +1,67 @@
 #!/usr/bin/env zsh
 
-# copy of mycli alias (didn't manage to load here)
-mycli --defaults-group-suffix=_mycli \
-  $( cat "${XDG_CONFIG_HOME:-$HOME/.config}/mycli/env/$1.mc" )
+COMMAND=${0:t}
+
+init_variables() {
+  ENV_DIR_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/mycli/env"
+
+  PROJECT=
+  ENV_PATH=
+}
+
+
+usage() {
+  cat << EOF
+usage: ${COMMAND} [<options>] project
+
+Start mycli with a custom project environment
+
+Options:
+  -h,  --help    show this message only
+EOF
+}
+
+
+error() {
+  [[ -z "$1" ]] || echo "$1" >&2
+  usage
+  exit 1
+}
+
+
+parse_options() {
+  while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      *)
+        break 2
+        ;;
+    esac
+  done
+
+  PROJECT="$1"
+}
+
+
+validate_options() {
+  if [[ -z "${PROJECT}" ]]; then
+    error 'missing project'
+  fi
+
+  ENV_PATH="${ENV_DIR_PATH}/${PROJECT}.mc"
+
+  if [[ ! -f "${ENV_PATH}" ]]; then
+    error 'invalid project'
+  fi
+}
+
+
+init_variables
+parse_options "$@"
+validate_options
+
+# copy of mycli alias (didn't manage to load it here)
+mycli --defaults-group-suffix=_mycli $( cat "${ENV_PATH}" )

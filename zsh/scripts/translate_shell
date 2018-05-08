@@ -1,74 +1,114 @@
 #!/usr/bin/env zsh
 
-# display the options in one column
-old_columns=$COLUMNS
-export COLUMNS=1
+COMMAND=${0:t}
 
-PS3='Select translation option: '
+init_variables() {
+  SOURCE_LANGUAGE=
+  TARGET_LANGUAGE=
+}
 
-choices=(
-  'English    -> Français'
-  'English    -> Nederlands'
-  'Français   -> English'
-  'Français   -> Nederlands'
-  'Nederlands -> English'
-  'Nederlands -> Français'
-  'manual'
-  'quit'
-)
 
-SOURCE_LANGUAGE=
-TARGET_LANGUAGE=
+usage() {
+  cat << EOF
+usage: ${COMMAND} [<options>]
 
-select choice in ${choices}; do
-  case $choice in
-    'English    -> Français')
-      SOURCE_LANGUAGE='en'
-      TARGET_LANGUAGE='fr'
-      break
-      ;;
-    'English    -> Nederlands')
-      SOURCE_LANGUAGE='en'
-      TARGET_LANGUAGE='nl'
-      break
-      ;;
-    'Français   -> English')
-      SOURCE_LANGUAGE='fr'
-      TARGET_LANGUAGE='en'
-      break
-      ;;
-    'Français   -> Nederlands')
-      SOURCE_LANGUAGE='fr'
-      TARGET_LANGUAGE='nl'
-      break
-      ;;
-    'Nederlands -> English')
-      SOURCE_LANGUAGE='nl'
-      TARGET_LANGUAGE='en'
-      break
-      ;;
-    'Nederlands -> Français')
-      SOURCE_LANGUAGE='nl'
-      TARGET_LANGUAGE='fr'
-      break
-      ;;
-    'manual')
-       echo -n 'source language code? '
-       read SOURCE_LANGUAGE
-       echo -n 'target language code? '
-       read TARGET_LANGUAGE
-       break
-       ;;
-    'quit')
-      break
-      ;;
-    *)
-      echo 'invalid option'
-      ;;
-  esac
-done
+Launch a translation interactive shell
 
-COLUMNS=$old_columns
+Options:
+  -h,  --help    show this message only
+EOF
+}
+
+
+select_languages() {
+  # display the options in one column
+  old_columns=$COLUMNS
+  export COLUMNS=1
+
+  PS3='Select translation option: '
+
+  choices=(
+    'English    -> Français'
+    'English    -> Nederlands'
+    'Français   -> English'
+    'Français   -> Nederlands'
+    'Nederlands -> English'
+    'Nederlands -> Français'
+    'manual'
+    'quit'
+  )
+
+  select choice in ${choices}; do
+    case $choice in
+      'English    -> Français')
+        SOURCE_LANGUAGE='en'
+        TARGET_LANGUAGE='fr'
+        break
+        ;;
+      'English    -> Nederlands')
+        SOURCE_LANGUAGE='en'
+        TARGET_LANGUAGE='nl'
+        break
+        ;;
+      'Français   -> English')
+        SOURCE_LANGUAGE='fr'
+        TARGET_LANGUAGE='en'
+        break
+        ;;
+      'Français   -> Nederlands')
+        SOURCE_LANGUAGE='fr'
+        TARGET_LANGUAGE='nl'
+        break
+        ;;
+      'Nederlands -> English')
+        SOURCE_LANGUAGE='nl'
+        TARGET_LANGUAGE='en'
+        break
+        ;;
+      'Nederlands -> Français')
+        SOURCE_LANGUAGE='nl'
+        TARGET_LANGUAGE='fr'
+        break
+        ;;
+      'manual')
+         echo -n 'source language code? '
+         read SOURCE_LANGUAGE
+         echo -n 'target language code? '
+         read TARGET_LANGUAGE
+         break
+         ;;
+      'quit')
+        break
+        ;;
+      *)
+        echo 'invalid option'
+        ;;
+    esac
+  done
+
+  COLUMNS=$old_columns
+}
+
+
+parse_options() {
+  while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      *)
+        break 2
+        ;;
+    esac
+  done
+}
+
+
+init_variables
+parse_options "$@"
+
+select_languages
 
 if [[ -z "${SOURCE_LANGUAGE}" || -z "${TARGET_LANGUAGE}" ]]; then
   exit

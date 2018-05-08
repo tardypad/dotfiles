@@ -1,20 +1,22 @@
 #!/usr/bin/env zsh
 
-# init variables
 COMMAND=${0:t}
-ENV_DIR_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/tmux/env/"
 
-AVAILABLE_TARGETS=( $(
-  ls "${ENV_DIR_PATH}"
-) )
-BACKGROUND=false
+init_variables() {
+  ENV_DIR_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/tmux/env/"
 
-TARGET=
-SESSIONS=
+  AVAILABLE_TARGETS=( $(
+    ls "${ENV_DIR_PATH}"
+  ) )
+  BACKGROUND=false
 
-# variables coming from env files
-HOST=localhost
-SOCKET=default
+  TARGET=
+  SESSIONS=
+
+  # variables coming from env files
+  HOST=localhost
+  SOCKET=default
+}
 
 
 usage() {
@@ -35,10 +37,9 @@ EOF
 
 
 error() {
-  if [[ -n "$1" ]]; then
-    echo "error: $1" >&2
-  fi
+  [[ -z "$1" ]] || echo "$1" >&2
   usage
+  exit 1
 }
 
 
@@ -138,44 +139,47 @@ start_target_tmux_env() {
 }
 
 
-# parse options
-while [[ "$#" -gt 0 ]]; do
-  case "$1" in
-    -b|--background)
-      BACKGROUND=true
-      shift
-      ;;
-    -h|--help)
-      usage
-      return 0
-      ;;
-    *)
-      break 2
-      ;;
-  esac
-done
+parse_options() {
+  while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+      -b|--background)
+        BACKGROUND=true
+        shift
+        ;;
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      *)
+        break 2
+        ;;
+    esac
+  done
 
-if [[ $# -eq 0 ]]; then
-  error 'missing target'
-  return 1
-fi
-
-TARGET="$1"
-SESSIONS=( ${@:2} )
-
-# validate target
-if ! (( ${AVAILABLE_TARGETS[(Ie)${TARGET}]} )); then
-  error "invalid target ${TARGET}"
-  return 1
-fi
-
-# validate target's sessions if present
-for session in ${SESSIONS}; do
-  if [[ ! -f "${ENV_DIR_PATH}/${TARGET}/${session}.sh" ]]; then
-    error "invalid target's session ${session}"
-    return 1
+  if [[ $# -eq 0 ]]; then
+    error 'missing target'
   fi
-done
 
+  TARGET="$1"
+  SESSIONS=( ${@:2} )
+}
+
+
+validate_options() {
+  if ! (( ${AVAILABLE_TARGETS[(Ie)${TARGET}]} )); then
+    error "invalid target ${TARGET}"
+  fi
+
+  for session in ${SESSIONS}; do
+    if [[ ! -f "${ENV_DIR_PATH}/${TARGET}/${session}.sh" ]]; then
+      error "invalid target's session ${session}"
+    fi
+  done
+}
+
+
+init_variables
+parse_options "$@"
+validate_options
 
 start_target_tmux_env
