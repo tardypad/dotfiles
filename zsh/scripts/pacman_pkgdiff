@@ -20,8 +20,8 @@ EOF
 
 
 error() {
-  [[ -z "$1" ]] || echo "$1" >&2
-  usage
+  [[ -z "$1" ]] || echo "${COMMAND}: $1" >&2
+  echo "Try '${COMMAND} --help' for more information."
   exit 1
 }
 
