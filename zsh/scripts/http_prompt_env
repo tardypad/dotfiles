@@ -5,13 +5,15 @@ COMMAND=${0:t}
 init_variables() {
   ENV_DIR_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/http-prompt/env"
 
+  PROJECT=
+  ENVIRONMENT=
   ENV_PATH=
 }
 
 
 usage() {
   cat << EOF
-usage: ${COMMAND} [<options>] project [environment]
+usage: ${COMMAND} [<options>] project environment
 
 Start http-prompt with a custom project environment
 
@@ -41,17 +43,24 @@ parse_options() {
     esac
   done
 
-  if [[ -n "$2" ]]; then
-    ENV_PATH="${ENV_DIR_PATH}/$1/$2.hp"
-  else
-    ENV_PATH="${ENV_DIR_PATH}/$1.hp"
-  fi
+  PROJECT="$1"
+  ENVIRONMENT="$2"
 }
 
 
 validate_options() {
+  if [[ -z "${PROJECT}" ]]; then
+    error 'missing project'
+  fi
+
+  if [[ -z "${ENVIRONMENT}" ]]; then
+    error 'missing environment'
+  fi
+
+  ENV_PATH="${ENV_DIR_PATH}/${PROJECT}/${ENVIRONMENT}.hp"
+
   if [[ ! -f "${ENV_PATH}" ]]; then
-    error 'invalid project or environment'
+    error 'invalid project/environment'
   fi
 }
 
