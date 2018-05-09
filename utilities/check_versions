@@ -1,0 +1,160 @@
+#!/usr/bin/env zsh
+
+COMMAND=${0:t}
+
+init_variables() {
+  MAIN_PACKAGES=
+  EXTENSIONS=
+}
+
+
+usage() {
+  cat << EOF
+usage: ${COMMAND} [<options>]
+
+Check and report packages versions:
+- version installed on the system
+- version listed in the main README
+- version listed in the package individual README
+
+Needs to be run from the repository root
+
+Options:
+  -h,  --help    show this message only
+EOF
+}
+
+
+error() {
+  [[ -z "$1" ]] || echo "${COMMAND}: $1" >&2
+  echo "Try '${COMMAND} --help' for more information."
+  exit 1
+}
+
+
+main_readme_version() {
+  local package="$1"
+
+  grep "^| ${package} .*" README.md \
+    | sed 's#^|.*|.*|.*| \[\(.*\)\].*#\1#'
+}
+
+
+individual_readme_version() {
+  local package="$1"
+
+  if [[ ! -d "packages/${package}" ]]; then
+    echo '.'
+    return
+  fi
+
+  grep '^Version \[' "packages/${package}/README.md" \
+    | sed 's#^Version \[\(.*\)\].*#\1#'
+}
+
+
+extension_readme_version() {
+  local extension="$1"
+
+  grep --extended-regexp '^\|.*\|.*\|.*\| \[.*\].*\|$' packages/*/README.md \
+    | grep "| ${extension}" \
+    | sed "s#^.*/README.md:| ${extension} *|.*|.*| \[\(.*\)\].*|#\1#"
+}
+
+
+pacman_version() {
+  local package="$1"
+
+  [[ "${package}" == 'notes' ]] && package='notes-pimterry'
+
+  local pacman_info=$(
+    pacman --query --info "${package}" 2> /dev/null
+  )
+
+  if [[ -z "${pacman_info}" ]]; then
+    # try with -git suffix if package couldn't be found
+    local pacman_info=$(
+      pacman --query --info "${package}-git" 2> /dev/null
+    )
+  fi
+
+  if [[ -z "${pacman_info}" ]]; then
+    echo 'unknown'
+    return
+  fi
+
+  # last line remove the release version
+  echo "${pacman_info}" \
+    | grep '^Version' \
+    | tr --squeeze-repeats ' ' \
+    | cut --fields 3 --delimiter ' ' \
+    | sed 's#\(.*\)\-[0-9]*#\1#'
+}
+
+
+report_packages() {
+  for package in ${MAIN_PACKAGES}; do
+    echo -n "${package}"
+    echo -n ' '
+    echo -n $( pacman_version "${package}" )
+    echo -n ' '
+    echo -n $( main_readme_version "${package}" )
+    echo -n ' '
+    echo -n $( individual_readme_version "${package}" )
+    echo
+  done
+}
+
+
+report_extensions() {
+  for extension in ${EXTENSIONS}; do
+    echo -n "${extension}"
+    echo -n ' '
+    echo -n $( pacman_version "${extension}" )
+    echo -n ' '
+    echo -n '.'
+    echo -n ' '
+    echo -n $( extension_readme_version "${extension}" )
+    echo
+  done
+}
+
+
+report_all() {
+  MAIN_PACKAGES=($(
+    grep --extended-regexp '^\|.*\|.*\|.*\| \[.*\].*\|$' README.md \
+      | sed 's#^| \([^ ]*\) .*#\1#'
+  ))
+
+  # exclude vim and weechat plugins (not managed by package manager)
+  EXTENSIONS=($(
+    grep --extended-regexp '^\|.*\|.*\|.*\| \[.*\].*\|$' packages/*/README.md \
+      | grep --invert-match --extended-regexp '^packages/vim|^packages/weechat' \
+      | sed 's#^.*/README.md:| \([^ ]*\) .*#\1#'
+  ))
+
+
+  { report_packages; report_extensions; } \
+    | column --table
+}
+
+
+parse_options() {
+  while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      *)
+        error "Invalid option '$1'"
+        ;;
+    esac
+  done
+}
+
+
+init_variables
+parse_options "$@"
+
+report_all

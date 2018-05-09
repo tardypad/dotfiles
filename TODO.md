@@ -4,7 +4,7 @@
   - replace unnecessary dependencies with own simpler config, scripts,...
   - update files which are downloaded automatically initially during make
   - update qutebrowser adblock lists with `:adblock-update`
-  - check packages version with the `check_versions.sh` script
+  - check packages versions with the `check_versions` utility script
   - look for #HACK/#BUG/... tags to see if they can be removed with new upgrades fixing it
 
 # Cleaning
