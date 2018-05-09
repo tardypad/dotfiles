@@ -4,8 +4,10 @@
   - replace unnecessary dependencies with own simpler config, scripts,...
   - update files which are downloaded automatically initially during make
   - update qutebrowser adblock lists with `:adblock-update`
-  - check packages versions with the `check_versions` utility script
-  - check code tags with the `check_tags` utility script
+  - check that packages versions are up to date
+    with the `report_versions` utility script
+  - check if some code tags can be fixed
+    with the `report_tags` utility script
 
 # Cleaning
 
