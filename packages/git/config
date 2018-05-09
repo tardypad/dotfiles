@@ -22,7 +22,7 @@
         cpc = cherry-pick --continue
         current-branch = symbolic-ref --short HEAD
         df = diff
-        df1 = diff -U0
+        df0 = diff -U0
         dfc = diff --cached
         fe = fetch --all
         first-commit = ! git rev-list --max-parents=0 HEAD | tail --lines 1
