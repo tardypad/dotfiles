@@ -4,9 +4,9 @@ Personal configuration files
 
 Used on a [Arch Linux](https://www.archlinux.org/) system
 
-## Tools
+## Packages
 
-All tools selected are [Free Software](https://www.gnu.org/philosophy/free-sw.en.html)
+All packages selected are [Free Software](https://www.gnu.org/philosophy/free-sw.en.html)
 
 | Name                   | Purpose                              | Source                                                                 | Version                                                                                                                               |
 |------------------------|--------------------------------------|------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
@@ -48,16 +48,16 @@ All tools selected are [Free Software](https://www.gnu.org/philosophy/free-sw.en
 | zathura                | document viewer                      | [pwmt.org](https://git.pwmt.org/pwmt/zathura)                          | [0.3.9](https://git.pwmt.org/pwmt/zathura/tags/0.3.9)                                                                                 |
 | zsh                    | shell                                | [Github](https://github.com/zsh-users/zsh)                             | [5.5.1](https://github.com/zsh-users/zsh/releases/tag/zsh-5.5.1)                                                                      |
 
-See each individual tool folder README for more information
+See each individual package folder README for more information
 about versions, extensions, plugins,...
 
-All tools are configured to use the dark
+All packages are configured to use the dark
 [Solarized](http://ethanschoonover.com/solarized) color palette.
 
 Most keybindings are minimalized to keep only relevant ones
 and configured to be as much vim-like as possible.
 
-Colors and keybindings usage try to be consistent across tools.
+Colors and keybindings usage try to be consistent across packages.
 
 
 ## Setup
@@ -65,27 +65,27 @@ Colors and keybindings usage try to be consistent across tools.
 Setup is done using [Gnu Make](https://www.gnu.org/software/make/)
 
 ```shell
-# install config files of all tools
+# install config files of all packages
 make
 
-# install config files of a single tool
+# install config files of a single packages
 make tmux
 
-# install config files of a selection of tools
+# install config files of a selection of packages
 make tmux vim zsh
 ```
 
-Some tools require some additional manual setup steps, check their own README
+Some packages require some additional manual setup steps, check their own README
 
 
-## Extra tools
+## Extra packages
 
-Tools required in the setup which have no own dotfiles config:
+Packages required in the setup which have no own dotfiles config:
 - no support for configuration (the silver searcher)
 - none is needed, use defaults (curl, only used for downloads during setup)
-- config is part of another tool (fzf, variables part of shell config)
+- config is part of another package (fzf, variables part of shell config)
 
-Doesn't include "common" GNU command line tools
+Doesn't include "common" GNU command line packages
 such as sed, grep,... and the likes.
 
 | Name                   | Purpose                              | Source                                                                                 | Version                                                                                                                |

@@ -1,10 +1,10 @@
 # Periodic
-  - upgrade tools, plugins, extensions,...
+  - upgrade packages, plugins, extensions,...
   - remove unused plugins, aliases, functions,...
   - replace unnecessary dependencies with own simpler config, scripts,...
   - update files which are downloaded automatically initially during make
   - update qutebrowser adblock lists with `:adblock-update`
-  - check tools version with the `check_versions.sh` script
+  - check packages version with the `check_versions.sh` script
   - look for #HACK/#BUG/... tags to see if they can be removed with new upgrades fixing it
 
 # Cleaning
@@ -25,7 +25,7 @@
   - vim fzf should ignore some files/folders like CtrlP previously
   - use fzf in vim to switch between buffers
   - interactively choose help topic and translator languages
-  - qutebrowser full bindings reworking like other tools
+  - qutebrowser full bindings reworking like other packages
   - Makefile makes use of DESTDIR  
     as recommended in [manual](https://www.gnu.org/prep/standards/html_node/DESTDIR.html)
     (might be used to make a package?)

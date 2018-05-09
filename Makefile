@@ -3,13 +3,13 @@ CONFIG_DIR := $(if $(XDG_CONFIG_HOME),$(XDG_CONFIG_HOME),$(HOME)/.config)
 DATA_DIR := $(if $(XDG_DATA_HOME),$(XDG_DATA_HOME),$(HOME)/.local/share)
 CACHE_DIR := $(if $(XDG_CACHE_HOME),$(XDG_CACHE_HOME),$(HOME)/.cache)
 
-# detect all tools target
-TOOLS := $(subst /,, $(dir $(wildcard packages/*/Makefile)))
+# detect all packages target
+PACKAGES := $(subst /,, $(dir $(wildcard packages/*/Makefile)))
 
 # default target first
-# install all tools
-all: $(TOOLS)
-.PHONY: all $(TOOLS)
+# install all packages
+all: $(PACKAGES)
+.PHONY: all $(PACKAGES)
 
 # info display macros
 start_setup = @echo -n "… setup $@"
@@ -26,7 +26,7 @@ define copy_folder
 endef
 
 # all Makefiles could be included with "include */Makefile"
-# or "$(foreach tool, $(TOOLS), $(eval include $(tool)/Makefile))"
+# or "$(foreach package, $(PACKAGES), $(eval include $(package)/Makefile))"
 # but then we lose the autocompletion in the command line :(
 include packages/aria2/Makefile
 include packages/coreutils/Makefile

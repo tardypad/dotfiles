@@ -1,23 +1,22 @@
 #!/usr/bin/env zsh
 
-
 function main_readme_version() {
-  local tool="$1"
+  local package="$1"
 
-  grep "^| ${tool} .*" README.md \
+  grep "^| ${package} .*" README.md \
     | sed 's#^|.*|.*|.*| \[\(.*\)\].*#\1#'
 }
 
 
 function individual_readme_version() {
-  local tool="$1"
+  local package="$1"
 
-  if [[ ! -d "${tool}" ]]; then
+  if [[ ! -d "${package}" ]]; then
     echo '.'
     return
   fi
 
-  grep '^Version \[' "${tool}/README.md" \
+  grep '^Version \[' "${package}/README.md" \
     | sed 's#^Version \[\(.*\)\].*#\1#'
 }
 
@@ -32,18 +31,18 @@ function extension_readme_version() {
 
 
 function pacman_version() {
-  local tool="$1"
+  local package="$1"
 
-  [[ "${tool}" == 'notes' ]] && tool='notes-pimterry'
+  [[ "${package}" == 'notes' ]] && package='notes-pimterry'
 
   local pacman_info=$(
-    pacman --query --info "${tool}" 2> /dev/null
+    pacman --query --info "${package}" 2> /dev/null
   )
 
   if [[ -z "${pacman_info}" ]]; then
     # try with -git suffix if package couldn't be found
     local pacman_info=$(
-      pacman --query --info "${tool}-git" 2> /dev/null
+      pacman --query --info "${package}-git" 2> /dev/null
     )
   fi
 
@@ -61,15 +60,15 @@ function pacman_version() {
 }
 
 
-function report_tools() {
-  for tool in ${TOOLS}; do
-    echo -n "${tool}"
+function report_packages() {
+  for package in ${PACKAGES}; do
+    echo -n "${package}"
     echo -n ' '
-    echo -n $( pacman_version "${tool}" )
+    echo -n $( pacman_version "${package}" )
     echo -n ' '
-    echo -n $( main_readme_version "${tool}" )
+    echo -n $( main_readme_version "${package}" )
     echo -n ' '
-    echo -n $( individual_readme_version "${tool}" )
+    echo -n $( individual_readme_version "${package}" )
     echo
   done
 }
@@ -89,7 +88,7 @@ function report_extensions() {
 }
 
 
-TOOLS=($(
+PACKAGES=($(
   grep --extended-regexp '^\|.*\|.*\|.*\| \[.*\].*\|$' README.md \
     | sed 's#^| \([^ ]*\) .*#\1#'
 ))
@@ -102,5 +101,5 @@ EXTENSIONS=($(
 ))
 
 
-{ report_tools; report_extensions; } \
+{ report_packages; report_extensions; } \
   | column --table
