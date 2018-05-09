@@ -40,7 +40,6 @@ include http-prompt/Makefile
 include i3blocks/Makefile
 include less/Makefile
 include libqalculate/Makefile
-include login/Makefile
 include mopidy/Makefile
 include mycli/Makefile
 include ncmpcpp/Makefile
@@ -58,6 +57,7 @@ include systemd/Makefile
 include termite/Makefile
 include translate-shell/Makefile
 include universal-ctags/Makefile
+include util-linux/Makefile
 include vifm/Makefile
 include vim/Makefile
 include weechat/Makefile
