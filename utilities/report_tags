@@ -41,7 +41,7 @@ report_tags() {
  git grep --extended-regexp "${regex}" packages/ \
    | sed --regexp-extended 's/.*(#[A-Z]+).*/\1 \0/' \
    | sort \
-   | sed --regexp-extended 's/#[A-Z]+ ([^:]+):.*(#[A-Z]+): (.*)/\1@\2@\3/' \
+   | sed --regexp-extended 's|#[A-Z]+ packages/([^/]+)/([^:]+):.*(#[A-Z]+): (.*)|\3@\1@\2@\4|' \
    | column --table --separator @
 }
 
