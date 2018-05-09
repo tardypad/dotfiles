@@ -1,0 +1,67 @@
+#!/usr/bin/env zsh
+
+COMMAND=${0:t}
+
+init_variables() {
+  typeset -gA TAGS=(
+    'BUG'      'known bug that we live with'
+    'IDEA'     'idea for improvement'
+    'FIXME'    'should be refactored'
+    'HACK'     'workaround around a bug or limitation'
+    'OPTIMIZE' 'should be optimized'
+    'TODO'     'something else needs to be done'
+  )
+}
+
+
+usage() {
+  cat << EOF
+usage: ${COMMAND} [<options>]
+
+Report all code tags present in config files
+
+Needs to be run from the repository root
+
+Options:
+  -h,  --help    show this message only
+EOF
+}
+
+
+error() {
+  [[ -z "$1" ]] || echo "${COMMAND}: $1" >&2
+  echo "Try '${COMMAND} --help' for more information."
+  exit 1
+}
+
+
+report_tags() {
+ local regex="#($( IFS='|'; echo "${(k)TAGS}" ))"
+
+ git grep --extended-regexp "${regex}" packages/ \
+   | sed --regexp-extended 's/.*(#[A-Z]+).*/\1 \0/' \
+   | sort \
+   | sed --regexp-extended 's/#[A-Z]+ ([^:]+):.*(#[A-Z]+): (.*)/\1@\2@\3/' \
+   | column --table --separator @
+}
+
+
+parse_options() {
+  while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      *)
+        error "Invalid option '$1'"
+        ;;
+    esac
+  done
+}
+
+
+init_variables
+parse_options "$@"
+
+report_tags
