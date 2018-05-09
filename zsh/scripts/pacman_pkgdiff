@@ -40,7 +40,7 @@ diff_package() {
       | uniq
   ) )
 
-  # OPTIMIZE: if it happens we have packages with many modified files
+  # #OPTIMIZE: if it happens we have packages with many modified files
   # we maybe better extract first a single time instead of doing for each file
   local package_modified_file
   for package_modified_file in ${package_modified_files}; do

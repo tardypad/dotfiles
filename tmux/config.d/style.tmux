@@ -21,7 +21,7 @@ set -g status-right-style "fg=$TMUX_BLUE"
 
 set -g status-left-length 40
 set -g status-left "#[fg=$TMUX_WHITE]#{?client_prefix,█, }#[default]  #{session_name}   "
-# TODO: when possible detect if this is a local tmux (with date already displayed in panel) instead of hardcoding host names
+# #TODO: when possible detect if this is a local tmux (with date already displayed in panel) instead of hardcoding host names
 %if #{||:#{==:Guinguette,#{host_short}},#{==:Spinach,#{host_short}}}
 set -g status-right ''
 %else

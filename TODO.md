@@ -5,7 +5,7 @@
   - update files which are downloaded automatically initially during make
   - update qutebrowser adblock lists with `:adblock-update`
   - check tools version with the `check_versions.sh` script
-  - look for HACK/BUG/... tags to see if they can be removed with new upgrades fixing it
+  - look for #HACK/#BUG/... tags to see if they can be removed with new upgrades fixing it
 
 # Cleaning
 
