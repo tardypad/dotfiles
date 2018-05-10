@@ -23,22 +23,28 @@
   - review and improve copy paste workflow between terminals/vim/tmux/...
     * [extrackto](https://github.com/laktak/extrakto) tmux search and copy/insert/...
     * [yank](https://github.com/mptre/yank) copy output to clipboard
-  - add manual project root marker usage in vifm and fzf use in vim
-  - vim fzf should ignore some files/folders like CtrlP previously
+    * [Joe Schafer blog post](https://blog.d46.us/zsh-tmux-emacs-copy-paste/) zsh/tmux/emacs
+  - make vim vifm open at the project root marker if any
+  - make vim fzf open at the project root marker if any
+  - make vim fzf ignore some files/folders like CtrlP previously
   - use fzf in vim to switch between buffers
-  - interactively choose help topic and translator languages
+  - allows help to select section for man pages
+  - interactively choose help topic
+  - interactively choose translator languages
   - qutebrowser full bindings reworking like other packages
   - Makefile makes use of DESTDIR  
     as recommended in [manual](https://www.gnu.org/prep/standards/html_node/DESTDIR.html)
     (might be used to make a package?)
 
 # New Features
-  - backup of notes, ncmpcpp lyrics,...
+  - backup of notes
+  - backup of ncmpcpp lyrics
+  - backup of qutebrowser bookmarks/quickmarks
 
 # Research
   - adapt notify_break to be more Pomodoro Technique like
-  - evaluate making scripts POSIX compliant  
-    https://drewdevault.com/2018/02/05/Introduction-to-POSIX-shell.html
+  - [Drew Devault blog post](https://drewdevault.com/2018/02/05/Introduction-to-POSIX-shell.html)
+    evaluate making scripts POSIX compliant
   - more use of fzf all over:
     * [README](https://github.com/junegunn/fzf#usage)
     * [wiki](https://github.com/junegunn/fzf/wiki)
@@ -65,6 +71,8 @@
     * [vim-rooter](https://github.com/airblade/vim-rooter) change current working directory
     * [vim-tmux-runner](https://github.com/christoomey/vim-tmux-runner) launch command from vim into tmux pane
   - vim snippets
+    * [UtilSnips](https://github.com/SirVer/ultisnips) snippets engine
+    * [vim-snippers](https://github.com/honza/vim-snippets) list of snippets
   - check possible usages of vim abbr
   - vim debugger
     * [vdebug](https://github.com/joonty/vdebug)
