@@ -73,7 +73,6 @@
   - vim snippets
     * [UtilSnips](https://github.com/SirVer/ultisnips) snippets engine
     * [vim-snippers](https://github.com/honza/vim-snippets) list of snippets
-  - check possible usages of vim abbr
   - vim debugger
     * [vdebug](https://github.com/joonty/vdebug)
   - check possible improvements from [Ian Langworth post](https://statico.github.io/vim3.html)

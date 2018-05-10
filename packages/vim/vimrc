@@ -80,6 +80,9 @@ nmap 2O I<CR><CR><Esc>kki
 " correct joining of lines if comments
 set formatoptions+=j
 
+" faster access to grep help files
+cnoreabbrev H helpgrep
+
 " Enable swap / backup / undo files for buffers
 " and store them preferably separately from the edited file location
 " ^= means prepend to the default directories list
