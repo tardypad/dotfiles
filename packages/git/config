@@ -22,8 +22,9 @@
         cpc = cherry-pick --continue
         current-branch = symbolic-ref --short HEAD
         df = diff
-        df0 = diff -U0
+        df0 = diff --unified=0
         dfc = diff --cached
+        dfc0 = diff --cached --unified=0
         fe = fetch --all
         first-commit = ! git rev-list --max-parents=0 HEAD | tail --lines 1
         hist = log --oneline -10
@@ -67,6 +68,7 @@
         rbh = "!r(){ git rebase -i HEAD~$1; }; r"
         rbi = rebase -i
         reword = commit --amend
+        show0 = show --unified=0
         st = status --short
         tag-list = tag --format '%(align:20,left) %(refname:strip=2) %(end) %(taggerdate:iso) %(align:30,left) %(taggeremail) %(end) %(subject)' --sort=taggerdate
 [log]
