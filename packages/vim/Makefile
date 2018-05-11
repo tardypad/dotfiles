@@ -14,7 +14,7 @@ vim:
     # install the plugins manager if not present
 	@if [[ ! -f "$(HOME)/.vim/autoload/plug.vim" ]]; then \
 		curl --silent --location --create-dirs \
-			https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
+			https://raw.githubusercontent.com/junegunn/vim-plug/9813d5ead5b6f419e9ca55fc767d9548baed6b40/plug.vim \
 			--output "$(HOME)/.vim/autoload/plug.vim"; \
 	fi
 
@@ -22,7 +22,7 @@ vim:
     # not a real plugin, just one file of a bigger repository
 	@if [[ ! -f "$(HOME)/.vim/plugged/icinga2/syntax/icinga2.vim" ]]; then \
 		curl --silent --location --create-dirs \
-			https://raw.githubusercontent.com/Icinga/icinga2/master/tools/syntax/vim/syntax/icinga2.vim \
+			https://raw.githubusercontent.com/Icinga/icinga2/daa067dabe388d1a26e7581937202d1e78b53175/tools/syntax/vim/syntax/icinga2.vim \
 			--output "$(HOME)/.vim/plugged/icinga2/syntax/icinga2.vim"; \
 	fi
 
@@ -30,7 +30,7 @@ vim:
     # not a real plugin, just one file of a bigger repository
 	@if [[ ! -f "$(HOME)/.vim/plugged/pass/plugin/noplaintext.vim" ]]; then \
 		curl --silent --location --create-dirs \
-			https://git.zx2c4.com/password-store/plain/contrib/vim/noplaintext.vim \
+			https://git.zx2c4.com/password-store/plain/contrib/vim/noplaintext.vim?id=1.7.1 \
 			--output "$(HOME)/.vim/plugged/pass/plugin/noplaintext.vim"; \
 	fi
 
