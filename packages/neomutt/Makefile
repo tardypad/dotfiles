@@ -2,9 +2,9 @@ neomutt:
 	$(start_setup)
 
     # create necessary runtime directories
-	@mkdir --parents $(CACHE_DIR)/neomutt/headers
-	@mkdir --parents $(CACHE_DIR)/neomutt/bodies
-	@mkdir --parents $(CACHE_DIR)/neomutt/tmp
+	@mkdir --parents $(DESTDIR)$(CACHE_DIR)/neomutt/headers
+	@mkdir --parents $(DESTDIR)$(CACHE_DIR)/neomutt/bodies
+	@mkdir --parents $(DESTDIR)$(CACHE_DIR)/neomutt/tmp
 
 	$(call copy_file,neomuttrc,$(CONFIG_DIR)/neomutt/neomuttrc)
 	$(call copy_folder,config.d,$(CONFIG_DIR)/neomutt/config.d)

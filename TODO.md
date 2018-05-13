@@ -11,9 +11,6 @@
 # Cleaning
 
 # Bugs
-  - copy doesn't remove old files from the target directories  
-    probably we should use rsync or so  
-    need to be careful because some manual config files should be kept (mutt gpg config)
 
 # Testing
   - vim gutentags root marker doesn't seem to work correctly with multiple repos
@@ -31,9 +28,6 @@
   - interactively choose help topic
   - interactively choose translator languages
   - qutebrowser full bindings reworking like other packages
-  - Makefile makes use of DESTDIR  
-    as recommended in [manual](https://www.gnu.org/prep/standards/html_node/DESTDIR.html)
-    (might be used to make a package?)
 
 # New Features
   - backup of notes

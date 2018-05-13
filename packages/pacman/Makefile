@@ -2,10 +2,10 @@ pacman:
 	$(start_setup)
 
     # create necessary runtime directories
-	@mkdir --parents $(HOME)/build/packages
-	@mkdir --parents $(HOME)/build/sources
-	@mkdir --parents $(HOME)/build/srcpackages
-	@mkdir --parents $(HOME)/build/makepkglogs
+	@mkdir --parents $(DESTDIR)$(HOME)/build/packages
+	@mkdir --parents $(DESTDIR)$(HOME)/build/sources
+	@mkdir --parents $(DESTDIR)$(HOME)/build/srcpackages
+	@mkdir --parents $(DESTDIR)$(HOME)/build/makepkglogs
 
 	$(call copy_file,makepkg.conf,$(CONFIG_DIR)/pacman/makepkg.conf)
 

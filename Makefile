@@ -6,6 +6,8 @@ CACHE_DIR := $(if $(XDG_CACHE_HOME),$(XDG_CACHE_HOME),$(HOME)/.cache)
 # detect all packages target
 PACKAGES := $(subst /,,$(dir $(subst packages/,,$(wildcard packages/*/Makefile))))
 
+IS_LOCAL_INSTALL := $(if $(DESTDIR),'false','true')
+
 # default target first
 # install all packages
 all: $(PACKAGES)
@@ -17,12 +19,12 @@ end_setup   = @echo -e "\r✔ setup $@"
 
 # copy macros
 define copy_file
-	@mkdir --parents $(dir $(2))
-	@cp packages/$@/$(1) $(2)
+	@mkdir --parents $(DESTDIR)$(dir $(2))
+	@cp packages/$@/$(1) $(DESTDIR)$(2)
 endef
 define copy_folder
-	@mkdir --parents $(dir $(2))
-	@cp --recursive --force --no-target-directory packages/$@/$(1) $(2)
+	@mkdir --parents $(DESTDIR)$(dir $(2))
+	@cp --recursive --force --no-target-directory packages/$@/$(1) $(DESTDIR)$(2)
 endef
 
 # all Makefiles could be included with "include */Makefile"
