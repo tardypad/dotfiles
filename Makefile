@@ -4,7 +4,7 @@ DATA_DIR := $(if $(XDG_DATA_HOME),$(XDG_DATA_HOME),$(HOME)/.local/share)
 CACHE_DIR := $(if $(XDG_CACHE_HOME),$(XDG_CACHE_HOME),$(HOME)/.cache)
 
 # detect all packages target
-PACKAGES := $(subst /,, $(dir $(wildcard packages/*/Makefile)))
+PACKAGES := $(subst /,,$(dir $(subst packages/,,$(wildcard packages/*/Makefile))))
 
 # default target first
 # install all packages
