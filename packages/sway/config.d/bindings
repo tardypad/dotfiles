@@ -38,6 +38,9 @@ bindsym $mod+Shift+r reload
 # exit sway (logs you out of your wayland session)
 bindsym $mod+Shift+q exit
 
+# launch help
+bindsym $mod+grave exec dex ~/.local/share/applications/help.desktop
+
 
 ### Moving around
 
