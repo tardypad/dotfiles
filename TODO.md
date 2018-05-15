@@ -13,15 +13,12 @@
 # Bugs
 
 # Testing
-  - vim gutentags root marker doesn't seem to work correctly with multiple repos
 
 # Improvements
   - review and improve copy paste workflow between terminals/vim/tmux/...
     * [extrackto](https://github.com/laktak/extrakto) tmux search and copy/insert/...
     * [yank](https://github.com/mptre/yank) copy output to clipboard
     * [Joe Schafer blog post](https://blog.d46.us/zsh-tmux-emacs-copy-paste/) zsh/tmux/emacs
-  - make vim vifm open at the project root marker if any
-  - make vim fzf open at the project root marker if any
   - make vim fzf ignore some files/folders like CtrlP previously
   - use fzf in vim to switch between buffers
   - allows help to select section for man pages
@@ -61,7 +58,6 @@
     * [vim limelight](https://github.com/junegunn/limelight.vim)
     * [vim goyo](https://github.com/junegunn/goyo.vim)
   - small vim tools
-    * [vim-rooter](https://github.com/airblade/vim-rooter) change current working directory
     * [vim-tmux-runner](https://github.com/christoomey/vim-tmux-runner) launch command from vim into tmux pane
   - vim snippets
     * [UtilSnips](https://github.com/SirVer/ultisnips) snippets engine
