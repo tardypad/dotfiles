@@ -1,5 +1,6 @@
 " fzf main binding
 nnoremap <silent> <Leader>ef :FZF<CR>
+nnoremap <silent> <Leader>eb :Buffers<CR>
 
 " extra bindings
 let g:fzf_action = {
