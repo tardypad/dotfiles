@@ -21,6 +21,11 @@ Plug 'scrooloose/nerdcommenter',
   \ { 'as': 'nerdcommenter',
   \   'tag': '2.5.1' }
 
+" fzf wrappers collection
+Plug 'junegunn/fzf.vim',
+  \ { 'as': 'fzf',
+  \   'commit': '88595eb' }
+
 " Git wrapper
 Plug 'tpope/vim-fugitive',
   \ { 'as': 'fugitive',
