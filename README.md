@@ -62,7 +62,8 @@ Colors and keybindings usage try to be consistent across packages.
 
 ## Setup
 
-Setup is done using [Gnu Make](https://www.gnu.org/software/make/)
+The setup is done using [Gnu Make](https://www.gnu.org/software/make/).  
+Some tools' setup require `curl` to download files.
 
 ```shell
 # install config files of all packages
@@ -78,30 +79,34 @@ make tmux vim zsh
 Some packages require some additional manual setup steps, check their own README
 
 
-## Extra packages
+## Required extra packages
 
-Packages required in the setup which have no own dotfiles config:
-- no support for configuration (the silver searcher)
-- none is needed, use defaults (curl, only used for downloads during setup)
-- config is part of another package (fzf, variables part of shell config)
+Packages required in the setup which have no own dotfiles config
 
-Doesn't include "common" GNU command line packages
-such as sed, grep,... and the likes.
+Reasons for non having any dotfiles config:
+- no support for any configuration (e.g., the silver searcher)
+- configuration is only system wide (e.g., networkmanager)
+- none is needed, use defaults (e.g., elinks, only used for basic HTML email display)
+- config is part of another package (e.g., fzf, variables part of shell config)
+
+Doesn't include (yet?) the following kind of packages:
+- common GNU command line packages (e.g., sed)
+- packages not required directly by our own config (e.g., phpctags, dependency via plugin)
+- packages launched with minimal options usage (e.g., chromium, from desktop file)
 
 | Name                   | Purpose                              | Source                                                                                 | Version                                                                                                                |
 |------------------------|--------------------------------------|----------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
 | alsa-utils             | Audio utilities                      | [alsa-project.org](http://git.alsa-project.org/?p=alsa-utils.git)                      | [1.1.6](http://git.alsa-project.org/?p=alsa-utils.git;a=tag;h=v1.1.6)                                                  |
 | aurutils               | AUR helper tools                     | [Github](https://github.com/AladW/aurutils)                                            | [1.5.3](https://github.com/AladW/aurutils/releases/tag/1.5.3)                                                          |
-| curl                   | HTTP client                          | [Github](https://github.com/curl/curl)                                                 | [7.59.0](https://github.com/curl/curl/releases/tag/curl-7_59_0)                                                        |
 | dex                    | desktop entries applications runner  | [Github](https://github.com/jceb/dex)                                                  | [0.8.0](https://github.com/jceb/dex/releases/tag/v0.8.0)                                                               |
 | elinks                 | Web browser                          | [repo.or.cz](http://repo.or.cz/elinks.git)                                             | [25c2850](http://repo.or.cz/elinks.git/commit/25c2850b597ee9a89bda8920e7f3d65ac3ac7e01)                                |
+| fortune-mod            | fortune cookie                       | [Github](https://github.com/shlomif/fortune-mod)                                       | [1.99.5](https://github.com/shlomif/fortune-mod/releases/tag/fortune-mod-1.99.5)                                       |
 | fzf                    | fuzzy finder                         | [Github](https://github.com/junegunn/fzf)                                              | [0.17.3](https://github.com/junegunn/fzf/releases/tag/0.17.3)                                                          |
 | jq                     | JSON processor                       | [Github](https://github.com/stedolan/jq)                                               | [1.5](https://github.com/stedolan/jq/releases/tag/jq-1.5)                                                              |
 | light                  | backlight controller                 | [Github](https://github.com/haikarainen/light)                                         | [1ec60ac](https://github.com/haikarainen/light/commit/1ec60ac183cf1b04ff46897ad095ce7704225d80)                        |
 | mpc                    | MPD command line client              | [Github](https://github.com/MusicPlayerDaemon)                                         | [0.29](https://github.com/MusicPlayerDaemon/mpc/releases/tag/v0.29)                                                    |
 | networkmanager         | network manager                      | [freedesktop.org](https://cgit.freedesktop.org/NetworkManager/NetworkManager)          | [1.10.6](https://cgit.freedesktop.org/NetworkManager/NetworkManager/tag/?h=1.10.6)                                     |
 | pass                   | password manager                     | [zx2c4.com](https://git.zx2c4.com/password-store/)                                     | [1.7.1](https://git.zx2c4.com/password-store/tag/?h=1.7.1)                                                             |
-| shellcheck             | shell script analysis tool           | [Github](https://github.com/koalaman/shellcheck)                                       | [0.4.7](https://github.com/koalaman/shellcheck/releases/tag/v0.4.7)                                                    |
 | the_silver_searcher    | code search                          | [Github](https://github.com/ggreer/the_silver_searcher)                                | [2.1.0](https://github.com/ggreer/the_silver_searcher/releases/tag/2.1.0)                                              |
 
 

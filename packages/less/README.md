@@ -6,7 +6,7 @@ Source [GNU](http://ftp.gnu.org/gnu/less/)
 
 Version [530](http://ftp.gnu.org/gnu/less/less-530.tar.gz)
 
-## Extensions
+## Required extensions
 
 | Name                | Purpose                | Source                                              | Version                                                                                          |
 |---------------------|------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------|
