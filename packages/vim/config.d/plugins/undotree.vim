@@ -7,7 +7,6 @@ nnoremap <silent> <Leader>uq :UndotreeHide<CR>
 let g:undotree_SetFocusWhenToggle = 1
 
 " put the Undotree and diff windows on the right side
-" prevents layout issues with NERDTree which is on the left
 let g:undotree_WindowLayout = 3
 
 " hide help line

@@ -2,7 +2,6 @@
 " for some specific ones
 " but just close the window
 let g:sayonara_filetypes = {
-  \ 'nerdtree': 'NERDTreeClose',
   \ 'undotree': 'UndotreeHide',
   \ }
 
