@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=zathura
+Exec=zathura %u
 Name=Zathura
 GenericName=Document viewer
 Icon=
