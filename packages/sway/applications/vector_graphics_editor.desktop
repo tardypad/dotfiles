@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=inkscape
+Exec=inkscape %F
 Name=Inkscape
 GenericName=Vector graphics editor
 Icon=

@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=chromium
+Exec=chromium %U
 Name=Chromium
 GenericName=Web browser
 Icon=

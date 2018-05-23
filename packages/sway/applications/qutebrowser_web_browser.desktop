@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=qutebrowser
+Exec=qutebrowser %u
 Name=qutebrowser
 GenericName=Web browser
 Icon=

@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=firefox
+Exec=firefox %u
 Name=Firefox
 GenericName=Web browser
 Icon=
