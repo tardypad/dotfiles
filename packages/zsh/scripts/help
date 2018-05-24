@@ -24,10 +24,10 @@ EOF
 
 
 search_help() {
-  if [[ -z "${TOPIC}" ]]; then
+  while [[ -z "${TOPIC}" ]]; do
       echo -n 'about? '
       read TOPIC
-  fi
+  done
 
   # capture run-help error messages
   local help_result=$( run-help "${TOPIC}" 2>&1 1> /dev/null )
