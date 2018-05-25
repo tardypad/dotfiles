@@ -2,6 +2,7 @@
   - upgrade packages, plugins, extensions,...
   - remove unused plugins, aliases, functions,...
   - replace unnecessary dependencies with own simpler config, scripts,...
+  - review packages and plugins to find newer better alternatives
   - update qutebrowser adblock lists with `:adblock-update`
   - check that packages versions are up to date
     with the `report_versions` utility script
@@ -45,11 +46,6 @@
     * [khard](https://github.com/scheibler/khard)
     * [abook](https://sourceforge.net/p/abook/git)
     * [goobook](https://gitlab.com/goobook/goobook)
-  - better git?
-    * [gitsome](https://github.com/donnemartin/gitsome)
-  - small tools (look for alternatives)
-    * [progress](https://github.com/Xfennec/progress) show progress for cp, mv,...
-    * [lnav](https://github.com/tstack/lnav) log file navigator
   - vim session usage
     * [vim-session](https://github.com/xolox/vim-session)
   - distraction free mode  
@@ -63,7 +59,8 @@
     * [vim-snippers](https://github.com/honza/vim-snippets) list of snippets
   - vim debugger
     * [vdebug](https://github.com/joonty/vdebug)
-  - check possible improvements from [Ian Langworth post](https://statico.github.io/vim3.html)
+  - vim lightline to replace airline
+    * [lightline](https://github.com/itchyny/lightline.vim)
   - vim usage of K
     * [split-manpage](https://github.com/ludwig/split-manpage.vim)
     * [vim-dokumentary](https://github.com/gastonsimone/vim-dokumentary)
