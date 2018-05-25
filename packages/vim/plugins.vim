@@ -6,10 +6,10 @@ Plug 'tpope/vim-surround',
   \ { 'as': 'surround',
   \   'commit': 'e49d6c2' }
 
-" Syntax checking
-Plug 'scrooloose/syntastic',
-  \ { 'as': 'syntastic',
-  \   'commit': '206b616' }
+" Linting
+Plug 'w0rp/ale',
+  \ { 'as': 'ale',
+  \   'tag': 'v1.8.0' }
 
 " Autocompletion
 Plug 'shougo/neocomplete.vim',
