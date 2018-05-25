@@ -10,6 +10,7 @@ vim:
 	$(call copy_file,plugins.vim,$(HOME)/.vim/plugins.vim)
 	$(call copy_folder,config.d,$(HOME)/.vim/config.d)
 	$(call copy_folder,ftdetect,$(HOME)/.vim/ftdetect)
+	$(call copy_folder,ftplugin,$(HOME)/.vim/ftplugin)
 
     # install the plugins manager if not present
 	@if [[ ! -f "$(DESTDIR)$(HOME)/.vim/autoload/plug.vim" ]]; then \
