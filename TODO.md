@@ -65,10 +65,6 @@
     * [split-manpage](https://github.com/ludwig/split-manpage.vim)
     * [vim-dokumentary](https://github.com/gastonsimone/vim-dokumentary)
     * [investigate.vim](https://github.com/keith/investigate.vim)
-  - spellchecking
-    * only vim own internal spell
-    * [aspell](http://aspell.net/)
-    * [hunspell](http://hunspell.github.io/)
   - extra password tools
     * [2fa](https://github.com/rsc/2fa)
     * [passotp](https://github.com/tadfisher/pass-otp)

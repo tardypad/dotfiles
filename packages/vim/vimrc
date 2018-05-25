@@ -105,6 +105,9 @@ set fillchars+=vert:│
 " Mail config
 autocmd FileType mail setlocal formatoptions+=aw textwidth=72
 
+" Enable spell checking for some filetypes
+autocmd FileType mail,markdown setlocal spell
+
 " Load all conf files with their possible
 let s:find_conf_cmd = "find ~/.vim/config.d/ -maxdepth 1 -name '*.vim'"
 let s:conf_files = glob("`" . s:find_conf_cmd . "`")
