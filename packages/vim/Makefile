@@ -11,6 +11,7 @@ vim:
 	$(call copy_folder,config.d,$(HOME)/.vim/config.d)
 	$(call copy_folder,ftdetect,$(HOME)/.vim/ftdetect)
 	$(call copy_folder,ftplugin,$(HOME)/.vim/ftplugin)
+	$(call copy_folder,spell,$(HOME)/.vim/spell)
 
     # install the plugins manager if not present
 	@if [[ ! -f "$(DESTDIR)$(HOME)/.vim/autoload/plug.vim" ]]; then \
@@ -39,6 +40,10 @@ ifeq ($(IS_LOCAL_INSTALL),'true')
     # load only the plugins definition and install/clean/update them
 	@vim -N --noplugin -u "$(HOME)/.vim/plugins.vim" \
 		+PlugInstall +PlugClean! +PlugUpdate +qall \
+		> /dev/null 2>&1
+
+    # generate spell file
+	@vim +"mkspell $(HOME)/.vim/spell/en.utf-8.add.spl $(HOME)/.vim/spell/en.utf-8.add" +qall \
 		> /dev/null 2>&1
 endif
 
