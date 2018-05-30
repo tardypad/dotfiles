@@ -11,6 +11,7 @@ vim:
 	$(call copy_folder,config.d,$(HOME)/.vim/config.d)
 	$(call copy_folder,ftdetect,$(HOME)/.vim/ftdetect)
 	$(call copy_folder,ftplugin,$(HOME)/.vim/ftplugin)
+	$(call copy_folder,indent,$(HOME)/.vim/indent)
 	$(call copy_folder,spell,$(HOME)/.vim/spell)
 
     # install the plugins manager if not present
