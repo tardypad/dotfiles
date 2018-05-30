@@ -53,9 +53,6 @@
     * [vim goyo](https://github.com/junegunn/goyo.vim)
   - small vim tools
     * [vim-tmux-runner](https://github.com/christoomey/vim-tmux-runner) launch command from vim into tmux pane
-  - vim snippets
-    * [UtilSnips](https://github.com/SirVer/ultisnips) snippets engine
-    * [vim-snippers](https://github.com/honza/vim-snippets) list of snippets
   - vim debugger
     * [vdebug](https://github.com/joonty/vdebug)
   - vim lightline to replace airline

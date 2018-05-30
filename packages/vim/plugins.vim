@@ -46,6 +46,11 @@ Plug 'ludovicchabant/vim-gutentags',
   \ { 'as': 'gutentags',
   \   'commit': 'b948a81' }
 
+" Snippets engine
+Plug 'sirver/ultisnips',
+  \ { 'as': 'ultisnips',
+  \   'commit': '6fdc364' }
+
 " Text alignment
 Plug 'godlygeek/tabular',
   \ { 'as': 'tabular',

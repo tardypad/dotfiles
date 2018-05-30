@@ -13,6 +13,7 @@ vim:
 	$(call copy_folder,ftplugin,$(HOME)/.vim/ftplugin)
 	$(call copy_folder,indent,$(HOME)/.vim/indent)
 	$(call copy_folder,spell,$(HOME)/.vim/spell)
+	$(call copy_folder,snips,$(HOME)/.vim/snips)
 
     # install the plugins manager if not present
 	@if [[ ! -f "$(DESTDIR)$(HOME)/.vim/autoload/plug.vim" ]]; then \
