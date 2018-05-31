@@ -85,6 +85,13 @@ bindkey -M viins '^j' self-insert
 bindkey -M vicmd '^j' self-insert
 bindkey -M isearch '^j' self-insert
 
+# bind Alt-Shift-R to reload config
+# abort action, replace current line and run source
+bindkey -M viins -s '\eR' '\ESsource "${HOME}/.zshrc"^M'
+bindkey -M vicmd -s '\eR' '\ESsource "${HOME}/.zshrc"^M'
+bindkey -M isearch -s '\eR' '\ESsource "${HOME}/.zshrc"^M'
+
+
 # bind Ctrl-S to get a clean git overview in the screen
 # clear screen, abort action, replace current line and then run each command
 bindkey -M viins -s '^s' '^L\ESgit fe^Mgit hist^Mgit log1 HEAD...origin/master^Mgit st^M'

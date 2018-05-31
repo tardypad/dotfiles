@@ -8,7 +8,7 @@ unbind -T copy-mode-vi -a
 bind C-Space send-prefix
 
 # reload configuration
-bind M-r source-file ~/.tmux.conf \; \
+bind M-R source-file ~/.tmux.conf \; \
          display-message "Configuration reloaded"
 
 # detach client

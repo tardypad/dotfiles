@@ -7,6 +7,9 @@ source ~/.vim/plugins.vim
 " Use space as leader
 let mapleader = "\<Space>"
 
+" binding to reload config
+nnoremap r :source $MYVIMRC<CR>
+
 " Disable space moves cursor in non editing mode
 noremap <Space> <nop>
 vnoremap <Space> <nop>
