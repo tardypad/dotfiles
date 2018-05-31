@@ -23,7 +23,6 @@
   - make vim fzf ignore some files/folders like CtrlP previously
   - allows help to select section for man pages
   - interactively choose help topic
-  - qutebrowser full bindings reworking like other packages
 
 # New Features
   - backup of notes
