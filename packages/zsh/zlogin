@@ -1,5 +1,12 @@
-# Automatically start sway after login on tty 1
-if [[ -z "${DISPLAY}" ]] && [[ $(tty) = /dev/tty1 ]]; then
-  export XKB_DEFAULT_OPTIONS=caps:escape
-  exec sway &>> /var/log/sway.log
+if [[ $(tty) = /dev/tty1 ]]; then
+  # display small fortune with waiting time
+  # can always be stopped with Ctrl-C in case we need faster start
+  echo
+  fortune -acws -n 300
+
+  # Automatically start sway after login on tty 1
+  if [[ -z "${DISPLAY}" ]]; then
+    export XKB_DEFAULT_OPTIONS=caps:escape
+    exec sway &>> /var/log/sway.log
+  fi
 fi
