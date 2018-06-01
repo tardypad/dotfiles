@@ -20,7 +20,6 @@
     * [extrackto](https://github.com/laktak/extrakto) tmux search and copy/insert/...
     * [yank](https://github.com/mptre/yank) copy output to clipboard
     * [Joe Schafer blog post](https://blog.d46.us/zsh-tmux-emacs-copy-paste/) zsh/tmux/emacs
-  - make vim fzf ignore some files/folders like CtrlP previously
   - allows help to select section for man pages
   - interactively choose help topic
 
