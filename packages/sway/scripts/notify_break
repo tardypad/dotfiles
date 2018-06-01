@@ -19,8 +19,4 @@ cat << EOF > "${TMP_RESULT_FILE}"
                                  ▀▔        ▜▅▀▀▛▀▀▀▘▄▇█▌
 EOF
 
-notification \
-  'Take a break' \
-  "${TMP_RESULT_FILE}" \
-  'qutebrowser https://old.reddit.com/r/MadeMeSmile/random \
-     && swaymsg -t command "[class=qutebrowser]" focus'
+notification 'Take a break' "${TMP_RESULT_FILE}"

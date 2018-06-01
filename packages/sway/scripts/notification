@@ -3,8 +3,6 @@
 TITLE="$1"
 TMP_TEXT_FILE="$2"
 
-EXTRA_COMMAND="$3"
-
 # do nothing if the "Do not disturb" mode is on
 # or if the lockscreen is on
 # #HACK: there is a bug that floating windows are visible atop the lockscreen
@@ -17,7 +15,7 @@ fi
 
 # #HACK: need to set termite size at start,
 # also present in sway rules, to have it respected
-FULL_COMMAND="\
+COMMAND="\
   termite \
     --exec 'sh -c \"display_notification \\\"${TITLE}\\\" ${TMP_TEXT_FILE}\"' \
     --config ${HOME}/.config/termite/config_notification \
@@ -26,8 +24,4 @@ FULL_COMMAND="\
   && rm \"${TMP_TEXT_FILE}\"\
 "
 
-if [[ -n "${EXTRA_COMMAND}" ]]; then
-  FULL_COMMAND+="&& ${EXTRA_COMMAND}"
-fi
-
-swaymsg -t command exec "${FULL_COMMAND}"
+swaymsg -t command exec "${COMMAND}"
