@@ -1,6 +1,4 @@
 # tools
-.kateproject*
-*.kdev4
 .tags*
 .notags
 
@@ -10,4 +8,3 @@
 # temporary
 *~
 *.swp
-*.kate-swp
