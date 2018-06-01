@@ -13,6 +13,7 @@ command! tgz tar --create --gzip --file ~/Desktop/%a.tgz %f
 
 " same custom mapping to quit as closing a buffer in vim
 nnoremap <Space>q :quit<CR>
+nnoremap <C-q>    :quit<CR>
 
 " mappings for usage within vim as file picker
 noremap <Space>s :SplitVim<CR>
