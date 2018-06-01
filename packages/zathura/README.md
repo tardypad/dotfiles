@@ -4,4 +4,4 @@ Document viewer
 
 Source [pwmt.org](https://git.pwmt.org/pwmt/zathura)
 
-Version [0.3.9](https://git.pwmt.org/pwmt/zathura/tags/0.3.9)
+Version [0.4.0](https://git.pwmt.org/pwmt/zathura/tags/0.4.0)
