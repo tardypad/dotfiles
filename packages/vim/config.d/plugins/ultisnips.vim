@@ -2,6 +2,6 @@
 let g:UltiSnipsSnippetDirectories = [ 'snips' ]
 
 " mappings
-let g:UltiSnipsExpandTrigger = "<C-s>"
+let g:UltiSnipsExpandTrigger = "s"
 let g:UltiSnipsJumpForwardTrigger = "<C-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
