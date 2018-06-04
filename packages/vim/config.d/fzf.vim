@@ -1,6 +1,9 @@
-" fzf main binding
+" fzf edit binding
 nnoremap <silent> <Leader>ef :FZF<CR>
 nnoremap <silent> <Leader>eb :Buffers<CR>
+
+" fzf insert binding
+nnoremap <silent> <Leader>is :Snippets<CR>
 
 " extra bindings
 let g:fzf_action = {
