@@ -4,10 +4,8 @@
   - replace unnecessary dependencies with own simpler config, scripts,...
   - review packages and plugins to find newer better alternatives
   - update qutebrowser adblock lists with `:adblock-update`
-  - check that packages versions are up to date
-    with the `report_versions` utility script
-  - check if some code tags can be fixed
-    with the `report_tags` utility script
+  - check that packages versions are up to date with the `report_versions` utility script
+  - check if some code tags can be fixed with the `report_tags` utility script
 
 # Cleaning
 
@@ -32,9 +30,6 @@
   - adapt notify_break to be more Pomodoro Technique like
   - [Drew Devault blog post](https://drewdevault.com/2018/02/05/Introduction-to-POSIX-shell.html)
     evaluate making scripts POSIX compliant
-  - more use of fzf all over:
-    * [README](https://github.com/junegunn/fzf#usage)
-    * [wiki](https://github.com/junegunn/fzf/wiki)
   - calendar app
     * [khal](https://github.com/pimutils/khal)
     * [calendar-cli](https://github.com/tobixen/calendar-cli)
@@ -43,22 +38,13 @@
     * [khard](https://github.com/scheibler/khard)
     * [abook](https://sourceforge.net/p/abook/git)
     * [goobook](https://gitlab.com/goobook/goobook)
-  - vim session usage
-    * [vim-session](https://github.com/xolox/vim-session)
-  - distraction free mode  
-    and scripts to disable tmux status bar, increase tmux pane,...
+  - vim session usage [vim-session](https://github.com/xolox/vim-session)
+  - distraction free mode and scripts to disable tmux status bar, increase tmux pane,...
     * [vim limelight](https://github.com/junegunn/limelight.vim)
     * [vim goyo](https://github.com/junegunn/goyo.vim)
-  - small vim tools
-    * [vim-tmux-runner](https://github.com/christoomey/vim-tmux-runner) launch command from vim into tmux pane
-  - vim debugger
-    * [vdebug](https://github.com/joonty/vdebug)
-  - vim lightline to replace airline
-    * [lightline](https://github.com/itchyny/lightline.vim)
-  - vim usage of K
-    * [split-manpage](https://github.com/ludwig/split-manpage.vim)
-    * [vim-dokumentary](https://github.com/gastonsimone/vim-dokumentary)
-    * [investigate.vim](https://github.com/keith/investigate.vim)
+  - [vim-tmux-runner](https://github.com/christoomey/vim-tmux-runner) launch command from vim into tmux pane
+  - vim debugger [vdebug](https://github.com/joonty/vdebug)
+  - vim lightline to replace airline [lightline](https://github.com/itchyny/lightline.vim)
   - extra password tools
     * [2fa](https://github.com/rsc/2fa)
     * [passotp](https://github.com/tadfisher/pass-otp)
