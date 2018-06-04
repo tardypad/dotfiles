@@ -1,0 +1,66 @@
+# Expectations
+
+snippet expect_once "PHPUnit mock expects once" b
+\$this->${1}->expects($this->once())
+    ->method('${2}')
+    ->with(${3})
+    ->willReturn(${4});
+${0}
+endsnippet
+
+snippet expect_any "PHPUnit mock expects any" b
+\$this->${1}->expects($this->any())
+    ->method('${2}')
+    ->with(${3})
+    ->willReturn(${4});
+${0}
+endsnippet
+
+snippet expect_exactly "PHPUnit mock expects exactly" b
+\$this->${1}->expects($this->exactly(${2}))
+    ->method('${3}')
+    ->with(${4})
+    ->willReturn(${5});
+${0}
+endsnippet
+
+snippet expect_exactly "PHPUnit mock expects at" b
+\$this->${1}->expects($this->at(${2}))
+    ->method('${3}')
+    ->with(${4})
+    ->willReturn(${5});
+${0}
+endsnippet
+
+snippet expect_never "PHPUnit mock expects never" b
+\$this->${1}->expects($this->never())
+    ->method('${2}')
+${0}
+endsnippet
+
+# Assertions
+
+snippet assert_true "PHPUnit assert true" b
+\$this->assertTrue(${1});
+${0}
+endsnippet
+
+snippet assert_false "PHPUnit assert false" b
+\$this->assertFalse(${1});
+${0}
+endsnippet
+
+snippet assert_null "PHPUnit assert null" b
+\$this->assertNull(${1});
+${0}
+endsnippet
+
+snippet assert_equals "PHPUnit assert equals" b
+\$this->assertEquals(${1});
+${0}
+endsnippet
+
+snippet assert_same "PHPUnit assert same" b
+\$this->assertSame(${1});
+${0}
+endsnippet
