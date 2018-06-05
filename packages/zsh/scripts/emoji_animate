@@ -48,9 +48,10 @@ frame() {
 
 emoji_fliptable() {
   local text="$1"
-  local upside_down_text=$( upside_down ${text} )
 
   if [[ -n "${text}" ]]; then
+    local upside_down_text=$( upside_down ${text} )
+
     frame "( °-°) ${text}"
     frame "( °-°) ${text}"
     frame "( °-°) ${text}"
