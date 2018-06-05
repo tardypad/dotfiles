@@ -54,4 +54,6 @@ alias ag='ag --smart-case --skip-vcs-ignores --follow'
 alias reload_all_zsh='killall --signal USR1 zsh'
 
 # quick temper
-alias :w="echo 'Do I look like vim to you?...'"
+alias :w="echo 'Do I look like vim to you?...'; emoji_animate disapprove"
+alias :wq=:w
+alias :q=:w
