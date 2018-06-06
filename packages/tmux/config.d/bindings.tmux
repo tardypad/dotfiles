@@ -27,7 +27,7 @@ bind M-l clear-history \; \
 
 # sessions management (using Ctrl)
 bind    C-s choose-tree -Z -s -w -F '#{?pane_format,#{pane_current_command},#{?window_format,#{window_name},}}' -O index
-bind    C-a if '[ #{client_last_session} != "" ]' 'switch-client -l' 'switch-client -n'
+bind    C-a if '[ "#{client_last_session}" != "" ]' 'switch-client -l' 'switch-client -n'
 bind -r C-n switch-client -n
 bind -r C-j switch-client -n
 bind -r C-p switch-client -p
