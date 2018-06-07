@@ -5,6 +5,10 @@ markup=pango
 interval=once
 signal=2
 
+[pomodoro]
+interval=10
+signal=4
+
 [music]
 interval=10
 signal=3

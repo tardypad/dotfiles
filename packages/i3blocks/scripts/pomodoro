@@ -1,0 +1,21 @@
+#! /usr/bin/env zsh
+
+SESSION_STATUS=$( pomodoro status )
+
+# only display something if a session was started
+[[ -n "${SESSION_STATUS}" ]] || exit 0
+
+SESSION_MINUTES_LEFT=$(
+  echo "${SESSION_STATUS}" \
+    | cut --fields 1 --delimiter ' '
+)
+
+if [[ "${SESSION_MINUTES_LEFT}" -lt 5 ]]; then
+  SESSION_ICON=''
+elif [[ "${SESSION_MINUTES_LEFT}" -lt 20 ]]; then
+  SESSION_ICON=''
+else
+  SESSION_ICON=''
+fi
+
+echo "<span foreground='#b58900'>${SESSION_ICON} ${SESSION_STATUS}</span>"

@@ -26,7 +26,6 @@
   - backup of qutebrowser bookmarks/quickmarks
 
 # Research
-  - adapt notify_break to be more Pomodoro Technique like
   - [Drew Devault blog post](https://drewdevault.com/2018/02/05/Introduction-to-POSIX-shell.html)
     evaluate making scripts POSIX compliant
   - calendar app

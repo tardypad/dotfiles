@@ -1,0 +1,61 @@
+#! /usr/bin/env zsh
+
+OPTION="$1"
+
+FILE_PATH="${XDG_DATA_HOME:-$HOME/.local/share}/sway/pomodoro"
+DURATION_SECONDS=1500
+
+start_session() {
+  local current_timestamp=$( date +%s )
+  echo "${current_timestamp}" > "${FILE_PATH}"
+
+  ( sleep "${DURATION_SECONDS}" && end_session "${current_timestamp}" )&
+}
+
+status_session() {
+  is_session_started || return 1
+
+  local current_timestamp=$( date +%s )
+  local start_timestamp=$( cat "${FILE_PATH}" )
+  local minutes_left=$((
+    ( DURATION_SECONDS - (current_timestamp - start_timestamp) ) / 60
+  ))
+
+  echo "${minutes_left} min left"
+}
+
+cancel_session() {
+  is_session_started || return 1
+
+  rm -f "${FILE_PATH}"
+}
+
+end_session() {
+  is_session_started || return 1
+
+  local session_start_timestamp="$1"
+  local current_start_timestamp=$( cat "${FILE_PATH}" )
+
+  # only end session if no newer one was created
+  if [[ "${session_start_timestamp}" == "${current_start_timestamp}" ]]; then
+    rm -rf "${FILE_PATH}"
+  fi
+}
+
+is_session_started() {
+  [[ -f "${FILE_PATH}" ]]
+}
+
+
+case "${OPTION}" in
+  'start')
+      start_session
+      ;;
+  'status')
+      status_session
+      ;;
+  'cancel')
+      cancel_session
+      ;;
+  *) exit 1
+esac
