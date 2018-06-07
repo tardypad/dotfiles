@@ -1,9 +1,0 @@
-[Unit]
-Description=Notify to take a break
-
-[Timer]
-OnBootSec=15m
-OnUnitActiveSec=30m
-
-[Install]
-WantedBy=timers.target
