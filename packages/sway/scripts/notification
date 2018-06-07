@@ -8,7 +8,7 @@ TMP_TEXT_FILE="$2"
 # #HACK: there is a bug that floating windows are visible atop the lockscreen
 #       so we prevent the display in that case
 if pgrep swaylock &> /dev/null \
-     || [[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/sway/do_not_disturb" ]]; then
+  || [[ $( do_not_disturb status ) == 'enabled' ]]; then
   rm "${TMP_TEXT_FILE}"
   exit
 fi

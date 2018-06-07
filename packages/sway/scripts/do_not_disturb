@@ -12,6 +12,14 @@ disable() {
   rm -f "${FILE_PATH}"
 }
 
+status() {
+  if is_enabled; then
+    echo 'enabled'
+  else
+    echo 'disabled'
+  fi
+}
+
 is_enabled() {
   [[ -f "${FILE_PATH}" ]]
 }
@@ -23,6 +31,9 @@ case "${OPTION}" in
       ;;
   'disable')
       disable
+      ;;
+  'status')
+      status
       ;;
   'toggle')
       if is_enabled; then
