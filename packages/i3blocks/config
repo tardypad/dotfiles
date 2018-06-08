@@ -2,7 +2,7 @@ command=~/.config/i3blocks/scripts/$BLOCK_NAME
 markup=pango
 
 [do_not_disturb]
-interval=once
+interval=10
 signal=2
 
 [pomodoro]
