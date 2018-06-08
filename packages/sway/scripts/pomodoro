@@ -2,7 +2,7 @@
 
 OPTION="$1"
 
-FILE_PATH="${XDG_DATA_HOME:-$HOME/.local/share}/sway/pomodoro"
+FILE_PATH="/run/user/$(id --user)/pomodoro"
 DURATION_SECONDS=1500
 
 start_session() {

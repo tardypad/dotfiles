@@ -1,8 +1,0 @@
-[Unit]
-Description=Clear "Do not disturb" mode
-DefaultDependencies=no
-Before=shutdown.target
-
-[Service]
-Type=oneshot
-ExecStart=/home/damien/.config/sway/scripts/do_not_disturb disable
