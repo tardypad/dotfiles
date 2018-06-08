@@ -1,0 +1,15 @@
+#compdef pomodoro
+
+_actions() {
+  local actions=(
+    start
+    cancel
+    status
+  )
+
+  compadd "$@" $actions
+}
+
+_arguments \
+  '(-h --help)'{-h,--help}'[display the help]' \
+  '1:action:_actions'

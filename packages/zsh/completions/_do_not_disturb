@@ -1,0 +1,16 @@
+#compdef do_not_disturb
+
+_actions() {
+  local actions=(
+    enable
+    disable
+    toggle
+    status
+  )
+
+  compadd "$@" $actions
+}
+
+_arguments \
+  '(-h --help)'{-h,--help}'[display the help]' \
+  '1:action:_actions'

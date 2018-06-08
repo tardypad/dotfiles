@@ -1,0 +1,115 @@
+#! /usr/bin/env zsh
+
+COMMAND=${0:t}
+
+init_variables() {
+  FILE_PATH="/run/user/$(id --user)/pomodoro"
+  DURATION_SECONDS=1500
+
+  ACTION=
+}
+
+
+usage() {
+  cat << EOF
+usage: ${COMMAND} [<options>] <action>
+
+Manage a Pomodoro session
+
+Options:
+  -h,  --help    show this message only
+
+Actions:
+  start cancel status
+EOF
+}
+
+
+error() {
+  [[ -z "$1" ]] || echo "${COMMAND}: $1" >&2
+  echo "Try '${COMMAND} --help' for more information."
+  exit 1
+}
+
+
+session_start() {
+  local current_timestamp=$( date +%s )
+  echo "${current_timestamp}" > "${FILE_PATH}"
+
+  ( sleep "${DURATION_SECONDS}" && session_end "${current_timestamp}" )&
+}
+
+
+session_status() {
+  is_session_started || return 1
+
+  local current_timestamp=$( date +%s )
+  local start_timestamp=$( cat "${FILE_PATH}" )
+  local minutes_left=$((
+    ( DURATION_SECONDS - (current_timestamp - start_timestamp) ) / 60
+  ))
+
+  echo "${minutes_left} min left"
+}
+
+
+session_cancel() {
+  is_session_started || return 1
+
+  rm -f "${FILE_PATH}"
+}
+
+
+session_end() {
+  is_session_started || return 1
+
+  local session_start_timestamp="$1"
+  local current_start_timestamp=$( cat "${FILE_PATH}" )
+
+  # only end session if no newer one was created
+  if [[ "${session_start_timestamp}" == "${current_start_timestamp}" ]]; then
+    rm -rf "${FILE_PATH}"
+  fi
+}
+
+
+is_session_started() {
+  [[ -f "${FILE_PATH}" ]]
+}
+
+
+parse_options() {
+  while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      *)
+        break 2
+        ;;
+    esac
+  done
+
+  ACTION="$1"
+}
+
+
+validate_options() {
+  if [[ -z "${ACTION}" ]]; then
+    error 'Missing action argument'
+  fi
+
+  if [[ "${ACTION}" != 'start' \
+     && "${ACTION}" != 'cancel' \
+     && "${ACTION}" != 'status' ]]; then
+    error "Invalid action '${ACTION}'"
+  fi
+}
+
+
+init_variables
+parse_options "$@"
+validate_options
+
+session_${ACTION}

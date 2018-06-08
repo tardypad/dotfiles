@@ -1,0 +1,102 @@
+#! /usr/bin/env zsh
+
+COMMAND=${0:t}
+
+init_variables() {
+  FILE_PATH="/run/user/$(id --user)/do_not_disturb"
+
+  ACTION=
+}
+
+
+usage() {
+  cat << EOF
+usage: ${COMMAND} [<options>] <action>
+
+Manage "Do not disturb" mode
+
+Options:
+  -h,  --help    show this message only
+
+Actions:
+  enable disable toggle status
+EOF
+}
+
+
+error() {
+  [[ -z "$1" ]] || echo "${COMMAND}: $1" >&2
+  echo "Try '${COMMAND} --help' for more information."
+  exit 1
+}
+
+
+dnd_enable() {
+  touch "${FILE_PATH}"
+}
+
+
+dnd_disable() {
+  rm -f "${FILE_PATH}"
+}
+
+
+dnd_status() {
+  if is_dnd_enabled; then
+    echo 'enabled'
+  else
+    echo 'disabled'
+  fi
+}
+
+
+dnd_toggle() {
+  if is_dnd_enabled; then
+    dnd_disable
+  else
+    dnd_enable
+  fi
+}
+
+
+is_dnd_enabled() {
+  [[ -f "${FILE_PATH}" ]]
+}
+
+
+parse_options() {
+  while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      *)
+        break 2
+        ;;
+    esac
+  done
+
+  ACTION="$1"
+}
+
+
+validate_options() {
+  if [[ -z "${ACTION}" ]]; then
+    error 'Missing action argument'
+  fi
+
+  if [[ "${ACTION}" != 'enable' \
+     && "${ACTION}" != 'disable' \
+     && "${ACTION}" != 'toggle' \
+     && "${ACTION}" != 'status' ]]; then
+    error "Invalid action '${ACTION}'"
+  fi
+}
+
+
+init_variables
+parse_options "$@"
+validate_options
+
+dnd_${ACTION}
