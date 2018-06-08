@@ -69,6 +69,7 @@ session_end() {
   # only end session if no newer one was created
   if [[ "${session_start_timestamp}" == "${current_start_timestamp}" ]]; then
     rm -rf "${FILE_PATH}"
+    notify_pomodoro
   fi
 }
 

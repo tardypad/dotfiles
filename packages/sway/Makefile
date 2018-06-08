@@ -7,5 +7,6 @@ sway:
 	$(call copy_folder,applications,${DATA_DIR}/applications)
 	$(call copy_folder,autostart,${CONFIG_DIR}/autostart)
 	$(call copy_folder,images,${CONFIG_DIR}/sway/images)
+	$(call copy_folder,sounds,${CONFIG_DIR}/sway/sounds)
 
 	$(end_setup)
