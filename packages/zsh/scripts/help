@@ -7,6 +7,9 @@ unalias run-help 2> /dev/null
 autoload -Uz run-help
 
 init_variables() {
+  local zsh_version=$( zsh --version | cut --delimiter ' ' --fields 2 )
+  ZSH_HELPDIR="/usr/share/zsh/${zsh_version}/help"
+
   TOPIC=
 }
 
@@ -27,6 +30,68 @@ error() {
   [[ -z "$1" ]] || echo "${COMMAND}: $1" >&2
   echo "Try '${COMMAND} --help' for more information."
   exit 1
+}
+
+
+options_selection()
+{
+  typeset -A options
+
+  if [[ -e "${ZSH_HELPDIR}/${TOPIC}" ]]; then
+    options[zsh]='ZSH help'
+  fi
+
+  for man_path in $( man --all --where "${TOPIC}" ); do
+    section=$(
+      echo "${man_path}" \
+        | sed --regexp-extended 's/.*\.([^.]+).gz/\1/'
+    )
+    options[${section}]=$( get_manual_section_name ${section} )
+  done
+
+  # don't show menu if there is not at least 2 options
+  if [[ ${#options} -lt 2 ]]; then
+    return 0
+  fi
+
+  # manual menu building
+  # order of displayed options is the order of help lookup
+  # for example: zsh / 1 / 1p / 3
+  echo 'Available help pages:'
+  for k in "${(@k)options}"; do
+    echo "$k)@$options[$k]"
+  done \
+    | column --table --separator '@' \
+    | sort --numeric-sort
+  echo -n 'Select option (empty for default): '
+
+  read selected_option
+
+  # ZSH help is the default page displayed
+  if [[ -n "${selected_option}" \
+        && "${selected_option}" != 'zsh' ]]; then
+    TOPIC="${TOPIC}.${selected_option}"
+  fi
+}
+
+
+get_manual_section_name() {
+  local section="$1"
+
+  case "${section}" in
+    0p) echo 'Header files (POSIX)'; return ;;
+    0*) echo 'Header files'; return ;;
+    1p) echo 'General commands (POSIX)'; return ;;
+    1*) echo 'General commands'; return ;;
+    2*) echo 'System functions'; return ;;
+    3*) echo 'Library functions'; return ;;
+    4*) echo 'Special files'; return ;;
+    5*) echo 'File formats and conventions'; return ;;
+    6*) echo 'Games'; return ;;
+    7*) echo 'Miscellaneous'; return ;;
+    8*) echo 'System administration commands'; return ;;
+    9*) echo 'Kernel routines'; return ;;
+  esac
 }
 
 
@@ -95,4 +160,5 @@ init_variables
 parse_options "$@"
 validate_options
 
+options_selection
 search_help
