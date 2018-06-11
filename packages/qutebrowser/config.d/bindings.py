@@ -106,6 +106,7 @@ config.bind('v', 'enter-mode caret', mode='normal')
 # general
 config.bind('<Ctrl-Q>', 'quit', mode='normal')
 config.bind('<Escape>', 'clear-keychain ;; stop ;; search ;; clear-messages ;; fullscreen --leave', mode='normal')
+config.bind('<Return>', 'search', mode='normal')
 config.bind('<Space>', 'nop', mode='normal')
 config.bind('<Alt-Shift-R>', 'message-info "reloading config" ;; later 100 config-source', mode='normal')
 config.bind(':', 'set-cmd-text :', mode='normal')
