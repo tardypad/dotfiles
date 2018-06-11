@@ -21,4 +21,4 @@ EOF
 
 notification 'Take a break' "${TMP_RESULT_FILE}"
 
-aplay "${XDG_CONFIG_HOME:-$HOME/.config}/sway/sounds/cuckoo.wav"
+aplay "${XDG_CONFIG_HOME:-$HOME/.config}/sway/sounds/do_it_live.wav"
