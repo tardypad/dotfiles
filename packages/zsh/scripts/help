@@ -13,7 +13,7 @@ init_variables() {
 
 usage() {
   cat << EOF
-usage: ${COMMAND} [<options>] [<topic>]
+usage: ${COMMAND} [<options>] <topic>
 
 Get help about a topic
 
@@ -23,12 +23,14 @@ EOF
 }
 
 
-search_help() {
-  while [[ -z "${TOPIC}" ]]; do
-      echo -n 'about? '
-      read TOPIC
-  done
+error() {
+  [[ -z "$1" ]] || echo "${COMMAND}: $1" >&2
+  echo "Try '${COMMAND} --help' for more information."
+  exit 1
+}
 
+
+search_help() {
   # capture run-help error messages
   local help_result=$( run-help "${TOPIC}" 2>&1 1> /dev/null )
 
@@ -60,37 +62,8 @@ display_help_argument() {
 
 
 display_no_help() {
-  echo "no help for '${TOPIC}' :("
-
-  # display the options in one column
-  old_columns=$COLUMNS
-  export COLUMNS=1
-
-  PS3='What to do now? '
-
-  choices=(
-    'another topic'
-    "search help online for '${TOPIC}'"
-    'rage quit'
-  )
-
-  select choice in ${choices}; do
-    case $choice in
-        'another topic')
-          TOPIC=
-          return 1
-          ;;
-        "search help online for '${TOPIC}'")
-          xdg-open "http://www.google.com/search?q=man+${TOPIC}"
-          return 0
-          ;;
-        'rage quit')
-          return 0
-          ;;
-    esac
-  done
-
-  COLUMNS=$old_columns
+  echo "no help available for '${TOPIC}' :("
+  return 1
 }
 
 
@@ -111,8 +84,15 @@ parse_options() {
 }
 
 
+validate_options() {
+  if [[ -z "${TOPIC}" ]]; then
+    error 'missing topic'
+  fi
+}
+
+
 init_variables
 parse_options "$@"
+validate_options
 
-
-until search_help; do : ; done
+search_help
