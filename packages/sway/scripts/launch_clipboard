@@ -10,17 +10,20 @@ LIST=(
   'Euro'                 '€'
   'Flipping table'       '(╯°□°)╯︵┻━┻'
   'Flipping text'        '(╯°□°)╯︵ʇxǝʇ'
+  'Full Width'           'T E X T'
   'Happy Gary'           'ᕕ(ᐛ)ᕗ'
   'Look of Disapproval'  'ಠ_ಠ'
+  'Mocking SpongeBob'    'tExT'
   'Registered'           '®'
   'Shrug'                '¯\_(ツ)_/¯'
   'Trademark'            '™'
+  'Upside Down'          'ʇxǝʇ'
 )
 
 display_item() {
   local name="$1"
 
-  # there is a length calculation issue for character such as ツ
+  # #FIXME: there is a length calculation issue for character such as ツ
   # which are counted as 1 but are displayed on 2 cells
   local item=$LIST[${NAME}]
   local filler_length=$((
@@ -47,15 +50,29 @@ TYPE=$(
 [[ -n "${TYPE}" ]] || exit
 
 
+# Text transformations
+if [[ "${TYPE}" =~ 'Mocking SpongeBob*' ]]; then
+  echo 'TyPe ThE tExT tO sTyLe'
+  swaymsg clipboard "$( mocking_spongebob )"
+  exit
+fi
+
+if [[ "${TYPE}" =~ 'Upside Down*' ]]; then
+  echo 'ǝlʎʇs oʇ ʇxǝʇ ǝɥʇ ǝdʎʇ'
+  swaymsg clipboard "$( upside_down )"
+  exit
+fi
+
+if [[ "${TYPE}" =~ 'Full Width*' ]]; then
+  echo 'T Y P E   T H E   T E X T   T O   S T Y L E'
+  swaymsg clipboard "$( full_width )"
+  exit
+fi
+
 # Special case
 if [[ "${TYPE}" =~ 'Flipping text*' ]]; then
-  echo 'What to flip? (╯°□°)╯︵'
-  read FLIP_TEXT
-  FLIP_TEXT=$( echo "${FLIP_TEXT}" | tr --delete '\n' )
-
-  [[ -n "${FLIP_TEXT}" ]] || exit
-
-  swaymsg clipboard "(╯°□°)╯︵$( upside_down ${FLIP_TEXT} )"
+  echo 'Type text to ǝlʎʇs'
+  swaymsg clipboard "(╯°□°)╯︵$( upside_down )"
   exit
 fi
 
@@ -65,7 +82,7 @@ if [[ "${TYPE}" =~ 'Bullshit generator*' ]]; then
   exit
 fi
 
-# if there ever are 2 items where one full name is the beginning of another
+# #FIXME: if there ever are 2 items where one full name is the beginning of another
 # then the loop search will need to start with items of longer length
 # to match the proper item
 for NAME in "${(@k)LIST}"; do
