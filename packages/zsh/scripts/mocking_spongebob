@@ -1,0 +1,24 @@
+#! /usr/bin/env zsh
+
+# output arguments, or piped text, in a Mocking SpongeBob style
+
+TEXT="$@"
+
+if [[ -z "${TEXT}" ]]; then
+  read TEXT
+fi
+
+# start clean lowercase
+TEXT=$( echo "${TEXT}" | tr A-Z a-z )
+
+RESULT_TEXT=
+
+for (( i=0; i<${#TEXT}; i++ )); do
+  if [[ $(( RANDOM % 2)) -eq 0 ]]; then
+    RESULT_TEXT+="${TEXT:$i:1}"
+  else
+    RESULT_TEXT+=$( echo "${TEXT:$i:1}" | tr a-z A-Z )
+  fi
+done
+
+echo "$RESULT_TEXT"

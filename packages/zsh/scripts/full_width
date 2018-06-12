@@ -1,0 +1,13 @@
+#! /usr/bin/env zsh
+
+# output arguments, or piped text, in a Full Width style
+
+TEXT="$@"
+
+if [[ -z "${TEXT}" ]]; then
+  read TEXT
+fi
+
+echo "${TEXT}" \
+  | tr a-z A-Z \
+  | sed --regexp-extended 's/(.)/\1 /g'
