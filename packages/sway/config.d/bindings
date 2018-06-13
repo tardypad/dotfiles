@@ -24,6 +24,9 @@ bindsym $mod+Shift+Space exec launcher launch_command
 # start the clipboard launcher
 bindsym $mod+Shift+c exec launcher launch_clipboard
 
+# start the password launcher
+bindsym $mod+Shift+p exec launcher launch_password
+
 # do not disturb toggle
 bindsym $mod+Escape exec do_not_disturb toggle \
                          && pkill -RTMIN+2 i3blocks
