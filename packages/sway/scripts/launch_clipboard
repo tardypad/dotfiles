@@ -71,7 +71,7 @@ fi
 
 # Special case
 if [[ "${TYPE}" =~ 'Flipping text*' ]]; then
-  echo 'Type text to ǝlʎʇs'
+  echo '(╯°□°)╯︵ǝlʎʇs oʇ ʇxǝʇ ǝɥʇ ǝdʎʇ'
   swaymsg clipboard "(╯°□°)╯︵$( text_style upside_down )"
   exit
 fi
