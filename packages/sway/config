@@ -37,7 +37,7 @@ set $green   #859900
 set $background #002b36f2
 
 # workspace names
-set $ws1  "1  Projects"
+set $ws1  "1  Projects"
 set $ws2  "2  Servers"
 set $ws3  "3  Stuff"
 set $ws4  "4"
