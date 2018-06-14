@@ -53,26 +53,26 @@ TYPE=$(
 # Text transformations
 if [[ "${TYPE}" =~ 'Mocking SpongeBob*' ]]; then
   echo 'TyPe ThE tExT tO sTyLe'
-  swaymsg clipboard "$( mocking_spongebob )"
+  swaymsg clipboard "$( text_style mocking_spongebob )"
   exit
 fi
 
 if [[ "${TYPE}" =~ 'Upside Down*' ]]; then
   echo 'ǝlʎʇs oʇ ʇxǝʇ ǝɥʇ ǝdʎʇ'
-  swaymsg clipboard "$( upside_down )"
+  swaymsg clipboard "$( text_style upside_down )"
   exit
 fi
 
 if [[ "${TYPE}" =~ 'Full Width*' ]]; then
   echo 'T Y P E   T H E   T E X T   T O   S T Y L E'
-  swaymsg clipboard "$( full_width )"
+  swaymsg clipboard "$( text_style full_width )"
   exit
 fi
 
 # Special case
 if [[ "${TYPE}" =~ 'Flipping text*' ]]; then
   echo 'Type text to ǝlʎʇs'
-  swaymsg clipboard "(╯°□°)╯︵$( upside_down )"
+  swaymsg clipboard "(╯°□°)╯︵$( text_style upside_down )"
   exit
 fi
 
