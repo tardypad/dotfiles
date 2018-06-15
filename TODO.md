@@ -35,7 +35,6 @@
     * [khard](https://github.com/scheibler/khard)
     * [abook](https://sourceforge.net/p/abook/git)
     * [goobook](https://gitlab.com/goobook/goobook)
-  - vim session usage [vim-session](https://github.com/xolox/vim-session)
   - distraction free mode and scripts to disable tmux status bar, increase tmux pane,...
     * [vim limelight](https://github.com/junegunn/limelight.vim)
     * [vim goyo](https://github.com/junegunn/goyo.vim)

@@ -5,6 +5,7 @@ vim:
 	@mkdir --parents $(DESTDIR)$(HOME)/.vim/backup
 	@mkdir --parents $(DESTDIR)$(HOME)/.vim/swap
 	@mkdir --parents $(DESTDIR)$(HOME)/.vim/undo
+	@mkdir --parents $(DESTDIR)$(HOME)/.vim/sessions
 
 	$(call copy_file,vimrc,$(HOME)/.vimrc)
 	$(call copy_file,plugins.vim,$(HOME)/.vim/plugins.vim)
