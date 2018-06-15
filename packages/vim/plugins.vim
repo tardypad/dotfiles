@@ -26,11 +26,6 @@ Plug 'junegunn/fzf.vim',
   \ { 'as': 'fzf',
   \   'commit': '88595eb' }
 
-" Git wrapper
-Plug 'tpope/vim-fugitive',
-  \ { 'as': 'fugitive',
-  \   'commit': '7c9b87a' }
-
 " Git diff gutter
 Plug 'airblade/vim-gitgutter',
   \ { 'as': 'gitgutter',
