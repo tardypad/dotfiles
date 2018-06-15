@@ -193,7 +193,7 @@ config.bind('wf', 'hint all window', mode='normal')
 
 
 # sessions management
-config.bind('sc', 'set-cmd-text --space :session-save', mode='normal')
+config.bind('ss', 'set-cmd-text --space :session-save', mode='normal')
 config.bind('sx', 'set-cmd-text --space :session-delete', mode='normal')
 config.bind('so', 'set-cmd-text --space :session-load', mode='normal')
 
