@@ -15,6 +15,7 @@ LIST=(
   'Look of Disapproval'  'ಠ_ಠ'
   'Mocking SpongeBob'    'tExT'
   'Registered'           '®'
+  'Ship tits'            '( . Y . )'
   'Shrug'                '¯\_(ツ)_/¯'
   'Trademark'            '™'
   'Upside Down'          'ʇxǝʇ'
@@ -69,16 +70,25 @@ if [[ "${TYPE}" =~ 'Full Width*' ]]; then
   exit
 fi
 
-# Special case
+# Special cases
 if [[ "${TYPE}" =~ 'Flipping text*' ]]; then
   echo '(╯°□°)╯︵ǝlʎʇs oʇ ʇxǝʇ ǝɥʇ ǝdʎʇ'
   swaymsg clipboard "(╯°□°)╯︵$( text_style upside_down )"
   exit
 fi
 
-# Special case
 if [[ "${TYPE}" =~ 'Bullshit generator*' ]]; then
     swaymsg clipboard "$( bullshit_generator )"
+  exit
+fi
+
+if [[ "${TYPE}" =~ 'Ship tits*' ]]; then
+  # using xclip instead of swaymsg clipboard
+  # because the latter is buggy for this case
+  # https://github.com/swaywm/sway/issues/2133
+  #
+  # #FIXME: not sure why I need to use nohup there too
+  nohup sh -c "ship_tits | xclip -selection clipboard" &> /dev/null
   exit
 fi
 
