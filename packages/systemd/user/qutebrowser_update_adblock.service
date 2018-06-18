@@ -1,0 +1,6 @@
+[Unit]
+Description=Update qutebrowser adblock list
+
+[Service]
+Type=oneshot
+ExecStart=/home/damien/.config/qutebrowser/scripts/adblock_update

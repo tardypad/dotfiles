@@ -1,0 +1,9 @@
+[Unit]
+Description=Update qutebrowser adblock list
+
+[Timer]
+OnCalendar=weekly
+Persistent=True
+
+[Install]
+WantedBy=timers.target

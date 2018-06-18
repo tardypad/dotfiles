@@ -3,7 +3,6 @@
   - remove unused plugins, aliases, functions,...
   - replace unnecessary dependencies with own simpler config, scripts,...
   - review packages and plugins to find newer better alternatives
-  - update qutebrowser adblock lists with `:adblock-update`
   - check that packages versions are up to date with the `report_versions` utility script
   - check if some code tags can be fixed with the `report_tags` utility script
 
