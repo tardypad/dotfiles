@@ -37,12 +37,9 @@
   - distraction free mode and scripts to disable tmux status bar, increase tmux pane,...
     * [vim limelight](https://github.com/junegunn/limelight.vim)
     * [vim goyo](https://github.com/junegunn/goyo.vim)
-  - [vim-tmux-runner](https://github.com/christoomey/vim-tmux-runner) launch command from vim into tmux pane
   - vim debugger [vdebug](https://github.com/joonty/vdebug)
   - vim lightline to replace airline [lightline](https://github.com/itchyny/lightline.vim)
   - extra password tools
     * [2fa](https://github.com/rsc/2fa)
     * [passotp](https://github.com/tadfisher/pass-otp)
-    * [browserpass](https://github.com/dannyvankooten/browserpass)
-  - [youtube-dl](https://github.com/rg3/youtube-dl)
   - investigate vim Python plugins
