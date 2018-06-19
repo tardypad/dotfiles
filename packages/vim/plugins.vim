@@ -98,21 +98,6 @@ Plug 'lifepillar/vim-solarized8',
   \ { 'as': 'solarized',
   \   'tag': 'v1.0.1' }
 
-" Fancier statusline
-Plug 'vim-airline/vim-airline',
-  \ { 'as': 'airline',
-  \   'commit': '396cc92' }
-
-" Statusline themes
-Plug 'vim-airline/vim-airline-themes',
-  \ { 'as': 'airline-themes',
-  \   'commit': '26f67b9' }
-
-" Status line color in cursorline
-Plug 'ntpeters/vim-airline-colornum',
-  \ { 'as': 'airline-colornum',
-  \   'tag': '0.1.0' }
-
 " Tab utilities
 Plug 'gcmt/taboo.vim',
   \ { 'as': 'taboo',

@@ -38,7 +38,6 @@
     * [vim limelight](https://github.com/junegunn/limelight.vim)
     * [vim goyo](https://github.com/junegunn/goyo.vim)
   - vim debugger [vdebug](https://github.com/joonty/vdebug)
-  - vim lightline to replace airline [lightline](https://github.com/itchyny/lightline.vim)
   - extra password tools
     * [2fa](https://github.com/rsc/2fa)
     * [passotp](https://github.com/tadfisher/pass-otp)
