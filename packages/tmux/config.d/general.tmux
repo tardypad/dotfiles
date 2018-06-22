@@ -52,6 +52,9 @@ set -g history-limit 10000
 # use focus events
 set -g focus-events on
 
+# decrease the input escape time
+set -g escape-time 100
+
 # do not monitor activity/bell/silence by default
 setw -g monitor-activity off
 setw -g monitor-bell off
@@ -67,5 +70,9 @@ set -g activity-action other
 set -g bell-action other
 set -g silence-action other
 
-# decrease the input escape time
-set -g escape-time 100
+# display notification for activity/bell/silent alert
+%if #{DISPLAY}
+set-hook -g alert-activity "run 'notify_tmux activity \"#{session_name}\" \"#{window_name}\"'"
+set-hook -g alert-bell "run 'notify_tmux bell \"#{session_name}\" \"#{window_name}\"'"
+set-hook -g alert-silence "run 'notify_tmux silence \"#{session_name}\" \"#{window_name}\"'"
+%endif

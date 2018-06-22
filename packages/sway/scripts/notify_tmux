@@ -1,0 +1,21 @@
+#!/usr/bin/env zsh
+
+# #IDEA: replace this notification with sway window/workspace urgent flag
+# (once it is implemented)
+# then remote tmux windows could also be reported
+
+TYPE="$1"
+SESSION_NAME="$2"
+WINDOW_NAME="$3"
+
+TMP_RESULT_FILE=$(mktemp)
+
+cat << EOF > "${TMP_RESULT_FILE}"
+
+Tmux ${TYPE} detected
+
+session: ${SESSION_NAME}
+window: ${WINDOW_NAME}
+EOF
+
+notification 'Tmux alert' "${TMP_RESULT_FILE}"
