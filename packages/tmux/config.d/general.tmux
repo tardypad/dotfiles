@@ -52,15 +52,20 @@ set -g history-limit 10000
 # use focus events
 set -g focus-events on
 
-# do not monitor activity and silence by default
+# do not monitor activity/bell/silence by default
 setw -g monitor-activity off
+setw -g monitor-bell off
 setw -g monitor-silence 0
 
-# do not display message on activity/bell/silence
-# change in the window status style is enough
-set -g visual-activity off
-set -g visual-bell off
-set -g visual-silence off
+# only display message (no bell) on activity/bell/silence
+set -g visual-activity on
+set -g visual-bell on
+set -g visual-silence on
+
+# only run activity/bell/silent action for other window than current one
+set -g activity-action other
+set -g bell-action other
+set -g silence-action other
 
 # decrease the input escape time
 set -g escape-time 100
