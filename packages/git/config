@@ -71,6 +71,7 @@
         show0 = show --unified=0
         st = status --short
         tag-list = tag --format '%(align:20,left) %(refname:strip=2) %(end) %(taggerdate:iso) %(align:30,left) %(taggeremail) %(end) %(subject)' --sort=taggerdate
+        wip = "!git commit --all --message WIP && git push"
 [log]
         decorate = false
 [core]
