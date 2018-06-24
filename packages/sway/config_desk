@@ -1,0 +1,31 @@
+include config_variables
+
+bar {
+    position top
+    font Source Sans Pro, Font Awesome 14
+    binding_mode_indicator yes
+    colors {
+        statusline $base0
+        background $background
+        focused_workspace $orange $orange $base03
+        inactive_workspace $base03 $base03 $base0
+        active_workspace $base03 $base03 $orange
+        binding_mode $base2 $base2 $base03
+    }
+
+    # status part
+    status_command i3blocks
+    separator_symbol ' '
+
+    # only show on main output
+    output DP-1
+}
+
+# include all config files
+include config.d/*
+
+# autostart programs at the end
+# so that rules and other config are set before
+exec dex \
+  --autostart \
+  --search-paths ~/.config/autostart

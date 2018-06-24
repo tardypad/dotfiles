@@ -1,3 +1,5 @@
+include config_variables
+
 bar {
     position top
     font Source Sans Pro, Font Awesome 14
@@ -14,7 +16,13 @@ bar {
     # status part
     status_command i3blocks
     separator_symbol ' '
-
-    # only show on main output
-    output DP-1
 }
+
+# include all config files
+include config.d/*
+
+# autostart programs at the end
+# so that rules and other config are set before
+exec dex \
+  --autostart \
+  --search-paths ~/.config/autostart

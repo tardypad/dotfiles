@@ -1,5 +1,3 @@
-### Variables
-
 # Super key as modifier
 set $mod Mod4
 
@@ -47,12 +45,3 @@ set $ws7  "7"
 set $ws8  "8"
 set $ws9  "9  Do it LIVE!"
 set $ws10 "10  Web"
-
-# include all config files
-include ~/.config/sway/config.d/*
-
-# autostart programs at the end
-# so that rules and other config are set before
-exec dex \
-  --autostart \
-  --search-paths ~/.config/autostart
