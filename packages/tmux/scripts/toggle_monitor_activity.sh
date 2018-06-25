@@ -10,4 +10,4 @@ else
   STATUS='enabled'
 fi
 
-tmux display-message "Monitoring for window #{window_name}: activity ${STATUS}"
+tmux display-message "Monitoring for window \"#{window_name}\": activity ${STATUS}"

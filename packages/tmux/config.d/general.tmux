@@ -60,19 +60,21 @@ setw -g monitor-activity off
 setw -g monitor-bell off
 setw -g monitor-silence 0
 
-# only display message (no bell) on activity/bell/silence
-set -g visual-activity on
-set -g visual-bell on
-set -g visual-silence on
+# disable default visual display of activity/bell/silence alerts
+set -g visual-activity off
+set -g visual-bell off
+set -g visual-silence off
 
-# only run activity/bell/silent action for other window than current one
-set -g activity-action other
-set -g bell-action other
-set -g silence-action other
+# run activity/bell/silence actions from any window
+# preferably we'd use it only for other windows than current one
+# but then no action would be triggered on active window from another session
+set -g activity-action any
+set -g bell-action any
+set -g silence-action any
 
-# display notification for activity/bell/silent alert
-%if #{DISPLAY}
-set-hook -g alert-activity "run 'notify_tmux activity \"#{session_name}\" \"#{window_name}\"'"
-set-hook -g alert-bell "run 'notify_tmux bell \"#{session_name}\" \"#{window_name}\"'"
-set-hook -g alert-silence "run 'notify_tmux silence \"#{session_name}\" \"#{window_name}\"'"
-%endif
+# custom handling of activity/bell/silence alerts
+# to manage alerts across sessions (not supported by default)
+# session id starts with '$' so it needs to be quoted not be interpreted as a variable
+set-hook -g alert-activity "run \"~/.tmux/scripts/notify_alert.sh activity '#{session_id}' #{window_id}\""
+set-hook -g alert-bell "run \"~/.tmux/scripts/notify_alert.sh bell '#{session_id}' #{window_id}\""
+set-hook -g alert-silence "run \"~/.tmux/scripts/notify_alert.sh silence '#{session_id}' #{window_id}\""
