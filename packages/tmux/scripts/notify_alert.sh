@@ -36,5 +36,10 @@ MESSAGE+=" window \"${ALERT_WINDOW_NAME}\""
 tmux display-message "${MESSAGE}"
 
 if [[ -n ${DISPLAY} ]]; then
+  # #HACK: when triggered from another session, the hook is run multiple times
+  # we now filter out similar sway notifications
+  # but we need to wait a bit to have the window registered in the sway tree
+  sleep 0.5
+
   notify_tmux "${ALERT_TYPE}" "${ALERT_SESSION_NAME}" "${ALERT_WINDOW_NAME}"
 fi
