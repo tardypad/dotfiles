@@ -40,7 +40,7 @@ set -g renumber-windows on
 set -g display-panes-time 1500
 
 # define time messages and indicators are shown
-set -g display-time 1500
+set -g display-time 3000
 
 # use vi keybindings
 set -g status-keys vi
