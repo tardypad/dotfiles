@@ -3,7 +3,7 @@
 COMMAND=${0:t}
 
 init_variables() {
-  FILE_PATH="/run/user/$(id --user)/pomodoro"
+  FILE_PATH="${XDG_RUNTIME_DIR}/pomodoro"
   DURATION_SECONDS=1500
 
   ACTION=
