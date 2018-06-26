@@ -1,3 +1,6 @@
+" save global variables (used mainly for Taboo tab names)
+set sessionoptions+=globals
+
 " internal session variables
 let s:sessions_directory = '~/.vim/sessions'
 
