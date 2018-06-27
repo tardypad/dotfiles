@@ -90,8 +90,9 @@ Plug 'mbbill/undotree',
   \   'commit': 'cdbb902' }
 
 " No plaintext storing of temporary files
-Plug '~/.vim/plugged/pass',
-  \ { 'as': 'pass' }
+Plug 'https://sanctum.geek.nz/code/vim-redact-pass.git',
+  \ { 'as': 'redact-pass',
+  \   'tag': 'v2.0.0' }
 
 " Colorscheme
 Plug 'lifepillar/vim-solarized8',

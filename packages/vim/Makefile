@@ -31,14 +31,6 @@ vim:
 			--output "$(DESTDIR)$(HOME)/.vim/plugged/icinga2/syntax/icinga2.vim"; \
 	fi
 
-    # Manually install pass noplaintext feature if not present
-    # not a real plugin, just one file of a bigger repository
-	@if [[ ! -f "$(DESTDIR)$(HOME)/.vim/plugged/pass/plugin/noplaintext.vim" ]]; then \
-		curl --silent --location --create-dirs \
-			https://git.zx2c4.com/password-store/plain/contrib/vim/noplaintext.vim?id=1.7.1 \
-			--output "$(DESTDIR)$(HOME)/.vim/plugged/pass/plugin/noplaintext.vim"; \
-	fi
-
 ifeq ($(IS_LOCAL_INSTALL),'true')
     # load only the plugins definition and install/clean/update them
 	@vim -N --noplugin -u "$(HOME)/.vim/plugins.vim" \
