@@ -9,10 +9,8 @@ eval $( dircolors "${HOME}/.dircolors" )
 # enable changing directories without typing cd
 setopt auto_cd
 
-# Disable flow control (Ctrl-q/Ctrl-s)
+# disable flow control within ZSH
 setopt no_flow_control
-# setopt doesn't seem to be enough when using vim within tmux...
-stty -ixon
 
 # use run-help utility
 unalias run-help 2> /dev/null
