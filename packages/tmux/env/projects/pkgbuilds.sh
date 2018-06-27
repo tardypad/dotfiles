@@ -14,10 +14,10 @@ tmux -L "${socket}" \
   new-window \
   -n 'code' \
   -c "${pkgbuilds_path}" \
-  vim \
+  "vim \
     -c 'TabooRename TODO' \
     -c 'tabnew' \
-    -- TODO.md
+    -- TODO.md"
 
 tmux -L "${socket}" \
   new-window \
