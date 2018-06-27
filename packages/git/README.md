@@ -4,7 +4,7 @@ Version control
 
 Source [Github](https://github.com/git/git)
 
-Version [2.17.1](https://github.com/git/git/releases/tag/v2.17.1)
+Version [2.18.0](https://github.com/git/git/releases/tag/v2.18.0)
 
 ## Required extensions
 
