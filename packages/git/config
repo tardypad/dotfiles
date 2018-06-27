@@ -42,7 +42,16 @@
               git ci \"${todo_file}\" -m 'add TODO file skeleton'; \
             }; t"
         issue = stamp -r Issue
-        head = whatchanged -1
+        head = "! \
+            h() {  \
+              if [[ -z $1 ]]; then \
+                git whatchanged -1; \
+              elif git rev-parse --verify $1 &> /dev/null; then \
+                git whatchanged -1 $1; \
+              else \
+                git whatchanged -1 HEAD~$1; \
+              fi \
+            }; h"
         head-description = ! git log -1 --pretty=%b \
             | grep -vE 'Issue|Reviewed at|^$'
         head-issue-id = ! git log -1 --pretty=%b \
