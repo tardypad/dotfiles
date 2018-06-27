@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=termite --title " File manager" --exec vifm %F
+Exec=termite --title " File manager" --exec "zsh -c 'vifm %F'"
 Name=Vifm
 GenericName=File manager
 Icon=

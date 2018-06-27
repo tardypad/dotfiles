@@ -36,4 +36,4 @@ TOPIC=$(
 [[ -n "${TOPIC}" ]] || exit
 
 swaymsg -t command \
-  exec "termite --title ' Help' --exec 'help ${TOPIC}'"
+  exec "termite --title ' Help' --exec 'zsh -c \"help ${TOPIC}\"'"

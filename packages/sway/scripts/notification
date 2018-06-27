@@ -21,7 +21,7 @@ fi
 # also present in sway rules, to have it respected
 COMMAND="\
   termite \
-    --exec 'sh -c \"display_notification \\\"${TITLE}\\\" ${TMP_TEXT_FILE}\"' \
+    --exec 'zsh -c \"display_notification \\\"${TITLE}\\\" ${TMP_TEXT_FILE}\"' \
     --config ${HOME}/.config/termite/config_notification \
     --title ${WINDOW_TITLE} \
     --geometry 500X300 \

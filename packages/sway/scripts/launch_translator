@@ -181,4 +181,4 @@ TARGET_LANGUAGE_CODE=$( code_from_item "${TARGET_ITEM}" )
 
 
 swaymsg -t command \
-  exec "termite --title ' Translator' --exec 'translate_shell ${SOURCE_LANGUAGE_CODE} ${TARGET_LANGUAGE_CODE}'"
+  exec "termite --title ' Translator' --exec 'zsh -c \"translate_shell ${SOURCE_LANGUAGE_CODE} ${TARGET_LANGUAGE_CODE}\"'"

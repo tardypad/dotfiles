@@ -12,4 +12,4 @@ NOTE=$(
 [[ -n "${NOTE}" ]] || exit
 
 swaymsg -t command \
-  exec "termite --title ' Notes' --exec 'notes open ${NOTE}'"
+  exec "termite --title ' Notes' --exec 'zsh -c \"notes open ${NOTE}\"'"
