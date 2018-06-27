@@ -2,6 +2,13 @@
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+# Use 256 colors in terminal
+if [[ -n $TMUX ]]; then
+  export TERM=tmux-256color
+else
+  export TERM=xterm-256color
+fi
+
 # following configs could be in zshrc config file
 # but they are moved here mainly for some tmux use cases
 # where a non interactive shell is invoked for running commands

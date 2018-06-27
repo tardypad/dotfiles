@@ -17,7 +17,7 @@ focus_window_title "${TITLE}" && exit
 swaymsg -t command \
   exec "termite \
           --title \"${TITLE}\" \
-          --exec 'zsh -c \"TERM=xterm-256color tmux_env ${ENV_NAME} ${SESSIONS_NAME}\"'"
+          --exec 'zsh -c \"tmux_env ${ENV_NAME} ${SESSIONS_NAME}\"'"
 
 # focus the window (not automatic if different workspace)
 # need to wait a bit for the window to be registered
