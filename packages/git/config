@@ -8,6 +8,16 @@
         default = upstream
 [alias]
         amend = commit --amend -a --no-edit
+        argument= "! \
+            h() {  \
+              if [[ -z $1 ]]; then \
+                echo HEAD; \
+              elif git rev-parse --verify $1 &> /dev/null; then \
+                echo $1; \
+              else \
+                echo HEAD~$1; \
+              fi \
+            }; h"
         br = branch
         brd = branch -D
         cb = checkout -b
@@ -42,16 +52,7 @@
               git ci \"${todo_file}\" -m 'add TODO file skeleton'; \
             }; t"
         issue = stamp -r Issue
-        head = "! \
-            h() {  \
-              if [[ -z $1 ]]; then \
-                git whatchanged -1; \
-              elif git rev-parse --verify $1 &> /dev/null; then \
-                git whatchanged -1 $1; \
-              else \
-                git whatchanged -1 HEAD~$1; \
-              fi \
-            }; h"
+        head = "! f() { git whatchanged -1 $( git argument $1 ); }; f"
         head-description = ! git log -1 --pretty=%b \
             | grep -vE 'Issue|Reviewed at|^$'
         head-issue-id = ! git log -1 --pretty=%b \
@@ -77,26 +78,8 @@
         rbh = "!r(){ git rebase -i HEAD~$1; }; r"
         rbi = rebase -i
         reword = commit --amend
-        sh = "! \
-            s() {  \
-              if [[ -z $1 ]]; then \
-                git show; \
-              elif git rev-parse --verify $1 &> /dev/null; then \
-                git show $1; \
-              else \
-                git show HEAD~$1; \
-              fi \
-            }; s"
-        sh0 = "! \
-            s() {  \
-              if [[ -z $1 ]]; then \
-                git show --unified=0; \
-              elif git rev-parse --verify $1 &> /dev/null; then \
-                git show --unified=0 $1; \
-              else \
-                git show --unified=0 HEAD~$1; \
-              fi \
-            }; s"
+        sh = "! f() { git show $( git argument $1 ); }; f"
+        sh0 = "! f() { git show --unified=0 $( git argument $1 ); }; f"
         st = status --short
         tag-list = tag --format '%(align:20,left) %(refname:strip=2) %(end) %(taggerdate:iso) %(align:30,left) %(taggeremail) %(end) %(subject)' --sort=taggerdate
         wip = "!git commit --all --message WIP && git push"
