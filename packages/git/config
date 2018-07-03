@@ -77,7 +77,26 @@
         rbh = "!r(){ git rebase -i HEAD~$1; }; r"
         rbi = rebase -i
         reword = commit --amend
-        show0 = show --unified=0
+        sh = "! \
+            s() {  \
+              if [[ -z $1 ]]; then \
+                git show; \
+              elif git rev-parse --verify $1 &> /dev/null; then \
+                git show $1; \
+              else \
+                git show HEAD~$1; \
+              fi \
+            }; s"
+        sh0 = "! \
+            s() {  \
+              if [[ -z $1 ]]; then \
+                git show --unified=0; \
+              elif git rev-parse --verify $1 &> /dev/null; then \
+                git show --unified=0 $1; \
+              else \
+                git show --unified=0 HEAD~$1; \
+              fi \
+            }; s"
         st = status --short
         tag-list = tag --format '%(align:20,left) %(refname:strip=2) %(end) %(taggerdate:iso) %(align:30,left) %(taggeremail) %(end) %(subject)' --sort=taggerdate
         wip = "!git commit --all --message WIP && git push"
