@@ -10,7 +10,7 @@ else
 fi
 
 # disable flow control within apps
-stty -ixon
+stty -ixon 2> /dev/null
 
 # following configs could be in zshrc config file
 # but they are moved here mainly for some tmux use cases
