@@ -50,10 +50,29 @@ ITEM=$(
   capture_current_pane \
     | "${GREP_FUNCTION}" \
     | sort --unique \
-    | fzf-tmux -d "${SPLIT_HEIGHT}"
+    | fzf-tmux -d "${SPLIT_HEIGHT}" -- \
+        --expect=enter,ctrl-o,ctrl-s,ctrl-y \
 )
 
 [[ -n "${ITEM}" ]] || exit 0
 
-tmux set-buffer -- "${ITEM}"
-tmux paste-buffer
+KEY=$( echo "${ITEM}" | head --lines 1 )
+TEXT=$( echo "${ITEM}" | tail --lines +2 )
+
+case "${KEY}" in
+  enter)
+    tmux set-buffer -- "${TEXT}"
+    tmux paste-buffer
+    ;;
+  ctrl-o)
+    xdg-open "${TEXT}" > /dev/null
+    ;;
+  ctrl-s)
+    xdg-open "https://www.google.com/search?q=${TEXT}" > /dev/null
+    ;;
+  ctrl-y)
+    swaymsg clipboard "${TEXT}" > /dev/null
+    ;;
+esac
+
+exit 0
