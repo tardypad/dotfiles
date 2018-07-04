@@ -109,10 +109,9 @@ bind Space copy-mode
 bind Enter paste-buffer
 
 # replacement of tmux-open
-bind -T copy-mode-vi C-o send-keys -X copy-pipe-and-cancel "xargs -I {} tmux send-keys 'vim -- \"{}\"'; tmux send-keys Enter"
 %if #{DISPLAY}
-bind -T copy-mode-vi   S send-keys -X copy-pipe-and-cancel "xargs -I {} tmux run-shell 'xdg-open https://www.google.com/search?q=\"{}\" > /dev/null'"
-bind -T copy-mode-vi   O send-keys -X copy-pipe-and-cancel "xargs -I {} tmux run-shell 'xdg-open \"{}\" > /dev/null'"
+bind -T copy-mode-vi C-s send-keys -X copy-pipe-and-cancel "xargs -I {} tmux run-shell 'xdg-open https://www.google.com/search?q=\"{}\" > /dev/null'"
+bind -T copy-mode-vi C-o send-keys -X copy-pipe-and-cancel "xargs -I {} tmux run-shell 'xdg-open \"{}\" > /dev/null'"
 %endif
 
 # replacement of tmux-yank
