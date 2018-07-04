@@ -108,6 +108,12 @@ bind -T root M-L resize-pane -R 3
 bind Space copy-mode
 bind Enter paste-buffer
 
+# extract tokens
+bind -T root         M-Tab switch-client -T extract-mode
+bind -T extract-mode     l run "~/.tmux/scripts/extract_tokens.sh lines"
+bind -T extract-mode     u run "~/.tmux/scripts/extract_tokens.sh urls"
+bind -T extract-mode     w run "~/.tmux/scripts/extract_tokens.sh words"
+
 # replacement of tmux-open
 %if #{DISPLAY}
 bind -T copy-mode-vi C-s send-keys -X copy-pipe-and-cancel "xargs -I {} tmux run-shell 'xdg-open https://www.google.com/search?q=\"{}\" > /dev/null'"

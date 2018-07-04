@@ -14,7 +14,6 @@
 
 # Improvements
   - review and improve copy paste workflow between terminals/vim/tmux/...
-    * [extrackto](https://github.com/laktak/extrakto) tmux search and copy/insert/...
     * [yank](https://github.com/mptre/yank) copy output to clipboard
     * [Joe Schafer blog post](https://blog.d46.us/zsh-tmux-emacs-copy-paste/) zsh/tmux/emacs
 
