@@ -20,10 +20,13 @@ set -g default-terminal "screen-256color"
 
 # define command for new windows
 # prevents use of default behavior which creates a login shell
+# and define default shell if tmux is used as login shell
 %if #{DISPLAY}
 set -g default-command "exec /bin/zsh"
+set -g default-shell "/bin/zsh"
 %else
 set -g default-command "exec /bin/bash"
+set -g default-shell "/bin/bash"
 %endif
 
 # add truecolor support
