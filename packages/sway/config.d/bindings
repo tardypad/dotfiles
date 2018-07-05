@@ -1,10 +1,10 @@
 ### Basics
 
 # start a terminal
-bindsym $mod+Return exec $term
+bindsym $mod+Return exec dex ~/.local/share/applications/terminal.desktop
 
 # start a browser
-bindsym $mod+Shift+Return exec $browser
+bindsym $mod+Shift+Return exec dex ~/.local/share/applications/qutebrowser_web_browser.desktop
 
 # kill focused window
 bindsym $mod+Shift+x kill

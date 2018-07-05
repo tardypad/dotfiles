@@ -7,12 +7,6 @@ set $down j
 set $up k
 set $right l
 
-# terminal emulator
-set $term termite
-
-# browser
-set $browser qutebrowser
-
 # Solarized colors
 set $base03  #002b36
 set $base02  #073642
