@@ -15,6 +15,12 @@ set -g display-panes-active-colour "$TMUX_RED"
 
 set -g status-justify centre
 
+%if #{TMUX_ENV}
+set -g status on
+%else
+set -g status off
+%endif
+
 set -g status-style "bg=default,fg=$TMUX_FOREGROUND"
 set -g status-left-style "bg=$TMUX_BLUE,fg=$TMUX_BLACK"
 set -g status-right-style "fg=$TMUX_BLUE"
@@ -34,7 +40,11 @@ setw -g pane-border-style "bg=default,fg=$TMUX_FOREGROUND"
 setw -g pane-active-border-style "bg=default,fg=$TMUX_YELLOW"
 
 setw -g pane-border-format ' #{pane_current_command} '
+%if #{TMUX_ENV}
 setw -g pane-border-status bottom
+%else
+setw -g pane-border-status off
+%endif
 
 setw -g window-status-current-style "bg=$TMUX_YELLOW,fg=$TMUX_BLACK"
 setw -g window-status-last-style "fg=$TMUX_YELLOW"

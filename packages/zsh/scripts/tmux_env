@@ -73,6 +73,9 @@ is_session_present() {
 
 
 start_target_tmux_env() {
+  # variable to select some tmux config
+  export TMUX_ENV=yes
+
   source "${ENV_DIR_PATH}/${TARGET}/env"
 
   local scripts_path=()

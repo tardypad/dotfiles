@@ -6,10 +6,20 @@ setw -g allow-rename off
 setw -g automatic-rename off
 
 # don't detach the client when killing a session
+# only inside a tmux env
+%if #{TMUX_ENV}
 set -g detach-on-destroy off
+%else
+set -g detach-on-destroy on
+%endif
 
 # don't close windows/panes when initial command exits
+# only inside a tmux env
+%if #{TMUX_ENV}
 setw -g remain-on-exit on
+%else
+setw -g remain-on-exit off
+%endif
 
 # define default term type
 %if #{DISPLAY}
