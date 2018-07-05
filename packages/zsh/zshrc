@@ -1,3 +1,9 @@
+# replace shell with a new tmux session
+# if not already within tmux and not in a console
+if [[ -z "$TMUX" && -n "${DISPLAY}" ]]; then
+  exec tmux
+fi
+
 # load all individual configs
 for conf in "${HOME}/.zsh/config.d/"*.zsh; do
   source "${conf}"
