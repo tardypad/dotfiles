@@ -16,11 +16,18 @@
   - review and improve copy paste workflow between terminals/vim/tmux/...
     * [yank](https://github.com/mptre/yank) copy output to clipboard
     * [Joe Schafer blog post](https://blog.d46.us/zsh-tmux-emacs-copy-paste/) zsh/tmux/emacs
+  - update vim statusline/tabline
+    * mode with colors
+    * ALE errors/warnings display
+  - make some own vim config as plugin
+  - usage of vim autoload for some functions
+  - consistency of words separators across packages
 
 # New Features
   - backup of notes
   - backup of ncmpcpp lyrics
   - backup of qutebrowser bookmarks/quickmarks
+  - import and adapt [run-command-on-git-revisions](https://github.com/garybernhardt/dotfiles/blob/master/bin/run-command-on-git-revisions) script
 
 # Research
   - [Drew Devault blog post](https://drewdevault.com/2018/02/05/Introduction-to-POSIX-shell.html)
