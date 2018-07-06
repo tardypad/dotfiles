@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=termite --title " File manager" --exec "tmux new-session 'vifm %F'"
+Exec=termite --title " File manager" --exec "tmux new-session 'vifm'"
 Name=Vifm
 GenericName=File manager
 Icon=
