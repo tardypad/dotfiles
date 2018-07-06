@@ -32,7 +32,8 @@ function capture_current_pane() {
 
 
 function grep_lines() {
-  grep '.'
+  # trim spaces
+  grep '.' | sed 's/^[ \t]*//;s/[ \t]*$//'
 }
 
 
