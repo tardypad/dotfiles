@@ -24,7 +24,7 @@ EOF
 
 error() {
   [[ -z "$1" ]] || echo "${COMMAND}: $1" >&2
-  echo "Try '${COMMAND} --help' for more information."
+  echo "Try '${COMMAND} --help' for more information." >&2
   exit 1
 }
 
