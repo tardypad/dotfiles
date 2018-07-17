@@ -22,7 +22,6 @@ weechat:
 	$(call copy_file,relay.conf,$(HOME)/.weechat/relay.conf)
 	$(call copy_file,script.conf,$(HOME)/.weechat/script.conf)
 	$(call copy_file,trigger.conf,$(HOME)/.weechat/trigger.conf)
-	$(call copy_file,urlgrab.conf,$(HOME)/.weechat/urlgrab.conf)
 	$(call copy_file,weechat.conf,$(HOME)/.weechat/weechat.conf)
 	$(call copy_file,xfer.conf,$(HOME)/.weechat/xfer.conf)
 
@@ -57,14 +56,6 @@ weechat:
 			https://raw.githubusercontent.com/weechat/scripts/dc9e69f37fcdc51f0f5a8856ef977ee3d8d8e371/python/go.py \
 			--output "$(DESTDIR)$(HOME)/.weechat/python/go.py"; \
 		ln -s ../go.py "$(DESTDIR)$(HOME)/.weechat/python/autoload/go.py"; \
-	fi
-
-    # install urlgrab script if not present
-	@if [[ ! -f "$(DESTDIR)$(HOME)/.weechat/python/urlgrab.py" ]]; then \
-		curl --silent --location --create-dirs \
-			https://raw.githubusercontent.com/weechat/scripts/8171777c930875ccb10311e3e86776292f142729/python/urlgrab.py \
-			--output "$(DESTDIR)$(HOME)/.weechat/python/urlgrab.py"; \
-		ln -s ../urlgrab.py "$(DESTDIR)$(HOME)/.weechat/python/autoload/urlgrab.py"; \
 	fi
 
 	$(end_setup)
