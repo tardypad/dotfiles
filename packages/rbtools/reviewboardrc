@@ -35,7 +35,7 @@ ALIASES = {
     ',
     'publish-all': '! \
         rbt status \
-          | grep "\*" \
+          | grep Draft \
           | cut -f2 -d/ \
           | cut -f1 -d- \
           | tr -d " " \
@@ -52,6 +52,7 @@ ALIASES = {
     ',
     'submit-all': '! \
         rbt status \
+          | grep "r/" \
           | cut -f2 -d/ \
           | cut -f1 -d- \
           | tr -d " " \
