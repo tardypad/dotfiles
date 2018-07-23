@@ -1,0 +1,40 @@
+#!/usr/bin/env zsh
+
+# Command line version of http://hackertyper.com/
+# to pretend you're writing super fast a super complex command in your terminal
+#
+# Should be used from an alias with an innocent looking name
+#
+# Can be used transparently within a pipeline
+# tail -f script.log | hacker_typer | grep DEBUG
+#
+# Doesn't interfer with the output/input of the other commands
+# They are reconnected for display at the end of typing
+# Hacker code is displayed independently on the terminal
+
+
+HACKER_CODE='
+while read line; do
+  l=$( echo $line | sed -r "s/^(.*)$/\1/" )
+  if [[ "${l}" =~ "^ *$" ]]; then
+    break
+  else
+    echo "${l}" 2> /dev/null
+  fi
+done'
+
+COUNTER=1
+while [[ "${COUNTER}" -lt "${#HACKER_CODE}" ]]; do
+  # read silently a single character from controlling terminal (not stdin)
+  read -s -k 1 < /dev/tty
+  # display code on controlling terminal (not stdout)
+  printf "${HACKER_CODE:$COUNTER:1}" > /dev/tty
+  (( COUNTER++ ))
+done
+
+# Make it look like "Press Enter to run"
+read -s < /dev/tty
+echo > /dev/tty
+
+# if needed, "relink" stdin to stdout like there was no script in between
+[[ ! -t 0 ]] && cat

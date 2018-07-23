@@ -20,6 +20,9 @@ alias ssh='TERM=xterm-256color ssh'
 # switch to root
 alias root='sudo --preserve-env --shell'
 
+# innocent looking name for hacker typer
+alias manual_process=hacker_typer
+
 # all packages update
 alias packages_update="
   checkupdates \
