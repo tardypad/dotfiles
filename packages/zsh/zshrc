@@ -29,14 +29,6 @@ if [ "$?" -eq 2 ]; then
   fi
 fi
 
-# reload config on interactive shell
-# when catching user defined signal USR1
-TRAPUSR1() {
-  if [[ -o INTERACTIVE ]]; then
-    source "${HOME}/.zshrc"
-  fi
-}
-
 ### Fish-like autosuggestions
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
