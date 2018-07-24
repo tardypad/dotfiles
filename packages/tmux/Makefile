@@ -5,5 +5,6 @@ tmux:
 	$(call copy_folder,scripts,$(HOME)/.tmux/scripts)
 	$(call copy_folder,config.d,$(HOME)/.tmux/config.d)
 	$(call copy_folder,env,$(CONFIG_DIR)/tmux/env)
+	$(call copy_folder,images,$(CONFIG_DIR)/tmux/images)
 
 	$(end_setup)

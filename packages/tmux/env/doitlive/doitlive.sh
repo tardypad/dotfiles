@@ -1,6 +1,6 @@
 socket="$1"
 
-image_path="${XDG_CONFIG_HOME:-$HOME/.config}/sway/images/doitlive"
+image_path="${XDG_CONFIG_HOME:-$HOME/.config}/tmux/images/doitlive"
 session_name="Fuck it, we'll do it live!"
 window_name="What could possibly go wrong?"
 
