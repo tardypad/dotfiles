@@ -1,0 +1,86 @@
+#!/usr/bin/env zsh
+
+# Blue Screen Of Death
+#
+# https://upload.wikimedia.org/wikipedia/commons/3/3b/Windows_9X_BSOD.png
+
+COLOR_BLUE=19
+COLOR_WHITE=7
+COLOR_GREY=246
+
+TEXT_HEIGHT=12
+WINDOW_HEIGHT=$LINES
+MARGIN_TOP_HEIGHT=$(( ( WINDOW_HEIGHT - TEXT_HEIGHT ) * 2/3 ))
+MARGIN_BOTTOM_HEIGHT=$(( WINDOW_HEIGHT - MARGIN_TOP_HEIGHT - TEXT_HEIGHT ))
+
+# take last "read" command line into account
+(( MARGIN_BOTTOM_HEIGHT-- ))
+
+TEXT_WIDTH=63
+WINDOW_WIDTH=$COLUMNS
+MARGIN_LEFT_WIDTH=$(( ( WINDOW_WIDTH - TEXT_WIDTH ) * 1/3 ))
+MARGIN_RIGHT_WIDTH=$(( WINDOW_WIDTH - MARGIN_LEFT_WIDTH - TEXT_WIDTH  ))
+
+
+print_title() {
+  printf "$(tput setab ${COLOR_BLUE})"
+  printf "%${MARGIN_LEFT_WIDTH}s" " "
+  printf "                               "
+  printf "$(tput setab ${COLOR_GREY})"
+  printf "$(tput setaf ${COLOR_BLUE})"
+  printf "$(tput bold)"
+  printf " Windows "
+  printf "$(tput setab ${COLOR_BLUE})"
+  printf "                       "
+  printf "%${MARGIN_RIGHT_WIDTH}s" " "
+  printf "\n"
+}
+
+print_text() {
+  local text="$1"
+
+  printf "$(tput setab ${COLOR_BLUE})"
+  printf "$(tput setaf ${COLOR_WHITE})"
+  printf "$(tput bold)"
+  printf "%${MARGIN_LEFT_WIDTH}s" " "
+  printf "%-${TEXT_WIDTH}s" "${text}"
+  printf "%${MARGIN_RIGHT_WIDTH}s" " "
+  printf "\n"
+}
+
+print_empty_line() {
+  printf "$(tput setab ${COLOR_BLUE})"
+  printf "%${WINDOW_WIDTH}s" " "
+  printf "\n"
+}
+
+print_margin_top() {
+  for ((i = 1; i <= ${MARGIN_TOP_HEIGHT}; i++)); do
+    print_empty_line
+  done
+}
+
+print_margin_bottom() {
+  for ((i = 1; i <= ${MARGIN_BOTTOM_HEIGHT}; i++)); do
+    print_empty_line
+  done
+}
+
+
+print_margin_top
+print_title
+print_empty_line
+print_text 'An error has occurred. To continue:'
+print_empty_line
+print_text 'Press Enter to return to Windows, or'
+print_empty_line
+print_text 'Press CTRL+ALT+DEL to restart your computer. If you do this,'
+print_text 'you will lose any unsaved information in all open applications.'
+print_empty_line
+print_text 'Error: 0E : 016F : BFF9B3D4'
+print_empty_line
+print_text '                      Press any key to continue _'
+print_margin_bottom
+
+# Press any key to continue
+read -s -k 1
