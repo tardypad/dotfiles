@@ -25,6 +25,9 @@ bind M-b choose-buffer -Z -F '#{buffer_sample}' -O time
 bind M-l clear-history \; \
          display-message "Pane history cleared"
 
+# send USR1 signal to pane zsh shell
+bind -T root M-u run "~/.tmux/scripts/send_usr1_signal.sh"
+
 # sessions management (using Ctrl)
 bind    C-s choose-tree -Z -s -w -F '#{?pane_format,#{pane_current_command},#{?window_format,#{window_name},}}' -O index
 bind    C-a if '[ "#{client_last_session}" != "" ]' 'switch-client -l' 'switch-client -n'
