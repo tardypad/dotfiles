@@ -10,6 +10,7 @@ GREP_FUNCTION=
 
 case "${TOKEN_TYPE}" in
   lines) GREP_FUNCTION=grep_lines ;;
+  paths) GREP_FUNCTION=grep_paths ;;
   urls)  GREP_FUNCTION=grep_urls ;;
   words) GREP_FUNCTION=grep_words ;;
   *) exit 1
@@ -36,6 +37,9 @@ function grep_lines() {
   grep '.' | sed 's/^[ \t]*//;s/[ \t]*$//'
 }
 
+function grep_paths() {
+  grep --extended-regex --only-matching '[-_.~[:alnum:]]*/[-_./[:alnum:]]+'
+}
 
 function grep_urls() {
   grep --extended-regex --only-matching 'https?://[[:alnum:]?=%/_.:,;~@!#$&*+-]*'
