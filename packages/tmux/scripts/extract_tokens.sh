@@ -9,6 +9,7 @@ SPLIT_HEIGHT=20
 GREP_FUNCTION=
 
 case "${TOKEN_TYPE}" in
+  hashes) GREP_FUNCTION=grep_hashes ;;
   lines) GREP_FUNCTION=grep_lines ;;
   paths) GREP_FUNCTION=grep_paths ;;
   urls)  GREP_FUNCTION=grep_urls ;;
@@ -31,6 +32,9 @@ function capture_current_pane() {
   tmux capture-pane -pJ -S "${start}" -E "${end}"
 }
 
+function grep_hashes() {
+  grep --extended-regex --only-matching '[[:digit:]a-fA-F][-[:digit:]a-fA-F]{5,}'
+}
 
 function grep_lines() {
   # trim spaces

@@ -113,6 +113,7 @@ bind Enter paste-buffer
 
 # extract tokens
 bind -T root         M-Tab switch-client -T extract-mode
+bind -T extract-mode     h run "~/.tmux/scripts/extract_tokens.sh hashes"
 bind -T extract-mode     l run "~/.tmux/scripts/extract_tokens.sh lines"
 bind -T extract-mode     p run "~/.tmux/scripts/extract_tokens.sh paths"
 bind -T extract-mode     u run "~/.tmux/scripts/extract_tokens.sh urls"
