@@ -68,6 +68,7 @@
         mg = merge
         mga = merge --abort
         mgc = merge --continue
+        mgrbma = "!f(){ git co $1 && git rbma && git coma && git mg -; }; f"
         pl = pull
         push-perso = "!git push origin --set-upstream HEAD:$(git symbolic-ref --short HEAD) "
         push-upstream = "!git push upstream HEAD:$(git symbolic-ref --short HEAD) "

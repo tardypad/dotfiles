@@ -22,6 +22,7 @@
   - make some own vim config as plugin
   - usage of vim autoload for some functions
   - consistency of words separators across packages
+  - improve/add completion of git aliases
 
 # New Features
   - backup of notes
