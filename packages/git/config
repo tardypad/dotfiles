@@ -75,8 +75,7 @@
         rbma = rebase -i master
         rba = rebase --abort
         rbc = rebase --continue
-        rbh = "!r(){ git rebase -i HEAD~$1; }; r"
-        rbi = rebase -i
+        rbi = "! f() { git rebase -i $( git argument $1 ); }; f"
         reword = commit --amend
         sh = "! f() { git show $( git argument $1 ); }; f"
         sh0 = "! f() { git show --unified=0 $( git argument $1 ); }; f"
