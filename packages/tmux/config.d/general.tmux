@@ -65,6 +65,9 @@ set -g history-limit 10000
 # use focus events
 set -g focus-events on
 
+# use vlock to lock
+set -g lock-command vlock
+
 # decrease the input escape time
 set -g escape-time 100
 
