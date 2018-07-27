@@ -12,10 +12,10 @@
             h() {  \
               if [[ -z $1 ]]; then \
                 echo HEAD; \
-              elif git rev-parse --verify $1 &> /dev/null; then \
-                echo $1; \
-              else \
+              elif [[ $1 =~ [0-9]+ ]] && ! git rev-parse --verify $1 &> /dev/null; then \
                 echo HEAD~$1; \
+              else \
+                echo $1; \
               fi \
             }; h"
         br = branch
