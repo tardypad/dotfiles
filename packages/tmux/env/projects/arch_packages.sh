@@ -1,19 +1,19 @@
 socket="$1"
 
-pkgbuilds_path=$( get_project_repo_path pkgbuilds )
+arch_packages_path=$( get_project_repo_path arch-packages )
 
 
 tmux -L "${socket}" \
   new-session -d \
-  -s 'Pkgbuilds' \
+  -s 'Arch packages' \
   -n 'terminal' \
-  -c "${pkgbuilds_path}"
+  -c "${arch_packages_path}"
 
 
 tmux -L "${socket}" \
   new-window \
   -n 'code' \
-  -c "${pkgbuilds_path}" \
+  -c "${arch_packages_path}" \
   "vim \
     -c 'TabooRename TODO' \
     -c 'tabnew' \
@@ -22,7 +22,7 @@ tmux -L "${socket}" \
 tmux -L "${socket}" \
   new-window \
   -n 'tests' \
-  -c "${pkgbuilds_path}"
+  -c "${arch_packages_path}"
 
 
 tmux -L "${socket}" \
