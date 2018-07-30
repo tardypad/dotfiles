@@ -54,3 +54,8 @@
     and not have the specificities and limitation of those  
     (cycle through history, autocomplete,...)  
     remove usage of readline and other line editing libraries as much as possible
+  - consider replacing gnuplot with a simpler tool:
+    * [termgraph](https://github.com/mkaz/termgraph)
+    * [spark](https://github.com/holman/spark)
+  - once using Sway 1.0, evaluate [mako](https://github.com/emersion/mako) as notification system
+  - replace jq usage with simpler [gron](https://github.com/tomnomnom/gron)
