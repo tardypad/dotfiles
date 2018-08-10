@@ -1,0 +1,124 @@
+#!/usr/bin/env zsh
+
+# "heavily inspired" by Gary Bernhardt's dotfiles script
+# https://github.com/garybernhardt/dotfiles/blob/master/bin/run-command-on-git-revisions
+
+COMMAND=${0:t}
+
+init_variables() {
+  INITIAL_REF=
+  START_REF=
+  END_REF=
+  RUN_COMMAND=
+}
+
+
+usage() {
+  cat << EOF
+usage: ${COMMAND} [<options>] start_ref end_ref command
+
+Execute a command over a range of git revisions
+
+Options:
+  -h,  --help    show this message only
+EOF
+}
+
+
+error() {
+  [[ -z "$1" ]] || echo "${COMMAND}: $1" >&2
+  echo "Try '${COMMAND} --help' for more information." >&2
+  exit 1
+}
+
+
+abort_if_dirty_repo() {
+  if ! git rev-parse --git-dir > /dev/null 2>&1; then
+    error 'not in a git repository'
+  fi
+
+  if ! git diff-index --quiet --cached HEAD; then
+    error 'you have staged but not committed changes that would be lost'
+  fi
+
+  if ! git diff-files --quiet; then
+    erro 'you have unstaged changes that would be lost'
+  fi
+
+  local untracked=$( git ls-files --exclude-standard --others )
+  if [ -n "${untracked}" ]; then
+    error 'you have untracked files that could be overwritten'
+  fi
+}
+
+
+save_initial_ref() {
+  if git symbolic-ref HEAD > /dev/null 2>&1; then
+    INITIAL_REF=$( git symbolic-ref --short HEAD )
+  else
+    INITIAL_REF=$( git rev-parse HEAD )
+  fi
+}
+
+
+restore_initial_ref() {
+  git checkout --quiet "${INITIAL_REF}"
+}
+
+
+run_command_over_range() {
+  local revisions=($(
+    git rev-list --reverse ${START_REF}..${END_REF}
+  ))
+
+  for revision in $revisions; do
+    echo "Checking out: $( git log --oneline -1 ${revision} )"
+    git checkout --quiet "${revision}"
+    eval "${RUN_COMMAND}"
+    git reset --hard --quiet
+  done
+}
+
+
+parse_options() {
+  while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      *)
+        break 2
+        ;;
+    esac
+  done
+
+  START_REF="$1"
+  END_REF="$2"
+  RUN_COMMAND="${@:3}"
+}
+
+
+validate_options() {
+  if [[ -z "${START_REF}" ]]; then
+    error 'no start revision'
+  fi
+
+  if [[ -z "${END_REF}" ]]; then
+    error 'no end revision'
+  fi
+
+  if [[ -z "${RUN_COMMAND}" ]]; then
+    error 'no command to run'
+  fi
+}
+
+
+init_variables
+parse_options "$@"
+validate_options
+
+abort_if_dirty_repo
+save_initial_ref
+run_command_over_range
+restore_initial_ref

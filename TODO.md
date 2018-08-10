@@ -28,7 +28,6 @@
   - backup of notes
   - backup of ncmpcpp lyrics
   - backup of qutebrowser bookmarks/quickmarks
-  - import and adapt [run-command-on-git-revisions](https://github.com/garybernhardt/dotfiles/blob/master/bin/run-command-on-git-revisions) script
 
 # Research
   - [Drew Devault blog post](https://drewdevault.com/2018/02/05/Introduction-to-POSIX-shell.html)
