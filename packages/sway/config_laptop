@@ -2,7 +2,7 @@ include config_variables
 
 bar {
     position top
-    font Source Sans Pro, Font Awesome 14
+    font Source Sans Pro, Font Awesome 5 Free 14
     binding_mode_indicator yes
     colors {
         statusline $base0

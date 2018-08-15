@@ -11,7 +11,7 @@ smart_gaps on
 hide_edge_borders both
 
 # title bar font
-font Source Sans Pro, Font Awesome 14
+font Source Sans Pro, Font Awesome 5 Free 14
 
 # windows decorations colors
 client.focused          $green $green $base03 $blue $green
