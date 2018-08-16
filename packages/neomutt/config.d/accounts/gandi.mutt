@@ -13,7 +13,7 @@ set trash = "+Trash"
 macro index,pager gi "<change-folder>+INBOX<Enter>"  "go to inbox folder"
 macro index,pager gd "<change-folder>+Drafts<Enter>" "go to drafts folder"
 macro index,pager gs "<change-folder>+Sent<Enter>"   "go to sent folder"
-macro index,pager gj "<enter-command><Enter>"        "noop (no spam folder)"
+macro index,pager gj "<change-folder>+Spam<Enter>"   "go to junk folder"
 macro index,pager gt "<change-folder>+Trash<Enter>"  "go to trash folder"
 
 mailboxes "+INBOX" \
@@ -22,4 +22,5 @@ mailboxes "+INBOX" \
           "+INBOX/SomaFM" \
           "+Drafts" \
           "+Sent" \
+          "+Spam" \
           "+Trash"
