@@ -29,7 +29,7 @@ weechat:
     # version from github is more recent than one in weechat scripts repo
 	@if [[ ! -f "$(DESTDIR)$(HOME)/.weechat/python/wee_slack.py" ]]; then \
 		curl --silent --location --create-dirs \
-			https://raw.githubusercontent.com/rawdigits/wee-slack/3eff1de49d3aba1d991b7b6953e6b55a24fdecd9/wee_slack.py \
+			https://raw.githubusercontent.com/rawdigits/wee-slack/0eaf9ed4057f4adbfeb57289f7cc12774027a9aa/wee_slack.py \
 			--output "$(DESTDIR)$(HOME)/.weechat/python/wee_slack.py"; \
 		ln -s ../wee_slack.py "$(DESTDIR)$(HOME)/.weechat/python/autoload/wee_slack.py"; \
 	fi
