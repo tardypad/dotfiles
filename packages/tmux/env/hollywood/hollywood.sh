@@ -48,3 +48,7 @@ tmux -L "${socket}" \
 tmux -L "${socket}" \
   select-pane \
   -t "${session_name}:${window_name}.6"
+
+# need to enter password when launching it
+tmux -L "${socket}" \
+  set-hook -g client-attached lock-client
