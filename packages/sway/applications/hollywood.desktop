@@ -1,0 +1,6 @@
+[Desktop Entry]
+Exec=app_tmux_env " Restricted area" hollywood
+Name=tmux
+GenericName=Restricted area
+Icon=
+Type=Application
