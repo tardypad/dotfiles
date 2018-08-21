@@ -16,20 +16,16 @@ vim:
 	$(call copy_folder,spell,$(HOME)/.vim/spell)
 	$(call copy_folder,snips,$(HOME)/.vim/snips)
 
-    # install the plugins manager if not present
-	@if [[ ! -f "$(DESTDIR)$(HOME)/.vim/autoload/plug.vim" ]]; then \
-		curl --silent --location --create-dirs \
-			https://raw.githubusercontent.com/junegunn/vim-plug/9813d5ead5b6f419e9ca55fc767d9548baed6b40/plug.vim \
-			--output "$(DESTDIR)$(HOME)/.vim/autoload/plug.vim"; \
-	fi
+  # install the plugins manager
+	@curl --silent --location --create-dirs \
+		https://raw.githubusercontent.com/junegunn/vim-plug/9813d5ead5b6f419e9ca55fc767d9548baed6b40/plug.vim \
+		--output "$(DESTDIR)$(HOME)/.vim/autoload/plug.vim"; \
 
-    # Manually install icinga2 syntax if not present
-    # not a real plugin, just one file of a bigger repository
-	@if [[ ! -f "$(DESTDIR)$(HOME)/.vim/plugged/icinga2/syntax/icinga2.vim" ]]; then \
-		curl --silent --location --create-dirs \
-			https://raw.githubusercontent.com/Icinga/icinga2/daa067dabe388d1a26e7581937202d1e78b53175/tools/syntax/vim/syntax/icinga2.vim \
-			--output "$(DESTDIR)$(HOME)/.vim/plugged/icinga2/syntax/icinga2.vim"; \
-	fi
+  # Manually install icinga2 syntax
+  # not a real plugin, just one file of a bigger repository
+	@curl --silent --location --create-dirs \
+		https://raw.githubusercontent.com/Icinga/icinga2/daa067dabe388d1a26e7581937202d1e78b53175/tools/syntax/vim/syntax/icinga2.vim \
+		--output "$(DESTDIR)$(HOME)/.vim/plugged/icinga2/syntax/icinga2.vim"; \
 
 ifeq ($(IS_LOCAL_INSTALL),'true')
     # load only the plugins definition and install/clean/update them
