@@ -34,13 +34,13 @@ weechat:
 
   # install colorize_nicks.py script
 	@curl --silent --location --create-dirs \
-		https://raw.githubusercontent.com/weechat/scripts/24d3f9db81d3621dd7f75d8f6e6cfc411a49f907/python/colorize_nicks.py \
+		https://raw.githubusercontent.com/weechat/scripts/ffda2e03486d1e90983a35ee3505b84d10fd5244/python/colorize_nicks.py \
 		--output "$(DESTDIR)$(HOME)/.weechat/python/colorize_nicks.py"; \
 	ln -fs ../colorize_nicks.py "$(DESTDIR)$(HOME)/.weechat/python/autoload/colorize_nicks.py"; \
 
   # install vimode script
 	@curl --silent --location --create-dirs \
-		https://raw.githubusercontent.com/tardypad/weechat-vimode/d460776130ec8e2010d7189bbd24dda3f6a0aa46/vimode.py \
+		https://raw.githubusercontent.com/tardypad/weechat-vimode/cf346f0dea74da8d73a94ee4683a2aad223dfd9d/vimode.py \
 		--output "$(DESTDIR)$(HOME)/.weechat/python/vimode.py"; \
 	ln -fs ../vimode.py "$(DESTDIR)$(HOME)/.weechat/python/autoload/vimode.py"; \
 
