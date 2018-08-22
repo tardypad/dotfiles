@@ -41,5 +41,5 @@ if [[ -n ${DISPLAY} ]]; then
   # but we need to wait a bit to have the window registered in the sway tree
   sleep 0.5
 
-  notify_tmux "${ALERT_TYPE}" "${ALERT_SESSION_NAME}" "${ALERT_WINDOW_NAME}"
+  notify_tmux_alert "${ALERT_TYPE}" "${ALERT_SESSION_NAME}" "${ALERT_WINDOW_NAME}"
 fi
