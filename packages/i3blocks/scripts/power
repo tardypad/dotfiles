@@ -43,12 +43,7 @@ if [[ "${IS_ADAPTER_ON}" -eq 1 ]]; then
 else
   if [[ "${TOTAL_ENERGY_PERCENT}" -lt 10 ]]; then
     echo "<span foreground='#dc322f'>${BATTERY_ICON} ${TOTAL_ENERGY_PERCENT}%</span>"
-
-    # play alert sound
-    aplay \
-      "${XDG_CONFIG_HOME:-$HOME/.config}/i3blocks/sounds/low_battery.wav" \
-      &> /dev/null
-
+    notify_battery
     exit 33
   else
     echo "<span foreground='#2aa198'>${BATTERY_ICON}</span> ${TOTAL_ENERGY_PERCENT}%"

@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+
+TMP_RESULT_FILE=$(mktemp)
+
+cat << EOF > "${TMP_RESULT_FILE}"
+
+Battery level is getting low.
+EOF
+
+notification 'Low battery alert' "${TMP_RESULT_FILE}"
+
+aplay "${XDG_CONFIG_HOME:-$HOME/.config}/sway/sounds/low_battery.wav"
