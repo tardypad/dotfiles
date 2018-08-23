@@ -18,7 +18,7 @@ vim:
 
   # install the plugins manager
 	@curl --silent --location --create-dirs \
-		https://raw.githubusercontent.com/junegunn/vim-plug/9813d5ead5b6f419e9ca55fc767d9548baed6b40/plug.vim \
+		https://raw.githubusercontent.com/junegunn/vim-plug/0a255ee62da085a01ab376fd69a97e0e26df4da0/plug.vim \
 		--output "$(DESTDIR)$(HOME)/.vim/autoload/plug.vim"; \
 
   # Manually install icinga2 syntax

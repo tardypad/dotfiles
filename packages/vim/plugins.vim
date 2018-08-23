@@ -4,42 +4,42 @@ call plug#begin()
 " Surroundings editor
 Plug 'tpope/vim-surround',
   \ { 'as': 'surround',
-  \   'commit': 'e49d6c2' }
+  \   'commit': '5970688' }
 
 " Linting
 Plug 'w0rp/ale',
   \ { 'as': 'ale',
-  \   'tag': 'v1.8.0' }
+  \   'tag': 'v2.1.0' }
 
 " Autocompletion
 Plug 'shougo/neocomplete.vim',
   \ { 'as': 'neocomplete',
-  \   'commit': '46791e7' }
+  \   'commit': '4be6179' }
 
 " Code commenter
 Plug 'scrooloose/nerdcommenter',
   \ { 'as': 'nerdcommenter',
-  \   'tag': '2.5.1' }
+  \   'tag': '2.5.2' }
 
 " fzf wrappers collection
 Plug 'junegunn/fzf.vim',
   \ { 'as': 'fzf',
-  \   'commit': '88595eb' }
+  \   'commit': 'f39c92b' }
 
 " Git diff gutter
 Plug 'airblade/vim-gitgutter',
   \ { 'as': 'gitgutter',
-  \   'commit': '1e60667' }
+  \   'commit': '50a7062' }
 
 " Tag bar
 Plug 'majutsushi/tagbar',
   \ { 'as': 'tagbar',
-  \   'commit': 'dc155af' }
+  \   'commit': '387bbad' }
 
 " Tag management
 Plug 'ludovicchabant/vim-gutentags',
   \ { 'as': 'gutentags',
-  \   'commit': 'b948a81' }
+  \   'commit': 'b1eb744' }
 
 " Snippets engine
 Plug 'sirver/ultisnips',
@@ -59,12 +59,12 @@ Plug 'mhinz/vim-sayonara',
 " Tmux focus events fixes
 Plug 'tmux-plugins/vim-tmux-focus-events',
   \ { 'as': 'tmux-focus-events',
-  \   'commit': 'eddf52f' }
+  \   'commit': '48595bd' }
 
 " Tmux panes navigator
 Plug 'christoomey/vim-tmux-navigator',
   \ { 'as': 'tmux-navigator',
-  \   'commit': 'd724094' }
+  \   'commit': '18b775f' }
 
 " Tmux clipboard sharing
 Plug 'roxma/vim-tmux-clipboard',
@@ -76,18 +76,18 @@ Plug 'vifm/vifm.vim',
   \ { 'as': 'vifm',
   \   'on': [ 'EditVifm', 'VsplitVifm', 'SplitVifm', 'DiffVifm', 'TabVifm' ],
   \   'for': 'vifm',
-  \   'tag': 'v0.9' }
+  \   'tag': 'v0.9.1' }
 
 " Search text and pattern in files
 Plug 'mileszs/ack.vim',
   \ { 'as': 'ack',
-  \   'commit': '6e04746' }
+  \   'commit': '36e40f9' }
 
 " Undo history visualizer
 Plug 'mbbill/undotree',
   \ { 'as': 'undotree',
   \   'on': [ 'UndotreeShow', 'UndotreeToggle' ],
-  \   'commit': 'cdbb902' }
+  \   'commit': 'a80159c' }
 
 " No plaintext storing of temporary files
 Plug 'https://sanctum.geek.nz/code/vim-redact-pass.git',
@@ -97,7 +97,7 @@ Plug 'https://sanctum.geek.nz/code/vim-redact-pass.git',
 " Colorscheme
 Plug 'lifepillar/vim-solarized8',
   \ { 'as': 'solarized',
-  \   'tag': 'v1.0.1' }
+  \   'tag': 'v1.1.0' }
 
 " Tab utilities
 Plug 'gcmt/taboo.vim',
@@ -107,7 +107,7 @@ Plug 'gcmt/taboo.vim',
 " A better JSON
 Plug 'elzr/vim-json',
   \ { 'as': 'json', 'for': 'json',
-  \   'commit': 'f5e3181' }
+  \   'commit': '3727f08' }
 
 " Sway conf syntax highlighting
 Plug 'aouelete/sway-vim-syntax',
@@ -117,7 +117,7 @@ Plug 'aouelete/sway-vim-syntax',
 " A faster YAML
 Plug 'stephpy/vim-yaml',
   \ { 'as': 'yaml', 'for': [ 'yaml', 'sls' ],
-  \   'commit': '291e0bc' }
+  \   'commit': '05e225d' }
 
 " Saltstack files editing
 Plug 'saltstack/salt-vim',
@@ -127,7 +127,7 @@ Plug 'saltstack/salt-vim',
 " Jinja2 syntax
 Plug 'glench/vim-jinja2-syntax',
   \ { 'as': 'jinja2', 'for': [ 'sls', 'jinja2' ],
-  \   'commit': 'f21d99e' }
+  \   'commit': '75807e6' }
 
 " API Blueprint syntax
 Plug 'kylef/apiblueprint.vim',
@@ -141,17 +141,17 @@ Plug '~/.vim/plugged/icinga2',
 " QML syntax
 Plug 'peterhoeg/vim-qml',
   \ { 'as': 'qml', 'for': 'qml',
-  \   'commit': 'c438f10' }
+  \   'commit': '8af43da' }
 
 " Elm language
 Plug 'elmcast/elm-vim',
   \ { 'as': 'elm', 'for': 'elm',
-  \   'commit': 'ae53153' }
+  \   'commit': 'e51e2e4' }
 
 " PHP language
 Plug 'stanangeloff/php.vim',
   \ { 'as': 'php', 'for': 'php',
-  \   'commit': '41c36f7' }
+  \   'commit': '9f2d8fb' }
 
 " Improved tag bar for PHP
 Plug 'vim-php/tagbar-phpctags.vim',
