@@ -10,4 +10,4 @@ Version [5.1.1](https://git.archlinux.org/pacman.git/tag/?h=v5.1.1)
 
 | Name                            | Purpose                                 | Source                                                                   | Version                                                                                                                   |
 |---------------------------------|-----------------------------------------|--------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| pacman-contrib                  | extra pacman scripts                    | [Arch Linux](https://git.archlinux.org/pacman-contrib.git/)              | [1.0.0](https://git.archlinux.org/pacman-contrib.git/tag/?h=v1.0.0)                                                       |
+| pacman-contrib                  | extra pacman scripts                    | [Arch Linux](https://git.archlinux.org/pacman-contrib.git/)              | [1.1.0](https://git.archlinux.org/pacman-contrib.git/tag/?h=v1.1.0)                                                       |
