@@ -41,13 +41,13 @@
         init-todo = "! \
             t() { \
               local todo_file=\"$( git root )/TODO.md\"; \
-              echo 'Periodic:\n'     >> \"${todo_file}\"; \
-              echo 'Cleaning:\n'     >> \"${todo_file}\"; \
-              echo 'Bugs:\n'         >> \"${todo_file}\"; \
-              echo 'Testing:\n'      >> \"${todo_file}\"; \
-              echo 'Improvements:\n' >> \"${todo_file}\"; \
-              echo 'New Features:\n' >> \"${todo_file}\"; \
-              echo 'Research:\n'     >> \"${todo_file}\"; \
+              echo '# Periodic\n'     >> \"${todo_file}\"; \
+              echo '# Cleaning\n'     >> \"${todo_file}\"; \
+              echo '# Bugs\n'         >> \"${todo_file}\"; \
+              echo '# Testing\n'      >> \"${todo_file}\"; \
+              echo '# Improvements\n' >> \"${todo_file}\"; \
+              echo '# New Features\n' >> \"${todo_file}\"; \
+              echo '# Research\n'     >> \"${todo_file}\"; \
               git add \"${todo_file}\"; \
               git ci \"${todo_file}\" -m 'add TODO file skeleton'; \
             }; t"
