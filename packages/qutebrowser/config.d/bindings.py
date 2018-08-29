@@ -117,6 +117,7 @@ config.bind('R', 'reload --force', mode='normal')
 config.bind('u', 'undo', mode='normal')
 config.bind('Z', 'fullscreen', mode='normal')
 config.bind('f', 'hint all current', mode='normal')
+config.bind('<Ctrl-S>', 'view-source', mode='normal')
 
 # visual navigation
 config.bind('<Ctrl-B>', 'scroll-page 0 -1', mode='normal')
