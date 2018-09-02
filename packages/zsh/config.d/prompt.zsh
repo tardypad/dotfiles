@@ -74,7 +74,7 @@ function +vi-git-untracked(){
 function +vi-git-upstream(){
   local remote=$(git rev-parse --abbrev-ref --symbolic-full-name @{upstream} 2> /dev/null)
 
-  if [[ -n "${remote}" ]]; then
+  if [[ -n "${remote}" && "${remote}" != '@{upstream}' ]]; then
     local ahead=$(git rev-list "${remote}"..HEAD --count)
     local behind=$(git rev-list HEAD.."${remote}" --count)
 
