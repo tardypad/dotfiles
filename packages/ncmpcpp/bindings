@@ -65,6 +65,8 @@ def_key "\\"
     dummy
 def_key "`"
     dummy
+def_key "b"
+    dummy
 def_key "B"
     dummy
 def_key "E"
@@ -72,6 +74,8 @@ def_key "E"
 def_key "f"
     dummy
 def_key "F"
+    dummy
+def_key "m"
     dummy
 def_key "M"
     dummy
@@ -83,11 +87,13 @@ def_key "r"
     dummy
 def_key "R"
     dummy
-def_key "T"
-    dummy
 def_key "U"
     dummy
 def_key "w"
+    dummy
+def_key "x"
+    dummy
+def_key "X"
     dummy
 def_key "Y"
     dummy
@@ -164,11 +170,9 @@ def_key "f1"
 
 def_key "o"
     jump_to_playing_song
-def_key "b"
-    jump_to_browser
-def_key "m"
+def_key "O"
     jump_to_media_library
-def_key "t"
+def_key "ctrl-o"
     jump_to_tag_editor
 
 
@@ -188,13 +192,15 @@ def_key "K"
     move_selected_items_up
 def_key "J"
     move_selected_items_down
-def_key "v"
-    reverse_selection
-def_key "V"
+def_key "escape"
     remove_selection
-def_key "x"
+def_key "t"
     select_item
-def_key "X"
+def_key "v"
+    select_item
+def_key "T"
+    select_range
+def_key "V"
     select_range
 
 
