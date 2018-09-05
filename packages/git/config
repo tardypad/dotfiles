@@ -78,6 +78,7 @@
         rbc = rebase --continue
         rbi = "! f() { git rebase -i $( git argument $1 ); }; f"
         reword = commit --amend
+        reset-upstream = reset --hard @{upstream}
         sh = "! f() { git show $( git argument $1 ); }; f"
         sh0 = "! f() { git show --unified=0 $( git argument $1 ); }; f"
         st = status --short
