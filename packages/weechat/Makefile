@@ -28,7 +28,7 @@ weechat:
   # install wee-slack
   # version from github is more recent than one in weechat scripts repo
 	@curl --silent --location --create-dirs \
-		https://raw.githubusercontent.com/rawdigits/wee-slack/0eaf9ed4057f4adbfeb57289f7cc12774027a9aa/wee_slack.py \
+		https://raw.githubusercontent.com/rawdigits/wee-slack/v2.1.1/wee_slack.py \
 		--output "$(DESTDIR)$(HOME)/.weechat/python/wee_slack.py"; \
 	ln -fs ../wee_slack.py "$(DESTDIR)$(HOME)/.weechat/python/autoload/wee_slack.py"; \
 
