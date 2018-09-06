@@ -20,6 +20,9 @@ alias ssh='TERM=xterm-256color ssh'
 # switch to root
 alias root='sudo --preserve-env --shell'
 
+# generate a password (mainly used to encrypt files to share)
+alias passwdgen='< /dev/urandom tr --delete --complement "[:graph:]" | head --bytes 30; echo'
+
 # innocent looking name for hacker typer
 alias manual_process=hacker_typer
 
