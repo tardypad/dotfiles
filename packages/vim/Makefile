@@ -7,6 +7,13 @@ vim:
 	@mkdir --parents $(DESTDIR)$(HOME)/.vim/undo
 	@mkdir --parents $(DESTDIR)$(HOME)/.vim/sessions
 
+ifeq ($(IS_LOCAL_INSTALL),'true')
+  # backup locally added new spelling words
+	@if ! diff packages/vim/spell/en.utf-8.add $(DESTDIR)$(HOME)/.vim/spell/en.utf-8.add &> /dev/null; then \
+		cp $(DESTDIR)$(HOME)/.vim/spell/en.utf-8.add vim_spell_en.bkp; \
+	fi
+endif
+
 	$(call copy_file,vimrc,$(HOME)/.vimrc)
 	$(call copy_file,plugins.vim,$(HOME)/.vim/plugins.vim)
 	$(call copy_folder,config.d,$(HOME)/.vim/config.d)
