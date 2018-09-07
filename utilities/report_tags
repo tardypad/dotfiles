@@ -29,10 +29,10 @@ EOF
 
 
 error() {
-  [[ -z "$1" ]] || echo "${COMMAND}: $1" >&2
-  echo "Try '${COMMAND} --help' for more information." >&2
+  [[ -z "$1" ]] || echo "${COMMAND}: $1"
+  echo "Try '${COMMAND} --help' for more information."
   exit 1
-}
+} >&2
 
 
 report_tags() {
