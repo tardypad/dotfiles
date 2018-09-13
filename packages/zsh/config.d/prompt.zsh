@@ -65,7 +65,7 @@ function precmd() {
 
 # add flag to git unstaged flag if there are untracked files
 function +vi-git-untracked(){
-  if git status --porcelain | grep '^??' &> /dev/null ; then
+  if git status --porcelain 2> /dev/null | grep '^??' &> /dev/null ; then
     hook_com[unstaged]+='?'
   fi
 }
