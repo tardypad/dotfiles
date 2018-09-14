@@ -4,4 +4,4 @@ OpenPGP client
 
 Source [GnuPG](https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg.git)
 
-Version [2.2.9](https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg.git;a=tag;h=gnupg-2.2.9)
+Version [2.2.10](https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg.git;a=tag;h=gnupg-2.2.10)
