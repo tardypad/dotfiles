@@ -5,7 +5,7 @@ VOLUME_INFO=$(
     | grep \
         --extended-regex \
         --max-count 1 \
-        --only-matching '\[[0-9][0-9]?%\] \[(on|off)\]' \
+        --only-matching '\[[0-9]{1,3}%\] \[(on|off)\]' \
 )
 
 echo "${VOLUME_INFO}" | grep --quiet 'on'
