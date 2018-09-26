@@ -26,6 +26,9 @@ alias passwdgen='< /dev/urandom tr --delete --complement "[:graph:]" | head --by
 # innocent looking name for hacker typer
 alias manual_process=hacker_typer
 
+# retrieve my public IP
+alias whatismyip='https api.ipify.org'
+
 # all packages update
 alias packages_update="
   checkupdates \
