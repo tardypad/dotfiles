@@ -36,7 +36,7 @@ tmux -L "${socket}" \
   "${hexdump_command}"
 
 tmux -L "${socket}" \
-  split-window -h -l 50 \
+  split-window -h -l 35 \
   -t "${session_name}:${window_name}.1" \
   "${man_command}"
 
