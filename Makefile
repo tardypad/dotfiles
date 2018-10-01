@@ -36,7 +36,7 @@ include packages/fontconfig/Makefile
 include packages/git/Makefile
 include packages/gnupg/Makefile
 include packages/gnuplot/Makefile
-include packages/htop-vim/Makefile
+include packages/htop/Makefile
 include packages/httpie/Makefile
 include packages/http-prompt/Makefile
 include packages/i3blocks/Makefile

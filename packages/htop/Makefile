@@ -1,4 +1,4 @@
-htop-vim:
+htop:
 	$(start_setup)
 
 	$(call copy_file,htoprc,$(CONFIG_DIR)/htop/htoprc)
