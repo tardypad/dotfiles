@@ -4,4 +4,4 @@ RSS reader
 
 Source [Github](https://github.com/newsboat/newsboat)
 
-Version [2.12](https://github.com/newsboat/newsboat/releases/tag/r2.12)
+Version [2.13](https://github.com/newsboat/newsboat/releases/tag/r2.13)
