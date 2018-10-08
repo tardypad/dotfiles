@@ -127,3 +127,5 @@ c.colors.webpage.bg                             = solarized['base3']
 c.statusbar.position = 'bottom'
 c.downloads.position = 'bottom'
 c.tabs.position      = 'top'
+
+c.tabs.max_width = 1000
