@@ -18,6 +18,6 @@ if [[ $(tty) = /dev/tty1 ]]; then
     else
       SWAY_CONFIG_FILE=~/.config/sway/config_laptop
     fi
-    exec sway --config "${SWAY_CONFIG_FILE}"  &>> /var/log/sway.log
+    exec sway --config "${SWAY_CONFIG_FILE}"  &>> /var/log/sway/sway.log
   fi
 fi
