@@ -50,6 +50,9 @@ alias docs='goto_project_docs'
 
 alias mycli='mycli --defaults-group-suffix=_mycli'
 
+# allow usage of * in queries without need for escaping
+alias mysql_env='noglob mysql_env'
+
 # flush all .log files recursively in the current dir
 alias flush_logs="find . -type f -name '*.log' -exec /bin/sh -c \"> '{}'\" \;"
 
