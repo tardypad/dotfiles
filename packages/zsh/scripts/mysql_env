@@ -1,20 +1,21 @@
 #!/usr/bin/env zsh
-#
+
 COMMAND=${0:t}
 
 init_variables() {
   ENV_DIR_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/mycli/env"
 
   PROJECT=
+  QUERY=
   ENV_PATH=
 }
 
 
 usage() {
   cat << EOF
-usage: ${COMMAND} [<options>] project
+usage: ${COMMAND} [<options>] project [query]
 
-Start MySQL with a custom project environment
+Start MySQL or run a query within a project environment
 
 Options:
   -h,  --help    show this message only
@@ -27,6 +28,15 @@ error() {
   echo "Try '${COMMAND} --help' for more information."
   exit 1
 } >&2
+
+
+run_mysql() {
+  if [[ -z "${QUERY}" ]]; then
+    mysql $( cat "${ENV_PATH}" )
+  else
+    mysql $( cat "${ENV_PATH}" ) -e "${QUERY}"
+  fi
+}
 
 
 parse_options() {
@@ -43,6 +53,7 @@ parse_options() {
   done
 
   PROJECT="$1"
+  QUERY="${@:2}"
 }
 
 
@@ -63,4 +74,4 @@ init_variables
 parse_options "$@"
 validate_options
 
-mysql $( cat "${ENV_PATH}" )
+run_mysql
