@@ -3,7 +3,7 @@
 COMMAND=${0:t}
 
 init_variables() {
-  ENV_DIR_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/mycli/env"
+  ENV_DIR_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/mysql/env"
 
   PROJECT=
   QUERY=

@@ -48,8 +48,6 @@ alias PJ='goto_project_main'
 alias logs='goto_project_logs'
 alias docs='goto_project_docs'
 
-alias mycli='mycli --defaults-group-suffix=_mycli'
-
 # allow usage of * in queries without need for escaping
 alias mysql_env='noglob mysql_env'
 

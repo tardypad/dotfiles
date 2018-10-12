@@ -1,9 +1,0 @@
-#compdef mycli_env
-
-_envs() {
-  _path_files -g '*.mc(:r)' -W "${XDG_CONFIG_HOME:-$HOME/.config}/mycli/env/"
-}
-
-_arguments \
-  '(-h --help)'{-h,--help}'[display the help]' \
-  '1:env:_envs'

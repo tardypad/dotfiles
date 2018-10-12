@@ -43,7 +43,6 @@ include packages/i3blocks/Makefile
 include packages/less/Makefile
 include packages/libqalculate/Makefile
 include packages/mopidy/Makefile
-include packages/mycli/Makefile
 include packages/ncmpcpp/Makefile
 include packages/neomutt/Makefile
 include packages/newsboat/Makefile
