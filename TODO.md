@@ -25,9 +25,13 @@
   - usage of vim autoload for some functions
   - consistency of words separators across packages
   - improve/add completion of git aliases
-  - add some basic SQL query syntax highlighting and completion to mysql_env script
   - add ability in ZSH to use common ci"  da' and such vim bindings  
     check bindings and functions from [zsh-vim-mode](https://github.com/softmoth/zsh-vim-mode)
+  - improve mysql_env and http_env usage:
+    * allow to receive query/POST body data from stdin
+    * editing of such data in vim directly
+    * syntax highlighting of query/request keywords
+    * completion of query/request keywords
 
 # New Features
   - backup of notes
@@ -53,11 +57,6 @@
     * [2fa](https://github.com/rsc/2fa)
     * [passotp](https://github.com/tadfisher/pass-otp)
   - investigate vim Python plugins
-  - replace http-prompt and mycli tools with custom scripts to use the usual shell prompt  
-    (same bindings, prompt display with execution time and duration,...)  
-    and not have the specificities and limitation of those  
-    (cycle through history, autocomplete,...)  
-    remove usage of readline and other line editing libraries as much as possible
   - consider replacing gnuplot with a simpler tool:
     * [termgraph](https://github.com/mkaz/termgraph)
     * [spark](https://github.com/holman/spark)
