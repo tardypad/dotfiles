@@ -50,7 +50,6 @@ include packages/openssh/Makefile
 include packages/pacman/Makefile
 include packages/qutebrowser/Makefile
 include packages/rbtools/Makefile
-include packages/readline/Makefile
 include packages/tmux/Makefile
 include packages/sway/Makefile
 include packages/systemd/Makefile
