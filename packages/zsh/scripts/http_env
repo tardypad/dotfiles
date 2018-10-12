@@ -1,0 +1,108 @@
+#!/usr/bin/env zsh
+
+COMMAND=${0:t}
+
+init_variables() {
+  ENV_DIR_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/http/env"
+
+  HTTP_OPTIONS=
+  PROJECT=
+  ENVIRONMENT=
+  REQUEST_METHOD=
+  REQUEST_PATH=
+  REQUEST_ITEMS=
+
+  ENV_PATH=
+}
+
+
+usage() {
+  cat << EOF
+usage: ${COMMAND} [<options>] project environment request_method request_path [<request_items>]
+
+Run a HTTP request to a project environment
+
+Options:
+  -h,  --help    show this message only
+
+  All available httpie options can be used there too
+  using an = for the ones needed a parameter (space not supported)
+EOF
+}
+
+
+error() {
+  [[ -z "$1" ]] || echo "${COMMAND}: $1"
+  echo "Try '${COMMAND} --help' for more information."
+  exit 1
+} >&2
+
+
+run_http() {
+  local url="$( head --lines 1 "${ENV_PATH}" )/${REQUEST_PATH}"
+
+  local options=( $( grep '^-' "${ENV_PATH}" ) )
+  options=( ${options} ${HTTP_OPTIONS} )
+
+  local items=( $( tail --lines +2 "${ENV_PATH}" | grep --invert-match '^-' ) )
+  items=( ${items} ${REQUEST_ITEMS} )
+
+  http ${options} "${REQUEST_METHOD}" "${url}" ${items}
+}
+
+
+parse_options() {
+  while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      -*)
+        HTTP_OPTIONS+=( "$1" )
+        shift
+        ;;
+      *)
+        break 2
+        ;;
+    esac
+  done
+
+  PROJECT="$1"
+  ENVIRONMENT="$2"
+  REQUEST_METHOD="$3"
+  REQUEST_PATH="$4"
+  REQUEST_ITEMS=( "${@:5}" )
+}
+
+
+validate_options() {
+  if [[ -z "${PROJECT}" ]]; then
+    error 'missing project'
+  fi
+
+  if [[ -z "${ENVIRONMENT}" ]]; then
+    error 'missing environment'
+  fi
+
+  if [[ -z "${REQUEST_METHOD}" ]]; then
+    error 'missing request method'
+  fi
+
+  if [[ -z "${REQUEST_PATH}" ]]; then
+    error 'missing request path'
+  fi
+
+  ENV_PATH="${ENV_DIR_PATH}/${PROJECT}/${ENVIRONMENT}.hp"
+
+  if [[ ! -f "${ENV_PATH}" ]]; then
+    error 'invalid project/environment'
+  fi
+}
+
+
+init_variables
+parse_options "$@"
+validate_options
+
+run_http

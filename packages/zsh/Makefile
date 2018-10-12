@@ -14,4 +14,8 @@ ifneq (,$(wildcard packages/zsh/env/mysql))
 	$(call copy_folder,env/mysql,$(CONFIG_DIR)/mysql/env)
 endif
 
+ifneq (,$(wildcard packages/zsh/env/http))
+	$(call copy_folder,env/http,$(CONFIG_DIR)/http/env)
+endif
+
 	$(end_setup)
