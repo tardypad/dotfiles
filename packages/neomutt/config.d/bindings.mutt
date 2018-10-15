@@ -1,4 +1,5 @@
 # general
+bind index,pager \Cq quit
 bind index q quit
 bind generic,pager q exit
 bind generic,pager <Esc>? help
