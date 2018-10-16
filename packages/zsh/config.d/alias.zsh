@@ -29,6 +29,9 @@ alias manual_process=hacker_typer
 # retrieve my public IP
 alias whatismyip='https api.ipify.org'
 
+# similar usage
+alias timer=stopwatch
+
 # all packages update
 alias packages_update="
   checkupdates \
