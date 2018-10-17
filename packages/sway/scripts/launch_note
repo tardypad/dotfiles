@@ -1,7 +1,9 @@
 #! /usr/bin/env zsh
 
+NOTES_FOLDER="$( xdg-user-dir NOTES )"
+
 NOTE=$(
-  notes ls \
+  ls "${NOTES_FOLDER}" \
   | fzf --reverse \
         --no-multi \
         --margin 1,2,0,2 \
@@ -12,4 +14,4 @@ NOTE=$(
 [[ -n "${NOTE}" ]] || exit
 
 swaymsg -t command \
-  exec "termite --title ' Notes' --exec \"zsh -c 'tmux new-session "notes open ${NOTE}"'\""
+  exec "termite --title ' Notes' --exec \"zsh -c 'tmux new-session "vim ${NOTES_FOLDER}/${NOTE}"'\""

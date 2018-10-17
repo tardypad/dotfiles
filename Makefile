@@ -45,7 +45,6 @@ include packages/mopidy/Makefile
 include packages/ncmpcpp/Makefile
 include packages/neomutt/Makefile
 include packages/newsboat/Makefile
-include packages/notes/Makefile
 include packages/openssh/Makefile
 include packages/pacman/Makefile
 include packages/qutebrowser/Makefile
