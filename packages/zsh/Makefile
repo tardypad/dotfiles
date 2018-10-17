@@ -10,6 +10,10 @@ zsh:
 	$(call copy_folder,functions,$(HOME)/.zsh/functions)
 	$(call copy_folder,completions,$(HOME)/.zsh/completions)
 
+ifneq (,$(wildcard packages/zsh/env/tmux))
+	$(call copy_folder,env/tmux,$(CONFIG_DIR)/tmux/env)
+endif
+
 ifneq (,$(wildcard packages/zsh/env/mysql))
 	$(call copy_folder,env/mysql,$(CONFIG_DIR)/mysql/env)
 endif
