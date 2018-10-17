@@ -43,27 +43,12 @@ error() {
 } >&2
 
 
-get_session_pattern() {
-  local session_name="$1"
-
-  local session_pattern=''
-  for i in $( seq 0 $(( ${#session_name} - 1 )) ); do
-    local char="${session_name:$i:1}"
-    local char_low=$( echo "${char}" | tr 'A-Z_' 'a-z ' )
-    local char_up=$( echo "${char}" | tr 'a-z ' 'A-Z_' )
-    session_pattern+="[${char_low}${char_up}]"
-  done
-
-  echo "${session_pattern}"
-}
-
-
 is_session_present() {
-  local session_names="$1"
-  local session_pattern="$2"
+  local all_session_names="$1"
+  local session_name="$2"
 
-  for session_name in ${(f)session_names}; do
-    if [[ "${session_name}" =~ "${session_pattern}" ]]; then
+  for session in ${(f)all_session_names}; do
+    if [[ "${session_name}" = "${session}" ]]; then
       return 0
     fi
   done
@@ -79,7 +64,7 @@ start_target_tmux_env() {
   source "${ENV_DIR_PATH}/${TARGET}/env"
 
   local scripts_path=()
-  local main_session_pattern=
+  local main_session=
 
   if [[ -n "${SESSIONS}" ]]; then
     for session in ${SESSIONS}; do
@@ -87,7 +72,7 @@ start_target_tmux_env() {
         "${ENV_DIR_PATH}/${TARGET}/${session}.sh"
       )
     done
-    main_session_pattern="*$( get_session_pattern "${session}" )*"
+    main_session="${session}"
   else
     scripts_path=( $(
       ls "${ENV_DIR_PATH}/${TARGET}"/*.sh
@@ -100,20 +85,19 @@ start_target_tmux_env() {
     )
     for script_path in ${scripts_path}; do
       local session_name="${script_path:t:r}"
-      local session_pattern=".*$( get_session_pattern "${session_name}" ).*"
-      if ! is_session_present "${session_names}" "${session_pattern}"; then
+      if ! is_session_present "${session_names}" "${session_name}"; then
         zsh "${script_path}" "${SOCKET}"
       fi
     done
 
     if ! $BACKGROUND; then
-      if [[ -n "${main_session_pattern}" ]]; then
-        tmux -L "${SOCKET}" attach-session -t "${main_session_pattern}"
+      if [[ -n "${main_session}" ]]; then
+        tmux -L "${SOCKET}" attach-session -t "${main_session}"
       else
         tmux -L "${SOCKET}" attach-session
       fi
-    elif [[ -n "${main_session_pattern}" ]]; then
-      tmux -L "${SOCKET}" switch-client -t "${main_session_pattern}" &> /dev/null
+    elif [[ -n "${main_session}" ]]; then
+      tmux -L "${SOCKET}" switch-client -t "${main_session}" &> /dev/null
     fi
 
   else
@@ -123,20 +107,19 @@ start_target_tmux_env() {
     )
     for script_path in ${scripts_path}; do
       local session_name="${script_path:t:r}"
-      local session_pattern=".*$( get_session_pattern "${session_name}" ).*"
-      if ! is_session_present "${session_names}" "${session_pattern}"; then
+      if ! is_session_present "${session_names}" "${session_name}"; then
         ssh "${HOST}" 'bash -s' < "${script_path}" "${SOCKET}"
       fi
     done
 
     if ! $BACKGROUND; then
-      if [[ -n "${main_session_pattern}" ]]; then
-        ssh -t "${HOST}" tmux -L "${SOCKET}" attach-session -t "${main_session_pattern}"
+      if [[ -n "${main_session}" ]]; then
+        ssh -t "${HOST}" tmux -L "${SOCKET}" attach-session -t "${main_session}"
       else
         ssh -t "${HOST}" tmux -L "${SOCKET}" attach-session
       fi
-    elif [[ -n "${main_session_pattern}" ]]; then
-      ssh -t "${HOST}" tmux -L "${SOCKET}" switch-client -t "${main_session_pattern}" &> /dev/null
+    elif [[ -n "${main_session}" ]]; then
+      ssh -t "${HOST}" tmux -L "${SOCKET}" switch-client -t "${main_session}" &> /dev/null
     fi
   fi
 }

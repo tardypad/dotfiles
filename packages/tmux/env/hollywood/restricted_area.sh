@@ -1,6 +1,6 @@
 socket="$1"
 
-session_name="Restricted area"
+session_name="restricted_area"
 window_name="Authorized personnel only"
 max_time=900
 

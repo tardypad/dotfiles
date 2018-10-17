@@ -9,8 +9,6 @@
 # Cleaning
 
 # Bugs
-  - there seems to be an issue with tmux_env use of regexes in case of similar session namings  
-    for example if one session is called 'legacy_production' and the other one 'production'
 
 # Testing
 
