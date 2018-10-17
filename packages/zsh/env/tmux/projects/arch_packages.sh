@@ -1,11 +1,12 @@
 socket="$1"
+session_name="$2"
 
 arch_packages_path=$( get_project_repo_path arch-packages )
 
 
 tmux -L "${socket}" \
   new-session -d \
-  -s 'projects arch_packages' \
+  -s "${session_name}" \
   -n 'terminal' \
   -c "${arch_packages_path}"
 

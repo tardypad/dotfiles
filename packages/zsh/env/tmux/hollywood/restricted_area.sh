@@ -1,6 +1,6 @@
 socket="$1"
+session_name="$2"
 
-session_name="hollywood restricted_area"
 window_name="Authorized personnel only"
 max_time=900
 

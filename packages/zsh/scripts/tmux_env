@@ -44,11 +44,11 @@ error() {
 
 
 is_session_present() {
-  local all_session_names="$1"
-  local session_name="$2"
+  local session_names="$1"
+  local session="$2"
 
-  for session in ${(f)all_session_names}; do
-    if [[ "${TARGET} ${session_name}" = "${session}" ]]; then
+  for session_name in ${(f)session_names}; do
+    if [[ "${TARGET} ${session}" = "${session_name}" ]]; then
       return 0
     fi
   done
@@ -84,9 +84,9 @@ start_target_tmux_env() {
       tmux -L "${SOCKET}" list-sessions -F '#{session_name}' 2> /dev/null
     )
     for script_path in ${scripts_path}; do
-      local session_name="${script_path:t:r}"
-      if ! is_session_present "${session_names}" "${session_name}"; then
-        zsh "${script_path}" "${SOCKET}"
+      local session="${script_path:t:r}"
+      if ! is_session_present "${session_names}" "${session}"; then
+        zsh "${script_path}" "${SOCKET}" "${TARGET} ${session}"
       fi
     done
 
@@ -106,9 +106,9 @@ start_target_tmux_env() {
       ssh "${HOST}" "tmux -L ${SOCKET} list-sessions -F '#{session_name}'" 2> /dev/null
     )
     for script_path in ${scripts_path}; do
-      local session_name="${script_path:t:r}"
-      if ! is_session_present "${session_names}" "${session_name}"; then
-        ssh "${HOST}" 'bash -s' < "${script_path}" "${SOCKET}"
+      local session="${script_path:t:r}"
+      if ! is_session_present "${session_names}" "${session}"; then
+        ssh "${HOST}" 'bash -s' < "${script_path}" "${SOCKET}" "${TARGET} ${session}"
       fi
     done
 
