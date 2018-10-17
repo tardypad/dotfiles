@@ -48,7 +48,7 @@ is_session_present() {
   local session_name="$2"
 
   for session in ${(f)all_session_names}; do
-    if [[ "${session_name}" = "${session}" ]]; then
+    if [[ "${TARGET} ${session_name}" = "${session}" ]]; then
       return 0
     fi
   done
@@ -92,12 +92,12 @@ start_target_tmux_env() {
 
     if ! $BACKGROUND; then
       if [[ -n "${main_session}" ]]; then
-        tmux -L "${SOCKET}" attach-session -t "${main_session}"
+        tmux -L "${SOCKET}" attach-session -t "${TARGET} ${main_session}"
       else
         tmux -L "${SOCKET}" attach-session
       fi
     elif [[ -n "${main_session}" ]]; then
-      tmux -L "${SOCKET}" switch-client -t "${main_session}" &> /dev/null
+      tmux -L "${SOCKET}" switch-client -t "${TARGET} ${main_session}" &> /dev/null
     fi
 
   else
@@ -114,12 +114,12 @@ start_target_tmux_env() {
 
     if ! $BACKGROUND; then
       if [[ -n "${main_session}" ]]; then
-        ssh -t "${HOST}" tmux -L "${SOCKET}" attach-session -t "${main_session}"
+        ssh -t "${HOST}" tmux -L "${SOCKET}" attach-session -t "${TARGET} ${main_session}"
       else
         ssh -t "${HOST}" tmux -L "${SOCKET}" attach-session
       fi
     elif [[ -n "${main_session}" ]]; then
-      ssh -t "${HOST}" tmux -L "${SOCKET}" switch-client -t "${main_session}" &> /dev/null
+      ssh -t "${HOST}" tmux -L "${SOCKET}" switch-client -t "${TARGET} ${main_session}" &> /dev/null
     fi
   fi
 }

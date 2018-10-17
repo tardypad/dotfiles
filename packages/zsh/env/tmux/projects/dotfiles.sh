@@ -5,7 +5,7 @@ dotfiles_path=$( get_project_repo_path dotfiles )
 
 tmux -L "${socket}" \
   new-session -d \
-  -s 'dotfiles' \
+  -s 'projects dotfiles' \
   -n 'terminal' \
   -c "${dotfiles_path}"
 

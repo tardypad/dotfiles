@@ -5,7 +5,7 @@ tardypad_me_path=$( get_project_repo_path tardypad.me )
 
 tmux -L "${socket}" \
   new-session -d \
-  -s 'tardypad_me' \
+  -s 'projects tardypad_me' \
   -n 'terminal' \
   -c "${tardypad_me_path}"
 

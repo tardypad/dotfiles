@@ -1,7 +1,7 @@
 socket="$1"
 
 image_path="${XDG_CONFIG_HOME:-$HOME/.config}/tmux/images/doitlive"
-session_name='do_it_live'
+session_name='fuck_it do_it_live'
 window_name="What could possibly go wrong?"
 
 # better do things live on a clean plate
