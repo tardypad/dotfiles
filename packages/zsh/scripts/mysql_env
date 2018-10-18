@@ -62,7 +62,7 @@ validate_options() {
     error 'missing project'
   fi
 
-  ENV_PATH="${ENV_DIR_PATH}/${PROJECT}.mc"
+  ENV_PATH="${ENV_DIR_PATH}/${PROJECT}"
 
   if [[ ! -f "${ENV_PATH}" ]]; then
     error 'invalid project'

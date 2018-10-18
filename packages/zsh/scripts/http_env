@@ -93,7 +93,7 @@ validate_options() {
     error 'missing request path'
   fi
 
-  ENV_PATH="${ENV_DIR_PATH}/${PROJECT}/${ENVIRONMENT}.hp"
+  ENV_PATH="${ENV_DIR_PATH}/${PROJECT}/${ENVIRONMENT}"
 
   if [[ ! -f "${ENV_PATH}" ]]; then
     error 'invalid project/environment'

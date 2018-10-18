@@ -1,7 +1,7 @@
 #compdef mysql_env
 
 _envs() {
-  _path_files -g '*.mc(:r)' -W "${XDG_CONFIG_HOME:-$HOME/.config}/mysql/env/"
+  _path_files -W "${XDG_CONFIG_HOME:-$HOME/.config}/mysql/env/"
 }
 
 _arguments \
