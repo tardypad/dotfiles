@@ -26,4 +26,8 @@ ifneq (,$(wildcard packages/zsh/env/redis))
 	$(call copy_folder,env/redis,$(CONFIG_DIR)/redis/env)
 endif
 
+ifneq (,$(wildcard packages/zsh/env/influxdb))
+	$(call copy_folder,env/influxdb,$(CONFIG_DIR)/influxdb/env)
+endif
+
 	$(end_setup)

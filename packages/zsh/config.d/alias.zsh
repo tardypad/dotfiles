@@ -54,6 +54,7 @@ alias docs='goto_project_docs'
 # allow usage of * in queries without need for escaping
 alias mysql_env='noglob mysql_env'
 alias redis_env='noglob redis_env'
+alias influx_env='noglob influx_env'
 
 # flush all .log files recursively in the current dir
 alias flush_logs="find . -type f -name '*.log' -exec /bin/sh -c \"> '{}'\" \;"
