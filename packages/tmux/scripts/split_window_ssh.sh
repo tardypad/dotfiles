@@ -20,4 +20,4 @@ ssh_command=$(
     | grep ssh --max-count=1
 )
 
-tmux split-window -"${option}" "${ssh_command}"
+tmux split-window -"${option}" "TERM=xterm-256color ${ssh_command}"
