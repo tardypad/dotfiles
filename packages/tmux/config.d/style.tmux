@@ -13,7 +13,7 @@ set -g mode-style "bg=$TMUX_YELLOW,fg=$TMUX_BLACK"
 set -g display-panes-colour "$TMUX_YELLOW"
 set -g display-panes-active-colour "$TMUX_RED"
 
-set -g status-justify centre
+set -g status-justify left
 
 %if #{TMUX_ENV}
 set -g status on
@@ -26,7 +26,7 @@ set -g status-left-style "bg=$TMUX_BLUE,fg=$TMUX_BLACK"
 set -g status-right-style "fg=$TMUX_BLUE"
 
 set -g status-left-length 40
-set -g status-left "#[fg=$TMUX_WHITE,bold]#{?#{==:#{client_key_table},prefix},Ⓟ,#{?#{==:#{client_key_table},extract-mode},Ⓔ, }}#[default]  #{session_name}   "
+set -g status-left "#[fg=$TMUX_WHITE,bold]#{?#{==:#{client_key_table},prefix},Ⓟ,#{?#{==:#{client_key_table},extract-mode},Ⓔ, }}#[default]  #{session_name}   #[bg=$TMUX_BLACK,fg=$TMUX_FOREGROUND]   "
 %if #{DISPLAY}
 set -g status-right ''
 %else
