@@ -1,0 +1,77 @@
+#!/usr/bin/env zsh
+
+COMMAND=${0:t}
+
+init_variables() {
+  ENV_DIR_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/redis/env"
+
+  PROJECT=
+  QUERY=
+  ENV_PATH=
+}
+
+
+usage() {
+  cat << EOF
+usage: ${COMMAND} [<options>] project [query]
+
+Start Redis or run a query within a project environment
+
+Options:
+  -h,  --help    show this message only
+EOF
+}
+
+
+error() {
+  [[ -z "$1" ]] || echo "${COMMAND}: $1"
+  echo "Try '${COMMAND} --help' for more information."
+  exit 1
+} >&2
+
+
+run_redis() {
+  if [[ -z "${QUERY}" ]]; then
+    redis-cli $( cat "${ENV_PATH}" )
+  else
+    redis-cli $( cat "${ENV_PATH}" ) --raw ${QUERY}
+  fi
+}
+
+
+parse_options() {
+  while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      *)
+        break 2
+        ;;
+    esac
+  done
+
+  PROJECT="$1"
+  QUERY=( "${@:2}" )
+}
+
+
+validate_options() {
+  if [[ -z "${PROJECT}" ]]; then
+    error 'missing project'
+  fi
+
+  ENV_PATH="${ENV_DIR_PATH}/${PROJECT}"
+
+  if [[ ! -f "${ENV_PATH}" ]]; then
+    error 'invalid project'
+  fi
+}
+
+
+init_variables
+parse_options "$@"
+validate_options
+
+run_redis

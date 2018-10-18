@@ -22,4 +22,8 @@ ifneq (,$(wildcard packages/zsh/env/http))
 	$(call copy_folder,env/http,$(CONFIG_DIR)/http/env)
 endif
 
+ifneq (,$(wildcard packages/zsh/env/redis))
+	$(call copy_folder,env/redis,$(CONFIG_DIR)/redis/env)
+endif
+
 	$(end_setup)
