@@ -6,7 +6,7 @@
 # Should be used from an alias with an innocent looking name
 #
 # Can be used transparently within a pipeline
-# tail -f script.log | hacker_typer | grep DEBUG
+# tail -f script.log | hacker-typer | grep DEBUG
 #
 # Doesn't interfer with the output/input of the other commands
 # They are reconnected for display at the end of typing

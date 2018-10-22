@@ -1,4 +1,4 @@
-#compdef translate_shell
+#compdef translate-shell
 
 _languages_code() {
   # sorted by language name instead of code

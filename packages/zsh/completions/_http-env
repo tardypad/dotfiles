@@ -1,4 +1,4 @@
-#compdef http_env
+#compdef http-env
 
 local env_dir_path="${XDG_CONFIG_HOME:-$HOME/.config}/http/env/"
 

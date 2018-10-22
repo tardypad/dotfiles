@@ -1,7 +1,7 @@
 if [[ $(tty) = /dev/tty1 ]]; then
   # display logins from other users since my last login
   echo
-  last_others
+  last-others
 
   # display small fortune with waiting time
   # can always be stopped with Ctrl-C in case we need faster start

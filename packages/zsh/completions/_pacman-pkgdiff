@@ -1,4 +1,4 @@
-#compdef pacman_pkgdiff
+#compdef pacman-pkgdiff
 
 _packages() {
   local package_names=( $(

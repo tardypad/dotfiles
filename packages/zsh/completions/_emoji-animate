@@ -1,4 +1,4 @@
-#compdef emoji_animate
+#compdef emoji-animate
 
 _names() {
   local names=(

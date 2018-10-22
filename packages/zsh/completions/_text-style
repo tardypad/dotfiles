@@ -1,4 +1,4 @@
-#compdef text_style
+#compdef text-style
 
 _names() {
   local names=(

@@ -12,7 +12,7 @@ WINDOW_TITLE="sway_notification_$( echo "${TITLE}" | tr 'A-Z ' 'a-z_' )"
 #       so we prevent the display in that case
 if pgrep swaylock &> /dev/null \
   || swaymsg -t get_tree | grep --quiet "${WINDOW_TITLE}" \
-  || [[ $( do_not_disturb status ) == 'enabled' ]]; then
+  || [[ $( do-not-disturb status ) == 'enabled' ]]; then
   rm "${TMP_TEXT_FILE}"
   exit
 fi

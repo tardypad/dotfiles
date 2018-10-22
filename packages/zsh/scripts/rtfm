@@ -128,7 +128,7 @@ display_help_argument() {
 
 display_no_help() {
   echo "no help available for '${TOPIC}'"
-  emoji_animate fliptable "${TOPIC}"
+  emoji-animate fliptable "${TOPIC}"
   return 1
 }
 

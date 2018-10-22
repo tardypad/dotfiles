@@ -1,4 +1,4 @@
-#compdef influx_env
+#compdef influx-env
 
 _envs() {
   _path_files -W "${XDG_CONFIG_HOME:-$HOME/.config}/influxdb/env/"

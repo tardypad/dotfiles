@@ -24,7 +24,7 @@ alias root='sudo --preserve-env --shell'
 alias passwdgen='< /dev/urandom tr --delete --complement "[:graph:]" | head --bytes 30; echo'
 
 # innocent looking name for hacker typer
-alias manual_process=hacker_typer
+alias manual-process=hacker-typer
 
 # retrieve my public IP
 alias whatismyip='https api.ipify.org'
@@ -33,7 +33,7 @@ alias whatismyip='https api.ipify.org'
 alias timer=stopwatch
 
 # all packages update
-alias packages_update="
+alias packages-update="
   checkupdates \
   && aurcheck -d aur \
   && aurcheck -d tardypad \
@@ -43,8 +43,8 @@ alias packages_update="
 "
 
 # simple linters
-alias json_lint='python -m json.tool'
-alias xml_lint='xmllint --format -'
+alias json-lint='python -m json.tool'
+alias xml-lint='xmllint --format -'
 
 alias pj='goto_project_repo'
 alias PJ='goto_project_main'
@@ -52,12 +52,12 @@ alias logs='goto_project_logs'
 alias docs='goto_project_docs'
 
 # allow usage of * in queries without need for escaping
-alias mysql_env='noglob mysql_env'
-alias redis_env='noglob redis_env'
-alias influx_env='noglob influx_env'
+alias mysql-env='noglob mysql-env'
+alias redis-env='noglob redis-env'
+alias influx-env='noglob influx-env'
 
 # flush all .log files recursively in the current dir
-alias flush_logs="find . -type f -name '*.log' -exec /bin/sh -c \"> '{}'\" \;"
+alias flush-logs="find . -type f -name '*.log' -exec /bin/sh -c \"> '{}'\" \;"
 
 # HTTPie other schemes
 alias https='http --default-scheme=https'
@@ -66,6 +66,6 @@ alias https='http --default-scheme=https'
 alias ag='ag --smart-case --skip-vcs-ignores --follow'
 
 # quick temper
-alias :w="echo 'Do I look like vim to you?...'; emoji_animate disapprove"
+alias :w="echo 'Do I look like vim to you?...'; emoji-animate disapprove"
 alias :wq=:w
 alias :q=:w

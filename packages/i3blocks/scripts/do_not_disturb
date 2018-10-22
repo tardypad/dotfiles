@@ -1,6 +1,6 @@
 #! /usr/bin/env zsh
 
 # only display something if the mode is on
-[[ $( do_not_disturb status ) == 'enabled' ]] || exit 0
+[[ $( do-not-disturb status ) == 'enabled' ]] || exit 0
 
 echo "<span foreground='#dc322f'> Do not disturb</span>"

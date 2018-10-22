@@ -1,4 +1,4 @@
-#compdef do_not_disturb
+#compdef do-not-disturb
 
 _actions() {
   local actions=(
