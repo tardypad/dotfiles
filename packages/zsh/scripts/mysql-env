@@ -5,8 +5,10 @@ COMMAND=${0:t}
 init_variables() {
   ENV_DIR_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/mysql/env"
 
+  MYSQL_OPTIONS=
   PROJECT=
   QUERY=
+
   ENV_PATH=
 }
 
@@ -19,6 +21,9 @@ Start MySQL or run a query within a project environment
 
 Options:
   -h,  --help    show this message only
+
+  All available mysql options can be used there too
+  using an = for the ones needing a parameter (space not supported)
 EOF
 }
 
@@ -32,9 +37,9 @@ error() {
 
 run_mysql() {
   if [[ -z "${QUERY}" ]]; then
-    mysql $( cat "${ENV_PATH}" )
+    mysql $( cat "${ENV_PATH}" ) ${MYSQL_OPTIONS}
   else
-    mysql $( cat "${ENV_PATH}" ) -e "${QUERY}"
+    mysql $( cat "${ENV_PATH}" ) ${MYSQL_OPTIONS} -e "${QUERY}"
   fi
 }
 
@@ -45,6 +50,10 @@ parse_options() {
       -h|--help)
         usage
         exit 0
+        ;;
+      -*)
+        MYSQL_OPTIONS+=( "$1" )
+        shift
         ;;
       *)
         break 2

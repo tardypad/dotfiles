@@ -26,7 +26,7 @@ Options:
   -h,  --help    show this message only
 
   All available httpie options can be used there too
-  using an = for the ones needed a parameter (space not supported)
+  using an = for the ones needing a parameter (space not supported)
 EOF
 }
 

@@ -5,8 +5,10 @@ COMMAND=${0:t}
 init_variables() {
   ENV_DIR_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/influxdb/env"
 
+  INFLUX_OPTIONS=
   PROJECT=
   QUERY=
+
   ENV_PATH=
 }
 
@@ -19,6 +21,9 @@ Start InfluxDB or run a query within a project environment
 
 Options:
   -h,  --help    show this message only
+
+  All available influx options can be used there too
+  using an = for the ones needing a parameter (space not supported)
 EOF
 }
 
@@ -32,9 +37,9 @@ error() {
 
 run_influx() {
   if [[ -z "${QUERY}" ]]; then
-    influx $( cat "${ENV_PATH}" )
+    influx $( cat "${ENV_PATH}" ) ${INFLUX_OPTIONS}
   else
-    influx $( cat "${ENV_PATH}" ) -execute ${QUERY}
+    influx $( cat "${ENV_PATH}" ) ${INFLUX_OPTIONS} -execute ${QUERY}
   fi
 }
 
@@ -45,6 +50,10 @@ parse_options() {
       -h|--help)
         usage
         exit 0
+        ;;
+      -*)
+        INFLUX_OPTIONS+=( "$1" )
+        shift
         ;;
       *)
         break 2

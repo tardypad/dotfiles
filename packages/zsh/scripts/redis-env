@@ -5,8 +5,10 @@ COMMAND=${0:t}
 init_variables() {
   ENV_DIR_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/redis/env"
 
+  REDIS_OPTIONS=
   PROJECT=
   QUERY=
+
   ENV_PATH=
 }
 
@@ -19,6 +21,9 @@ Start Redis or run a query within a project environment
 
 Options:
   -h,  --help    show this message only
+
+  All available redis-cli options can be used there too
+  using an = for the ones needing a parameter (space not supported)
 EOF
 }
 
@@ -32,9 +37,9 @@ error() {
 
 run_redis() {
   if [[ -z "${QUERY}" ]]; then
-    redis-cli $( cat "${ENV_PATH}" )
+    redis-cli $( cat "${ENV_PATH}" ) ${REDIS_OPTIONS}
   else
-    redis-cli $( cat "${ENV_PATH}" ) --raw ${QUERY}
+    redis-cli $( cat "${ENV_PATH}" ) --raw ${REDIS_OPTIONS} ${QUERY}
   fi
 }
 
@@ -45,6 +50,10 @@ parse_options() {
       -h|--help)
         usage
         exit 0
+        ;;
+      -*)
+        REDIS_OPTIONS+=( "$1" )
+        shift
         ;;
       *)
         break 2
