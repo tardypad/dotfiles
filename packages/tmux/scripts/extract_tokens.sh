@@ -18,7 +18,7 @@ case "${TOKEN_TYPE}" in
 esac
 
 
-function capture_current_pane() {
+capture_current_pane() {
   local height=$( tmux display -p -F '#{pane_height}')
   local scroll_position=$( tmux display -p -F '#{scroll_position}')
 
@@ -32,25 +32,25 @@ function capture_current_pane() {
   tmux capture-pane -pJ -S "${start}" -E "${end}"
 }
 
-function grep_hashes() {
+grep_hashes() {
   grep --extended-regex --only-matching '[[:digit:]a-fA-F][-[:digit:]a-fA-F]{5,}'
 }
 
-function grep_lines() {
+grep_lines() {
   # trim spaces
   grep '.' | sed 's/^[ \t]*//;s/[ \t]*$//'
 }
 
-function grep_paths() {
+grep_paths() {
   grep --extended-regex --only-matching '[-_.~[:alnum:]]*/[-_./[:alnum:]]+'
 }
 
-function grep_urls() {
+grep_urls() {
   grep --extended-regex --only-matching 'https?://[[:alnum:]?=%/_.:,;~@!#$&*+-]*'
 }
 
 
-function grep_words() {
+grep_words() {
   grep --extended-regex --only-matching '[-_.[:alnum:]]+'
 }
 

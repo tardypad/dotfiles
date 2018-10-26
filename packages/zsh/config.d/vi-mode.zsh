@@ -9,14 +9,14 @@ VI_CMD_MODE='cmd'
 VI_MODE=$VI_INS_MODE
 
 # on keymap change, define the mode and redraw prompt
-function zle-keymap-select {
+zle-keymap-select() {
   VI_MODE="${${KEYMAP/vicmd/${VI_CMD_MODE}}/(main|viins)/${VI_INS_MODE}}"
   zle reset-prompt
 }
 zle -N zle-keymap-select
 
 # reset to default mode at the end of line input reading
-function zle-line-finish {
+zle-line-finish() {
   VI_MODE=$VI_INS_MODE
 }
 zle -N zle-line-finish
@@ -25,7 +25,7 @@ zle -N zle-line-finish
 # while in fact you would be in INS mode.
 # Fixed by catching SIGINT (C-c), set mode to INS and repropagate the SIGINT,
 # so if anything else depends on it, we will not break it.
-function TRAPINT() {
+TRAPINT() {
   VI_MODE=$VI_INS_MODE
   return $(( 128 + $1 ))
 }

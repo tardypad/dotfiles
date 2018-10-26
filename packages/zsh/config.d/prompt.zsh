@@ -1,10 +1,10 @@
-function preexec() {
+preexec() {
   # register time of command execution (in milliseconds)
   COMMAND_TIME_START_MS=$( date +"%s%3N" )
   COMMAND_TIME_START=$( date +"%H:%M" )
 }
 
-function precmd() {
+precmd() {
   # save last exit code before vcs_info call
   # otherwise it seems to get set to 0...
   local exit_code=$?
@@ -64,14 +64,14 @@ function precmd() {
 }
 
 # add flag to git unstaged flag if there are untracked files
-function +vi-git-untracked(){
++vi-git-untracked() {
   if git status --porcelain 2> /dev/null | grep '^??' &> /dev/null ; then
     hook_com[unstaged]+='?'
   fi
 }
 
 # add info to git branch about branch vs upstream
-function +vi-git-upstream(){
++vi-git-upstream() {
   local remote=$(git rev-parse --abbrev-ref --symbolic-full-name @{upstream} 2> /dev/null)
 
   if [[ -n "${remote}" && "${remote}" != '@{upstream}' ]]; then
@@ -89,7 +89,7 @@ function +vi-git-upstream(){
   fi
 }
 
-function set_prompt() {
+set_prompt() {
   # define color variables
   local green='%{%F{green}%}'
   local yellow='%{%F{yellow}%}'

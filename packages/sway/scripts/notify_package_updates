@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-function add_notification_text()
+add_notification_text()
 {
   local packages_list="$1"
   local result_file="$2"

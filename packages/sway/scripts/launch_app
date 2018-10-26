@@ -5,7 +5,7 @@ CACHE_APPS_LIST_PATH="${XDG_CACHE_HOME:-$HOME/.cache}/sway/launch_app"
 
 typeset -A AVAILABLE_APPS
 
-function build_available_apps() {
+build_available_apps() {
   for app_desktop_file in "${APP_DESKTOP_FILES_PATH}"/*.desktop; do
     local app_name=$(
       grep '^Name=' "${app_desktop_file}" \
@@ -32,7 +32,7 @@ function build_available_apps() {
   done
 }
 
-function check_build_cache() {
+check_build_cache() {
   if [[ -e "${CACHE_APPS_LIST_PATH}" ]]; then
     local cache_last_modified=$(
       stat --format '%Y' "${CACHE_APPS_LIST_PATH}"
