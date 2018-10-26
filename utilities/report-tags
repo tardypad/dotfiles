@@ -36,7 +36,7 @@ error() {
 
 
 report_tags() {
- local regex="#($( IFS='|'; echo "${(k)TAGS}" ))"
+ local regex="#($( IFS='|'; echo "${(k)TAGS}" )):"
 
  git grep --extended-regexp "${regex}" packages/ \
    | sed --regexp-extended 's/.*(#[A-Z]+).*/\1 \0/' \
