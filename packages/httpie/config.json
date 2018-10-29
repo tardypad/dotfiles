@@ -6,7 +6,7 @@
     },
     "default_options": [
       "--style=solarized",
-      "--form",
+      "--json",
       "--body",
       "--check-status"
     ]
