@@ -26,7 +26,6 @@ All packages selected are [Free Software](https://www.gnu.org/philosophy/free-sw
 | neomutt                | mail client                          | [Github](https://github.com/neomutt/neomutt)                           | [20180716](https://github.com/neomutt/neomutt/releases/tag/neomutt-20180716)                                                          |
 | newsboat               | RSS reader                           | [Github](https://github.com/newsboat/newsboat)                         | [2.13](https://github.com/newsboat/newsboat/releases/tag/r2.13)                                                                       |
 | openssh                | SSH client                           | [Github](https://github.com/openssh/openssh-portable)                  | [7.9](https://github.com/openssh/openssh-portable/releases/tag/V_7_9_P1)                                                              |
-| pacman                 | packages manager                     | [Arch Linux](https://git.archlinux.org/pacman.git)                     | [5.1.1](https://git.archlinux.org/pacman.git/tag/?h=v5.1.1)                                                                           |
 | qutebrowser            | web browser                          | [Github](https://github.com/qutebrowser/qutebrowser)                   | [1.5.1](https://github.com/qutebrowser/qutebrowser/releases/tag/v1.5.1)                                                               |
 | rbtools                | Review Board command line            | [Github](https://github.com/reviewboard/rbtools)                       | [1.0.1](https://github.com/reviewboard/rbtools/releases/tag/release-1.0.1)                                                            |
 | sway                   | window manager                       | [Github](https://github.com/swaywm/sway)                               | [0.15.2](https://github.com/swaywm/sway/releases/tag/0.15.2)                                                                          |
@@ -89,6 +88,7 @@ Doesn't include (yet?) the following kind of packages:
 - common GNU command line packages (e.g., sed)
 - packages not required directly by our own config (e.g., phpctags, dependency via plugin)
 - packages launched with minimal options usage (e.g., chromium, from desktop file)
+- base Arch Linux packages (e.g., pacman)
 
 | Name                   | Purpose                              | Source                                                                                 | Version                                                                                                                |
 |------------------------|--------------------------------------|----------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
@@ -102,6 +102,7 @@ Doesn't include (yet?) the following kind of packages:
 | light                  | backlight controller                 | [Github](https://github.com/haikarainen/light)                                         | [1.2](https://github.com/haikarainen/light/releases/tag/v1.2)                                                          |
 | mpc                    | MPD command line client              | [Github](https://github.com/MusicPlayerDaemon)                                         | [0.30](https://github.com/MusicPlayerDaemon/mpc/releases/tag/v0.30)                                                    |
 | networkmanager         | network manager                      | [freedesktop.org](https://cgit.freedesktop.org/NetworkManager/NetworkManager)          | [1.14.2](https://cgit.freedesktop.org/NetworkManager/NetworkManager/tag/?h=1.14.2)                                     |
+| pacman-contrib         | extra pacman scripts                 | [Arch Linux](https://git.archlinux.org/pacman-contrib.git/)                            | [1.1.0](https://git.archlinux.org/pacman-contrib.git/tag/?h=v1.1.0)                                                    |
 | pass                   | password manager                     | [zx2c4.com](https://git.zx2c4.com/password-store/)                                     | [1.7.3](https://git.zx2c4.com/password-store/tag/?h=1.7.3)                                                             |
 | the_silver_searcher    | code search                          | [Github](https://github.com/ggreer/the_silver_searcher)                                | [2.2.0](https://github.com/ggreer/the_silver_searcher/releases/tag/2.2.0)                                              |
 
