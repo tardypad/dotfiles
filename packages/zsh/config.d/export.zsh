@@ -13,6 +13,11 @@ export LESS='--ignore-case --line-numbers --chop-long-lines --RAW-CONTROL-CHARS'
 # decrease key timeout to 50ms
 export KEYTIMEOUT=5
 
+# only alphanumeric characters are considered part of a word
+# no other character is added
+# (not used by vi-style movement bindings but define it just in case anyway)
+export WORDCHARS=''
+
 # fzf default options
 export FZF_DEFAULT_OPTS="--height=20 --no-bold --color=bg:8,fg:12,hl:3,fg+:8,bg+:3,info:4,prompt:4,pointer:8,marker:7,spinner:4"
 

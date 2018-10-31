@@ -42,6 +42,10 @@ set -g default-shell "/bin/bash"
 # add truecolor support
 set -g terminal-overrides ",xterm-256color:Tc"
 
+# define characters considered not part of a word
+# remove "all" non alphanumeric characters
+set -g word-separators "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ "
+
 # start windows and panes numbering at 1
 set -g base-index 1
 setw -g pane-base-index 1

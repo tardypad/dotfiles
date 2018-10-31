@@ -21,7 +21,6 @@
     * ALE errors/warnings display
   - make some own vim config as plugin
   - usage of vim autoload for some functions
-  - consistency of words separators across packages
   - improve/add completion of git aliases
   - add ability in ZSH to use common ci"  da' and such vim bindings  
     check bindings and functions from [zsh-vim-mode](https://github.com/softmoth/zsh-vim-mode)
