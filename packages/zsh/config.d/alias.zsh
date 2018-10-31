@@ -27,7 +27,7 @@ alias passwdgen='< /dev/urandom tr --delete --complement "[:graph:]" | head --by
 alias manual-process=hacker-typer
 
 # retrieve my public IP
-alias whatismyip='https api.ipify.org'
+alias myip='https api.ipify.org'
 
 # similar usage
 alias timer=stopwatch
