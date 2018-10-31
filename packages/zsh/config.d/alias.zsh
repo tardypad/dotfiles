@@ -46,10 +46,10 @@ alias packages-update="
 alias json-lint='python -m json.tool'
 alias xml-lint='xmllint --format -'
 
-alias pj='goto_project_repo'
-alias PJ='goto_project_main'
-alias logs='goto_project_logs'
-alias docs='goto_project_docs'
+alias pj='goto-project-repo'
+alias PJ='goto-project-main'
+alias logs='goto-project-logs'
+alias docs='goto-project-docs'
 
 # allow usage of * in queries without need for escaping
 alias mysql-env='noglob mysql-env'

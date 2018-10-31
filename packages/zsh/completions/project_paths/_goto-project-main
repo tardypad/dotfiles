@@ -1,4 +1,4 @@
-#compdef goto_project_main
+#compdef goto-project-main
 
 _main_projects() {
   local main_projects=( $(

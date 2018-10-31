@@ -1,7 +1,7 @@
 socket="$1"
 session_name="$2"
 
-dotfiles_path=$( get_project_repo_path dotfiles )
+dotfiles_path=$( get-project-repo-path dotfiles )
 
 
 tmux -L "${socket}" \

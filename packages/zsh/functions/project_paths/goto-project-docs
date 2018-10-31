@@ -7,7 +7,7 @@ if [[ -z "$1" ]]; then
   return
 fi
 
-local docs_path=$( get_project_docs_path "$1" )
+local docs_path=$( get-project-docs-path "$1" )
 
 if [[ -n "${docs_path}" ]]; then
   cd "${docs_path}"

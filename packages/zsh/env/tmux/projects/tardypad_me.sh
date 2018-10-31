@@ -1,7 +1,7 @@
 socket="$1"
 session_name="$2"
 
-tardypad_me_path=$( get_project_repo_path tardypad.me )
+tardypad_me_path=$( get-project-repo-path tardypad.me )
 
 
 tmux -L "${socket}" \

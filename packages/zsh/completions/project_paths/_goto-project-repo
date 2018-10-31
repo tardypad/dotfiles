@@ -1,4 +1,4 @@
-#compdef goto_project_repo
+#compdef goto-project-repo
 
 _projects_repos() {
   local projects_repos=( $(

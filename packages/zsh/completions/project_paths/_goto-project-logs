@@ -1,4 +1,4 @@
-#compdef goto_project_logs
+#compdef goto-project-logs
 
 _logs_folders() {
   local logs_folders=( $(

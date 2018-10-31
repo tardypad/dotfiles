@@ -1,4 +1,4 @@
-#compdef goto_project_docs
+#compdef goto-project-docs
 
 _docs_folders() {
   local docs_folders=( $(

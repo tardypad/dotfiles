@@ -7,7 +7,7 @@ if [[ -z "$1" ]]; then
   return
 fi
 
-local logs_path=$( get_project_logs_path "$1" )
+local logs_path=$( get-project-logs-path "$1" )
 
 if [[ -n "${logs_path}" ]]; then
   cd "${logs_path}"

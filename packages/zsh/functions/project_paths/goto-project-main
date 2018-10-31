@@ -7,7 +7,7 @@ if [[ -z "$1" ]]; then
   return
 fi
 
-local main_path=$( get_project_main_path "$1" )
+local main_path=$( get-project-main-path "$1" )
 
 if [[ -n "${main_path}" ]]; then
   cd "${main_path}"
