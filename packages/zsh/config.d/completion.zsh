@@ -28,3 +28,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # so that completion only reads aliases from ~/.ssh/config
 zstyle -e ':completion:*:*:(scp|ssh):*:*' hosts 'reply=()'
 zstyle -e ':completion:*:*:(scp|ssh):*:*' known-hosts-files 'reply=()'
+
+# same completion between neomutt and mutt
+compdef neomutt=mutt
