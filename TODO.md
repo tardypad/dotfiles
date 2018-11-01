@@ -54,4 +54,5 @@
     * [2fa](https://github.com/rsc/2fa)
     * [passotp](https://github.com/tadfisher/pass-otp)
   - investigate vim Python plugins
-  - once using Sway 1.0, evaluate [mako](https://github.com/emersion/mako) as notification system
+  - once using Sway 1.0, evaluate third party clients as defined in  
+    [Drew Devault blog post](https://drewdevault.com/2018/10/20/Sway-1.0-highlights.html)
