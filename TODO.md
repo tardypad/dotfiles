@@ -54,7 +54,4 @@
     * [2fa](https://github.com/rsc/2fa)
     * [passotp](https://github.com/tadfisher/pass-otp)
   - investigate vim Python plugins
-  - consider replacing gnuplot with a simpler tool:
-    * [termgraph](https://github.com/mkaz/termgraph)
-    * [spark](https://github.com/holman/spark)
   - once using Sway 1.0, evaluate [mako](https://github.com/emersion/mako) as notification system
