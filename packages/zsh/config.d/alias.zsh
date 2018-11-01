@@ -62,6 +62,9 @@ alias flush-logs="find . -type f -name '*.log' -exec /bin/sh -c \"> '{}'\" \;"
 # HTTPie other schemes
 alias https='http --default-scheme=https'
 
+# simpler ungronning
+alias ungron="gron --ungron"
+
 # Silver searcher default options
 alias ag='ag --smart-case --skip-vcs-ignores --follow'
 

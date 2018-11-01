@@ -58,4 +58,3 @@
     * [termgraph](https://github.com/mkaz/termgraph)
     * [spark](https://github.com/holman/spark)
   - once using Sway 1.0, evaluate [mako](https://github.com/emersion/mako) as notification system
-  - replace jq usage with simpler [gron](https://github.com/tomnomnom/gron)
