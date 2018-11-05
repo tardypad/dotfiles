@@ -1,6 +1,0 @@
-[Desktop Entry]
-Exec=termite --title " Calculator" --exec "zsh -c 'tmux new-session qalc'"
-Name=qalc
-GenericName=Calculator
-Icon=
-Type=Application
