@@ -65,6 +65,8 @@ extension_readme_version() {
 pacman_version() {
   local package="$1"
 
+  [[ "${package}" == 'gron' ]] && package='gron-bin'
+
   local pacman_info=$(
     pacman --query --info "${package}" 2> /dev/null
   )
