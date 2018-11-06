@@ -21,3 +21,10 @@ noremap <Space>v :VsplitVim<CR>
 
 " filetypes
 filetype *.pdf zathura %f
+
+" tmux navigation
+nnoremap <M-h> :!tmux select-pane -L<cr>
+nnoremap <M-j> :!tmux select-pane -D<cr>
+nnoremap <M-k> :!tmux select-pane -U<cr>
+nnoremap <M-l> :!tmux select-pane -R<cr>
+nnoremap <M-a> :!tmux select-pane -l<cr>
