@@ -25,8 +25,8 @@ set $blue    #268bd2
 set $cyan    #2aa198
 set $green   #859900
 
-# similar background transparency as terminal
-set $background #002b36f2
+# same background as terminal
+set $background #002b36
 
 # workspace names
 set $ws1  "1  Projects"

@@ -22,7 +22,7 @@ modify_other_keys = true
 [colors]
 foreground = #839496
 foreground_bold = #93a1a1
-background = rgba(0, 43, 54, 0.95)
+background = #002b36
 
 # if unset, will reverse foreground and background
 # highlight = #2f2f2f
