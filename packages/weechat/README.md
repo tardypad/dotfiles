@@ -4,7 +4,7 @@ Chat client
 
 Source [Github](https://github.com/weechat/weechat)
 
-Version [2.2](https://github.com/weechat/weechat/releases/tag/v2.2)
+Version [2.3](https://github.com/weechat/weechat/releases/tag/v2.3)
 
 ## Extras
 
