@@ -17,7 +17,6 @@
     * [yank](https://github.com/mptre/yank) copy output to clipboard
     * [Joe Schafer blog post](https://blog.d46.us/zsh-tmux-emacs-copy-paste/) zsh/tmux/emacs
   - update vim statusline/tabline
-    * mode with colors
     * ALE errors/warnings display
   - make some own vim config as plugin
   - usage of vim autoload for some functions
