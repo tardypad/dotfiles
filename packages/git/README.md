@@ -10,7 +10,6 @@ Version [2.19.1](https://github.com/git/git/releases/tag/v2.19.1)
 
 | Name                | Purpose                | Source                                                     | Version                                                                       |
 |---------------------|------------------------|------------------------------------------------------------|-------------------------------------------------------------------------------|
-| git-extras          | extras commands        | [Github](https://github.com/tj/git-extras)                 | [4.6.0](https://github.com/tj/git-extras/releases/tag/4.6.0)                  |
 | diff-so-fancy       | fancy diff             | [Github](https://github.com/so-fancy/diff-so-fancy)        | [1.2.0](https://github.com/so-fancy/diff-so-fancy/releases/tag/v1.2.0)        |
 
 ## Extras

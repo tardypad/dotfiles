@@ -27,6 +27,7 @@
         cl = clone
         co = checkout
         coma = checkout master
+        count = rev-list --count HEAD
         cfg = config --includes
         cp = cherry-pick
         cpa = cherry-pick --abort
@@ -80,6 +81,7 @@
         rbi = "! f() { git rebase -i $( git argument $1 ); }; f"
         reword = commit --amend
         reset-upstream = reset --hard @{upstream}
+        root = rev-parse --show-toplevel
         sh = "! f() { git show $( git argument $1 ); }; f"
         sh0 = "! f() { git show --unified=0 $( git argument $1 ); }; f"
         st = status --short
