@@ -20,6 +20,15 @@ alias ssh='TERM=xterm-256color ssh'
 # switch to root
 alias root='sudo --preserve-env --shell'
 
+# general info about the current shell
+alias status='
+  cat << EOF | column -t
+User ${USERNAME}
+Host ${HOST}
+Dir  $( print -D "${PWD}" )
+EOF
+'
+
 # generate a password (mainly used to encrypt files to share)
 alias passwdgen='< /dev/urandom tr --delete --complement "[:graph:]" | head --bytes 30; echo'
 

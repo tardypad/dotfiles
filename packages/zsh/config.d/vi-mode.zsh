@@ -95,11 +95,11 @@ bindkey -M vicmd -s '\eR' '\ESsource "${HOME}/.zshrc"^M'
 bindkey -M isearch -s '\eR' '\ESsource "${HOME}/.zshrc"^M'
 
 
-# bind Ctrl-S to get a clean git overview in the screen
-# clear screen, abort action, replace current line and then run each command
-bindkey -M viins -s '^s' '^L\ESgit fe^Mgit hist^Mgit log1 HEAD...origin/master^Mgit st^M'
-bindkey -M vicmd -s '^s' '^L\ESgit fe^Mgit hist^Mgit log1 HEAD...origin/master^Mgit st^M'
-bindkey -M isearch -s '^s' '^L\ESgit fe^Mgit hist^Mgit log1 HEAD...origin/master^Mgit st^M'
+# bind Ctrl-S to get a shell status
+# abort action, replace current line and run status
+bindkey -M viins -s '^s' '\ESstatus^M'
+bindkey -M vicmd -s '^s' '\ESstatus^M'
+bindkey -M isearch -s '^s' '\ESstatus^M'
 
 # bind Alt-F to launch file browser
 # abort action, replace current line and run vifm
