@@ -88,26 +88,37 @@ bindkey -M viins '^j' self-insert
 bindkey -M vicmd '^j' self-insert
 bindkey -M isearch '^j' self-insert
 
-# bind Alt-Shift-R to reload config
-# abort action, replace current line and run source
-bindkey -M viins -s '\eR' '\ESsource "${HOME}/.zshrc"^M'
-bindkey -M vicmd -s '\eR' '\ESsource "${HOME}/.zshrc"^M'
-bindkey -M isearch -s '\eR' '\ESsource "${HOME}/.zshrc"^M'
 
+replace-run-command() {
+  BUFFER="$1"
+  zle accept-line
+}
+zle -N replace-run-command
+
+# bind Alt-Shift-R to reload config
+replace-run-reload-config() replace-run-command 'source "${HOME}/.zshrc"'
+zle -N replace-run-reload-config
+bindkey -M viins '\eR' replace-run-reload-config
+bindkey -M vicmd '\eR' replace-run-reload-config
+bindkey -M isearch '\eR' replace-run-reload-config
 
 # bind Ctrl-S to get a shell status
-# abort action, replace current line and run status
-bindkey -M viins -s '^s' '\ESstatus^M'
-bindkey -M vicmd -s '^s' '\ESstatus^M'
-bindkey -M isearch -s '^s' '\ESstatus^M'
+replace-run-status() replace-run-command status
+zle -N replace-run-status
+bindkey -M viins '^s' replace-run-status
+bindkey -M vicmd '^s' replace-run-status
+bindkey -M isearch '^s' replace-run-status
 
 # bind Alt-F to launch file browser
-# abort action, replace current line and run vifm
-bindkey -M viins -s '\ef' '\ESvifm^M'
-bindkey -M vicmd -s '\ef' '\ESvifm^M'
-bindkey -M isearch -s '\ef' '\ESvifm^M'
+replace-run-file-browser() replace-run-command vifm
+zle -N replace-run-file-browser
+bindkey -M viins '\ef' replace-run-file-browser
+bindkey -M vicmd '\ef' replace-run-file-browser
+bindkey -M isearch '\ef' replace-run-file-browser
 
 # bind Alt-S to switch to root
-bindkey -M viins -s '\es' '\ESroot^M'
-bindkey -M vicmd -s '\es' '\ESroot^M'
-bindkey -M isearch -s '\es' '\ESroot^M'
+replace-run-root() replace-run-command root
+zle -N replace-run-root
+bindkey -M viins '\es' replace-run-root
+bindkey -M vicmd '\es' replace-run-root
+bindkey -M isearch '\es' replace-run-root
