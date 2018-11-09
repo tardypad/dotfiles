@@ -3,7 +3,7 @@ TMUX_YELLOW='colour3'
 TMUX_BLUE='colour4'
 TMUX_WHITE='colour7'
 TMUX_BLACK='colour8'
-TMUX_FOREGROUND_DIM='colour11'
+TMUX_BLACK_DIM='colour0'
 TMUX_FOREGROUND='colour12'
 
 set -g message-command-style "bg=$TMUX_YELLOW,fg=$TMUX_BLACK"
@@ -33,11 +33,11 @@ set -g status-right ''
 set -g status-right '  %a %e %b %Y %H:%M'
 %endif
 
-setw -g window-style "bg=default,fg=$TMUX_FOREGROUND_DIM"
-setw -g window-active-style "bg=default,fg=$TMUX_FOREGROUND"
+setw -g window-style "bg=$TMUX_BLACK_DIM"
+setw -g window-active-style "bg=$TMUX_BLACK"
 
-setw -g pane-border-style "bg=default,fg=$TMUX_FOREGROUND"
-setw -g pane-active-border-style "bg=default,fg=$TMUX_YELLOW"
+setw -g pane-border-style "bg=$TMUX_BLACK_DIM,fg=$TMUX_FOREGROUND"
+setw -g pane-active-border-style "bg=$TMUX_BLACK,fg=$TMUX_YELLOW"
 
 setw -g pane-border-format ' #{pane_current_command} '
 %if #{TMUX_ENV}
