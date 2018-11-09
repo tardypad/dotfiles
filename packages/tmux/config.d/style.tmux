@@ -40,11 +40,7 @@ setw -g pane-border-style "bg=$TMUX_BLACK_DIM,fg=$TMUX_FOREGROUND"
 setw -g pane-active-border-style "bg=$TMUX_BLACK,fg=$TMUX_YELLOW"
 
 setw -g pane-border-format ' #{pane_current_command} '
-%if #{TMUX_ENV}
-setw -g pane-border-status bottom
-%else
 setw -g pane-border-status off
-%endif
 
 setw -g window-status-current-style "bg=$TMUX_YELLOW,fg=$TMUX_BLACK"
 setw -g window-status-last-style "fg=$TMUX_YELLOW"
