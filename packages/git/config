@@ -84,25 +84,7 @@
         root = rev-parse --show-toplevel
         sh = "! f() { git show $( git argument $1 ); }; f"
         sh0 = "! f() { git show --unified=0 $( git argument $1 ); }; f"
-        st = "! \
-            f() {  \
-              echo -n \"$( git current-branch ) \"; \
-              local remote=$( git rev-parse --abbrev-ref --symbolic-full-name @{upstream} 2> /dev/null ); \
-              local status; \
-              if [[ -n \"${remote}\" && \"${remote}\" != '@{upstream}' ]]; then \
-                local ahead=$( git rev-list \"${remote}\"..HEAD --count ); \
-                local behind=$( git rev-list HEAD..\"${remote}\" --count ); \
-                if [[ \"${ahead}\" == 0 && \"${behind}\" == 0 ]]; then \
-                  status='✔'; \
-                else \
-                  [[ \"${ahead}\" != 0 ]] && status+=\"↑${ahead}\"; \
-                  [[ \"${behind}\" != 0 ]] && status+=\"↓${behind}\"; \
-                fi; \
-              fi; \
-              echo \"${status}\"; \
-              echo; \
-              git status --short;\
-            }; f"
+        st = status --short --branch
         tag-list = tag --format '%(align:20,left) %(refname:strip=2) %(end) %(taggerdate:iso) %(align:30,left) %(taggeremail) %(end) %(subject)' --sort=taggerdate
         wip = "!git commit --all --message WIP && git push"
 [log]
