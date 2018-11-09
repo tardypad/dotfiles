@@ -1,23 +1,26 @@
 # use vi mode line editing
 bindkey -v
 
-# define modes display names
-VI_INS_MODE='ins'
-VI_CMD_MODE='cmd'
+# define command mode display style to underline
+VI_CMD_MODE_STYLE='%{%U%}'
 
 # define initial mode
-VI_MODE=$VI_INS_MODE
+VI_MODE_STYLE=
 
 # on keymap change, define the mode and redraw prompt
 zle-keymap-select() {
-  VI_MODE="${${KEYMAP/vicmd/${VI_CMD_MODE}}/(main|viins)/${VI_INS_MODE}}"
+  if [ "${KEYMAP}" = 'vicmd' ]; then
+    VI_MODE_STYLE="${VI_CMD_MODE_STYLE}"
+  else
+    VI_MODE_STYLE=
+  fi
   zle reset-prompt
 }
 zle -N zle-keymap-select
 
 # reset to default mode at the end of line input reading
 zle-line-finish() {
-  VI_MODE=$VI_INS_MODE
+  VI_MODE_STYLE=
 }
 zle -N zle-line-finish
 
@@ -26,7 +29,7 @@ zle -N zle-line-finish
 # Fixed by catching SIGINT (C-c), set mode to INS and repropagate the SIGINT,
 # so if anything else depends on it, we will not break it.
 TRAPINT() {
-  VI_MODE=$VI_INS_MODE
+  VI_MODE_STYLE=
   return $(( 128 + $1 ))
 }
 
