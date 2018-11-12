@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+TODO_FILE="$( git root )/TODO.md"
+
+cat << EOF >> "${TODO_FILE}"
+# Periodic
+
+# Cleaning
+
+# Bugs
+
+# Testing
+
+# Improvements
+
+# New Features
+
+# Research
+
+EOF
+
+git add "${TODO_FILE}"
+
+git commit "${TODO_FILE}" --message 'add TODO file skeleton'

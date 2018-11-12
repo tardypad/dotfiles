@@ -32,19 +32,6 @@
         fe = fetch --all
         first-commit = ! git rev-list --max-parents=0 HEAD | tail --lines 1
         hist = ! git log --color --oneline -10 | nl --starting-line-number=0 --number-width=1 --number-separator=' '
-        init-todo = "! \
-            t() { \
-              local todo_file=\"$( git root )/TODO.md\"; \
-              echo '# Periodic\n'     >> \"${todo_file}\"; \
-              echo '# Cleaning\n'     >> \"${todo_file}\"; \
-              echo '# Bugs\n'         >> \"${todo_file}\"; \
-              echo '# Testing\n'      >> \"${todo_file}\"; \
-              echo '# Improvements\n' >> \"${todo_file}\"; \
-              echo '# New Features\n' >> \"${todo_file}\"; \
-              echo '# Research\n'     >> \"${todo_file}\"; \
-              git add \"${todo_file}\"; \
-              git ci \"${todo_file}\" -m 'add TODO file skeleton'; \
-            }; t"
         issue = stamp -r Issue
         head = "! f() { git whatchanged -1 $( git argument $1 ); }; f"
         head-description = ! git log -1 --pretty=%b \
