@@ -2,6 +2,7 @@ git:
 	$(start_setup)
 
 	$(call copy_file,config,$(CONFIG_DIR)/git/config)
+	$(call copy_file,aliases,$(CONFIG_DIR)/git/aliases)
 ifneq (,$(wildcard packages/git/config.local))
 	$(call copy_file,config.local,$(CONFIG_DIR)/git/config.local)
 endif
