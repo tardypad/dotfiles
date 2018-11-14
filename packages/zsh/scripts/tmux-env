@@ -149,6 +149,10 @@ parse_options() {
 
 
 validate_options() {
+  if [[ -n "${TMUX}" ]]; then
+    error "nested tmux env is not allowed"
+  fi
+
   if ! (( ${AVAILABLE_TARGETS[(Ie)${TARGET}]} )); then
     error "invalid target ${TARGET}"
   fi
