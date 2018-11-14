@@ -111,6 +111,10 @@ bind -T root M-L resize-pane -R 3
 bind Space copy-mode
 bind Enter paste-buffer
 
+# no distraction modes
+bind -T root M-Space   run "~/.tmux/scripts/toggle_no_distraction.sh soft"
+bind -T root M-C-Space run "~/.tmux/scripts/toggle_no_distraction.sh hard"
+
 # extract tokens
 bind -T root         M-Tab switch-client -T extract-mode
 bind -T extract-mode     h run "~/.tmux/scripts/extract_tokens.sh hashes"
