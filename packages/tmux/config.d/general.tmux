@@ -42,6 +42,10 @@ set -g default-shell "/bin/bash"
 # add truecolor support
 set -g terminal-overrides ",xterm-256color:Tc"
 
+# update sway socket environment variable
+# for when we reattach a session after a logout (new sway instance)
+set -g update-environment SWAYSOCK
+
 # define characters considered not part of a word
 # remove "all" non alphanumeric characters
 set -g word-separators "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ "

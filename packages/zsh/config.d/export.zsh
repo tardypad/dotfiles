@@ -25,10 +25,5 @@ export FZF_DEFAULT_OPTS="--height=20 --no-bold --color=bg:8,fg:12,hl:3,fg+:8,bg+
 # only ignore build folder
 export FZF_DEFAULT_COMMAND='ag --no-color -g "" --follow --skip-vcs-ignores --ignore "build/"'
 
-# set SWAYSOCK and DISPLAY in systemd user environment if sway is running
-if env | grep --quiet SWAYSOCK; then
-  systemctl --user import-environment SWAYSOCK DISPLAY 2> /dev/null
-fi
-
-# set PATH in systemd user environment
-systemctl --user import-environment PATH 2> /dev/null
+# update SWAYSOCK variable on reload
+eval $( tmux show-environment -s SWAYSOCK )
