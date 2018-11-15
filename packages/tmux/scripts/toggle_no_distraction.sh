@@ -2,18 +2,27 @@
 
 LEVEL="$1"
 
-FILE_PATH="${XDG_RUNTIME_DIR}/tmux_no_distraction"
+init_variables() {
+  FILE_PATH="${XDG_RUNTIME_DIR}/tmux_no_distraction"
 
+  [ -n "${DISPLAY}" ] || return
+
+  CURRENT_SWAY_WINDOW=$(
+    swaymsg -t get_tree \
+      | jq 'recurse(.nodes[].nodes[].nodes[]) | select(.focused == true)'
+  )
+
+  CURRENT_SWAY_WINDOW_ID=$( echo "${CURRENT_SWAY_WINDOW}" | jq '.id' )
+
+  FILE_PATH+="_${CURRENT_SWAY_WINDOW_ID}"
+}
 
 sway_fullscreen() {
   [ -n "${DISPLAY}" ] || return
 
   local action="$1"
 
-  local fullscreen_status=$(
-    swaymsg -t get_tree \
-      | jq 'recurse(.nodes[].nodes[].nodes[]) | select(.focused == true) | .fullscreen_mode'
-  )
+  local fullscreen_status=$( echo "${CURRENT_SWAY_WINDOW}" | jq '.fullscreen_mode' )
 
   # #IDEA: once using Sway 1.0, we should be able to hide the top bar
   # instead of going fullscreen so that launchers can still be displayed
@@ -76,6 +85,9 @@ no_distraction_mode_disable() {
 
   rm -f "${FILE_PATH}"
 }
+
+
+init_variables
 
 if is_no_distraction_mode_enabled; then
   no_distraction_mode_disable
