@@ -4,6 +4,7 @@ scroll_on_keystroke = true
 audible_bell = false
 mouse_autohide = true
 allow_bold = true
+bold_is_bright = false
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = false
