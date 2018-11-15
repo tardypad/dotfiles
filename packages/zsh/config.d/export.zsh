@@ -26,4 +26,4 @@ export FZF_DEFAULT_OPTS="--height=20 --no-bold --color=bg:8,fg:12,hl:3,fg+:8,bg+
 export FZF_DEFAULT_COMMAND='ag --no-color -g "" --follow --skip-vcs-ignores --ignore "build/"'
 
 # update SWAYSOCK variable on reload
-eval $( tmux show-environment -s SWAYSOCK )
+eval $( tmux show-environment -s SWAYSOCK &> /dev/null )
