@@ -47,7 +47,7 @@ bind    C-9 switch-client -t $8
 bind    C-0 switch-client -t $9
 bind    C-c new-session \; rename-session '#{host_short} #{s/$//:session_id}'
 bind    C-r command-prompt -I '#{session_name}' "rename-session '%%'"
-bind    C-x confirm-before -p 'kill-session #{session_name}? (y/n)' kill-session
+bind    C-x confirm-before -p 'kill-session "#{session_name}"? (y/n)' kill-session
 
 # windows management (no extra modifier key)
 bind    w choose-tree -Z -w -F '#{?pane_format,#{pane_current_command},#{?window_format,#{window_name},}}' -f "#{!=:0,#{session_attached}}" -O index
@@ -68,7 +68,7 @@ bind    8 select-window -t :=8
 bind    9 select-window -t :=9
 bind    c new-window
 bind    r command-prompt -I '#{window_name}' "rename-window '%%'"
-bind    x confirm-before -p "kill-window #{window_name}? (y/n)" kill-window
+bind    x confirm-before -p 'kill-window "#{window_name}"? (y/n)' kill-window
 bind    v run "~/.tmux/scripts/split_window_ssh.sh h"
 bind    s run "~/.tmux/scripts/split_window_ssh.sh v"
 bind -r [ swap-window -t -
@@ -84,7 +84,7 @@ bind -r    L select-pane -R
 bind -r    N select-pane -t :.+
 bind -r    P select-pane -t :.-
 bind       Z resize-pane -Z
-bind       X if '[ #{window_panes} -ne 1 ]' kill-pane 'confirm-before -p "kill-window #{window_name}? (y/n)" kill-window'
+bind       X if '[ #{window_panes} -ne 1 ]' kill-pane 'confirm-before -p "kill-window \"#{window_name}\"? (y/n)" kill-window'
 bind -r    { swap-pane -U
 bind -r    } swap-pane -D
 bind    BSpace respawn-pane
