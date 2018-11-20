@@ -4,6 +4,7 @@ COMMAND=${0:t}
 
 init_variables() {
   MAIN_PACKAGES=
+  EXTRA_PACKAGES=
   EXTENSIONS=
 }
 
@@ -35,6 +36,13 @@ error() {
 main_readme_version() {
   local package="$1"
 
+  grep "^| \[${package}\].*" README.md \
+    | sed 's#.*| \[\(.*\)\].*#\1#'
+}
+
+extra_readme_version() {
+  local package="$1"
+
   grep "^| ${package} .*" README.md \
     | sed 's#.*| \[\(.*\)\].*#\1#'
 }
@@ -42,11 +50,6 @@ main_readme_version() {
 
 individual_readme_version() {
   local package="$1"
-
-  if [[ ! -d "packages/${package}" ]]; then
-    echo '.'
-    return
-  fi
 
   grep '^Version \[' "packages/${package}/README.md" \
     | sed 's#^Version \[\(.*\)\].*#\1#'
@@ -91,7 +94,7 @@ pacman_version() {
 }
 
 
-report_packages() {
+report_main_packages() {
   for package in ${MAIN_PACKAGES}; do
     echo -n "${package}"
     echo -n ' '
@@ -100,6 +103,20 @@ report_packages() {
     echo -n $( main_readme_version "${package}" )
     echo -n ' '
     echo -n $( individual_readme_version "${package}" )
+    echo
+  done
+}
+
+
+report_extra_packages() {
+  for package in ${EXTRA_PACKAGES}; do
+    echo -n "${package}"
+    echo -n ' '
+    echo -n $( pacman_version "${package}" )
+    echo -n ' '
+    echo -n $( extra_readme_version "${package}" )
+    echo -n ' '
+    echo -n '.'
     echo
   done
 }
@@ -121,8 +138,14 @@ report_extensions() {
 
 report_all() {
   MAIN_PACKAGES=($(
+    grep --extended-regexp '^\| \[.*\].*' README.md \
+      | sed 's#^| \[\([^ ]*\)\].*#\1#';
+  ))
+
+  EXTRA_PACKAGES=($(
     grep --extended-regexp '\| \[.*\].*' README.md \
-      | sed 's#^| \([^ ]*\) .*#\1#'
+      | grep --invert-match --extended-regexp '^\| \[.*\].*' \
+      | sed 's#^| \([^ ]*\) .*#\1#';
   ))
 
   # exclude vim and weechat plugins (not managed by package manager)
@@ -132,8 +155,11 @@ report_all() {
       | sed 's#^.*/README.md:| \([^ ]*\) .*#\1#'
   ))
 
-
-  { report_packages; report_extensions; } \
+  {
+    report_main_packages;
+    report_extra_packages;
+    report_extensions;
+  } \
     | column --table
 }
 
