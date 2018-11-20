@@ -3,7 +3,6 @@ audible_bell = false
 mouse_autohide = true
 allow_bold = true
 bold_is_bright = false
-clickable_url = false
 font = Source Code Pro, Font Awesome 5 Free 18
 cursor_blink = off
 cursor_shape = block

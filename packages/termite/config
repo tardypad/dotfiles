@@ -7,15 +7,11 @@ allow_bold = true
 bold_is_bright = false
 dynamic_title = true
 urgent_on_bell = true
-clickable_url = false
 font = Source Code Pro, Font Awesome 5 Free 14
 scrollback_lines = 10000
-search_wrap = true
 cursor_blink = off
 cursor_shape = block
-browser = xdg-open
 size_hints = false
-filter_unmatched_urls = true
 modify_other_keys = true
 #icon_name = terminal
 #geometry = 640x480
@@ -46,16 +42,5 @@ color12 = #839496
 color13 = #6c71c4
 color14 = #93a1a1
 color15 = #fdf6e3
-
-[hints]
-#font = Monospace 12
-#foreground = #dcdccc
-#background = #3f3f3f
-#active_foreground = #e68080
-#active_background = #3f3f3f
-#padding = 2
-#border = #3f3f3f
-#border_width = 0.5
-#roundness = 2.0
 
 # vim: ft=dosini cms=#%s
