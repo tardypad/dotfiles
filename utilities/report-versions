@@ -36,7 +36,7 @@ main_readme_version() {
   local package="$1"
 
   grep "^| ${package} .*" README.md \
-    | sed 's#^|.*|.*|.*| \[\(.*\)\].*#\1#'
+    | sed 's#.*| \[\(.*\)\].*#\1#'
 }
 
 
@@ -56,9 +56,8 @@ individual_readme_version() {
 extension_readme_version() {
   local extension="$1"
 
-  grep --extended-regexp '^\|.*\|.*\|.*\| \[.*\].*\|$' packages/*/README.md \
-    | grep "| ${extension}" \
-    | sed "s#^.*/README.md:| ${extension} *|.*|.*| \[\(.*\)\].*|#\1#"
+  grep --extended-regexp --no-filename "^\| ${extension} .*\| \[.*\].*" packages/*/README.md \
+    | sed 's#.*| \[\(.*\)\].*#\1#'
 }
 
 
@@ -122,13 +121,13 @@ report_extensions() {
 
 report_all() {
   MAIN_PACKAGES=($(
-    grep --extended-regexp '^\|.*\|.*\|.*\| \[.*\].*\|$' README.md \
+    grep --extended-regexp '\| \[.*\].*' README.md \
       | sed 's#^| \([^ ]*\) .*#\1#'
   ))
 
   # exclude vim and weechat plugins (not managed by package manager)
   EXTENSIONS=($(
-    grep --extended-regexp '^\|.*\|.*\|.*\| \[.*\].*\|$' packages/*/README.md \
+    grep --extended-regexp '\| \[.*\].*' packages/*/README.md \
       | grep --invert-match --extended-regexp '^packages/vim|^packages/weechat' \
       | sed 's#^.*/README.md:| \([^ ]*\) .*#\1#'
   ))
