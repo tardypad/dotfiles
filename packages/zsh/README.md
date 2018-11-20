@@ -4,7 +4,9 @@ Shell
 
 Source [Github](https://github.com/zsh-users/zsh)
 
-Version [5.6.2](https://github.com/zsh-users/zsh/releases/tag/zsh-5.6.2)
+Fork [Github](https://github.com/tardypad/zsh)
+
+Version [5.6.2](https://github.com/zsh-users/zsh/releases/tag/zsh-5.6.2) with patches from fork
 
 ## Required extensions
 

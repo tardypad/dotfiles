@@ -4,4 +4,6 @@ Terminal emulator
 
 Source [Github](https://github.com/thestinger/termite)
 
-Version [14](https://github.com/thestinger/termite/releases/tag/v14)
+Fork [Github](https://github.com/tardypad/termite)
+
+Version [14.90](https://github.com/tardypad/termite/releases/tag/v14.90)
