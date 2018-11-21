@@ -1,0 +1,19 @@
+#! /usr/bin/env zsh
+
+# #TODO: take into account multiple connected devices
+
+BLUETOOTH_INFO=$( bluetoothctl info )
+
+# only display something if a device is connected
+if ! echo "${BLUETOOTH_INFO}" \
+     | grep --quiet 'Connected: yes'; then
+  exit 0
+fi
+
+BLUETOOTH_DEVICE_NAME=$(
+  echo "${BLUETOOTH_INFO}" \
+    | grep Name \
+    | sed 's/.*Name: \(.*\)/\1/'
+)
+
+echo "<span foreground='#2aa198'></span> ${BLUETOOTH_DEVICE_NAME}"

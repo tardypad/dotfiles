@@ -17,6 +17,9 @@ signal=3
 interval=once
 signal=1
 
+[bluetooth]
+interval=10
+
 [network]
 interval=10
 
