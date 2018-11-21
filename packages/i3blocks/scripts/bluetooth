@@ -10,10 +10,10 @@ if ! echo "${BLUETOOTH_INFO}" \
   exit 0
 fi
 
-BLUETOOTH_DEVICE_NAME=$(
+BLUETOOTH_DEVICE_ALIAS=$(
   echo "${BLUETOOTH_INFO}" \
-    | grep Name \
-    | sed 's/.*Name: \(.*\)/\1/'
+    | grep Alias \
+    | sed 's/.*Alias: \(.*\)/\1/'
 )
 
-echo "<span foreground='#2aa198'></span> ${BLUETOOTH_DEVICE_NAME}"
+echo "<span foreground='#2aa198'></span> ${BLUETOOTH_DEVICE_ALIAS}"
