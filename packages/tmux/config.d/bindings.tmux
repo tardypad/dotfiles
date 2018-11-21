@@ -122,6 +122,7 @@ bind -T extract-mode     l run "~/.tmux/scripts/extract_tokens.sh lines"
 bind -T extract-mode     p run "~/.tmux/scripts/extract_tokens.sh paths"
 bind -T extract-mode     u run "~/.tmux/scripts/extract_tokens.sh urls"
 bind -T extract-mode     w run "~/.tmux/scripts/extract_tokens.sh words"
+bind -T extract-mode     W run "~/.tmux/scripts/extract_tokens.sh WORDS"
 
 # replacement of tmux-open
 %if #{DISPLAY}

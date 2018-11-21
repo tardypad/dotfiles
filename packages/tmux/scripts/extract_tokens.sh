@@ -14,6 +14,7 @@ case "${TOKEN_TYPE}" in
   paths) GREP_FUNCTION=grep_paths ;;
   urls)  GREP_FUNCTION=grep_urls ;;
   words) GREP_FUNCTION=grep_words ;;
+  WORDS) GREP_FUNCTION=grep_WORDS ;;
   *) exit 1
 esac
 
@@ -49,9 +50,12 @@ grep_urls() {
   grep --extended-regex --only-matching 'https?://[[:alnum:]?=%/_.:,;~@!#$&*+-]*'
 }
 
-
 grep_words() {
   grep --extended-regex --only-matching '[-_.[:alnum:]]+'
+}
+
+grep_WORDS() {
+  grep --extended-regex --only-matching '[^ ]+'
 }
 
 
