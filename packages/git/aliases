@@ -33,8 +33,7 @@
         first-commit = ! git rev-list --max-parents=0 HEAD | tail --lines 1
         hist = "! \
             f() { \
-              local count=${1:-10}; \
-              git log --color --oneline --max-count=${count} \
+              git log --color --oneline --max-count=10 \"$@\" \
                 | nl --starting-line-number=0 --number-width=1 --number-separator=' '; \
             }; f"
         issue = stamp -r Issue
