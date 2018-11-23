@@ -44,8 +44,8 @@ bindsym $mod+Shift+q exit
 # launch help
 bindsym $mod+grave exec dex ~/.local/share/applications/help.desktop
 
-# start Pomodoro session
-bindsym $mod+Shift+Escape exec pomodoro start \
+# toggle Pomodoro session
+bindsym $mod+Shift+Escape exec pomodoro toggle \
                                && pkill -RTMIN+4 i3blocks
 
 

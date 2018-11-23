@@ -20,7 +20,7 @@ Options:
   -h,  --help    show this message only
 
 Actions:
-  start cancel status
+  start cancel toggle status
 EOF
 }
 
@@ -57,6 +57,15 @@ session_cancel() {
   is_session_started || return 1
 
   rm -f "${FILE_PATH}"
+}
+
+
+session_toggle() {
+  if is_session_started; then
+    session_cancel
+  else
+    session_start
+  fi
 }
 
 
@@ -103,6 +112,7 @@ validate_options() {
 
   if [[ "${ACTION}" != 'start' \
      && "${ACTION}" != 'cancel' \
+     && "${ACTION}" != 'toggle' \
      && "${ACTION}" != 'status' ]]; then
     error "Invalid action '${ACTION}'"
   fi
