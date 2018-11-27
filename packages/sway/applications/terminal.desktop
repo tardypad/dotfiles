@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=termite --title termite --exec 'tmux new-session'
+Exec=termite --exec 'tmux new-session'
 Name=termite
 GenericName=Terminal
 Icon=

@@ -5,6 +5,10 @@ set -g prefix C-Space
 setw -g allow-rename off
 setw -g automatic-rename off
 
+# use session name as terminal window title
+set -g set-titles on
+set -g set-titles-string '#{session_name}'
+
 # don't detach the client when killing a session
 # only inside a tmux env
 %if #{TMUX_ENV}
