@@ -43,5 +43,4 @@ for_window [title="sway_music"] floating enable, \
 
 # specific workspaces layout
 for_window [workspace=$ws2] layout tabbed
-for_window [workspace=$ws3] layout tabbed
-for_window [workspace=$ws10] layout splith
+for_window [workspace=$ws10] layout tabbed
