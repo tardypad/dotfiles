@@ -40,7 +40,8 @@ set -g default-shell "/bin/bash"
 %endif
 
 # add truecolor support
-set -g terminal-overrides ",xterm-256color:Tc"
+set -ga terminal-overrides ",xterm-256color:Tc"
+set -ga terminal-overrides ",xterm-termite:Tc"
 
 # update sway socket environment variable
 # for when we reattach a session after a logout (new sway instance)
