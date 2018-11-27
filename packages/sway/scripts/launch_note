@@ -14,4 +14,4 @@ NOTE=$(
 [[ -n "${NOTE}" ]] || exit
 
 swaymsg -t command \
-  exec "termite --title ' Notes' --exec \"zsh -c 'tmux new-session "vim ${NOTES_FOLDER}/${NOTE}"'\""
+  exec "termite --title ' Notes' --exec 'tmux new-session \"vim ${NOTES_FOLDER}/${NOTE}\"'"
