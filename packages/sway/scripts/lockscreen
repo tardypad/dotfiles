@@ -1,18 +1,20 @@
 #!/usr/bin/env zsh
 
+# lock.png uses base0 color
 swaylock \
-  --image "${XDG_CONFIG_HOME:-$HOME/.config}/sway/images/wallpaper-lock.jpg" \
-  --scaling fill \
+  --color 002b36 \
+  --image "${XDG_CONFIG_HOME:-$HOME/.config}/sway/images/lock.png" \
+  --scaling center \
   --indicator-radius 250 \
   --indicator-thickness 15 \
-  --insidecolor 00000077 \
-  --insidevercolor 00000077 \
-  --insidewrongcolor 00000077 \
-  --bshlcolor bab7beff \
-  --keyhlcolor bab7beff \
-  --ringcolor 343233ff \
-  --ringvercolor 4f595aff \
-  --ringwrongcolor 543231ff \
+  --insidecolor 00000000 \
+  --insidevercolor 00000000 \
+  --insidewrongcolor 00000000 \
+  --bshlcolor 93a1a1ff \
+  --keyhlcolor 839496ff \
+  --ringcolor 073642ff \
+  --ringvercolor b58900ff \
+  --ringwrongcolor dc322fff \
   --linecolor 00000000 \
   --separatorcolor 00000000 \
   --textcolor 00000000
