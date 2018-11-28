@@ -29,6 +29,10 @@ EOF
     else
       SWAY_CONFIG_FILE=~/.config/sway/config_laptop
     fi
+
+    # set DISPLAY in systemd user environment
+    systemctl --user import-environment DISPLAY 2> /dev/null
+
     exec sway --config "${SWAY_CONFIG_FILE}"  &>> /var/log/sway/sway.log
   fi
 fi
