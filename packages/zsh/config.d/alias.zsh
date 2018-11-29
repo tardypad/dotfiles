@@ -8,6 +8,9 @@ alias ls='ls --color=auto'
 alias lh='ls -lh'
 alias grep='grep --color=auto'
 
+# display calendar for full year with week number and Monday as week start
+alias calendar='cal --monday --week --year'
+
 # reverse fzf when used in a terminal
 # not included in FZF_DEFAULT_OPTS
 # because we don't want this when used within vim
