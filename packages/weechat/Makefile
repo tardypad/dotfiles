@@ -40,7 +40,7 @@ weechat:
 
   # install vimode script
 	@curl --silent --location --create-dirs \
-		https://raw.githubusercontent.com/tardypad/weechat-vimode/cf346f0dea74da8d73a94ee4683a2aad223dfd9d/vimode.py \
+		https://raw.githubusercontent.com/tardypad/weechat-vimode/174bd8c163c596fc89bed4da3eed2ade93acdb75/vimode.py \
 		--output "$(DESTDIR)$(HOME)/.weechat/python/vimode.py"; \
 	ln -fs ../vimode.py "$(DESTDIR)$(HOME)/.weechat/python/autoload/vimode.py"; \
 
