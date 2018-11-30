@@ -2,232 +2,232 @@ TERM tmux-256color
 TERM xterm-256color
 TERM xterm-termite
 
-NORMAL            0    # global default
-FILE              0    # normal file
-DIR              34    # directory (blue fg)
-OTHER_WRITABLE   34;40 # directory writable by others (blue fg, black bg)
-LINK             35    # symbolic link (purple fg)
-FIFO             30;44 # named pipe (black fg, blue bg)
-SOCK             35;44 # socket (purple fg, blue bg)
-BLK              33;44 # block device (yellow fg, blue bg)
-CHR              37;44 # character device (white fg, blue bg)
-ORPHAN         5;37;41 # orphaned symlink (blinking white on red)
-MISSING        5;37;41 # missing file that orphaned symlink points to (blinking white on red)
-EXEC           1;31    # executable (bright red fg)
+NORMAL                              0                      # global default
+FILE                                0                      # normal file
+DIR              {{{base0D/ansi_fg}}}                      # directory
+OTHER_WRITABLE   {{{base0D/ansi_fg}}};{{{base01/ansi_bg}}} # directory writable by others
+LINK             {{{base0F/ansi_fg}}}                      # symbolic link
+FIFO             {{{base01/ansi_fg}}};{{{base0D/ansi_bg}}} # named pipe
+SOCK             {{{base0F/ansi_fg}}};{{{base0D/ansi_bg}}} # socket
+BLK              {{{base0A/ansi_fg}}};{{{base0D/ansi_bg}}} # block device
+CHR              {{{base06/ansi_fg}}};{{{base0D/ansi_bg}}} # character device
+ORPHAN         5;{{{base06/ansi_fg}}};{{{base08/ansi_bg}}} # orphaned symlink
+MISSING        5;{{{base06/ansi_fg}}};{{{base08/ansi_bg}}} # missing file that orphaned symlink points to
+EXEC           1;{{{base08/ansi_fg}}}                      # executable
 
-# Source text (green fg)
-.txt    32
-.org    32
-.md     32
-.mkd    32
-.h      32
-.hpp    32
-.c      32
-.C      32
-.cc     32
-.cpp    32
-.cxx    32
-.objc   32
-.cl     32
-.sh     32
-.bash   32
-.csh    32
-.zsh    32
-.el     32
-.vim    32
-.java   32
-.pl     32
-.pm     32
-.py     32
-.rb     32
-.hs     32
-.php    32
-.htm    32
-.html   32
-.shtml  32
-.erb    32
-.haml   32
-.xml    32
-.rdf    32
-.css    32
-.sass   32
-.scss   32
-.less   32
-.js     32
-.coffee 32
-.man    32
-.0      32
-.1      32
-.2      32
-.3      32
-.4      32
-.5      32
-.6      32
-.7      32
-.8      32
-.9      32
-.l      32
-.n      32
-.p      32
-.pod    32
-.tex    32
-.go     32
-.sql    32
-.csv    32
+# Source text
+.txt    {{{base0B/ansi_fg}}}
+.org    {{{base0B/ansi_fg}}}
+.md     {{{base0B/ansi_fg}}}
+.mkd    {{{base0B/ansi_fg}}}
+.h      {{{base0B/ansi_fg}}}
+.hpp    {{{base0B/ansi_fg}}}
+.c      {{{base0B/ansi_fg}}}
+.C      {{{base0B/ansi_fg}}}
+.cc     {{{base0B/ansi_fg}}}
+.cpp    {{{base0B/ansi_fg}}}
+.cxx    {{{base0B/ansi_fg}}}
+.objc   {{{base0B/ansi_fg}}}
+.cl     {{{base0B/ansi_fg}}}
+.sh     {{{base0B/ansi_fg}}}
+.bash   {{{base0B/ansi_fg}}}
+.csh    {{{base0B/ansi_fg}}}
+.zsh    {{{base0B/ansi_fg}}}
+.el     {{{base0B/ansi_fg}}}
+.vim    {{{base0B/ansi_fg}}}
+.java   {{{base0B/ansi_fg}}}
+.pl     {{{base0B/ansi_fg}}}
+.pm     {{{base0B/ansi_fg}}}
+.py     {{{base0B/ansi_fg}}}
+.rb     {{{base0B/ansi_fg}}}
+.hs     {{{base0B/ansi_fg}}}
+.php    {{{base0B/ansi_fg}}}
+.htm    {{{base0B/ansi_fg}}}
+.html   {{{base0B/ansi_fg}}}
+.shtml  {{{base0B/ansi_fg}}}
+.erb    {{{base0B/ansi_fg}}}
+.haml   {{{base0B/ansi_fg}}}
+.xml    {{{base0B/ansi_fg}}}
+.rdf    {{{base0B/ansi_fg}}}
+.css    {{{base0B/ansi_fg}}}
+.sass   {{{base0B/ansi_fg}}}
+.scss   {{{base0B/ansi_fg}}}
+.less   {{{base0B/ansi_fg}}}
+.js     {{{base0B/ansi_fg}}}
+.coffee {{{base0B/ansi_fg}}}
+.man    {{{base0B/ansi_fg}}}
+.0      {{{base0B/ansi_fg}}}
+.1      {{{base0B/ansi_fg}}}
+.2      {{{base0B/ansi_fg}}}
+.3      {{{base0B/ansi_fg}}}
+.4      {{{base0B/ansi_fg}}}
+.5      {{{base0B/ansi_fg}}}
+.6      {{{base0B/ansi_fg}}}
+.7      {{{base0B/ansi_fg}}}
+.8      {{{base0B/ansi_fg}}}
+.9      {{{base0B/ansi_fg}}}
+.l      {{{base0B/ansi_fg}}}
+.n      {{{base0B/ansi_fg}}}
+.p      {{{base0B/ansi_fg}}}
+.pod    {{{base0B/ansi_fg}}}
+.tex    {{{base0B/ansi_fg}}}
+.go     {{{base0B/ansi_fg}}}
+.sql    {{{base0B/ansi_fg}}}
+.csv    {{{base0B/ansi_fg}}}
 
-# Image (yellow fg)
-.bmp  33
-.cgm  33
-.dl   33
-.dvi  33
-.emf  33
-.eps  33
-.gif  33
-.jpeg 33
-.jpg  33
-.JPG  33
-.mng  33
-.pbm  33
-.pcx  33
-.pdf  33
-.pgm  33
-.png  33
-.PNG  33
-.ppm  33
-.pps  33
-.ppsx 33
-.ps   33
-.svg  33
-.svgz 33
-.tga  33
-.tif  33
-.tiff 33
-.xbm  33
-.xcf  33
-.xpm  33
-.xwd  33
-.xwd  33
-.yuv  33
+# Image
+.bmp  {{{base0A/ansi_fg}}}
+.cgm  {{{base0A/ansi_fg}}}
+.dl   {{{base0A/ansi_fg}}}
+.dvi  {{{base0A/ansi_fg}}}
+.emf  {{{base0A/ansi_fg}}}
+.eps  {{{base0A/ansi_fg}}}
+.gif  {{{base0A/ansi_fg}}}
+.jpeg {{{base0A/ansi_fg}}}
+.jpg  {{{base0A/ansi_fg}}}
+.JPG  {{{base0A/ansi_fg}}}
+.mng  {{{base0A/ansi_fg}}}
+.pbm  {{{base0A/ansi_fg}}}
+.pcx  {{{base0A/ansi_fg}}}
+.pdf  {{{base0A/ansi_fg}}}
+.pgm  {{{base0A/ansi_fg}}}
+.png  {{{base0A/ansi_fg}}}
+.PNG  {{{base0A/ansi_fg}}}
+.ppm  {{{base0A/ansi_fg}}}
+.pps  {{{base0A/ansi_fg}}}
+.ppsx {{{base0A/ansi_fg}}}
+.ps   {{{base0A/ansi_fg}}}
+.svg  {{{base0A/ansi_fg}}}
+.svgz {{{base0A/ansi_fg}}}
+.tga  {{{base0A/ansi_fg}}}
+.tif  {{{base0A/ansi_fg}}}
+.tiff {{{base0A/ansi_fg}}}
+.xbm  {{{base0A/ansi_fg}}}
+.xcf  {{{base0A/ansi_fg}}}
+.xpm  {{{base0A/ansi_fg}}}
+.xwd  {{{base0A/ansi_fg}}}
+.xwd  {{{base0A/ansi_fg}}}
+.yuv  {{{base0A/ansi_fg}}}
 
-# Audio (yellow fg)
-.aac  33
-.au   33
-.flac 33
-.m4a  33
-.mid  33
-.midi 33
-.mka  33
-.mp3  33
-.mpa  33
-.mpeg 33
-.mpg  33
-.ogg  33
-.opus 33
-.ra   33
-.wav  33
+# Audio
+.aac  {{{base0A/ansi_fg}}}
+.au   {{{base0A/ansi_fg}}}
+.flac {{{base0A/ansi_fg}}}
+.m4a  {{{base0A/ansi_fg}}}
+.mid  {{{base0A/ansi_fg}}}
+.midi {{{base0A/ansi_fg}}}
+.mka  {{{base0A/ansi_fg}}}
+.mp3  {{{base0A/ansi_fg}}}
+.mpa  {{{base0A/ansi_fg}}}
+.mpeg {{{base0A/ansi_fg}}}
+.mpg  {{{base0A/ansi_fg}}}
+.ogg  {{{base0A/ansi_fg}}}
+.opus {{{base0A/ansi_fg}}}
+.ra   {{{base0A/ansi_fg}}}
+.wav  {{{base0A/ansi_fg}}}
 
-# Video (yellow fg)
-.anx  33
-.asf  33
-.avi  33
-.axv  33
-.flc  33
-.fli  33
-.flv  33
-.gl   33
-.m2v  33
-.m4v  33
-.mkv  33
-.mov  33
-.MOV  33
-.mp4  33
-.mp4v 33
-.mpeg 33
-.mpg  33
-.nuv  33
-.ogm  33
-.ogv  33
-.ogx  33
-.qt   33
-.rm   33
-.rmvb 33
-.swf  33
-.vob  33
-.webm 33
-.wmv  33
+# Video
+.anx  {{{base0A/ansi_fg}}}
+.asf  {{{base0A/ansi_fg}}}
+.avi  {{{base0A/ansi_fg}}}
+.axv  {{{base0A/ansi_fg}}}
+.flc  {{{base0A/ansi_fg}}}
+.fli  {{{base0A/ansi_fg}}}
+.flv  {{{base0A/ansi_fg}}}
+.gl   {{{base0A/ansi_fg}}}
+.m2v  {{{base0A/ansi_fg}}}
+.m4v  {{{base0A/ansi_fg}}}
+.mkv  {{{base0A/ansi_fg}}}
+.mov  {{{base0A/ansi_fg}}}
+.MOV  {{{base0A/ansi_fg}}}
+.mp4  {{{base0A/ansi_fg}}}
+.mp4v {{{base0A/ansi_fg}}}
+.mpeg {{{base0A/ansi_fg}}}
+.mpg  {{{base0A/ansi_fg}}}
+.nuv  {{{base0A/ansi_fg}}}
+.ogm  {{{base0A/ansi_fg}}}
+.ogv  {{{base0A/ansi_fg}}}
+.ogx  {{{base0A/ansi_fg}}}
+.qt   {{{base0A/ansi_fg}}}
+.rm   {{{base0A/ansi_fg}}}
+.rmvb {{{base0A/ansi_fg}}}
+.swf  {{{base0A/ansi_fg}}}
+.vob  {{{base0A/ansi_fg}}}
+.webm {{{base0A/ansi_fg}}}
+.wmv  {{{base0A/ansi_fg}}}
 
-# Binary document formats and multimedia source (red fg)
-.doc  31
-.docx 31
-.rtf  31
-.odt  31
-.dot  31
-.dotx 31
-.ott  31
-.xls  31
-.xlsx 31
-.ods  31
-.ots  31
-.ppt  31
-.pptx 31
-.odp  31
-.otp  31
-.fla  31
-.psd  31
+# Binary document formats and multimedia source
+.doc  {{{base08/ansi_fg}}}
+.docx {{{base08/ansi_fg}}}
+.rtf  {{{base08/ansi_fg}}}
+.odt  {{{base08/ansi_fg}}}
+.dot  {{{base08/ansi_fg}}}
+.dotx {{{base08/ansi_fg}}}
+.ott  {{{base08/ansi_fg}}}
+.xls  {{{base08/ansi_fg}}}
+.xlsx {{{base08/ansi_fg}}}
+.ods  {{{base08/ansi_fg}}}
+.ots  {{{base08/ansi_fg}}}
+.ppt  {{{base08/ansi_fg}}}
+.pptx {{{base08/ansi_fg}}}
+.odp  {{{base08/ansi_fg}}}
+.otp  {{{base08/ansi_fg}}}
+.fla  {{{base08/ansi_fg}}}
+.psd  {{{base08/ansi_fg}}}
 
-# Archives, compressed (bright purple fg)
-.7z   1;35
-.apk  1;35
-.arj  1;35
-.bin  1;35
-.bz   1;35
-.bz2  1;35
-.deb  1;35
-.gem  1;35
-.gz   1;35
-.iso  1;35
-.jar  1;35
-.rar  1;35
-.rpm  1;35
-.tar  1;35
-.tbz  1;35
-.tbz2 1;35
-.tgz  1;35
-.tx   1;35
-.war  1;35
-.xpi  1;35
-.xz   1;35
-.z    1;35
-.Z    1;35
-.zip  1;35
+# Archives, compressed
+.7z   1;{{{base0F/ansi_fg}}}
+.apk  1;{{{base0F/ansi_fg}}}
+.arj  1;{{{base0F/ansi_fg}}}
+.bin  1;{{{base0F/ansi_fg}}}
+.bz   1;{{{base0F/ansi_fg}}}
+.bz2  1;{{{base0F/ansi_fg}}}
+.deb  1;{{{base0F/ansi_fg}}}
+.gem  1;{{{base0F/ansi_fg}}}
+.gz   1;{{{base0F/ansi_fg}}}
+.iso  1;{{{base0F/ansi_fg}}}
+.jar  1;{{{base0F/ansi_fg}}}
+.rar  1;{{{base0F/ansi_fg}}}
+.rpm  1;{{{base0F/ansi_fg}}}
+.tar  1;{{{base0F/ansi_fg}}}
+.tbz  1;{{{base0F/ansi_fg}}}
+.tbz2 1;{{{base0F/ansi_fg}}}
+.tgz  1;{{{base0F/ansi_fg}}}
+.tx   1;{{{base0F/ansi_fg}}}
+.war  1;{{{base0F/ansi_fg}}}
+.xpi  1;{{{base0F/ansi_fg}}}
+.xz   1;{{{base0F/ansi_fg}}}
+.z    1;{{{base0F/ansi_fg}}}
+.Z    1;{{{base0F/ansi_fg}}}
+.zip  1;{{{base0F/ansi_fg}}}
 
-# Unimportant text files (bright green fg)
-.log 1;32
-*~   1;32
-*#   1;32
+# Unimportant text files
+.log 1;{{{base0B/ansi_fg}}}
+*~   1;{{{base0B/ansi_fg}}}
+*#   1;{{{base0B/ansi_fg}}}
 
-# Unimportant non-text files (bright yellow fg)
-.bak         1;33
-.BAK         1;33
-.old         1;33
-.OLD         1;33
-.org_archive 1;33
-.off         1;33
-.OFF         1;33
-.dist        1;33
-.DIST        1;33
-.orig        1;33
-.ORIG        1;33
-.swp         1;33
-.swo         1;33
-*,v          1;33
+# Unimportant non-text files
+.bak         1;{{{base0A/ansi_fg}}}
+.BAK         1;{{{base0A/ansi_fg}}}
+.old         1;{{{base0A/ansi_fg}}}
+.OLD         1;{{{base0A/ansi_fg}}}
+.org_archive 1;{{{base0A/ansi_fg}}}
+.off         1;{{{base0A/ansi_fg}}}
+.OFF         1;{{{base0A/ansi_fg}}}
+.dist        1;{{{base0A/ansi_fg}}}
+.DIST        1;{{{base0A/ansi_fg}}}
+.orig        1;{{{base0A/ansi_fg}}}
+.ORIG        1;{{{base0A/ansi_fg}}}
+.swp         1;{{{base0A/ansi_fg}}}
+.swo         1;{{{base0A/ansi_fg}}}
+*,v          1;{{{base0A/ansi_fg}}}
 
-# custom file type (blue fg)
-.gpg    34
-.gpg    34
-.pgp    34
-.asc    34
-.3des   34
-.aes    34
-.enc    34
-.sqlite 34
+# custom file type
+.gpg    {{{base0D/ansi_fg}}}
+.gpg    {{{base0D/ansi_fg}}}
+.pgp    {{{base0D/ansi_fg}}}
+.asc    {{{base0D/ansi_fg}}}
+.3des   {{{base0D/ansi_fg}}}
+.aes    {{{base0D/ansi_fg}}}
+.enc    {{{base0D/ansi_fg}}}
+.sqlite {{{base0D/ansi_fg}}}
