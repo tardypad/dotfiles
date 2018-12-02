@@ -47,7 +47,7 @@ See each individual package folder README for more information
 about versions, extensions, plugins,...
 
 All packages are configured to use the same color palette
-as defined in the [colorscheme](colorscheme) folder.
+as defined in the [colors](colors) folder.
 
 Most keybindings are minimalized to keep only relevant ones
 and configured to be as much vim-like as possible.
