@@ -11,7 +11,7 @@
 [core]
         # LESS default options apparently break the display
         # so we redefine needed options here
-        pager = diff-so-fancy | less \
+        pager = /usr/share/git/diff-highlight/diff-highlight | less \
           --ignore-case \
           --line-numbers \
           --chop-long-lines \
@@ -19,11 +19,6 @@
           --no-init \
           --quit-if-one-screen \
           --tabs=4
-[diff-so-fancy]
-        markEmptyLines = false
-        changeHunkIndicators = true
-        stripLeadingSymbols = false
-        useUnicodeRuler = false
 [color "diff"]
         commit = yellow
         context = normal
