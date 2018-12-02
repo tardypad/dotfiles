@@ -25,19 +25,19 @@
         stripLeadingSymbols = false
         useUnicodeRuler = false
 [color "diff"]
-        commit = yellow
+        commit = {{{base0A/number}}}
         context = normal
-        frag = blue
-        func = cyan
-        meta = 11 italic
-        new = green
-        old = red
+        frag = {{{base0D/number}}}
+        func = {{{base0C/number}}}
+        meta = {{{base03/number}}} italic
+        new = {{{base0B/number}}}
+        old = {{{base08/number}}}
         whitespace = reverse
 [color "diff-highlight"]
-        oldNormal = red
-        oldHighlight = red ul
-        newNormal = green
-        newHighlight = green ul
+        oldNormal = {{{base08/number}}}
+        oldHighlight = {{{base08/number}}} ul
+        newNormal = {{{base0B/number}}}
+        newHighlight = {{{base0B/number}}} ul
 [url "github:tardypad/"]
         insteadOf = github:
 [include]
