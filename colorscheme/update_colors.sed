@@ -1,3 +1,4 @@
+# ANSI FG
 s|{{{base00/ansi_fg}}}|90|g
 s|{{{base01/ansi_fg}}}|30|g
 s|{{{base02/ansi_fg}}}|92|g
@@ -14,6 +15,8 @@ s|{{{base0C/ansi_fg}}}|36|g
 s|{{{base0D/ansi_fg}}}|34|g
 s|{{{base0E/ansi_fg}}}|95|g
 s|{{{base0F/ansi_fg}}}|35|g
+
+# ANSI BG
 s|{{{base00/ansi_bg}}}|100|g
 s|{{{base01/ansi_bg}}}|40|g
 s|{{{base02/ansi_bg}}}|102|g
@@ -30,6 +33,8 @@ s|{{{base0C/ansi_bg}}}|46|g
 s|{{{base0D/ansi_bg}}}|44|g
 s|{{{base0E/ansi_bg}}}|105|g
 s|{{{base0F/ansi_bg}}}|45|g
+
+# NUMBER
 s|{{{base00/number}}}|8|g
 s|{{{base01/number}}}|0|g
 s|{{{base02/number}}}|10|g
@@ -46,6 +51,8 @@ s|{{{base0C/number}}}|6|g
 s|{{{base0D/number}}}|4|g
 s|{{{base0E/number}}}|13|g
 s|{{{base0F/number}}}|5|g
+
+# HEX
 s|{{{base00/hex}}}|002b36|g
 s|{{{base01/hex}}}|073642|g
 s|{{{base02/hex}}}|586e75|g
