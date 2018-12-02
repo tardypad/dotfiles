@@ -5,7 +5,7 @@
         "httpie": "0.9.8"
     },
     "default_options": [
-      "--style=solarized",
+      "--style=auto",
       "--json",
       "--body",
       "--check-status"
