@@ -4,9 +4,9 @@
         path = ~/.config/git/config.local
 [include]
         path = ~/.config/git/aliases
-[url "ssh://tardypad/~/damien.git/"]
+[url "tardypad:~/damien.git/"]
         insteadOf = perso:
-[url "ssh://tardypad/~/damien.old/"]
+[url "tardypad:~/damien.old/"]
         insteadOf = perso_old:
 [url "github:tardypad/"]
         insteadOf = github:
