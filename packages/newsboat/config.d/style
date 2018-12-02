@@ -1,11 +1,11 @@
 # colors
-color background        default default
-color listnormal        default default
-color listfocus         black   yellow
-color listnormal_unread magenta default
-color listfocus_unread  black   yellow  bold
-color info              black   color11
-color article           default default
+color background        default                   default
+color listnormal        default                   default
+color listfocus         color{{{base01/number}}}  color{{{base0A/number}}}
+color listnormal_unread color{{{base0F/number}}}  default
+color listfocus_unread  color{{{base01/number}}}  color{{{base0A/number}}}  bold
+color info              color{{{base01/number}}}  color{{{base03/number}}}
+color article           default                   default
 
 # only show title bar at the bottom
 show-keymap-hint     no
