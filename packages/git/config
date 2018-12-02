@@ -1,9 +1,17 @@
 [user]
         name = Damien Tardy-Panis
+[include]
+        path = ~/.config/git/config.local
+[include]
+        path = ~/.config/git/aliases
 [url "ssh://tardypad/~/damien.git/"]
         insteadOf = perso:
 [url "ssh://tardypad/~/damien.old/"]
         insteadOf = perso_old:
+[url "github:tardypad/"]
+        insteadOf = github:
+[init]
+        templatedir = ~/.config/git/template
 [push]
         default = upstream
 [log]
@@ -33,11 +41,3 @@
         oldHighlight = red ul
         newNormal = green
         newHighlight = green ul
-[url "github:tardypad/"]
-        insteadOf = github:
-[include]
-        path = ~/.config/git/aliases
-[include]
-        path = ~/.config/git/config.local
-[init]
-        templatedir = ~/.config/git/template
