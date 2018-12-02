@@ -1,4 +1,6 @@
-# Solarized Dark
+# Color scheme
+
+Using [Solarized](http://ethanschoonover.com/solarized) Dark adapted to base16.
 
 | BASE16 | SOLARIZED | HEX     | RGB         | 16 | TERMCOL   | ANSI FG/BG |
 |--------|-----------|---------|-------------|----|-----------|------------|
