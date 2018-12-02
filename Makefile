@@ -21,12 +21,12 @@ end_setup   = @echo -e "\r✔ setup $@"
 define copy_file
 	@mkdir --parents $(DESTDIR)$(dir $(2))
 	@cp packages/$@/$(1) $(DESTDIR)$(2)
-	@sed --in-place --file colors/update_colors.sed $(DESTDIR)$(2)
+	@sed --in-place --file colors/substitute_variables.sed $(DESTDIR)$(2)
 endef
 define copy_folder
 	@mkdir --parents $(DESTDIR)$(dir $(2))
 	@cp --recursive --force --no-target-directory packages/$@/$(1) $(DESTDIR)$(2)
-    @find $(DESTDIR)$(2) -type f -exec sed --in-place --file colors/update_colors.sed {} \;
+    @find $(DESTDIR)$(2) -type f -exec sed --in-place --file colors/substitute_variables.sed {} \;
 endef
 
 # all Makefiles could be included with "include */Makefile"
