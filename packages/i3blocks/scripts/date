@@ -1,3 +1,3 @@
 #! /usr/bin/env zsh
 
-echo "<span foreground='#2aa198'></span> $( date '+%a %e %b' )"
+echo "<span foreground='#{{{base0C/hex}}}'></span> $( date '+%a %e %b' )"

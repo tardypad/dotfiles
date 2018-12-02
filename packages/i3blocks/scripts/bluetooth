@@ -16,4 +16,4 @@ BLUETOOTH_DEVICE_ALIAS=$(
     | sed 's/.*Alias: \(.*\)/\1/'
 )
 
-echo "<span foreground='#2aa198'></span> ${BLUETOOTH_DEVICE_ALIAS}"
+echo "<span foreground='#{{{base0C/hex}}}'></span> ${BLUETOOTH_DEVICE_ALIAS}"
