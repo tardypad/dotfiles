@@ -69,3 +69,21 @@ s|{{{base0C/hex}}}|2aa198|g
 s|{{{base0D/hex}}}|268bd2|g
 s|{{{base0E/hex}}}|6c71c4|g
 s|{{{base0F/hex}}}|d33682|g
+
+# ANSI NAME
+s|{{{base00/name}}}|brblack|g
+s|{{{base01/name}}}|black|g
+s|{{{base02/name}}}|brgreen|g
+s|{{{base03/name}}}|bryellow|g
+s|{{{base04/name}}}|brblue|g
+s|{{{base05/name}}}|brcyan|g
+s|{{{base06/name}}}|white|g
+s|{{{base07/name}}}|brwhite|g
+s|{{{base08/name}}}|red|g
+s|{{{base09/name}}}|brred|g
+s|{{{base0A/name}}}|yellow|g
+s|{{{base0B/name}}}|green|g
+s|{{{base0C/name}}}|cyan|g
+s|{{{base0D/name}}}|blue|g
+s|{{{base0E/name}}}|brmagenta|g
+s|{{{base0F/name}}}|magenta|g

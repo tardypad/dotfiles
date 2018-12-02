@@ -2,7 +2,7 @@
 
 Using [Solarized](http://ethanschoonover.com/solarized) Dark adapted to base16.
 
-| BASE16 | SOLARIZED | HEX     | RGB         | 16 | TERMCOL   | ANSI FG/BG |
+| BASE16 | SOLARIZED | HEX     | RGB         | 16 | ANSI NAME | ANSI FG/BG |
 |--------|-----------|---------|-------------|----|-----------|------------|
 | base00 | base03    | #002b36 |   0, 43, 54 |  8 | brblack   | 90 / 100   |
 | base01 | base02    | #073642 |   7, 54, 66 |  0 | black     | 30 /  40   |
