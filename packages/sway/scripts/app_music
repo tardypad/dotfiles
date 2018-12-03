@@ -16,7 +16,7 @@ fi
 swaymsg -t command \
   exec "termite \
           --title \"${TITLE}\" \
-          --exec 'tmux new-session \"ncmpcpp\"' \
+          --exec 'tmux new-session \"ncmpcpp\" \; rename-session \"ncmpcpp #{s/$//:session_id}\"' \
           --geometry 1200x800"
 
 # focus the window (not automatic if different workspace)
