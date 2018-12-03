@@ -45,7 +45,7 @@ bind    C-7 switch-client -t $6
 bind    C-8 switch-client -t $7
 bind    C-9 switch-client -t $8
 bind    C-0 switch-client -t $9
-bind    C-c new-session \; rename-session '#{host_short} #{s/$//:session_id}'
+bind    C-c new-session -c "${HOME}"\; rename-session '#{host_short} #{s/$//:session_id}'
 bind    C-r command-prompt -I '#{session_name}' "rename-session '%%'"
 bind    C-x confirm-before -p 'kill-session "#{session_name}"? (y/n)' kill-session
 
