@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=termite --exec 'tmux new-session'
+Exec=termite --exec 'tmux new-session \; rename-session "#{host_short} #{s/$//:session_id}"'
 Name=termite
 GenericName=Terminal
 Icon=
