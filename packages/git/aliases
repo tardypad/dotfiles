@@ -62,6 +62,10 @@
     rba = rebase --abort
     rbc = rebase --continue
     rbi = "! f() { git rebase -i $( git argument $1 ); }; f"
+    recent = "! \
+        git for-each-ref --count=5 --sort=-committerdate \
+        --format '%(HEAD) %(refname:short) | %(committerdate:relative) | %(subject)' refs/heads \
+        | column --table --separator '|'"
     reword = commit --amend
     reset-upstream = reset --hard @{upstream}
     root = rev-parse --show-toplevel
