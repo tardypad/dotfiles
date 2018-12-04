@@ -24,104 +24,104 @@ c.fonts.web.size.minimum          = 0
 c.fonts.web.size.minimum_logical  = 6
 
 # colors
-solarized = {
-    'base03'  : '#002b36',
-    'base02'  : '#073642',
-    'base01'  : '#586e75',
-    'base00'  : '#657b83',
-    'base0'   : '#839496',
-    'base1'   : '#93a1a1',
-    'base2'   : '#eee8d5',
-    'base3'   : '#fdf6e3',
-    'yellow'  : '#b58900',
-    'orange'  : '#cb4b16',
-    'red'     : '#dc322f',
-    'magenta' : '#d33682',
-    'violet'  : '#6c71c4',
-    'blue'    : '#268bd2',
-    'cyan'    : '#2aa198',
-    'green'   : '#859900'
+colors = {
+    'base00' : '#{{{base00/hex}}}',
+    'base01' : '#{{{base01/hex}}}',
+    'base02' : '#{{{base02/hex}}}',
+    'base03' : '#{{{base03/hex}}}',
+    'base04' : '#{{{base04/hex}}}',
+    'base05' : '#{{{base05/hex}}}',
+    'base06' : '#{{{base06/hex}}}',
+    'base07' : '#{{{base07/hex}}}',
+    'base08' : '#{{{base08/hex}}}',
+    'base09' : '#{{{base09/hex}}}',
+    'base0A' : '#{{{base0A/hex}}}',
+    'base0B' : '#{{{base0B/hex}}}',
+    'base0C' : '#{{{base0C/hex}}}',
+    'base0D' : '#{{{base0D/hex}}}',
+    'base0E' : '#{{{base0E/hex}}}',
+    'base0F' : '#{{{base0F/hex}}}'
 }
 
-c.colors.completion.category.bg                 = solarized['base02']
-c.colors.completion.category.border.bottom      = solarized['base02']
-c.colors.completion.category.border.top         = solarized['base02']
-c.colors.completion.category.fg                 = solarized['base2']
-c.colors.completion.even.bg                     = solarized['base00']
-c.colors.completion.fg                          = solarized['base03']
-c.colors.completion.item.selected.bg            = solarized['base0']
-c.colors.completion.item.selected.border.bottom = solarized['base0']
-c.colors.completion.item.selected.border.top    = solarized['base0']
-c.colors.completion.item.selected.fg            = solarized['base03']
-c.colors.completion.match.fg                    = solarized['base2']
-c.colors.completion.odd.bg                      = solarized['base00']
-c.colors.completion.scrollbar.bg                = solarized['base00']
-c.colors.completion.scrollbar.fg                = solarized['base2']
-c.colors.downloads.bar.bg                       = solarized['base03']
-c.colors.downloads.error.bg                     = solarized['red']
-c.colors.downloads.error.fg                     = solarized['base2']
-c.colors.downloads.start.bg                     = solarized['blue']
-c.colors.downloads.start.fg                     = solarized['base2']
-c.colors.downloads.stop.bg                      = solarized['blue']
-c.colors.downloads.stop.fg                      = solarized['base2']
+c.colors.completion.category.bg                 = colors['base01']
+c.colors.completion.category.border.bottom      = colors['base01']
+c.colors.completion.category.border.top         = colors['base01']
+c.colors.completion.category.fg                 = colors['base06']
+c.colors.completion.even.bg                     = colors['base03']
+c.colors.completion.fg                          = colors['base00']
+c.colors.completion.item.selected.bg            = colors['base04']
+c.colors.completion.item.selected.border.bottom = colors['base04']
+c.colors.completion.item.selected.border.top    = colors['base04']
+c.colors.completion.item.selected.fg            = colors['base00']
+c.colors.completion.match.fg                    = colors['base06']
+c.colors.completion.odd.bg                      = colors['base03']
+c.colors.completion.scrollbar.bg                = colors['base03']
+c.colors.completion.scrollbar.fg                = colors['base06']
+c.colors.downloads.bar.bg                       = colors['base00']
+c.colors.downloads.error.bg                     = colors['base08']
+c.colors.downloads.error.fg                     = colors['base06']
+c.colors.downloads.start.bg                     = colors['base0D']
+c.colors.downloads.start.fg                     = colors['base06']
+c.colors.downloads.stop.bg                      = colors['base0D']
+c.colors.downloads.stop.fg                      = colors['base06']
 c.colors.downloads.system.bg                    = "none"
 c.colors.downloads.system.fg                    = "none"
-c.colors.hints.bg                               = solarized['base1']
-c.colors.hints.fg                               = solarized['base03']
-c.colors.hints.match.fg                         = solarized['base2']
-c.colors.keyhint.bg                             = solarized['base00']
-c.colors.keyhint.fg                             = solarized['base2']
-c.colors.keyhint.suffix.fg                      = solarized['base03']
-c.colors.messages.error.bg                      = solarized['red']
-c.colors.messages.error.border                  = solarized['red']
-c.colors.messages.error.fg                      = solarized['base2']
-c.colors.messages.info.bg                       = solarized['blue']
-c.colors.messages.info.border                   = solarized['blue']
-c.colors.messages.info.fg                       = solarized['base2']
-c.colors.messages.warning.bg                    = solarized['orange']
-c.colors.messages.warning.border                = solarized['orange']
-c.colors.messages.warning.fg                    = solarized['base2']
-c.colors.prompts.bg                             = solarized['base00']
-c.colors.prompts.border                         = "1px solid " + solarized['base2']
-c.colors.prompts.fg                             = solarized['base03']
-c.colors.prompts.selected.bg                    = solarized['base0']
-c.colors.statusbar.caret.bg                     = solarized['magenta']
-c.colors.statusbar.caret.fg                     = solarized['base2']
-c.colors.statusbar.caret.selection.bg           = solarized['magenta']
-c.colors.statusbar.caret.selection.fg           = solarized['base2']
-c.colors.statusbar.command.bg                   = solarized['base03']
-c.colors.statusbar.command.fg                   = solarized['base0']
-c.colors.statusbar.command.private.bg           = solarized['violet']
-c.colors.statusbar.command.private.fg           = solarized['base2']
-c.colors.statusbar.insert.bg                    = solarized['yellow']
-c.colors.statusbar.insert.fg                    = solarized['base2']
-c.colors.statusbar.normal.bg                    = solarized['base03']
-c.colors.statusbar.normal.fg                    = solarized['base0']
-c.colors.statusbar.passthrough.bg               = solarized['orange']
-c.colors.statusbar.passthrough.fg               = solarized['base2']
-c.colors.statusbar.private.bg                   = solarized['violet']
-c.colors.statusbar.private.fg                   = solarized['base2']
-c.colors.statusbar.progress.bg                  = solarized['cyan']
-c.colors.statusbar.url.error.fg                 = solarized['red']
-c.colors.statusbar.url.fg                       = solarized['base2']
-c.colors.statusbar.url.hover.fg                 = solarized['cyan']
-c.colors.statusbar.url.success.http.fg          = solarized['base2']
-c.colors.statusbar.url.success.https.fg         = solarized['green']
-c.colors.statusbar.url.warn.fg                  = solarized['orange']
-c.colors.tabs.bar.bg                            = solarized['base03']
-c.colors.tabs.even.bg                           = solarized['base03']
-c.colors.tabs.even.fg                           = solarized['base0']
-c.colors.tabs.indicator.error                   = solarized['red']
-c.colors.tabs.indicator.start                   = solarized['cyan']
-c.colors.tabs.indicator.stop                    = solarized['cyan']
+c.colors.hints.bg                               = colors['base05']
+c.colors.hints.fg                               = colors['base00']
+c.colors.hints.match.fg                         = colors['base06']
+c.colors.keyhint.bg                             = colors['base03']
+c.colors.keyhint.fg                             = colors['base06']
+c.colors.keyhint.suffix.fg                      = colors['base00']
+c.colors.messages.error.bg                      = colors['base08']
+c.colors.messages.error.border                  = colors['base08']
+c.colors.messages.error.fg                      = colors['base06']
+c.colors.messages.info.bg                       = colors['base0D']
+c.colors.messages.info.border                   = colors['base0D']
+c.colors.messages.info.fg                       = colors['base06']
+c.colors.messages.warning.bg                    = colors['base09']
+c.colors.messages.warning.border                = colors['base09']
+c.colors.messages.warning.fg                    = colors['base06']
+c.colors.prompts.bg                             = colors['base03']
+c.colors.prompts.border                         = "1px solid " + colors['base06']
+c.colors.prompts.fg                             = colors['base00']
+c.colors.prompts.selected.bg                    = colors['base04']
+c.colors.statusbar.caret.bg                     = colors['base0F']
+c.colors.statusbar.caret.fg                     = colors['base06']
+c.colors.statusbar.caret.selection.bg           = colors['base0F']
+c.colors.statusbar.caret.selection.fg           = colors['base06']
+c.colors.statusbar.command.bg                   = colors['base00']
+c.colors.statusbar.command.fg                   = colors['base04']
+c.colors.statusbar.command.private.bg           = colors['base0E']
+c.colors.statusbar.command.private.fg           = colors['base06']
+c.colors.statusbar.insert.bg                    = colors['base0A']
+c.colors.statusbar.insert.fg                    = colors['base06']
+c.colors.statusbar.normal.bg                    = colors['base00']
+c.colors.statusbar.normal.fg                    = colors['base04']
+c.colors.statusbar.passthrough.bg               = colors['base09']
+c.colors.statusbar.passthrough.fg               = colors['base06']
+c.colors.statusbar.private.bg                   = colors['base0E']
+c.colors.statusbar.private.fg                   = colors['base06']
+c.colors.statusbar.progress.bg                  = colors['base0C']
+c.colors.statusbar.url.error.fg                 = colors['base08']
+c.colors.statusbar.url.fg                       = colors['base06']
+c.colors.statusbar.url.hover.fg                 = colors['base0C']
+c.colors.statusbar.url.success.http.fg          = colors['base06']
+c.colors.statusbar.url.success.https.fg         = colors['base0B']
+c.colors.statusbar.url.warn.fg                  = colors['base09']
+c.colors.tabs.bar.bg                            = colors['base00']
+c.colors.tabs.even.bg                           = colors['base00']
+c.colors.tabs.even.fg                           = colors['base04']
+c.colors.tabs.indicator.error                   = colors['base08']
+c.colors.tabs.indicator.start                   = colors['base0C']
+c.colors.tabs.indicator.stop                    = colors['base0C']
 c.colors.tabs.indicator.system                  = "none"
-c.colors.tabs.odd.bg                            = solarized['base03']
-c.colors.tabs.odd.fg                            = solarized['base0']
-c.colors.tabs.selected.even.bg                  = solarized['cyan']
-c.colors.tabs.selected.even.fg                  = solarized['base2']
-c.colors.tabs.selected.odd.bg                   = solarized['cyan']
-c.colors.tabs.selected.odd.fg                   = solarized['base2']
-c.colors.webpage.bg                             = solarized['base3']
+c.colors.tabs.odd.bg                            = colors['base00']
+c.colors.tabs.odd.fg                            = colors['base04']
+c.colors.tabs.selected.even.bg                  = colors['base0C']
+c.colors.tabs.selected.even.fg                  = colors['base06']
+c.colors.tabs.selected.odd.bg                   = colors['base0C']
+c.colors.tabs.selected.odd.fg                   = colors['base06']
+c.colors.webpage.bg                             = colors['base07']
 
 # bars position
 c.statusbar.position = 'bottom'
