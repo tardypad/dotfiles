@@ -83,6 +83,9 @@ Those variables get replaced with the correct values during the setup.
 For example `{{{base0A/hex}}}` gets substituted by the hexadecimal value of the base0A color.  
 Similarly `{{{base0A/number}}}` is replaced by that color's number.
 
+Items to be manually updated in case of color palette change:
+- lockscreen [lock](packages/sway/images/lock.png) color
+
 
 ## Required extra packages
 
