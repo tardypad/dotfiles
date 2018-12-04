@@ -5,12 +5,12 @@ bar {
     font Source Sans Pro, Font Awesome 5 Free 14
     binding_mode_indicator yes
     colors {
-        statusline $base0
-        background $background
-        focused_workspace $orange $orange $base03
-        inactive_workspace $base03 $base03 $base0
-        active_workspace $base03 $base03 $orange
-        binding_mode $base2 $base2 $base03
+        statusline $base04
+        background $base00
+        focused_workspace $base09 $base09 $base00
+        inactive_workspace $base00 $base00 $base04
+        active_workspace $base00 $base00 $base09
+        binding_mode $base06 $base06 $base00
     }
 
     # status part

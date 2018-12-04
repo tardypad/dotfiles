@@ -7,26 +7,23 @@ set $down j
 set $up k
 set $right l
 
-# Solarized colors
-set $base03  #002b36
-set $base02  #073642
-set $base01  #586e75
-set $base00  #657b83
-set $base0   #839496
-set $base1   #93a1a1
-set $base2   #eee8d5
-set $base3   #fdf6e3
-set $yellow  #b58900
-set $orange  #cb4b16
-set $red     #dc322f
-set $magenta #d33682
-set $violet  #6c71c4
-set $blue    #268bd2
-set $cyan    #2aa198
-set $green   #859900
-
-# same background as terminal
-set $background #002b36
+# colors
+set $base00 #{{{base00/hex}}}
+set $base01 #{{{base01/hex}}}
+set $base02 #{{{base02/hex}}}
+set $base03 #{{{base03/hex}}}
+set $base04 #{{{base04/hex}}}
+set $base05 #{{{base05/hex}}}
+set $base06 #{{{base06/hex}}}
+set $base07 #{{{base07/hex}}}
+set $base08 #{{{base08/hex}}}
+set $base09 #{{{base09/hex}}}
+set $base0A #{{{base0A/hex}}}
+set $base0B #{{{base0B/hex}}}
+set $base0C #{{{base0C/hex}}}
+set $base0D #{{{base0D/hex}}}
+set $base0E #{{{base0E/hex}}}
+set $base0F #{{{base0F/hex}}}
 
 # workspace names
 set $ws1  "1  Projects"
