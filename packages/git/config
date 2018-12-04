@@ -1,25 +1,26 @@
 [user]
-        name = Damien Tardy-Panis
+    name = Damien Tardy-Panis
 [include]
-        path = ~/.config/git/config.local
+    path = ~/.config/git/config.local
 [include]
-        path = ~/.config/git/aliases
+    path = ~/.config/git/aliases
 [url "tardypad:~/damien.git/"]
-        insteadOf = perso:
+    insteadOf = perso:
 [url "tardypad:~/damien.old/"]
-        insteadOf = perso_old:
+    insteadOf = perso_old:
 [url "github:tardypad/"]
-        insteadOf = github:
+    insteadOf = github:
 [init]
-        templatedir = ~/.config/git/template
+    templatedir = ~/.config/git/template
 [push]
-        default = upstream
+    default = upstream
 [log]
-        decorate = false
+    decorate = false
 [core]
-        # LESS default options apparently break the display
-        # so we redefine needed options here
-        pager = /usr/share/git/diff-highlight/diff-highlight | less \
+    # LESS default options apparently break the display
+    # so we redefine needed options here
+    pager = /usr/share/git/diff-highlight/diff-highlight \
+        | less \
           --ignore-case \
           --line-numbers \
           --chop-long-lines \
@@ -28,16 +29,16 @@
           --quit-if-one-screen \
           --tabs=4
 [color "diff"]
-        commit = yellow
-        context = normal
-        frag = blue
-        func = cyan
-        meta = 11 italic
-        new = green
-        old = red
-        whitespace = reverse
+    commit = yellow
+    context = normal
+    frag = blue
+    func = cyan
+    meta = 11 italic
+    new = green
+    old = red
+    whitespace = reverse
 [color "diff-highlight"]
-        oldNormal = red
-        oldHighlight = red ul
-        newNormal = green
-        newHighlight = green ul
+    oldNormal = red
+    oldHighlight = red ul
+    newNormal = green
+    newHighlight = green ul

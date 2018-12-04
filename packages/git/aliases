@@ -1,78 +1,78 @@
 [alias]
-        aa = add --all
-        amend = commit --amend -a --no-edit
-        argument= "! \
-            h() {  \
-              if [[ -z $1 ]]; then \
-                echo HEAD; \
-              elif [[ $1 =~ [0-9]+ ]] && ! git rev-parse --verify $1 &> /dev/null; then \
-                echo HEAD~$1; \
-              else \
-                echo $1; \
-              fi \
-            }; h"
-        br = branch
-        brd = branch -D
-        cb = checkout -b
-        ci = commit
-        cia = commit -a
-        cl = clone
-        co = checkout
-        coma = checkout master
-        count = rev-list --count HEAD
-        cfg = config --includes
-        cp = cherry-pick
-        cpa = cherry-pick --abort
-        cpc = cherry-pick --continue
-        current-branch = symbolic-ref --short HEAD
-        df = diff
-        df0 = diff --unified=0
-        dfc = diff --cached
-        dfc0 = diff --cached --unified=0
-        fe = fetch --all
-        first-commit = ! git rev-list --max-parents=0 HEAD | tail --lines 1
-        hist = "! \
-            f() { \
-              git log --color --oneline --max-count=10 \"$@\" \
-                | nl --starting-line-number=0 --number-width=1 --number-separator=' '; \
-            }; f"
-        issue = stamp -r Issue
-        head = "! f() { git whatchanged -1 $( git argument $1 ); }; f"
-        head-description = ! git log -1 --pretty=%b \
-            | grep -vE 'Issue|Reviewed at|^$'
-        head-issue-id = ! git log -1 --pretty=%b \
-            | grep 'Issue' \
-            | tail --lines 1 \
-            | sed -r 's%.* ([A-Za-z0-9-]+).*%\\1%'
-        head-review-id = ! git log -1 --pretty=%b \
-            | grep 'Reviewed at' \
-            | tail --lines 1 \
-            | sed -r 's%.*/r/([0-9]+)/%\\1%'
-        head-subject = log -1 --pretty=%s
-        log1 = log --oneline
-        mg = merge
-        mga = merge --abort
-        mgc = merge --continue
-        mgrbma = "!f(){ git co $1 && git rbma && git coma && git mg -; }; f"
-        pl = pull
-        push-perso = "!git push origin --set-upstream HEAD:$(git symbolic-ref --short HEAD) "
-        push-upstream = "!git push upstream HEAD:$(git symbolic-ref --short HEAD) "
-        rb = rebase
-        rbma = rebase -i master
-        rba = rebase --abort
-        rbc = rebase --continue
-        rbi = "! f() { git rebase -i $( git argument $1 ); }; f"
-        reword = commit --amend
-        reset-upstream = reset --hard @{upstream}
-        root = rev-parse --show-toplevel
-        rv = revert
-        rva = revert --abort
-        rvc = revert --continue
-        sh = "! f() { git show $( git argument $1 ); }; f"
-        sh0 = "! f() { git show --unified=0 $( git argument $1 ); }; f"
-        st = status --short --branch
-        tag-list = tag --format '%(align:20,left) %(refname:strip=2) %(end) %(taggerdate:iso) %(align:30,left) %(taggeremail) %(end) %(subject)' --sort=taggerdate
-        wip = "! \
-            git add --all \
-            && git commit --message WIP \
-            && git push --force origin HEAD:wip-$(git symbolic-ref --short HEAD)"
+    aa = add --all
+    amend = commit --amend -a --no-edit
+    argument= "! \
+        h() {  \
+          if [[ -z $1 ]]; then \
+            echo HEAD; \
+          elif [[ $1 =~ [0-9]+ ]] && ! git rev-parse --verify $1 &> /dev/null; then \
+            echo HEAD~$1; \
+          else \
+            echo $1; \
+          fi \
+        }; h"
+    br = branch
+    brd = branch -D
+    cb = checkout -b
+    ci = commit
+    cia = commit -a
+    cl = clone
+    co = checkout
+    coma = checkout master
+    count = rev-list --count HEAD
+    cfg = config --includes
+    cp = cherry-pick
+    cpa = cherry-pick --abort
+    cpc = cherry-pick --continue
+    current-branch = symbolic-ref --short HEAD
+    df = diff
+    df0 = diff --unified=0
+    dfc = diff --cached
+    dfc0 = diff --cached --unified=0
+    fe = fetch --all
+    first-commit = ! git rev-list --max-parents=0 HEAD | tail --lines 1
+    hist = "! \
+        f() { \
+          git log --color --oneline --max-count=10 \"$@\" \
+            | nl --starting-line-number=0 --number-width=1 --number-separator=' '; \
+        }; f"
+    issue = stamp -r Issue
+    head = "! f() { git whatchanged -1 $( git argument $1 ); }; f"
+    head-description = ! git log -1 --pretty=%b \
+        | grep -vE 'Issue|Reviewed at|^$'
+    head-issue-id = ! git log -1 --pretty=%b \
+        | grep 'Issue' \
+        | tail --lines 1 \
+        | sed -r 's%.* ([A-Za-z0-9-]+).*%\\1%'
+    head-review-id = ! git log -1 --pretty=%b \
+        | grep 'Reviewed at' \
+        | tail --lines 1 \
+        | sed -r 's%.*/r/([0-9]+)/%\\1%'
+    head-subject = log -1 --pretty=%s
+    log1 = log --oneline
+    mg = merge
+    mga = merge --abort
+    mgc = merge --continue
+    mgrbma = "!f(){ git co $1 && git rbma && git coma && git mg -; }; f"
+    pl = pull
+    push-perso = "!git push origin --set-upstream HEAD:$(git symbolic-ref --short HEAD) "
+    push-upstream = "!git push upstream HEAD:$(git symbolic-ref --short HEAD) "
+    rb = rebase
+    rbma = rebase -i master
+    rba = rebase --abort
+    rbc = rebase --continue
+    rbi = "! f() { git rebase -i $( git argument $1 ); }; f"
+    reword = commit --amend
+    reset-upstream = reset --hard @{upstream}
+    root = rev-parse --show-toplevel
+    rv = revert
+    rva = revert --abort
+    rvc = revert --continue
+    sh = "! f() { git show $( git argument $1 ); }; f"
+    sh0 = "! f() { git show --unified=0 $( git argument $1 ); }; f"
+    st = status --short --branch
+    tag-list = tag --format '%(align:20,left) %(refname:strip=2) %(end) %(taggerdate:iso) %(align:30,left) %(taggeremail) %(end) %(subject)' --sort=taggerdate
+    wip = "! \
+        git add --all \
+        && git commit --message WIP \
+        && git push --force origin HEAD:wip-$(git symbolic-ref --short HEAD)"
