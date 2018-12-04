@@ -21,6 +21,7 @@
   - make some own vim config as plugin
   - usage of vim autoload for some functions
   - improve/add completion of git aliases
+  - add colors to some git aliases output
   - add ability in ZSH to use common ci"  da' and such vim bindings  
     check bindings and functions from [zsh-vim-mode](https://github.com/softmoth/zsh-vim-mode)
   - improve all env scripts usage:

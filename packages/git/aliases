@@ -75,7 +75,10 @@
     sh = "! f() { git show $( git argument $1 ); }; f"
     sh0 = "! f() { git show --unified=0 $( git argument $1 ); }; f"
     st = status --short --branch
-    tag-list = tag --format '%(align:20,left) %(refname:strip=2) %(end) %(taggerdate:iso) %(align:30,left) %(taggeremail) %(end) %(subject)' --sort=taggerdate
+    tag-list = "! \
+        git tag --sort=taggerdate \
+        --format '%(refname:short) | %(taggerdate:iso) | %(taggeremail) | %(subject)' \
+        | column --table --separator '|'"
     wip = "! \
         git add --all \
         && git commit --message WIP \
