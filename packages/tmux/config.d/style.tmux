@@ -1,9 +1,9 @@
-set -g message-command-style "bg=colour3,fg=colour8"
-set -g message-style "bg=colour3,fg=colour8"
-set -g mode-style "bg=colour3,fg=colour8"
+set -g message-command-style "bg=#{{{base0A/hex}}},fg=#{{{base00/hex}}}"
+set -g message-style "bg=#{{{base0A/hex}}},fg=#{{{base00/hex}}}"
+set -g mode-style "bg=#{{{base0A/hex}}},fg=#{{{base00/hex}}}"
 
-set -g display-panes-colour "colour3"
-set -g display-panes-active-colour "colour1"
+set -g display-panes-colour "#{{{base0A/hex}}}"
+set -g display-panes-active-colour "#{{{base08/hex}}}"
 
 set -g status-justify left
 
@@ -13,29 +13,29 @@ set -g status on
 set -g status off
 %endif
 
-set -g status-style "bg=default,fg=colour12"
-set -g status-left-style "bg=colour4,fg=colour8"
-set -g status-right-style "fg=colour4"
+set -g status-style "bg=default,fg=#{{{base04/hex}}}"
+set -g status-left-style "bg=#{{{base0D/hex}}},fg=#{{{base00/hex}}}"
+set -g status-right-style "fg=#{{{base0D/hex}}}"
 
 set -g status-left-length 40
-set -g status-left "#[fg=colour7,bold]#{?#{==:#{client_key_table},prefix},Ⓟ,#{?#{==:#{client_key_table},extract-mode},Ⓔ, }}#[default]  #{session_name}   #[bg=colour8,fg=colour12]   "
+set -g status-left "#[fg=#{{{base06/hex}}},bold]#{?#{==:#{client_key_table},prefix},Ⓟ,#{?#{==:#{client_key_table},extract-mode},Ⓔ, }}#[default]  #{session_name}   #[bg=#{{{base00/hex}}},fg=#{{{base04/hex}}}]   "
 %if #{DISPLAY}
 set -g status-right ''
 %else
 set -g status-right '  %a %e %b %Y %H:%M'
 %endif
 
-setw -g window-style "bg=colour0"
-setw -g window-active-style "bg=colour8"
+setw -g window-style "bg=#{{{base01/hex}}}"
+setw -g window-active-style "bg=#{{{base00/hex}}}"
 
-setw -g pane-border-style "bg=colour0,fg=colour12"
-setw -g pane-active-border-style "bg=colour8,fg=colour3"
+setw -g pane-border-style "bg=#{{{base01/hex}}},fg=#{{{base04/hex}}}"
+setw -g pane-active-border-style "bg=#{{{base00/hex}}},fg=#{{{base0A/hex}}}"
 
 setw -g pane-border-format ' #{pane_current_command} '
 setw -g pane-border-status off
 
-setw -g window-status-current-style "bg=colour3,fg=colour8"
-setw -g window-status-last-style "fg=colour3"
+setw -g window-status-current-style "bg=#{{{base0A/hex}}},fg=#{{{base00/hex}}}"
+setw -g window-status-last-style "fg=#{{{base0A/hex}}}"
 setw -g window-status-activity-style 'underscore'
 setw -g window-status-bell-style 'underscore'
 
