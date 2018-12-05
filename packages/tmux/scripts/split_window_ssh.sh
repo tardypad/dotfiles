@@ -1,23 +1,23 @@
 #!/usr/bin/env bash
 
-option="$1"
+OPTION="$1"
 
-pane_current_command=$(
+PANE_CURRENT_COMMAND=$(
   tmux display -p '#{pane_current_command}'
 )
 
-if [ "${pane_current_command}" != 'ssh' ]; then
-  tmux split-window -"${option}" -c '#{pane_current_path}'
+if [ "${PANE_CURRENT_COMMAND}" != 'ssh' ]; then
+  tmux split-window -"${OPTION}" -c '#{pane_current_path}'
   exit
 fi
 
-pane_tty=$(
+PANE_TTY=$(
   tmux display -p '#{pane_tty}'
 )
 
-ssh_command=$(
-  ps -t "${pane_tty}" -o command= --sort=pid \
+SSH_COMMAND=$(
+  ps -t "${PANE_TTY}" -o command= --sort=pid \
     | grep ssh --max-count=1
 )
 
-tmux split-window -"${option}" "TERM=xterm-256color ${ssh_command}"
+tmux split-window -"${OPTION}" "TERM=xterm-256color ${SSH_COMMAND}"

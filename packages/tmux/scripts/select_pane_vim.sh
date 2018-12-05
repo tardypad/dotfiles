@@ -1,23 +1,23 @@
 #!/usr/bin/env bash
 
-key="$1"
+KEY="$1"
 
-pane_current_command=$(
+PANE_CURRENT_COMMAND=$(
   tmux display -p '#{pane_current_command}'
 )
 
-if [ "${pane_current_command}" = 'vim' ]; then
-  tmux send-keys "${key}"
+if [ "${PANE_CURRENT_COMMAND}" = 'vim' ]; then
+  tmux send-keys "${KEY}"
   exit
 fi
 
-case "${key}" in
-  h) option=L ;;
-  j) option=D ;;
-  k) option=U ;;
-  l) option=R ;;
-  a) option=l ;;
+case "${KEY}" in
+  h) OPTION=L ;;
+  j) OPTION=D ;;
+  k) OPTION=U ;;
+  l) OPTION=R ;;
+  a) OPTION=l ;;
 esac
 
-tmux select-pane -"${option}"
+tmux select-pane -"${OPTION}"
 exit 0
