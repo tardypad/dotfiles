@@ -1,5 +1,5 @@
 " color scheme
-colorscheme solarized-dark
+colorscheme color_scheme
 
 " Tab completion in a popup
 set wildmenu
