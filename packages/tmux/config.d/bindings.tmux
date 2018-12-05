@@ -29,7 +29,11 @@ bind M-l clear-history \; \
 bind -T root M-u run "~/.tmux/scripts/send_usr1_signal.sh"
 
 # sessions management (using Ctrl)
+%if #{TMUX_ENV}
 bind    C-s choose-tree -Z -s -w -F '#{?pane_format,#{pane_current_command},#{?window_format,#{window_name},}}' -O index
+%else
+bind    C-s choose-tree -Z -s -w -F '#{?pane_format,#{pane_current_command},#{window_name}}' -O index
+%endif
 bind    C-a if '[ "#{client_last_session}" != "" ]' 'switch-client -l' 'switch-client -n'
 bind -r C-n switch-client -n
 bind -r C-j switch-client -n

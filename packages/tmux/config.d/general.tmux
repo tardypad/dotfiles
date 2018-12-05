@@ -1,13 +1,19 @@
 # define prefix
 set -g prefix C-Space
 
-# don't let programs rename window name
+# don't let programs rename windows when inside a tmux env
+%if #{TMUX_ENV}
 setw -g allow-rename off
 setw -g automatic-rename off
+%else
+setw -g allow-rename on
+setw -g automatic-rename on
+setw -g automatic-rename-format '#{pane_current_command}'
+%endif
 
 # use session name as terminal window title
 set -g set-titles on
-set -g set-titles-string '#{session_name}'
+set -g set-titles-string '#{session_name} / #{window_name}'
 
 # don't detach the client when killing a session
 # only inside a tmux env
