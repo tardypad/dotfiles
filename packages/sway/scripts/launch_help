@@ -36,6 +36,4 @@ TOPIC=$(
 [[ -n "${TOPIC}" ]] || exit
 
 swaymsg -t command \
-  exec "termite \
-          --title ' Help' \
-          --exec 'tmux new-session \"rtfm ${TOPIC}\" \; rename-session \"help #{s/$//:session_id}\"'"
+  exec "termite --title ' Help' --exec 'tmux new-session \"rtfm ${TOPIC}\"'"

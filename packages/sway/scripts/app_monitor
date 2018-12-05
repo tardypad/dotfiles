@@ -13,7 +13,7 @@ focus_window_title "${TITLE}" && exit
 swaymsg -t command \
   exec "termite \
           --title \"${TITLE}\" \
-          --exec 'tmux new-session \"htop\" \; rename-session \"htop #{s/$//:session_id}\"' \
+          --exec 'tmux new-session \"htop\"' \
           --geometry 1500x1000"
 
 # focus the window (not automatic if different workspace)
