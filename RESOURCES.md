@@ -30,3 +30,4 @@
 
 # ZSH
   - [Joe Block plugins list](https://github.com/unixorn/awesome-zsh-plugins)
+  - [Sindre Sorhus prompt](https://github.com/sindresorhus/pure)

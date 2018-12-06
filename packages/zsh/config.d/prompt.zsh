@@ -13,10 +13,20 @@ precmd() {
 set_prompt() {
   local red='%{%F{red}%}'
   local blue='%{%F{blue}%}'
+  local underline='%{%U%}'
+  local bold='%{%B%}'
   local stop_foreground='%{%f%}'
   local stop_underline='%{%u%}'
+  local stop_bold='%{%b%}'
 
-  PROMPT="%(!.${red}.${blue})"'$VI_MODE_STYLE'">"
+  PROMPT=
+  # red prompt for root, blue otherwise
+  PROMPT+="%(!.${red}.${blue})"
+  # underline prompt if last command exited unsuccessfully
+  PROMPT+="%(?..${underline})"
+  # add bold symbol based on vi mode
+  PROMPT+="${bold}"'$VI_MODE_SYMBOL'"${stop_bold}"
+  # clear styling and add space
   PROMPT+="${stop_foreground}${stop_underline} "
 }
 
