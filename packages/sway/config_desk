@@ -23,9 +23,3 @@ bar {
 
 # include all config files
 include config.d/*
-
-# autostart programs at the end
-# so that rules and other config are set before
-exec dex \
-  --autostart \
-  --search-paths ~/.config/autostart
