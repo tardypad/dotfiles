@@ -51,8 +51,6 @@ def_key "ctrl-v"
     dummy
 def_key "ctrl-_"
     dummy
-def_key "="
-    dummy
 def_key "~"
     dummy
 def_key "."
