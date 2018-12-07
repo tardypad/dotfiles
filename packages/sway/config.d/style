@@ -2,7 +2,7 @@
 default_border pixel 2
 
 # put some gaps between views
-gaps inner 20
+gaps inner 10
 
 # only put gaps if there are several views
 smart_gaps on
