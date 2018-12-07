@@ -49,9 +49,7 @@ alias packages-update="
   checkupdates \
   && aurcheck -d aur \
   && aurcheck -d tardypad \
-  && sudo pacman --sync --refresh --sysupgrade \
-  && aursync --update --repo aur \
-  && aursync --update --repo tardypad
+  && sudo pacman --sync --refresh --sysupgrade
 "
 
 # simple linters
