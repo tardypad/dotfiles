@@ -20,11 +20,6 @@ tmux -L "${socket}" \
     -c 'tabnew' \
     -- TODO.md"
 
-tmux -L "${socket}" \
-  new-window \
-  -n 'tests' \
-  -c "${arch_packages_path}"
-
 
 tmux -L "${socket}" \
   select-window \

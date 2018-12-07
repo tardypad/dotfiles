@@ -22,11 +22,5 @@ tmux -L "${socket}" \
 
 
 tmux -L "${socket}" \
-  new-window \
-  -n 'tests' \
-  -c "${dotfiles_path}"
-
-
-tmux -L "${socket}" \
   select-window \
   -t ':terminal'
