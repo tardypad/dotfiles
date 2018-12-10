@@ -3,13 +3,16 @@
 TITLE="$1"
 TMP_TEXT_FILE="$2"
 
+TITLE_COLOR_BG={{{base0D/number}}}
+TITLE_COLOR_FG={{{base01/number}}}
+
 # prepend title to text
 MARGIN_LEFT_SIZE=$(( ( COLUMNS - ${#TITLE} ) / 2 ))
 MARGIN_RIGHT_SIZE=$((  COLUMNS - ${#TITLE} - MARGIN_LEFT_SIZE ))
 MARGIN_LEFT="${(l.${MARGIN_LEFT_SIZE}.. .)}"
 MARGIN_RIGHT="${(l.${MARGIN_RIGHT_SIZE}.. .)}"
 FULL_TITLE="${MARGIN_LEFT}${TITLE}${MARGIN_RIGHT}"
-FULL_TITLE_STYLED="$(tput setab 4)$(tput setaf 0)$(tput bold)${FULL_TITLE}"
+FULL_TITLE_STYLED="$(tput setab ${TITLE_COLOR_BG})$(tput setaf ${TITLE_COLOR_FG}0)$(tput bold)${FULL_TITLE}"
 sed --in-place "1s;^;${FULL_TITLE_STYLED}\n;" "${TMP_TEXT_FILE}"
 
 # display full text with colors and minimal prompt
