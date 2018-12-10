@@ -11,12 +11,12 @@ precmd() {
 }
 
 set_prompt() {
-  local red='%{%F{red}%}'
-  local blue='%{%F{blue}%}'
+  local root='%{%F{{{{base08/name}}}}%}'
+  local normal='%{%F{{{{base0D/name}}}}%}'
   local stop_foreground='%{%f%}'
   local stop_underline='%{%u%}'
 
-  PROMPT="%(!.${red}.${blue})"'$VI_MODE_STYLE'">"
+  PROMPT="%(!.${root}.${normal})"'$VI_MODE_STYLE'">"
   PROMPT+="${stop_foreground}${stop_underline} "
 }
 
