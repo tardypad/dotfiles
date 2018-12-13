@@ -40,7 +40,7 @@ TRAPUSR1()
 ### Fish-like autosuggestions
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=10
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg={{{base02/number}}}
 
 # Ctrl+Enter accepts and executes suggestion
 bindkey '^[[27;5;13~' autosuggest-execute
@@ -60,17 +60,17 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(
 )
 
 # highlight potentially dangerous commands that requires extra attention
-ZSH_HIGHLIGHT_PATTERNS=('rm -(rf|fr) *' 'bg=red,fg=black,bold')
-ZSH_HIGHLIGHT_PATTERNS+=('rm * -(rf|fr)' 'bg=red,fg=black,bold')
+ZSH_HIGHLIGHT_PATTERNS=('rm -(rf|fr) *' 'bg={{{base08/name}},fg={{{base00/name}},bold')
+ZSH_HIGHLIGHT_PATTERNS+=('rm * -(rf|fr)' 'bg={{{base08/name}},fg={{{base00/name}},bold')
 
 # brackets matching colors
-ZSH_HIGHLIGHT_STYLES[bracket-error]='fg=red,bold'
-ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='fg=white,bold'
-ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg=green'
-ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=cyan'
-ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=blue'
-ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=yellow'
-ZSH_HIGHLIGHT_STYLES[bracket-level-5]='fg=magenta'
+ZSH_HIGHLIGHT_STYLES[bracket-error]='fg={{{base08/name}}},bold'
+ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='fg={{{base06/name}}},bold'
+ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg={{{base0B/name}}}'
+ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg={{{base0C/name}}}'
+ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg={{{base0D/name}}}'
+ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg={{{base0A/name}}}'
+ZSH_HIGHLIGHT_STYLES[bracket-level-5]='fg={{{base0F/name}}}'
 
 ### Fish-like history substring search
 
@@ -82,5 +82,5 @@ bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
 # colors
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=magenta,fg=black'
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=black'
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg={{{base0F/name}}},fg={{{base00/name}}}'
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg={{{base08/name}}},fg={{{base00/name}}}'

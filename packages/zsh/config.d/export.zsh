@@ -19,7 +19,7 @@ export KEYTIMEOUT=5
 export WORDCHARS=''
 
 # fzf default options
-export FZF_DEFAULT_OPTS="--height=20 --no-bold --color=bg:8,fg:12,hl:3,fg+:8,bg+:3,info:4,prompt:4,pointer:8,marker:7,spinner:4"
+export FZF_DEFAULT_OPTS="--height=20 --no-bold --color=bg:{{{base00/number}}},fg:{{{base04/number}}},hl:{{{base0A/number}}},fg+:{{{base00/number}}},bg+:{{{base0A/number}}},info:{{{base0D/number}}},prompt:{{{base0D/number}}},pointer:{{{base00/number}}},marker:{{{base06/number}}},spinner:{{{base0D/number}}}"
 
 # fzf default find command
 # only ignore build folder

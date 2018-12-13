@@ -29,6 +29,9 @@
     * editing of such data in vim directly
     * syntax highlighting of query/request keywords
     * completion of query/request keywords
+- add specific colors name such as {{{status_bar_bg/hex}}}, {{{error/hex}}},...  
+  to have easier colors update keeping consistency  
+  check [base16](http://chriskempson.com/projects/base16/) colors meaning
 
 # New Features
   - backup of notes

@@ -46,8 +46,8 @@ All packages selected are [Free Software](https://www.gnu.org/philosophy/free-sw
 See each individual package folder README for more information
 about versions, extensions, plugins,...
 
-All packages are configured to use the dark
-[Solarized](http://ethanschoonover.com/solarized) color palette.
+All packages are configured to use the same color palette
+as defined in the [colors](colors) folder.
 
 Most keybindings are minimalized to keep only relevant ones
 and configured to be as much vim-like as possible.
@@ -72,6 +72,20 @@ make tmux vim zsh
 ```
 
 Some packages require some additional manual setup steps, check their own README
+
+### Colors management
+
+Colors management across packages is centralized using variables
+based on [base16](http://chriskempson.com/projects/base16/) colors naming.
+
+Those variables get replaced with the correct values during the setup.
+
+For example `{{{base0A/hex}}}` gets substituted by the hexadecimal value of the base0A color.  
+Similarly `{{{base0A/number}}}` is replaced by that color's number.
+
+Items to be manually updated in case of color palette change:
+- lockscreen [lock](packages/sway/images/lock.png) color
+- TTY console colors palette in [/etc/issue](https://github.com/tardypad/arch-packages/blob/master/builds/system-config/etc-issue) file
 
 
 ## Required extra packages

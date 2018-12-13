@@ -1,17 +1,9 @@
-TMUX_RED='colour1'
-TMUX_YELLOW='colour3'
-TMUX_BLUE='colour4'
-TMUX_WHITE='colour7'
-TMUX_BLACK='colour8'
-TMUX_BLACK_DIM='colour0'
-TMUX_FOREGROUND='colour12'
+set -g message-command-style "bg=#{{{base0A/hex}}},fg=#{{{base00/hex}}}"
+set -g message-style "bg=#{{{base0A/hex}}},fg=#{{{base00/hex}}}"
+set -g mode-style "bg=#{{{base0A/hex}}},fg=#{{{base00/hex}}}"
 
-set -g message-command-style "bg=$TMUX_YELLOW,fg=$TMUX_BLACK"
-set -g message-style "bg=$TMUX_YELLOW,fg=$TMUX_BLACK"
-set -g mode-style "bg=$TMUX_YELLOW,fg=$TMUX_BLACK"
-
-set -g display-panes-colour "$TMUX_YELLOW"
-set -g display-panes-active-colour "$TMUX_RED"
+set -g display-panes-colour "#{{{base0A/hex}}}"
+set -g display-panes-active-colour "#{{{base08/hex}}}"
 
 set -g status-justify left
 
@@ -21,29 +13,29 @@ set -g status on
 set -g status off
 %endif
 
-set -g status-style "bg=default,fg=$TMUX_FOREGROUND"
-set -g status-left-style "bg=$TMUX_BLUE,fg=$TMUX_BLACK"
-set -g status-right-style "fg=$TMUX_BLUE"
+set -g status-style "bg=default,fg=#{{{base04/hex}}}"
+set -g status-left-style "bg=#{{{base0D/hex}}},fg=#{{{base00/hex}}}"
+set -g status-right-style "fg=#{{{base0D/hex}}}"
 
 set -g status-left-length 40
-set -g status-left "#[fg=$TMUX_WHITE,bold]#{?#{==:#{client_key_table},prefix},Ⓟ,#{?#{==:#{client_key_table},extract-mode},Ⓔ, }}#[default]  #{session_name}   #[bg=$TMUX_BLACK,fg=$TMUX_FOREGROUND]   "
+set -g status-left "#[fg=#{{{base06/hex}}},bold]#{?#{==:#{client_key_table},prefix},Ⓟ,#{?#{==:#{client_key_table},extract-mode},Ⓔ, }}#[default]  #{session_name}   #[bg=#{{{base00/hex}}},fg=#{{{base04/hex}}}]   "
 %if #{DISPLAY}
 set -g status-right ''
 %else
 set -g status-right '  %a %e %b %Y %H:%M'
 %endif
 
-setw -g window-style "bg=$TMUX_BLACK_DIM"
-setw -g window-active-style "bg=$TMUX_BLACK"
+setw -g window-style "bg=#{{{base01/hex}}}"
+setw -g window-active-style "bg=#{{{base00/hex}}}"
 
-setw -g pane-border-style "bg=$TMUX_BLACK_DIM,fg=$TMUX_FOREGROUND"
-setw -g pane-active-border-style "bg=$TMUX_BLACK,fg=$TMUX_YELLOW"
+setw -g pane-border-style "bg=#{{{base01/hex}}},fg=#{{{base04/hex}}}"
+setw -g pane-active-border-style "bg=#{{{base00/hex}}},fg=#{{{base0A/hex}}}"
 
 setw -g pane-border-format ' #{pane_current_command} '
 setw -g pane-border-status off
 
-setw -g window-status-current-style "bg=$TMUX_YELLOW,fg=$TMUX_BLACK"
-setw -g window-status-last-style "fg=$TMUX_YELLOW"
+setw -g window-status-current-style "bg=#{{{base0A/hex}}},fg=#{{{base00/hex}}}"
+setw -g window-status-last-style "fg=#{{{base0A/hex}}}"
 setw -g window-status-activity-style 'underscore'
 setw -g window-status-bell-style 'underscore'
 

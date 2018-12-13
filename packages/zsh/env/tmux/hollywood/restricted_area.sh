@@ -4,6 +4,9 @@ session_name="$2"
 window_name="Authorized personnel only"
 max_time=900
 
+hexdump_color_fg={{{base0B/number}}}
+ssh_color_fg={{{base08/number}}}
+
 # start from a clean plate
 if tmux -L "${socket}" has-session -t "${session_name}" &> /dev/null; then
   tmux -L "${socket}" kill-session -t "${session_name}"
@@ -16,9 +19,9 @@ tmux -L "${socket}" \
 
 tree_command="loop --time ${max_time} 'tree /; sleep 1'"
 htop_command="htop --delay 5"
-hexdump_command="loop --time ${max_time} 'tput setaf 2; hexdump -C /usr/bin/tmux'"
+hexdump_command="loop --time ${max_time} 'tput setaf ${hexdump_color_fg}; hexdump -C /usr/bin/tmux'"
 man_command="man hexdump"
-ssh_command="loop --time ${max_time} 'tput setaf 1; rm -f /tmp/hollywood; ssh-keygen -N \"\" -f /tmp/hollywood; sleep 2'"
+ssh_command="loop --time ${max_time} 'tput setaf ${ssh_color_fg}; rm -f /tmp/hollywood; ssh-keygen -N \"\" -f /tmp/hollywood; sleep 2'"
 
 tmux -L "${socket}" \
   split-window -h -b \

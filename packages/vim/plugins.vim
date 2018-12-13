@@ -94,11 +94,6 @@ Plug 'https://sanctum.geek.nz/code/vim-redact-pass.git',
   \ { 'as': 'redact-pass',
   \   'tag': 'v2.0.0' }
 
-" Colorscheme
-Plug 'lifepillar/vim-solarized8',
-  \ { 'as': 'solarized',
-  \   'tag': 'v1.1.0' }
-
 " Tab utilities
 Plug 'gcmt/taboo.vim',
   \ { 'as': 'taboo',

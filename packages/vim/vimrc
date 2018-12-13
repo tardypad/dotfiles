@@ -23,6 +23,9 @@ nmap Q <nop>
 " Activate syntax coloring
 syntax enable
 
+" color scheme
+colorscheme tardypad
+
 " Show keys typed in status line
 set showcmd
 

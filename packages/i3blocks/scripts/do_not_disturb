@@ -3,4 +3,4 @@
 # only display something if the mode is on
 [[ $( do-not-disturb status ) == 'enabled' ]] || exit 0
 
-echo "<span foreground='#dc322f'> Do not disturb</span>"
+echo "<span foreground='#{{{base08/hex}}}'> Do not disturb</span>"

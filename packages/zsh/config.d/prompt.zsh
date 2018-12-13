@@ -11,8 +11,8 @@ precmd() {
 }
 
 set_prompt() {
-  local red='%{%F{red}%}'
-  local blue='%{%F{blue}%}'
+  local root='%{%F{{{{base08/name}}}}%}'
+  local normal='%{%F{{{{base0D/name}}}}%}'
   local underline='%{%U%}'
   local bold='%{%B%}'
   local stop_foreground='%{%f%}'
@@ -21,7 +21,7 @@ set_prompt() {
 
   PROMPT=
   # red prompt for root, blue otherwise
-  PROMPT+="%(!.${red}.${blue})"
+  PROMPT+="%(!.${root}.${normal})"
   # underline prompt if last command exited unsuccessfully
   PROMPT+="%(?..${underline})"
   # add bold symbol based on vi mode

@@ -4,9 +4,9 @@
 #
 # https://upload.wikimedia.org/wikipedia/commons/3/3b/Windows_9X_BSOD.png
 
-COLOR_BLUE=19
-COLOR_WHITE=7
-COLOR_GREY=246
+COLOR_BLUE={{{base0D/number}}}
+COLOR_WHITE={{{base06/number}}}
+COLOR_GREY={{{base05/number}}}
 
 TEXT_HEIGHT=12
 WINDOW_HEIGHT=$LINES

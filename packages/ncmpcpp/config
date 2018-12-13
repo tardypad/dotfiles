@@ -48,7 +48,7 @@ display_remaining_time = no
 # song formats
 song_status_format = "{{%a{ / %y{ / %b}} / }{%t}}|{%f}"
 song_library_format = "{%n - }{%t}|{%f}"
-song_columns_list_format = "(20)[yellow]{a} (20)[green]{b} (6f)[]{nrE} (49)[]{t|f:Title} (7f)[]{lr}"
+song_columns_list_format = "(20)[{{{base0A/name}}}]{a} (20)[{{{base0B/name}}}]{b} (6f)[]{nrE} (49)[]{t|f:Title} (7f)[]{lr}"
 
 # browser sorting
 browser_sort_mode = format
@@ -60,28 +60,28 @@ empty_tag_marker = "--"
 
 # colors
 main_window_color = default
-header_window_color = red
-volume_color = green
-state_line_color = black
-state_flags_color = magenta
-progressbar_color = black
-progressbar_elapsed_color = cyan
+header_window_color = {{{base08/name}}}
+volume_color = {{{base0B/name}}}
+state_line_color = {{{base01/name}}}
+state_flags_color = {{{base0F/name}}}
+progressbar_color = {{{base01/name}}}
+progressbar_elapsed_color = {{{base0C/name}}}
 statusbar_color = default
-statusbar_time_color = green
-player_state_color = green
-window_border_color = yellow
-active_window_border = red
+statusbar_time_color = {{{base0B/name}}}
+player_state_color = {{{base0B/name}}}
+window_border_color = {{{base0A/name}}}
+active_window_border = {{{base08/name}}}
 empty_tag_color = default
-color1 = magenta
-color2 = cyan
+color1 = {{{base0F/name}}}
+color2 = {{{base0C/name}}}
 
 discard_colors_if_item_is_selected = no
 
-current_item_prefix = $(yellow)$r
+current_item_prefix = $({{{base0A/name}}})$r
 current_item_suffix = $/r$(end)
-current_item_inactive_column_prefix = $(yellow)
+current_item_inactive_column_prefix = $({{{base0A/name}}})
 current_item_inactive_column_suffix = $(end)
-now_playing_prefix = $(cyan)
+now_playing_prefix = $({{{base0C/name}}})
 now_playing_suffix = $(end)
-selected_item_prefix = $(magenta)
+selected_item_prefix = $({{{base0F/name}}})
 selected_item_suffix = $(end)
