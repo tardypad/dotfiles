@@ -9,6 +9,9 @@
 # Cleaning
 
 # Bugs
+  - in TTY console, background colors are wrong for number superior to 7  
+    the background seem to repeat the 8 first colors  
+    for example, background 12 is same as background 4
 
 # Testing
 
