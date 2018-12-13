@@ -4,7 +4,7 @@ highlight clear
 syntax reset
 
 " color scheme name
-let g:colors_name="color_scheme"
+let g:colors_name="tardypad"
 
 " xterm-true-color (for vim within tmux)
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"

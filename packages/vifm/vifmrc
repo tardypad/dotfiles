@@ -1,5 +1,5 @@
 " color scheme
-colorscheme color_scheme
+colorscheme tardypad
 
 " Tab completion in a popup
 set wildmenu
