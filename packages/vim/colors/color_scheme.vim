@@ -10,9 +10,11 @@ let g:colors_name="color_scheme"
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
-" use 24 bit true color
-" (uses gui* values in the terminal)
-set termguicolors
+" use 24 bit true color (uses gui* values in the terminal)
+" if using terminal emulator in graphical environment
+if $DISPLAY != ""
+  set termguicolors
+endif
 
 " define hex colors for GUI
 let s:base00_gui = "#{{{base00/hex}}}"
