@@ -17,6 +17,7 @@ endif
 	$(call copy_file,vimrc,$(HOME)/.vimrc)
 	$(call copy_file,plugins.vim,$(HOME)/.vim/plugins.vim)
 	$(call copy_folder,config.d,$(HOME)/.vim/config.d)
+	$(call copy_folder,colors,$(HOME)/.vim/colors)
 	$(call copy_folder,ftdetect,$(HOME)/.vim/ftdetect)
 	$(call copy_folder,ftplugin,$(HOME)/.vim/ftplugin)
 	$(call copy_folder,indent,$(HOME)/.vim/indent)
