@@ -85,6 +85,7 @@ Similarly `{{{base0A/number}}}` is replaced by that color's number.
 
 Items to be manually updated in case of color palette change:
 - lockscreen [lock](packages/sway/images/lock.png) color
+- TTY console colors palette in [/etc/issue](https://github.com/tardypad/arch-packages/blob/master/builds/system-config/etc-issue) file
 
 
 ## Required extra packages
