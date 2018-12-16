@@ -1,0 +1,244 @@
+#!/bin/sh
+
+# using ANSI escape codes
+# https://en.wikipedia.org/wiki/ANSI_escape_code
+
+init_variables() {
+  COMMAND=$0
+
+  LINE_TYPE='foreground'
+  COLUMN_TYPE='background'
+
+  # minimum text length is 12
+  # so that it fits longest possible column title
+  TEXT='    Abc!    '
+  COLUMN_WIDTH=${#TEXT}
+
+  # SGR parameters
+  RESET=0
+  BOLD=1
+  FAINT=2
+  ITALIC=3
+  UNDERLINE=4
+  BLINK=5
+  REVERSE=7
+  CONCEAL=8
+  CROSSED_OUT=9
+  FOREGROUND_BLACK=30
+  FOREGROUND_RED=31
+  FOREGROUND_GREEN=32
+  FOREGROUND_YELLOW=33
+  FOREGROUND_BLUE=34
+  FOREGROUND_MAGENTA=35
+  FOREGROUND_CYAN=36
+  FOREGROUND_WHITE=37
+  FOREGROUND_DEFAULT=39
+  BACKGROUND_BLACK=40
+  BACKGROUND_RED=41
+  BACKGROUND_GREEN=42
+  BACKGROUND_YELLOW=43
+  BACKGROUND_BLUE=44
+  BACKGROUND_MAGENTA=45
+  BACKGROUND_CYAN=46
+  BACKGROUND_WHITE=47
+  BACKGROUND_DEFAULT=49
+}
+
+usage() {
+  cat << EOF
+usage: ${COMMAND} [<options>] [<line>] [<column>]
+
+Test the display of colors and attributes
+
+Options:
+  -h,  --help      show this message only
+
+Available line and column arguments:
+- foreground / fg (default line)
+- background / bg (default column)
+- attribute  / at
+EOF
+}
+
+error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  printf "Try '%s --help' for more information.\n" "${COMMAND}"
+  exit 1
+} >&2
+
+print_sgr() {
+  for i in "$@"; do
+    printf '\033[%sm' "$i";
+  done
+}
+
+print_text() {
+  print_sgr "$@"
+  printf '%s' "${TEXT}"
+  print_sgr "${RESET}"
+}
+
+print_header() {
+  printf "%${COLUMN_WIDTH}s"
+
+  case "${COLUMN_TYPE}" in
+    foreground|background)
+      printf "%-${COLUMN_WIDTH}s" 'default'
+      printf "%-${COLUMN_WIDTH}s" 'black'
+      printf "%-${COLUMN_WIDTH}s" 'red'
+      printf "%-${COLUMN_WIDTH}s" 'green'
+      printf "%-${COLUMN_WIDTH}s" 'yellow'
+      printf "%-${COLUMN_WIDTH}s" 'blue'
+      printf "%-${COLUMN_WIDTH}s" 'magenta'
+      printf "%-${COLUMN_WIDTH}s" 'cyan'
+      printf "%-${COLUMN_WIDTH}s" 'white'
+      ;;
+    attribute)
+      printf "%-${COLUMN_WIDTH}s" 'default'
+      printf "%-${COLUMN_WIDTH}s" 'bold'
+      printf "%-${COLUMN_WIDTH}s" 'faint'
+      printf "%-${COLUMN_WIDTH}s" 'italic'
+      printf "%-${COLUMN_WIDTH}s" 'underline'
+      printf "%-${COLUMN_WIDTH}s" 'blink'
+      printf "%-${COLUMN_WIDTH}s" 'reverse'
+      printf "%-${COLUMN_WIDTH}s" 'conceal'
+      printf "%-${COLUMN_WIDTH}s" 'crossed-out'
+      ;;
+  esac
+
+  printf '\n'
+}
+
+print_line() {
+  name="$1"
+  code="$2"
+
+  printf "%${COLUMN_WIDTH}s" "${name}"
+  print_columns_"${COLUMN_TYPE}" "${code}"
+  printf '\n'
+}
+
+print_lines_foreground() {
+  print_line 'default' "${FOREGROUND_DEFAULT}"
+  print_line 'black'   "${FOREGROUND_BLACK}"
+  print_line 'red'     "${FOREGROUND_RED}"
+  print_line 'green'   "${FOREGROUND_GREEN}"
+  print_line 'yellow'  "${FOREGROUND_YELLOW}"
+  print_line 'blue'    "${FOREGROUND_BLUE}"
+  print_line 'magenta' "${FOREGROUND_MAGENTA}"
+  print_line 'cyan'    "${FOREGROUND_CYAN}"
+  print_line 'white'   "${FOREGROUND_WHITE}"
+}
+
+print_lines_background() {
+  print_line 'default' "${BACKGROUND_DEFAULT}"
+  print_line 'black'   "${BACKGROUND_BLACK}"
+  print_line 'red'     "${BACKGROUND_RED}"
+  print_line 'green'   "${BACKGROUND_GREEN}"
+  print_line 'yellow'  "${BACKGROUND_YELLOW}"
+  print_line 'blue'    "${BACKGROUND_BLUE}"
+  print_line 'magenta' "${BACKGROUND_MAGENTA}"
+  print_line 'cyan'    "${BACKGROUND_CYAN}"
+  print_line 'white'   "${BACKGROUND_WHITE}"
+}
+
+print_lines_attribute() {
+  print_line 'default'
+  print_line 'bold'        "${BOLD}"
+  print_line 'faint'       "${FAINT}"
+  print_line 'italic'      "${ITALIC}"
+  print_line 'underline'   "${UNDERLINE}"
+  print_line 'blink'       "${BLINK}"
+  print_line 'reverse'     "${REVERSE}"
+  print_line 'conceal'     "${CONCEAL}"
+  print_line 'crossed-out' "${CROSSED_OUT}"
+}
+
+print_columns_foreground() {
+  line_code="$1"
+
+  print_text "${line_code}" "${FOREGROUND_DEFAULT}"
+  print_text "${line_code}" "${FOREGROUND_BLACK}"
+  print_text "${line_code}" "${FOREGROUND_RED}"
+  print_text "${line_code}" "${FOREGROUND_GREEN}"
+  print_text "${line_code}" "${FOREGROUND_YELLOW}"
+  print_text "${line_code}" "${FOREGROUND_BLUE}"
+  print_text "${line_code}" "${FOREGROUND_MAGENTA}"
+  print_text "${line_code}" "${FOREGROUND_CYAN}"
+  print_text "${line_code}" "${FOREGROUND_WHITE}"
+}
+
+print_columns_background() {
+  line_code="$1"
+
+  print_text "${line_code}" "${BACKGROUND_DEFAULT}"
+  print_text "${line_code}" "${BACKGROUND_BLACK}"
+  print_text "${line_code}" "${BACKGROUND_RED}"
+  print_text "${line_code}" "${BACKGROUND_GREEN}"
+  print_text "${line_code}" "${BACKGROUND_YELLOW}"
+  print_text "${line_code}" "${BACKGROUND_BLUE}"
+  print_text "${line_code}" "${BACKGROUND_MAGENTA}"
+  print_text "${line_code}" "${BACKGROUND_CYAN}"
+  print_text "${line_code}" "${BACKGROUND_WHITE}"
+}
+
+print_columns_attribute() {
+  line_code="$1"
+
+  print_text "${line_code}"
+  print_text "${line_code}" "${BOLD}"
+  print_text "${line_code}" "${FAINT}"
+  print_text "${line_code}" "${ITALIC}"
+  print_text "${line_code}" "${UNDERLINE}"
+  print_text "${line_code}" "${BLINK}"
+  print_text "${line_code}" "${REVERSE}"
+  print_text "${line_code}" "${CONCEAL}"
+  print_text "${line_code}" "${CROSSED_OUT}"
+}
+
+parse_options() {
+  while [ "$#" -gt 0 ]; do
+    case "$1" in
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      *)
+        break 2
+        ;;
+    esac
+  done
+
+  [ -n "$1" ] && LINE_TYPE="$1"
+  [ -n "$2" ] && COLUMN_TYPE="$2"
+}
+
+
+validate_options() {
+  [ "${LINE_TYPE}" = 'fg' ] && LINE_TYPE=foreground
+  [ "${LINE_TYPE}" = 'bg' ] && LINE_TYPE=background
+  [ "${LINE_TYPE}" = 'at' ] && LINE_TYPE=attribute
+  [ "${COLUMN_TYPE}" = 'fg' ] && COLUMN_TYPE=foreground
+  [ "${COLUMN_TYPE}" = 'bg' ] && COLUMN_TYPE=background
+  [ "${COLUMN_TYPE}" = 'at' ] && COLUMN_TYPE=attribute
+
+  if [ "${LINE_TYPE}" != 'foreground' ] \
+    && [ "${LINE_TYPE}" != 'background' ] \
+    && [ "${LINE_TYPE}" != 'attribute' ]; then
+    error "invalid line type '${LINE_TYPE}'"
+  fi
+
+  if [ "${COLUMN_TYPE}" != 'foreground' ] \
+    && [ "${COLUMN_TYPE}" != 'background' ] \
+    && [ "${COLUMN_TYPE}" != 'attribute' ]; then
+    error "invalid column type '${COLUMN_TYPE}'"
+  fi
+}
+
+
+init_variables
+parse_options "$@"
+validate_options
+
+print_header
+"print_lines_${LINE_TYPE}"
