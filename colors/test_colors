@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# using ANSI escape codes
+# https://gist.github.com/XVilka/8346728
 # https://en.wikipedia.org/wiki/ANSI_escape_code
 
 init_variables() {
@@ -8,11 +8,13 @@ init_variables() {
 
   LINE_TYPE='foreground'
   COLUMN_TYPE='background'
+  RGB=0
 
   # minimum text length is 12
   # so that it fits longest possible column title
   TEXT='    Abc!    '
   COLUMN_WIDTH=${#TEXT}
+  RGB_TEXT='.'
 
   # SGR parameters
   RESET=0
@@ -32,6 +34,7 @@ init_variables() {
   FOREGROUND_MAGENTA=35
   FOREGROUND_CYAN=36
   FOREGROUND_WHITE=37
+  FOREGROUND_RGB=38
   FOREGROUND_DEFAULT=39
   BACKGROUND_BLACK=40
   BACKGROUND_RED=41
@@ -41,6 +44,7 @@ init_variables() {
   BACKGROUND_MAGENTA=45
   BACKGROUND_CYAN=46
   BACKGROUND_WHITE=47
+  BACKGROUND_RGB=48
   BACKGROUND_DEFAULT=49
   FOREGROUND_BRIGHT_BLACK=90
   FOREGROUND_BRIGHT_RED=91
@@ -62,7 +66,7 @@ init_variables() {
 
 usage() {
   cat << EOF
-usage: ${COMMAND} [<options>] [<line>] [<column>]
+usage: ${COMMAND} [<options>] [ [<line>] [<column>] | rgb ]
 
 Test the display of colors and attributes
 
@@ -85,9 +89,11 @@ error() {
 } >&2
 
 print_sgr() {
+  seq='0'
   for i in "$@"; do
-    printf '\033[%sm' "$i";
+    seq="${seq};$i"
   done
+  printf '\033[%sm' "${seq}"
 }
 
 print_text() {
@@ -277,6 +283,29 @@ print_columns_bright_background() {
   print_text "${line_code}" "${BACKGROUND_BRIGHT_WHITE}"
 }
 
+print_rgb() {
+  TEXT="${RGB_TEXT}"
+
+  for i in $( seq 0 76 ); do
+    bg_r=$(( 255 - ( i * 255 / 76 ) ))
+    bg_g=$(( i * 510 / 76 ))
+    bg_b=$(( i * 255 / 76 ))
+
+    if [ "${bg_g}" -gt 255 ]; then
+      bg_g=$(( 510 - bg_g ))
+    fi
+
+    fg_r=$(( 255 - bg_r ))
+    fg_g=$(( 255 - bg_g ))
+    fg_b=$(( 255 - bg_b ))
+
+    print_text "${FOREGROUND_RGB}" 2 "${fg_r}" "${fg_g}" "${fg_b}" \
+               "${BACKGROUND_RGB}" 2 "${bg_r}" "${bg_g}" "${bg_b}"
+  done
+
+  printf '\n'
+}
+
 parse_options() {
   while [ "$#" -gt 0 ]; do
     case "$1" in
@@ -289,6 +318,11 @@ parse_options() {
         ;;
     esac
   done
+
+  if [ "$1" = 'rgb' ]; then
+    RGB=1
+    return
+  fi
 
   [ -n "$1" ] && LINE_TYPE="$1"
   [ -n "$2" ] && COLUMN_TYPE="$2"
@@ -329,5 +363,9 @@ init_variables
 parse_options "$@"
 validate_options
 
-print_header
-"print_lines_${LINE_TYPE}"
+if [ "${RGB}" = '1' ]; then
+  print_rgb
+else
+  print_header
+  "print_lines_${LINE_TYPE}"
+fi
