@@ -42,6 +42,22 @@ init_variables() {
   BACKGROUND_CYAN=46
   BACKGROUND_WHITE=47
   BACKGROUND_DEFAULT=49
+  FOREGROUND_BRIGHT_BLACK=90
+  FOREGROUND_BRIGHT_RED=91
+  FOREGROUND_BRIGHT_GREEN=92
+  FOREGROUND_BRIGHT_YELLOW=93
+  FOREGROUND_BRIGHT_BLUE=94
+  FOREGROUND_BRIGHT_MAGENTA=95
+  FOREGROUND_BRIGHT_CYAN=96
+  FOREGROUND_BRIGHT_WHITE=97
+  BACKGROUND_BRIGHT_BLACK=100
+  BACKGROUND_BRIGHT_RED=101
+  BACKGROUND_BRIGHT_GREEN=102
+  BACKGROUND_BRIGHT_YELLOW=103
+  BACKGROUND_BRIGHT_BLUE=104
+  BACKGROUND_BRIGHT_MAGENTA=105
+  BACKGROUND_BRIGHT_CYAN=106
+  BACKGROUND_BRIGHT_WHITE=107
 }
 
 usage() {
@@ -54,9 +70,11 @@ Options:
   -h,  --help      show this message only
 
 Available line and column arguments:
-- foreground / fg (default line)
-- background / bg (default column)
-- attribute  / at
+- foreground        / fg (default line)
+- background        / bg (default column)
+- attribute         / att
+- bright_foreground / brfg
+- bright_background / brbg
 EOF
 }
 
@@ -103,6 +121,17 @@ print_header() {
       printf "%-${COLUMN_WIDTH}s" 'reverse'
       printf "%-${COLUMN_WIDTH}s" 'conceal'
       printf "%-${COLUMN_WIDTH}s" 'crossed-out'
+      ;;
+    bright_foreground|bright_background)
+      printf "%-${COLUMN_WIDTH}s" 'default'
+      printf "%-${COLUMN_WIDTH}s" 'brblack'
+      printf "%-${COLUMN_WIDTH}s" 'brred'
+      printf "%-${COLUMN_WIDTH}s" 'brgreen'
+      printf "%-${COLUMN_WIDTH}s" 'bryellow'
+      printf "%-${COLUMN_WIDTH}s" 'brblue'
+      printf "%-${COLUMN_WIDTH}s" 'brmagenta'
+      printf "%-${COLUMN_WIDTH}s" 'brcyan'
+      printf "%-${COLUMN_WIDTH}s" 'brwhite'
       ;;
   esac
 
@@ -154,6 +183,30 @@ print_lines_attribute() {
   print_line 'crossed-out' "${CROSSED_OUT}"
 }
 
+print_lines_bright_foreground() {
+  print_line 'default'   "${FOREGROUND_DEFAULT}"
+  print_line 'brblack'   "${FOREGROUND_BRIGHT_BLACK}"
+  print_line 'brred'     "${FOREGROUND_BRIGHT_RED}"
+  print_line 'brgreen'   "${FOREGROUND_BRIGHT_GREEN}"
+  print_line 'bryellow'  "${FOREGROUND_BRIGHT_YELLOW}"
+  print_line 'brblue'    "${FOREGROUND_BRIGHT_BLUE}"
+  print_line 'brmagenta' "${FOREGROUND_BRIGHT_MAGENTA}"
+  print_line 'brcyan'    "${FOREGROUND_BRIGHT_CYAN}"
+  print_line 'brwhite'   "${FOREGROUND_BRIGHT_WHITE}"
+}
+
+print_lines_bright_background() {
+  print_line 'default'   "${BACKGROUND_DEFAULT}"
+  print_line 'brblack'   "${BACKGROUND_BRIGHT_BLACK}"
+  print_line 'brred'     "${BACKGROUND_BRIGHT_RED}"
+  print_line 'brgreen'   "${BACKGROUND_BRIGHT_GREEN}"
+  print_line 'bryellow'  "${BACKGROUND_BRIGHT_YELLOW}"
+  print_line 'brblue'    "${BACKGROUND_BRIGHT_BLUE}"
+  print_line 'brmagenta' "${BACKGROUND_BRIGHT_MAGENTA}"
+  print_line 'brcyan'    "${BACKGROUND_BRIGHT_CYAN}"
+  print_line 'brwhite'   "${BACKGROUND_BRIGHT_WHITE}"
+}
+
 print_columns_foreground() {
   line_code="$1"
 
@@ -196,6 +249,34 @@ print_columns_attribute() {
   print_text "${line_code}" "${CROSSED_OUT}"
 }
 
+print_columns_bright_foreground() {
+  line_code="$1"
+
+  print_text "${line_code}" "${FOREGROUND_DEFAULT}"
+  print_text "${line_code}" "${FOREGROUND_BRIGHT_BLACK}"
+  print_text "${line_code}" "${FOREGROUND_BRIGHT_RED}"
+  print_text "${line_code}" "${FOREGROUND_BRIGHT_GREEN}"
+  print_text "${line_code}" "${FOREGROUND_BRIGHT_YELLOW}"
+  print_text "${line_code}" "${FOREGROUND_BRIGHT_BLUE}"
+  print_text "${line_code}" "${FOREGROUND_BRIGHT_MAGENTA}"
+  print_text "${line_code}" "${FOREGROUND_BRIGHT_CYAN}"
+  print_text "${line_code}" "${FOREGROUND_BRIGHT_WHITE}"
+}
+
+print_columns_bright_background() {
+  line_code="$1"
+
+  print_text "${line_code}" "${BACKGROUND_DEFAULT}"
+  print_text "${line_code}" "${BACKGROUND_BRIGHT_BLACK}"
+  print_text "${line_code}" "${BACKGROUND_BRIGHT_RED}"
+  print_text "${line_code}" "${BACKGROUND_BRIGHT_GREEN}"
+  print_text "${line_code}" "${BACKGROUND_BRIGHT_YELLOW}"
+  print_text "${line_code}" "${BACKGROUND_BRIGHT_BLUE}"
+  print_text "${line_code}" "${BACKGROUND_BRIGHT_MAGENTA}"
+  print_text "${line_code}" "${BACKGROUND_BRIGHT_CYAN}"
+  print_text "${line_code}" "${BACKGROUND_BRIGHT_WHITE}"
+}
+
 parse_options() {
   while [ "$#" -gt 0 ]; do
     case "$1" in
@@ -217,20 +298,28 @@ parse_options() {
 validate_options() {
   [ "${LINE_TYPE}" = 'fg' ] && LINE_TYPE=foreground
   [ "${LINE_TYPE}" = 'bg' ] && LINE_TYPE=background
-  [ "${LINE_TYPE}" = 'at' ] && LINE_TYPE=attribute
+  [ "${LINE_TYPE}" = 'att' ] && LINE_TYPE=attribute
+  [ "${LINE_TYPE}" = 'brfg' ] && LINE_TYPE=bright_foreground
+  [ "${LINE_TYPE}" = 'brbg' ] && LINE_TYPE=bright_background
   [ "${COLUMN_TYPE}" = 'fg' ] && COLUMN_TYPE=foreground
   [ "${COLUMN_TYPE}" = 'bg' ] && COLUMN_TYPE=background
-  [ "${COLUMN_TYPE}" = 'at' ] && COLUMN_TYPE=attribute
+  [ "${COLUMN_TYPE}" = 'att' ] && COLUMN_TYPE=attribute
+  [ "${COLUMN_TYPE}" = 'brfg' ] && COLUMN_TYPE=bright_foreground
+  [ "${COLUMN_TYPE}" = 'brbg' ] && COLUMN_TYPE=bright_background
 
   if [ "${LINE_TYPE}" != 'foreground' ] \
     && [ "${LINE_TYPE}" != 'background' ] \
-    && [ "${LINE_TYPE}" != 'attribute' ]; then
+    && [ "${LINE_TYPE}" != 'attribute' ] \
+    && [ "${LINE_TYPE}" != 'bright_foreground' ] \
+    && [ "${LINE_TYPE}" != 'bright_background' ]; then
     error "invalid line type '${LINE_TYPE}'"
   fi
 
   if [ "${COLUMN_TYPE}" != 'foreground' ] \
     && [ "${COLUMN_TYPE}" != 'background' ] \
-    && [ "${COLUMN_TYPE}" != 'attribute' ]; then
+    && [ "${COLUMN_TYPE}" != 'attribute' ] \
+    && [ "${COLUMN_TYPE}" != 'bright_foreground' ] \
+    && [ "${COLUMN_TYPE}" != 'bright_background' ]; then
     error "invalid column type '${COLUMN_TYPE}'"
   fi
 }
