@@ -10,8 +10,8 @@ export READNULLCMD=less
 # seems to break even more stuff around...
 export LESS='--ignore-case --line-numbers --chop-long-lines --RAW-CONTROL-CHARS'
 
-# decrease key timeout to 50ms
-export KEYTIMEOUT=5
+# decrease key timeout to 100ms
+export KEYTIMEOUT=10
 
 # only alphanumeric characters are considered part of a word
 # no other character is added
