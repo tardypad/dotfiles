@@ -63,8 +63,8 @@
     rbc = rebase --continue
     rbi = "! f() { git rebase -i $( git argument $1 ); }; f"
     recent = "! \
-        git for-each-ref --count=5 --sort=-committerdate \
-        --format '%(HEAD) %(refname:short) | %(committerdate:relative) | %(subject)' refs/heads \
+        git for-each-ref --count=5 --sort=-committerdate --color \
+        --format '%(HEAD) %(color:{{{base0C/number}}})%(refname:short)%(color:reset) | %(color:{{{base0D/number}}})%(committerdate:relative)%(color:reset) | %(subject)' refs/heads \
         | column --table --separator '|'"
     reword = commit --amend
     reset-upstream = reset --hard @{upstream}
@@ -76,8 +76,8 @@
     sh0 = "! f() { git show --unified=0 $( git argument $1 ); }; f"
     st = status --short --branch
     tag-list = "! \
-        git tag --sort=taggerdate \
-        --format '%(refname:short) | %(taggerdate:iso) | %(taggeremail) | %(subject)' \
+        git tag --sort=taggerdate --color \
+        --format '%(color:{{{base0A/number}}})%(refname:short)%(color:reset) | %(taggerdate:iso) | %(taggeremail) | %(subject)' \
         | column --table --separator '|'"
     wip = "! \
         git add --all \

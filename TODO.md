@@ -24,7 +24,6 @@
   - make some own vim config as plugin
   - usage of vim autoload for some functions
   - improve/add completion of git aliases
-  - add colors to some git aliases output
   - improve all env scripts usage:
     * allow to receive query/POST body data from stdin
     * editing of such data in vim directly
