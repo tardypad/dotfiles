@@ -9,9 +9,6 @@
 # Cleaning
 
 # Bugs
-  - in TTY console, background colors are wrong for number superior to 7  
-    the background seem to repeat the 8 first colors  
-    for example, background 12 is same as background 4
 
 # Testing
 
@@ -32,6 +29,9 @@
 - add specific colors name such as {{{status_bar_bg/hex}}}, {{{error/hex}}},...  
   to have easier colors update keeping consistency  
   check [base16](http://chriskempson.com/projects/base16/) colors meaning
+- qutebrowser disable javascript globally  
+  enable it only on some websites using URL patterns  
+  add binding to toggle it on current page
 
 # New Features
   - backup of notes
