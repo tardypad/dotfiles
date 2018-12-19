@@ -10,12 +10,13 @@ init_variables() {
   BIT_TYPE=4
   LINE_TYPE='foreground'
   COLUMN_TYPE='background'
+  DISPLAY_TYPE='background'
 
   # minimum 4 bit text length is 12
   # so that it fits longest possible column title
   TEXT_4BIT='    Abc!    '
   TEXT_8BIT=''
-  TEXT_24BIT='.'
+  TEXT_24BIT='#'
 
   # SGR parameters
   RESET=0
@@ -70,7 +71,7 @@ init_variables() {
 
 usage() {
   cat << EOF
-usage: ${COMMAND} [<options>] [ 4 [<line>] [<column>] | 8 | 24 ]
+usage: ${COMMAND} [<options>] [ 4 [<line>] [<column>] | 8 [<display>] | 24 [<display>] ]
 
 Test the display of colors and attributes
 
@@ -87,6 +88,10 @@ Available line and column arguments for 4 bit test:
 - attribute         / att
 - bright_foreground / brfg
 - bright_background / brbg
+
+Available display arguments for 8 and 24 bit tests:
+- foreground / fg
+- background / bg (default)
 EOF
 }
 
@@ -298,21 +303,23 @@ print_4bit_columns_bright_background() {
 }
 
 print_24bit() {
-  for i in $( seq 0 76 ); do
-    bg_r=$(( 255 - ( i * 255 / 76 ) ))
-    bg_g=$(( i * 510 / 76 ))
-    bg_b=$(( i * 255 / 76 ))
+  if [ "${DISPLAY_TYPE}" = 'foreground' ]; then
+    rgb_code="${FOREGROUND_RGB}"
+  else
+    rgb_code="${BACKGROUND_RGB}"
+    TEXT_24BIT=' '
+  fi
 
-    if [ "${bg_g}" -gt 255 ]; then
-      bg_g=$(( 510 - bg_g ))
+  for i in $( seq 0 76 ); do
+    r=$(( 255 - ( i * 255 / 76 ) ))
+    g=$(( i * 510 / 76 ))
+    b=$(( i * 255 / 76 ))
+
+    if [ "${g}" -gt 255 ]; then
+      g=$(( 510 - g ))
     fi
 
-    fg_r=$(( 255 - bg_r ))
-    fg_g=$(( 255 - bg_g ))
-    fg_b=$(( 255 - bg_b ))
-
-    print_24bit_text "${FOREGROUND_RGB}" "${RGB_24BIT}" "${fg_r}" "${fg_g}" "${fg_b}" \
-                     "${BACKGROUND_RGB}" "${RGB_24BIT}" "${bg_r}" "${bg_g}" "${bg_b}"
+    print_24bit_text "${rgb_code}" "${RGB_24BIT}" "${r}" "${g}" "${b}"
   done
 
   printf '\n'
@@ -322,9 +329,15 @@ print_8bit_block() {
   start="$1"
   end="$2"
 
+  if [ "${DISPLAY_TYPE}" = 'foreground' ]; then
+    rgb_code="${FOREGROUND_RGB}"
+  else
+    rgb_code="${BACKGROUND_RGB}"
+  fi
+
   for i in $(seq "${start}" "${end}"); do
     TEXT_8BIT=$( printf ' %3s' "$i" )
-    print_8bit_text "${BACKGROUND_RGB}" "${RGB_8BIT}" "$i"
+    print_8bit_text "${rgb_code}" "${RGB_8BIT}" "$i"
   done
 }
 
@@ -382,8 +395,13 @@ parse_options() {
   done
 
   [ -n "$1" ] && BIT_TYPE="$1"
-  [ -n "$2" ] && LINE_TYPE="$2"
-  [ -n "$3" ] && COLUMN_TYPE="$3"
+
+  if [ "${BIT_TYPE}" = '4' ]; then
+    [ -n "$2" ] && LINE_TYPE="$2"
+    [ -n "$3" ] && COLUMN_TYPE="$3"
+  else
+    [ -n "$2" ] && DISPLAY_TYPE="$2"
+  fi
 }
 
 
@@ -420,6 +438,15 @@ validate_options() {
       && [ "${COLUMN_TYPE}" != 'bright_foreground' ] \
       && [ "${COLUMN_TYPE}" != 'bright_background' ]; then
       error "invalid column type '${COLUMN_TYPE}'"
+    fi
+
+  else
+    [ "${DISPLAY_TYPE}" = 'fg' ] && DISPLAY_TYPE=foreground
+    [ "${DISPLAY_TYPE}" = 'bg' ] && DISPLAY_TYPE=background
+
+    if [ "${DISPLAY_TYPE}" != 'foreground' ] \
+      && [ "${DISPLAY_TYPE}" != 'background' ]; then
+      error "invalid display type '${DISPLAY_TYPE}'"
     fi
   fi
 }
