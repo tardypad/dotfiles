@@ -37,41 +37,41 @@ s|{{{base0F/name}}}|{{{number_{{{base0F/number}}}/name}}}|g
 
 # fixed intermediate conversion
 # for foreground color code via 16 color number
-s|{{{base00/ansi_fg}}}|{{{number_{{{base00/number}}}/ansi_fg}}}|g
-s|{{{base01/ansi_fg}}}|{{{number_{{{base01/number}}}/ansi_fg}}}|g
-s|{{{base02/ansi_fg}}}|{{{number_{{{base02/number}}}/ansi_fg}}}|g
-s|{{{base03/ansi_fg}}}|{{{number_{{{base03/number}}}/ansi_fg}}}|g
-s|{{{base04/ansi_fg}}}|{{{number_{{{base04/number}}}/ansi_fg}}}|g
-s|{{{base05/ansi_fg}}}|{{{number_{{{base05/number}}}/ansi_fg}}}|g
-s|{{{base06/ansi_fg}}}|{{{number_{{{base06/number}}}/ansi_fg}}}|g
-s|{{{base07/ansi_fg}}}|{{{number_{{{base07/number}}}/ansi_fg}}}|g
-s|{{{base08/ansi_fg}}}|{{{number_{{{base08/number}}}/ansi_fg}}}|g
-s|{{{base09/ansi_fg}}}|{{{number_{{{base09/number}}}/ansi_fg}}}|g
-s|{{{base0A/ansi_fg}}}|{{{number_{{{base0A/number}}}/ansi_fg}}}|g
-s|{{{base0B/ansi_fg}}}|{{{number_{{{base0B/number}}}/ansi_fg}}}|g
-s|{{{base0C/ansi_fg}}}|{{{number_{{{base0C/number}}}/ansi_fg}}}|g
-s|{{{base0D/ansi_fg}}}|{{{number_{{{base0D/number}}}/ansi_fg}}}|g
-s|{{{base0E/ansi_fg}}}|{{{number_{{{base0E/number}}}/ansi_fg}}}|g
-s|{{{base0F/ansi_fg}}}|{{{number_{{{base0F/number}}}/ansi_fg}}}|g
+s|{{{base00/fg}}}|{{{number_{{{base00/number}}}/fg}}}|g
+s|{{{base01/fg}}}|{{{number_{{{base01/number}}}/fg}}}|g
+s|{{{base02/fg}}}|{{{number_{{{base02/number}}}/fg}}}|g
+s|{{{base03/fg}}}|{{{number_{{{base03/number}}}/fg}}}|g
+s|{{{base04/fg}}}|{{{number_{{{base04/number}}}/fg}}}|g
+s|{{{base05/fg}}}|{{{number_{{{base05/number}}}/fg}}}|g
+s|{{{base06/fg}}}|{{{number_{{{base06/number}}}/fg}}}|g
+s|{{{base07/fg}}}|{{{number_{{{base07/number}}}/fg}}}|g
+s|{{{base08/fg}}}|{{{number_{{{base08/number}}}/fg}}}|g
+s|{{{base09/fg}}}|{{{number_{{{base09/number}}}/fg}}}|g
+s|{{{base0A/fg}}}|{{{number_{{{base0A/number}}}/fg}}}|g
+s|{{{base0B/fg}}}|{{{number_{{{base0B/number}}}/fg}}}|g
+s|{{{base0C/fg}}}|{{{number_{{{base0C/number}}}/fg}}}|g
+s|{{{base0D/fg}}}|{{{number_{{{base0D/number}}}/fg}}}|g
+s|{{{base0E/fg}}}|{{{number_{{{base0E/number}}}/fg}}}|g
+s|{{{base0F/fg}}}|{{{number_{{{base0F/number}}}/fg}}}|g
 
 # fixed intermediate conversion
 # for background color code via 16 color number
-s|{{{base00/ansi_bg}}}|{{{number_{{{base00/number}}}/ansi_bg}}}|g
-s|{{{base01/ansi_bg}}}|{{{number_{{{base01/number}}}/ansi_bg}}}|g
-s|{{{base02/ansi_bg}}}|{{{number_{{{base02/number}}}/ansi_bg}}}|g
-s|{{{base03/ansi_bg}}}|{{{number_{{{base03/number}}}/ansi_bg}}}|g
-s|{{{base04/ansi_bg}}}|{{{number_{{{base04/number}}}/ansi_bg}}}|g
-s|{{{base05/ansi_bg}}}|{{{number_{{{base05/number}}}/ansi_bg}}}|g
-s|{{{base06/ansi_bg}}}|{{{number_{{{base06/number}}}/ansi_bg}}}|g
-s|{{{base07/ansi_bg}}}|{{{number_{{{base07/number}}}/ansi_bg}}}|g
-s|{{{base08/ansi_bg}}}|{{{number_{{{base08/number}}}/ansi_bg}}}|g
-s|{{{base09/ansi_bg}}}|{{{number_{{{base09/number}}}/ansi_bg}}}|g
-s|{{{base0A/ansi_bg}}}|{{{number_{{{base0A/number}}}/ansi_bg}}}|g
-s|{{{base0B/ansi_bg}}}|{{{number_{{{base0B/number}}}/ansi_bg}}}|g
-s|{{{base0C/ansi_bg}}}|{{{number_{{{base0C/number}}}/ansi_bg}}}|g
-s|{{{base0D/ansi_bg}}}|{{{number_{{{base0D/number}}}/ansi_bg}}}|g
-s|{{{base0E/ansi_bg}}}|{{{number_{{{base0E/number}}}/ansi_bg}}}|g
-s|{{{base0F/ansi_bg}}}|{{{number_{{{base0F/number}}}/ansi_bg}}}|g
+s|{{{base00/bg}}}|{{{number_{{{base00/number}}}/bg}}}|g
+s|{{{base01/bg}}}|{{{number_{{{base01/number}}}/bg}}}|g
+s|{{{base02/bg}}}|{{{number_{{{base02/number}}}/bg}}}|g
+s|{{{base03/bg}}}|{{{number_{{{base03/number}}}/bg}}}|g
+s|{{{base04/bg}}}|{{{number_{{{base04/number}}}/bg}}}|g
+s|{{{base05/bg}}}|{{{number_{{{base05/number}}}/bg}}}|g
+s|{{{base06/bg}}}|{{{number_{{{base06/number}}}/bg}}}|g
+s|{{{base07/bg}}}|{{{number_{{{base07/number}}}/bg}}}|g
+s|{{{base08/bg}}}|{{{number_{{{base08/number}}}/bg}}}|g
+s|{{{base09/bg}}}|{{{number_{{{base09/number}}}/bg}}}|g
+s|{{{base0A/bg}}}|{{{number_{{{base0A/number}}}/bg}}}|g
+s|{{{base0B/bg}}}|{{{number_{{{base0B/number}}}/bg}}}|g
+s|{{{base0C/bg}}}|{{{number_{{{base0C/number}}}/bg}}}|g
+s|{{{base0D/bg}}}|{{{number_{{{base0D/number}}}/bg}}}|g
+s|{{{base0E/bg}}}|{{{number_{{{base0E/number}}}/bg}}}|g
+s|{{{base0F/bg}}}|{{{number_{{{base0F/number}}}/bg}}}|g
 
 # NUMBER
 s|{{{base00/number}}}|8|g
@@ -112,38 +112,38 @@ s|{{{number_15/name}}}|brwhite|g
 
 # fixed ANSI mapping
 # from 16 color number to foreground color code
-s|{{{number_0/ansi_fg}}}|30|g
-s|{{{number_1/ansi_fg}}}|31|g
-s|{{{number_2/ansi_fg}}}|32|g
-s|{{{number_3/ansi_fg}}}|33|g
-s|{{{number_4/ansi_fg}}}|34|g
-s|{{{number_5/ansi_fg}}}|35|g
-s|{{{number_6/ansi_fg}}}|36|g
-s|{{{number_7/ansi_fg}}}|37|g
-s|{{{number_8/ansi_fg}}}|90|g
-s|{{{number_9/ansi_fg}}}|91|g
-s|{{{number_10/ansi_fg}}}|92|g
-s|{{{number_11/ansi_fg}}}|93|g
-s|{{{number_12/ansi_fg}}}|94|g
-s|{{{number_13/ansi_fg}}}|95|g
-s|{{{number_14/ansi_fg}}}|96|g
-s|{{{number_15/ansi_fg}}}|97|g
+s|{{{number_0/fg}}}|30|g
+s|{{{number_1/fg}}}|31|g
+s|{{{number_2/fg}}}|32|g
+s|{{{number_3/fg}}}|33|g
+s|{{{number_4/fg}}}|34|g
+s|{{{number_5/fg}}}|35|g
+s|{{{number_6/fg}}}|36|g
+s|{{{number_7/fg}}}|37|g
+s|{{{number_8/fg}}}|90|g
+s|{{{number_9/fg}}}|91|g
+s|{{{number_10/fg}}}|92|g
+s|{{{number_11/fg}}}|93|g
+s|{{{number_12/fg}}}|94|g
+s|{{{number_13/fg}}}|95|g
+s|{{{number_14/fg}}}|96|g
+s|{{{number_15/fg}}}|97|g
 
 # fixed ANSI mapping
 # from 16 color number to background color code
-s|{{{number_0/ansi_bg}}}|40|g
-s|{{{number_1/ansi_bg}}}|41|g
-s|{{{number_2/ansi_bg}}}|42|g
-s|{{{number_3/ansi_bg}}}|43|g
-s|{{{number_4/ansi_bg}}}|44|g
-s|{{{number_5/ansi_bg}}}|45|g
-s|{{{number_6/ansi_bg}}}|46|g
-s|{{{number_7/ansi_bg}}}|47|g
-s|{{{number_8/ansi_bg}}}|100|g
-s|{{{number_9/ansi_bg}}}|101|g
-s|{{{number_10/ansi_bg}}}|102|g
-s|{{{number_11/ansi_bg}}}|103|g
-s|{{{number_12/ansi_bg}}}|104|g
-s|{{{number_13/ansi_bg}}}|105|g
-s|{{{number_14/ansi_bg}}}|106|g
-s|{{{number_15/ansi_bg}}}|107|g
+s|{{{number_0/bg}}}|40|g
+s|{{{number_1/bg}}}|41|g
+s|{{{number_2/bg}}}|42|g
+s|{{{number_3/bg}}}|43|g
+s|{{{number_4/bg}}}|44|g
+s|{{{number_5/bg}}}|45|g
+s|{{{number_6/bg}}}|46|g
+s|{{{number_7/bg}}}|47|g
+s|{{{number_8/bg}}}|100|g
+s|{{{number_9/bg}}}|101|g
+s|{{{number_10/bg}}}|102|g
+s|{{{number_11/bg}}}|103|g
+s|{{{number_12/bg}}}|104|g
+s|{{{number_13/bg}}}|105|g
+s|{{{number_14/bg}}}|106|g
+s|{{{number_15/bg}}}|107|g
