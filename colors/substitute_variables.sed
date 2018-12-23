@@ -23,60 +23,15 @@ s|{{{base0F/hex}}}|b48ead|g
 
 # fixed intermediate conversion
 # for color name via 16 color number
-s|{{{base00/name}}}|{{{number_{{{base00/number}}}/name}}}|g
-s|{{{base01/name}}}|{{{number_{{{base01/number}}}/name}}}|g
-s|{{{base02/name}}}|{{{number_{{{base02/number}}}/name}}}|g
-s|{{{base03/name}}}|{{{number_{{{base03/number}}}/name}}}|g
-s|{{{base04/name}}}|{{{number_{{{base04/number}}}/name}}}|g
-s|{{{base05/name}}}|{{{number_{{{base05/number}}}/name}}}|g
-s|{{{base06/name}}}|{{{number_{{{base06/number}}}/name}}}|g
-s|{{{base07/name}}}|{{{number_{{{base07/number}}}/name}}}|g
-s|{{{base08/name}}}|{{{number_{{{base08/number}}}/name}}}|g
-s|{{{base09/name}}}|{{{number_{{{base09/number}}}/name}}}|g
-s|{{{base0A/name}}}|{{{number_{{{base0A/number}}}/name}}}|g
-s|{{{base0B/name}}}|{{{number_{{{base0B/number}}}/name}}}|g
-s|{{{base0C/name}}}|{{{number_{{{base0C/number}}}/name}}}|g
-s|{{{base0D/name}}}|{{{number_{{{base0D/number}}}/name}}}|g
-s|{{{base0E/name}}}|{{{number_{{{base0E/number}}}/name}}}|g
-s|{{{base0F/name}}}|{{{number_{{{base0F/number}}}/name}}}|g
+s|{{{base0\([[:alnum:]]\)/name}}}|{{{number_{{{base0\1/number}}}/name}}}|g
 
 # fixed intermediate conversion
 # for foreground color code via 16 color number
-s|{{{base00/fg}}}|{{{number_{{{base00/number}}}/fg}}}|g
-s|{{{base01/fg}}}|{{{number_{{{base01/number}}}/fg}}}|g
-s|{{{base02/fg}}}|{{{number_{{{base02/number}}}/fg}}}|g
-s|{{{base03/fg}}}|{{{number_{{{base03/number}}}/fg}}}|g
-s|{{{base04/fg}}}|{{{number_{{{base04/number}}}/fg}}}|g
-s|{{{base05/fg}}}|{{{number_{{{base05/number}}}/fg}}}|g
-s|{{{base06/fg}}}|{{{number_{{{base06/number}}}/fg}}}|g
-s|{{{base07/fg}}}|{{{number_{{{base07/number}}}/fg}}}|g
-s|{{{base08/fg}}}|{{{number_{{{base08/number}}}/fg}}}|g
-s|{{{base09/fg}}}|{{{number_{{{base09/number}}}/fg}}}|g
-s|{{{base0A/fg}}}|{{{number_{{{base0A/number}}}/fg}}}|g
-s|{{{base0B/fg}}}|{{{number_{{{base0B/number}}}/fg}}}|g
-s|{{{base0C/fg}}}|{{{number_{{{base0C/number}}}/fg}}}|g
-s|{{{base0D/fg}}}|{{{number_{{{base0D/number}}}/fg}}}|g
-s|{{{base0E/fg}}}|{{{number_{{{base0E/number}}}/fg}}}|g
-s|{{{base0F/fg}}}|{{{number_{{{base0F/number}}}/fg}}}|g
+s|{{{base0\([[:alnum:]]\)/fg}}}|{{{number_{{{base0\1/number}}}/fg}}}|g
 
 # fixed intermediate conversion
 # for background color code via 16 color number
-s|{{{base00/bg}}}|{{{number_{{{base00/number}}}/bg}}}|g
-s|{{{base01/bg}}}|{{{number_{{{base01/number}}}/bg}}}|g
-s|{{{base02/bg}}}|{{{number_{{{base02/number}}}/bg}}}|g
-s|{{{base03/bg}}}|{{{number_{{{base03/number}}}/bg}}}|g
-s|{{{base04/bg}}}|{{{number_{{{base04/number}}}/bg}}}|g
-s|{{{base05/bg}}}|{{{number_{{{base05/number}}}/bg}}}|g
-s|{{{base06/bg}}}|{{{number_{{{base06/number}}}/bg}}}|g
-s|{{{base07/bg}}}|{{{number_{{{base07/number}}}/bg}}}|g
-s|{{{base08/bg}}}|{{{number_{{{base08/number}}}/bg}}}|g
-s|{{{base09/bg}}}|{{{number_{{{base09/number}}}/bg}}}|g
-s|{{{base0A/bg}}}|{{{number_{{{base0A/number}}}/bg}}}|g
-s|{{{base0B/bg}}}|{{{number_{{{base0B/number}}}/bg}}}|g
-s|{{{base0C/bg}}}|{{{number_{{{base0C/number}}}/bg}}}|g
-s|{{{base0D/bg}}}|{{{number_{{{base0D/number}}}/bg}}}|g
-s|{{{base0E/bg}}}|{{{number_{{{base0E/number}}}/bg}}}|g
-s|{{{base0F/bg}}}|{{{number_{{{base0F/number}}}/bg}}}|g
+s|{{{base0\([[:alnum:]]\)/bg}}}|{{{number_{{{base0\1/number}}}/bg}}}|g
 
 # NUMBER
 s|{{{base00/number}}}|8|g
