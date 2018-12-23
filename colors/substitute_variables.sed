@@ -1,20 +1,20 @@
 # HEX
-s|{{{base00/hex}}}|002b36|g
-s|{{{base01/hex}}}|073642|g
-s|{{{base02/hex}}}|586e75|g
-s|{{{base03/hex}}}|657b83|g
-s|{{{base04/hex}}}|839496|g
-s|{{{base05/hex}}}|93a1a1|g
-s|{{{base06/hex}}}|eee8d5|g
-s|{{{base07/hex}}}|fdf6e3|g
-s|{{{base08/hex}}}|dc322f|g
-s|{{{base09/hex}}}|cb4b16|g
-s|{{{base0A/hex}}}|b58900|g
-s|{{{base0B/hex}}}|859900|g
-s|{{{base0C/hex}}}|2aa198|g
-s|{{{base0D/hex}}}|268bd2|g
-s|{{{base0E/hex}}}|6c71c4|g
-s|{{{base0F/hex}}}|d33682|g
+s|{{{base00/hex}}}|2e3440|g
+s|{{{base01/hex}}}|3b4252|g
+s|{{{base02/hex}}}|434c5e|g
+s|{{{base03/hex}}}|4c566a|g
+s|{{{base04/hex}}}|d8dee9|g
+s|{{{base05/hex}}}|81a1c1|g
+s|{{{base06/hex}}}|e5e9f0|g
+s|{{{base07/hex}}}|eceff4|g
+s|{{{base08/hex}}}|bf616a|g
+s|{{{base09/hex}}}|d08770|g
+s|{{{base0A/hex}}}|ebcb8b|g
+s|{{{base0B/hex}}}|a3be8c|g
+s|{{{base0C/hex}}}|8fbcbb|g
+s|{{{base0D/hex}}}|88c0d0|g
+s|{{{base0E/hex}}}|5e81ac|g
+s|{{{base0F/hex}}}|b48ead|g
 
 # fixed intermediate conversion
 # for color name via 16 color number
