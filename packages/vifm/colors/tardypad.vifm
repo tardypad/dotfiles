@@ -1,21 +1,21 @@
 highlight clear
 
-highlight TopLine    cterm=none  ctermfg={{{base08/number}}}  ctermbg=none
-highlight TopLineSel cterm=bold  ctermfg={{{base08/number}}}  ctermbg=none
-highlight StatusLine cterm=none  ctermfg={{{base00/number}}}  ctermbg={{{base03/number}}}
-highlight Border     cterm=none  ctermfg={{{base01/number}}}  ctermbg=none
-highlight Selected   cterm=none  ctermfg={{{base0F/number}}}  ctermbg=default
-highlight CurrLine   cterm=none  ctermfg={{{base00/number}}}  ctermbg={{{base0A/number}}}
-highlight WildMenu   cterm=none  ctermfg={{{base00/number}}}  ctermbg={{{base04/number}}}
-highlight CmdLine    cterm=none  ctermfg={{{base04/number}}}  ctermbg=none
-highlight ErrorMsg   cterm=none  ctermfg={{{base08/number}}}  ctermbg=none
+highlight TopLine    cterm=none  ctermfg={{{base08/number}}}        ctermbg=none
+highlight TopLineSel cterm=bold  ctermfg={{{base08/number}}}        ctermbg=none
+highlight StatusLine cterm=none  ctermfg={{{base00/number}}}        ctermbg={{{base03/number}}}
+highlight Border     cterm=none  ctermfg={{{base01/number}}}        ctermbg=none
+highlight Selected   cterm=none  ctermfg={{{base0F/number}}}        ctermbg=default
+highlight CurrLine   cterm=none  ctermfg={{{base00/number}}}        ctermbg={{{base0A/number}}}
+highlight WildMenu   cterm=none  ctermfg={{{base00/number}}}        ctermbg={{{base04/number}}}
+highlight CmdLine    cterm=none  ctermfg={{{base04/number}}}        ctermbg=none
+highlight ErrorMsg   cterm=none  ctermfg={{{base16/error/number}}}  ctermbg=none
 
 
 " following is generated with
 " vifm-convert-dircolors ~/.dircolors
 
 " generic file types
-highlight BrokenLink cterm=none ctermfg={{{base06/number}}} ctermbg={{{base08/number}}}
+highlight BrokenLink cterm=none ctermfg={{{base06/number}}} ctermbg={{{base16/error/number}}}
 highlight Device cterm=none ctermfg={{{base06/number}}} ctermbg={{{base0D/number}}}
 highlight Directory cterm=none ctermfg={{{base0D/number}}} ctermbg=default
 highlight Executable cterm=bold ctermfg={{{base08/number}}} ctermbg=default

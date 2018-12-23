@@ -40,7 +40,8 @@ colors = {
     'base0C' : '#{{{base0C/hex}}}',
     'base0D' : '#{{{base0D/hex}}}',
     'base0E' : '#{{{base0E/hex}}}',
-    'base0F' : '#{{{base0F/hex}}}'
+    'base0F' : '#{{{base0F/hex}}}',
+    'error'  : '#{{{base16/error/hex}}}'
 }
 
 c.colors.completion.category.bg                 = colors['base01']
@@ -58,7 +59,7 @@ c.colors.completion.odd.bg                      = colors['base03']
 c.colors.completion.scrollbar.bg                = colors['base03']
 c.colors.completion.scrollbar.fg                = colors['base06']
 c.colors.downloads.bar.bg                       = colors['base00']
-c.colors.downloads.error.bg                     = colors['base08']
+c.colors.downloads.error.bg                     = colors['error']
 c.colors.downloads.error.fg                     = colors['base06']
 c.colors.downloads.start.bg                     = colors['base0D']
 c.colors.downloads.start.fg                     = colors['base06']
@@ -72,8 +73,8 @@ c.colors.hints.match.fg                         = colors['base06']
 c.colors.keyhint.bg                             = colors['base03']
 c.colors.keyhint.fg                             = colors['base06']
 c.colors.keyhint.suffix.fg                      = colors['base00']
-c.colors.messages.error.bg                      = colors['base08']
-c.colors.messages.error.border                  = colors['base08']
+c.colors.messages.error.bg                      = colors['error']
+c.colors.messages.error.border                  = colors['error']
 c.colors.messages.error.fg                      = colors['base06']
 c.colors.messages.info.bg                       = colors['base0D']
 c.colors.messages.info.border                   = colors['base0D']
@@ -102,7 +103,7 @@ c.colors.statusbar.passthrough.fg               = colors['base06']
 c.colors.statusbar.private.bg                   = colors['base0E']
 c.colors.statusbar.private.fg                   = colors['base06']
 c.colors.statusbar.progress.bg                  = colors['base0C']
-c.colors.statusbar.url.error.fg                 = colors['base08']
+c.colors.statusbar.url.error.fg                 = colors['error']
 c.colors.statusbar.url.fg                       = colors['base06']
 c.colors.statusbar.url.hover.fg                 = colors['base0C']
 c.colors.statusbar.url.success.http.fg          = colors['base06']
@@ -111,7 +112,7 @@ c.colors.statusbar.url.warn.fg                  = colors['base09']
 c.colors.tabs.bar.bg                            = colors['base00']
 c.colors.tabs.even.bg                           = colors['base00']
 c.colors.tabs.even.fg                           = colors['base04']
-c.colors.tabs.indicator.error                   = colors['base08']
+c.colors.tabs.indicator.error                   = colors['error']
 c.colors.tabs.indicator.start                   = colors['base0C']
 c.colors.tabs.indicator.stop                    = colors['base0C']
 c.colors.tabs.indicator.system                  = "none"

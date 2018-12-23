@@ -1,33 +1,34 @@
 # colors definition
-set my_base00 = color{{{base00/number}}}
-set my_base01 = color{{{base01/number}}}
-set my_base02 = color{{{base02/number}}}
-set my_base03 = color{{{base03/number}}}
-set my_base04 = color{{{base04/number}}}
-set my_base05 = color{{{base05/number}}}
-set my_base06 = color{{{base06/number}}}
-set my_base07 = color{{{base07/number}}}
-set my_base08 = color{{{base08/number}}}
-set my_base09 = color{{{base09/number}}}
-set my_base0A = color{{{base0A/number}}}
-set my_base0B = color{{{base0B/number}}}
-set my_base0D = color{{{base0D/number}}}
-set my_base0C = color{{{base0C/number}}}
-set my_base0E = color{{{base0E/number}}}
-set my_base0F = color{{{base0F/number}}}
+set my_base00       = color{{{base00/number}}}
+set my_base01       = color{{{base01/number}}}
+set my_base02       = color{{{base02/number}}}
+set my_base03       = color{{{base03/number}}}
+set my_base04       = color{{{base04/number}}}
+set my_base05       = color{{{base05/number}}}
+set my_base06       = color{{{base06/number}}}
+set my_base07       = color{{{base07/number}}}
+set my_base08       = color{{{base08/number}}}
+set my_base09       = color{{{base09/number}}}
+set my_base0A       = color{{{base0A/number}}}
+set my_base0B       = color{{{base0B/number}}}
+set my_base0D       = color{{{base0D/number}}}
+set my_base0C       = color{{{base0C/number}}}
+set my_base0E       = color{{{base0E/number}}}
+set my_base0F       = color{{{base0F/number}}}
+set my_base16_error = color{{{base16/error/number}}}
 
 # general colors
-color error         $my_base08      default          # error messages
-color tilde         $my_base01      default          # ~ in pager blank lines
-color message       $my_base0C      default          # informational messages
-color markers       $my_base06      default          # + in pager wrapped lines
-color attachment    $my_base02      default          # attachment in pager
-color search        $my_base01      $my_base0E       # highlight search word in pager
-color indicator     $my_base00      $my_base0A       # highlight current item in menus
-color tree          $my_base03      default          # thread tree symbol
-color signature     $my_base02      default
-color bold          $my_base01      default
-color underline     $my_base01      default
+color error         $my_base16_error    default          # error messages
+color tilde         $my_base01          default          # ~ in pager blank lines
+color message       $my_base0C          default          # informational messages
+color markers       $my_base06          default          # + in pager wrapped lines
+color attachment    $my_base02          default          # attachment in pager
+color search        $my_base01          $my_base0E       # highlight search word in pager
+color indicator     $my_base00          $my_base0A       # highlight current item in menus
+color tree          $my_base03          default          # thread tree symbol
+color signature     $my_base02          default
+color bold          $my_base01          default
+color underline     $my_base01          default
 
 # sidebar
 color sidebar_divider     $my_base03    default      # separator

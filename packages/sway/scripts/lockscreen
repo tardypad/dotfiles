@@ -14,7 +14,7 @@ swaylock \
   --keyhlcolor {{{base04/hex}}}ff \
   --ringcolor {{{base01/hex}}}ff \
   --ringvercolor {{{base0A/hex}}}ff \
-  --ringwrongcolor {{{base08/hex}}}ff \
+  --ringwrongcolor {{{base16/error/hex}}}ff \
   --linecolor 00000000 \
   --separatorcolor 00000000 \
   --textcolor 00000000

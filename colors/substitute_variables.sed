@@ -1,3 +1,8 @@
+# intermediate conversion
+# for aliases via base16 number
+s|{{{base16/error/\([[:alpha:]]\+\)}}}|{{{base08/\1}}}|g
+s|{{{base16/danger/\([[:alpha:]]\+\)}}}|{{{base08/\1}}}|g
+
 # HEX
 s|{{{base00/hex}}}|2e3440|g
 s|{{{base01/hex}}}|3b4252|g
