@@ -3,21 +3,19 @@ if [[ $(tty) = /dev/tty1 ]]; then
   # and stop to have time to read it and not overlook it
   other_logins=$( last-others )
   if [[ $? -eq 0 ]]; then
-    cat << EOF
-
-There were other users login since your last one:
-${other_logins}
-
-Press any key to continue
-EOF
-    read -s -k 1
+    echo
+    echo 'There were other users login since your last one:'
+    echo "${other_logins}"
   fi
   unset other_logins
 
-  # display small fortune with waiting time
-  # can always be stopped with Ctrl-C in case we need faster start
+  # display any short fortune with cookie name
   echo
-  fortune -acws -n 300
+  fortune -acs -n 300
+  echo
+
+  echo 'Press any key to continue'
+  read -s -k 1
 
   # Automatically start sway after login on tty 1
   if [[ -z "${DISPLAY}" ]]; then
