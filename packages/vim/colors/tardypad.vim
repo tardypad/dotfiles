@@ -34,6 +34,7 @@ let s:base0D_gui            = "#{{{base0D/hex}}}"
 let s:base0E_gui            = "#{{{base0E/hex}}}"
 let s:base0F_gui            = "#{{{base0F/hex}}}"
 let s:base16_error_gui      = "#{{{base16/error/hex}}}"
+let s:base16_warning_gui    = "#{{{base16/warning/hex}}}"
 let s:base16_background_gui = "#{{{base16/background/hex}}}"
 let s:base16_foreground_gui = "#{{{base16/foreground/hex}}}"
 
@@ -55,6 +56,7 @@ let s:base0D_term            = "{{{base0D/number}}}"
 let s:base0E_term            = "{{{base0E/number}}}"
 let s:base0F_term            = "{{{base0F/number}}}"
 let s:base16_error_term      = "{{{base16/error/number}}}"
+let s:base16_warning_term    = "{{{base16/warning/number}}}"
 let s:base16_background_term = "{{{base16/background/number}}}"
 let s:base16_foreground_term = "{{{base16/foreground/number}}}"
 
@@ -125,11 +127,11 @@ call s:highlight("SpellLocal",   "base0A", "",       "underline")
 call s:highlight("SpellRare",    "base0C", "",       "underline")
 
 " prompt
-call s:highlight("ErrorMsg",     "base07", "base16_error", "")
-call s:highlight("ModeMsg",      "base0D", "",             "")
-call s:highlight("MoreMsg",      "base0D", "",             "")
-call s:highlight("Question",     "base0C", "",             "bold")
-call s:highlight("WarningMsg",   "base09", "",             "bold")
+call s:highlight("ErrorMsg",     "base07",         "base16_error", "")
+call s:highlight("ModeMsg",      "base0D",         "",             "")
+call s:highlight("MoreMsg",      "base0D",         "",             "")
+call s:highlight("Question",     "base0C",         "",             "bold")
+call s:highlight("WarningMsg",   "base16_warning", "",             "bold")
 
 " status line and splits
 call s:highlight("StatusLine",   "base01", "base04", "")

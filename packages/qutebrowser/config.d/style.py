@@ -42,6 +42,7 @@ colors = {
     'base0E'     : '#{{{base0E/hex}}}',
     'base0F'     : '#{{{base0F/hex}}}',
     'error'      : '#{{{base16/error/hex}}}',
+    'warning'    : '#{{{base16/warning/hex}}}',
     'background' : '#{{{base16/background/hex}}}',
     'foreground' : '#{{{base16/foreground/hex}}}'
 }
@@ -81,8 +82,8 @@ c.colors.messages.error.fg                      = colors['base06']
 c.colors.messages.info.bg                       = colors['base0D']
 c.colors.messages.info.border                   = colors['base0D']
 c.colors.messages.info.fg                       = colors['base06']
-c.colors.messages.warning.bg                    = colors['base09']
-c.colors.messages.warning.border                = colors['base09']
+c.colors.messages.warning.bg                    = colors['warning']
+c.colors.messages.warning.border                = colors['warning']
 c.colors.messages.warning.fg                    = colors['base06']
 c.colors.prompts.bg                             = colors['base03']
 c.colors.prompts.border                         = "1px solid " + colors['base06']
@@ -110,7 +111,7 @@ c.colors.statusbar.url.fg                       = colors['base06']
 c.colors.statusbar.url.hover.fg                 = colors['base0C']
 c.colors.statusbar.url.success.http.fg          = colors['base06']
 c.colors.statusbar.url.success.https.fg         = colors['base0B']
-c.colors.statusbar.url.warn.fg                  = colors['base09']
+c.colors.statusbar.url.warn.fg                  = colors['warning']
 c.colors.tabs.bar.bg                            = colors['background']
 c.colors.tabs.even.bg                           = colors['background']
 c.colors.tabs.even.fg                           = colors['foreground']
