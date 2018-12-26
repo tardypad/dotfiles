@@ -2,6 +2,8 @@
 # for aliases via base16 number
 s|{{{base16/error/\([[:alpha:]]\+\)}}}|{{{base08/\1}}}|g
 s|{{{base16/danger/\([[:alpha:]]\+\)}}}|{{{base08/\1}}}|g
+s|{{{base16/background/\([[:alpha:]]\+\)}}}|{{{base00/\1}}}|g
+s|{{{base16/foreground/\([[:alpha:]]\+\)}}}|{{{base04/\1}}}|g
 
 # HEX
 s|{{{base00/hex}}}|2e3440|g

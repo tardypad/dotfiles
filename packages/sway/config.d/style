@@ -14,6 +14,6 @@ hide_edge_borders both
 font Source Sans Pro, Font Awesome 5 Free 14
 
 # windows decorations colors
-client.focused          $base0B $base0B $base00 $base0D $base0B
-client.focused_inactive $base00 $base00 $base0B $base00 $base0D
-client.unfocused        $base00 $base00 $base04 $base00 $base0D
+client.focused          $base0B     $base0B     $base00     $base0D     $base0B
+client.focused_inactive $background $background $base0B     $background $base0D
+client.unfocused        $background $background $foreground $background $base0D

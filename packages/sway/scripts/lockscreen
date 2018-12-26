@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
 
-# lock.png should use base04 color
+# lock.png should use base16/foreground color
 swaylock \
-  --color {{{base00/hex}}} \
+  --color {{{base16/background/hex}}} \
   --image "${XDG_CONFIG_HOME:-$HOME/.config}/sway/images/lock.png" \
   --scaling center \
   --indicator-radius 250 \
@@ -11,7 +11,7 @@ swaylock \
   --insidevercolor 00000000 \
   --insidewrongcolor 00000000 \
   --bshlcolor {{{base05/hex}}}ff \
-  --keyhlcolor {{{base04/hex}}}ff \
+  --keyhlcolor {{{base16/foreground/hex}}}ff \
   --ringcolor {{{base01/hex}}}ff \
   --ringvercolor {{{base0A/hex}}}ff \
   --ringwrongcolor {{{base16/error/hex}}}ff \

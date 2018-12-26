@@ -17,42 +17,46 @@ if $DISPLAY != ""
 endif
 
 " define hex colors for GUI
-let s:base00_gui       = "#{{{base00/hex}}}"
-let s:base01_gui       = "#{{{base01/hex}}}"
-let s:base02_gui       = "#{{{base02/hex}}}"
-let s:base03_gui       = "#{{{base03/hex}}}"
-let s:base04_gui       = "#{{{base04/hex}}}"
-let s:base05_gui       = "#{{{base05/hex}}}"
-let s:base06_gui       = "#{{{base06/hex}}}"
-let s:base07_gui       = "#{{{base07/hex}}}"
-let s:base08_gui       = "#{{{base08/hex}}}"
-let s:base09_gui       = "#{{{base09/hex}}}"
-let s:base0A_gui       = "#{{{base0A/hex}}}"
-let s:base0B_gui       = "#{{{base0B/hex}}}"
-let s:base0C_gui       = "#{{{base0C/hex}}}"
-let s:base0D_gui       = "#{{{base0D/hex}}}"
-let s:base0E_gui       = "#{{{base0E/hex}}}"
-let s:base0F_gui       = "#{{{base0F/hex}}}"
-let s:base16_error_gui = "#{{{base16/error/hex}}}"
+let s:base00_gui            = "#{{{base00/hex}}}"
+let s:base01_gui            = "#{{{base01/hex}}}"
+let s:base02_gui            = "#{{{base02/hex}}}"
+let s:base03_gui            = "#{{{base03/hex}}}"
+let s:base04_gui            = "#{{{base04/hex}}}"
+let s:base05_gui            = "#{{{base05/hex}}}"
+let s:base06_gui            = "#{{{base06/hex}}}"
+let s:base07_gui            = "#{{{base07/hex}}}"
+let s:base08_gui            = "#{{{base08/hex}}}"
+let s:base09_gui            = "#{{{base09/hex}}}"
+let s:base0A_gui            = "#{{{base0A/hex}}}"
+let s:base0B_gui            = "#{{{base0B/hex}}}"
+let s:base0C_gui            = "#{{{base0C/hex}}}"
+let s:base0D_gui            = "#{{{base0D/hex}}}"
+let s:base0E_gui            = "#{{{base0E/hex}}}"
+let s:base0F_gui            = "#{{{base0F/hex}}}"
+let s:base16_error_gui      = "#{{{base16/error/hex}}}"
+let s:base16_background_gui = "#{{{base16/background/hex}}}"
+let s:base16_foreground_gui = "#{{{base16/foreground/hex}}}"
 
 " define number colors for terminal
-let s:base00_term       = "{{{base00/number}}}"
-let s:base01_term       = "{{{base01/number}}}"
-let s:base02_term       = "{{{base02/number}}}"
-let s:base03_term       = "{{{base03/number}}}"
-let s:base04_term       = "{{{base04/number}}}"
-let s:base05_term       = "{{{base05/number}}}"
-let s:base06_term       = "{{{base06/number}}}"
-let s:base07_term       = "{{{base07/number}}}"
-let s:base08_term       = "{{{base08/number}}}"
-let s:base09_term       = "{{{base09/number}}}"
-let s:base0A_term       = "{{{base0A/number}}}"
-let s:base0B_term       = "{{{base0B/number}}}"
-let s:base0C_term       = "{{{base0C/number}}}"
-let s:base0D_term       = "{{{base0D/number}}}"
-let s:base0E_term       = "{{{base0E/number}}}"
-let s:base0F_term       = "{{{base0F/number}}}"
-let s:base16_error_term = "{{{base16/error/number}}}"
+let s:base00_term            = "{{{base00/number}}}"
+let s:base01_term            = "{{{base01/number}}}"
+let s:base02_term            = "{{{base02/number}}}"
+let s:base03_term            = "{{{base03/number}}}"
+let s:base04_term            = "{{{base04/number}}}"
+let s:base05_term            = "{{{base05/number}}}"
+let s:base06_term            = "{{{base06/number}}}"
+let s:base07_term            = "{{{base07/number}}}"
+let s:base08_term            = "{{{base08/number}}}"
+let s:base09_term            = "{{{base09/number}}}"
+let s:base0A_term            = "{{{base0A/number}}}"
+let s:base0B_term            = "{{{base0B/number}}}"
+let s:base0C_term            = "{{{base0C/number}}}"
+let s:base0D_term            = "{{{base0D/number}}}"
+let s:base0E_term            = "{{{base0E/number}}}"
+let s:base0F_term            = "{{{base0F/number}}}"
+let s:base16_error_term      = "{{{base16/error/number}}}"
+let s:base16_background_term = "{{{base16/background/number}}}"
+let s:base16_foreground_term = "{{{base16/foreground/number}}}"
 
 " helper function for highlight
 function! s:highlight(group, base_fg, base_bg, attr)
@@ -76,21 +80,21 @@ function! s:highlight(group, base_fg, base_bg, attr)
 endfunction
 
 " misc
-call s:highlight("ColorColumn",  ""      , "base01", "")
-call s:highlight("Conceal",      "base0D", "",       "")
-call s:highlight("Directory",    "base0D", "",       "")
-call s:highlight("EndOfBuffer",  "base00", "",       "")
-call s:highlight("FoldColumn",   "base04", "",       "")
-call s:highlight("Folded",       "base04", "",       "bold")
-call s:highlight("MatchParen",   "base07", "base01", "bold")
-call s:highlight("NonText",      "base00", "base04", "")
-call s:highlight("Normal",       "base04", "",       "")
-call s:highlight("QuickFixLine", "base00", "base0A", "")
-call s:highlight("SignColumn",   "base02", "",       "")
-call s:highlight("SpecialKey",   "base03", "base01", "bold")
-call s:highlight("Terminal",     "base04", "",       "")
-call s:highlight("Title",        "base0A", "",       "bold")
-call s:highlight("Visual",       "base00", "base02", "")
+call s:highlight("ColorColumn",  ""      ,            "base01", "")
+call s:highlight("Conceal",      "base0D",            "",       "")
+call s:highlight("Directory",    "base0D",            "",       "")
+call s:highlight("EndOfBuffer",  "base16_background", "",       "")
+call s:highlight("FoldColumn",   "base04",            "",       "")
+call s:highlight("Folded",       "base04",            "",       "bold")
+call s:highlight("MatchParen",   "base07",            "base01", "bold")
+call s:highlight("NonText",      "base00",            "base04", "")
+call s:highlight("Normal",       "base16_foreground", "",       "")
+call s:highlight("QuickFixLine", "base00",            "base0A", "")
+call s:highlight("SignColumn",   "base02",            "",       "")
+call s:highlight("SpecialKey",   "base03",            "base01", "bold")
+call s:highlight("Terminal",     "base04",            "",       "")
+call s:highlight("Title",        "base0A",            "",       "bold")
+call s:highlight("Visual",       "base00",            "base02", "")
 
 " line number
 call s:highlight("CursorLineNr", "base04", "",       "bold")

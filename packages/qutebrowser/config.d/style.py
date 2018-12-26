@@ -25,23 +25,25 @@ c.fonts.web.size.minimum_logical  = 6
 
 # colors
 colors = {
-    'base00' : '#{{{base00/hex}}}',
-    'base01' : '#{{{base01/hex}}}',
-    'base02' : '#{{{base02/hex}}}',
-    'base03' : '#{{{base03/hex}}}',
-    'base04' : '#{{{base04/hex}}}',
-    'base05' : '#{{{base05/hex}}}',
-    'base06' : '#{{{base06/hex}}}',
-    'base07' : '#{{{base07/hex}}}',
-    'base08' : '#{{{base08/hex}}}',
-    'base09' : '#{{{base09/hex}}}',
-    'base0A' : '#{{{base0A/hex}}}',
-    'base0B' : '#{{{base0B/hex}}}',
-    'base0C' : '#{{{base0C/hex}}}',
-    'base0D' : '#{{{base0D/hex}}}',
-    'base0E' : '#{{{base0E/hex}}}',
-    'base0F' : '#{{{base0F/hex}}}',
-    'error'  : '#{{{base16/error/hex}}}'
+    'base00'     : '#{{{base00/hex}}}',
+    'base01'     : '#{{{base01/hex}}}',
+    'base02'     : '#{{{base02/hex}}}',
+    'base03'     : '#{{{base03/hex}}}',
+    'base04'     : '#{{{base04/hex}}}',
+    'base05'     : '#{{{base05/hex}}}',
+    'base06'     : '#{{{base06/hex}}}',
+    'base07'     : '#{{{base07/hex}}}',
+    'base08'     : '#{{{base08/hex}}}',
+    'base09'     : '#{{{base09/hex}}}',
+    'base0A'     : '#{{{base0A/hex}}}',
+    'base0B'     : '#{{{base0B/hex}}}',
+    'base0C'     : '#{{{base0C/hex}}}',
+    'base0D'     : '#{{{base0D/hex}}}',
+    'base0E'     : '#{{{base0E/hex}}}',
+    'base0F'     : '#{{{base0F/hex}}}',
+    'error'      : '#{{{base16/error/hex}}}',
+    'background' : '#{{{base16/background/hex}}}',
+    'foreground' : '#{{{base16/foreground/hex}}}'
 }
 
 c.colors.completion.category.bg                 = colors['base01']
@@ -58,7 +60,7 @@ c.colors.completion.match.fg                    = colors['base06']
 c.colors.completion.odd.bg                      = colors['base03']
 c.colors.completion.scrollbar.bg                = colors['base03']
 c.colors.completion.scrollbar.fg                = colors['base06']
-c.colors.downloads.bar.bg                       = colors['base00']
+c.colors.downloads.bar.bg                       = colors['background']
 c.colors.downloads.error.bg                     = colors['error']
 c.colors.downloads.error.fg                     = colors['base06']
 c.colors.downloads.start.bg                     = colors['base0D']
@@ -90,14 +92,14 @@ c.colors.statusbar.caret.bg                     = colors['base0F']
 c.colors.statusbar.caret.fg                     = colors['base06']
 c.colors.statusbar.caret.selection.bg           = colors['base0F']
 c.colors.statusbar.caret.selection.fg           = colors['base06']
-c.colors.statusbar.command.bg                   = colors['base00']
-c.colors.statusbar.command.fg                   = colors['base04']
+c.colors.statusbar.command.bg                   = colors['background']
+c.colors.statusbar.command.fg                   = colors['foreground']
 c.colors.statusbar.command.private.bg           = colors['base0E']
 c.colors.statusbar.command.private.fg           = colors['base06']
 c.colors.statusbar.insert.bg                    = colors['base0A']
 c.colors.statusbar.insert.fg                    = colors['base06']
-c.colors.statusbar.normal.bg                    = colors['base00']
-c.colors.statusbar.normal.fg                    = colors['base04']
+c.colors.statusbar.normal.bg                    = colors['background']
+c.colors.statusbar.normal.fg                    = colors['foreground']
 c.colors.statusbar.passthrough.bg               = colors['base09']
 c.colors.statusbar.passthrough.fg               = colors['base06']
 c.colors.statusbar.private.bg                   = colors['base0E']
@@ -109,15 +111,15 @@ c.colors.statusbar.url.hover.fg                 = colors['base0C']
 c.colors.statusbar.url.success.http.fg          = colors['base06']
 c.colors.statusbar.url.success.https.fg         = colors['base0B']
 c.colors.statusbar.url.warn.fg                  = colors['base09']
-c.colors.tabs.bar.bg                            = colors['base00']
-c.colors.tabs.even.bg                           = colors['base00']
-c.colors.tabs.even.fg                           = colors['base04']
+c.colors.tabs.bar.bg                            = colors['background']
+c.colors.tabs.even.bg                           = colors['background']
+c.colors.tabs.even.fg                           = colors['foreground']
 c.colors.tabs.indicator.error                   = colors['error']
 c.colors.tabs.indicator.start                   = colors['base0C']
 c.colors.tabs.indicator.stop                    = colors['base0C']
 c.colors.tabs.indicator.system                  = "none"
-c.colors.tabs.odd.bg                            = colors['base00']
-c.colors.tabs.odd.fg                            = colors['base04']
+c.colors.tabs.odd.bg                            = colors['background']
+c.colors.tabs.odd.fg                            = colors['foreground']
 c.colors.tabs.selected.even.bg                  = colors['base0C']
 c.colors.tabs.selected.even.fg                  = colors['base06']
 c.colors.tabs.selected.odd.bg                   = colors['base0C']
