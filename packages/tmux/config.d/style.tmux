@@ -13,12 +13,12 @@ set -g status on
 set -g status off
 %endif
 
-set -g status-style "bg=default,fg=#{{{base16/foreground/hex}}}"
+set -g status-style "bg=default,fg=#{{{foreground/hex}}}"
 set -g status-left-style "bg=#{{{base0D/hex}}},fg=#{{{base00/hex}}}"
 set -g status-right-style "fg=#{{{base0D/hex}}}"
 
 set -g status-left-length 40
-set -g status-left "#[fg=#{{{base06/hex}}},bold]#{?#{==:#{client_key_table},prefix},Ⓟ,#{?#{==:#{client_key_table},extract-mode},Ⓔ, }}#[default]  #{session_name}   #[bg=#{{{base16/background/hex}}},fg=#{{{base16/foreground/hex}}}]   "
+set -g status-left "#[fg=#{{{base06/hex}}},bold]#{?#{==:#{client_key_table},prefix},Ⓟ,#{?#{==:#{client_key_table},extract-mode},Ⓔ, }}#[default]  #{session_name}   #[bg=#{{{background/hex}}},fg=#{{{foreground/hex}}}]   "
 %if #{DISPLAY}
 set -g status-right ''
 %else
@@ -26,10 +26,10 @@ set -g status-right '  %a %e %b %Y %H:%M'
 %endif
 
 setw -g window-style "bg=#{{{base01/hex}}}"
-setw -g window-active-style "bg=#{{{base16/background/hex}}}"
+setw -g window-active-style "bg=#{{{background/hex}}}"
 
-setw -g pane-border-style "bg=#{{{base01/hex}}},fg=#{{{base16/foreground/hex}}}"
-setw -g pane-active-border-style "bg=#{{{base16/background/hex}}},fg=#{{{base0A/hex}}}"
+setw -g pane-border-style "bg=#{{{base01/hex}}},fg=#{{{foreground/hex}}}"
+setw -g pane-active-border-style "bg=#{{{background/hex}}},fg=#{{{base0A/hex}}}"
 
 setw -g pane-border-format ' #{pane_current_command} '
 setw -g pane-border-status off

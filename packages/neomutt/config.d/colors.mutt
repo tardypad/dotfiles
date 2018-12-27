@@ -1,36 +1,36 @@
 # colors definition
-set my_base00                        = color{{{base00/number}}}
-set my_base01                        = color{{{base01/number}}}
-set my_base02                        = color{{{base02/number}}}
-set my_base03                        = color{{{base03/number}}}
-set my_base04                        = color{{{base04/number}}}
-set my_base05                        = color{{{base05/number}}}
-set my_base06                        = color{{{base06/number}}}
-set my_base07                        = color{{{base07/number}}}
-set my_base08                        = color{{{base08/number}}}
-set my_base09                        = color{{{base09/number}}}
-set my_base0A                        = color{{{base0A/number}}}
-set my_base0B                        = color{{{base0B/number}}}
-set my_base0D                        = color{{{base0D/number}}}
-set my_base0C                        = color{{{base0C/number}}}
-set my_base0E                        = color{{{base0E/number}}}
-set my_base0F                        = color{{{base0F/number}}}
-set my_base16_error                  = color{{{base16/error/number}}}
-set my_base16_status_line_background = color{{{base16/status_line_background/number}}}
-set my_base16_status_line_foreground = color{{{base16/status_line_foreground/number}}}
+set my_base00                 = color{{{base00/number}}}
+set my_base01                 = color{{{base01/number}}}
+set my_base02                 = color{{{base02/number}}}
+set my_base03                 = color{{{base03/number}}}
+set my_base04                 = color{{{base04/number}}}
+set my_base05                 = color{{{base05/number}}}
+set my_base06                 = color{{{base06/number}}}
+set my_base07                 = color{{{base07/number}}}
+set my_base08                 = color{{{base08/number}}}
+set my_base09                 = color{{{base09/number}}}
+set my_base0A                 = color{{{base0A/number}}}
+set my_base0B                 = color{{{base0B/number}}}
+set my_base0D                 = color{{{base0D/number}}}
+set my_base0C                 = color{{{base0C/number}}}
+set my_base0E                 = color{{{base0E/number}}}
+set my_base0F                 = color{{{base0F/number}}}
+set my_error                  = color{{{error/number}}}
+set my_status_line_background = color{{{status_line_background/number}}}
+set my_status_line_foreground = color{{{status_line_foreground/number}}}
 
 # general colors
-color error         $my_base16_error    default          # error messages
-color tilde         $my_base01          default          # ~ in pager blank lines
-color message       $my_base0C          default          # informational messages
-color markers       $my_base06          default          # + in pager wrapped lines
-color attachment    $my_base02          default          # attachment in pager
-color search        $my_base01          $my_base0E       # highlight search word in pager
-color indicator     $my_base00          $my_base0A       # highlight current item in menus
-color tree          $my_base03          default          # thread tree symbol
-color signature     $my_base02          default
-color bold          $my_base01          default
-color underline     $my_base01          default
+color error         $my_error    default          # error messages
+color tilde         $my_base01   default          # ~ in pager blank lines
+color message       $my_base0C   default          # informational messages
+color markers       $my_base06   default          # + in pager wrapped lines
+color attachment    $my_base02   default          # attachment in pager
+color search        $my_base01   $my_base0E       # highlight search word in pager
+color indicator     $my_base00   $my_base0A       # highlight current item in menus
+color tree          $my_base03   default          # thread tree symbol
+color signature     $my_base02   default
+color bold          $my_base01   default
+color underline     $my_base01   default
 
 # sidebar
 color sidebar_divider     $my_base03    default      # separator
@@ -39,8 +39,8 @@ color sidebar_indicator   $my_base01    $my_base0C   # current displayed mailbox
 color sidebar_new         $my_base0F    default      # mailbox with new mail
 
 # status
-color status              $my_base16_status_line_foreground    $my_base16_status_line_background                              # full default
-color status              $my_base06                           $my_base16_status_line_background     "Folder: '[^']+'"        # current mailbox
+color status              $my_status_line_foreground    $my_status_line_background                              # full default
+color status              $my_base06                    $my_status_line_background     "Folder: '[^']+'"        # current mailbox
 
 # index
 color index               $my_base06    default        "~v"                     # collapsed thread

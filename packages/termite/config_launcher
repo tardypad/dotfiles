@@ -8,9 +8,9 @@ cursor_blink = off
 cursor_shape = block
 
 [colors]
-foreground = #{{{base16/foreground/hex}}}
+foreground = #{{{foreground/hex}}}
 foreground_bold = #{{{base05/hex}}}
-background = #{{{base16/background/hex}}}
+background = #{{{background/hex}}}
 
 color0  = #{{{base01/hex}}}
 color1  = #{{{base08/hex}}}

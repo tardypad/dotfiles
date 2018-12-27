@@ -17,9 +17,9 @@ modify_other_keys = true
 #geometry = 640x480
 
 [colors]
-foreground = #{{{base16/foreground/hex}}}
+foreground = #{{{foreground/hex}}}
 foreground_bold = #{{{base05/hex}}}
-background = #{{{base16/background/hex}}}
+background = #{{{background/hex}}}
 
 # if unset, will reverse foreground and background
 # highlight = #2f2f2f

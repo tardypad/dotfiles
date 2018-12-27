@@ -2,18 +2,18 @@ TERM tmux-256color
 TERM xterm-256color
 TERM xterm-termite
 
-NORMAL                         0                       # global default
-FILE                           0                       # normal file
-DIR              {{{base0D/fg}}}                       # directory
-OTHER_WRITABLE   {{{base0D/fg}}};{{{base01/bg}}}       # directory writable by others
-LINK             {{{base0F/fg}}}                       # symbolic link
-FIFO             {{{base01/fg}}};{{{base0D/bg}}}       # named pipe
-SOCK             {{{base0F/fg}}};{{{base0D/bg}}}       # socket
-BLK              {{{base0A/fg}}};{{{base0D/bg}}}       # block device
-CHR              {{{base06/fg}}};{{{base0D/bg}}}       # character device
-ORPHAN         5;{{{base06/fg}}};{{{base16/error/bg}}} # orphaned symlink
-MISSING        5;{{{base06/fg}}};{{{base16/error/bg}}} # missing file that orphaned symlink points to
-EXEC           1;{{{base08/fg}}}                       # executable
+NORMAL                         0                 # global default
+FILE                           0                 # normal file
+DIR              {{{base0D/fg}}}                 # directory
+OTHER_WRITABLE   {{{base0D/fg}}};{{{base01/bg}}} # directory writable by others
+LINK             {{{base0F/fg}}}                 # symbolic link
+FIFO             {{{base01/fg}}};{{{base0D/bg}}} # named pipe
+SOCK             {{{base0F/fg}}};{{{base0D/bg}}} # socket
+BLK              {{{base0A/fg}}};{{{base0D/bg}}} # block device
+CHR              {{{base06/fg}}};{{{base0D/bg}}} # character device
+ORPHAN         5;{{{base06/fg}}};{{{error/bg}}}  # orphaned symlink
+MISSING        5;{{{base06/fg}}};{{{error/bg}}}  # missing file that orphaned symlink points to
+EXEC           1;{{{base08/fg}}}                 # executable
 
 # Source text
 .txt    {{{base0B/fg}}}

@@ -41,10 +41,10 @@ colors = {
     'base0D'     : '#{{{base0D/hex}}}',
     'base0E'     : '#{{{base0E/hex}}}',
     'base0F'     : '#{{{base0F/hex}}}',
-    'error'      : '#{{{base16/error/hex}}}',
-    'warning'    : '#{{{base16/warning/hex}}}',
-    'background' : '#{{{base16/background/hex}}}',
-    'foreground' : '#{{{base16/foreground/hex}}}'
+    'error'      : '#{{{error/hex}}}',
+    'warning'    : '#{{{warning/hex}}}',
+    'background' : '#{{{background/hex}}}',
+    'foreground' : '#{{{foreground/hex}}}'
 }
 
 c.colors.completion.category.bg                 = colors['base01']

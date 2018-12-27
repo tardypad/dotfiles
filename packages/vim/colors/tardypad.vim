@@ -17,52 +17,52 @@ if $DISPLAY != ""
 endif
 
 " define hex colors for GUI
-let s:base00_gui                        = "#{{{base00/hex}}}"
-let s:base01_gui                        = "#{{{base01/hex}}}"
-let s:base02_gui                        = "#{{{base02/hex}}}"
-let s:base03_gui                        = "#{{{base03/hex}}}"
-let s:base04_gui                        = "#{{{base04/hex}}}"
-let s:base05_gui                        = "#{{{base05/hex}}}"
-let s:base06_gui                        = "#{{{base06/hex}}}"
-let s:base07_gui                        = "#{{{base07/hex}}}"
-let s:base08_gui                        = "#{{{base08/hex}}}"
-let s:base09_gui                        = "#{{{base09/hex}}}"
-let s:base0A_gui                        = "#{{{base0A/hex}}}"
-let s:base0B_gui                        = "#{{{base0B/hex}}}"
-let s:base0C_gui                        = "#{{{base0C/hex}}}"
-let s:base0D_gui                        = "#{{{base0D/hex}}}"
-let s:base0E_gui                        = "#{{{base0E/hex}}}"
-let s:base0F_gui                        = "#{{{base0F/hex}}}"
-let s:base16_error_gui                  = "#{{{base16/error/hex}}}"
-let s:base16_warning_gui                = "#{{{base16/warning/hex}}}"
-let s:base16_background_gui             = "#{{{base16/background/hex}}}"
-let s:base16_foreground_gui             = "#{{{base16/foreground/hex}}}"
-let s:base16_status_line_background_gui = "#{{{base16/status_line_background/hex}}}"
-let s:base16_status_line_foreground_gui = "#{{{base16/status_line_foreground/hex}}}"
+let s:base00_gui                 = "#{{{base00/hex}}}"
+let s:base01_gui                 = "#{{{base01/hex}}}"
+let s:base02_gui                 = "#{{{base02/hex}}}"
+let s:base03_gui                 = "#{{{base03/hex}}}"
+let s:base04_gui                 = "#{{{base04/hex}}}"
+let s:base05_gui                 = "#{{{base05/hex}}}"
+let s:base06_gui                 = "#{{{base06/hex}}}"
+let s:base07_gui                 = "#{{{base07/hex}}}"
+let s:base08_gui                 = "#{{{base08/hex}}}"
+let s:base09_gui                 = "#{{{base09/hex}}}"
+let s:base0A_gui                 = "#{{{base0A/hex}}}"
+let s:base0B_gui                 = "#{{{base0B/hex}}}"
+let s:base0C_gui                 = "#{{{base0C/hex}}}"
+let s:base0D_gui                 = "#{{{base0D/hex}}}"
+let s:base0E_gui                 = "#{{{base0E/hex}}}"
+let s:base0F_gui                 = "#{{{base0F/hex}}}"
+let s:error_gui                  = "#{{{error/hex}}}"
+let s:warning_gui                = "#{{{warning/hex}}}"
+let s:background_gui             = "#{{{background/hex}}}"
+let s:foreground_gui             = "#{{{foreground/hex}}}"
+let s:status_line_background_gui = "#{{{status_line_background/hex}}}"
+let s:status_line_foreground_gui = "#{{{status_line_foreground/hex}}}"
 
 " define number colors for terminal
-let s:base00_term                        = "{{{base00/number}}}"
-let s:base01_term                        = "{{{base01/number}}}"
-let s:base02_term                        = "{{{base02/number}}}"
-let s:base03_term                        = "{{{base03/number}}}"
-let s:base04_term                        = "{{{base04/number}}}"
-let s:base05_term                        = "{{{base05/number}}}"
-let s:base06_term                        = "{{{base06/number}}}"
-let s:base07_term                        = "{{{base07/number}}}"
-let s:base08_term                        = "{{{base08/number}}}"
-let s:base09_term                        = "{{{base09/number}}}"
-let s:base0A_term                        = "{{{base0A/number}}}"
-let s:base0B_term                        = "{{{base0B/number}}}"
-let s:base0C_term                        = "{{{base0C/number}}}"
-let s:base0D_term                        = "{{{base0D/number}}}"
-let s:base0E_term                        = "{{{base0E/number}}}"
-let s:base0F_term                        = "{{{base0F/number}}}"
-let s:base16_error_term                  = "{{{base16/error/number}}}"
-let s:base16_warning_term                = "{{{base16/warning/number}}}"
-let s:base16_background_term             = "{{{base16/background/number}}}"
-let s:base16_foreground_term             = "{{{base16/foreground/number}}}"
-let s:base16_status_line_background_term = "{{{base16/status_line_background/number}}}"
-let s:base16_status_line_foreground_term = "{{{base16/status_line_foreground/number}}}"
+let s:base00_term                 = "{{{base00/number}}}"
+let s:base01_term                 = "{{{base01/number}}}"
+let s:base02_term                 = "{{{base02/number}}}"
+let s:base03_term                 = "{{{base03/number}}}"
+let s:base04_term                 = "{{{base04/number}}}"
+let s:base05_term                 = "{{{base05/number}}}"
+let s:base06_term                 = "{{{base06/number}}}"
+let s:base07_term                 = "{{{base07/number}}}"
+let s:base08_term                 = "{{{base08/number}}}"
+let s:base09_term                 = "{{{base09/number}}}"
+let s:base0A_term                 = "{{{base0A/number}}}"
+let s:base0B_term                 = "{{{base0B/number}}}"
+let s:base0C_term                 = "{{{base0C/number}}}"
+let s:base0D_term                 = "{{{base0D/number}}}"
+let s:base0E_term                 = "{{{base0E/number}}}"
+let s:base0F_term                 = "{{{base0F/number}}}"
+let s:error_term                  = "{{{error/number}}}"
+let s:warning_term                = "{{{warning/number}}}"
+let s:background_term             = "{{{background/number}}}"
+let s:foreground_term             = "{{{foreground/number}}}"
+let s:status_line_background_term = "{{{status_line_background/number}}}"
+let s:status_line_foreground_term = "{{{status_line_foreground/number}}}"
 
 " helper function for highlight
 function! s:highlight(group, base_fg, base_bg, attr)
@@ -86,21 +86,21 @@ function! s:highlight(group, base_fg, base_bg, attr)
 endfunction
 
 " misc
-call s:highlight("ColorColumn",  ""      ,            "base01", "")
-call s:highlight("Conceal",      "base0D",            "",       "")
-call s:highlight("Directory",    "base0D",            "",       "")
-call s:highlight("EndOfBuffer",  "base16_background", "",       "")
-call s:highlight("FoldColumn",   "base04",            "",       "")
-call s:highlight("Folded",       "base04",            "",       "bold")
-call s:highlight("MatchParen",   "base07",            "base01", "bold")
-call s:highlight("NonText",      "base00",            "base04", "")
-call s:highlight("Normal",       "base16_foreground", "",       "")
-call s:highlight("QuickFixLine", "base00",            "base0A", "")
-call s:highlight("SignColumn",   "base02",            "",       "")
-call s:highlight("SpecialKey",   "base03",            "base01", "bold")
-call s:highlight("Terminal",     "base04",            "",       "")
-call s:highlight("Title",        "base0A",            "",       "bold")
-call s:highlight("Visual",       "base00",            "base02", "")
+call s:highlight("ColorColumn",  ""      ,     "base01", "")
+call s:highlight("Conceal",      "base0D",     "",       "")
+call s:highlight("Directory",    "base0D",     "",       "")
+call s:highlight("EndOfBuffer",  "background", "",       "")
+call s:highlight("FoldColumn",   "base04",     "",       "")
+call s:highlight("Folded",       "base04",     "",       "bold")
+call s:highlight("MatchParen",   "base07",     "base01", "bold")
+call s:highlight("NonText",      "base00",     "base04", "")
+call s:highlight("Normal",       "foreground", "",       "")
+call s:highlight("QuickFixLine", "base00",     "base0A", "")
+call s:highlight("SignColumn",   "base02",     "",       "")
+call s:highlight("SpecialKey",   "base03",     "base01", "bold")
+call s:highlight("Terminal",     "base04",     "",       "")
+call s:highlight("Title",        "base0A",     "",       "bold")
+call s:highlight("Visual",       "base00",     "base02", "")
 
 " line number
 call s:highlight("CursorLineNr", "base04", "",       "bold")
@@ -131,17 +131,17 @@ call s:highlight("SpellLocal",   "base0A", "",       "underline")
 call s:highlight("SpellRare",    "base0C", "",       "underline")
 
 " prompt
-call s:highlight("ErrorMsg",     "base07",         "base16_error", "")
-call s:highlight("ModeMsg",      "base0D",         "",             "")
-call s:highlight("MoreMsg",      "base0D",         "",             "")
-call s:highlight("Question",     "base0C",         "",             "bold")
-call s:highlight("WarningMsg",   "base16_warning", "",             "bold")
+call s:highlight("ErrorMsg",     "base07",  "error", "")
+call s:highlight("ModeMsg",      "base0D",  "",      "")
+call s:highlight("MoreMsg",      "base0D",  "",      "")
+call s:highlight("Question",     "base0C",  "",      "bold")
+call s:highlight("WarningMsg",   "warning", "",      "bold")
 
 " status line and splits
-call s:highlight("StatusLine",   "base0D",                        "base03",                        "")
-call s:highlight("StatusLineNC", "base16_status_line_foreground", "base16_status_line_background", "")
-call s:highlight("VertSplit",    "base02",                        "",                              "")
-call s:highlight("WildMenu",     "base01",                        "base06",                        "")
+call s:highlight("StatusLine",   "base0D",                 "base03",                 "")
+call s:highlight("StatusLineNC", "status_line_foreground", "status_line_background", "")
+call s:highlight("VertSplit",    "base02",                 "",                       "")
+call s:highlight("WildMenu",     "base01",                 "base06",                 "")
 highlight! link StatusLineTerm   StatusLine
 highlight! link StatusLineTermNC StatusLineNC
 
@@ -155,17 +155,17 @@ call s:highlight("TabLineFill",  "base01", "base02", "")
 call s:highlight("TabLineSel",   "base01", "base04", "")
 
 " languages
-call s:highlight("Comment",      "base02",       "",       "italic")
-call s:highlight("Constant",     "base0C",       "",       "")
-call s:highlight("Identifier",   "base0D",       "",       "")
-call s:highlight("Statement",    "base0B",       "",       "")
-call s:highlight("PreProc",      "base09",       "",       "")
-call s:highlight("Type",         "base0A",       "",       "")
-call s:highlight("Special",      "base09",       "",       "")
-call s:highlight("Underlined",   "base0E",       "",       "")
-call s:highlight("Ignore",       "",             "",       "")
-call s:highlight("Error",        "base16_error", "",       "bold")
-call s:highlight("Todo",         "base0F",       "",       "bold")
+call s:highlight("Comment",      "base02", "",       "italic")
+call s:highlight("Constant",     "base0C", "",       "")
+call s:highlight("Identifier",   "base0D", "",       "")
+call s:highlight("Statement",    "base0B", "",       "")
+call s:highlight("PreProc",      "base09", "",       "")
+call s:highlight("Type",         "base0A", "",       "")
+call s:highlight("Special",      "base09", "",       "")
+call s:highlight("Underlined",   "base0E", "",       "")
+call s:highlight("Ignore",       "",       "",       "")
+call s:highlight("Error",        "error",  "",       "bold")
+call s:highlight("Todo",         "base0F", "",       "bold")
 highlight! link String           Constant
 highlight! link Character        Constant
 highlight! link Boolean          Constant

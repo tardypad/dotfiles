@@ -33,5 +33,5 @@ elif [[ "${IS_WIFI_CONNECTED}" -eq 1 ]]; then
 else
   echo "<span foreground='#{{{base0C/hex}}}'></span> Disconnected"
   echo
-  echo '#{{{base16/warning/hex}}}'
+  echo '#{{{warning/hex}}}'
 fi
