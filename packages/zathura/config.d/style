@@ -13,8 +13,8 @@ set page-padding 3
 # colors
 set default-bg '#{{{base16/background/hex}}}'
 set default-fg '#{{{base16/foreground/hex}}}'
-set statusbar-bg '#{{{base03/hex}}}'
-set statusbar-fg '#{{{base00/hex}}}'
+set statusbar-bg '#{{{base16/status_line_background/hex}}}'
+set statusbar-fg '#{{{base16/status_line_foreground/hex}}}'
 set inputbar-bg '#{{{base16/background/hex}}}'
 set inputbar-fg '#{{{base16/foreground/hex}}}'
 set completion-bg '#{{{base03/hex}}}'

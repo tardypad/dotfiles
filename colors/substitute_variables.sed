@@ -5,6 +5,8 @@ s|{{{base16/danger/\([[:alpha:]]\+\)}}}|{{{base08/\1}}}|g
 s|{{{base16/warning/\([[:alpha:]]\+\)}}}|{{{base09/\1}}}|g
 s|{{{base16/background/\([[:alpha:]]\+\)}}}|{{{base00/\1}}}|g
 s|{{{base16/foreground/\([[:alpha:]]\+\)}}}|{{{base04/\1}}}|g
+s|{{{base16/status_line_background/\([[:alpha:]]\+\)}}}|{{{base01/\1}}}|g
+s|{{{base16/status_line_foreground/\([[:alpha:]]\+\)}}}|{{{base06/\1}}}|g
 
 # HEX
 s|{{{base00/hex}}}|2e3440|g
