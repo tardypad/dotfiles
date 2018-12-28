@@ -100,7 +100,7 @@ call s:highlight("SignColumn",   "base02",     "",       "")
 call s:highlight("SpecialKey",   "base03",     "base01", "bold")
 call s:highlight("Terminal",     "base04",     "",       "")
 call s:highlight("Title",        "base0A",     "",       "bold")
-call s:highlight("Visual",       "base00",     "base02", "")
+call s:highlight("Visual",       "",           "base02", "")
 
 " line number
 call s:highlight("CursorLineNr", "base04", "",       "bold")
@@ -108,9 +108,8 @@ call s:highlight("LineNr",       "base02", "",       "")
 
 " cursor
 call s:highlight("Cursor",       "base07", "base0D", "")
-call s:highlight("CursorColumn", "",       "base01", "")
-call s:highlight("CursorIM",     "",       "base04", "")
-call s:highlight("CursorLine",   "",       "base01", "")
+call s:highlight("CursorColumn", "",       "base03", "")
+call s:highlight("CursorLine",   "",       "base03", "")
 
 " diff
 call s:highlight("DiffAdd",      "base0B", "base01", "")
@@ -140,8 +139,8 @@ call s:highlight("WarningMsg",   "warning", "",      "bold")
 " status line and splits
 call s:highlight("StatusLine",   "base0D",                 "base03",                 "")
 call s:highlight("StatusLineNC", "status_line_foreground", "status_line_background", "")
-call s:highlight("VertSplit",    "base02",                 "",                       "")
-call s:highlight("WildMenu",     "base01",                 "base06",                 "")
+call s:highlight("VertSplit",    "status_line_background", "",                       "")
+call s:highlight("WildMenu",     "base03",                 "base0D",                 "")
 highlight! link StatusLineTerm   StatusLine
 highlight! link StatusLineTermNC StatusLineNC
 
@@ -150,9 +149,9 @@ call s:highlight("IncSearch",    "base00", "base09", "")
 call s:highlight("Search",       "base00", "base0A", "")
 
 " tabs
-call s:highlight("TabLine",      "base01", "base02", "")
-call s:highlight("TabLineFill",  "base01", "base02", "")
-call s:highlight("TabLineSel",   "base01", "base04", "")
+call s:highlight("TabLine",      "status_line_foreground", "status_line_background", "")
+call s:highlight("TabLineFill",  "status_line_foreground", "status_line_background", "")
+call s:highlight("TabLineSel",   "base0D",                 "base03",                 "")
 
 " languages
 call s:highlight("Comment",      "base02", "",       "italic")
