@@ -26,6 +26,7 @@ set $base0E     #{{{base0E/hex}}}
 set $base0F     #{{{base0F/hex}}}
 set $background #{{{background/hex}}}
 set $foreground #{{{foreground/hex}}}
+set $notice     #{{{notice/hex}}}
 
 # workspace names
 set $ws1  "1  Projects"

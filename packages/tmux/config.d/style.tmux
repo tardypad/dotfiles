@@ -1,6 +1,6 @@
 set -g message-command-style "bg=#{{{base05/hex}}},fg=#{{{base00/hex}}}"
 set -g message-style "bg=#{{{base05/hex}}},fg=#{{{base00/hex}}}"
-set -g mode-style "bg=#{{{base0A/hex}}},fg=#{{{base00/hex}}}"
+set -g mode-style "bg=#{{{notice/hex}}},fg=#{{{base00/hex}}}"
 
 set -g display-panes-colour "#{{{base05/hex}}}"
 set -g display-panes-active-colour "#{{{base0D/hex}}}"
@@ -18,7 +18,7 @@ set -g status-left-style "bg=#{{{base05/hex}}},fg=#{{{base00/hex}}}"
 set -g status-right-style "fg=#{{{base05/hex}}}"
 
 set -g status-left-length 40
-set -g status-left "#[fg=#{{{base07/hex}}},bold]#{?#{==:#{client_key_table},prefix},Ⓟ,#{?#{==:#{client_key_table},extract-mode},Ⓔ, }}#[default]  #{session_name}   #[bg=#{{{background/hex}}},fg=#{{{foreground/hex}}}]   "
+set -g status-left "#[fg=#{{{notice/hex}}},bold]#{?#{==:#{client_key_table},prefix},Ⓟ,#{?#{==:#{client_key_table},extract-mode},Ⓔ, }}#[default]  #{session_name}   #[bg=#{{{background/hex}}},fg=#{{{foreground/hex}}}]   "
 %if #{DISPLAY}
 set -g status-right ''
 %else

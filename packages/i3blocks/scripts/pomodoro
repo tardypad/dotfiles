@@ -18,4 +18,4 @@ else
   SESSION_ICON=''
 fi
 
-echo "<span foreground='#{{{base0A/hex}}}'>${SESSION_ICON} ${SESSION_STATUS}</span>"
+echo "<span foreground='#{{{notice/hex}}}'>${SESSION_ICON} ${SESSION_STATUS}</span>"
