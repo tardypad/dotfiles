@@ -1,9 +1,9 @@
-set -g message-command-style "bg=#{{{base0A/hex}}},fg=#{{{base00/hex}}}"
-set -g message-style "bg=#{{{base0A/hex}}},fg=#{{{base00/hex}}}"
+set -g message-command-style "bg=#{{{base05/hex}}},fg=#{{{base00/hex}}}"
+set -g message-style "bg=#{{{base05/hex}}},fg=#{{{base00/hex}}}"
 set -g mode-style "bg=#{{{base0A/hex}}},fg=#{{{base00/hex}}}"
 
-set -g display-panes-colour "#{{{base0A/hex}}}"
-set -g display-panes-active-colour "#{{{base08/hex}}}"
+set -g display-panes-colour "#{{{base05/hex}}}"
+set -g display-panes-active-colour "#{{{base0D/hex}}}"
 
 set -g status-justify left
 
@@ -14,11 +14,11 @@ set -g status off
 %endif
 
 set -g status-style "bg=default,fg=#{{{foreground/hex}}}"
-set -g status-left-style "bg=#{{{base0D/hex}}},fg=#{{{base00/hex}}}"
-set -g status-right-style "fg=#{{{base0D/hex}}}"
+set -g status-left-style "bg=#{{{base05/hex}}},fg=#{{{base00/hex}}}"
+set -g status-right-style "fg=#{{{base05/hex}}}"
 
 set -g status-left-length 40
-set -g status-left "#[fg=#{{{base06/hex}}},bold]#{?#{==:#{client_key_table},prefix},Ⓟ,#{?#{==:#{client_key_table},extract-mode},Ⓔ, }}#[default]  #{session_name}   #[bg=#{{{background/hex}}},fg=#{{{foreground/hex}}}]   "
+set -g status-left "#[fg=#{{{base07/hex}}},bold]#{?#{==:#{client_key_table},prefix},Ⓟ,#{?#{==:#{client_key_table},extract-mode},Ⓔ, }}#[default]  #{session_name}   #[bg=#{{{background/hex}}},fg=#{{{foreground/hex}}}]   "
 %if #{DISPLAY}
 set -g status-right ''
 %else
@@ -29,13 +29,13 @@ setw -g window-style "bg=#{{{base01/hex}}}"
 setw -g window-active-style "bg=#{{{background/hex}}}"
 
 setw -g pane-border-style "bg=#{{{base01/hex}}},fg=#{{{foreground/hex}}}"
-setw -g pane-active-border-style "bg=#{{{background/hex}}},fg=#{{{base0A/hex}}}"
+setw -g pane-active-border-style "bg=#{{{background/hex}}},fg=#{{{base0D/hex}}}"
 
 setw -g pane-border-format ' #{pane_current_command} '
 setw -g pane-border-status off
 
-setw -g window-status-current-style "bg=#{{{base0A/hex}}},fg=#{{{base00/hex}}}"
-setw -g window-status-last-style "fg=#{{{base0A/hex}}}"
+setw -g window-status-current-style "bg=#{{{base0D/hex}}},fg=#{{{base00/hex}}}"
+setw -g window-status-last-style "fg=#{{{base0D/hex}}}"
 setw -g window-status-activity-style 'underscore'
 setw -g window-status-bell-style 'underscore'
 
