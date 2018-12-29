@@ -1,7 +1,7 @@
 # intermediate conversion
 # for aliases via code
 s|{{{error/\([[:alpha:]]\+\)}}}|{{{base08/\1}}}|g
-s|{{{danger/\([[:alpha:]]\+\)}}}|{{{base08/\1}}}|g
+s|{{{alert/\([[:alpha:]]\+\)}}}|{{{base08/\1}}}|g
 s|{{{warning/\([[:alpha:]]\+\)}}}|{{{base09/\1}}}|g
 s|{{{background/\([[:alpha:]]\+\)}}}|{{{base00/\1}}}|g
 s|{{{foreground/\([[:alpha:]]\+\)}}}|{{{base04/\1}}}|g

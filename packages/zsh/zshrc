@@ -60,8 +60,8 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(
 )
 
 # highlight potentially dangerous commands that requires extra attention
-ZSH_HIGHLIGHT_PATTERNS=('rm -(rf|fr) *' 'bg={{{danger/name}}},fg={{{base00/name}}},bold')
-ZSH_HIGHLIGHT_PATTERNS+=('rm * -(rf|fr)' 'bg={{{error/name}}},fg={{{base00/name}}},bold')
+ZSH_HIGHLIGHT_PATTERNS=('rm -(rf|fr) *' 'bg={{{alert/name}}},fg={{{base00/name}}},bold')
+ZSH_HIGHLIGHT_PATTERNS+=('rm * -(rf|fr)' 'bg={{{alert/name}}},fg={{{base00/name}}},bold')
 
 # brackets matching colors
 ZSH_HIGHLIGHT_STYLES[bracket-error]='fg={{{error/name}}},bold'
