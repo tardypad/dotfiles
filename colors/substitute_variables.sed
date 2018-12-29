@@ -1,13 +1,13 @@
 # intermediate conversion
 # for aliases via code
-s|{{{error/\([[:alpha:]]\+\)}}}|{{{base08/\1}}}|g
-s|{{{alert/\([[:alpha:]]\+\)}}}|{{{base08/\1}}}|g
-s|{{{warning/\([[:alpha:]]\+\)}}}|{{{base09/\1}}}|g
-s|{{{notice/\([[:alpha:]]\+\)}}}|{{{base0A/\1}}}|g
 s|{{{background/\([[:alpha:]]\+\)}}}|{{{base00/\1}}}|g
 s|{{{foreground/\([[:alpha:]]\+\)}}}|{{{base04/\1}}}|g
 s|{{{status_line_background/\([[:alpha:]]\+\)}}}|{{{base01/\1}}}|g
 s|{{{status_line_foreground/\([[:alpha:]]\+\)}}}|{{{base06/\1}}}|g
+s|{{{alert/\([[:alpha:]]\+\)}}}|{{{base08/\1}}}|g
+s|{{{error/\([[:alpha:]]\+\)}}}|{{{base08/\1}}}|g
+s|{{{warning/\([[:alpha:]]\+\)}}}|{{{base09/\1}}}|g
+s|{{{notice/\([[:alpha:]]\+\)}}}|{{{base0A/\1}}}|g
 
 # HEX
 s|{{{base00/hex}}}|2e3440|g
