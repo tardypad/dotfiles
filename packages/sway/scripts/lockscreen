@@ -13,7 +13,7 @@ swaylock \
   --bshlcolor {{{base05/hex}}}ff \
   --keyhlcolor {{{foreground/hex}}}ff \
   --ringcolor {{{base01/hex}}}ff \
-  --ringvercolor {{{base0A/hex}}}ff \
+  --ringvercolor {{{base05/hex}}}ff \
   --ringwrongcolor {{{error/hex}}}ff \
   --linecolor 00000000 \
   --separatorcolor 00000000 \

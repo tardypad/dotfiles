@@ -1,5 +1,5 @@
 # new window default border is without title bar
-default_border pixel 2
+default_border pixel 3
 
 # put some gaps between views
 gaps inner 10
@@ -14,6 +14,7 @@ hide_edge_borders both
 font Source Sans Pro, Font Awesome 5 Free 14
 
 # windows decorations colors
-client.focused          $base0B     $base0B     $base00     $base0D     $base0B
-client.focused_inactive $background $background $base0B     $background $base0D
-client.unfocused        $background $background $foreground $background $base0D
+# title border / title background / title text / indicator / view border
+client.focused          $base05     $base05     $base00     $base0E     $base05
+client.focused_inactive $background $background $base05     $background $base0E
+client.unfocused        $background $background $foreground $background $base0E
