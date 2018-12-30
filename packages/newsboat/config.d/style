@@ -1,9 +1,9 @@
 # colors
 color background        default                                   default
 color listnormal        default                                   default
-color listfocus         color{{{base01/number}}}                  color{{{base0A/number}}}
+color listfocus         color{{{base01/number}}}                  color{{{selected_item/number}}}
 color listnormal_unread color{{{base0F/number}}}                  default
-color listfocus_unread  color{{{base01/number}}}                  color{{{base0A/number}}}  bold
+color listfocus_unread  color{{{base01/number}}}                  color{{{selected_item/number}}}           bold
 color info              color{{{status_line_foreground/number}}}  color{{{status_line_background/number}}}
 color article           default                                   default
 
