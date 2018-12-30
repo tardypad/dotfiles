@@ -1,6 +1,6 @@
 [Desktop Entry]
 Exec=app_mail
-Name=Neomutt
+Name=neomutt
 GenericName=Mail client
 Icon=
 Type=Application

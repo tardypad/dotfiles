@@ -1,6 +1,6 @@
 [Desktop Entry]
 Exec=app_music
-Name=Ncmpcpp
+Name=ncmpcpp
 GenericName=Music player
 Icon=
 Type=Application

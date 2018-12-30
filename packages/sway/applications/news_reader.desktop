@@ -1,6 +1,6 @@
 [Desktop Entry]
 Exec=app_news
-Name=Newsboat
+Name=newsboat
 GenericName=News reader
 Icon=
 Type=Application

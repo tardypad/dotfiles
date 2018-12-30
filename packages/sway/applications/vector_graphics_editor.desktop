@@ -1,6 +1,6 @@
 [Desktop Entry]
 Exec=inkscape %F
-Name=Inkscape
+Name=inkscape
 GenericName=Vector graphics editor
 Icon=
 Type=Application

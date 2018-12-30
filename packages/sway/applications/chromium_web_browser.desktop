@@ -1,6 +1,6 @@
 [Desktop Entry]
 Exec=chromium %U
-Name=Chromium
+Name=chromium
 GenericName=Web browser
 Icon=
 Type=Application

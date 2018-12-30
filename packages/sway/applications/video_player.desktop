@@ -1,6 +1,6 @@
 [Desktop Entry]
 Exec=vlc --started-from-file %U
-Name=VLC
+Name=vlc
 GenericName=Video player
 Icon=
 Type=Application

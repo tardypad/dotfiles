@@ -1,6 +1,6 @@
 [Desktop Entry]
 Exec=zathura %U
-Name=Zathura
+Name=zathura
 GenericName=Document viewer
 Icon=
 Type=Application
