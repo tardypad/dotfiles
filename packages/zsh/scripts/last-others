@@ -1,13 +1,14 @@
 #!/usr/bin/env zsh
 
-# report logins from other users since my last main login
+# report logins from other users since my previous main login
 #
 # mainly useful on work laptop to detect administrators logins
 
 # only get main login from tty1
-last_damien_login_time=$(
+previous_damien_login_time=$(
   last --time iso damien \
     | grep tty1 \
+    | grep --invert-match 'still logged in' \
     | head --lines 1 \
     | tr --squeeze-repeats ' ' \
     | cut --delimiter ' ' --fields 3
@@ -15,7 +16,7 @@ last_damien_login_time=$(
 
 # convert it to a time format that can be used by last
 since_time=$(
-  date --date "${last_damien_login_time}" +%Y%m%d%H%M%S
+  date --date "${previous_damien_login_time}" +%Y%m%d%H%M%S
 )
 
 cut --delimiter : --fields 1 /etc/passwd \
