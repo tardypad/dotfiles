@@ -244,3 +244,6 @@ config.bind('QB', 'open --tab qute://bookmarks#quickmarks', mode='normal')
 config.bind('Qc', 'open --tab qute://help/commands.html', mode='normal')
 config.bind('Qs', 'open --tab qute://help/settings.html', mode='normal')
 config.bind('Qh', 'open --tab qute://history', mode='normal')
+
+# Javascript temporary toggling  on current domain
+config.bind('<Ctrl-J>', 'config-cycle --print --temp --pattern={url:host} content.javascript.enabled ;; reload', mode='normal')

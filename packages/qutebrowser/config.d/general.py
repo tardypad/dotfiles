@@ -17,3 +17,10 @@ c.url.searchengines = {
 
 # open new tabs from middle/ctrl click in the background
 c.tabs.background = True
+
+# disable Javascript everywhere by default
+# and only whitelist some regularly used patterns
+# which are trusted or don't work well without it
+c.content.javascript.enabled = False
+config.set('content.javascript.enabled', True, '*.local')
+config.set('content.javascript.enabled', True, '*.youtube.com')

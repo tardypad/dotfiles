@@ -26,9 +26,6 @@
     * editing of such data in vim directly
     * syntax highlighting of query/request keywords
     * completion of query/request keywords
-- qutebrowser disable javascript globally  
-  enable it only on some websites using URL patterns  
-  add binding to toggle it on current page
 
 # New Features
   - backup of notes
