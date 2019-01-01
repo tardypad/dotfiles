@@ -10,15 +10,15 @@
 # us: start underline
 # ue: end underline
 
-BLINK_COLOR_FG={{{base08/number}}}
-BOLD_COLOR_FG={{{base0A/number}}}
-STANDOUT_COLOR_FG={{{base01/number}}}
-STANDOUT_COLOR_BG={{{base03/number}}}
-UNDERLINE_COLOR_FG={{{base0D/number}}}
+BLINK_COLOR_FG={{{base0B/number}}}
+BOLD_COLOR_FG={{{base05/number}}}
+STANDOUT_COLOR_FG={{{base00/number}}}
+STANDOUT_COLOR_BG={{{base05/number}}}
+UNDERLINE_COLOR_FG={{{base0C/number}}}
 
 env \
   LESS_TERMCAP_mb=$(tput setaf ${BLINK_COLOR_FG}) \
-  LESS_TERMCAP_md=$(tput setaf ${BOLD_COLOR_FG}) \
+  LESS_TERMCAP_md=$(tput bold; tput setaf ${BOLD_COLOR_FG}) \
   LESS_TERMCAP_me=$(tput sgr0) \
   LESS_TERMCAP_so=$(tput setaf ${STANDOUT_COLOR_FG}; tput setab ${STANDOUT_COLOR_BG}) \
   LESS_TERMCAP_se=$(tput sgr0) \

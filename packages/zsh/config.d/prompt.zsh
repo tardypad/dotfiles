@@ -11,7 +11,7 @@ precmd() {
 }
 
 set_prompt() {
-  local root='%{%F{{{{base08/name}}}}%}'
+  local root='%{%F{{{{alert/name}}}}%}'
   local normal='%{%F{{{{base0D/name}}}}%}'
   local underline='%{%U%}'
   local bold='%{%B%}'

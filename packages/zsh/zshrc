@@ -40,7 +40,7 @@ TRAPUSR1()
 ### Fish-like autosuggestions
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg={{{base02/number}}}
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg={{{base03/number}}}
 
 # Ctrl+Enter accepts and executes suggestion
 bindkey '^[[27;5;13~' autosuggest-execute
@@ -60,17 +60,17 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(
 )
 
 # highlight potentially dangerous commands that requires extra attention
-ZSH_HIGHLIGHT_PATTERNS=('rm -(rf|fr) *' 'bg={{{alert/name}}},fg={{{base00/name}}},bold')
-ZSH_HIGHLIGHT_PATTERNS+=('rm * -(rf|fr)' 'bg={{{alert/name}}},fg={{{base00/name}}},bold')
+ZSH_HIGHLIGHT_PATTERNS=('rm -(rf|fr) *' 'bg={{{alert/number}}},fg={{{base00/number}}},bold')
+ZSH_HIGHLIGHT_PATTERNS+=('rm * -(rf|fr)' 'bg={{{alert/number}}},fg={{{base00/number}}},bold')
 
 # brackets matching colors
-ZSH_HIGHLIGHT_STYLES[bracket-error]='fg={{{error/name}}},bold'
-ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='fg={{{base06/name}}},bold'
-ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg={{{base0B/name}}}'
-ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg={{{base0C/name}}}'
-ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg={{{base0D/name}}}'
-ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg={{{base0A/name}}}'
-ZSH_HIGHLIGHT_STYLES[bracket-level-5]='fg={{{base0F/name}}}'
+ZSH_HIGHLIGHT_STYLES[bracket-error]='fg={{{error/number}}},bold'
+ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='fg={{{base06/number}}},bold'
+ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg={{{base0E/number}}}'
+ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg={{{base05/number}}}'
+ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg={{{base0D/number}}}'
+ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg={{{base0C/number}}}'
+ZSH_HIGHLIGHT_STYLES[bracket-level-5]='fg={{{base0B/number}}}'
 
 ### Fish-like history substring search
 
@@ -82,5 +82,5 @@ bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
 # colors
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg={{{base0F/name}}},fg={{{base00/name}}}'
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg={{{base08/name}}},fg={{{base00/name}}}'
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg={{{base0B/number}}},fg={{{base00/number}}}'
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg={{{base08/number}}},fg={{{base00/number}}}'
