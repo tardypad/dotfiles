@@ -3,10 +3,13 @@ alias mv='mv -i'
 alias cp='cp -i'
 alias rm='rm -i'
 
-# auto color results
+# auto color outputs
 alias ls='ls --color=auto'
-alias lh='ls -lh'
 alias grep='grep --color=auto'
+alias diff='diff --color=auto --palette="rs=0:hd=1:ad={{{add/fg}}}:de={{{delete/fg}}}:ln={{{base0C/fg}}}"'
+
+# ls alias
+alias lh='ls -lh'
 
 # display calendar for full year with week number and Monday as week start
 alias calendar='cal --monday --week --year'
