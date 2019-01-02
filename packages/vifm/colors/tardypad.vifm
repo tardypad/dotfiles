@@ -1,12 +1,12 @@
 highlight clear
 
-highlight TopLine    cterm=none  ctermfg={{{base08/number}}}                  ctermbg=none
-highlight TopLineSel cterm=bold  ctermfg={{{base08/number}}}                  ctermbg=none
+highlight TopLine    cterm=none  ctermfg={{{base0D/number}}}                  ctermbg=none
+highlight TopLineSel cterm=bold  ctermfg={{{base0D/number}}}                  ctermbg=none
 highlight StatusLine cterm=none  ctermfg={{{status_line_foreground/number}}}  ctermbg={{{status_line_background/number}}}
-highlight Border     cterm=none  ctermfg={{{base01/number}}}                  ctermbg=none
+highlight Border     cterm=none  ctermfg={{{status_line_background/number}}}  ctermbg=none
 highlight Selected   cterm=none  ctermfg={{{selected_item/number}}}           ctermbg=default
 highlight CurrLine   cterm=none  ctermfg={{{base00/number}}}                  ctermbg={{{current_item/number}}}
-highlight WildMenu   cterm=none  ctermfg={{{base00/number}}}                  ctermbg={{{base04/number}}}
+highlight WildMenu   cterm=none  ctermfg={{{base00/number}}}                  ctermbg={{{current_item/number}}}
 highlight CmdLine    cterm=none  ctermfg={{{foreground/number}}}              ctermbg=none
 highlight ErrorMsg   cterm=none  ctermfg={{{error/number}}}                   ctermbg=none
 
