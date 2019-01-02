@@ -7,6 +7,7 @@
   - check if some code tags can be fixed with the `report-tags` utility script
 
 # Cleaning
+  - keep only relevant items in dircolors config
 
 # Bugs
 

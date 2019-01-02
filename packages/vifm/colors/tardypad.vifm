@@ -15,20 +15,18 @@ highlight ErrorMsg   cterm=none  ctermfg={{{error/number}}}                   ct
 " vifm-convert-dircolors ~/.dircolors
 
 " generic file types
-highlight BrokenLink cterm=none ctermfg={{{base06/number}}} ctermbg={{{error/number}}}
-highlight Device cterm=none ctermfg={{{base06/number}}} ctermbg={{{base0D/number}}}
-highlight Directory cterm=none ctermfg={{{base0D/number}}} ctermbg=default
-highlight Executable cterm=bold ctermfg={{{base08/number}}} ctermbg=default
-highlight Fifo cterm=none ctermfg={{{base01/number}}} ctermbg={{{base0D/number}}}
-highlight Link cterm=none ctermfg={{{base0F/number}}} ctermbg=default
-highlight Socket cterm=none ctermfg={{{base0F/number}}} ctermbg={{{base0D/number}}}
+highlight BrokenLink cterm=none ctermfg={{{error/number}}} ctermbg=default
+highlight Device cterm=underline ctermfg=default ctermbg=default
+highlight Directory cterm=bold ctermfg=default ctermbg=default
+highlight Executable cterm=bold ctermfg={{{base0B/number}}} ctermbg=default
+highlight Fifo cterm=underline ctermfg={{{base0D/number}}} ctermbg=default
+highlight Link cterm=underline ctermfg={{{base04/number}}} ctermbg=default
+highlight Socket cterm=underline ctermfg={{{base0C/number}}} ctermbg=default
 highlight Win cterm=none ctermfg=default ctermbg=default
 
 " file name specific highlight
-highlight /.*#$|.*\.log$|.*~$/I cterm=bold ctermfg={{{base0B/number}}} ctermbg=default
-highlight /.*,v$|.*\.BAK$|.*\.DIST$|.*\.OFF$|.*\.OLD$|.*\.ORIG$|.*\.bak$|.*\.dist$|.*\.off$|.*\.old$|.*\.org_archive$|.*\.orig$|.*\.swo$|.*\.swp$/I cterm=bold ctermfg={{{base0A/number}}} ctermbg=default
-highlight /.*\.7z$|.*\.Z$|.*\.apk$|.*\.arj$|.*\.bin$|.*\.bz$|.*\.bz2$|.*\.deb$|.*\.gem$|.*\.gz$|.*\.iso$|.*\.jar$|.*\.rar$|.*\.rpm$|.*\.tar$|.*\.tbz$|.*\.tbz2$|.*\.tgz$|.*\.tx$|.*\.war$|.*\.xpi$|.*\.xz$|.*\.z$|.*\.zip$/I cterm=bold ctermfg={{{base0F/number}}} ctermbg=default
-highlight /.*\.doc$|.*\.docx$|.*\.dot$|.*\.dotx$|.*\.fla$|.*\.odp$|.*\.ods$|.*\.odt$|.*\.otp$|.*\.ots$|.*\.ott$|.*\.ppt$|.*\.pptx$|.*\.psd$|.*\.rtf$|.*\.xls$|.*\.xlsx$/I cterm=none ctermfg={{{base08/number}}} ctermbg=default
-highlight /.*\.0$|.*\.1$|.*\.2$|.*\.3$|.*\.4$|.*\.5$|.*\.6$|.*\.7$|.*\.8$|.*\.9$|.*\.C$|.*\.bash$|.*\.c$|.*\.cc$|.*\.cl$|.*\.coffee$|.*\.cpp$|.*\.csh$|.*\.css$|.*\.csv$|.*\.cxx$|.*\.el$|.*\.erb$|.*\.go$|.*\.h$|.*\.haml$|.*\.hpp$|.*\.hs$|.*\.htm$|.*\.html$|.*\.java$|.*\.js$|.*\.l$|.*\.less$|.*\.man$|.*\.md$|.*\.mkd$|.*\.n$|.*\.objc$|.*\.org$|.*\.p$|.*\.php$|.*\.pl$|.*\.pm$|.*\.pod$|.*\.py$|.*\.rb$|.*\.rdf$|.*\.sass$|.*\.scss$|.*\.sh$|.*\.shtml$|.*\.sql$|.*\.tex$|.*\.txt$|.*\.vim$|.*\.xml$|.*\.zsh$/I cterm=none ctermfg={{{base0B/number}}} ctermbg=default
-highlight /.*\.JPG$|.*\.MOV$|.*\.PNG$|.*\.aac$|.*\.anx$|.*\.asf$|.*\.au$|.*\.avi$|.*\.axv$|.*\.bmp$|.*\.cgm$|.*\.dl$|.*\.dvi$|.*\.emf$|.*\.eps$|.*\.flac$|.*\.flc$|.*\.fli$|.*\.flv$|.*\.gif$|.*\.gl$|.*\.jpeg$|.*\.jpg$|.*\.m2v$|.*\.m4a$|.*\.m4v$|.*\.mid$|.*\.midi$|.*\.mka$|.*\.mkv$|.*\.mng$|.*\.mov$|.*\.mp3$|.*\.mp4$|.*\.mp4v$|.*\.mpa$|.*\.mpeg$|.*\.mpg$|.*\.nuv$|.*\.ogg$|.*\.ogm$|.*\.ogv$|.*\.ogx$|.*\.opus$|.*\.pbm$|.*\.pcx$|.*\.pdf$|.*\.pgm$|.*\.png$|.*\.ppm$|.*\.pps$|.*\.ppsx$|.*\.ps$|.*\.qt$|.*\.ra$|.*\.rm$|.*\.rmvb$|.*\.svg$|.*\.svgz$|.*\.swf$|.*\.tga$|.*\.tif$|.*\.tiff$|.*\.vob$|.*\.wav$|.*\.webm$|.*\.wmv$|.*\.xbm$|.*\.xcf$|.*\.xpm$|.*\.xwd$|.*\.yuv$/I cterm=none ctermfg={{{base0A/number}}} ctermbg=default
+highlight /.*\.7z$|.*\.Z$|.*\.apk$|.*\.arj$|.*\.bin$|.*\.bz$|.*\.bz2$|.*\.deb$|.*\.gem$|.*\.gz$|.*\.iso$|.*\.jar$|.*\.rar$|.*\.rpm$|.*\.tar$|.*\.tbz$|.*\.tbz2$|.*\.tgz$|.*\.tx$|.*\.war$|.*\.xpi$|.*\.xz$|.*\.z$|.*\.zip$/I cterm=bold ctermfg={{{base04/number}}} ctermbg=default
+highlight /.*#$|.*\.BAK$|.*\.DIST$|.*\.OFF$|.*\.OLD$|.*\.ORIG$|.*\.bak$|.*\.dist$|.*\.log$|.*\.off$|.*\.old$|.*\.org_archive$|.*\.orig$|.*\.swo$|.*\.swp$|.*~$/I cterm=none ctermfg=default ctermbg=default
+highlight /.*\.0$|.*\.1$|.*\.2$|.*\.3$|.*\.4$|.*\.5$|.*\.6$|.*\.7$|.*\.8$|.*\.9$|.*\.C$|.*\.JPG$|.*\.MOV$|.*\.PNG$|.*\.aac$|.*\.anx$|.*\.asf$|.*\.au$|.*\.avi$|.*\.axv$|.*\.bash$|.*\.bmp$|.*\.c$|.*\.cc$|.*\.cgm$|.*\.cl$|.*\.coffee$|.*\.cpp$|.*\.csh$|.*\.css$|.*\.csv$|.*\.cxx$|.*\.dl$|.*\.dvi$|.*\.el$|.*\.emf$|.*\.eps$|.*\.erb$|.*\.flac$|.*\.flc$|.*\.fli$|.*\.flv$|.*\.gif$|.*\.gl$|.*\.go$|.*\.h$|.*\.haml$|.*\.hpp$|.*\.hs$|.*\.htm$|.*\.html$|.*\.java$|.*\.jpeg$|.*\.jpg$|.*\.js$|.*\.l$|.*\.less$|.*\.m2v$|.*\.m4a$|.*\.m4v$|.*\.man$|.*\.md$|.*\.mid$|.*\.midi$|.*\.mka$|.*\.mkd$|.*\.mkv$|.*\.mng$|.*\.mov$|.*\.mp3$|.*\.mp4$|.*\.mp4v$|.*\.mpa$|.*\.mpeg$|.*\.mpg$|.*\.n$|.*\.nuv$|.*\.objc$|.*\.ogg$|.*\.ogm$|.*\.ogv$|.*\.ogx$|.*\.opus$|.*\.org$|.*\.p$|.*\.pbm$|.*\.pcx$|.*\.pdf$|.*\.pgm$|.*\.php$|.*\.pl$|.*\.pm$|.*\.png$|.*\.pod$|.*\.ppm$|.*\.pps$|.*\.ppsx$|.*\.ps$|.*\.py$|.*\.qt$|.*\.ra$|.*\.rb$|.*\.rdf$|.*\.rm$|.*\.rmvb$|.*\.sass$|.*\.scss$|.*\.sh$|.*\.shtml$|.*\.sql$|.*\.svg$|.*\.svgz$|.*\.swf$|.*\.tex$|.*\.tga$|.*\.tif$|.*\.tiff$|.*\.txt$|.*\.vim$|.*\.vob$|.*\.wav$|.*\.webm$|.*\.wmv$|.*\.xbm$|.*\.xcf$|.*\.xml$|.*\.xpm$|.*\.xwd$|.*\.yuv$|.*\.zsh$/I cterm=none ctermfg={{{base0C/number}}} ctermbg=default
+highlight /.*\.doc$|.*\.docx$|.*\.dot$|.*\.dotx$|.*\.fla$|.*\.odp$|.*\.ods$|.*\.odt$|.*\.otp$|.*\.ots$|.*\.ott$|.*\.ppt$|.*\.pptx$|.*\.psd$|.*\.rtf$|.*\.xls$|.*\.xlsx$/I cterm=none ctermfg={{{base0A/number}}} ctermbg=default
 highlight /.*\.3des$|.*\.aes$|.*\.asc$|.*\.enc$|.*\.gpg$|.*\.pgp$|.*\.sqlite$/I cterm=none ctermfg={{{base0D/number}}} ctermbg=default
