@@ -39,6 +39,8 @@ let s:background_gui             = "#{{{background/hex}}}"
 let s:foreground_gui             = "#{{{foreground/hex}}}"
 let s:status_line_background_gui = "#{{{status_line_background/hex}}}"
 let s:status_line_foreground_gui = "#{{{status_line_foreground/hex}}}"
+let s:delete_gui                 = "#{{{delete/hex}}}"
+let s:add_gui                    = "#{{{add/hex}}}"
 
 " define number colors for terminal
 let s:base00_term                 = "{{{base00/number}}}"
@@ -63,6 +65,8 @@ let s:background_term             = "{{{background/number}}}"
 let s:foreground_term             = "{{{foreground/number}}}"
 let s:status_line_background_term = "{{{status_line_background/number}}}"
 let s:status_line_foreground_term = "{{{status_line_foreground/number}}}"
+let s:delete_term                 = "{{{delete/number}}}"
+let s:add_term                    = "{{{add/number}}}"
 
 " helper function for highlight
 function! s:highlight(group, base_fg, base_bg, attr)
@@ -112,9 +116,9 @@ call s:highlight("CursorColumn", "",       "base03", "")
 call s:highlight("CursorLine",   "",       "base03", "")
 
 " diff
-call s:highlight("DiffAdd",      "base0B", "base01", "")
+call s:highlight("DiffAdd",      "add",    "base01", "")
 call s:highlight("DiffChange",   "base0A", "base01", "")
-call s:highlight("DiffDelete",   "base0F", "base01", "bold")
+call s:highlight("DiffDelete",   "delete", "base01", "bold")
 call s:highlight("DiffText",     "base0D", "base01", "")
 
 " pop up menu

@@ -34,11 +34,11 @@
     frag = {{{base0D/number}}}
     func = {{{base0C/number}}}
     meta = {{{base03/number}}} italic
-    new = {{{base0B/number}}}
-    old = {{{base08/number}}}
+    new = {{{add/number}}}
+    old = {{{delete/number}}}
     whitespace = reverse
 [color "diff-highlight"]
-    oldNormal = {{{base08/number}}}
-    oldHighlight = {{{base08/number}}} ul
-    newNormal = {{{base0B/number}}}
-    newHighlight = {{{base0B/number}}} ul
+    oldNormal = {{{delete/number}}}
+    oldHighlight = {{{delete/number}}} ul
+    newNormal = {{{add/number}}}
+    newHighlight = {{{add/number}}} ul

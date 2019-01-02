@@ -20,6 +20,7 @@ set my_status_line_background = color{{{status_line_background/number}}}
 set my_status_line_foreground = color{{{status_line_foreground/number}}}
 set my_current_item           = color{{{current_item/number}}}
 set my_selected_item          = color{{{selected_item/number}}}
+set my_delete                 = color{{{delete/number}}}
 
 # general colors
 color error         $my_error    default             # error messages
@@ -52,8 +53,8 @@ color index_subject       $my_base0D    default               "~U"              
 color index_subject       $my_base0D    default               "~v~(~U)"                # color subject of collapsed thread with some unread messages
 color index_date          $my_base03    default                                        # date
 color index_collapsed     $my_base0C    default                                        # number of messages in collapsed thread
-color index_flags         $my_base01    $my_base08            "~D"                     # highlight flags for deleted message
-color index_flags         $my_base01    $my_base08            "~v~(~D)"                # highlight flags for collapsed thread with some deleted messages
+color index_flags         $my_base01    $my_delete            "~D"                     # highlight flags for deleted message
+color index_flags         $my_base01    $my_delete            "~v~(~D)"                # highlight flags for collapsed thread with some deleted messages
 color index_flags         $my_base01    $my_selected_item     "~T"                     # highlight flags for tagged message
 color index_flags         $my_base01    $my_selected_item     "~v~(~T)"                # highlight flags for collapsed thread with some tagged messages
 

@@ -10,6 +10,8 @@ s|{{{warning/\([[:alpha:]]\+\)}}}|{{{base09/\1}}}|g
 s|{{{notice/\([[:alpha:]]\+\)}}}|{{{base0A/\1}}}|g
 s|{{{current_item/\([[:alpha:]]\+\)}}}|{{{base0C/\1}}}|g
 s|{{{selected_item/\([[:alpha:]]\+\)}}}|{{{base0F/\1}}}|g
+s|{{{delete/\([[:alpha:]]\+\)}}}|{{{base08/\1}}}|g
+s|{{{add/\([[:alpha:]]\+\)}}}|{{{base0B/\1}}}|g
 
 # HEX
 s|{{{base00/hex}}}|2e3440|g
