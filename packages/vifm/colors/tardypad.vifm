@@ -5,7 +5,7 @@ highlight TopLineSel cterm=bold  ctermfg={{{base08/number}}}                  ct
 highlight StatusLine cterm=none  ctermfg={{{status_line_foreground/number}}}  ctermbg={{{status_line_background/number}}}
 highlight Border     cterm=none  ctermfg={{{base01/number}}}                  ctermbg=none
 highlight Selected   cterm=none  ctermfg={{{base0F/number}}}                  ctermbg=default
-highlight CurrLine   cterm=none  ctermfg={{{base00/number}}}                  ctermbg={{{selected_item/number}}}
+highlight CurrLine   cterm=none  ctermfg={{{base00/number}}}                  ctermbg={{{current_item/number}}}
 highlight WildMenu   cterm=none  ctermfg={{{base00/number}}}                  ctermbg={{{base04/number}}}
 highlight CmdLine    cterm=none  ctermfg={{{foreground/number}}}              ctermbg=none
 highlight ErrorMsg   cterm=none  ctermfg={{{error/number}}}                   ctermbg=none

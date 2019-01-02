@@ -77,9 +77,9 @@ color2 = {{{base0C/name}}}
 
 discard_colors_if_item_is_selected = no
 
-current_item_prefix = $({{{selected_item/name}}})$r
+current_item_prefix = $({{{current_item/name}}})$r
 current_item_suffix = $/r$(end)
-current_item_inactive_column_prefix = $({{{selected_item/name}}})
+current_item_inactive_column_prefix = $({{{current_item/name}}})
 current_item_inactive_column_suffix = $(end)
 now_playing_prefix = $({{{base0C/name}}})
 now_playing_suffix = $(end)
