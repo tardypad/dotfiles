@@ -26,9 +26,9 @@ alias root='sudo --preserve-env --shell'
 # general info about the current shell
 alias status='
   cat << EOF | column -t
-User ${USERNAME}
-Host ${HOST}
-Dir  $( print -D "${PWD}" )
+User $(tput setaf {{{base0E/number}}})${USERNAME}$(tput sgr0)
+Host $(tput setaf {{{base05/number}}})${HOST}$(tput sgr0)
+Dir  $(tput setaf {{{base0D/number}}})$( print -D "${PWD}" )$(tput sgr0)
 EOF
 '
 
