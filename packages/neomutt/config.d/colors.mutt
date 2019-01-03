@@ -23,12 +23,11 @@ set my_selected_item          = color{{{selected_item/number}}}
 set my_delete                 = color{{{delete/number}}}
 
 # general colors
-color error         $my_error    default             # error messages
-color tilde         $my_base01   default             # ~ in pager blank lines
-color message       $my_base0C   default             # informational messages
-color markers       $my_base06   default             # + in pager wrapped lines
-color attachment    $my_base02   default             # attachment in pager
-color search        $my_base01   $my_base0E          # highlight search word in pager
+color error         $my_base07   $my_error           # error messages
+color message       $my_base0D   default             # informational messages
+color markers       $my_base07   default             # + in pager wrapped lines
+color attachment    $my_base0E   default             # attachment in pager
+color search        $my_base00   $my_base0A          # highlight search word in pager
 color indicator     $my_base00   $my_current_item    # highlight current item in menus
 color tree          $my_base03   default             # thread tree symbol
 color signature     $my_base02   default
@@ -36,38 +35,39 @@ color bold          $my_base01   default
 color underline     $my_base01   default
 
 # sidebar
-color sidebar_divider     $my_base03    default      # separator
-color sidebar_highlight   $my_base01    $my_base04   # selected mailbox
-color sidebar_indicator   $my_base01    $my_base0C   # current displayed mailbox
-color sidebar_new         $my_base0F    default      # mailbox with new mail
+color sidebar_divider     $my_status_line_background    default            # separator
+color sidebar_highlight   $my_base00                    $my_current_item   # selected mailbox
+color sidebar_indicator   $my_base00                    $my_base05         # current displayed mailbox
+color sidebar_new         $my_base0F                    default            # mailbox with new mail
 
 # status
 color status              $my_status_line_foreground    $my_status_line_background                              # full default
-color status              $my_base06                    $my_status_line_background     "Folder: '[^']+'"        # current mailbox
+color status              $my_base07                    $my_status_line_background     "Folder: '[^']+'"        # current mailbox
 
 # index
-color index               $my_base06    default               "~v"                     # collapsed thread
-color index_author        $my_base0B    default               "~U"                     # color author of unread message
-color index_author        $my_base0B    default               "~v~(~U)"                # color author of collapsed thread with some unread messages
-color index_subject       $my_base0D    default               "~U"                     # color subject of unread message
-color index_subject       $my_base0D    default               "~v~(~U)"                # color subject of collapsed thread with some unread messages
-color index_date          $my_base03    default                                        # date
-color index_collapsed     $my_base0C    default                                        # number of messages in collapsed thread
-color index_flags         $my_base01    $my_delete            "~D"                     # highlight flags for deleted message
-color index_flags         $my_base01    $my_delete            "~v~(~D)"                # highlight flags for collapsed thread with some deleted messages
-color index_flags         $my_base01    $my_selected_item     "~T"                     # highlight flags for tagged message
-color index_flags         $my_base01    $my_selected_item     "~v~(~T)"                # highlight flags for collapsed thread with some tagged messages
+color index               $my_base07    default               "~v"                     # collapsed thread
+color index_author        $my_base0D    default               "~U"                     # color author of unread message
+color index_author        $my_base0D    default               "~v~(~U)"                # color author of collapsed thread with some unread messages
+color index_subject       $my_base0B    default               "~U"                     # color subject of unread message
+color index_subject       $my_base0B    default               "~v~(~U)"                # color subject of collapsed thread with some unread messages
+color index_date          $my_base0E    default                                        # date
+color index_collapsed     $my_base05    default                                        # number of messages in collapsed thread
+color index_flags         $my_base00    $my_delete            "~D"                     # highlight flags for deleted message
+color index_flags         $my_base00    $my_delete            "~v~(~D)"                # highlight flags for collapsed thread with some deleted messages
+color index_flags         $my_base00    $my_selected_item     "~T"                     # highlight flags for tagged message
+color index_flags         $my_base00    $my_selected_item     "~v~(~T)"                # highlight flags for collapsed thread with some tagged messages
 
 # message headers
-color hdrdefault    $my_base02      default                                     # default for pager header
-color header        $my_base0B      default         "^(From|To|CC):"            # sender and recipients headers
-color header        $my_base0D      default         "^Subject:"                 # subject header
-color header        $my_base03      default         "^Date:"                    # date header
+color hdrdefault    $my_base03      default                                     # default for pager header
+color header        $my_base0D      default         "^(From|To|CC):"            # sender and recipients headers
+color header        $my_base0B      default         "^Subject:"                 # subject header
+color header        $my_base0E      default         "^Date:"                    # date header
 
 # quotings
 color quoted        $my_base0E      default
-color quoted1       $my_base0C      default
+color quoted1       $my_base05      default
 color quoted2       $my_base0D      default
+color quoted3       $my_base0C      default
 
 # yes, an insance URL regex
-color body          $my_base0A      default         "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
+color body          $my_base0C      default         "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
