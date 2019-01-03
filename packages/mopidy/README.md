@@ -4,7 +4,7 @@ Music server
 
 Source [Github](https://github.com/mopidy/mopidy)
 
-Version [2.2.1](https://github.com/mopidy/mopidy/releases/tag/v2.2.1)
+Version [2.2.2](https://github.com/mopidy/mopidy/releases/tag/v2.2.2)
 
 ## Required extensions
 
