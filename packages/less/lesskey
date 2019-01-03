@@ -24,7 +24,7 @@ _       display-option
 v       visual
 s       toggle-option o
 =       status
-f       forw-forever
+\ef     forw-forever
 
 # navigation
 j       forw-line
