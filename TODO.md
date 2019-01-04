@@ -26,6 +26,7 @@
     * editing of such data in vim directly
     * syntax highlighting of query/request keywords
     * completion of query/request keywords
+  - check and update other git possible colors configuration from git-config man page
 
 # New Features
   - backup of notes

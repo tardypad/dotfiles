@@ -12,3 +12,8 @@
     oldHighlight = {{{delete/number}}} italic ul
     newNormal = {{{add/number}}}
     newHighlight = {{{add/number}}} italic ul
+[color "recent"]
+    refname = {{{base05/number}}} bold
+    committerdate = {{{base0D/number}}}
+[color "tag-list"]
+    refname = {{{base05/number}}} bold
