@@ -1,0 +1,14 @@
+[color "diff"]
+    commit = {{{base05/number}}} bold
+    context = normal
+    frag = {{{base0C/number}}}
+    func = {{{base0D/number}}}
+    meta = {{{base0E/number}}} italic
+    new = {{{add/number}}}
+    old = {{{delete/number}}}
+    whitespace = reverse
+[color "diff-highlight"]
+    oldNormal = {{{delete/number}}}
+    oldHighlight = {{{delete/number}}} italic ul
+    newNormal = {{{add/number}}}
+    newHighlight = {{{add/number}}} italic ul
