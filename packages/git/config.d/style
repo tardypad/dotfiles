@@ -12,6 +12,16 @@
     oldHighlight = {{{delete/number}}} italic ul
     newNormal = {{{add/number}}}
     newHighlight = {{{add/number}}} italic ul
+[color "grep"]
+    context = normal
+    filename = {{{base05/number}}}
+    function = {{{base0C/number}}}
+    lineNumber = {{{base0D/number}}}
+    column = {{{base0D/number}}}
+    matchContext = {{{base0A/number}}} bold
+    matchSelected = {{{base0A/number}}} bold
+    selected = normal
+    separator = {{{base0E/number}}}
 [color "recent"]
     refname = {{{base05/number}}} bold
     committerdate = {{{base0D/number}}}

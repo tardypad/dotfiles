@@ -10,6 +10,9 @@ export READNULLCMD=less
 # seems to break even more stuff around...
 export LESS='--ignore-case --line-numbers --chop-long-lines --RAW-CONTROL-CHARS'
 
+# change grep output colors
+export GREP_COLORS='ms=1;{{{base0A/fg}}}:mc=1;{{{base0A/fg}}}:sl=:cx=:fn={{{base05/fg}}}:ln={{{base0D/fg}}}:bn={{{base0D/fg}}}:se={{{base0E/fg}}}'
+
 # decrease key timeout to 100ms
 export KEYTIMEOUT=10
 
