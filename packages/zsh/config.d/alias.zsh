@@ -81,7 +81,7 @@ alias https='http --default-scheme=https'
 alias ungron="gron --ungron"
 
 # Silver searcher default options
-alias ag='ag --color-match="1;{{{base0A/fg}}}" --color-path="{{{base05/fg}}}" --color-line-number="{{{base0D/fg}}}" --smart-case --skip-vcs-ignores --follow'
+alias ag='ag --color-match="1;{{{search_match/fg}}}" --color-path="{{{base05/fg}}}" --color-line-number="{{{base0D/fg}}}" --smart-case --skip-vcs-ignores --follow'
 
 # quick temper
 alias :w="echo 'Do I look like vim to you?...'; emoji-animate disapprove"

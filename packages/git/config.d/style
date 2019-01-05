@@ -18,8 +18,8 @@
     function = {{{base0C/number}}}
     lineNumber = {{{base0D/number}}}
     column = {{{base0D/number}}}
-    matchContext = {{{base0A/number}}} bold
-    matchSelected = {{{base0A/number}}} bold
+    matchContext = {{{search_match/number}}} bold
+    matchSelected = {{{search_match/number}}} bold
     selected = normal
     separator = {{{base0E/number}}}
 [color "recent"]

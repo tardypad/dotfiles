@@ -39,6 +39,7 @@ let s:background_gui             = "#{{{background/hex}}}"
 let s:foreground_gui             = "#{{{foreground/hex}}}"
 let s:status_line_background_gui = "#{{{status_line_background/hex}}}"
 let s:status_line_foreground_gui = "#{{{status_line_foreground/hex}}}"
+let s:search_match_gui           = "#{{{search_match/hex}}}"
 let s:delete_gui                 = "#{{{delete/hex}}}"
 let s:add_gui                    = "#{{{add/hex}}}"
 
@@ -65,6 +66,7 @@ let s:background_term             = "{{{background/number}}}"
 let s:foreground_term             = "{{{foreground/number}}}"
 let s:status_line_background_term = "{{{status_line_background/number}}}"
 let s:status_line_foreground_term = "{{{status_line_foreground/number}}}"
+let s:search_match_term           = "{{{search_match/number}}}"
 let s:delete_term                 = "{{{delete/number}}}"
 let s:add_term                    = "{{{add/number}}}"
 
@@ -149,8 +151,8 @@ highlight! link StatusLineTerm   StatusLine
 highlight! link StatusLineTermNC StatusLineNC
 
 " search
-call s:highlight("IncSearch",    "base00", "base09", "")
-call s:highlight("Search",       "base00", "base0A", "")
+call s:highlight("IncSearch",    "base00", "base05", "")
+call s:highlight("Search",       "base00", "search_match", "")
 
 " tabs
 call s:highlight("TabLine",      "status_line_foreground", "status_line_background", "")
