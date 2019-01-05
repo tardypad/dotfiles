@@ -47,6 +47,8 @@ EXEC           1;{{{base0B/fg}}}                 # executable
 
 # Books
 .azw  {{{base0C/fg}}}
+.cbr  {{{base0C/fg}}}
+.cbz  {{{base0C/fg}}}
 .azw3 {{{base0C/fg}}}
 .epub {{{base0C/fg}}}
 .mobi {{{base0C/fg}}}
