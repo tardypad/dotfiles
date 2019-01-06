@@ -1,7 +1,7 @@
 # colors
 color background        default                                   default
 color listnormal        default                                   default
-color listnormal_unread color{{{base0F/number}}}                  default
+color listnormal_unread color{{{unread_item/number}}}             default
 color listfocus         color{{{base00/number}}}                  color{{{current_item/number}}}
 color listfocus_unread  color{{{base00/number}}}                  color{{{current_item/number}}}            bold
 color info              color{{{status_line_foreground/number}}}  color{{{status_line_background/number}}}

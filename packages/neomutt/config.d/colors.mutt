@@ -21,6 +21,7 @@ set my_status_line_foreground = color{{{status_line_foreground/number}}}
 set my_search_match           = color{{{search_match/number}}}
 set my_current_item           = color{{{current_item/number}}}
 set my_selected_item          = color{{{selected_item/number}}}
+set my_unread_item            = color{{{unread_item/number}}}
 set my_delete                 = color{{{delete/number}}}
 
 # general colors
@@ -39,7 +40,7 @@ color underline     $my_base01   default
 color sidebar_divider     $my_status_line_background    default            # separator
 color sidebar_highlight   $my_base00                    $my_current_item   # selected mailbox
 color sidebar_indicator   $my_base00                    $my_base05         # current displayed mailbox
-color sidebar_new         $my_base0F                    default            # mailbox with new mail
+color sidebar_new         $my_unread_item               default            # mailbox with new mail
 
 # status
 color status              $my_status_line_foreground    $my_status_line_background                              # full default

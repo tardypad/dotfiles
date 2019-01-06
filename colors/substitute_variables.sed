@@ -11,6 +11,7 @@ s|{{{notice/\([[:alpha:]]\+\)}}}|{{{base0A/\1}}}|g
 s|{{{search_match/\([[:alpha:]]\+\)}}}|{{{base0F/\1}}}|g
 s|{{{current_item/\([[:alpha:]]\+\)}}}|{{{base0C/\1}}}|g
 s|{{{selected_item/\([[:alpha:]]\+\)}}}|{{{base0F/\1}}}|g
+s|{{{unread_item/\([[:alpha:]]\+\)}}}|{{{base0F/\1}}}|g
 s|{{{delete/\([[:alpha:]]\+\)}}}|{{{base08/\1}}}|g
 s|{{{add/\([[:alpha:]]\+\)}}}|{{{base0B/\1}}}|g
 
