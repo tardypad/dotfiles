@@ -1,4 +1,4 @@
-set -g message-command-style "bg=#{{{base05/hex}}},fg=#{{{base00/hex}}}"
+set -g message-command-style "bg=#{{{base05/hex}}},fg=#{{{base00/hex}}},bold"
 set -g message-style "bg=#{{{base05/hex}}},fg=#{{{base00/hex}}}"
 set -g mode-style "bg=#{{{notice/hex}}},fg=#{{{base00/hex}}}"
 
