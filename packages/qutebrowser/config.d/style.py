@@ -44,6 +44,7 @@ colors = {
     'error'        : '#{{{error/hex}}}',
     'warning'      : '#{{{warning/hex}}}',
     'notice'       : '#{{{notice/hex}}}',
+    'info'         : '#{{{info/hex}}}',
     'background'   : '#{{{background/hex}}}',
     'foreground'   : '#{{{foreground/hex}}}',
     'current_item' : '#{{{current_item/hex}}}'
@@ -86,8 +87,8 @@ c.colors.keyhint.suffix.fg                      = colors['base00']
 c.colors.messages.error.bg                      = colors['error']
 c.colors.messages.error.border                  = colors['error']
 c.colors.messages.error.fg                      = colors['base07']
-c.colors.messages.info.bg                       = colors['base0D']
-c.colors.messages.info.border                   = colors['base0D']
+c.colors.messages.info.bg                       = colors['info']
+c.colors.messages.info.border                   = colors['info']
 c.colors.messages.info.fg                       = colors['base07']
 c.colors.messages.warning.bg                    = colors['warning']
 c.colors.messages.warning.border                = colors['warning']
