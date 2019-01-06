@@ -43,6 +43,7 @@ colors = {
     'base0F'       : '#{{{base0F/hex}}}',
     'error'        : '#{{{error/hex}}}',
     'warning'      : '#{{{warning/hex}}}',
+    'notice'       : '#{{{notice/hex}}}',
     'background'   : '#{{{background/hex}}}',
     'foreground'   : '#{{{foreground/hex}}}',
     'current_item' : '#{{{current_item/hex}}}'
@@ -97,21 +98,21 @@ c.colors.prompts.border                         = "1px solid " + colors['base06'
 c.colors.prompts.fg                             = colors['base04']
 c.colors.prompts.selected.bg                    = colors['current_item']
 
-c.colors.statusbar.caret.bg                     = colors['base02']
-c.colors.statusbar.caret.fg                     = colors['base07']
-c.colors.statusbar.caret.selection.bg           = colors['base02']
-c.colors.statusbar.caret.selection.fg           = colors['base07']
+c.colors.statusbar.caret.bg                     = colors['background']
+c.colors.statusbar.caret.fg                     = colors['notice']
+c.colors.statusbar.caret.selection.bg           = colors['background']
+c.colors.statusbar.caret.selection.fg           = colors['notice']
 c.colors.statusbar.command.bg                   = colors['background']
 c.colors.statusbar.command.fg                   = colors['foreground']
-c.colors.statusbar.command.private.bg           = colors['base0A']
-c.colors.statusbar.command.private.fg           = colors['base00']
-c.colors.statusbar.insert.bg                    = colors['base05']
-c.colors.statusbar.insert.fg                    = colors['base07']
+c.colors.statusbar.command.private.bg           = colors['background']
+c.colors.statusbar.command.private.fg           = colors['notice']
+c.colors.statusbar.insert.bg                    = colors['background']
+c.colors.statusbar.insert.fg                    = colors['notice']
 c.colors.statusbar.normal.bg                    = colors['background']
 c.colors.statusbar.normal.fg                    = colors['foreground']
-c.colors.statusbar.passthrough.bg               = colors['base0F']
-c.colors.statusbar.passthrough.fg               = colors['base07']
-c.colors.statusbar.private.bg                   = colors['base0A']
+c.colors.statusbar.passthrough.bg               = colors['background']
+c.colors.statusbar.passthrough.fg               = colors['notice']
+c.colors.statusbar.private.bg                   = colors['base0E']
 c.colors.statusbar.private.fg                   = colors['base00']
 c.colors.statusbar.progress.bg                  = colors['base0D']
 
