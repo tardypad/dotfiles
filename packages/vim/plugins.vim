@@ -26,11 +26,6 @@ Plug 'junegunn/fzf.vim',
   \ { 'as': 'fzf',
   \   'commit': 'f39c92b' }
 
-" Git diff gutter
-Plug 'airblade/vim-gitgutter',
-  \ { 'as': 'gitgutter',
-  \   'commit': '50a7062' }
-
 " Tag bar
 Plug 'majutsushi/tagbar',
   \ { 'as': 'tagbar',
