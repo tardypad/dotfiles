@@ -1,3 +1,16 @@
+[color]
+    ui = auto
+[color "advice"]
+    hint = {{{base03/number}}} italic
+[color "blame"]
+    highlightRecent = {{{base0E/number}}},1 year ago,{{{base05/number}}},1 month ago,{{{base0D/number}}},1 week ago,{{{base0C/number}}}
+    repeatedLines = {{{base03/number}}}
+[color "branch"]
+    current = {{{base0B/number}}}
+    local = {{{base05/number}}}
+    remote = {{{base0D/number}}}
+    upstream = {{{base0C/number}}}
+    plain = normal
 [color "diff"]
     commit = {{{base05/number}}} bold
     context = normal
@@ -12,6 +25,12 @@
     oldHighlight = {{{delete/number}}} italic ul
     newNormal = {{{add/number}}}
     newHighlight = {{{add/number}}} italic ul
+[color "decorate"]
+    branch = {{{base05/number}}} bold
+    remoteBranch = {{{base0D/number}}} bold
+    tag = {{{base0B/number}}} italic bold
+    stash = {{{base0B/number}}} bold
+    HEAD = {{{base0B/number}}} bold
 [color "grep"]
     context = normal
     filename = {{{base05/number}}}
@@ -22,8 +41,34 @@
     matchSelected = {{{search_match/number}}} bold
     selected = normal
     separator = {{{base0E/number}}}
+[color "interactive"]
+    prompt = {{{base05/number}}} bold
+    header = {{{base0E/number}}} bold
+    help = {{{base0D/number}}}
+    error = {{{error/number}}}
+[color "push"]
+    error = {{{error/number}}}
+[color "remote"]
+    hint = {{{base03/number}}} italic
+    warning = {{{warning/number}}}
+    success = {{{base0B/number}}}
+    error = {{{error/number}}}
+[color "status"]
+    header = normal
+    added = {{{base0C/number}}}
+    changed = {{{base05/number}}}
+    untracked = {{{base0C/number}}} italic
+    branch = {{{base0B/number}}} bold
+    nobranch = {{{base0C/number}}} bold
+    localBranch = {{{base0B/number}}} bold
+    remoteBranch = {{{base05/number}}} bold
+    unmerged = {{{base0C/number}}} italic
+[color "transport"]
+    rejected = {{{error/number}}}
+
+# custom colors config
 [color "recent"]
-    refname = {{{base05/number}}} bold
+    refname = {{{base05/number}}}
     committerdate = {{{base0D/number}}}
 [color "tag-list"]
-    refname = {{{base05/number}}} bold
+    refname = {{{base05/number}}}

@@ -11,6 +11,7 @@
             echo $1; \
           fi \
         }; h"
+    bl = blame --color-by-age --color-lines
     br = branch
     brd = branch -D
     cb = checkout -b
