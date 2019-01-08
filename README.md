@@ -75,9 +75,7 @@ Some packages require some additional manual setup steps, check their own README
 
 ### Colors management
 
-Colors management across packages is centralized using variables
-based on [base16](http://chriskempson.com/projects/base16/) colors naming.
-
+Colors management across packages is centralized using base variables.  
 Those variables get replaced with the correct values during the setup.
 
 For example `{{{base0A/hex}}}` gets substituted by the hexadecimal value of the base0A color.  
