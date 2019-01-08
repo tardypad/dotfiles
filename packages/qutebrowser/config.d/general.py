@@ -10,6 +10,8 @@ c.content.host_blocking.whitelist = [ 'analytics.google.com' ]
 c.url.searchengines = {
     "DEFAULT": "https://duckduckgo.com/?q={}",
     "gg": "https://www.google.com/search?q={}",
+    "yt": "https://www.youtube.com/results?search_query={}",
+    "wp": "https://en.wikipedia.org/wiki/Special:Search/{}",
     "pkg": "https://www.archlinux.org/packages/?q={}",
     "aur": "https://aur.archlinux.org/packages/?K={}",
     "wiki": "https://wiki.archlinux.org/index.php?search={}"
