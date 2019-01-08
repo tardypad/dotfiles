@@ -9,22 +9,22 @@ cursor_shape = block
 
 [colors]
 foreground = #{{{foreground/hex}}}
-foreground_bold = #{{{base05/hex}}}
+foreground_bold = #{{{base09/hex}}}
 background = #{{{background/hex}}}
 
 color0  = #{{{base01/hex}}}
-color1  = #{{{base08/hex}}}
-color2  = #{{{base0B/hex}}}
-color3  = #{{{base0A/hex}}}
-color4  = #{{{base0D/hex}}}
+color1  = #{{{base0B/hex}}}
+color2  = #{{{base0E/hex}}}
+color3  = #{{{base0D/hex}}}
+color4  = #{{{base08/hex}}}
 color5  = #{{{base0F/hex}}}
-color6  = #{{{base0C/hex}}}
-color7  = #{{{base06/hex}}}
+color6  = #{{{base07/hex}}}
+color7  = #{{{base05/hex}}}
 color8  = #{{{base00/hex}}}
-color9  = #{{{base09/hex}}}
+color9  = #{{{base0C/hex}}}
 color10 = #{{{base02/hex}}}
 color11 = #{{{base03/hex}}}
 color12 = #{{{base04/hex}}}
-color13 = #{{{base0E/hex}}}
-color14 = #{{{base05/hex}}}
-color15 = #{{{base07/hex}}}
+color13 = #{{{base0A/hex}}}
+color14 = #{{{base09/hex}}}
+color15 = #{{{base06/hex}}}

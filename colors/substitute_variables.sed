@@ -3,18 +3,18 @@
 s|{{{background/\([[:alpha:]]\+\)}}}|{{{base00/\1}}}|g
 s|{{{foreground/\([[:alpha:]]\+\)}}}|{{{base04/\1}}}|g
 s|{{{status_line_background/\([[:alpha:]]\+\)}}}|{{{base01/\1}}}|g
-s|{{{status_line_foreground/\([[:alpha:]]\+\)}}}|{{{base06/\1}}}|g
-s|{{{alert/\([[:alpha:]]\+\)}}}|{{{base08/\1}}}|g
-s|{{{error/\([[:alpha:]]\+\)}}}|{{{base08/\1}}}|g
-s|{{{warning/\([[:alpha:]]\+\)}}}|{{{base09/\1}}}|g
-s|{{{notice/\([[:alpha:]]\+\)}}}|{{{base0A/\1}}}|g
-s|{{{info/\([[:alpha:]]\+\)}}}|{{{base0D/\1}}}|g
+s|{{{status_line_foreground/\([[:alpha:]]\+\)}}}|{{{base05/\1}}}|g
+s|{{{alert/\([[:alpha:]]\+\)}}}|{{{base0B/\1}}}|g
+s|{{{error/\([[:alpha:]]\+\)}}}|{{{base0B/\1}}}|g
+s|{{{warning/\([[:alpha:]]\+\)}}}|{{{base0C/\1}}}|g
+s|{{{notice/\([[:alpha:]]\+\)}}}|{{{base0D/\1}}}|g
+s|{{{info/\([[:alpha:]]\+\)}}}|{{{base08/\1}}}|g
 s|{{{search_match/\([[:alpha:]]\+\)}}}|{{{base0F/\1}}}|g
-s|{{{current_item/\([[:alpha:]]\+\)}}}|{{{base0C/\1}}}|g
+s|{{{current_item/\([[:alpha:]]\+\)}}}|{{{base07/\1}}}|g
 s|{{{selected_item/\([[:alpha:]]\+\)}}}|{{{base0F/\1}}}|g
 s|{{{unread_item/\([[:alpha:]]\+\)}}}|{{{base0F/\1}}}|g
-s|{{{delete/\([[:alpha:]]\+\)}}}|{{{base09/\1}}}|g
-s|{{{add/\([[:alpha:]]\+\)}}}|{{{base0B/\1}}}|g
+s|{{{delete/\([[:alpha:]]\+\)}}}|{{{base0C/\1}}}|g
+s|{{{add/\([[:alpha:]]\+\)}}}|{{{base0E/\1}}}|g
 
 # HEX
 s|{{{base00/hex}}}|2e3440|g
@@ -22,16 +22,16 @@ s|{{{base01/hex}}}|3b4252|g
 s|{{{base02/hex}}}|434c5e|g
 s|{{{base03/hex}}}|4c566a|g
 s|{{{base04/hex}}}|d8dee9|g
-s|{{{base05/hex}}}|81a1c1|g
-s|{{{base06/hex}}}|e5e9f0|g
-s|{{{base07/hex}}}|eceff4|g
-s|{{{base08/hex}}}|bf616a|g
-s|{{{base09/hex}}}|d08770|g
-s|{{{base0A/hex}}}|ebcb8b|g
-s|{{{base0B/hex}}}|a3be8c|g
-s|{{{base0C/hex}}}|8fbcbb|g
-s|{{{base0D/hex}}}|88c0d0|g
-s|{{{base0E/hex}}}|5e81ac|g
+s|{{{base05/hex}}}|e5e9f0|g
+s|{{{base06/hex}}}|eceff4|g
+s|{{{base07/hex}}}|8fbcbb|g
+s|{{{base08/hex}}}|88c0d0|g
+s|{{{base09/hex}}}|81a1c1|g
+s|{{{base0A/hex}}}|5e81ac|g
+s|{{{base0B/hex}}}|bf616a|g
+s|{{{base0C/hex}}}|d08770|g
+s|{{{base0D/hex}}}|ebcb8b|g
+s|{{{base0E/hex}}}|a3be8c|g
 s|{{{base0F/hex}}}|b48ead|g
 
 # fixed intermediate conversion
@@ -52,16 +52,16 @@ s|{{{base01/number}}}|0|g
 s|{{{base02/number}}}|10|g
 s|{{{base03/number}}}|11|g
 s|{{{base04/number}}}|12|g
-s|{{{base05/number}}}|14|g
-s|{{{base06/number}}}|7|g
-s|{{{base07/number}}}|15|g
-s|{{{base08/number}}}|1|g
-s|{{{base09/number}}}|9|g
-s|{{{base0A/number}}}|3|g
-s|{{{base0B/number}}}|2|g
-s|{{{base0C/number}}}|6|g
-s|{{{base0D/number}}}|4|g
-s|{{{base0E/number}}}|13|g
+s|{{{base05/number}}}|7|g
+s|{{{base06/number}}}|15|g
+s|{{{base07/number}}}|6|g
+s|{{{base08/number}}}|4|g
+s|{{{base09/number}}}|14|g
+s|{{{base0A/number}}}|13|g
+s|{{{base0B/number}}}|1|g
+s|{{{base0C/number}}}|9|g
+s|{{{base0D/number}}}|3|g
+s|{{{base0E/number}}}|2|g
 s|{{{base0F/number}}}|5|g
 
 # fixed ANSI mapping

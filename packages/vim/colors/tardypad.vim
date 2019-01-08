@@ -97,16 +97,16 @@ endfunction
 
 " misc
 call s:highlight("ColorColumn",  ""      ,     "base01", "")
-call s:highlight("Conceal",      "base0D",     "",       "")
-call s:highlight("Directory",    "base05",     "",       "bold")
+call s:highlight("Conceal",      "base08",     "",       "")
+call s:highlight("Directory",    "base09",     "",       "bold")
 call s:highlight("EndOfBuffer",  "background", "",       "")
-call s:highlight("MatchParen",   "base0C",     "base03", "bold")
+call s:highlight("MatchParen",   "base07",     "base03", "bold")
 call s:highlight("NonText",      "base00",     "base04", "")
 call s:highlight("Normal",       "foreground", "",       "")
 call s:highlight("SignColumn",   "base02",     "",       "")
 call s:highlight("SpecialKey",   "base03",     "base01", "bold")
 call s:highlight("Terminal",     "foreground", "",       "")
-call s:highlight("Title",        "base05",     "",       "bold")
+call s:highlight("Title",        "base09",     "",       "bold")
 call s:highlight("Visual",       "base00",     "base03", "")
 
 " line number
@@ -120,9 +120,9 @@ call s:highlight("CursorLine",   "",           "base01", "")
 
 " diff
 call s:highlight("DiffAdd",      "add",    "base01", "")
-call s:highlight("DiffChange",   "base0D", "base01", "")
+call s:highlight("DiffChange",   "base08", "base01", "")
 call s:highlight("DiffDelete",   "delete", "base01", "")
-call s:highlight("DiffText",     "base05", "base01", "")
+call s:highlight("DiffText",     "base09", "base01", "")
 
 " folds
 call s:highlight("FoldColumn",   "base03", "",       "")
@@ -141,14 +141,14 @@ call s:highlight("SpellLocal",   "warning", "", "underline")
 call s:highlight("SpellRare",    "warning", "", "underline")
 
 " prompt
-call s:highlight("ErrorMsg",     "base07",  "error",  "")
+call s:highlight("ErrorMsg",     "base06",  "error",  "")
 call s:highlight("ModeMsg",      "notice",  "",       "")
 call s:highlight("MoreMsg",      "notice",  "",       "")
-call s:highlight("Question",     "base0D",  "",       "")
-call s:highlight("WarningMsg",   "base07", "warning", "")
+call s:highlight("Question",     "base08",  "",       "")
+call s:highlight("WarningMsg",   "base06", "warning", "")
 
 " status line and splits
-call s:highlight("StatusLine",   "base0D",                 "base03",                 "")
+call s:highlight("StatusLine",   "base08",                 "base03",                 "")
 call s:highlight("StatusLineNC", "status_line_foreground", "status_line_background", "")
 call s:highlight("VertSplit",    "status_line_background", "",                       "")
 call s:highlight("WildMenu",     "base00",                 "current_item",           "")
@@ -156,23 +156,23 @@ highlight! link StatusLineTerm   StatusLine
 highlight! link StatusLineTermNC StatusLineNC
 
 " search
-call s:highlight("IncSearch",    "base00", "base05", "")
+call s:highlight("IncSearch",    "base00", "base09", "")
 call s:highlight("Search",       "base00", "search_match", "")
 highlight! link QuickFixLine Search
 
 " tabs
 call s:highlight("TabLine",      "status_line_foreground", "status_line_background", "")
 call s:highlight("TabLineFill",  "status_line_foreground", "status_line_background", "")
-call s:highlight("TabLineSel",   "base0D",                 "base03",                 "")
+call s:highlight("TabLineSel",   "base08",                 "base03",                 "")
 
 " languages
 call s:highlight("Comment",      "base03", "",       "italic")
-call s:highlight("Constant",     "base0C", "",       "")
-call s:highlight("Identifier",   "base0B", "",       "")
-call s:highlight("Statement",    "base0D", "",       "")
-call s:highlight("PreProc",      "base0E", "",       "")
-call s:highlight("Type",         "base05", "",       "")
-call s:highlight("Special",      "base0B", "",       "")
+call s:highlight("Constant",     "base07", "",       "")
+call s:highlight("Identifier",   "base0E", "",       "")
+call s:highlight("Statement",    "base08", "",       "")
+call s:highlight("PreProc",      "base0A", "",       "")
+call s:highlight("Type",         "base09", "",       "")
+call s:highlight("Special",      "base0E", "",       "")
 call s:highlight("Underlined",   "base0F", "",       "")
 call s:highlight("Ignore",       "",       "",       "")
 call s:highlight("Error",        "error",  "",       "bold")
@@ -203,11 +203,11 @@ highlight! link SpecialComment   Special
 highlight! link Debug            Special
 
 " Tagbar plugin
-call s:highlight("TagbarFoldIcon",            "base0D", "", "")
-call s:highlight("TagbarScope",               "base0B", "", "")
-call s:highlight("TagbarKind",                "base0B", "", "")
-call s:highlight("TagbarNestedKind",          "base0C", "", "")
-call s:highlight("TagbarType",                "base0C", "", "")
+call s:highlight("TagbarFoldIcon",            "base08", "", "")
+call s:highlight("TagbarScope",               "base0E", "", "")
+call s:highlight("TagbarKind",                "base0E", "", "")
+call s:highlight("TagbarNestedKind",          "base07", "", "")
+call s:highlight("TagbarType",                "base07", "", "")
 call s:highlight("TagbarVisibilityPublic",    "base0F", "", "")
 call s:highlight("TagbarVisibilityProtected", "base0F", "", "")
 call s:highlight("TagbarVisibilityPrivate",   "base0F", "", "")

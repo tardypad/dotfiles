@@ -4,99 +4,99 @@ TERM xterm-termite
 
 NORMAL                         0                 # global default
 FILE                           0                 # normal file
-DIR            1;{{{base05/fg}}}                 # directory
-OTHER_WRITABLE 1;{{{base04/fg}}};{{{base05/bg}}} # directory writable by others
+DIR            1;{{{base09/fg}}}                 # directory
+OTHER_WRITABLE 1;{{{base04/fg}}};{{{base09/bg}}} # directory writable by others
 LINK           4;{{{base04/fg}}}                 # symbolic link
-FIFO           4;{{{base0D/fg}}}                 # named pipe
-SOCK           4;{{{base0C/fg}}}                 # socket
-BLK            1;{{{base0E/fg}}}                 # block device
-CHR            4;{{{base0E/fg}}}                 # character device
+FIFO           4;{{{base08/fg}}}                 # named pipe
+SOCK           4;{{{base07/fg}}}                 # socket
+BLK            1;{{{base0A/fg}}}                 # block device
+CHR            4;{{{base0A/fg}}}                 # character device
 ORPHAN            {{{error/fg}}}                 # orphaned symlink
 MISSING        1;{{{base04/fg}}};{{{error/bg}}}  # missing file that orphaned symlink points to
-EXEC           1;{{{base0B/fg}}}                 # executable
+EXEC           1;{{{base0E/fg}}}                 # executable
 
 # Source text
-.bash   {{{base0C/fg}}}
-.c      {{{base0C/fg}}}
-.cc     {{{base0C/fg}}}
-.cpp    {{{base0C/fg}}}
-.css    {{{base0C/fg}}}
-.csv    {{{base0C/fg}}}
-.go     {{{base0C/fg}}}
-.h      {{{base0C/fg}}}
-.hpp    {{{base0C/fg}}}
-.hs     {{{base0C/fg}}}
-.htm    {{{base0C/fg}}}
-.html   {{{base0C/fg}}}
-.java   {{{base0C/fg}}}
-.js     {{{base0C/fg}}}
-.man    {{{base0C/fg}}}
-.md     {{{base0C/fg}}}
-.mkd    {{{base0C/fg}}}
-.php    {{{base0C/fg}}}
-.pl     {{{base0C/fg}}}
-.py     {{{base0C/fg}}}
-.rb     {{{base0C/fg}}}
-.sh     {{{base0C/fg}}}
-.sql    {{{base0C/fg}}}
-.tex    {{{base0C/fg}}}
-.txt    {{{base0C/fg}}}
-.vim    {{{base0C/fg}}}
-.xml    {{{base0C/fg}}}
-.zsh    {{{base0C/fg}}}
+.bash   {{{base07/fg}}}
+.c      {{{base07/fg}}}
+.cc     {{{base07/fg}}}
+.cpp    {{{base07/fg}}}
+.css    {{{base07/fg}}}
+.csv    {{{base07/fg}}}
+.go     {{{base07/fg}}}
+.h      {{{base07/fg}}}
+.hpp    {{{base07/fg}}}
+.hs     {{{base07/fg}}}
+.htm    {{{base07/fg}}}
+.html   {{{base07/fg}}}
+.java   {{{base07/fg}}}
+.js     {{{base07/fg}}}
+.man    {{{base07/fg}}}
+.md     {{{base07/fg}}}
+.mkd    {{{base07/fg}}}
+.php    {{{base07/fg}}}
+.pl     {{{base07/fg}}}
+.py     {{{base07/fg}}}
+.rb     {{{base07/fg}}}
+.sh     {{{base07/fg}}}
+.sql    {{{base07/fg}}}
+.tex    {{{base07/fg}}}
+.txt    {{{base07/fg}}}
+.vim    {{{base07/fg}}}
+.xml    {{{base07/fg}}}
+.zsh    {{{base07/fg}}}
 
 # Books
-.azw  {{{base0C/fg}}}
-.cbr  {{{base0C/fg}}}
-.cbz  {{{base0C/fg}}}
-.azw3 {{{base0C/fg}}}
-.epub {{{base0C/fg}}}
-.mobi {{{base0C/fg}}}
-.pdf  {{{base0C/fg}}}
+.azw  {{{base07/fg}}}
+.cbr  {{{base07/fg}}}
+.cbz  {{{base07/fg}}}
+.azw3 {{{base07/fg}}}
+.epub {{{base07/fg}}}
+.mobi {{{base07/fg}}}
+.pdf  {{{base07/fg}}}
 
 # Image
-.bmp  {{{base0C/fg}}}
-.eps  {{{base0C/fg}}}
-.gif  {{{base0C/fg}}}
-.jpeg {{{base0C/fg}}}
-.jpg  {{{base0C/fg}}}
-.png  {{{base0C/fg}}}
-.ppm  {{{base0C/fg}}}
-.ps   {{{base0C/fg}}}
-.svg  {{{base0C/fg}}}
-.svgz {{{base0C/fg}}}
-.tif  {{{base0C/fg}}}
-.tiff {{{base0C/fg}}}
-.xcf  {{{base0C/fg}}}
+.bmp  {{{base07/fg}}}
+.eps  {{{base07/fg}}}
+.gif  {{{base07/fg}}}
+.jpeg {{{base07/fg}}}
+.jpg  {{{base07/fg}}}
+.png  {{{base07/fg}}}
+.ppm  {{{base07/fg}}}
+.ps   {{{base07/fg}}}
+.svg  {{{base07/fg}}}
+.svgz {{{base07/fg}}}
+.tif  {{{base07/fg}}}
+.tiff {{{base07/fg}}}
+.xcf  {{{base07/fg}}}
 
 # Audio
-.aac  {{{base0C/fg}}}
-.flac {{{base0C/fg}}}
-.m4a  {{{base0C/fg}}}
-.mid  {{{base0C/fg}}}
-.midi {{{base0C/fg}}}
-.mp3  {{{base0C/fg}}}
-.mpa  {{{base0C/fg}}}
-.mpeg {{{base0C/fg}}}
-.mpg  {{{base0C/fg}}}
-.ogg  {{{base0C/fg}}}
-.wav  {{{base0C/fg}}}
+.aac  {{{base07/fg}}}
+.flac {{{base07/fg}}}
+.m4a  {{{base07/fg}}}
+.mid  {{{base07/fg}}}
+.midi {{{base07/fg}}}
+.mp3  {{{base07/fg}}}
+.mpa  {{{base07/fg}}}
+.mpeg {{{base07/fg}}}
+.mpg  {{{base07/fg}}}
+.ogg  {{{base07/fg}}}
+.wav  {{{base07/fg}}}
 
 # Video
-.avi  {{{base0C/fg}}}
-.m2v  {{{base0C/fg}}}
-.m4v  {{{base0C/fg}}}
-.mkv  {{{base0C/fg}}}
-.mov  {{{base0C/fg}}}
-.mp4  {{{base0C/fg}}}
-.mpeg {{{base0C/fg}}}
-.mpg  {{{base0C/fg}}}
-.ogm  {{{base0C/fg}}}
-.ogv  {{{base0C/fg}}}
-.ogx  {{{base0C/fg}}}
-.vob  {{{base0C/fg}}}
-.webm {{{base0C/fg}}}
-.wmv  {{{base0C/fg}}}
+.avi  {{{base07/fg}}}
+.m2v  {{{base07/fg}}}
+.m4v  {{{base07/fg}}}
+.mkv  {{{base07/fg}}}
+.mov  {{{base07/fg}}}
+.mp4  {{{base07/fg}}}
+.mpeg {{{base07/fg}}}
+.mpg  {{{base07/fg}}}
+.ogm  {{{base07/fg}}}
+.ogv  {{{base07/fg}}}
+.ogx  {{{base07/fg}}}
+.vob  {{{base07/fg}}}
+.webm {{{base07/fg}}}
+.wmv  {{{base07/fg}}}
 
 # Binary documents
 # (formats which we don't really want to use for storing data)

@@ -10,10 +10,10 @@ swaylock \
   --insidecolor 00000000 \
   --insidevercolor 00000000 \
   --insidewrongcolor 00000000 \
-  --bshlcolor {{{base05/hex}}}ff \
+  --bshlcolor {{{base09/hex}}}ff \
   --keyhlcolor {{{foreground/hex}}}ff \
   --ringcolor {{{base01/hex}}}ff \
-  --ringvercolor {{{base05/hex}}}ff \
+  --ringvercolor {{{base09/hex}}}ff \
   --ringwrongcolor {{{error/hex}}}ff \
   --linecolor 00000000 \
   --separatorcolor 00000000 \

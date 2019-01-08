@@ -7,9 +7,9 @@ bar {
     colors {
         statusline $foreground
         background $background
-        focused_workspace $base0E $base0E $base00
+        focused_workspace $base0A $base0A $base00
         inactive_workspace $background $background $foreground
-        active_workspace $background $background $base0E
+        active_workspace $background $background $base0A
         binding_mode $notice $notice $base00
     }
 
