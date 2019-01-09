@@ -25,45 +25,49 @@ c.fonts.web.size.minimum_logical  = 6
 
 # colors
 colors = {
-    'base00'       : '#{{{base00/hex}}}',
-    'base01'       : '#{{{base01/hex}}}',
-    'base02'       : '#{{{base02/hex}}}',
-    'base03'       : '#{{{base03/hex}}}',
-    'base04'       : '#{{{base04/hex}}}',
-    'base05'       : '#{{{base05/hex}}}',
-    'base06'       : '#{{{base06/hex}}}',
-    'base07'       : '#{{{base07/hex}}}',
-    'base08'       : '#{{{base08/hex}}}',
-    'base09'       : '#{{{base09/hex}}}',
-    'base0A'       : '#{{{base0A/hex}}}',
-    'base0B'       : '#{{{base0B/hex}}}',
-    'base0C'       : '#{{{base0C/hex}}}',
-    'base0D'       : '#{{{base0D/hex}}}',
-    'base0E'       : '#{{{base0E/hex}}}',
-    'base0F'       : '#{{{base0F/hex}}}',
-    'error'        : '#{{{error/hex}}}',
-    'warning'      : '#{{{warning/hex}}}',
-    'notice'       : '#{{{notice/hex}}}',
-    'info'         : '#{{{info/hex}}}',
-    'background'   : '#{{{background/hex}}}',
-    'foreground'   : '#{{{foreground/hex}}}',
-    'current_item' : '#{{{current_item/hex}}}'
+    'base00'                 : '#{{{base00/hex}}}',
+    'base01'                 : '#{{{base01/hex}}}',
+    'base02'                 : '#{{{base02/hex}}}',
+    'base03'                 : '#{{{base03/hex}}}',
+    'base04'                 : '#{{{base04/hex}}}',
+    'base05'                 : '#{{{base05/hex}}}',
+    'base06'                 : '#{{{base06/hex}}}',
+    'base07'                 : '#{{{base07/hex}}}',
+    'base08'                 : '#{{{base08/hex}}}',
+    'base09'                 : '#{{{base09/hex}}}',
+    'base0A'                 : '#{{{base0A/hex}}}',
+    'base0B'                 : '#{{{base0B/hex}}}',
+    'base0C'                 : '#{{{base0C/hex}}}',
+    'base0D'                 : '#{{{base0D/hex}}}',
+    'base0E'                 : '#{{{base0E/hex}}}',
+    'base0F'                 : '#{{{base0F/hex}}}',
+    'error'                  : '#{{{error/hex}}}',
+    'warning'                : '#{{{warning/hex}}}',
+    'notice'                 : '#{{{notice/hex}}}',
+    'info'                   : '#{{{info/hex}}}',
+    'background'             : '#{{{background/hex}}}',
+    'foreground'             : '#{{{foreground/hex}}}',
+    'popup_background'       : '#{{{popup_background/hex}}}',
+    'popup_foreground'       : '#{{{popup_foreground/hex}}}',
+    'popup_group_background' : '#{{{popup_group_background/hex}}}',
+    'popup_group_foreground' : '#{{{popup_group_foreground/hex}}}',
+    'current_item'           : '#{{{current_item/hex}}}'
 }
 
-c.colors.completion.category.bg                 = colors['base01']
-c.colors.completion.category.border.bottom      = colors['base01']
-c.colors.completion.category.border.top         = colors['base01']
-c.colors.completion.category.fg                 = colors['base06']
-c.colors.completion.even.bg                     = colors['base02']
-c.colors.completion.fg                          = colors['base04']
+c.colors.completion.category.bg                 = colors['popup_group_background']
+c.colors.completion.category.border.bottom      = colors['popup_group_background']
+c.colors.completion.category.border.top         = colors['popup_group_background']
+c.colors.completion.category.fg                 = colors['popup_group_foreground']
+c.colors.completion.even.bg                     = colors['popup_background']
+c.colors.completion.fg                          = colors['popup_foreground']
 c.colors.completion.item.selected.bg            = colors['current_item']
 c.colors.completion.item.selected.border.bottom = colors['current_item']
 c.colors.completion.item.selected.border.top    = colors['current_item']
 c.colors.completion.item.selected.fg            = colors['base00']
 c.colors.completion.match.fg                    = colors['base09']
-c.colors.completion.odd.bg                      = colors['base02']
-c.colors.completion.scrollbar.bg                = colors['base03']
-c.colors.completion.scrollbar.fg                = colors['base04']
+c.colors.completion.odd.bg                      = colors['popup_background']
+c.colors.completion.scrollbar.bg                = colors['popup_background']
+c.colors.completion.scrollbar.fg                = colors['popup_foreground']
 
 c.colors.downloads.bar.bg                       = colors['background']
 c.colors.downloads.error.bg                     = colors['error']

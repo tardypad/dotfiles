@@ -40,6 +40,8 @@ let s:background_gui             = "#{{{background/hex}}}"
 let s:foreground_gui             = "#{{{foreground/hex}}}"
 let s:status_line_background_gui = "#{{{status_line_background/hex}}}"
 let s:status_line_foreground_gui = "#{{{status_line_foreground/hex}}}"
+let s:popup_background_gui       = "#{{{popup_background/hex}}}"
+let s:popup_foreground_gui       = "#{{{popup_foreground/hex}}}"
 let s:search_match_gui           = "#{{{search_match/hex}}}"
 let s:current_item_gui           = "#{{{current_item/hex}}}"
 let s:delete_gui                 = "#{{{delete/hex}}}"
@@ -69,6 +71,8 @@ let s:background_term             = "{{{background/number}}}"
 let s:foreground_term             = "{{{foreground/number}}}"
 let s:status_line_background_term = "{{{status_line_background/number}}}"
 let s:status_line_foreground_term = "{{{status_line_foreground/number}}}"
+let s:popup_background_term       = "{{{popup_background/number}}}"
+let s:popup_foreground_term       = "{{{popup_foreground/number}}}"
 let s:search_match_term           = "{{{search_match/number}}}"
 let s:current_item_term           = "{{{current_item/number}}}"
 let s:delete_term                 = "{{{delete/number}}}"
@@ -129,10 +133,10 @@ call s:highlight("FoldColumn",   "base03", "",       "")
 call s:highlight("Folded",       "base04", "",       "italic")
 
 " pop up menu
-call s:highlight("Pmenu",        "base04", "base02",       "")
-call s:highlight("PmenuSbar",    "",       "base03",       "")
-call s:highlight("PmenuSel",     "base00", "current_item", "")
-call s:highlight("PmenuThumb",   "",       "base04",       "")
+call s:highlight("Pmenu",        "popup_foreground", "popup_background", "")
+call s:highlight("PmenuSbar",    "",                 "popup_background", "")
+call s:highlight("PmenuSel",     "base00",           "current_item",     "")
+call s:highlight("PmenuThumb",   "",                 "popup_foreground", "")
 
 " spelling
 call s:highlight("SpellBad",     "warning", "", "underline")

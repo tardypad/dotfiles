@@ -4,6 +4,10 @@ s|{{{background/\([[:alpha:]]\+\)}}}|{{{base00/\1}}}|g
 s|{{{foreground/\([[:alpha:]]\+\)}}}|{{{base04/\1}}}|g
 s|{{{status_line_background/\([[:alpha:]]\+\)}}}|{{{base01/\1}}}|g
 s|{{{status_line_foreground/\([[:alpha:]]\+\)}}}|{{{base05/\1}}}|g
+s|{{{popup_background/\([[:alpha:]]\+\)}}}|{{{base02/\1}}}|g
+s|{{{popup_foreground/\([[:alpha:]]\+\)}}}|{{{base04/\1}}}|g
+s|{{{popup_group_background/\([[:alpha:]]\+\)}}}|{{{base01/\1}}}|g
+s|{{{popup_group_foreground/\([[:alpha:]]\+\)}}}|{{{base06/\1}}}|g
 s|{{{alert/\([[:alpha:]]\+\)}}}|{{{base0B/\1}}}|g
 s|{{{error/\([[:alpha:]]\+\)}}}|{{{base0B/\1}}}|g
 s|{{{warning/\([[:alpha:]]\+\)}}}|{{{base0C/\1}}}|g
