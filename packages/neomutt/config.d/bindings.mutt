@@ -109,3 +109,4 @@ bind compose em edit-message
 bind compose <Return> view-attach
 bind compose y send-message
 bind compose a attach-file
+bind compose d detach-file
