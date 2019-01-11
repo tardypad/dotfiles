@@ -46,14 +46,6 @@ All packages selected are [Free Software](https://www.gnu.org/philosophy/free-sw
 See each individual package folder README for more information
 about versions, extensions, plugins,...
 
-All packages are configured to use the same color palette
-as defined in the [colors](colors) folder.
-
-Most keybindings are minimalized to keep only relevant ones
-and configured to be as much vim-like as possible.
-
-Colors and keybindings usage try to be consistent across packages.
-
 
 ## Setup
 
@@ -73,17 +65,32 @@ make tmux vim zsh
 
 Some packages require some additional manual setup steps, check their own README
 
-### Colors management
 
-Colors management across packages is centralized using base variables.  
-Those variables get replaced with the correct values during the setup.
+## Colors management
 
+All packages are configured to use the same color palette in a consistent way across them.
+
+Colors management is centralized using base variables
+which get replaced with the correct values during the setup.  
 For example `{color/base0A/hex}` gets substituted by the hexadecimal value of the base0A color.  
 Similarly `{color/base0A/number}` is replaced by that color's number.
+
+Consistency is enforced by the use of aliases.  
+For example `{color/warning/number}` is replaced by the number of the color chosen to represent warnings.
+
+See colors definition in the [colors](colors) folder.
 
 Items to be manually updated in case of color palette change:
 - lockscreen [lock](packages/sway/images/lock.png) color
 - TTY console colors palette in [/etc/issue](https://github.com/tardypad/arch-packages/blob/master/builds/system-config/etc-issue) file
+
+
+## Key bindings
+
+All packages are configured to try to use consistent key bindings across them.
+
+Most key bindings are minimalized to keep only relevant ones
+and configured to be as much vim-like as possible.
 
 
 ## Required extra packages
