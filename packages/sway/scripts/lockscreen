@@ -2,7 +2,7 @@
 
 # lock.png should use foreground color
 swaylock \
-  --color {{{background/hex}}} \
+  --color {color/background/hex} \
   --image "${XDG_CONFIG_HOME:-$HOME/.config}/sway/images/lock.png" \
   --scaling center \
   --indicator-radius 250 \
@@ -10,11 +10,11 @@ swaylock \
   --insidecolor 00000000 \
   --insidevercolor 00000000 \
   --insidewrongcolor 00000000 \
-  --bshlcolor {{{base09/hex}}}ff \
-  --keyhlcolor {{{foreground/hex}}}ff \
-  --ringcolor {{{base01/hex}}}ff \
-  --ringvercolor {{{base09/hex}}}ff \
-  --ringwrongcolor {{{error/hex}}}ff \
+  --bshlcolor {color/base09/hex}ff \
+  --keyhlcolor {color/foreground/hex}ff \
+  --ringcolor {color/base01/hex}ff \
+  --ringvercolor {color/base09/hex}ff \
+  --ringwrongcolor {color/error/hex}ff \
   --linecolor 00000000 \
   --separatorcolor 00000000 \
   --textcolor 00000000

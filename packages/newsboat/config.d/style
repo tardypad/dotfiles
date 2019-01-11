@@ -1,11 +1,11 @@
 # colors
-color background        default                                   default
-color listnormal        default                                   default
-color listnormal_unread color{{{unread_item/number}}}             default
-color listfocus         color{{{base00/number}}}                  color{{{current_item/number}}}
-color listfocus_unread  color{{{base00/number}}}                  color{{{current_item/number}}}            bold
-color info              color{{{status_line_foreground/number}}}  color{{{status_line_background/number}}}
-color article           default                                   default
+color background        default                                     default
+color listnormal        default                                     default
+color listnormal_unread color{color/unread_item/number}             default
+color listfocus         color{color/base00/number}                  color{color/current_item/number}
+color listfocus_unread  color{color/base00/number}                  color{color/current_item/number}            bold
+color info              color{color/status_line_foreground/number}  color{color/status_line_background/number}
+color article           default                                     default
 
 # only show title bar at the bottom
 show-keymap-hint     no

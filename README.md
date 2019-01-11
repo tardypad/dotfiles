@@ -78,8 +78,8 @@ Some packages require some additional manual setup steps, check their own README
 Colors management across packages is centralized using base variables.  
 Those variables get replaced with the correct values during the setup.
 
-For example `{{{base0A/hex}}}` gets substituted by the hexadecimal value of the base0A color.  
-Similarly `{{{base0A/number}}}` is replaced by that color's number.
+For example `{color/base0A/hex}` gets substituted by the hexadecimal value of the base0A color.  
+Similarly `{color/base0A/number}` is replaced by that color's number.
 
 Items to be manually updated in case of color palette change:
 - lockscreen [lock](packages/sway/images/lock.png) color

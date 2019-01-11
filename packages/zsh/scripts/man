@@ -10,11 +10,11 @@
 # us: start underline
 # ue: end underline
 
-BLINK_COLOR_FG={{{base0E/number}}}
-BOLD_COLOR_FG={{{base09/number}}}
-STANDOUT_COLOR_FG={{{base00/number}}}
-STANDOUT_COLOR_BG={{{base09/number}}}
-UNDERLINE_COLOR_FG={{{base07/number}}}
+BLINK_COLOR_FG={color/base0E/number}
+BOLD_COLOR_FG={color/base09/number}
+STANDOUT_COLOR_FG={color/base00/number}
+STANDOUT_COLOR_BG={color/base09/number}
+UNDERLINE_COLOR_FG={color/base07/number}
 
 env \
   LESS_TERMCAP_mb=$(tput setaf ${BLINK_COLOR_FG}) \

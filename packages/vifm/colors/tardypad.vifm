@@ -1,30 +1,30 @@
 highlight clear
 
-highlight TopLine    cterm=none  ctermfg={{{base08/number}}}                  ctermbg=none
-highlight TopLineSel cterm=bold  ctermfg={{{base08/number}}}                  ctermbg=none
-highlight StatusLine cterm=none  ctermfg={{{status_line_foreground/number}}}  ctermbg={{{status_line_background/number}}}
-highlight Border     cterm=none  ctermfg={{{status_line_background/number}}}  ctermbg=none
-highlight Selected   cterm=none  ctermfg={{{selected_item/number}}}           ctermbg=default
-highlight CurrLine   cterm=none  ctermfg={{{base00/number}}}                  ctermbg={{{current_item/number}}}
-highlight WildMenu   cterm=none  ctermfg={{{base00/number}}}                  ctermbg={{{current_item/number}}}
-highlight CmdLine    cterm=none  ctermfg={{{foreground/number}}}              ctermbg=none
-highlight ErrorMsg   cterm=none  ctermfg={{{error/number}}}                   ctermbg=none
+highlight TopLine    cterm=none  ctermfg={color/base08/number}                  ctermbg=none
+highlight TopLineSel cterm=bold  ctermfg={color/base08/number}                  ctermbg=none
+highlight StatusLine cterm=none  ctermfg={color/status_line_foreground/number}  ctermbg={color/status_line_background/number}
+highlight Border     cterm=none  ctermfg={color/status_line_background/number}  ctermbg=none
+highlight Selected   cterm=none  ctermfg={color/selected_item/number}           ctermbg=default
+highlight CurrLine   cterm=none  ctermfg={color/base00/number}                  ctermbg={color/current_item/number}
+highlight WildMenu   cterm=none  ctermfg={color/base00/number}                  ctermbg={color/current_item/number}
+highlight CmdLine    cterm=none  ctermfg={color/foreground/number}              ctermbg=none
+highlight ErrorMsg   cterm=none  ctermfg={color/error/number}                   ctermbg=none
 
 
 " following is generated with
 " vifm-convert-dircolors ~/.dircolors
 
 " generic file types
-highlight BrokenLink cterm=none ctermfg={{{error/number}}} ctermbg=default
+highlight BrokenLink cterm=none ctermfg={color/error/number} ctermbg=default
 highlight Device cterm=underline ctermfg=default ctermbg=default
 highlight Directory cterm=bold ctermfg=default ctermbg=default
-highlight Executable cterm=bold ctermfg={{{base0E/number}}} ctermbg=default
-highlight Fifo cterm=underline ctermfg={{{base08/number}}} ctermbg=default
-highlight Link cterm=underline ctermfg={{{base04/number}}} ctermbg=default
-highlight Socket cterm=underline ctermfg={{{base07/number}}} ctermbg=default
+highlight Executable cterm=bold ctermfg={color/base0E/number} ctermbg=default
+highlight Fifo cterm=underline ctermfg={color/base08/number} ctermbg=default
+highlight Link cterm=underline ctermfg={color/base04/number} ctermbg=default
+highlight Socket cterm=underline ctermfg={color/base07/number} ctermbg=default
 highlight Win cterm=none ctermfg=default ctermbg=default
 
 " file name specific highlight
 highlight /.*\.7z$|.*\.apk$|.*\.bz$|.*\.bz2$|.*\.deb$|.*\.gem$|.*\.gz$|.*\.iso$|.*\.jar$|.*\.rar$|.*\.rpm$|.*\.tar$|.*\.tbz$|.*\.tbz2$|.*\.tgz$|.*\.war$|.*\.xz$|.*\.z$|.*\.zip$/I cterm=bold ctermfg=default ctermbg=default
-highlight /.*\.doc$|.*\.docx$|.*\.dot$|.*\.dotx$|.*\.odp$|.*\.ods$|.*\.odt$|.*\.otp$|.*\.ots$|.*\.ott$|.*\.ppt$|.*\.pptx$|.*\.psd$|.*\.rtf$|.*\.xls$|.*\.xlsx$/I cterm=none ctermfg={{{notice/number}}} ctermbg=default
-highlight /.*\.aac$|.*\.avi$|.*\.azw$|.*\.azw3$|.*\.bash$|.*\.bmp$|.*\.c$|.*\.cc$|.*\.cpp$|.*\.css$|.*\.csv$|.*\.eps$|.*\.epub$|.*\.flac$|.*\.gif$|.*\.go$|.*\.h$|.*\.hpp$|.*\.hs$|.*\.htm$|.*\.html$|.*\.java$|.*\.jpeg$|.*\.jpg$|.*\.js$|.*\.m2v$|.*\.m4a$|.*\.m4v$|.*\.man$|.*\.md$|.*\.mid$|.*\.midi$|.*\.mkd$|.*\.mkv$|.*\.mobi$|.*\.mov$|.*\.mp3$|.*\.mp4$|.*\.mpa$|.*\.mpeg$|.*\.mpg$|.*\.ogg$|.*\.ogm$|.*\.ogv$|.*\.ogx$|.*\.pdf$|.*\.php$|.*\.pl$|.*\.png$|.*\.ppm$|.*\.ps$|.*\.py$|.*\.rb$|.*\.sh$|.*\.sql$|.*\.svg$|.*\.svgz$|.*\.tex$|.*\.tif$|.*\.tiff$|.*\.txt$|.*\.vim$|.*\.vob$|.*\.wav$|.*\.webm$|.*\.wmv$|.*\.xcf$|.*\.xml$|.*\.zsh$/I cterm=none ctermfg={{{base07/number}}} ctermbg=default
+highlight /.*\.doc$|.*\.docx$|.*\.dot$|.*\.dotx$|.*\.odp$|.*\.ods$|.*\.odt$|.*\.otp$|.*\.ots$|.*\.ott$|.*\.ppt$|.*\.pptx$|.*\.psd$|.*\.rtf$|.*\.xls$|.*\.xlsx$/I cterm=none ctermfg={color/notice/number} ctermbg=default
+highlight /.*\.aac$|.*\.avi$|.*\.azw$|.*\.azw3$|.*\.bash$|.*\.bmp$|.*\.c$|.*\.cc$|.*\.cpp$|.*\.css$|.*\.csv$|.*\.eps$|.*\.epub$|.*\.flac$|.*\.gif$|.*\.go$|.*\.h$|.*\.hpp$|.*\.hs$|.*\.htm$|.*\.html$|.*\.java$|.*\.jpeg$|.*\.jpg$|.*\.js$|.*\.m2v$|.*\.m4a$|.*\.m4v$|.*\.man$|.*\.md$|.*\.mid$|.*\.midi$|.*\.mkd$|.*\.mkv$|.*\.mobi$|.*\.mov$|.*\.mp3$|.*\.mp4$|.*\.mpa$|.*\.mpeg$|.*\.mpg$|.*\.ogg$|.*\.ogm$|.*\.ogv$|.*\.ogx$|.*\.pdf$|.*\.php$|.*\.pl$|.*\.png$|.*\.ppm$|.*\.ps$|.*\.py$|.*\.rb$|.*\.sh$|.*\.sql$|.*\.svg$|.*\.svgz$|.*\.tex$|.*\.tif$|.*\.tiff$|.*\.txt$|.*\.vim$|.*\.vob$|.*\.wav$|.*\.webm$|.*\.wmv$|.*\.xcf$|.*\.xml$|.*\.zsh$/I cterm=none ctermfg={color/base07/number} ctermbg=default

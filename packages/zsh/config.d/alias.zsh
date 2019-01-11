@@ -6,7 +6,7 @@ alias rm='rm -i'
 # colorize outputs
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-alias diff='diff --color=auto --palette="rs=0:hd=1:ad={{{add/fg}}}:de={{{delete/fg}}}:ln={{{base07/fg}}}"'
+alias diff='diff --color=auto --palette="rs=0:hd=1:ad={color/add/fg}:de={color/delete/fg}:ln={color/base07/fg}"'
 alias ncdu='ncdu --color=dark'
 
 # ls alias
@@ -30,9 +30,9 @@ alias root='sudo --preserve-env --shell'
 # general info about the current shell
 alias status='
   cat << EOF | column -t
-User $(tput setaf {{{base0A/number}}})${USERNAME}$(tput sgr0)
-Host $(tput setaf {{{base09/number}}})${HOST}$(tput sgr0)
-Dir  $(tput setaf {{{base08/number}}})$( print -D "${PWD}" )$(tput sgr0)
+User $(tput setaf {color/base0A/number})${USERNAME}$(tput sgr0)
+Host $(tput setaf {color/base09/number})${HOST}$(tput sgr0)
+Dir  $(tput setaf {color/base08/number})$( print -D "${PWD}" )$(tput sgr0)
 EOF
 '
 
@@ -81,7 +81,7 @@ alias https='http --default-scheme=https'
 alias ungron="gron --ungron"
 
 # Silver searcher default options
-alias ag='ag --color-match="1;{{{search_match/fg}}}" --color-path="{{{base09/fg}}}" --color-line-number="{{{base08/fg}}}" --case-sensitive --skip-vcs-ignores --follow'
+alias ag='ag --color-match="1;{color/search_match/fg}" --color-path="{color/base09/fg}" --color-line-number="{color/base08/fg}" --case-sensitive --skip-vcs-ignores --follow'
 
 # quick temper
 alias :w="echo 'Do I look like vim to you?...'; emoji-animate disapprove"

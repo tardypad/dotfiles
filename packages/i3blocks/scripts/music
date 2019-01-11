@@ -30,4 +30,4 @@ fi
 # #HACK: sway bar seems to crash if a text to be displayed contains the character '&'
 MUSIC_TEXT=$( echo "${MUSIC_TEXT}" | tr --delete '&' )
 
-echo "<span foreground='#{{{base08/hex}}}'>${MUSIC_ICON}</span> <span style='italic'>${MUSIC_TEXT}</span>"
+echo "<span foreground='#{color/base08/hex}'>${MUSIC_ICON}</span> <span style='italic'>${MUSIC_TEXT}</span>"

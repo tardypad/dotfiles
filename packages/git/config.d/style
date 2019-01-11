@@ -1,74 +1,74 @@
 [color]
     ui = auto
 [color "advice"]
-    hint = {{{base03/number}}} italic
+    hint = {color/base03/number} italic
 [color "blame"]
-    highlightRecent = {{{base0A/number}}},1 year ago,{{{base09/number}}},1 month ago,{{{base08/number}}},1 week ago,{{{base07/number}}}
-    repeatedLines = {{{base03/number}}}
+    highlightRecent = {color/base0A/number},1 year ago,{color/base09/number},1 month ago,{color/base08/number},1 week ago,{color/base07/number}
+    repeatedLines = {color/base03/number}
 [color "branch"]
-    current = {{{base0E/number}}}
-    local = {{{base09/number}}}
-    remote = {{{base08/number}}}
-    upstream = {{{base07/number}}}
+    current = {color/base0E/number}
+    local = {color/base09/number}
+    remote = {color/base08/number}
+    upstream = {color/base07/number}
     plain = normal
 [color "diff"]
-    commit = {{{base09/number}}} bold
+    commit = {color/base09/number} bold
     context = normal
-    frag = {{{base07/number}}}
-    func = {{{base08/number}}}
-    meta = {{{base0A/number}}} italic
-    new = {{{add/number}}}
-    old = {{{delete/number}}}
+    frag = {color/base07/number}
+    func = {color/base08/number}
+    meta = {color/base0A/number} italic
+    new = {color/add/number}
+    old = {color/delete/number}
     whitespace = reverse
 [color "diff-highlight"]
-    oldNormal = {{{delete/number}}}
-    oldHighlight = {{{delete/number}}} italic ul
-    newNormal = {{{add/number}}}
-    newHighlight = {{{add/number}}} italic ul
+    oldNormal = {color/delete/number}
+    oldHighlight = {color/delete/number} italic ul
+    newNormal = {color/add/number}
+    newHighlight = {color/add/number} italic ul
 [color "decorate"]
-    branch = {{{base09/number}}} bold
-    remoteBranch = {{{base08/number}}} bold
-    tag = {{{base0E/number}}} italic bold
-    stash = {{{base0E/number}}} bold
-    HEAD = {{{base0E/number}}} bold
+    branch = {color/base09/number} bold
+    remoteBranch = {color/base08/number} bold
+    tag = {color/base0E/number} italic bold
+    stash = {color/base0E/number} bold
+    HEAD = {color/base0E/number} bold
 [color "grep"]
     context = normal
-    filename = {{{base09/number}}}
-    function = {{{base07/number}}}
-    lineNumber = {{{base08/number}}}
-    column = {{{base08/number}}}
-    matchContext = {{{search_match/number}}} bold
-    matchSelected = {{{search_match/number}}} bold
+    filename = {color/base09/number}
+    function = {color/base07/number}
+    lineNumber = {color/base08/number}
+    column = {color/base08/number}
+    matchContext = {color/search_match/number} bold
+    matchSelected = {color/search_match/number} bold
     selected = normal
-    separator = {{{base0A/number}}}
+    separator = {color/base0A/number}
 [color "interactive"]
-    prompt = {{{base09/number}}} bold
-    header = {{{base0A/number}}} bold
-    help = {{{base08/number}}}
-    error = {{{error/number}}}
+    prompt = {color/base09/number} bold
+    header = {color/base0A/number} bold
+    help = {color/base08/number}
+    error = {color/error/number}
 [color "push"]
-    error = {{{error/number}}}
+    error = {color/error/number}
 [color "remote"]
-    hint = {{{base03/number}}} italic
-    warning = {{{warning/number}}}
-    success = {{{base0E/number}}}
-    error = {{{error/number}}}
+    hint = {color/base03/number} italic
+    warning = {color/warning/number}
+    success = {color/base0E/number}
+    error = {color/error/number}
 [color "status"]
     header = normal
-    added = {{{base07/number}}}
-    changed = {{{base09/number}}}
-    untracked = {{{base07/number}}} italic
-    branch = {{{base0E/number}}} bold
-    nobranch = {{{base07/number}}} bold
-    localBranch = {{{base0E/number}}} bold
-    remoteBranch = {{{base09/number}}} bold
-    unmerged = {{{base07/number}}} italic
+    added = {color/base07/number}
+    changed = {color/base09/number}
+    untracked = {color/base07/number} italic
+    branch = {color/base0E/number} bold
+    nobranch = {color/base07/number} bold
+    localBranch = {color/base0E/number} bold
+    remoteBranch = {color/base09/number} bold
+    unmerged = {color/base07/number} italic
 [color "transport"]
-    rejected = {{{error/number}}}
+    rejected = {color/error/number}
 
 # custom colors config
 [color "recent"]
-    refname = {{{base09/number}}}
-    committerdate = {{{base08/number}}}
+    refname = {color/base09/number}
+    committerdate = {color/base08/number}
 [color "tag-list"]
-    refname = {{{base09/number}}}
+    refname = {color/base09/number}

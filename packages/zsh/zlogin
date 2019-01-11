@@ -4,14 +4,14 @@ if [[ $(tty) = /dev/tty1 ]]; then
   other_logins=$( last-others )
   if [[ $? -eq 0 ]]; then
     echo
-    echo -n "$(tput setaf {{{alert/number}}})Alert$(tput sgr0): "
+    echo -n "$(tput setaf {color/alert/number})Alert$(tput sgr0): "
     echo 'There were other users login since your last one:'
     echo "${other_logins}"
   fi
   unset other_logins
 
   # display any short fortune with cookie name
-  echo "$(tput setaf {{{base08/number}}})"
+  echo "$(tput setaf {color/base08/number})"
   fortune -acs -n 300
   echo "$(tput sgr0)"
 

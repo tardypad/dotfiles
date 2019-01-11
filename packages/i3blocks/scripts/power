@@ -36,16 +36,16 @@ fi
 
 if [[ "${IS_ADAPTER_ON}" -eq 1 ]]; then
   if [[ "${IS_ANY_BATTERY_CHARGING}" -eq 1 ]]; then
-    echo "<span foreground='#{{{base08/hex}}}'> ${BATTERY_ICON}</span> ${TOTAL_ENERGY_PERCENT}%"
+    echo "<span foreground='#{color/base08/hex}'> ${BATTERY_ICON}</span> ${TOTAL_ENERGY_PERCENT}%"
   else
-    echo "<span foreground='#{{{base08/hex}}}'></span> AC"
+    echo "<span foreground='#{color/base08/hex}'></span> AC"
   fi
 else
   if [[ "${TOTAL_ENERGY_PERCENT}" -lt 10 ]]; then
-    echo "<span foreground='#{{{alert/hex}}}'>${BATTERY_ICON} ${TOTAL_ENERGY_PERCENT}%</span>"
+    echo "<span foreground='#{color/alert/hex}'>${BATTERY_ICON} ${TOTAL_ENERGY_PERCENT}%</span>"
     notify_low_battery
     exit 33
   else
-    echo "<span foreground='#{{{base08/hex}}}'>${BATTERY_ICON}</span> ${TOTAL_ENERGY_PERCENT}%"
+    echo "<span foreground='#{color/base08/hex}'>${BATTERY_ICON}</span> ${TOTAL_ENERGY_PERCENT}%"
   fi
 fi

@@ -2,138 +2,138 @@ TERM tmux-256color
 TERM xterm-256color
 TERM xterm-termite
 
-NORMAL                         0                 # global default
-FILE                           0                 # normal file
-DIR            1;{{{base09/fg}}}                 # directory
-OTHER_WRITABLE 1;{{{base04/fg}}};{{{base09/bg}}} # directory writable by others
-LINK           4;{{{base04/fg}}}                 # symbolic link
-FIFO           4;{{{base08/fg}}}                 # named pipe
-SOCK           4;{{{base07/fg}}}                 # socket
-BLK            1;{{{base0A/fg}}}                 # block device
-CHR            4;{{{base0A/fg}}}                 # character device
-ORPHAN            {{{error/fg}}}                 # orphaned symlink
-MISSING        1;{{{base04/fg}}};{{{error/bg}}}  # missing file that orphaned symlink points to
-EXEC           1;{{{base0E/fg}}}                 # executable
+NORMAL                           0                   # global default
+FILE                             0                   # normal file
+DIR            1;{color/base09/fg}                   # directory
+OTHER_WRITABLE 1;{color/base04/fg};{color/base09/bg} # directory writable by others
+LINK           4;{color/base04/fg}                   # symbolic link
+FIFO           4;{color/base08/fg}                   # named pipe
+SOCK           4;{color/base07/fg}                   # socket
+BLK            1;{color/base0A/fg}                   # block device
+CHR            4;{color/base0A/fg}                   # character device
+ORPHAN            {color/error/fg}                   # orphaned symlink
+MISSING        1;{color/base04/fg};{color/error/bg}  # missing file that orphaned symlink points to
+EXEC           1;{color/base0E/fg}                   # executable
 
 # Source text
-.bash   {{{base07/fg}}}
-.c      {{{base07/fg}}}
-.cc     {{{base07/fg}}}
-.cpp    {{{base07/fg}}}
-.css    {{{base07/fg}}}
-.csv    {{{base07/fg}}}
-.go     {{{base07/fg}}}
-.h      {{{base07/fg}}}
-.hpp    {{{base07/fg}}}
-.hs     {{{base07/fg}}}
-.htm    {{{base07/fg}}}
-.html   {{{base07/fg}}}
-.java   {{{base07/fg}}}
-.js     {{{base07/fg}}}
-.man    {{{base07/fg}}}
-.md     {{{base07/fg}}}
-.mkd    {{{base07/fg}}}
-.php    {{{base07/fg}}}
-.pl     {{{base07/fg}}}
-.py     {{{base07/fg}}}
-.rb     {{{base07/fg}}}
-.sh     {{{base07/fg}}}
-.sql    {{{base07/fg}}}
-.tex    {{{base07/fg}}}
-.txt    {{{base07/fg}}}
-.vim    {{{base07/fg}}}
-.xml    {{{base07/fg}}}
-.zsh    {{{base07/fg}}}
+.bash   {color/base07/fg}
+.c      {color/base07/fg}
+.cc     {color/base07/fg}
+.cpp    {color/base07/fg}
+.css    {color/base07/fg}
+.csv    {color/base07/fg}
+.go     {color/base07/fg}
+.h      {color/base07/fg}
+.hpp    {color/base07/fg}
+.hs     {color/base07/fg}
+.htm    {color/base07/fg}
+.html   {color/base07/fg}
+.java   {color/base07/fg}
+.js     {color/base07/fg}
+.man    {color/base07/fg}
+.md     {color/base07/fg}
+.mkd    {color/base07/fg}
+.php    {color/base07/fg}
+.pl     {color/base07/fg}
+.py     {color/base07/fg}
+.rb     {color/base07/fg}
+.sh     {color/base07/fg}
+.sql    {color/base07/fg}
+.tex    {color/base07/fg}
+.txt    {color/base07/fg}
+.vim    {color/base07/fg}
+.xml    {color/base07/fg}
+.zsh    {color/base07/fg}
 
 # Books
-.azw  {{{base07/fg}}}
-.cbr  {{{base07/fg}}}
-.cbz  {{{base07/fg}}}
-.azw3 {{{base07/fg}}}
-.epub {{{base07/fg}}}
-.mobi {{{base07/fg}}}
-.pdf  {{{base07/fg}}}
+.azw  {color/base07/fg}
+.cbr  {color/base07/fg}
+.cbz  {color/base07/fg}
+.azw3 {color/base07/fg}
+.epub {color/base07/fg}
+.mobi {color/base07/fg}
+.pdf  {color/base07/fg}
 
 # Image
-.bmp  {{{base07/fg}}}
-.eps  {{{base07/fg}}}
-.gif  {{{base07/fg}}}
-.jpeg {{{base07/fg}}}
-.jpg  {{{base07/fg}}}
-.png  {{{base07/fg}}}
-.ppm  {{{base07/fg}}}
-.ps   {{{base07/fg}}}
-.svg  {{{base07/fg}}}
-.svgz {{{base07/fg}}}
-.tif  {{{base07/fg}}}
-.tiff {{{base07/fg}}}
-.xcf  {{{base07/fg}}}
+.bmp  {color/base07/fg}
+.eps  {color/base07/fg}
+.gif  {color/base07/fg}
+.jpeg {color/base07/fg}
+.jpg  {color/base07/fg}
+.png  {color/base07/fg}
+.ppm  {color/base07/fg}
+.ps   {color/base07/fg}
+.svg  {color/base07/fg}
+.svgz {color/base07/fg}
+.tif  {color/base07/fg}
+.tiff {color/base07/fg}
+.xcf  {color/base07/fg}
 
 # Audio
-.aac  {{{base07/fg}}}
-.flac {{{base07/fg}}}
-.m4a  {{{base07/fg}}}
-.mid  {{{base07/fg}}}
-.midi {{{base07/fg}}}
-.mp3  {{{base07/fg}}}
-.mpa  {{{base07/fg}}}
-.mpeg {{{base07/fg}}}
-.mpg  {{{base07/fg}}}
-.ogg  {{{base07/fg}}}
-.wav  {{{base07/fg}}}
+.aac  {color/base07/fg}
+.flac {color/base07/fg}
+.m4a  {color/base07/fg}
+.mid  {color/base07/fg}
+.midi {color/base07/fg}
+.mp3  {color/base07/fg}
+.mpa  {color/base07/fg}
+.mpeg {color/base07/fg}
+.mpg  {color/base07/fg}
+.ogg  {color/base07/fg}
+.wav  {color/base07/fg}
 
 # Video
-.avi  {{{base07/fg}}}
-.m2v  {{{base07/fg}}}
-.m4v  {{{base07/fg}}}
-.mkv  {{{base07/fg}}}
-.mov  {{{base07/fg}}}
-.mp4  {{{base07/fg}}}
-.mpeg {{{base07/fg}}}
-.mpg  {{{base07/fg}}}
-.ogm  {{{base07/fg}}}
-.ogv  {{{base07/fg}}}
-.ogx  {{{base07/fg}}}
-.vob  {{{base07/fg}}}
-.webm {{{base07/fg}}}
-.wmv  {{{base07/fg}}}
+.avi  {color/base07/fg}
+.m2v  {color/base07/fg}
+.m4v  {color/base07/fg}
+.mkv  {color/base07/fg}
+.mov  {color/base07/fg}
+.mp4  {color/base07/fg}
+.mpeg {color/base07/fg}
+.mpg  {color/base07/fg}
+.ogm  {color/base07/fg}
+.ogv  {color/base07/fg}
+.ogx  {color/base07/fg}
+.vob  {color/base07/fg}
+.webm {color/base07/fg}
+.wmv  {color/base07/fg}
 
 # Binary documents
 # (formats which we don't really want to use for storing data)
-.doc  {{{notice/fg}}}
-.docx {{{notice/fg}}}
-.dot  {{{notice/fg}}}
-.dotx {{{notice/fg}}}
-.odp  {{{notice/fg}}}
-.ods  {{{notice/fg}}}
-.odt  {{{notice/fg}}}
-.otp  {{{notice/fg}}}
-.ots  {{{notice/fg}}}
-.ott  {{{notice/fg}}}
-.ppt  {{{notice/fg}}}
-.pptx {{{notice/fg}}}
-.psd  {{{notice/fg}}}
-.rtf  {{{notice/fg}}}
-.xls  {{{notice/fg}}}
-.xlsx {{{notice/fg}}}
+.doc  {color/notice/fg}
+.docx {color/notice/fg}
+.dot  {color/notice/fg}
+.dotx {color/notice/fg}
+.odp  {color/notice/fg}
+.ods  {color/notice/fg}
+.odt  {color/notice/fg}
+.otp  {color/notice/fg}
+.ots  {color/notice/fg}
+.ott  {color/notice/fg}
+.ppt  {color/notice/fg}
+.pptx {color/notice/fg}
+.psd  {color/notice/fg}
+.rtf  {color/notice/fg}
+.xls  {color/notice/fg}
+.xlsx {color/notice/fg}
 
 # Archives
-.7z   1;{{{base04/fg}}}
-.apk  1;{{{base04/fg}}}
-.bz   1;{{{base04/fg}}}
-.bz2  1;{{{base04/fg}}}
-.deb  1;{{{base04/fg}}}
-.gem  1;{{{base04/fg}}}
-.gz   1;{{{base04/fg}}}
-.iso  1;{{{base04/fg}}}
-.jar  1;{{{base04/fg}}}
-.rar  1;{{{base04/fg}}}
-.rpm  1;{{{base04/fg}}}
-.tar  1;{{{base04/fg}}}
-.tbz  1;{{{base04/fg}}}
-.tbz2 1;{{{base04/fg}}}
-.tgz  1;{{{base04/fg}}}
-.war  1;{{{base04/fg}}}
-.xz   1;{{{base04/fg}}}
-.z    1;{{{base04/fg}}}
-.zip  1;{{{base04/fg}}}
+.7z   1;{color/base04/fg}
+.apk  1;{color/base04/fg}
+.bz   1;{color/base04/fg}
+.bz2  1;{color/base04/fg}
+.deb  1;{color/base04/fg}
+.gem  1;{color/base04/fg}
+.gz   1;{color/base04/fg}
+.iso  1;{color/base04/fg}
+.jar  1;{color/base04/fg}
+.rar  1;{color/base04/fg}
+.rpm  1;{color/base04/fg}
+.tar  1;{color/base04/fg}
+.tbz  1;{color/base04/fg}
+.tbz2 1;{color/base04/fg}
+.tgz  1;{color/base04/fg}
+.war  1;{color/base04/fg}
+.xz   1;{color/base04/fg}
+.z    1;{color/base04/fg}
+.zip  1;{color/base04/fg}

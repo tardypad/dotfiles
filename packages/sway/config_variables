@@ -8,25 +8,25 @@ set $up k
 set $right l
 
 # colors
-set $base00     #{{{base00/hex}}}
-set $base01     #{{{base01/hex}}}
-set $base02     #{{{base02/hex}}}
-set $base03     #{{{base03/hex}}}
-set $base04     #{{{base04/hex}}}
-set $base05     #{{{base05/hex}}}
-set $base06     #{{{base06/hex}}}
-set $base07     #{{{base07/hex}}}
-set $base08     #{{{base08/hex}}}
-set $base09     #{{{base09/hex}}}
-set $base0A     #{{{base0A/hex}}}
-set $base0B     #{{{base0B/hex}}}
-set $base0C     #{{{base0C/hex}}}
-set $base0D     #{{{base0D/hex}}}
-set $base0E     #{{{base0E/hex}}}
-set $base0F     #{{{base0F/hex}}}
-set $background #{{{background/hex}}}
-set $foreground #{{{foreground/hex}}}
-set $notice     #{{{notice/hex}}}
+set $base00     #{color/base00/hex}
+set $base01     #{color/base01/hex}
+set $base02     #{color/base02/hex}
+set $base03     #{color/base03/hex}
+set $base04     #{color/base04/hex}
+set $base05     #{color/base05/hex}
+set $base06     #{color/base06/hex}
+set $base07     #{color/base07/hex}
+set $base08     #{color/base08/hex}
+set $base09     #{color/base09/hex}
+set $base0A     #{color/base0A/hex}
+set $base0B     #{color/base0B/hex}
+set $base0C     #{color/base0C/hex}
+set $base0D     #{color/base0D/hex}
+set $base0E     #{color/base0E/hex}
+set $base0F     #{color/base0F/hex}
+set $background #{color/background/hex}
+set $foreground #{color/foreground/hex}
+set $notice     #{color/notice/hex}
 
 # workspace names
 set $ws1  "1  Projects"
