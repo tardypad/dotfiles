@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+
+
+init_variables() {
+  COMMAND=${0#*-}
+
+  SCRIPT=
+}
+
+
+usage() {
+  cat << EOF
+usage: git ${COMMAND} <script>
+EOF
+}
+
+
+error() {
+  if [[ -n "$1" ]]; then
+    local msg=$( echo "error: $1" )
+    echo -e "${msg}" >&2
+  fi
+  usage
+  exit 1
+}
+
+
+run_sed() {
+  # exclude symlink files
+  git ls-files --stage \
+    | grep --invert-match '^120000' \
+    | cut --field 2 \
+    | xargs sed --in-place "${SCRIPT}"
+}
+
+
+parse_options() {
+  while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+      -h)
+        usage
+        exit 0
+        ;;
+      *)
+        break
+        ;;
+    esac
+  done
+
+  SCRIPT="$@"
+}
+
+
+validate_options() {
+  if [[ -z "${SCRIPT}" ]]; then
+    error "missing sed script argument"
+  fi
+}
+
+
+init_variables
+parse_options "$@"
+validate_options
+
+run_sed
