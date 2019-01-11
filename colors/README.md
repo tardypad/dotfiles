@@ -30,3 +30,28 @@ configured yet, to have a meaningful display as was intended initially.
 This is mainly useful for their error messages, which are often displayed in
 red by default, not to suddenly be displayed white and get unnoticed.  
 Obviously this only works if the theme itself is not overall in the red tones.
+
+
+## Color aliases
+
+| ALIAS                      | BASE   |
+|----------------------------|--------|
+| background                 | base00 | [0;48;2;46;52;64m     [0m
+| foreground                 | base04 | [0;48;2;216;222;233m     [0m
+| status_line_background     | base01 | [0;48;2;59;66;82m     [0m
+| status_line_foreground     | base05 | [0;48;2;229;233;240m     [0m
+| popup_background           | base02 | [0;48;2;67;76;94m     [0m
+| popup_foreground           | base04 | [0;48;2;216;222;233m     [0m
+| popup_group_background     | base01 | [0;48;2;59;66;82m     [0m
+| popup_group_foreground     | base06 | [0;48;2;236;239;244m     [0m
+| alert                      | base0B | [0;48;2;191;97;106m     [0m
+| error                      | base0B | [0;48;2;191;97;106m     [0m
+| warning                    | base0C | [0;48;2;208;135;112m     [0m
+| notice                     | base0D | [0;48;2;235;203;139m     [0m
+| info                       | base08 | [0;48;2;136;192;208m     [0m
+| search_match               | base0F | [0;48;2;180;142;173m     [0m
+| current_item               | base07 | [0;48;2;143;188;187m     [0m
+| selected_item              | base0F | [0;48;2;180;142;173m     [0m
+| unread_item                | base0F | [0;48;2;180;142;173m     [0m
+| delete                     | base0C | [0;48;2;208;135;112m     [0m
+| add                        | base0E | [0;48;2;163;190;140m     [0m
