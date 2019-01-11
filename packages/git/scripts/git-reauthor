@@ -2,7 +2,8 @@
 
 
 init_variables() {
-  COMMAND=${0#*-}
+  COMMAND=$0
+  GIT_COMMAND=${COMMAND#*-}
 
   CONFIG=false
   ALL=false
@@ -15,13 +16,18 @@ init_variables() {
 
 usage() {
   cat << EOF
-usage: git ${COMMAND} [<options>]
+usage: git ${GIT_COMMAND} [<options>]
 
-Options
+Rewrite history to change authors identities
+
+Options:
     -a, --all                     rewrite all identities in commits and tags
     -c, --use-config              define correct values from user Git config
+    -h                            show this message only
     -e, --correct-email  <email>  define the correct email to set
+                                  takes precedence over -c
     -n, --correct-name   <name>   define the correct name to set
+                                  takes precedence over -c
     -o, --old-email      <email>  rewrite identities matching old email in commits and tags
     -t, --type           <id>     define the type of identities affected by the rewrite
                                   author, committer, both (default)
@@ -30,13 +36,10 @@ EOF
 
 
 error() {
-  if [[ -n "$1" ]]; then
-    local msg=$( echo "error: $1" | sed 's/\\n/\\n       /g' )
-    echo -e "${msg}" >&2
-  fi
-  usage
+  [[ -z "$1" ]] || echo -e "${COMMAND}: $1" | sed 's/\\n/\\n       /g'
+  echo "Try 'git ${GIT_COMMAND} -h' for more information."
   exit 1
-}
+} >&2
 
 
 reauthor() {

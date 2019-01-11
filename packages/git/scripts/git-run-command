@@ -4,6 +4,7 @@
 # https://github.com/garybernhardt/dotfiles/blob/master/bin/run-command-on-git-revisions
 
 COMMAND=${0:t}
+GIT_COMMAND=${COMMAND#*-}
 
 init_variables() {
   INITIAL_REF=
@@ -15,19 +16,19 @@ init_variables() {
 
 usage() {
   cat << EOF
-usage: ${COMMAND} [<options>] start_ref end_ref command
+usage: git ${GIT_COMMAND} [<options>] start_ref end_ref command
 
 Execute a command over a range of git revisions
 
 Options:
-  -h,  --help    show this message only
+    -h               show this message only
 EOF
 }
 
 
 error() {
   [[ -z "$1" ]] || echo "${COMMAND}: $1"
-  echo "Try '${COMMAND} --help' for more information."
+  echo "Try 'git ${GIT_COMMAND} -h' for more information."
   exit 1
 } >&2
 
@@ -83,7 +84,7 @@ run_command_over_range() {
 parse_options() {
   while [[ "$#" -gt 0 ]]; do
     case "$1" in
-      -h|--help)
+      -h)
         usage
         exit 0
         ;;
