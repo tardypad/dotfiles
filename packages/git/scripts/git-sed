@@ -13,7 +13,7 @@ usage() {
   cat << EOF
 usage: git ${GIT_COMMAND} [<options>] <script>
 
-Apply a sed script over all files managed by git
+Apply a sed script over all text files managed by git
 
 Options:
     -h               show this message only
@@ -29,10 +29,8 @@ error() {
 
 
 run_sed() {
-  # exclude symlink files
-  git ls-files --stage \
-    | grep --invert-match '^120000' \
-    | cut --field 2 \
+  # exclude symlinks and binary files
+  git grep -I --name-only '' \
     | xargs sed --in-place "${SCRIPT}"
 }
 
