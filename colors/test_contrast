@@ -1,0 +1,162 @@
+#!/bin/sh
+
+# Following the Web Content Accessibility Guidelines 2.0
+# https://www.w3.org/TR/WCAG20/#visual-audio-contrast
+# we'll consider a contrast af 4.5 to be the minimum target
+# as defined there to be the minimum contrast for normal text size
+# 3.0 would be enough for larger text size or when using bold
+
+init_variables() {
+  COMMAND=$0
+
+  MINIMUM_CONTRAST_NORMAL=4.5
+  MINIMUM_CONTRAST_LARGE=3.0
+
+  HEX_COLORS=
+}
+
+usage() {
+  cat << EOF
+usage: ${COMMAND} <color1> <color2> ...
+
+Test the base colors contrast to each other
+
+Colors need to be specified in the hexadecimal format without # prefix
+
+Values are bold when higher than minimum desired for bold or large text
+Values are also underlined when higher than minimum desired for normal text
+
+Options:
+  -h,  --help      show this message only
+EOF
+}
+
+error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  printf "Try '%s --help' for more information.\n" "${COMMAND}"
+  exit 1
+} >&2
+
+relative_luminance() {
+  r="$1"
+  g="$2"
+  b="$3"
+
+  tmp_value() {
+    value="$1"
+
+    dec_value=$( echo "$value / 255" | bc -l )
+
+    if [ "$( echo "$dec_value <= 0.03928" | bc -l )" -eq 1 ]; then
+      echo "$dec_value / 12.92" | bc -l
+    else
+      # bc doesn't support fractional exponent so we replace it with exp/ln usage
+      echo "e(2.4 * l( ( $dec_value + 0.055 ) / 1.055 ) )" | bc -l
+    fi
+  }
+
+  R=$( tmp_value "$r" )
+  G=$( tmp_value "$g" )
+  B=$( tmp_value "$b" )
+
+  echo "( 0.2126 * $R + 0.7152 * $G + 0.0722 * $B )" | bc -l
+}
+
+contrast_ratio() {
+  color_1="$1"
+  color_2="$2"
+
+  r1=$( echo "$color_1" | cut -f 1 -d ';' )
+  g1=$( echo "$color_1" | cut -f 2 -d ';' )
+  b1=$( echo "$color_1" | cut -f 3 -d ';' )
+
+  r2=$( echo "$color_2" | cut -f 1 -d ';' )
+  g2=$( echo "$color_2" | cut -f 2 -d ';' )
+  b2=$( echo "$color_2" | cut -f 3 -d ';' )
+
+  L1=$( relative_luminance "$r1" "$g1" "$b1" )
+  L2=$( relative_luminance "$r2" "$g2" "$b2" )
+
+  if [ "$( echo "$L1 < $L2" | bc -l )" -eq 1 ]; then
+    L_high="$L2"
+    L_low="$L1"
+  else
+    L_high="$L1"
+    L_low="$L2"
+  fi
+
+  echo "( $L_high + 0.05 ) / ( $L_low + 0.05 )" | bc -l
+}
+
+print_contrast() {
+  rgb1="$1"
+  rgb2="$2"
+  contrast="$3"
+
+  printf '\033[0m'                             # reset
+  printf '\033[38;2;%sm' "$rgb1"               # use rgb1 for foreground
+  printf '\033[48;2;%sm' "$rgb2"               # use rgb2 for background
+  printf ' '                                   # spacing
+
+  test_normal=$( echo "$contrast >= $MINIMUM_CONTRAST_NORMAL" | bc -l )
+  [ "$test_normal" -eq 1 ] && printf '\033[4m' # underline display
+
+  test_bold=$( echo "$contrast >= $MINIMUM_CONTRAST_LARGE" | bc -l )
+  [ "$test_bold" -eq 1 ] && printf '\033[1m'   # bold display
+
+  printf '%4.1f' "$contrast"                   # keep 1 decimal with constant width
+  printf '\033[21;24m'                         # reset underline and bold
+  printf ' '                                   # spacing
+  printf '\033[0m'                             # reset
+}
+
+hex_to_rgb() {
+  hex_r=$(echo "$1" | cut -c 1-2)
+  hex_g=$(echo "$1" | cut -c 3-4)
+  hex_b=$(echo "$1" | cut -c 5-6)
+
+  # use ; as a delimiter between the RGB components
+  # to be able to directly use the full value inside ANSI escape sequences
+  printf "%d;%d;%d\n" "0x$hex_r" "0x$hex_g" "0x$hex_b"
+}
+
+test_contrast() {
+  for hex1 in $HEX_COLORS; do
+    for hex2 in $HEX_COLORS; do
+      rgb1=$( hex_to_rgb "$hex1" )
+      rgb2=$( hex_to_rgb "$hex2" )
+      contrast=$( contrast_ratio "$rgb1" "$rgb2" )
+      print_contrast "$rgb1" "$rgb2" "$contrast"
+    done
+    printf '\n'
+  done
+}
+
+parse_options() {
+  while [ "$#" -gt 0 ]; do
+    case "$1" in
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      *)
+        break 2
+        ;;
+    esac
+  done
+
+  HEX_COLORS="$*"
+
+  # read hex values from stdin if no argument specified
+  if [ -z "$HEX_COLORS" ]; then
+    while read -r hex_color; do
+      HEX_COLORS="$HEX_COLORS $hex_color"
+    done
+  fi
+}
+
+
+init_variables
+parse_options "$@"
+
+test_contrast
