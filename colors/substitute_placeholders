@@ -4,7 +4,6 @@ FILE="$1"
 
 BASE_COLORS_DEFINITION_FILE="${0%/*}/definitions/base"
 ALIASES_COLORS_DEFINITION_FILE="${0%/*}/definitions/aliases"
-SUBSTITUTE_PLACEHOLDERS_SED_SCRIPT="${0%/*}/substitute_placeholders.sed"
 
 # extract color hexadecimal values from definition file
 BASE00_HEX=$( grep base00 "${BASE_COLORS_DEFINITION_FILE}" | tr -s ' ' | cut -f2 -d' ' )
@@ -42,8 +41,8 @@ BASE0D_NUMBER=$( grep base0D "${BASE_COLORS_DEFINITION_FILE}" | tr -s ' ' | cut 
 BASE0E_NUMBER=$( grep base0E "${BASE_COLORS_DEFINITION_FILE}" | tr -s ' ' | cut -f3 -d' ' )
 BASE0F_NUMBER=$( grep base0F "${BASE_COLORS_DEFINITION_FILE}" | tr -s ' ' | cut -f3 -d' ' )
 
-# apply aliases conversions first on the file
 {
+  # aliases intermediate conversion to base color equivalent
   while read -r line; do
     alias=$( echo "${line}" | cut -f1 -d' ' )
     base_color=$( echo "${line}" | cut -f2 -d' ' )
@@ -51,39 +50,119 @@ BASE0F_NUMBER=$( grep base0F "${BASE_COLORS_DEFINITION_FILE}" | tr -s ' ' | cut 
   done < "${ALIASES_COLORS_DEFINITION_FILE}"
 } | sed -i -f - "${FILE}"
 
-# replace base colors placeholders in sed script before running it on the file
-sed \
- -e "s|#base00_hex#|${BASE00_HEX}|" \
- -e "s|#base01_hex#|${BASE01_HEX}|" \
- -e "s|#base02_hex#|${BASE02_HEX}|" \
- -e "s|#base03_hex#|${BASE03_HEX}|" \
- -e "s|#base04_hex#|${BASE04_HEX}|" \
- -e "s|#base05_hex#|${BASE05_HEX}|" \
- -e "s|#base06_hex#|${BASE06_HEX}|" \
- -e "s|#base07_hex#|${BASE07_HEX}|" \
- -e "s|#base08_hex#|${BASE08_HEX}|" \
- -e "s|#base09_hex#|${BASE09_HEX}|" \
- -e "s|#base0A_hex#|${BASE0A_HEX}|" \
- -e "s|#base0B_hex#|${BASE0B_HEX}|" \
- -e "s|#base0C_hex#|${BASE0C_HEX}|" \
- -e "s|#base0D_hex#|${BASE0D_HEX}|" \
- -e "s|#base0E_hex#|${BASE0E_HEX}|" \
- -e "s|#base0F_hex#|${BASE0F_HEX}|" \
- -e "s|#base00_number#|${BASE00_NUMBER}|" \
- -e "s|#base01_number#|${BASE01_NUMBER}|" \
- -e "s|#base02_number#|${BASE02_NUMBER}|" \
- -e "s|#base03_number#|${BASE03_NUMBER}|" \
- -e "s|#base04_number#|${BASE04_NUMBER}|" \
- -e "s|#base05_number#|${BASE05_NUMBER}|" \
- -e "s|#base06_number#|${BASE06_NUMBER}|" \
- -e "s|#base07_number#|${BASE07_NUMBER}|" \
- -e "s|#base08_number#|${BASE08_NUMBER}|" \
- -e "s|#base09_number#|${BASE09_NUMBER}|" \
- -e "s|#base0A_number#|${BASE0A_NUMBER}|" \
- -e "s|#base0B_number#|${BASE0B_NUMBER}|" \
- -e "s|#base0C_number#|${BASE0C_NUMBER}|" \
- -e "s|#base0D_number#|${BASE0D_NUMBER}|" \
- -e "s|#base0E_number#|${BASE0E_NUMBER}|" \
- -e "s|#base0F_number#|${BASE0F_NUMBER}|" \
- "${SUBSTITUTE_PLACEHOLDERS_SED_SCRIPT}" \
- | sed -i -f - "${FILE}"
+{
+  # hexadecimal final conversion
+  echo "s|{color/base00/hex}|${BASE00_HEX}|g"
+  echo "s|{color/base01/hex}|${BASE01_HEX}|g"
+  echo "s|{color/base02/hex}|${BASE02_HEX}|g"
+  echo "s|{color/base03/hex}|${BASE03_HEX}|g"
+  echo "s|{color/base04/hex}|${BASE04_HEX}|g"
+  echo "s|{color/base05/hex}|${BASE05_HEX}|g"
+  echo "s|{color/base06/hex}|${BASE06_HEX}|g"
+  echo "s|{color/base07/hex}|${BASE07_HEX}|g"
+  echo "s|{color/base08/hex}|${BASE08_HEX}|g"
+  echo "s|{color/base09/hex}|${BASE09_HEX}|g"
+  echo "s|{color/base0A/hex}|${BASE0A_HEX}|g"
+  echo "s|{color/base0B/hex}|${BASE0B_HEX}|g"
+  echo "s|{color/base0C/hex}|${BASE0C_HEX}|g"
+  echo "s|{color/base0D/hex}|${BASE0D_HEX}|g"
+  echo "s|{color/base0E/hex}|${BASE0E_HEX}|g"
+  echo "s|{color/base0F/hex}|${BASE0F_HEX}|g"
+} | sed -i -f - "${FILE}"
+
+{
+  # fixed intermediate conversion
+  # for color name via 16 color number
+  echo 's|{color/base0\([[:alnum:]]\)/name}|{color/number_{color/base0\1/number}/name}|g'
+
+  # fixed intermediate conversion
+  # for foreground color code via 16 color number
+  echo 's|{color/base0\([[:alnum:]]\)/fg}|{color/number_{color/base0\1/number}/fg}|g'
+
+  # fixed intermediate conversion
+  # for background color code via 16 color number
+  echo 's|{color/base0\([[:alnum:]]\)/bg}|{color/number_{color/base0\1/number}/bg}|g'
+} | sed -i -f - "${FILE}"
+
+{
+  # number final conversion
+  echo "s|{color/base00/number}|${BASE00_NUMBER}|g"
+  echo "s|{color/base01/number}|${BASE01_NUMBER}|g"
+  echo "s|{color/base02/number}|${BASE02_NUMBER}|g"
+  echo "s|{color/base03/number}|${BASE03_NUMBER}|g"
+  echo "s|{color/base04/number}|${BASE04_NUMBER}|g"
+  echo "s|{color/base05/number}|${BASE05_NUMBER}|g"
+  echo "s|{color/base06/number}|${BASE06_NUMBER}|g"
+  echo "s|{color/base07/number}|${BASE07_NUMBER}|g"
+  echo "s|{color/base08/number}|${BASE08_NUMBER}|g"
+  echo "s|{color/base09/number}|${BASE09_NUMBER}|g"
+  echo "s|{color/base0A/number}|${BASE0A_NUMBER}|g"
+  echo "s|{color/base0B/number}|${BASE0B_NUMBER}|g"
+  echo "s|{color/base0C/number}|${BASE0C_NUMBER}|g"
+  echo "s|{color/base0D/number}|${BASE0D_NUMBER}|g"
+  echo "s|{color/base0E/number}|${BASE0E_NUMBER}|g"
+  echo "s|{color/base0F/number}|${BASE0F_NUMBER}|g"
+} | sed -i -f - "${FILE}"
+
+{
+  # fixed ANSI final conversion
+  # from 16 color number to color name
+  echo 's|{color/number_0/name}|black|g'
+  echo 's|{color/number_1/name}|red|g'
+  echo 's|{color/number_2/name}|green|g'
+  echo 's|{color/number_3/name}|yellow|g'
+  echo 's|{color/number_4/name}|blue|g'
+  echo 's|{color/number_5/name}|magenta|g'
+  echo 's|{color/number_6/name}|cyan|g'
+  echo 's|{color/number_7/name}|white|g'
+  echo 's|{color/number_8/name}|brblack|g'
+  echo 's|{color/number_9/name}|brred|g'
+  echo 's|{color/number_10/name}|brgreen|g'
+  echo 's|{color/number_11/name}|bryellow|g'
+  echo 's|{color/number_12/name}|brblue|g'
+  echo 's|{color/number_13/name}|brmagenta|g'
+  echo 's|{color/number_14/name}|brcyan|g'
+  echo 's|{color/number_15/name}|brwhite|g'
+} | sed -i -f - "${FILE}"
+
+{
+  # fixed ANSI final conversion
+  # from 16 color number to foreground color code
+  echo 's|{color/number_0/fg}|30|g'
+  echo 's|{color/number_1/fg}|31|g'
+  echo 's|{color/number_2/fg}|32|g'
+  echo 's|{color/number_3/fg}|33|g'
+  echo 's|{color/number_4/fg}|34|g'
+  echo 's|{color/number_5/fg}|35|g'
+  echo 's|{color/number_6/fg}|36|g'
+  echo 's|{color/number_7/fg}|37|g'
+  echo 's|{color/number_8/fg}|90|g'
+  echo 's|{color/number_9/fg}|91|g'
+  echo 's|{color/number_10/fg}|92|g'
+  echo 's|{color/number_11/fg}|93|g'
+  echo 's|{color/number_12/fg}|94|g'
+  echo 's|{color/number_13/fg}|95|g'
+  echo 's|{color/number_14/fg}|96|g'
+  echo 's|{color/number_15/fg}|97|g'
+} | sed -i -f - "${FILE}"
+
+{
+  # fixed ANSI final conversion
+  # from 16 color number to background color code
+  echo 's|{color/number_0/bg}|40|g'
+  echo 's|{color/number_1/bg}|41|g'
+  echo 's|{color/number_2/bg}|42|g'
+  echo 's|{color/number_3/bg}|43|g'
+  echo 's|{color/number_4/bg}|44|g'
+  echo 's|{color/number_5/bg}|45|g'
+  echo 's|{color/number_6/bg}|46|g'
+  echo 's|{color/number_7/bg}|47|g'
+  echo 's|{color/number_8/bg}|100|g'
+  echo 's|{color/number_9/bg}|101|g'
+  echo 's|{color/number_10/bg}|102|g'
+  echo 's|{color/number_11/bg}|103|g'
+  echo 's|{color/number_12/bg}|104|g'
+  echo 's|{color/number_13/bg}|105|g'
+  echo 's|{color/number_14/bg}|106|g'
+  echo 's|{color/number_15/bg}|107|g'
+} | sed -i -f - "${FILE}"
