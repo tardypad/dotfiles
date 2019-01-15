@@ -3,7 +3,7 @@
 FILE="$1"
 
 BASE_COLORS_DEFINITION_FILE="${0%/*}/base_colors"
-SUBSTITUTE_VARIABLES_SED_SCRIPT="${0%/*}/substitute_variables.sed"
+SUBSTITUTE_PLACEHOLDERS_SED_SCRIPT="${0%/*}/substitute_placeholders.sed"
 
 # extract color hexadecimal values from definition file
 BASE00_HEX=$( grep base00 "${BASE_COLORS_DEFINITION_FILE}" | cut -f2 -d' ' )
@@ -75,5 +75,5 @@ sed \
  -e "s|#base0D_number#|${BASE0D_NUMBER}|" \
  -e "s|#base0E_number#|${BASE0E_NUMBER}|" \
  -e "s|#base0F_number#|${BASE0F_NUMBER}|" \
- "${SUBSTITUTE_VARIABLES_SED_SCRIPT}" \
+ "${SUBSTITUTE_PLACEHOLDERS_SED_SCRIPT}" \
  | sed -i -f - "${FILE}"
