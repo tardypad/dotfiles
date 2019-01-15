@@ -1,0 +1,79 @@
+#!/bin/sh
+
+FILE="$1"
+
+BASE_COLORS_DEFINITION_FILE="${0%/*}/base_colors"
+SUBSTITUTE_VARIABLES_SED_SCRIPT="${0%/*}/substitute_variables.sed"
+
+# extract color hexadecimal values from definition file
+BASE00_HEX=$( grep base00 "${BASE_COLORS_DEFINITION_FILE}" | cut -f2 -d' ' )
+BASE01_HEX=$( grep base01 "${BASE_COLORS_DEFINITION_FILE}" | cut -f2 -d' ' )
+BASE02_HEX=$( grep base02 "${BASE_COLORS_DEFINITION_FILE}" | cut -f2 -d' ' )
+BASE03_HEX=$( grep base03 "${BASE_COLORS_DEFINITION_FILE}" | cut -f2 -d' ' )
+BASE04_HEX=$( grep base04 "${BASE_COLORS_DEFINITION_FILE}" | cut -f2 -d' ' )
+BASE05_HEX=$( grep base05 "${BASE_COLORS_DEFINITION_FILE}" | cut -f2 -d' ' )
+BASE06_HEX=$( grep base06 "${BASE_COLORS_DEFINITION_FILE}" | cut -f2 -d' ' )
+BASE07_HEX=$( grep base07 "${BASE_COLORS_DEFINITION_FILE}" | cut -f2 -d' ' )
+BASE08_HEX=$( grep base08 "${BASE_COLORS_DEFINITION_FILE}" | cut -f2 -d' ' )
+BASE09_HEX=$( grep base09 "${BASE_COLORS_DEFINITION_FILE}" | cut -f2 -d' ' )
+BASE0A_HEX=$( grep base0A "${BASE_COLORS_DEFINITION_FILE}" | cut -f2 -d' ' )
+BASE0B_HEX=$( grep base0B "${BASE_COLORS_DEFINITION_FILE}" | cut -f2 -d' ' )
+BASE0C_HEX=$( grep base0C "${BASE_COLORS_DEFINITION_FILE}" | cut -f2 -d' ' )
+BASE0D_HEX=$( grep base0D "${BASE_COLORS_DEFINITION_FILE}" | cut -f2 -d' ' )
+BASE0E_HEX=$( grep base0E "${BASE_COLORS_DEFINITION_FILE}" | cut -f2 -d' ' )
+BASE0F_HEX=$( grep base0F "${BASE_COLORS_DEFINITION_FILE}" | cut -f2 -d' ' )
+
+# extract color number values from definition file
+BASE00_NUMBER=$( grep base00 "${BASE_COLORS_DEFINITION_FILE}" | cut -f3 -d' ' )
+BASE01_NUMBER=$( grep base01 "${BASE_COLORS_DEFINITION_FILE}" | cut -f3 -d' ' )
+BASE02_NUMBER=$( grep base02 "${BASE_COLORS_DEFINITION_FILE}" | cut -f3 -d' ' )
+BASE03_NUMBER=$( grep base03 "${BASE_COLORS_DEFINITION_FILE}" | cut -f3 -d' ' )
+BASE04_NUMBER=$( grep base04 "${BASE_COLORS_DEFINITION_FILE}" | cut -f3 -d' ' )
+BASE05_NUMBER=$( grep base05 "${BASE_COLORS_DEFINITION_FILE}" | cut -f3 -d' ' )
+BASE06_NUMBER=$( grep base06 "${BASE_COLORS_DEFINITION_FILE}" | cut -f3 -d' ' )
+BASE07_NUMBER=$( grep base07 "${BASE_COLORS_DEFINITION_FILE}" | cut -f3 -d' ' )
+BASE08_NUMBER=$( grep base08 "${BASE_COLORS_DEFINITION_FILE}" | cut -f3 -d' ' )
+BASE09_NUMBER=$( grep base09 "${BASE_COLORS_DEFINITION_FILE}" | cut -f3 -d' ' )
+BASE0A_NUMBER=$( grep base0A "${BASE_COLORS_DEFINITION_FILE}" | cut -f3 -d' ' )
+BASE0B_NUMBER=$( grep base0B "${BASE_COLORS_DEFINITION_FILE}" | cut -f3 -d' ' )
+BASE0C_NUMBER=$( grep base0C "${BASE_COLORS_DEFINITION_FILE}" | cut -f3 -d' ' )
+BASE0D_NUMBER=$( grep base0D "${BASE_COLORS_DEFINITION_FILE}" | cut -f3 -d' ' )
+BASE0E_NUMBER=$( grep base0E "${BASE_COLORS_DEFINITION_FILE}" | cut -f3 -d' ' )
+BASE0F_NUMBER=$( grep base0F "${BASE_COLORS_DEFINITION_FILE}" | cut -f3 -d' ' )
+
+# replace base colors placeholders in sed script before running it on the file
+sed \
+ -e "s|#base00_hex#|${BASE00_HEX}|" \
+ -e "s|#base01_hex#|${BASE01_HEX}|" \
+ -e "s|#base02_hex#|${BASE02_HEX}|" \
+ -e "s|#base03_hex#|${BASE03_HEX}|" \
+ -e "s|#base04_hex#|${BASE04_HEX}|" \
+ -e "s|#base05_hex#|${BASE05_HEX}|" \
+ -e "s|#base06_hex#|${BASE06_HEX}|" \
+ -e "s|#base07_hex#|${BASE07_HEX}|" \
+ -e "s|#base08_hex#|${BASE08_HEX}|" \
+ -e "s|#base09_hex#|${BASE09_HEX}|" \
+ -e "s|#base0A_hex#|${BASE0A_HEX}|" \
+ -e "s|#base0B_hex#|${BASE0B_HEX}|" \
+ -e "s|#base0C_hex#|${BASE0C_HEX}|" \
+ -e "s|#base0D_hex#|${BASE0D_HEX}|" \
+ -e "s|#base0E_hex#|${BASE0E_HEX}|" \
+ -e "s|#base0F_hex#|${BASE0F_HEX}|" \
+ -e "s|#base00_number#|${BASE00_NUMBER}|" \
+ -e "s|#base01_number#|${BASE01_NUMBER}|" \
+ -e "s|#base02_number#|${BASE02_NUMBER}|" \
+ -e "s|#base03_number#|${BASE03_NUMBER}|" \
+ -e "s|#base04_number#|${BASE04_NUMBER}|" \
+ -e "s|#base05_number#|${BASE05_NUMBER}|" \
+ -e "s|#base06_number#|${BASE06_NUMBER}|" \
+ -e "s|#base07_number#|${BASE07_NUMBER}|" \
+ -e "s|#base08_number#|${BASE08_NUMBER}|" \
+ -e "s|#base09_number#|${BASE09_NUMBER}|" \
+ -e "s|#base0A_number#|${BASE0A_NUMBER}|" \
+ -e "s|#base0B_number#|${BASE0B_NUMBER}|" \
+ -e "s|#base0C_number#|${BASE0C_NUMBER}|" \
+ -e "s|#base0D_number#|${BASE0D_NUMBER}|" \
+ -e "s|#base0E_number#|${BASE0E_NUMBER}|" \
+ -e "s|#base0F_number#|${BASE0F_NUMBER}|" \
+ "${SUBSTITUTE_VARIABLES_SED_SCRIPT}" \
+ | sed -i -f - "${FILE}"

@@ -21,22 +21,22 @@ s|{color/delete/\([[:alpha:]]\+\)}|{color/base0C/\1}|g
 s|{color/add/\([[:alpha:]]\+\)}|{color/base0E/\1}|g
 
 # HEX
-s|{color/base00/hex}|2e3440|g
-s|{color/base01/hex}|3b4252|g
-s|{color/base02/hex}|434c5e|g
-s|{color/base03/hex}|4c566a|g
-s|{color/base04/hex}|d8dee9|g
-s|{color/base05/hex}|e5e9f0|g
-s|{color/base06/hex}|eceff4|g
-s|{color/base07/hex}|8fbcbb|g
-s|{color/base08/hex}|88c0d0|g
-s|{color/base09/hex}|81a1c1|g
-s|{color/base0A/hex}|5e81ac|g
-s|{color/base0B/hex}|bf616a|g
-s|{color/base0C/hex}|d08770|g
-s|{color/base0D/hex}|ebcb8b|g
-s|{color/base0E/hex}|a3be8c|g
-s|{color/base0F/hex}|b48ead|g
+s|{color/base00/hex}|#base00_hex#|g
+s|{color/base01/hex}|#base01_hex#|g
+s|{color/base02/hex}|#base02_hex#|g
+s|{color/base03/hex}|#base03_hex#|g
+s|{color/base04/hex}|#base04_hex#|g
+s|{color/base05/hex}|#base05_hex#|g
+s|{color/base06/hex}|#base06_hex#|g
+s|{color/base07/hex}|#base07_hex#|g
+s|{color/base08/hex}|#base08_hex#|g
+s|{color/base09/hex}|#base09_hex#|g
+s|{color/base0A/hex}|#base0A_hex#|g
+s|{color/base0B/hex}|#base0B_hex#|g
+s|{color/base0C/hex}|#base0C_hex#|g
+s|{color/base0D/hex}|#base0D_hex#|g
+s|{color/base0E/hex}|#base0E_hex#|g
+s|{color/base0F/hex}|#base0F_hex#|g
 
 # fixed intermediate conversion
 # for color name via 16 color number
@@ -51,22 +51,22 @@ s|{color/base0\([[:alnum:]]\)/fg}|{color/number_{color/base0\1/number}/fg}|g
 s|{color/base0\([[:alnum:]]\)/bg}|{color/number_{color/base0\1/number}/bg}|g
 
 # NUMBER
-s|{color/base00/number}|8|g
-s|{color/base01/number}|0|g
-s|{color/base02/number}|10|g
-s|{color/base03/number}|11|g
-s|{color/base04/number}|12|g
-s|{color/base05/number}|7|g
-s|{color/base06/number}|15|g
-s|{color/base07/number}|6|g
-s|{color/base08/number}|4|g
-s|{color/base09/number}|14|g
-s|{color/base0A/number}|13|g
-s|{color/base0B/number}|1|g
-s|{color/base0C/number}|9|g
-s|{color/base0D/number}|3|g
-s|{color/base0E/number}|2|g
-s|{color/base0F/number}|5|g
+s|{color/base00/number}|#base00_number#|g
+s|{color/base01/number}|#base01_number#|g
+s|{color/base02/number}|#base02_number#|g
+s|{color/base03/number}|#base03_number#|g
+s|{color/base04/number}|#base04_number#|g
+s|{color/base05/number}|#base05_number#|g
+s|{color/base06/number}|#base06_number#|g
+s|{color/base07/number}|#base07_number#|g
+s|{color/base08/number}|#base08_number#|g
+s|{color/base09/number}|#base09_number#|g
+s|{color/base0A/number}|#base0A_number#|g
+s|{color/base0B/number}|#base0B_number#|g
+s|{color/base0C/number}|#base0C_number#|g
+s|{color/base0D/number}|#base0D_number#|g
+s|{color/base0E/number}|#base0E_number#|g
+s|{color/base0F/number}|#base0F_number#|g
 
 # fixed ANSI mapping
 # from 16 color number to color name
