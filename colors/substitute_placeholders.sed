@@ -1,25 +1,3 @@
-# intermediate conversion
-# for aliases via code
-s|{color/background/\([[:alpha:]]\+\)}|{color/base00/\1}|g
-s|{color/foreground/\([[:alpha:]]\+\)}|{color/base04/\1}|g
-s|{color/status_line_background/\([[:alpha:]]\+\)}|{color/base01/\1}|g
-s|{color/status_line_foreground/\([[:alpha:]]\+\)}|{color/base05/\1}|g
-s|{color/popup_background/\([[:alpha:]]\+\)}|{color/base02/\1}|g
-s|{color/popup_foreground/\([[:alpha:]]\+\)}|{color/base04/\1}|g
-s|{color/popup_group_background/\([[:alpha:]]\+\)}|{color/base01/\1}|g
-s|{color/popup_group_foreground/\([[:alpha:]]\+\)}|{color/base06/\1}|g
-s|{color/alert/\([[:alpha:]]\+\)}|{color/base0B/\1}|g
-s|{color/error/\([[:alpha:]]\+\)}|{color/base0B/\1}|g
-s|{color/warning/\([[:alpha:]]\+\)}|{color/base0C/\1}|g
-s|{color/notice/\([[:alpha:]]\+\)}|{color/base0D/\1}|g
-s|{color/info/\([[:alpha:]]\+\)}|{color/base08/\1}|g
-s|{color/search_match/\([[:alpha:]]\+\)}|{color/base0F/\1}|g
-s|{color/current_item/\([[:alpha:]]\+\)}|{color/base07/\1}|g
-s|{color/selected_item/\([[:alpha:]]\+\)}|{color/base0F/\1}|g
-s|{color/unread_item/\([[:alpha:]]\+\)}|{color/base0F/\1}|g
-s|{color/delete/\([[:alpha:]]\+\)}|{color/base0C/\1}|g
-s|{color/add/\([[:alpha:]]\+\)}|{color/base0E/\1}|g
-
 # HEX
 s|{color/base00/hex}|#base00_hex#|g
 s|{color/base01/hex}|#base01_hex#|g

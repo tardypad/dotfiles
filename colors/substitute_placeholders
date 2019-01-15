@@ -2,7 +2,8 @@
 
 FILE="$1"
 
-BASE_COLORS_DEFINITION_FILE="${0%/*}/base_colors"
+BASE_COLORS_DEFINITION_FILE="${0%/*}/definitions/base"
+ALIASES_COLORS_DEFINITION_FILE="${0%/*}/definitions/aliases"
 SUBSTITUTE_PLACEHOLDERS_SED_SCRIPT="${0%/*}/substitute_placeholders.sed"
 
 # extract color hexadecimal values from definition file
@@ -40,6 +41,15 @@ BASE0C_NUMBER=$( grep base0C "${BASE_COLORS_DEFINITION_FILE}" | cut -f3 -d' ' )
 BASE0D_NUMBER=$( grep base0D "${BASE_COLORS_DEFINITION_FILE}" | cut -f3 -d' ' )
 BASE0E_NUMBER=$( grep base0E "${BASE_COLORS_DEFINITION_FILE}" | cut -f3 -d' ' )
 BASE0F_NUMBER=$( grep base0F "${BASE_COLORS_DEFINITION_FILE}" | cut -f3 -d' ' )
+
+# apply aliases conversions first on the file
+{
+  while read -r line; do
+    alias=$( echo "${line}" | cut -f1 -d' ' )
+    base_color=$( echo "${line}" | cut -f2 -d' ' )
+    echo "s|{color/${alias}/\([[:alpha:]]\+\)}|{color/${base_color}/\1}|g"
+  done < "${ALIASES_COLORS_DEFINITION_FILE}"
+} | sed -i -f - "${FILE}"
 
 # replace base colors placeholders in sed script before running it on the file
 sed \
