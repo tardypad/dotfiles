@@ -113,3 +113,8 @@ set -g silence-action any
 set-hook -g alert-activity "run \"~/.tmux/scripts/notify_alert.sh activity '#{session_id}' #{window_id}\""
 set-hook -g alert-bell "run \"~/.tmux/scripts/notify_alert.sh bell '#{session_id}' #{window_id}\""
 set-hook -g alert-silence "run \"~/.tmux/scripts/notify_alert.sh silence '#{session_id}' #{window_id}\""
+
+# update gpg tty to use for ssh pinentry every time we enter a pane
+%if #{DISPLAY}
+set-hook -g pane-focus-in "run 'gpg-connect-agent updatestartuptty /bye <> #{pane_tty} > /dev/null'"
+%endif
