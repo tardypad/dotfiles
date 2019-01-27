@@ -77,7 +77,7 @@
     sh0 = "! f() { git show --unified=0 $( git argument $1 ); }; f"
     st = status --short --branch
     tag-list = "! \
-        git tag --sort=taggerdate --color \
+        git tag --sort=creatordate --color \
         --format \"%(color:$(git config color.tag-list.refname))%(refname:short)%(color:reset) | %(taggerdate:iso) | %(taggeremail) | %(subject)\" \
         | column --table --separator '|'"
     wip = "! \
