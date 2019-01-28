@@ -30,7 +30,6 @@ set_prompt() {
   PROMPT+="${stop_foreground}${stop_underline} "
 }
 
-autoload -Uz vcs_info
 setopt prompt_subst
 
 set_prompt
