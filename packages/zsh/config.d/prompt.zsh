@@ -1,16 +1,16 @@
-preexec() {
+prompt_preexec() {
   # spacer between command and result, if there is any command ran
   if [ -n "$1" ]; then
     echo
   fi
 }
 
-precmd() {
+prompt_precmd() {
   # spacer between last command result and new prompt
   echo
 }
 
-set_prompt() {
+prompt_set() {
   local root='%{%F{{color/alert/name}}%}'
   local normal='%{%F{{color/base08/name}}%}'
   local underline='%{%U%}'
@@ -32,5 +32,8 @@ set_prompt() {
 
 setopt prompt_subst
 
-set_prompt
-unset -f set_prompt
+add-zsh-hook preexec prompt_preexec
+add-zsh-hook precmd prompt_precmd
+prompt_set
+
+unset -f prompt_set

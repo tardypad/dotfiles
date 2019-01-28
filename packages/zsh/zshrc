@@ -1,3 +1,6 @@
+# use hooks
+autoload -U add-zsh-hook
+
 # load all individual configs
 for conf in "${HOME}/.zsh/config.d/"*.zsh; do
   source "${conf}"
