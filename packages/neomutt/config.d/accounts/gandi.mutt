@@ -19,7 +19,6 @@ macro index,pager gt "<change-folder>+Trash<Enter>"  "go to trash folder"
 mailboxes "+INBOX" \
           "+INBOX/Achats" \
           "+INBOX/Daily comics" \
-          "+INBOX/Daily comics/TODO" \
           "+INBOX/SomaFM" \
           "+Drafts" \
           "+Sent" \
