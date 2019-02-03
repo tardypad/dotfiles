@@ -99,7 +99,7 @@ c.colors.messages.warning.border                = colors['warning']
 c.colors.messages.warning.fg                    = colors['base06']
 
 c.colors.prompts.bg                             = colors['base02']
-c.colors.prompts.border                         = "1px solid " + colors['base05']
+c.colors.prompts.border                         = "1px solid " + colors['base06']
 c.colors.prompts.fg                             = colors['base04']
 c.colors.prompts.selected.bg                    = colors['current_item']
 

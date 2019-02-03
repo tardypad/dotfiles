@@ -3,7 +3,7 @@
 | background                 | base00 | [0;48;2;46;52;64m     [0m
 | foreground                 | base04 | [0;48;2;216;222;233m     [0m
 | status_line_background     | base01 | [0;48;2;59;66;82m     [0m
-| status_line_foreground     | base05 | [0;48;2;229;233;240m     [0m
+| status_line_foreground     | base06 | [0;48;2;236;239;244m     [0m
 | popup_background           | base02 | [0;48;2;67;76;94m     [0m
 | popup_foreground           | base04 | [0;48;2;216;222;233m     [0m
 | popup_group_background     | base01 | [0;48;2;59;66;82m     [0m
