@@ -1,0 +1,120 @@
+#!/usr/bin/env bash
+
+
+init_variables() {
+  COMMAND=$0
+  GIT_COMMAND=${COMMAND#*-}
+
+  TYPE=
+}
+
+
+usage() {
+  cat << EOF
+usage: git ${GIT_COMMAND} [<options>] <type>
+
+Display an URL related to repo or current commit
+Based on origin remote config using an URL alias and "browse" config
+
+Options:
+    -h               show this message only
+
+Valid types:
+- repo: general URL of the repo
+- commit: URL of the current commit
+- issue: URL of the issue related to current commit
+- review: URL of the review related to current commit
+EOF
+}
+
+
+error() {
+  [[ -z "$1" ]] || echo "${COMMAND}: $1"
+  echo "Try 'git ${GIT_COMMAND} -h' for more information."
+  exit 1
+} >&2
+
+
+display_url() {
+  local remote_alias=$(
+    git config remote.origin.url \
+    | sed 's/:.*//'
+  )
+  [[ -z "${remote_alias}" ]] && return 1
+
+  local repo_path_sed=$(
+    git config "browse.${remote_alias}.repoPathSed"
+  )
+  [[ -z "${repo_path_sed}" ]] && return 1
+
+  local repo_path=$(
+    git config remote.origin.url \
+    | sed "${repo_path_sed}"
+  )
+  [[ -z "${repo_path}" ]] && return 1
+
+  local url=$(
+    git config "browse.${remote_alias}.${TYPE}Url" \
+    | sed "s|{repo_path}|${repo_path}|"
+  )
+  [[ -z "${url}" ]] && return 1
+
+  case "${TYPE}" in
+    repo)
+      echo "${url}"
+      ;;
+    commit)
+      commit_id=$( git rev-parse HEAD )
+      [[ -z "${commit_id}" ]] && return 1
+      echo "${url//\{commit_id\}/${commit_id}}"
+      ;;
+    issue)
+      issue_id=$( git head-issue-id )
+      [[ -z "${issue_id}" ]] && return 1
+      echo "${url//\{issue_id\}/${issue_id}}"
+      ;;
+    review)
+      review_id=$( git head-review-id )
+      [[ -z "${review_id}" ]] && return 1
+      echo "${url//\{review_id\}/${review_id}}"
+      ;;
+  esac
+}
+
+
+parse_options() {
+  while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+      -h)
+        usage
+        exit 0
+        ;;
+      *)
+        break
+        ;;
+    esac
+  done
+
+  TYPE="$1"
+}
+
+
+validate_options() {
+  if [[ -z "${TYPE}" ]]; then
+    error 'missing type argument'
+  fi
+
+  if [[ "${TYPE}" != 'repo'
+     && "${TYPE}" != 'commit'
+     && "${TYPE}" != 'issue'
+     && "${TYPE}" != 'review' ]]; then
+    error "invalid type argument '${TYPE}'"
+  fi
+}
+
+
+init_variables
+parse_options "$@"
+validate_options
+
+display_url

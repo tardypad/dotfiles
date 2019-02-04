@@ -7,6 +7,11 @@
     insteadOf = perso_old:
 [url "github:tardypad/"]
     insteadOf = github:
+[browse "github"]
+    repoPathSed = "s|.*:\\(.*\\)|tardypad/\\1|"
+    repoUrl = https://www.github.com/{repo_path}
+    commitUrl = https://www.github.com/{repo_path}/commits/{commit_id}
+    issueUrl = https://www.github.com/{repo_path}/issues/{issue_id}
 [init]
     templatedir = ~/.config/git/template
 [push]

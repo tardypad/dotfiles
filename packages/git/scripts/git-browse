@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+
+
+init_variables() {
+  COMMAND=$0
+  GIT_COMMAND=${COMMAND#*-}
+
+  TYPE=
+}
+
+
+usage() {
+  cat << EOF
+usage: git ${GIT_COMMAND} [<options>] <type>
+
+Open an URL related to repo or current commit
+
+Options:
+    -h               show this message only
+
+See "git url" command for more info
+EOF
+}
+
+
+error() {
+  [[ -z "$1" ]] || echo "${COMMAND}: $1"
+  echo "Try 'git ${GIT_COMMAND} -h' for more information."
+  exit 1
+} >&2
+
+
+open_url() {
+  local url=$( git url "${TYPE}" )
+  [[ -z "${url}" ]] && return 1
+  xdg-open "${url}"
+}
+
+
+parse_options() {
+  while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+      -h)
+        usage
+        exit 0
+        ;;
+      *)
+        break
+        ;;
+    esac
+  done
+
+  TYPE="$1"
+}
+
+
+init_variables
+parse_options "$@"
+
+open_url
