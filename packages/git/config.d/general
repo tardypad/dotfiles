@@ -5,9 +5,16 @@
     insteadOf = perso:
 [url "tardypad:~/damien.old/"]
     insteadOf = perso_old:
+[url "github:"]
+    insteadOf = gh:
 [url "github:tardypad/"]
-    insteadOf = github:
-[browse "github"]
+    insteadOf = gh_perso:
+[browse "gh"]
+    repoPathSed = "s|.*:\\(.*\\)|\\1|"
+    repoUrl = https://www.github.com/{repo_path}
+    commitUrl = https://www.github.com/{repo_path}/commits/{commit_id}
+    issueUrl = https://www.github.com/{repo_path}/issues/{issue_id}
+[browse "gh_perso"]
     repoPathSed = "s|.*:\\(.*\\)|tardypad/\\1|"
     repoUrl = https://www.github.com/{repo_path}
     commitUrl = https://www.github.com/{repo_path}/commits/{commit_id}
