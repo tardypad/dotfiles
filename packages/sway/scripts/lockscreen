@@ -10,8 +10,8 @@ swaylock \
   --insidecolor 00000000 \
   --insidevercolor 00000000 \
   --insidewrongcolor 00000000 \
-  --bshlcolor {color/base09/hex}ff \
-  --keyhlcolor {color/foreground/hex}ff \
+  --bshlcolor {color/base04/hex}ff \
+  --keyhlcolor {color/base09/hex}ff \
   --ringcolor {color/base01/hex}ff \
   --ringvercolor {color/base09/hex}ff \
   --ringwrongcolor {color/error/hex}ff \
