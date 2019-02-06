@@ -9,7 +9,6 @@
 # Cleaning
 
 # Bugs
-  - replace the old aurutils commands usage with the new ones
 
 # Testing
 

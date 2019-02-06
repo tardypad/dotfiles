@@ -51,8 +51,8 @@ alias timer=stopwatch
 # all packages update
 alias packages-update="
   checkupdates \
-  && aurcheck -d aur \
-  && aurcheck -d tardypad \
+  && aur repo --database aur --sync --upgrades \
+  && aur repo --database tardypad --sync --upgrades \
   && sudo pacman --sync --refresh --sysupgrade
 "
 

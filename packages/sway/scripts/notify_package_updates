@@ -8,6 +8,7 @@ add_notification_text()
   local tmp_result_file=$( mktemp )
 
   echo "${packages_list}" \
+    | sed 's/: / /' \
     | cut --fields 1 --delimiter ' ' \
     | xargs -I {} pacman --query --info {} \
     | grep --extended-regexp '^Name|^Description' \
@@ -34,7 +35,10 @@ if [[ -n "${PACMAN_UPDATES}" ]]; then
   add_notification_text "${PACMAN_UPDATES}" "${TMP_RESULT_FILE}"
 fi
 
-AUR_UPDATES=$( aurcheck -d aur; aurcheck -d tardypad )
+AUR_UPDATES=$(
+  aur repo --database aur --sync --upgrades
+  aur repo --database tardypad --sync --upgrades
+)
 if [[ -n "${AUR_UPDATES}" ]]; then
   echo "\n\e[1mAUR\e[0m" >> "${TMP_RESULT_FILE}"
   add_notification_text "${AUR_UPDATES}" "${TMP_RESULT_FILE}"
