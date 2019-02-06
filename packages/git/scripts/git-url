@@ -5,6 +5,8 @@ init_variables() {
   COMMAND=$0
   GIT_COMMAND=${COMMAND#*-}
 
+  DEFAULT_REMOTE=origin
+
   TYPE=
 }
 
@@ -14,7 +16,7 @@ usage() {
 usage: git ${GIT_COMMAND} [<options>] <type>
 
 Display an URL related to repo or current commit
-Based on origin remote config using an URL alias and "browse" config
+Based on remote config using an URL alias and "browse" config
 
 Options:
     -h               show this message only
@@ -36,8 +38,12 @@ error() {
 
 
 display_url() {
+  local remote=$(
+    git config --default "${DEFAULT_REMOTE}" browse.remote
+  )
+
   local remote_alias=$(
-    git config remote.origin.url \
+    git config "remote.${remote}.url" \
     | sed 's/:.*//'
   )
   [[ -z "${remote_alias}" ]] && return 1
@@ -48,7 +54,7 @@ display_url() {
   [[ -z "${repo_path_sed}" ]] && return 1
 
   local repo_path=$(
-    git config remote.origin.url \
+    git config "remote.${remote}.url" \
     | sed "${repo_path_sed}"
   )
   [[ -z "${repo_path}" ]] && return 1
