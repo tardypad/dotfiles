@@ -5,27 +5,30 @@ init_variables() {
   COMMAND=$0
   GIT_COMMAND=${COMMAND#*-}
 
-  DEFAULT_REMOTE=origin
-
-  TYPE=
+  TYPE=repo
+  COMMIT=HEAD
+  REMOTE=$( git config --default origin browse.remote )
 }
 
 
 usage() {
   cat << EOF
-usage: git ${GIT_COMMAND} [<options>] <type>
+usage: git ${GIT_COMMAND} [<options>]
 
-Display an URL related to repo or current commit
+Display an URL related to the repo or a commit
 Based on remote config using an URL alias and "browse" config
 
 Options:
+    -c, --commit     commit to select information (default HEAD)
     -h               show this message only
+    -r, --remote     remote to use (default origin)
+    -t, --type       URL type (default repo)
 
 Valid types:
 - repo: general URL of the repo
-- commit: URL of the current commit
-- issue: URL of the issue related to current commit
-- review: URL of the review related to current commit
+- commit: URL of the selected commit
+- issue: URL of the issue related to selected commit
+- review: URL of the review related to selected commit
 EOF
 }
 
@@ -38,12 +41,8 @@ error() {
 
 
 display_url() {
-  local remote=$(
-    git config --default "${DEFAULT_REMOTE}" browse.remote
-  )
-
   local remote_alias=$(
-    git config "remote.${remote}.url" \
+    git config "remote.${REMOTE}.url" \
     | sed 's/:.*//'
   )
   [[ -z "${remote_alias}" ]] && return 1
@@ -54,7 +53,7 @@ display_url() {
   [[ -z "${repo_path_sed}" ]] && return 1
 
   local repo_path=$(
-    git config "remote.${remote}.url" \
+    git config "remote.${REMOTE}.url" \
     | sed "${repo_path_sed}"
   )
   [[ -z "${repo_path}" ]] && return 1
@@ -70,17 +69,17 @@ display_url() {
       echo "${url}"
       ;;
     commit)
-      commit_id=$( git rev-parse HEAD )
+      commit_id=$( git rev-parse "${COMMIT}" )
       [[ -z "${commit_id}" ]] && return 1
       echo "${url//\{commit_id\}/${commit_id}}"
       ;;
     issue)
-      issue_id=$( git commit-issue-id )
+      issue_id=$( git commit-issue-id "${COMMIT}" )
       [[ -z "${issue_id}" ]] && return 1
       echo "${url//\{issue_id\}/${issue_id}}"
       ;;
     review)
-      review_id=$( git commit-review-id )
+      review_id=$( git commit-review-id "${COMMIT}" )
       [[ -z "${review_id}" ]] && return 1
       echo "${url//\{review_id\}/${review_id}}"
       ;;
@@ -91,30 +90,47 @@ display_url() {
 parse_options() {
   while [[ "$#" -gt 0 ]]; do
     case "$1" in
+      --commit|-c)
+        [[ -n "$2" ]] || error 'Missing commit value'
+        COMMIT="$2"
+        shift 2
+        ;;
       -h)
         usage
         exit 0
+        ;;
+      --remote|-r)
+        [[ -n "$2" ]] || error 'Missing remote value'
+        REMOTE="$2"
+        shift 2
+        ;;
+      --type|-t)
+        [[ -n "$2" ]] || error 'Missing type value'
+        TYPE="$2"
+        shift 2
         ;;
       *)
         break
         ;;
     esac
   done
-
-  TYPE="$1"
 }
 
 
 validate_options() {
-  if [[ -z "${TYPE}" ]]; then
-    error 'missing type argument'
-  fi
-
   if [[ "${TYPE}" != 'repo'
      && "${TYPE}" != 'commit'
      && "${TYPE}" != 'issue'
      && "${TYPE}" != 'review' ]]; then
     error "invalid type argument '${TYPE}'"
+  fi
+
+  if ! git rev-parse --quiet --verify "${COMMIT}^{commit}" > /dev/null; then
+    error "invalid commit '${COMMIT}'"
+  fi
+
+  if ! git remote | grep -q "${REMOTE}"; then
+    error "invalid remote '${REMOTE}'"
   fi
 }
 

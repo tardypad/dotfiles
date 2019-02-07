@@ -16,7 +16,7 @@
     brd = branch -D
     browse = "! \
         f() { \
-          URL=$( git url $1 ); \
+          URL=$( git url $@ ); \
           [[ -z \"${URL}\" ]] && return 1; \
           xdg-open \"${URL}\"; \
         }; f"
