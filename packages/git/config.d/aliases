@@ -14,6 +14,12 @@
     bl = blame --color-by-age --color-lines
     br = branch
     brd = branch -D
+    browse = "! \
+        f() { \
+          URL=$( git url $1 ); \
+          [[ -z \"${URL}\" ]] && return 1; \
+          xdg-open \"${URL}\"; \
+        }; f"
     cb = checkout -b
     ci = commit
     cia = commit -a
