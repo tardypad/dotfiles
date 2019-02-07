@@ -75,12 +75,12 @@ display_url() {
       echo "${url//\{commit_id\}/${commit_id}}"
       ;;
     issue)
-      issue_id=$( git head-issue-id )
+      issue_id=$( git commit-issue-id )
       [[ -z "${issue_id}" ]] && return 1
       echo "${url//\{issue_id\}/${issue_id}}"
       ;;
     review)
-      review_id=$( git head-review-id )
+      review_id=$( git commit-review-id )
       [[ -z "${review_id}" ]] && return 1
       echo "${url//\{review_id\}/${review_id}}"
       ;;

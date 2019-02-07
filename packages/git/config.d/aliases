@@ -20,6 +20,29 @@
     cl = clone
     co = checkout
     coma = checkout master
+    commit-description = "! \
+        f() { \
+          git log -1 $( git argument $1 ) --pretty=%b \
+          | grep -vE 'Issue|Reviewed at|^$'; \
+        }; f"
+    commit-issue-id = "! \
+        f() { \
+          git log -1 $( git argument $1 ) --pretty=%b \
+          | grep 'Issue' \
+          | tail --lines 1 \
+          | sed -r 's%.* ([A-Za-z0-9-]+).*%\\1%'; \
+        }; f"
+    commit-review-id = "! \
+        f() { \
+          git log -1 $( git argument $1 ) --pretty=%b \
+          | grep 'Reviewed at' \
+          | tail --lines 1 \
+          | sed -r 's%.*/r/([0-9]+)/%\\1%'; \
+        }; f"
+    commit-subject = "! \
+        f() { \
+          git log -1 $( git argument $1 ) --pretty=%s; \
+        }; f"
     count = rev-list --count HEAD
     cfg = config --includes
     cp = cherry-pick
@@ -39,17 +62,6 @@
         }; f"
     issue = stamp -r Issue
     head = "! f() { git whatchanged -1 $( git argument $1 ); }; f"
-    head-description = ! git log -1 --pretty=%b \
-        | grep -vE 'Issue|Reviewed at|^$'
-    head-issue-id = ! git log -1 --pretty=%b \
-        | grep 'Issue' \
-        | tail --lines 1 \
-        | sed -r 's%.* ([A-Za-z0-9-]+).*%\\1%'
-    head-review-id = ! git log -1 --pretty=%b \
-        | grep 'Reviewed at' \
-        | tail --lines 1 \
-        | sed -r 's%.*/r/([0-9]+)/%\\1%'
-    head-subject = log -1 --pretty=%s
     log1 = log --oneline
     mg = merge
     mga = merge --abort

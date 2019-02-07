@@ -5,13 +5,13 @@ PUBLISH = False
 
 ALIASES = {
     'post-head': '! \
-        review_id=`git head-review-id`; \
+        review_id=`git commit-review-id`; \
         if [[ -z "${review_id}" ]]; then \
             repository=`grep REPOSITORY .reviewboardrc | grep -o \'".*"\' | tr -d \\"`; \
-            commit_subject=`git head-subject`; \
-            commit_description=`git head-description`; \
+            commit_subject=`git commit-subject`; \
+            commit_description=`git commit-description`; \
             current_branch=`git current-branch`; \
-            issue_id=`git head-issue-id`; \
+            issue_id=`git commit-issue-id`; \
             diff_url=`rbt post \
               --summary "[${repository}] ${commit_subject}" \
               --description "${commit_description:-$commit_subject} " \
@@ -30,7 +30,7 @@ ALIASES = {
         xdg-open "${diff_url}"; \
     ',
     'publish-head': '! \
-        review_id=`git head-review-id`; \
+        review_id=`git commit-review-id`; \
         rbt publish "${review_id}"; \
     ',
     'publish-all': '! \
@@ -43,11 +43,11 @@ ALIASES = {
           | xargs -I {} rbt publish {}; \
     ',
     'discard-head': '! \
-        review_id=`git head-review-id`; \
+        review_id=`git commit-review-id`; \
         rbt close --close-type discarded "${review_id}"; \
     ',
     'submit-head': '! \
-        review_id=`git head-review-id`; \
+        review_id=`git commit-review-id`; \
         rbt close --close-type submitted "${review_id}"; \
     ',
     'submit-all': '! \
