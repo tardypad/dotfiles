@@ -51,8 +51,5 @@
   - vim debugger [vdebug](https://github.com/joonty/vdebug)
   - once using Sway 1.0, evaluate third party clients as defined in  
     [Drew Devault blog post](https://drewdevault.com/2018/10/20/Sway-1.0-highlights.html)
-  - CSV files usage in command line:
-    * [xsv](https://github.com/BurntSushi/xsv)
-    * [miller](https://github.com/johnkerl/miller)
   - Time tracker  
     with maybe integration to JIRA via [go-jira](https://github.com/Netflix-Skunkworks/go-jira)
