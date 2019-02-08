@@ -45,24 +45,22 @@ display_url() {
     git config "remote.${REMOTE}.url" \
     | sed 's/:.*//'
   )
-  [[ -z "${remote_alias}" ]] && return 1
 
   local repo_path_sed=$(
     git config "browse.${remote_alias}.repoPathSed"
   )
-  [[ -z "${repo_path_sed}" ]] && return 1
+  [[ -z "${repo_path_sed}" ]] && error 'remote does not use a valid URL alias for browsing'
 
   local repo_path=$(
     git config "remote.${REMOTE}.url" \
     | sed "${repo_path_sed}"
   )
-  [[ -z "${repo_path}" ]] && return 1
 
   local url=$(
     git config "browse.${remote_alias}.${TYPE}Url" \
     | sed "s|{repo_path}|${repo_path}|"
   )
-  [[ -z "${url}" ]] && return 1
+  [[ -z "${url}" ]] && error 'remote does not support this type of URL for browsing'
 
   case "${TYPE}" in
     repo)
@@ -70,17 +68,16 @@ display_url() {
       ;;
     commit)
       commit_id=$( git rev-parse "${COMMIT}" )
-      [[ -z "${commit_id}" ]] && return 1
       echo "${url//\{commit_id\}/${commit_id}}"
       ;;
     issue)
       issue_id=$( git commit-issue-id "${COMMIT}" )
-      [[ -z "${issue_id}" ]] && return 1
+      [[ -z "${issue_id}" ]] && error 'commit has not issue id linked to it'
       echo "${url//\{issue_id\}/${issue_id}}"
       ;;
     review)
       review_id=$( git commit-review-id "${COMMIT}" )
-      [[ -z "${review_id}" ]] && return 1
+      [[ -z "${review_id}" ]] &&  error 'commit has not review id linked to it'
       echo "${url//\{review_id\}/${review_id}}"
       ;;
   esac
