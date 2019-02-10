@@ -1,0 +1,74 @@
+#!/usr/bin/env zsh
+
+COMMAND=${0:t}
+
+init_variables() {
+  DEFAULT_TYPE=line
+  DEFAULT_WIDTH=80
+  DEFAULT_HEIGHT=25
+
+  JP_OPTIONS=
+}
+
+
+usage() {
+  cat << EOF
+usage: ${COMMAND} [<options>]
+
+Plot simple data from stdin
+Data must have 1 or 2 columns
+
+Options:
+  -h,  --help                 show this message only
+
+  All available jp options can be used there too
+  using an = for the ones needing a parameter (space not supported)
+EOF
+}
+
+
+error() {
+  [[ -z "$1" ]] || echo "${COMMAND}: $1"
+  echo "Try '${COMMAND} --help' for more information."
+  exit 1
+} >&2
+
+
+plot_data() {
+  awk '
+    BEGIN { OFS="," }
+    /^[0-9.]+$/ { print NR,$1; next; }
+    { print $1,$2; }
+  ' \
+    | jp \
+      -input csv \
+      -type "${DEFAULT_TYPE}" \
+      -width "${DEFAULT_WIDTH}" \
+      -height "${DEFAULT_HEIGHT}" \
+      ${JP_OPTIONS}
+}
+
+
+parse_options() {
+  while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      -*)
+        JP_OPTIONS+=( "$1" )
+        shift
+        ;;
+      *)
+        break 2
+        ;;
+    esac
+  done
+}
+
+
+init_variables
+parse_options "$@"
+
+plot_data
