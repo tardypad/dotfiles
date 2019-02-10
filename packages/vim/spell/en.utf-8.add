@@ -4,7 +4,6 @@ aria2
 coreutils
 fontconfig
 gnupg
-gnuplot
 htop
 httpie
 i3blocks
