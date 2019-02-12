@@ -108,4 +108,5 @@
     wip = "! \
         git add --all \
         && git commit --message WIP \
-        && git push --force origin HEAD:wip-$(git current-branch)"
+        && git push --force origin HEAD:wip-$(git current-branch) \
+        && git reset HEAD~"
