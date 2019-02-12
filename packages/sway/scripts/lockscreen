@@ -1,9 +1,8 @@
 #!/usr/bin/env zsh
 
-# lock.png should use foreground color
 swaylock \
   --color {color/background/hex} \
-  --image "${XDG_CONFIG_HOME:-$HOME/.config}/sway/images/lock.png" \
+  --image "${XDG_CONFIG_HOME:-$HOME/.config}/sway/images/lock.svg" \
   --scaling center \
   --indicator-radius 250 \
   --indicator-thickness 15 \

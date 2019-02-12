@@ -79,10 +79,6 @@ For example `{color/warning/number}` is replaced by the number of the color chos
 
 See the [colors](colors) folder for more information.
 
-Items to be manually updated in case of color palette change:
-- lockscreen [lock](packages/sway/images/lock.png) color
-- TTY console colors palette in [/etc/issue](https://github.com/tardypad/arch-packages/blob/master/builds/system-config/etc-issue) file
-
 
 ## Key bindings
 
