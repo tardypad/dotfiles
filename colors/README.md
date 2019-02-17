@@ -1,14 +1,19 @@
 # Color scheme
 
-Using [Nord](https://arcticicestudio.github.io/nord/) palette
-with own adaptation per package  
-(not using individual "official" repositories config).
-
 See [base colors](definitions/base)
 and [aliases](definitions/aliases) definitions.
 
 For the base colors, only the first 3 columns are used during the
 substitution process. The other fields are only extra information.
+
+Colors features to make the environment comfortable to the eyes:
+- low intensity (pastel: light and desaturated)
+- high contrast against background colors
+
+Colors usage:
+- dark background colors
+- cool foreground colors
+- warm colors are reserved only for alerts
 
 The 8 first colors (in the 16 colors numbering) follow the original
 ANSI meaning (color 2 is meant to have a green tone for example).  
