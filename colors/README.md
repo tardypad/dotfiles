@@ -6,6 +6,10 @@ and [aliases](definitions/aliases) definitions.
 For the base colors, only the first 3 columns are used during the
 substitution process. The other fields are only extra information.
 
+Colors were chosen initially from HCL values
+(in GIMP which is using D50 reference point)
+and then translated to the closest value in sRGB space.
+
 Colors features to make the environment comfortable to the eyes:
 - low intensity (pastel: light and desaturated)
 - high contrast against background colors
