@@ -3,7 +3,7 @@ set -g message-style "bg=#{color/base09/hex},fg=#{color/base00/hex}"
 set -g mode-style "bg=#{color/notice/hex},fg=#{color/base00/hex}"
 
 set -g display-panes-colour "#{color/base09/hex}"
-set -g display-panes-active-colour "#{color/base08/hex}"
+set -g display-panes-active-colour "#{color/base0A/hex}"
 
 set -g status-justify left
 
@@ -29,13 +29,13 @@ setw -g window-style "bg=#{color/base01/hex}"
 setw -g window-active-style "bg=#{color/background/hex}"
 
 setw -g pane-border-style "bg=#{color/base01/hex},fg=#{color/foreground/hex}"
-setw -g pane-active-border-style "bg=#{color/background/hex},fg=#{color/base08/hex}"
+setw -g pane-active-border-style "bg=#{color/background/hex},fg=#{color/base0A/hex}"
 
 setw -g pane-border-format ' #{pane_current_command} '
 setw -g pane-border-status off
 
-setw -g window-status-current-style "bg=#{color/base08/hex},fg=#{color/base00/hex}"
-setw -g window-status-last-style "fg=#{color/base08/hex}"
+setw -g window-status-current-style "bg=#{color/base0A/hex},fg=#{color/base00/hex}"
+setw -g window-status-last-style "fg=#{color/base0A/hex}"
 setw -g window-status-activity-style 'underscore'
 setw -g window-status-bell-style 'underscore'
 

@@ -68,12 +68,12 @@ ZSH_HIGHLIGHT_PATTERNS+=('rm * -(rf|fr)' 'bg={color/alert/number},fg={color/base
 
 # brackets matching colors
 ZSH_HIGHLIGHT_STYLES[bracket-error]='fg={color/error/number},bold'
-ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='fg={color/base06/number},bold'
-ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg={color/base0A/number}'
+ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='fg={color/base05/number},bold'
+ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg={color/base08/number}'
 ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg={color/base09/number}'
-ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg={color/base08/number}'
-ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg={color/base07/number}'
-ZSH_HIGHLIGHT_STYLES[bracket-level-5]='fg={color/base0E/number}'
+ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg={color/base0A/number}'
+ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg={color/base0B/number}'
+ZSH_HIGHLIGHT_STYLES[bracket-level-5]='fg={color/base0C/number}'
 
 ### Fish-like history substring search
 
@@ -85,5 +85,5 @@ bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
 # colors
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg={color/base0E/number},fg={color/base00/number}'
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg={color/base0B/number},fg={color/base00/number}'
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg={color/base0C/number},fg={color/base00/number}'
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg={color/base0F/number},fg={color/base00/number}'

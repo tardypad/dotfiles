@@ -11,7 +11,7 @@ if [[ $(tty) = /dev/tty1 ]]; then
   unset other_logins
 
   # display any short fortune with cookie name
-  echo "$(tput setaf {color/base08/number})"
+  echo "$(tput setaf {color/base0A/number})"
   fortune -acs -n 300
   echo "$(tput sgr0)"
 

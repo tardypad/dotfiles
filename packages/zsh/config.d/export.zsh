@@ -11,7 +11,7 @@ export READNULLCMD=less
 export LESS='--ignore-case --line-numbers --chop-long-lines --RAW-CONTROL-CHARS'
 
 # change grep output colors
-export GREP_COLORS='ms=1;{color/search_match/fg}:mc=1;{color/search_match/fg}:sl=:cx=:fn={color/base09/fg}:ln={color/base08/fg}:bn={color/base08/fg}:se={color/base0A/fg}'
+export GREP_COLORS='ms=1;{color/search_match/fg}:mc=1;{color/search_match/fg}:sl=:cx=:fn={color/base09/fg}:ln={color/base0A/fg}:bn={color/base0A/fg}:se={color/base08/fg}'
 
 # decrease key timeout to 100ms
 export KEYTIMEOUT=10
@@ -22,7 +22,7 @@ export KEYTIMEOUT=10
 export WORDCHARS=''
 
 # fzf default options
-export FZF_DEFAULT_OPTS="--height=20 --no-bold --color=bg:{color/background/number},fg:{color/foreground/number},hl:{color/base08/number},fg+:{color/base00/number},bg+:{color/current_item/number},hl+:{color/base06/number},info:{color/base08/number},prompt:{color/base08/number},pointer:{color/base00/number},marker:{color/selected_item/number},spinner:{color/base08/number}"
+export FZF_DEFAULT_OPTS="--height=20 --no-bold --color=bg:{color/background/number},fg:{color/foreground/number},hl:{color/base0A/number},fg+:{color/base00/number},bg+:{color/current_item/number},hl+:{color/base05/number},info:{color/base0A/number},prompt:{color/base0A/number},pointer:{color/base00/number},marker:{color/selected_item/number},spinner:{color/base0A/number}"
 
 # fzf default find command
 # only ignore build folder

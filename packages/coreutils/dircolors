@@ -7,96 +7,96 @@ FILE                             0                   # normal file
 DIR            1;{color/base09/fg}                   # directory
 OTHER_WRITABLE 1;{color/base04/fg};{color/base09/bg} # directory writable by others
 LINK           4;{color/base04/fg}                   # symbolic link
-FIFO           4;{color/base08/fg}                   # named pipe
-SOCK           4;{color/base07/fg}                   # socket
-BLK            1;{color/base0A/fg}                   # block device
-CHR            4;{color/base0A/fg}                   # character device
+FIFO           4;{color/base0A/fg}                   # named pipe
+SOCK           4;{color/base0B/fg}                   # socket
+BLK            1;{color/base08/fg}                   # block device
+CHR            4;{color/base08/fg}                   # character device
 ORPHAN            {color/error/fg}                   # orphaned symlink
 MISSING        1;{color/base04/fg};{color/error/bg}  # missing file that orphaned symlink points to
-EXEC           1;{color/base0E/fg}                   # executable
+EXEC           1;{color/base0C/fg}                   # executable
 
 # Source text
-.bash   {color/base07/fg}
-.c      {color/base07/fg}
-.cc     {color/base07/fg}
-.cpp    {color/base07/fg}
-.css    {color/base07/fg}
-.csv    {color/base07/fg}
-.go     {color/base07/fg}
-.h      {color/base07/fg}
-.hpp    {color/base07/fg}
-.hs     {color/base07/fg}
-.htm    {color/base07/fg}
-.html   {color/base07/fg}
-.java   {color/base07/fg}
-.js     {color/base07/fg}
-.man    {color/base07/fg}
-.md     {color/base07/fg}
-.mkd    {color/base07/fg}
-.php    {color/base07/fg}
-.pl     {color/base07/fg}
-.py     {color/base07/fg}
-.rb     {color/base07/fg}
-.sh     {color/base07/fg}
-.sql    {color/base07/fg}
-.tex    {color/base07/fg}
-.txt    {color/base07/fg}
-.vim    {color/base07/fg}
-.xml    {color/base07/fg}
-.zsh    {color/base07/fg}
+.bash   {color/base0B/fg}
+.c      {color/base0B/fg}
+.cc     {color/base0B/fg}
+.cpp    {color/base0B/fg}
+.css    {color/base0B/fg}
+.csv    {color/base0B/fg}
+.go     {color/base0B/fg}
+.h      {color/base0B/fg}
+.hpp    {color/base0B/fg}
+.hs     {color/base0B/fg}
+.htm    {color/base0B/fg}
+.html   {color/base0B/fg}
+.java   {color/base0B/fg}
+.js     {color/base0B/fg}
+.man    {color/base0B/fg}
+.md     {color/base0B/fg}
+.mkd    {color/base0B/fg}
+.php    {color/base0B/fg}
+.pl     {color/base0B/fg}
+.py     {color/base0B/fg}
+.rb     {color/base0B/fg}
+.sh     {color/base0B/fg}
+.sql    {color/base0B/fg}
+.tex    {color/base0B/fg}
+.txt    {color/base0B/fg}
+.vim    {color/base0B/fg}
+.xml    {color/base0B/fg}
+.zsh    {color/base0B/fg}
 
 # Books
-.azw  {color/base07/fg}
-.cbr  {color/base07/fg}
-.cbz  {color/base07/fg}
-.azw3 {color/base07/fg}
-.epub {color/base07/fg}
-.mobi {color/base07/fg}
-.pdf  {color/base07/fg}
+.azw  {color/base0B/fg}
+.cbr  {color/base0B/fg}
+.cbz  {color/base0B/fg}
+.azw3 {color/base0B/fg}
+.epub {color/base0B/fg}
+.mobi {color/base0B/fg}
+.pdf  {color/base0B/fg}
 
 # Image
-.bmp  {color/base07/fg}
-.eps  {color/base07/fg}
-.gif  {color/base07/fg}
-.jpeg {color/base07/fg}
-.jpg  {color/base07/fg}
-.png  {color/base07/fg}
-.ppm  {color/base07/fg}
-.ps   {color/base07/fg}
-.svg  {color/base07/fg}
-.svgz {color/base07/fg}
-.tif  {color/base07/fg}
-.tiff {color/base07/fg}
-.xcf  {color/base07/fg}
+.bmp  {color/base0B/fg}
+.eps  {color/base0B/fg}
+.gif  {color/base0B/fg}
+.jpeg {color/base0B/fg}
+.jpg  {color/base0B/fg}
+.png  {color/base0B/fg}
+.ppm  {color/base0B/fg}
+.ps   {color/base0B/fg}
+.svg  {color/base0B/fg}
+.svgz {color/base0B/fg}
+.tif  {color/base0B/fg}
+.tiff {color/base0B/fg}
+.xcf  {color/base0B/fg}
 
 # Audio
-.aac  {color/base07/fg}
-.flac {color/base07/fg}
-.m4a  {color/base07/fg}
-.mid  {color/base07/fg}
-.midi {color/base07/fg}
-.mp3  {color/base07/fg}
-.mpa  {color/base07/fg}
-.mpeg {color/base07/fg}
-.mpg  {color/base07/fg}
-.ogg  {color/base07/fg}
-.wav  {color/base07/fg}
+.aac  {color/base0B/fg}
+.flac {color/base0B/fg}
+.m4a  {color/base0B/fg}
+.mid  {color/base0B/fg}
+.midi {color/base0B/fg}
+.mp3  {color/base0B/fg}
+.mpa  {color/base0B/fg}
+.mpeg {color/base0B/fg}
+.mpg  {color/base0B/fg}
+.ogg  {color/base0B/fg}
+.wav  {color/base0B/fg}
 
 # Video
-.avi  {color/base07/fg}
-.m2v  {color/base07/fg}
-.m4v  {color/base07/fg}
-.mkv  {color/base07/fg}
-.mov  {color/base07/fg}
-.mp4  {color/base07/fg}
-.mpeg {color/base07/fg}
-.mpg  {color/base07/fg}
-.ogm  {color/base07/fg}
-.ogv  {color/base07/fg}
-.ogx  {color/base07/fg}
-.vob  {color/base07/fg}
-.webm {color/base07/fg}
-.wmv  {color/base07/fg}
+.avi  {color/base0B/fg}
+.m2v  {color/base0B/fg}
+.m4v  {color/base0B/fg}
+.mkv  {color/base0B/fg}
+.mov  {color/base0B/fg}
+.mp4  {color/base0B/fg}
+.mpeg {color/base0B/fg}
+.mpg  {color/base0B/fg}
+.ogm  {color/base0B/fg}
+.ogv  {color/base0B/fg}
+.ogx  {color/base0B/fg}
+.vob  {color/base0B/fg}
+.webm {color/base0B/fg}
+.wmv  {color/base0B/fg}
 
 # Binary documents
 # (formats which we don't really want to use for storing data)

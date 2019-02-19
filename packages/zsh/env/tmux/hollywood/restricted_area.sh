@@ -4,8 +4,8 @@ session_name="$2"
 window_name="Authorized personnel only"
 max_time=900
 
-hexdump_color_fg={color/base0E/number}
-ssh_color_fg={color/base08/number}
+hexdump_color_fg={color/base0C/number}
+ssh_color_fg={color/base0A/number}
 
 # start from a clean plate
 if tmux -L "${socket}" has-session -t "${session_name}" &> /dev/null; then

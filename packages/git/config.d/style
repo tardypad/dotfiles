@@ -3,20 +3,20 @@
 [color "advice"]
     hint = {color/base03/number} italic
 [color "blame"]
-    highlightRecent = {color/base0A/number},1 year ago,{color/base09/number},1 month ago,{color/base08/number},1 week ago,{color/base07/number}
+    highlightRecent = {color/base08/number},1 year ago,{color/base09/number},1 month ago,{color/base0A/number},1 week ago,{color/base0B/number}
     repeatedLines = {color/base03/number}
 [color "branch"]
-    current = {color/base0E/number}
+    current = {color/base0C/number}
     local = {color/base09/number}
-    remote = {color/base08/number}
-    upstream = {color/base07/number}
+    remote = {color/base0A/number}
+    upstream = {color/base0B/number}
     plain = normal
 [color "diff"]
     commit = {color/base09/number} bold
     context = normal
-    frag = {color/base07/number}
-    func = {color/base08/number}
-    meta = {color/base0A/number} italic
+    frag = {color/base0B/number}
+    func = {color/base0A/number}
+    meta = {color/base08/number} italic
     new = {color/add/number}
     old = {color/delete/number}
     whitespace = reverse
@@ -27,48 +27,48 @@
     newHighlight = {color/add/number} italic ul
 [color "decorate"]
     branch = {color/base09/number} bold
-    remoteBranch = {color/base08/number} bold
-    tag = {color/base0E/number} italic bold
-    stash = {color/base0E/number} bold
-    HEAD = {color/base0E/number} bold
+    remoteBranch = {color/base0A/number} bold
+    tag = {color/base0C/number} italic bold
+    stash = {color/base0C/number} bold
+    HEAD = {color/base0C/number} bold
 [color "grep"]
     context = normal
     filename = {color/base09/number}
-    function = {color/base07/number}
-    lineNumber = {color/base08/number}
-    column = {color/base08/number}
+    function = {color/base0B/number}
+    lineNumber = {color/base0A/number}
+    column = {color/base0A/number}
     matchContext = {color/search_match/number} bold
     matchSelected = {color/search_match/number} bold
     selected = normal
-    separator = {color/base0A/number}
+    separator = {color/base08/number}
 [color "interactive"]
     prompt = {color/base09/number} bold
-    header = {color/base0A/number} bold
-    help = {color/base08/number}
+    header = {color/base08/number} bold
+    help = {color/base0A/number}
     error = {color/error/number}
 [color "push"]
     error = {color/error/number}
 [color "remote"]
     hint = {color/base03/number} italic
     warning = {color/warning/number}
-    success = {color/base0E/number}
+    success = {color/base0C/number}
     error = {color/error/number}
 [color "status"]
     header = normal
-    added = {color/base07/number}
+    added = {color/base0B/number}
     changed = {color/base09/number}
-    untracked = {color/base07/number} italic
-    branch = {color/base0E/number} bold
-    nobranch = {color/base07/number} bold
-    localBranch = {color/base0E/number} bold
+    untracked = {color/base0B/number} italic
+    branch = {color/base0C/number} bold
+    nobranch = {color/base0B/number} bold
+    localBranch = {color/base0C/number} bold
     remoteBranch = {color/base09/number} bold
-    unmerged = {color/base07/number} italic
+    unmerged = {color/base0B/number} italic
 [color "transport"]
     rejected = {color/error/number}
 
 # custom colors config
 [color "recent"]
     refname = {color/base09/number}
-    committerdate = {color/base08/number}
+    committerdate = {color/base0A/number}
 [color "tag-list"]
     refname = {color/base09/number}
