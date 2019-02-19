@@ -53,7 +53,11 @@ alias packages-update="
   checkupdates \
   && aur repo --database aur --sync --upgrades \
   && aur repo --database tardypad --sync --upgrades \
-  && sudo pacman --sync --refresh --sysupgrade
+  && sudo pacman --sync --refresh --sysupgrade \
+  && tput setaf {color/notice/number} \
+  && echo '-----------------------------' \
+  && echo 'Review carefully the messages' \
+  && echo '-----------------------------'
 "
 
 # simple linters
