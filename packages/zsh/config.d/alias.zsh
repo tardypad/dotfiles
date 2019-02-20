@@ -29,11 +29,11 @@ alias root='sudo --preserve-env --shell'
 
 # general info about the current shell
 alias status='
-  cat << EOF | column -t
-User $(tput setaf {color/base08/number})${USERNAME}$(tput sgr0)
-Host $(tput setaf {color/base09/number})${HOST}$(tput sgr0)
-Dir  $(tput setaf {color/base0A/number})$( print -D "${PWD}" )$(tput sgr0)
-EOF
+  cat <<- EOF | column -t
+	User $(tput setaf {color/base08/number})${USERNAME}$(tput sgr0)
+	Host $(tput setaf {color/base09/number})${HOST}$(tput sgr0)
+	Dir  $(tput setaf {color/base0A/number})$( print -D "${PWD}" )$(tput sgr0)
+	EOF
 '
 
 # generate a password (mainly used to encrypt files to share)

@@ -12,16 +12,16 @@ init_variables() {
 
 
 usage() {
-  cat << EOF
-usage: git ${GIT_COMMAND} [<options>] <id> [<messages>]
+  cat <<- EOF
+	usage: git ${GIT_COMMAND} [<options>] <id> [<messages>]
 
-Amend last commit with a stamp message prefixed by an identifier
+	Amend last commit with a stamp message prefixed by an identifier
 
-Options:
-    -h               show this message only
-    -r, --replace    replace all previous stamps with same id
-                     this is case insensitive
-EOF
+	Options:
+	    -h               show this message only
+	    -r, --replace    replace all previous stamps with same id
+	                     this is case insensitive
+	EOF
 }
 
 

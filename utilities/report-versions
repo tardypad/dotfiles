@@ -10,19 +10,19 @@ init_variables() {
 
 
 usage() {
-  cat << EOF
-usage: ${COMMAND} [<options>]
+  cat <<- EOF
+	usage: ${COMMAND} [<options>]
 
-Check and report packages versions:
-- version installed on the system
-- version listed in the main README
-- version listed in the package individual README
+	Check and report packages versions:
+	- version installed on the system
+	- version listed in the main README
+	- version listed in the package individual README
 
-Needs to be run from the repository root
+	Needs to be run from the repository root
 
-Options:
-  -h,  --help    show this message only
-EOF
+	Options:
+	  -h,  --help    show this message only
+	EOF
 }
 
 

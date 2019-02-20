@@ -15,14 +15,14 @@ init_variables() {
 
 
 usage() {
-  cat << EOF
-usage: ${COMMAND} [<options>] <topic>
+  cat <<- EOF
+	usage: ${COMMAND} [<options>] <topic>
 
-Get help about a topic
+	Get help about a topic
 
-Options:
-  -h,  --help           show this message only
-EOF
+	Options:
+	  -h,  --help           show this message only
+	EOF
 }
 
 

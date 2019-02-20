@@ -8,14 +8,14 @@ init_variables() {
 
 
 usage() {
-  cat << EOF
-usage: ${COMMAND} [<options>] package
+  cat <<- EOF
+	usage: ${COMMAND} [<options>] package
 
-Display a diff of a package modified files
+	Display a diff of a package modified files
 
-Options:
-  -h,  --help    show this message only
-EOF
+	Options:
+	  -h,  --help    show this message only
+	EOF
 }
 
 

@@ -10,14 +10,14 @@ init_variables() {
 
 
 usage() {
-  cat << EOF
-usage: git ${GIT_COMMAND} [<options>] <script>
+  cat <<- EOF
+	usage: git ${GIT_COMMAND} [<options>] <script>
 
-Apply a sed script over all text files managed by git
+	Apply a sed script over all text files managed by git
 
-Options:
-    -h               show this message only
-EOF
+	Options:
+	    -h               show this message only
+	EOF
 }
 
 

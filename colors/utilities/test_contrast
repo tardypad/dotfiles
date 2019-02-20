@@ -16,19 +16,19 @@ init_variables() {
 }
 
 usage() {
-  cat << EOF
-usage: ${COMMAND} <color1> <color2> ...
+  cat <<- EOF
+	usage: ${COMMAND} <color1> <color2> ...
 
-Test the base colors contrast to each other
+	Test the base colors contrast to each other
 
-Colors need to be specified in the hexadecimal format without # prefix
+	Colors need to be specified in the hexadecimal format without # prefix
 
-Values are bold when higher than minimum desired for bold or large text
-Values are also underlined when higher than minimum desired for normal text
+	Values are bold when higher than minimum desired for bold or large text
+	Values are also underlined when higher than minimum desired for normal text
 
-Options:
-  -h,  --help      show this message only
-EOF
+	Options:
+	  -h,  --help      show this message only
+	EOF
 }
 
 error() {

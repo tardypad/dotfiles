@@ -15,14 +15,14 @@ init_variables() {
 
 
 usage() {
-  cat << EOF
-usage: git ${GIT_COMMAND} [<options>] start_ref end_ref command
+  cat <<- EOF
+	usage: git ${GIT_COMMAND} [<options>] start_ref end_ref command
 
-Execute a command over a range of git revisions
+	Execute a command over a range of git revisions
 
-Options:
-    -h               show this message only
-EOF
+	Options:
+	    -h               show this message only
+	EOF
 }
 
 

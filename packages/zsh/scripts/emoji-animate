@@ -17,17 +17,17 @@ init_variables() {
 
 
 usage() {
-  cat << EOF
-usage: ${COMMAND} [<options>] name [extra]
+  cat <<- EOF
+	usage: ${COMMAND} [<options>] name [extra]
 
-Animate an emoji
-Some supports an extra optional text argument
+	Animate an emoji
+	Some supports an extra optional text argument
 
-Options:
-  -h,  --help    show this message only
+	Options:
+	  -h,  --help    show this message only
 
-Available emojis name: ${AVAILABLE_EMOJIS}
-EOF
+	Available emojis name: ${AVAILABLE_EMOJIS}
+	EOF
 }
 
 

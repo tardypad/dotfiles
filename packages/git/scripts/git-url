@@ -12,24 +12,24 @@ init_variables() {
 
 
 usage() {
-  cat << EOF
-usage: git ${GIT_COMMAND} [<options>]
+  cat <<- EOF
+	usage: git ${GIT_COMMAND} [<options>]
 
-Display an URL related to the repo or a commit
-Based on remote config using an URL alias and "browse" config
+	Display an URL related to the repo or a commit
+	Based on remote config using an URL alias and "browse" config
 
-Options:
-    -c, --commit     commit to select information (default HEAD)
-    -h               show this message only
-    -r, --remote     remote to use (default origin)
-    -t, --type       URL type (default repo)
+	Options:
+	    -c, --commit     commit to select information (default HEAD)
+	    -h               show this message only
+	    -r, --remote     remote to use (default origin)
+	    -t, --type       URL type (default repo)
 
-Valid types:
-- repo: general URL of the repo
-- commit: URL of the selected commit
-- issue: URL of the issue related to selected commit
-- review: URL of the review related to selected commit
-EOF
+	Valid types:
+	- repo: general URL of the repo
+	- commit: URL of the selected commit
+	- issue: URL of the issue related to selected commit
+	- review: URL of the review related to selected commit
+	EOF
 }
 
 

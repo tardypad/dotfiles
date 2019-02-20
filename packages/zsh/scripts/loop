@@ -11,18 +11,18 @@ init_variables() {
 
 
 usage() {
-  cat << EOF
-usage: ${COMMAND} [<options>] command
+  cat <<- EOF
+	usage: ${COMMAND} [<options>] command
 
-Execute a command in a loop
+	Execute a command in a loop
 
-Options:
-  -c,  --count     COUNT      stops after COUNT runs of the command
-  -h,  --help                 show this message only
-  -i,  --interval  INTERVAL   wait INTERVAL seconds between each command run
-                              default is 0, floating number are accepted
-  -t,  --time      TIME       stops command runs after a TIME seconds period
-EOF
+	Options:
+	  -c,  --count     COUNT      stops after COUNT runs of the command
+	  -h,  --help                 show this message only
+	  -i,  --interval  INTERVAL   wait INTERVAL seconds between each command run
+	                              default is 0, floating number are accepted
+	  -t,  --time      TIME       stops command runs after a TIME seconds period
+	EOF
 }
 
 

@@ -11,17 +11,17 @@ init_variables() {
 
 
 usage() {
-  cat << EOF
-usage: ${COMMAND} [<options>] <action>
+  cat <<- EOF
+	usage: ${COMMAND} [<options>] <action>
 
-Manage a Pomodoro session
+	Manage a Pomodoro session
 
-Options:
-  -h,  --help    show this message only
+	Options:
+	  -h,  --help    show this message only
 
-Actions:
-  start cancel toggle status
-EOF
+	Actions:
+	  start cancel toggle status
+	EOF
 }
 
 

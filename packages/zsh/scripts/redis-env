@@ -14,17 +14,17 @@ init_variables() {
 
 
 usage() {
-  cat << EOF
-usage: ${COMMAND} [<options>] project [query]
+  cat <<- EOF
+	usage: ${COMMAND} [<options>] project [query]
 
-Start Redis or run a query within a project environment
+	Start Redis or run a query within a project environment
 
-Options:
-  -h,  --help    show this message only
+	Options:
+	  -h,  --help    show this message only
 
-  All available redis-cli options can be used there too
-  using an = for the ones needing a parameter (space not supported)
-EOF
+	  All available redis-cli options can be used there too
+	  using an = for the ones needing a parameter (space not supported)
+	EOF
 }
 
 

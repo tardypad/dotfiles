@@ -10,17 +10,17 @@ init_variables() {
 
 
 usage() {
-  cat << EOF
-usage: ${COMMAND} [<options>] <action>
+  cat <<- EOF
+	usage: ${COMMAND} [<options>] <action>
 
-Manage "Do not disturb" mode
+	Manage "Do not disturb" mode
 
-Options:
-  -h,  --help    show this message only
+	Options:
+	  -h,  --help    show this message only
 
-Actions:
-  enable disable toggle status
-EOF
+	Actions:
+	  enable disable toggle status
+	EOF
 }
 
 

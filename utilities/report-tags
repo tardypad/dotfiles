@@ -15,16 +15,16 @@ init_variables() {
 
 
 usage() {
-  cat << EOF
-usage: ${COMMAND} [<options>]
+  cat <<- EOF
+	usage: ${COMMAND} [<options>]
 
-Report all code tags present in config files
+	Report all code tags present in config files
 
-Needs to be run from the repository root
+	Needs to be run from the repository root
 
-Options:
-  -h,  --help    show this message only
-EOF
+	Options:
+	  -h,  --help    show this message only
+	EOF
 }
 
 

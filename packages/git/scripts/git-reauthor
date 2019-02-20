@@ -15,23 +15,23 @@ init_variables() {
 
 
 usage() {
-  cat << EOF
-usage: git ${GIT_COMMAND} [<options>]
+  cat <<- EOF
+	usage: git ${GIT_COMMAND} [<options>]
 
-Rewrite history to change authors identities
+	Rewrite history to change authors identities
 
-Options:
-    -a, --all                     rewrite all identities in commits and tags
-    -c, --use-config              define correct values from user Git config
-    -h                            show this message only
-    -e, --correct-email  <email>  define the correct email to set
-                                  takes precedence over -c
-    -n, --correct-name   <name>   define the correct name to set
-                                  takes precedence over -c
-    -o, --old-email      <email>  rewrite identities matching old email in commits and tags
-    -t, --type           <id>     define the type of identities affected by the rewrite
-                                  author, committer, both (default)
-EOF
+	Options:
+	    -a, --all                     rewrite all identities in commits and tags
+	    -c, --use-config              define correct values from user Git config
+	    -h                            show this message only
+	    -e, --correct-email  <email>  define the correct email to set
+	                                  takes precedence over -c
+	    -n, --correct-name   <name>   define the correct name to set
+	                                  takes precedence over -c
+	    -o, --old-email      <email>  rewrite identities matching old email in commits and tags
+	    -t, --type           <id>     define the type of identities affected by the rewrite
+	                                  author, committer, both (default)
+	EOF
 }
 
 

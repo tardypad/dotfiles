@@ -17,17 +17,17 @@ init_variables() {
 
 
 usage() {
-  cat << EOF
-usage: ${COMMAND} [<options>] project environment request_method request_path [<request_items>]
+  cat <<- EOF
+	usage: ${COMMAND} [<options>] project environment request_method request_path [<request_items>]
 
-Run a HTTP request to a project environment
+	Run a HTTP request to a project environment
 
-Options:
-  -h,  --help    show this message only
+	Options:
+	  -h,  --help    show this message only
 
-  All available httpie options can be used there too
-  using an = for the ones needing a parameter (space not supported)
-EOF
+	  All available httpie options can be used there too
+	  using an = for the ones needing a parameter (space not supported)
+	EOF
 }
 
 

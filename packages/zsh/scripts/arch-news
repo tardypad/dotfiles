@@ -11,16 +11,16 @@ init_variables() {
 trap 'rm -f "${NEWS_FILE}"' EXIT
 
 usage() {
-  cat << EOF
-usage: ${COMMAND} [<options>] [<index>]
+  cat <<- EOF
+	usage: ${COMMAND} [<options>] [<index>]
 
-Display Arch Linux News feed
-without index argument, displays summary list
-with index argument, displays full item content
+	Display Arch Linux News feed
+	without index argument, displays summary list
+	with index argument, displays full item content
 
-Options:
-  -h,  --help      show this message only
-EOF
+	Options:
+	  -h,  --help      show this message only
+	EOF
 }
 
 error() {

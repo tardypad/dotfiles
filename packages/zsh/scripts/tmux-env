@@ -20,19 +20,19 @@ init_variables() {
 
 
 usage() {
-  cat << EOF
-usage: ${COMMAND} [<options>] <target> [<session>...]
+  cat <<- EOF
+	usage: ${COMMAND} [<options>] <target> [<session>...]
 
-Start target tmux environment sessions
-Each target is a different local or remote tmux server
+	Start target tmux environment sessions
+	Each target is a different local or remote tmux server
 
-Options:
-  -b,  --background     launch in background, no attach
-  -h,  --help           show this message only
+	Options:
+	  -b,  --background     launch in background, no attach
+	  -h,  --help           show this message only
 
-Available targets: ${AVAILABLE_TARGETS}
-If no session is defined, all of the target's ones are started
-EOF
+	Available targets: ${AVAILABLE_TARGETS}
+	If no session is defined, all of the target's ones are started
+	EOF
 }
 
 

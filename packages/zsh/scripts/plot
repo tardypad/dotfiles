@@ -12,18 +12,18 @@ init_variables() {
 
 
 usage() {
-  cat << EOF
-usage: ${COMMAND} [<options>]
+  cat <<- EOF
+	usage: ${COMMAND} [<options>]
 
-Plot simple data from stdin
-Data must have 1 or 2 columns
+	Plot simple data from stdin
+	Data must have 1 or 2 columns
 
-Options:
-  -h,  --help                 show this message only
+	Options:
+	  -h,  --help                 show this message only
 
-  All available jp options can be used there too
-  using an = for the ones needing a parameter (space not supported)
-EOF
+	  All available jp options can be used there too
+	  using an = for the ones needing a parameter (space not supported)
+	EOF
 }
 
 

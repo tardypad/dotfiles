@@ -14,16 +14,16 @@ init_variables() {
 
 
 usage() {
-  cat << EOF
-usage: ${COMMAND} [<options>] name [text]
+  cat <<- EOF
+	usage: ${COMMAND} [<options>] name [text]
 
-Transform a text to a certain style
+	Transform a text to a certain style
 
-Options:
-  -h,  --help    show this message only
+	Options:
+	  -h,  --help    show this message only
 
-Available styles name: ${AVAILABLE_STYLES}
-EOF
+	Available styles name: ${AVAILABLE_STYLES}
+	EOF
 }
 
 

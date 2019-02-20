@@ -70,29 +70,29 @@ init_variables() {
 }
 
 usage() {
-  cat << EOF
-usage: ${COMMAND} [<options>] [ 4 [<line>] [<column>] | 8 [<display>] | 24 [<display>] ]
+  cat <<- EOF
+	usage: ${COMMAND} [<options>] [ 4 [<line>] [<column>] | 8 [<display>] | 24 [<display>] ]
 
-Test the display of colors and attributes
+	Test the display of colors and attributes
 
- 4 bit: 16 colors
- 8 bit: 256 colors
-24 bit: true color
+	 4 bit: 16 colors
+	 8 bit: 256 colors
+	24 bit: true color
 
-Options:
-  -h,  --help      show this message only
+	Options:
+	  -h,  --help      show this message only
 
-Available line and column arguments for 4 bit test:
-- foreground        / fg (default line)
-- background        / bg (default column)
-- attribute         / att
-- bright_foreground / brfg
-- bright_background / brbg
+	Available line and column arguments for 4 bit test:
+	- foreground        / fg (default line)
+	- background        / bg (default column)
+	- attribute         / att
+	- bright_foreground / brfg
+	- bright_background / brbg
 
-Available display arguments for 8 and 24 bit tests:
-- foreground / fg
-- background / bg (default)
-EOF
+	Available display arguments for 8 and 24 bit tests:
+	- foreground / fg
+	- background / bg (default)
+	EOF
 }
 
 error() {
