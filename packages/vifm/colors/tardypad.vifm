@@ -8,7 +8,7 @@ highlight Selected   cterm=none  ctermfg={color/selected_item/number}           
 highlight CurrLine   cterm=none  ctermfg={color/base00/number}                  ctermbg={color/current_item/number}
 highlight WildMenu   cterm=none  ctermfg={color/base00/number}                  ctermbg={color/current_item/number}
 highlight CmdLine    cterm=none  ctermfg={color/foreground/number}              ctermbg=none
-highlight ErrorMsg   cterm=none  ctermfg={color/error/number}                   ctermbg=none
+highlight ErrorMsg   cterm=none  ctermfg={color/base00/number}                  ctermbg={color/error/number}
 
 
 " following is generated with

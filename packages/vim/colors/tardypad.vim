@@ -145,11 +145,11 @@ call s:highlight("SpellLocal",   "warning", "", "underline")
 call s:highlight("SpellRare",    "warning", "", "underline")
 
 " prompt
-call s:highlight("ErrorMsg",     "base05",  "error",  "")
+call s:highlight("ErrorMsg",     "base00",  "error",  "")
 call s:highlight("ModeMsg",      "notice",  "",       "")
 call s:highlight("MoreMsg",      "notice",  "",       "")
 call s:highlight("Question",     "base0A",  "",       "")
-call s:highlight("WarningMsg",   "base05", "warning", "")
+call s:highlight("WarningMsg",   "base00", "warning", "")
 
 " status line and splits
 call s:highlight("StatusLine",   "base0A",                 "base03",                 "")

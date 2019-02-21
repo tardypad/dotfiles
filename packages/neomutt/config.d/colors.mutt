@@ -26,7 +26,7 @@ set my_unread_item            = color{color/unread_item/number}
 set my_delete                 = color{color/delete/number}
 
 # general colors
-color error         $my_base05   $my_error           # error messages
+color error         $my_base00   $my_error           # error messages
 color message       $my_info     default             # informational messages
 color markers       $my_base05   default             # + in pager wrapped lines
 color attachment    $my_base08   default             # attachment in pager

@@ -71,11 +71,11 @@ c.colors.completion.scrollbar.fg                = colors['popup_foreground']
 
 c.colors.downloads.bar.bg                       = colors['background']
 c.colors.downloads.error.bg                     = colors['error']
-c.colors.downloads.error.fg                     = colors['base05']
+c.colors.downloads.error.fg                     = colors['base00']
 c.colors.downloads.start.bg                     = colors['base0A']
-c.colors.downloads.start.fg                     = colors['base05']
+c.colors.downloads.start.fg                     = colors['base00']
 c.colors.downloads.stop.bg                      = colors['base0A']
-c.colors.downloads.stop.fg                      = colors['base05']
+c.colors.downloads.stop.fg                      = colors['base00']
 c.colors.downloads.system.bg                    = "none"
 c.colors.downloads.system.fg                    = "none"
 
@@ -90,13 +90,13 @@ c.colors.keyhint.suffix.fg                      = colors['base00']
 
 c.colors.messages.error.bg                      = colors['error']
 c.colors.messages.error.border                  = colors['error']
-c.colors.messages.error.fg                      = colors['base05']
+c.colors.messages.error.fg                      = colors['base00']
 c.colors.messages.info.bg                       = colors['info']
 c.colors.messages.info.border                   = colors['info']
-c.colors.messages.info.fg                       = colors['base05']
+c.colors.messages.info.fg                       = colors['base00']
 c.colors.messages.warning.bg                    = colors['warning']
 c.colors.messages.warning.border                = colors['warning']
-c.colors.messages.warning.fg                    = colors['base05']
+c.colors.messages.warning.fg                    = colors['base00']
 
 c.colors.prompts.bg                             = colors['base02']
 c.colors.prompts.border                         = "1px solid " + colors['base05']
