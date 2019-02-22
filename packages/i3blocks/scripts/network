@@ -27,7 +27,7 @@ WIFI_CONNECTION=$(
 
 # NetworkManager automatically favors wired connections over wireless
 if [[ "${IS_ETHERNET_CONNECTED}" -eq 1 ]]; then
-  echo "<span foreground='#{color/base0A/hex}'></span> Wired"
+  echo "<span foreground='#{color/base0A/hex}'></span> Wired"
 elif [[ "${IS_WIFI_CONNECTED}" -eq 1 ]]; then
   echo "<span foreground='#{color/base0A/hex}'></span> ${WIFI_CONNECTION}"
 else
