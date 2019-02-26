@@ -1,0 +1,22 @@
+#!/bin/sh
+
+DESKTOP_FILE="$1"
+
+if [ -z "${DESKTOP_FILE}" ]; then
+  echo 'Missing desktop entry file' >&2
+  exit 1
+fi
+
+if [ ! -f "${DESKTOP_FILE}" ]; then
+  echo "'${DESKTOP_FILE}' is not a file" >&2
+  exit 1
+fi
+
+COMMAND=$( sed -n 's/^Exec=\(.*\)/\1/p' "${DESKTOP_FILE}" )
+
+if [ -z "${COMMAND}" ]; then
+  echo 'No Exec command' >&2
+  exit 1
+fi
+
+eval "${COMMAND}"&

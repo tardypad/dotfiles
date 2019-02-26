@@ -75,9 +75,9 @@ if [[ -n "${SELECTED_APPS}" ]]; then
 
   IFS=$'\n'
   for SELECTED_APP in $( echo ${SELECTED_APPS} ); do
-    # not sure why running dex directly without using swaymsg
+    # not sure why running exec_desktop_entry directly without using swaymsg
     # doesn't work when ran from the launcher
     swaymsg -t command \
-      exec "dex ${AVAILABLE_APPS[$SELECTED_APP]}"
+      exec "exec_desktop_entry ${AVAILABLE_APPS[$SELECTED_APP]}"
   done
 fi

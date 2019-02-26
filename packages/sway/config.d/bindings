@@ -1,10 +1,10 @@
 ### Basics
 
 # start a terminal
-bindsym $mod+Return exec dex ~/.local/share/applications/terminal.desktop
+bindsym $mod+Return exec exec_desktop_entry ~/.local/share/applications/terminal.desktop
 
 # start a browser
-bindsym $mod+Shift+Return exec dex ~/.local/share/applications/qutebrowser_web_browser.desktop
+bindsym $mod+Shift+Return exec exec_desktop_entry ~/.local/share/applications/qutebrowser_web_browser.desktop
 
 # kill focused window
 bindsym $mod+Shift+x kill
@@ -42,7 +42,7 @@ bindsym $mod+Shift+r reload
 bindsym $mod+Shift+q exit
 
 # launch help
-bindsym $mod+grave exec dex ~/.local/share/applications/help.desktop
+bindsym $mod+grave exec exec_desktop_entry ~/.local/share/applications/help.desktop
 
 # toggle Pomodoro session
 bindsym $mod+Shift+Escape exec pomodoro toggle \
