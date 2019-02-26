@@ -10,42 +10,6 @@ fi
 BASE_COLORS_FILE="${0%/*}/definitions/base"
 ALIASES_COLORS_FILE="${0%/*}/definitions/aliases"
 
-# extract color hexadecimal values from definition file
-BASE00_HEX=$( grep base00 "${BASE_COLORS_FILE}" | sed 's/| base00 | #\([[:alnum:]]\+\) |.*/\1/' )
-BASE01_HEX=$( grep base01 "${BASE_COLORS_FILE}" | sed 's/| base01 | #\([[:alnum:]]\+\) |.*/\1/' )
-BASE02_HEX=$( grep base02 "${BASE_COLORS_FILE}" | sed 's/| base02 | #\([[:alnum:]]\+\) |.*/\1/' )
-BASE03_HEX=$( grep base03 "${BASE_COLORS_FILE}" | sed 's/| base03 | #\([[:alnum:]]\+\) |.*/\1/' )
-BASE04_HEX=$( grep base04 "${BASE_COLORS_FILE}" | sed 's/| base04 | #\([[:alnum:]]\+\) |.*/\1/' )
-BASE05_HEX=$( grep base05 "${BASE_COLORS_FILE}" | sed 's/| base05 | #\([[:alnum:]]\+\) |.*/\1/' )
-BASE06_HEX=$( grep base06 "${BASE_COLORS_FILE}" | sed 's/| base06 | #\([[:alnum:]]\+\) |.*/\1/' )
-BASE07_HEX=$( grep base07 "${BASE_COLORS_FILE}" | sed 's/| base07 | #\([[:alnum:]]\+\) |.*/\1/' )
-BASE08_HEX=$( grep base08 "${BASE_COLORS_FILE}" | sed 's/| base08 | #\([[:alnum:]]\+\) |.*/\1/' )
-BASE09_HEX=$( grep base09 "${BASE_COLORS_FILE}" | sed 's/| base09 | #\([[:alnum:]]\+\) |.*/\1/' )
-BASE0A_HEX=$( grep base0A "${BASE_COLORS_FILE}" | sed 's/| base0A | #\([[:alnum:]]\+\) |.*/\1/' )
-BASE0B_HEX=$( grep base0B "${BASE_COLORS_FILE}" | sed 's/| base0B | #\([[:alnum:]]\+\) |.*/\1/' )
-BASE0C_HEX=$( grep base0C "${BASE_COLORS_FILE}" | sed 's/| base0C | #\([[:alnum:]]\+\) |.*/\1/' )
-BASE0D_HEX=$( grep base0D "${BASE_COLORS_FILE}" | sed 's/| base0D | #\([[:alnum:]]\+\) |.*/\1/' )
-BASE0E_HEX=$( grep base0E "${BASE_COLORS_FILE}" | sed 's/| base0E | #\([[:alnum:]]\+\) |.*/\1/' )
-BASE0F_HEX=$( grep base0F "${BASE_COLORS_FILE}" | sed 's/| base0F | #\([[:alnum:]]\+\) |.*/\1/' )
-
-# extract color number values from definition file
-BASE00_NUMBER=$( grep base00 "${BASE_COLORS_FILE}" | sed 's/| base00 | #[[:alnum:]]\+ | *\([[:digit:]]\+\) |.*/\1/' )
-BASE01_NUMBER=$( grep base01 "${BASE_COLORS_FILE}" | sed 's/| base01 | #[[:alnum:]]\+ | *\([[:digit:]]\+\) |.*/\1/' )
-BASE02_NUMBER=$( grep base02 "${BASE_COLORS_FILE}" | sed 's/| base02 | #[[:alnum:]]\+ | *\([[:digit:]]\+\) |.*/\1/' )
-BASE03_NUMBER=$( grep base03 "${BASE_COLORS_FILE}" | sed 's/| base03 | #[[:alnum:]]\+ | *\([[:digit:]]\+\) |.*/\1/' )
-BASE04_NUMBER=$( grep base04 "${BASE_COLORS_FILE}" | sed 's/| base04 | #[[:alnum:]]\+ | *\([[:digit:]]\+\) |.*/\1/' )
-BASE05_NUMBER=$( grep base05 "${BASE_COLORS_FILE}" | sed 's/| base05 | #[[:alnum:]]\+ | *\([[:digit:]]\+\) |.*/\1/' )
-BASE06_NUMBER=$( grep base06 "${BASE_COLORS_FILE}" | sed 's/| base06 | #[[:alnum:]]\+ | *\([[:digit:]]\+\) |.*/\1/' )
-BASE07_NUMBER=$( grep base07 "${BASE_COLORS_FILE}" | sed 's/| base07 | #[[:alnum:]]\+ | *\([[:digit:]]\+\) |.*/\1/' )
-BASE08_NUMBER=$( grep base08 "${BASE_COLORS_FILE}" | sed 's/| base08 | #[[:alnum:]]\+ | *\([[:digit:]]\+\) |.*/\1/' )
-BASE09_NUMBER=$( grep base09 "${BASE_COLORS_FILE}" | sed 's/| base09 | #[[:alnum:]]\+ | *\([[:digit:]]\+\) |.*/\1/' )
-BASE0A_NUMBER=$( grep base0A "${BASE_COLORS_FILE}" | sed 's/| base0A | #[[:alnum:]]\+ | *\([[:digit:]]\+\) |.*/\1/' )
-BASE0B_NUMBER=$( grep base0B "${BASE_COLORS_FILE}" | sed 's/| base0B | #[[:alnum:]]\+ | *\([[:digit:]]\+\) |.*/\1/' )
-BASE0C_NUMBER=$( grep base0C "${BASE_COLORS_FILE}" | sed 's/| base0C | #[[:alnum:]]\+ | *\([[:digit:]]\+\) |.*/\1/' )
-BASE0D_NUMBER=$( grep base0D "${BASE_COLORS_FILE}" | sed 's/| base0D | #[[:alnum:]]\+ | *\([[:digit:]]\+\) |.*/\1/' )
-BASE0E_NUMBER=$( grep base0E "${BASE_COLORS_FILE}" | sed 's/| base0E | #[[:alnum:]]\+ | *\([[:digit:]]\+\) |.*/\1/' )
-BASE0F_NUMBER=$( grep base0F "${BASE_COLORS_FILE}" | sed 's/| base0F | #[[:alnum:]]\+ | *\([[:digit:]]\+\) |.*/\1/' )
-
 {
   # aliases intermediate conversion to base color equivalent
   tail -n+3 "${ALIASES_COLORS_FILE}" \
@@ -54,29 +18,15 @@ BASE0F_NUMBER=$( grep base0F "${BASE_COLORS_FILE}" | sed 's/| base0F | #[[:alnum
         base_color=$( echo "${line}" | sed 's/.* \(base0[[:alnum:]]\) .*/\1/' )
         echo "s|{color/${alias}/\([[:alpha:]]\+\)}|{color/${base_color}/\1}|g"
       done
-} | sed -i -f - "${FILE}"
 
-{
   # hexadecimal final conversion
-  echo "s|{color/base00/hex}|${BASE00_HEX}|g"
-  echo "s|{color/base01/hex}|${BASE01_HEX}|g"
-  echo "s|{color/base02/hex}|${BASE02_HEX}|g"
-  echo "s|{color/base03/hex}|${BASE03_HEX}|g"
-  echo "s|{color/base04/hex}|${BASE04_HEX}|g"
-  echo "s|{color/base05/hex}|${BASE05_HEX}|g"
-  echo "s|{color/base06/hex}|${BASE06_HEX}|g"
-  echo "s|{color/base07/hex}|${BASE07_HEX}|g"
-  echo "s|{color/base08/hex}|${BASE08_HEX}|g"
-  echo "s|{color/base09/hex}|${BASE09_HEX}|g"
-  echo "s|{color/base0A/hex}|${BASE0A_HEX}|g"
-  echo "s|{color/base0B/hex}|${BASE0B_HEX}|g"
-  echo "s|{color/base0C/hex}|${BASE0C_HEX}|g"
-  echo "s|{color/base0D/hex}|${BASE0D_HEX}|g"
-  echo "s|{color/base0E/hex}|${BASE0E_HEX}|g"
-  echo "s|{color/base0F/hex}|${BASE0F_HEX}|g"
-} | sed -i -f - "${FILE}"
+  for i in $( seq 0 15 )
+  do
+    index=$( printf '%X' "$i" )
+    base_hex=$( sed -n "s/| base0${index} | #\([[:alnum:]]\+\) |.*/\1/p" "${BASE_COLORS_FILE}" )
+    echo "s|{color/base0${index}/hex}|${base_hex}|g"
+  done
 
-{
   # fixed intermediate conversion
   # for color name via 16 color number
   echo 's|{color/base0\([[:alnum:]]\)/name}|{color/number_{color/base0\1/number}/name}|g'
@@ -88,29 +38,15 @@ BASE0F_NUMBER=$( grep base0F "${BASE_COLORS_FILE}" | sed 's/| base0F | #[[:alnum
   # fixed intermediate conversion
   # for background color code via 16 color number
   echo 's|{color/base0\([[:alnum:]]\)/bg}|{color/number_{color/base0\1/number}/bg}|g'
-} | sed -i -f - "${FILE}"
 
-{
   # number final conversion
-  echo "s|{color/base00/number}|${BASE00_NUMBER}|g"
-  echo "s|{color/base01/number}|${BASE01_NUMBER}|g"
-  echo "s|{color/base02/number}|${BASE02_NUMBER}|g"
-  echo "s|{color/base03/number}|${BASE03_NUMBER}|g"
-  echo "s|{color/base04/number}|${BASE04_NUMBER}|g"
-  echo "s|{color/base05/number}|${BASE05_NUMBER}|g"
-  echo "s|{color/base06/number}|${BASE06_NUMBER}|g"
-  echo "s|{color/base07/number}|${BASE07_NUMBER}|g"
-  echo "s|{color/base08/number}|${BASE08_NUMBER}|g"
-  echo "s|{color/base09/number}|${BASE09_NUMBER}|g"
-  echo "s|{color/base0A/number}|${BASE0A_NUMBER}|g"
-  echo "s|{color/base0B/number}|${BASE0B_NUMBER}|g"
-  echo "s|{color/base0C/number}|${BASE0C_NUMBER}|g"
-  echo "s|{color/base0D/number}|${BASE0D_NUMBER}|g"
-  echo "s|{color/base0E/number}|${BASE0E_NUMBER}|g"
-  echo "s|{color/base0F/number}|${BASE0F_NUMBER}|g"
-} | sed -i -f - "${FILE}"
+  for i in $( seq 0 15 )
+  do
+    index=$( printf '%X' "$i" )
+    base_number=$( sed -n "s/| base0${index} | #[[:alnum:]]\+ | *\([[:digit:]]\+\) |.*/\1/p" "${BASE_COLORS_FILE}" )
+    echo "s|{color/base0${index}/number}|${base_number}|g"
+  done
 
-{
   # fixed ANSI final conversion
   # from 16 color number to color name
   echo 's|{color/number_0/name}|black|g'
@@ -129,9 +65,7 @@ BASE0F_NUMBER=$( grep base0F "${BASE_COLORS_FILE}" | sed 's/| base0F | #[[:alnum
   echo 's|{color/number_13/name}|brmagenta|g'
   echo 's|{color/number_14/name}|brcyan|g'
   echo 's|{color/number_15/name}|brwhite|g'
-} | sed -i -f - "${FILE}"
 
-{
   # fixed ANSI final conversion
   # from 16 color number to foreground color code
   echo 's|{color/number_0/fg}|30|g'
@@ -150,9 +84,7 @@ BASE0F_NUMBER=$( grep base0F "${BASE_COLORS_FILE}" | sed 's/| base0F | #[[:alnum
   echo 's|{color/number_13/fg}|95|g'
   echo 's|{color/number_14/fg}|96|g'
   echo 's|{color/number_15/fg}|97|g'
-} | sed -i -f - "${FILE}"
 
-{
   # fixed ANSI final conversion
   # from 16 color number to background color code
   echo 's|{color/number_0/bg}|40|g'
