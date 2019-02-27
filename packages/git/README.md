@@ -4,4 +4,4 @@ Version control
 
 Source [Github](https://github.com/git/git)
 
-Version [2.20.1](https://github.com/git/git/releases/tag/v2.20.1)
+Version [2.21.0](https://github.com/git/git/releases/tag/v2.21.0)
