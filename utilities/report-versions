@@ -36,31 +36,27 @@ error() {
 main_readme_version() {
   local package="$1"
 
-  grep "^| \[${package}\].*" README.md \
-    | sed 's#.*| \[\(.*\)\].*#\1#'
+  sed -n "s#^| \[${package}\].*| \[\(.*\)\].*#\1#p" README.md
 }
 
 extra_readme_version() {
   local package="$1"
 
-  grep "^| ${package} .*" README.md \
-    | sed 's#.*| \[\(.*\)\].*#\1#'
+  sed -n "s#^| ${package} .*| \[\(.*\)\].*#\1#p" README.md
 }
 
 
 individual_readme_version() {
   local package="$1"
 
-  grep '^Version \[' "packages/${package}/README.md" \
-    | sed 's#^Version \[\(.*\)\].*#\1#'
+  sed -n 's#^Version \[\(.*\)\].*#\1#p' "packages/${package}/README.md"
 }
 
 
 extension_readme_version() {
   local extension="$1"
 
-  grep --extended-regexp --no-filename "^\| ${extension} .*\| \[.*\].*" packages/*/README.md \
-    | sed 's#.*| \[\(.*\)\].*#\1#'
+  sed -n "s#^| ${extension} .*| \[\(.*\)\].*#\1#p" packages/*/README.md
 }
 
 
@@ -85,12 +81,9 @@ pacman_version() {
     return
   fi
 
-  # last line remove the release version
+  # extract version without the release number
   echo "${pacman_info}" \
-    | grep '^Version' \
-    | tr --squeeze-repeats ' ' \
-    | cut --fields 3 --delimiter ' ' \
-    | sed 's#\(.*\)\-[0-9]*#\1#'
+    | sed -n 's/^Version *: \(.*\)\-[0-9]*/\1/p'
 }
 
 
@@ -138,21 +131,20 @@ report_extensions() {
 
 report_all() {
   MAIN_PACKAGES=($(
-    grep --extended-regexp '^\| \[.*\].*' README.md \
-      | sed 's#^| \[\([^ ]*\)\].*#\1#';
+    sed -n 's#^| \[\([^ ]*\)\].*#\1#p' README.md
   ))
 
   EXTRA_PACKAGES=($(
-    grep --extended-regexp '\| \[.*\].*' README.md \
-      | grep --invert-match --extended-regexp '^\| \[.*\].*' \
-      | sed 's#^| \([^ ]*\) .*#\1#';
+    sed -n 's#^| \([a-z][^ ]*\) .*#\1#p' README.md
   ))
 
   # exclude vim and weechat plugins (not managed by package manager)
   EXTENSIONS=($(
-    grep --extended-regexp '\| \[.*\].*' packages/*/README.md \
-      | grep --invert-match --extended-regexp '^packages/vim|^packages/weechat' \
-      | sed 's#^.*/README.md:| \([^ ]*\) .*#\1#'
+    sed -n 's#^| \([a-z][^ ]*\) .*#\1#p' \
+      $(
+        find packages -maxdepth 2 -type f -name README.md \
+          ! -path '*/vim/*' ! -path '*/weechat/*'
+      )
   ))
 
   {

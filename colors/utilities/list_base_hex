@@ -4,5 +4,4 @@
 
 BASE_COLORS_FILE="${0%/*}/../definitions/base"
 
-grep base "${BASE_COLORS_FILE}" \
-  | sed 's/| base0[[:alnum:]] | #\([[:alnum:]]\+\) |.*/\1/'
+sed -n 's/| base0[[:alnum:]] | #\([[:alnum:]]\+\) |.*/\1/p' "${BASE_COLORS_FILE}"
