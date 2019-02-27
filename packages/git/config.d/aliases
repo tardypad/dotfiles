@@ -87,7 +87,7 @@
     rbi = "! f() { git rebase -i $( git argument $1 ); }; f"
     recent = "! \
         git for-each-ref --count=5 --sort=-committerdate --color \
-        --format \"%(HEAD) %(color:$(git config color.recent.refname))%(refname:short)%(color:reset) | %(color:$(git config color.recent.committerdate))%(committerdate:relative)%(color:reset) | %(subject)\" refs/heads \
+        --format \"%(HEAD) %(color:$(git config color.recent.refname))%(refname:short)%(color:reset) | %(color:$(git config color.recent.committerdate))%(committerdate:human)%(color:reset) | %(subject)\" refs/heads \
         | column --table --separator '|'"
     reword = commit --amend
     reset-upstream = reset --hard @{upstream}
