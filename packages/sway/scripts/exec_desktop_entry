@@ -12,7 +12,14 @@ if [ ! -f "${DESKTOP_FILE}" ]; then
   exit 1
 fi
 
-COMMAND=$( sed -n 's/^Exec=\(.*\)/\1/p' "${DESKTOP_FILE}" )
+# extract exec command and remove field codes
+COMMAND=$(
+  sed -n '/^Exec=/ {
+    s/^Exec=\(.*\)/\1/
+    s/%[a-zA-Z]//
+    p
+  }' "${DESKTOP_FILE}" \
+)
 
 if [ -z "${COMMAND}" ]; then
   echo 'No Exec command' >&2
