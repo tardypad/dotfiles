@@ -15,3 +15,9 @@ Host tardypad
     User damien
     Port 11235
     IdentityFile ~/.ssh/id_perso
+
+Host backup
+    Hostname tardypad.me
+    User backup
+    Port 11235
+    IdentityFile ~/.ssh/id_backup

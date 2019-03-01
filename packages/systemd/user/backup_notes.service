@@ -1,0 +1,5 @@
+[Unit]
+Description=Backup notes
+
+[Service]
+ExecStart=/home/damien/.zsh/scripts/backup-notes
