@@ -31,7 +31,6 @@
   - create scripts to manage AUR packages with personal repository  
     check [Michael Daffin blog](https://disconnected.systems/blog/archlinux-repo-in-aws-bucket/)
   - backup of ncmpcpp lyrics
-  - backup of qutebrowser bookmarks/quickmarks
 
 # Research
   - [Drew Devault blog post](https://drewdevault.com/2018/02/05/Introduction-to-POSIX-shell.html)

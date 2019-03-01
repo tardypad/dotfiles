@@ -1,0 +1,12 @@
+#!/bin/sh
+
+LOCAL_BROWSER_FOLDER="${XDG_CONFIG_HOME:-$HOME/.config}/qutebrowser"
+REMOTE_BOOKMARKS_FOLDER="$( uname -n )/bookmarks"
+
+rsync -az --backup \
+  "${LOCAL_BROWSER_FOLDER}/bookmarks/urls" \
+  backup:"${REMOTE_BOOKMARKS_FOLDER}/urls"
+
+rsync -az --backup \
+  "${LOCAL_BROWSER_FOLDER}/quickmarks" \
+  backup:"${REMOTE_BOOKMARKS_FOLDER}/quickmarks"
