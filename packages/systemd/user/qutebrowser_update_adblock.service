@@ -3,4 +3,4 @@ Description=Update qutebrowser adblock list
 
 [Service]
 Type=oneshot
-ExecStart=/home/damien/.config/qutebrowser/scripts/adblock_update
+ExecStart=/usr/bin/qutebrowser :adblock-update
