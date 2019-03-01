@@ -31,9 +31,6 @@ export FZF_DEFAULT_COMMAND='ag --no-color -g "" --follow --skip-vcs-ignores --ig
 # update SWAYSOCK variable on reload
 eval $( tmux show-environment -s SWAYSOCK 2> /dev/null )
 
-# set SWAYSOCK in systemd user environment
-systemctl --user import-environment SWAYSOCK 2> /dev/null
-
 # tell ssh to use gpg agent
 unset SSH_AGENT_PID
 if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then

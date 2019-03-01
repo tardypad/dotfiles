@@ -23,3 +23,5 @@ bar {
 
 # include all config files
 include config.d/*
+
+exec systemctl --user import-environment DISPLAY SWAYSOCK
