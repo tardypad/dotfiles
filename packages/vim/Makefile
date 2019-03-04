@@ -26,13 +26,13 @@ endif
 
   # install the plugins manager
 	@curl --silent --location --create-dirs \
-		https://raw.githubusercontent.com/junegunn/vim-plug/0a255ee62da085a01ab376fd69a97e0e26df4da0/plug.vim \
+		https://raw.githubusercontent.com/junegunn/vim-plug/0.10.0/plug.vim \
 		--output "$(DESTDIR)$(HOME)/.vim/autoload/plug.vim"; \
 
   # Manually install icinga2 syntax
   # not a real plugin, just one file of a bigger repository
 	@curl --silent --location --create-dirs \
-		https://raw.githubusercontent.com/Icinga/icinga2/daa067dabe388d1a26e7581937202d1e78b53175/tools/syntax/vim/syntax/icinga2.vim \
+		https://raw.githubusercontent.com/Icinga/icinga2/3cb2c1d1435f19bc5e46fa8f8518645f62549dde/tools/syntax/vim/syntax/icinga2.vim \
 		--output "$(DESTDIR)$(HOME)/.vim/plugged/icinga2/syntax/icinga2.vim"; \
 
 ifeq ($(IS_LOCAL_INSTALL),'true')
