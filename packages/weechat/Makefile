@@ -28,7 +28,7 @@ weechat:
   # install wee-slack
   # version from github is more recent than one in weechat scripts repo
 	@curl --silent --location --create-dirs \
-		https://raw.githubusercontent.com/rawdigits/wee-slack/v2.1.1/wee_slack.py \
+		https://raw.githubusercontent.com/rawdigits/wee-slack/v2.2.0/wee_slack.py \
 		--output "$(DESTDIR)$(HOME)/.weechat/python/wee_slack.py"; \
 	ln -fs ../wee_slack.py "$(DESTDIR)$(HOME)/.weechat/python/autoload/wee_slack.py"; \
 
@@ -40,7 +40,7 @@ weechat:
 
   # install vimode script
 	@curl --silent --location --create-dirs \
-		https://raw.githubusercontent.com/tardypad/weechat-vimode/174bd8c163c596fc89bed4da3eed2ade93acdb75/vimode.py \
+		https://raw.githubusercontent.com/GermainZ/weechat-vimode/95661a27f92dc3f3286cf1539ab112a81ad15639/vimode.py \
 		--output "$(DESTDIR)$(HOME)/.weechat/python/vimode.py"; \
 	ln -fs ../vimode.py "$(DESTDIR)$(HOME)/.weechat/python/autoload/vimode.py"; \
 
