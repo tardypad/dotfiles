@@ -36,6 +36,7 @@ let s:base0F_gui                 = "#{color/base0F/hex}"
 let s:error_gui                  = "#{color/error/hex}"
 let s:warning_gui                = "#{color/warning/hex}"
 let s:notice_gui                 = "#{color/notice/hex}"
+let s:info_gui                   = "#{color/info/hex}"
 let s:background_gui             = "#{color/background/hex}"
 let s:foreground_gui             = "#{color/foreground/hex}"
 let s:status_line_background_gui = "#{color/status_line_background/hex}"
@@ -67,6 +68,7 @@ let s:base0F_term                 = "{color/base0F/number}"
 let s:error_term                  = "{color/error/number}"
 let s:warning_term                = "{color/warning/number}"
 let s:notice_term                 = "{color/notice/number}"
+let s:info_term                   = "{color/info/number}"
 let s:background_term             = "{color/background/number}"
 let s:foreground_term             = "{color/foreground/number}"
 let s:status_line_background_term = "{color/status_line_background/number}"
@@ -205,6 +207,28 @@ highlight! link Tag              Special
 highlight! link Delimiter        Special
 highlight! link SpecialComment   Special
 highlight! link Debug            Special
+
+" ALE plugin
+call s:highlight("ALEError",   "error",   "", "")
+call s:highlight("ALEWarning", "warning", "", "")
+call s:highlight("ALEInfo",    "info",    "", "")
+highlight! link ALEStyleError              ALEError
+highlight! link ALEStyleWarning            ALEWarning
+highlight! link ALEErrorLine               ALEError
+highlight! link ALEWarningLine             ALEWarning
+highlight! link ALEInfoLine                ALEInfo
+highlight! link ALEErrorSign               ALEError
+highlight! link ALEWarningSign             ALEWarning
+highlight! link ALEInfoSign                ALEInfo
+highlight! link ALEStyleErrorSign          ALEErrorSign
+highlight! link ALEStyleWarningSign        ALEWarningSign
+highlight! link ALESignColumnWithErrors    ALEError
+highlight! link ALESignColumnWithoutErrors SignColumn
+highlight! link ALEVirtualTextError        ALEError
+highlight! link ALEVirtualTextWarning      ALEWarning
+highlight! link ALEVirtualTextInfo         ALEInfo
+highlight! link ALEVirtualTextStyleError   ALEVirtualTextError
+highlight! link ALEVirtualTextStyleWarning ALEVirtualTextWarning
 
 " Tagbar plugin
 call s:highlight("TagbarFoldIcon",            "base0A", "", "")

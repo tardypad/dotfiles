@@ -13,6 +13,3 @@ let g:ale_sign_warning = '!!'
 let g:ale_sign_info = '--'
 let g:ale_sign_style_error = 'x'
 let g:ale_sign_style_warning = '!'
-
-" disable highlights
-let g:ale_set_highlights = 0
