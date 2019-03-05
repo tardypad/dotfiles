@@ -208,6 +208,11 @@ highlight! link Delimiter        Special
 highlight! link SpecialComment   Special
 highlight! link Debug            Special
 
+" Custom highlights
+call s:highlight("StatusLineLinterError",   "base00", "error",   "bold")
+call s:highlight("StatusLineLinterWarning", "base00", "warning", "bold")
+call s:highlight("StatusLineLinterInfo",    "base00", "info",    "bold")
+
 " ALE plugin
 call s:highlight("ALEError",   "error",   "", "")
 call s:highlight("ALEWarning", "warning", "", "")
