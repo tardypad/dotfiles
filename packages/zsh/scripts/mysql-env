@@ -5,9 +5,14 @@ COMMAND=${0:t}
 init_variables() {
   ENV_DIR_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/mysql/env"
 
-  MYSQL_OPTIONS=
   PROJECT=
   QUERY=
+
+  if [ -t 1 ]; then
+    MYSQL_OPTIONS=( --raw --column-names )
+  else
+    MYSQL_OPTIONS=( --raw --batch --skip-column-names )
+  fi
 
   ENV_PATH=
 }
