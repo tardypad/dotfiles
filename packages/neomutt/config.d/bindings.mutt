@@ -12,7 +12,7 @@ bind index <Return> display-message
 bind index,pager m mail
 bind index,pager f forward-message
 bind index,pager r reply
-bind index,pager a group-reply
+bind index,pager R group-reply
 bind index,pager s save-message
 
 # navigation
