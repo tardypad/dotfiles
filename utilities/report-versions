@@ -3,6 +3,8 @@
 COMMAND=${0:t}
 
 init_variables() {
+  ONLY_DIFF=0
+
   MAIN_PACKAGES=
   EXTRA_PACKAGES=
   EXTENSIONS=
@@ -21,6 +23,7 @@ usage() {
 	Needs to be run from the repository root
 
 	Options:
+	  -d,  --diff    only list packages where versions are different
 	  -h,  --help    show this message only
 	EOF
 }
@@ -89,42 +92,57 @@ pacman_version() {
 
 report_main_packages() {
   for package in ${MAIN_PACKAGES}; do
-    echo -n "${package}"
-    echo -n ' '
-    echo -n $( pacman_version "${package}" )
-    echo -n ' '
-    echo -n $( main_readme_version "${package}" )
-    echo -n ' '
-    echo -n $( individual_readme_version "${package}" )
-    echo
+    local version1=$( pacman_version "${package}" )
+    local version2=$( main_readme_version "${package}" )
+    local version3=$( individual_readme_version "${package}" )
+
+    if [[ "${ONLY_DIFF}" -eq 1
+       && "${version1}" == "${version2}"
+       && "${version2}" == "${version3}" ]]; then
+      continue
+    fi
+
+    printf '%s %s %s %s\n' \
+      "${package}" \
+      "${version1}" \
+      "${version2}" \
+      "${version3}"
   done
 }
 
 
 report_extra_packages() {
   for package in ${EXTRA_PACKAGES}; do
-    echo -n "${package}"
-    echo -n ' '
-    echo -n $( pacman_version "${package}" )
-    echo -n ' '
-    echo -n $( extra_readme_version "${package}" )
-    echo -n ' '
-    echo -n '.'
-    echo
+    local version1=$( pacman_version "${package}" )
+    local version2=$( extra_readme_version "${package}" )
+
+    if [[ "${ONLY_DIFF}" -eq 1
+       && "${version1}" == "${version2}" ]]; then
+      continue
+    fi
+
+    printf '%s %s %s .\n' \
+      "${package}" \
+      "${version1}" \
+      "${version2}"
   done
 }
 
 
 report_extensions() {
   for extension in ${EXTENSIONS}; do
-    echo -n "${extension}"
-    echo -n ' '
-    echo -n $( pacman_version "${extension}" )
-    echo -n ' '
-    echo -n '.'
-    echo -n ' '
-    echo -n $( extension_readme_version "${extension}" )
-    echo
+    local version1=$( pacman_version "${extension}" )
+    local version3=$( extension_readme_version "${extension}" )
+
+    if [[ "${ONLY_DIFF}" -eq 1
+       && "${version1}" == "${version3}" ]]; then
+      continue
+    fi
+
+    printf '%s %s . %s\n' \
+      "${extension}" \
+      "${version1}" \
+      "${version3}"
   done
 }
 
@@ -159,6 +177,10 @@ report_all() {
 parse_options() {
   while [[ "$#" -gt 0 ]]; do
     case "$1" in
+      -d|--diff)
+        ONLY_DIFF=1
+        shift;
+        ;;
       -h|--help)
         usage
         exit 0
