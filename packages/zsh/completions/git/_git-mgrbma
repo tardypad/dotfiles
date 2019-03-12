@@ -1,0 +1,4 @@
+#compdef git-mgrbma
+
+_arguments \
+  '*:revision:__git_revisions'

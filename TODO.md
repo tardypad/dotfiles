@@ -18,7 +18,6 @@
     * [Joe Schafer blog post](https://blog.d46.us/zsh-tmux-emacs-copy-paste/) zsh/tmux/emacs
   - make some own vim config as plugin
   - usage of vim autoload for some functions
-  - improve/add completion of git aliases
   - improve all env scripts usage:
     * allow to receive query/POST body data from stdin
     * editing of such data in vim directly

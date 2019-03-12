@@ -1,0 +1,3 @@
+#compdef git-hist
+
+_git-log

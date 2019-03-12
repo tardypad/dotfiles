@@ -1,0 +1,4 @@
+#compdef git-argument
+
+_arguments \
+  '*:revision:__git_revisions'
