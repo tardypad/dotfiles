@@ -1,0 +1,70 @@
+#!/usr/bin/env zsh
+
+COMMAND=${0:t}
+
+init_variables() {
+  FIFO_FILE=~/.weechat/weechat_fifo
+
+  BUFFER=
+}
+
+
+usage() {
+  cat <<- EOF
+	usage: ${COMMAND} [<options>] [<buffer>]
+
+	Remote control of weechat via FIFO pipe
+	Text or command is read from stdin
+	If <buffer> is not specified, current buffer is used
+
+	Options:
+	  -h,  --help           show this message only
+	EOF
+}
+
+
+error() {
+  [[ -z "$1" ]] || echo "${COMMAND}: $1"
+  echo "Try '${COMMAND} --help' for more information."
+  exit 1
+} >&2
+
+
+fifo_send() {
+  local line
+
+  while read -r line; do
+    echo "${BUFFER} *${line}" > "${FIFO_FILE}"
+  done
+}
+
+
+parse_options() {
+  while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      *)
+        break 2
+        ;;
+    esac
+  done
+
+  BUFFER=$1
+}
+
+
+validate_options() {
+  if [[ ! -p "${FIFO_FILE}" ]]; then
+    error "FIFO file not present"
+  fi
+}
+
+
+init_variables
+parse_options "$@"
+validate_options
+
+fifo_send
