@@ -6,7 +6,6 @@
     },
     "default_options": [
       "--style=auto",
-      "--json",
       "--body",
       "--check-status"
     ]
