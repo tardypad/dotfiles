@@ -1,0 +1,21 @@
+#compdef git-reauthor
+#description rewrite history to change authors identities
+
+_types() {
+  local types=(
+    author
+    committer
+    both
+  )
+
+  compadd "$@" $types
+}
+
+_arguments \
+  '(-a --all)'{-a,--all}'[rewrite all identities in commits and tags]' \
+  '(-c --use-config)'{-u,--use-config}'[define correct values from user Git config]' \
+  '-h[display the help]' \
+  '(-e --correct-email)'{-e,--correct-email}'[define the correct email to set]:correct email:()' \
+  '(-n --correct-name)'{-n,--correct-name}'[define the correct name to set]:correct name:()' \
+  '(-o --old-email)'{-o,--old-email}'[rewrite identities matching old email in commits and tags]:old email:()' \
+  '(-t --type)'{-t,--type}'[define the type of identities affected by the rewrite]:type:_types'

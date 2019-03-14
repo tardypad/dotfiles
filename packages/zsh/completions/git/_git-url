@@ -1,0 +1,19 @@
+#compdef git-url
+#description display an URL related to the repo or a commit
+
+_types() {
+  local types=(
+    repo
+    commit
+    issue
+    review
+  )
+
+  compadd "$@" $types
+}
+
+_arguments \
+  '(-c --commit)'{-c,--commit}'[commit to selection information]:commit:__git_revisions' \
+  '-h[display the help]' \
+  '(-r --remote)'{-r,--remote}'[remote to use]:remote:__git_remotes' \
+  '(-t --type)'{-t,--type}'[URL type]:type:_types'
