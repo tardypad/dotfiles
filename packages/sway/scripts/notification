@@ -5,14 +5,12 @@ TMP_TEXT_FILE="$2"
 
 WINDOW_TITLE="sway_notification_$( echo "${TITLE}" | tr 'A-Z ' 'a-z_' )"
 
-# do nothing if the "Do not disturb" mode is on
-# or if there is already a similar notification
+# do nothing if there is already a similar notification
 # or if the lockscreen is on
 # #HACK: there is a bug that floating windows are visible atop the lockscreen
 #       so we prevent the display in that case
 if pgrep swaylock &> /dev/null \
-  || swaymsg -t get_tree | grep --quiet "${WINDOW_TITLE}" \
-  || [[ $( do-not-disturb status ) == 'enabled' ]]; then
+  || swaymsg -t get_tree | grep --quiet "${WINDOW_TITLE}"; then
   rm "${TMP_TEXT_FILE}"
   exit
 fi
