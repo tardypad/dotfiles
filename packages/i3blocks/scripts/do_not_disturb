@@ -1,6 +1,7 @@
 #! /usr/bin/env zsh
 
-# only display something if the mode is on
-[[ $( do-not-disturb status ) == 'enabled' ]] || exit 0
-
-echo "<span foreground='#{color/notice/hex}'> Do not disturb</span>"
+if [[ $( do-not-disturb status ) == 'enabled' ]]; then
+  echo "<span foreground='#{color/notice/hex}'></span>"
+else
+  echo "<span foreground='#{color/base0C/hex}'></span>"
+fi

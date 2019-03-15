@@ -1,10 +1,6 @@
 command=~/.config/i3blocks/scripts/$BLOCK_NAME
 markup=pango
 
-[do_not_disturb]
-interval=10
-signal=2
-
 [pomodoro]
 interval=10
 signal=4
@@ -31,3 +27,7 @@ interval=10
 
 [time]
 interval=10
+
+[do_not_disturb]
+interval=10
+signal=2
