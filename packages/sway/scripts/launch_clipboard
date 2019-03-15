@@ -15,7 +15,6 @@ LIST=(
   'Look of Disapproval'  'ಠ_ಠ'
   'Mocking SpongeBob'    'tExT'
   'Registered'           '®'
-  'Ship tits'            '( . Y . )'
   'Shrug'                '¯\_(ツ)_/¯'
   'Trademark'            '™'
   'Upside Down'          'ʇxǝʇ'
@@ -79,16 +78,6 @@ fi
 
 if [[ "${TYPE}" =~ 'Bullshit generator*' ]]; then
     swaymsg clipboard "$( bullshit-generator )"
-  exit
-fi
-
-if [[ "${TYPE}" =~ 'Ship tits*' ]]; then
-  # using xclip instead of swaymsg clipboard
-  # because the latter is buggy for this case
-  # https://github.com/swaywm/sway/issues/2133
-  #
-  # #FIXME: not sure why I need to use nohup there too
-  nohup sh -c "ship-tits | xclip -selection clipboard" &> /dev/null
   exit
 fi
 
