@@ -39,9 +39,6 @@ alias status='
 # generate a password (mainly used to encrypt files to share)
 alias passwdgen='< /dev/urandom tr --delete --complement "[:graph:]" | head --bytes 30; echo'
 
-# innocent looking name for hacker typer
-alias manual-process=hacker-typer
-
 # retrieve my public IP
 alias myip='https api.ipify.org'
 
