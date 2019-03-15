@@ -32,14 +32,6 @@ if [ "$?" -eq 2 ]; then
   fi
 fi
 
-TRAPUSR1()
-{
-  # display bsod starting on a new clean line
-  echo
-  bsod
-  reset
-}
-
 ### Fish-like autosuggestions
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
