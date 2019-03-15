@@ -3,7 +3,6 @@
 typeset -A LIST
 
 LIST=(
-  'Bullshit generator'   '24/7 viral metrics'
   'Cool'                 '(⌐■_■)'
   'Copyright'            '©'
   'Degree'               '°'
@@ -73,11 +72,6 @@ fi
 if [[ "${TYPE}" =~ 'Flipping text*' ]]; then
   echo '(╯°□°)╯︵ǝlʎʇs oʇ ʇxǝʇ ǝɥʇ ǝdʎʇ'
   swaymsg clipboard "(╯°□°)╯︵$( text-style upside_down )"
-  exit
-fi
-
-if [[ "${TYPE}" =~ 'Bullshit generator*' ]]; then
-    swaymsg clipboard "$( bullshit-generator )"
   exit
 fi
 
