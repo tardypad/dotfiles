@@ -44,10 +44,4 @@ weechat:
 		--output "$(DESTDIR)$(HOME)/.weechat/python/vimode.py"
 	@ln -fs ../vimode.py "$(DESTDIR)$(HOME)/.weechat/python/autoload/vimode.py"
 
-  # install go.py script
-	@curl --silent --location --create-dirs \
-		https://raw.githubusercontent.com/weechat/scripts/dc9e69f37fcdc51f0f5a8856ef977ee3d8d8e371/python/go.py \
-		--output "$(DESTDIR)$(HOME)/.weechat/python/go.py"
-	@ln -fs ../go.py "$(DESTDIR)$(HOME)/.weechat/python/autoload/go.py"
-
 	$(end_setup)
