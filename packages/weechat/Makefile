@@ -29,25 +29,25 @@ weechat:
   # version from github is more recent than one in weechat scripts repo
 	@curl --silent --location --create-dirs \
 		https://raw.githubusercontent.com/rawdigits/wee-slack/v2.2.0/wee_slack.py \
-		--output "$(DESTDIR)$(HOME)/.weechat/python/wee_slack.py"; \
-	ln -fs ../wee_slack.py "$(DESTDIR)$(HOME)/.weechat/python/autoload/wee_slack.py"; \
+		--output "$(DESTDIR)$(HOME)/.weechat/python/wee_slack.py"
+	@ln -fs ../wee_slack.py "$(DESTDIR)$(HOME)/.weechat/python/autoload/wee_slack.py"
 
   # install colorize_nicks.py script
 	@curl --silent --location --create-dirs \
 		https://raw.githubusercontent.com/weechat/scripts/ffda2e03486d1e90983a35ee3505b84d10fd5244/python/colorize_nicks.py \
-		--output "$(DESTDIR)$(HOME)/.weechat/python/colorize_nicks.py"; \
-	ln -fs ../colorize_nicks.py "$(DESTDIR)$(HOME)/.weechat/python/autoload/colorize_nicks.py"; \
+		--output "$(DESTDIR)$(HOME)/.weechat/python/colorize_nicks.py"
+	@ln -fs ../colorize_nicks.py "$(DESTDIR)$(HOME)/.weechat/python/autoload/colorize_nicks.py"
 
   # install vimode script
 	@curl --silent --location --create-dirs \
 		https://raw.githubusercontent.com/GermainZ/weechat-vimode/95661a27f92dc3f3286cf1539ab112a81ad15639/vimode.py \
-		--output "$(DESTDIR)$(HOME)/.weechat/python/vimode.py"; \
-	ln -fs ../vimode.py "$(DESTDIR)$(HOME)/.weechat/python/autoload/vimode.py"; \
+		--output "$(DESTDIR)$(HOME)/.weechat/python/vimode.py"
+	@ln -fs ../vimode.py "$(DESTDIR)$(HOME)/.weechat/python/autoload/vimode.py"
 
   # install go.py script
 	@curl --silent --location --create-dirs \
 		https://raw.githubusercontent.com/weechat/scripts/dc9e69f37fcdc51f0f5a8856ef977ee3d8d8e371/python/go.py \
-		--output "$(DESTDIR)$(HOME)/.weechat/python/go.py"; \
-	ln -fs ../go.py "$(DESTDIR)$(HOME)/.weechat/python/autoload/go.py"; \
+		--output "$(DESTDIR)$(HOME)/.weechat/python/go.py"
+	@ln -fs ../go.py "$(DESTDIR)$(HOME)/.weechat/python/autoload/go.py"
 
 	$(end_setup)
