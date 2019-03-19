@@ -3,7 +3,6 @@ weechat:
 
     # create necessary installation directories
 	@mkdir --parents $(DESTDIR)$(HOME)/.weechat/python/autoload
-	@mkdir --parents $(DESTDIR)$(HOME)/.weechat/perl/autoload
 
 	$(call copy_file,config.d/alias.conf,$(HOME)/.weechat/alias.conf)
 	$(call copy_file,config.d/aspell.conf,$(HOME)/.weechat/aspell.conf)
