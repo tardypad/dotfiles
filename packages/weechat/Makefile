@@ -25,6 +25,9 @@ weechat:
 	$(call copy_file,plugins/go_fzf_tmux.py,$(HOME)/.weechat/python/go_fzf_tmux.py)
 	@ln -fs ../go_fzf_tmux.py "$(DESTDIR)$(HOME)/.weechat/python/autoload/go_fzf_tmux.py"
 
+	$(call copy_file,plugins/edit_vim_tmux.py,$(HOME)/.weechat/python/edit_vim_tmux.py)
+	@ln -fs ../edit_vim_tmux.py "$(DESTDIR)$(HOME)/.weechat/python/autoload/edit_vim_tmux.py"
+
   # install wee-slack
   # version from github is more recent than one in weechat scripts repo
 	@curl --silent --location --create-dirs \
