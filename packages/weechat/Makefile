@@ -14,8 +14,6 @@ weechat:
 	$(call copy_file,config.d/fset.conf,$(HOME)/.weechat/fset.conf)
 	$(call copy_file,config.d/irc.conf,$(HOME)/.weechat/irc.conf)
 	$(call copy_file,config.d/logger.conf,$(HOME)/.weechat/logger.conf)
-	$(call copy_file,config.d/lua.conf,$(HOME)/.weechat/lua.conf)
-	$(call copy_file,config.d/perl.conf,$(HOME)/.weechat/perl.conf)
 	$(call copy_file,config.d/plugins.conf,$(HOME)/.weechat/plugins.conf)
 	$(call copy_file,config.d/python.conf,$(HOME)/.weechat/python.conf)
 	$(call copy_file,config.d/relay.conf,$(HOME)/.weechat/relay.conf)
