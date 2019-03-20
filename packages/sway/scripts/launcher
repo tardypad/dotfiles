@@ -3,8 +3,7 @@
 COMMAND="$@"
 
 # try to focus existing window if it exists
-FOCUS=$(swaymsg -t command '[title="sway_launcher"]' focus)
-[[ ! "${FOCUS}" =~ 'error' ]] && exit
+focus_window_title 'sway_launcher' && exit
 
 # launch new launcher otherwise
 #

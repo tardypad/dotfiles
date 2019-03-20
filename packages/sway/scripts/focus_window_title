@@ -1,27 +1,18 @@
 #! /usr/bin/env zsh
 
 # small wrapper to focus a window by title
-# returns proper status code for error/success
 
 TITLE="$1"
 
-FOCUS=$(
-  swaymsg -t command "[title=\"${TITLE}\"]" focus
-)
-
-# error happens if the window doesn't exist
-[[ "${FOCUS}" =~ 'error' ]] && exit 1
-
-SCRATCHPAD_FOCUSED=$(
+# find window id in tree
+WINDOW_ID=$(
   swaymsg -t get_tree \
-    | jq ".scratchpad[] | select(.name==\"${TITLE}\") | .focused"
+    | jq "recurse(.floating_nodes[]?,.nodes[]?)
+          | select(.name == \"${TITLE}\" and (.type == \"con\" or .type == \"floating_con\") )
+          | .id"
 )
 
-if [[ "${SCRATCHPAD_FOCUSED}" == 'false' ]]; then
-  # focus didn't raise an error but
-  # the window is still hidden in the scratchpad
-  swaymsg -t command \
-    "[title=\"${TITLE}\"]" scratchpad show
-fi
+# error out if window with such title doesn't exist
+[[ -z "${WINDOW_ID}" ]] && exit 1
 
-exit 0
+swaymsg -t command "[con_id=\"${WINDOW_ID}\"]" focus

@@ -9,7 +9,7 @@ init_variables() {
 
   CURRENT_SWAY_WINDOW=$(
     swaymsg -t get_tree \
-      | jq 'recurse(.nodes[]) | select(.focused == true)'
+      | jq 'recurse(.nodes[]?) | select(.focused == true)'
   )
 
   CURRENT_SWAY_WINDOW_ID=$( echo "${CURRENT_SWAY_WINDOW}" | jq '.id' )
