@@ -10,7 +10,7 @@ bindsym $mod+Shift+Return exec exec_desktop_entry ~/.local/share/applications/qu
 bindsym $mod+Shift+x kill
 
 # lock the screen
-bindsym $mod+Backspace exec lockscreen
+bindsym $mod+Backspace exec swaylock
 
 # start the system launcher
 bindsym $mod+Shift+Backspace exec launcher launch_system

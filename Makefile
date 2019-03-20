@@ -51,6 +51,7 @@ include packages/qutebrowser/Makefile
 include packages/rbtools/Makefile
 include packages/tmux/Makefile
 include packages/sway/Makefile
+include packages/swaylock/Makefile
 include packages/systemd/Makefile
 include packages/termite/Makefile
 include packages/translate-shell/Makefile

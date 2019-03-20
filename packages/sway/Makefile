@@ -7,7 +7,6 @@ sway:
 	$(call copy_folder,config.d,${CONFIG_DIR}/sway/config.d)
 	$(call copy_folder,scripts,${CONFIG_DIR}/sway/scripts)
 	$(call copy_folder,applications,${DATA_DIR}/applications)
-	$(call copy_folder,images,${CONFIG_DIR}/sway/images)
 	$(call copy_folder,sounds,${CONFIG_DIR}/sway/sounds)
 
 	$(end_setup)
