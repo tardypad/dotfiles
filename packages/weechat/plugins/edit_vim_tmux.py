@@ -44,7 +44,7 @@ def process_vim_result(data, command, rc, out, err):
 
 def edit_vim_tmux_cmd(data, buf, args):
     command = ( 'tmux split-window -v -l 20 ' +
-                '"vim {}; {}" '.format(
+                '"vim +startinsert {}; {}" '.format(
                     MESSAGE_FILE_PATH,
                    'tmux wait-for -S edit_vim_tmux' ) +
                 '\; wait-for edit_vim_tmux' )
