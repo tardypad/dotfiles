@@ -23,6 +23,7 @@ def send_message():
     try:
         with open(MESSAGE_FILE_PATH) as f:
             message = f.read()
+        message = message.rstrip('\n')
         weechat.command('', message)
     except (OSError, IOError):
         pass
