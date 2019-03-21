@@ -14,4 +14,4 @@ echo -n "${PATH}" \
         --prompt 'run ' \
         --color info:8 \
   | xargs -I{} \
-    -- swaymsg -t command exec {}
+    -- swaymsg exec {}

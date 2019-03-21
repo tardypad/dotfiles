@@ -8,10 +8,10 @@ focus_window_title "${TITLE}" && exit
 # launch new app otherwise
 # needs TERM defined properly beforehand
 # for proper color within vim
-swaymsg -t command \
-  exec "termite \
-          --title \"${TITLE}\" \
-          --exec 'zsh -c \"ssh tardypad\"'"
+swaymsg exec \
+  "termite \
+   --title \"${TITLE}\" \
+   --exec 'zsh -c \"ssh tardypad\"'"
 
 # focus the window (not automatic if different workspace)
 # need to wait a bit for the window to be registered

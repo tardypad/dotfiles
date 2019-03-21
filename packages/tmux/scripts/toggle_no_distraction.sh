@@ -29,7 +29,7 @@ sway_fullscreen() {
   # maybe only for the soft mode?
   if [[ "${action}" == 'enable' && "${fullscreen_status}" = '0' ]] \
      || [[ "${action}" == 'disable' && "${fullscreen_status}" = '1' ]]; then
-    swaymsg -t command fullscreen &> /dev/null
+    swaymsg fullscreen &> /dev/null
   fi
 }
 

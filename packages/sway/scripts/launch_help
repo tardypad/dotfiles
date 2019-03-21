@@ -35,5 +35,7 @@ TOPIC=$(
 
 [[ -n "${TOPIC}" ]] || exit
 
-swaymsg -t command \
-  exec "termite --title ' Help' --exec 'tmux new-session \"rtfm ${TOPIC}\"'"
+swaymsg exec \
+  "termite \
+   --title ' Help' \
+   --exec 'tmux new-session \"rtfm ${TOPIC}\"'"

@@ -15,4 +15,4 @@ WINDOW_ID=$(
 # error out if window with such title doesn't exist
 [[ -z "${WINDOW_ID}" ]] && exit 1
 
-swaymsg -t command "[con_id=\"${WINDOW_ID}\"]" focus
+swaymsg "[con_id=\"${WINDOW_ID}\"]" focus

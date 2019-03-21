@@ -15,8 +15,8 @@ echo -n \
 
 case "${ACTION}" in
   ' Lock screen') swaylock;;
-  ' Suspend')     swaymsg -t command exec swaylock; systemctl suspend;;
-  ' Logout')      swaymsg -t command exit;;
+  ' Suspend')     swaymsg exec swaylock; systemctl suspend;;
+  ' Logout')      swaymsg exit;;
   ' Shutdown')    systemctl poweroff;;
   ' Reboot')      systemctl reboot;;
 esac

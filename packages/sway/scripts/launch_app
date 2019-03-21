@@ -77,7 +77,7 @@ if [[ -n "${SELECTED_APPS}" ]]; then
   for SELECTED_APP in $( echo ${SELECTED_APPS} ); do
     # not sure why running exec_desktop_entry directly without using swaymsg
     # doesn't work when ran from the launcher
-    swaymsg -t command \
-      exec "exec_desktop_entry ${AVAILABLE_APPS[$SELECTED_APP]}"
+    swaymsg exec \
+      "exec_desktop_entry ${AVAILABLE_APPS[$SELECTED_APP]}"
   done
 fi

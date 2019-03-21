@@ -26,4 +26,4 @@ COMMAND="\
   && rm \"${TMP_TEXT_FILE}\"\
 "
 
-swaymsg -t command exec "${COMMAND}"
+swaymsg exec "${COMMAND}"
