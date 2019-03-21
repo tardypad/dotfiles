@@ -20,6 +20,9 @@ c.url.searchengines = {
 # open new tabs from middle/ctrl click in the background
 c.tabs.background = True
 
+# only show history items in "open" completion
+c.completion.open_categories = [ "history" ]
+
 # disable Javascript everywhere by default
 # and only whitelist some regularly used patterns
 # which are trusted or don't work well without it
