@@ -2,8 +2,7 @@ sway:
 	$(start_setup)
 
 	$(call copy_file,config_variables,${CONFIG_DIR}/sway/config_variables)
-	$(call copy_file,config_desk,${CONFIG_DIR}/sway/config_desk)
-	$(call copy_file,config_laptop,${CONFIG_DIR}/sway/config_laptop)
+	$(call copy_file,config,${CONFIG_DIR}/sway/config)
 	$(call copy_folder,config.d,${CONFIG_DIR}/sway/config.d)
 	$(call copy_folder,scripts,${CONFIG_DIR}/sway/scripts)
 	$(call copy_folder,applications,${DATA_DIR}/applications)

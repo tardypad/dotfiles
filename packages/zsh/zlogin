@@ -21,14 +21,6 @@ if [[ $(tty) = /dev/tty1 ]]; then
   # Automatically start sway after login on tty 1
   if [[ -z "${DISPLAY}" ]]; then
     export XKB_DEFAULT_OPTIONS=caps:escape
-
-    # different config whether external monitor is enabled or not
-    if grep --quiet --no-messages enabled /sys/class/drm/card0-DP-1/enabled; then
-      SWAY_CONFIG_FILE=~/.config/sway/config_desk
-    else
-      SWAY_CONFIG_FILE=~/.config/sway/config_laptop
-    fi
-
-    exec sway --config "${SWAY_CONFIG_FILE}"  &>> /var/log/sway/sway.log
+    exec sway &>> /var/log/sway/sway.log
   fi
 fi
