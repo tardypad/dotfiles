@@ -84,7 +84,7 @@ case "${KEY}" in
     xdg-open "https://www.google.com/search?q=${TEXT}" > /dev/null
     ;;
   ctrl-y)
-    swaymsg clipboard "${TEXT}" > /dev/null
+    wl-copy "${TEXT}" > /dev/null
     ;;
 esac
 

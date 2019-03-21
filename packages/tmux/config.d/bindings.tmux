@@ -134,7 +134,7 @@ bind -T copy-mode-vi C-o send-keys -X copy-pipe-and-cancel "xargs -I {} tmux run
 # replacement of tmux-yank
 bind -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "tmux paste-buffer"
 %if #{DISPLAY}
-bind -T copy-mode-vi     y send-keys -X copy-pipe-and-cancel "xargs -I {} swaymsg clipboard {}"
+bind -T copy-mode-vi     y send-keys -X copy-pipe-and-cancel "xargs -I {} wl-copy {}"
 %else
 bind -T copy-mode-vi     y send-keys -X copy-selection-and-cancel
 %endif

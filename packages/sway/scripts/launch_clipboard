@@ -52,26 +52,26 @@ TYPE=$(
 # Text transformations
 if [[ "${TYPE}" =~ 'Mocking SpongeBob*' ]]; then
   echo 'TyPe ThE tExT tO sTyLe'
-  swaymsg clipboard "$( text-style mocking_spongebob )"
+  wl-copy "$( text-style mocking_spongebob )"
   exit
 fi
 
 if [[ "${TYPE}" =~ 'Upside Down*' ]]; then
   echo 'ǝlʎʇs oʇ ʇxǝʇ ǝɥʇ ǝdʎʇ'
-  swaymsg clipboard "$( text-style upside_down )"
+  wl-copy "$( text-style upside_down )"
   exit
 fi
 
 if [[ "${TYPE}" =~ 'Full Width*' ]]; then
   echo 'T Y P E   T H E   T E X T   T O   S T Y L E'
-  swaymsg clipboard "$( text-style full_width )"
+  wl-copy "$( text-style full_width )"
   exit
 fi
 
 # Special cases
 if [[ "${TYPE}" =~ 'Flipping text*' ]]; then
   echo '(╯°□°)╯︵ǝlʎʇs oʇ ʇxǝʇ ǝɥʇ ǝdʎʇ'
-  swaymsg clipboard "(╯°□°)╯︵$( text-style upside_down )"
+  wl-copy "(╯°□°)╯︵$( text-style upside_down )"
   exit
 fi
 
@@ -80,7 +80,7 @@ fi
 # to match the proper item
 for NAME in "${(@k)LIST}"; do
   if [[ "${TYPE}" =~ "${NAME}*" ]]; then
-    swaymsg clipboard  "$LIST[${NAME}]"
+    wl-copy "$LIST[${NAME}]"
     exit
   fi
 done
