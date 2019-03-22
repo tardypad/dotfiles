@@ -44,3 +44,6 @@ set $ws10 "10  Web"
 include config.d/*
 
 exec systemctl --user import-environment DISPLAY SWAYSOCK
+
+# start notification daemon
+exec mako

@@ -42,6 +42,7 @@ include packages/httpie/Makefile
 include packages/i3blocks/Makefile
 include packages/less/Makefile
 include packages/libqalculate/Makefile
+include packages/mako/Makefile
 include packages/mopidy/Makefile
 include packages/ncmpcpp/Makefile
 include packages/neomutt/Makefile
