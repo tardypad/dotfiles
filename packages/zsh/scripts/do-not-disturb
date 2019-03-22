@@ -32,9 +32,9 @@ error() {
 
 
 dnd_enable() {
-  echo '/slack away' | weechat-fifo 2> /dev/null
+  echo '/slack away' | weechat-fifo 2> /dev/null &
 
-  ssh status busy 'Do not disturb' 2> /dev/null
+  ssh status busy 'Do not disturb' 2> /dev/null &
 
   # function return value from file creation
   touch "${FILE_PATH}"
@@ -42,9 +42,9 @@ dnd_enable() {
 
 
 dnd_disable() {
-  echo '/slack back' | weechat-fifo 2> /dev/null
+  echo '/slack back' | weechat-fifo 2> /dev/null &
 
-  ssh status available 2> /dev/null
+  ssh status available 2> /dev/null &
 
   # function return value from file deletion
   rm -f "${FILE_PATH}"
