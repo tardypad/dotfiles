@@ -1,0 +1,17 @@
+bar {
+    position top
+    font Source Sans Pro, Font Awesome 5 Free 14
+    binding_mode_indicator yes
+    colors {
+        statusline $foreground
+        background $background
+        focused_workspace $base08 $base08 $base00
+        inactive_workspace $background $background $foreground
+        active_workspace $background $background $base08
+        binding_mode $notice $notice $base00
+    }
+
+    # status part
+    status_command i3blocks
+    separator_symbol ' '
+}
