@@ -1,0 +1,25 @@
+font=Source Sans Pro, Font Awesome 5 Free 14
+edge=top
+
+border-bottom-size=1
+message-padding=2
+details-border-size=1
+button-border-size=1
+button-gap=15
+button-dismiss-gap=50
+button-margin-right=3
+button-padding=1
+
+[error]
+background={color/error/hex}
+border={color/base04/hex}
+border-bottom={color/error/hex}
+button-background={color/base04/hex}
+text={color/base00/hex}
+
+[warning]
+background={color/warning/hex}
+border={color/base04/hex}
+border-bottom={color/warning/hex}
+button-background={color/base04/hex}
+text={color/base00/hex}
