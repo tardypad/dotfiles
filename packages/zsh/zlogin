@@ -20,7 +20,6 @@ if [[ $(tty) = /dev/tty1 ]]; then
 
   # Automatically start sway after login on tty 1
   if [[ -z "${DISPLAY}" ]]; then
-    export XKB_DEFAULT_OPTIONS=caps:escape
     exec sway &>> /var/log/sway/sway.log
   fi
 fi
