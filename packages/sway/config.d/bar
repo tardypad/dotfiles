@@ -2,13 +2,21 @@ bar {
     position top
     font Source Sans Pro, Font Awesome 5 Free 14
     binding_mode_indicator yes
+
     colors {
-        statusline $foreground
-        background $background
-        focused_workspace $base08 $base08 $base00
+        background         $background
+        statusline         $foreground
+        separator          $foreground
+        focused_background $background
+        focused_statusline $foreground
+        focused_separator  $foreground
+
+        focused_workspace  $base08     $base08     $base00
         inactive_workspace $background $background $foreground
-        active_workspace $background $background $base08
-        binding_mode $notice $notice $base00
+        active_workspace   $background $background $base08
+        urgent_workspace   $notice     $notice     $base00
+
+        binding_mode $background $background $notice
     }
 
     # status part
