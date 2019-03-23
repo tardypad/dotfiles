@@ -1,12 +1,15 @@
 #!/usr/bin/env zsh
 
-TMP_RESULT_FILE=$(mktemp)
+# #HACK: to prevent multiple display of this notification
+# the trigger of this notification should be made outside of i3blocks
+# to not be coupled with the interval defined there
+makoctl dismiss --all
 
-cat << EOF > "${TMP_RESULT_FILE}"
+notify-send \
+  --category 'alert' \
+  'Low battery' \
+  'Battery level is getting low'
 
-Battery level is getting low.
-EOF
-
-notification 'Low battery alert' "${TMP_RESULT_FILE}"
-
-aplay "${XDG_CONFIG_HOME:-$HOME/.config}/sway/sounds/low_battery.wav"
+aplay \
+  "${XDG_CONFIG_HOME:-$HOME/.config}/sway/sounds/low_battery.wav" \
+  2> /dev/null
