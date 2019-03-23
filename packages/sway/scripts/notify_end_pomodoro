@@ -1,12 +1,11 @@
 #!/usr/bin/env zsh
 
-TMP_RESULT_FILE=$(mktemp)
+notify-send \
+  --expire-time 5000 \
+  --category 'notice' \
+  'Pomodoro end' \
+  'Take a break'
 
-cat << EOF > "${TMP_RESULT_FILE}"
-
-Take a break
-EOF
-
-notification 'Pomodoro end' "${TMP_RESULT_FILE}"
-
-aplay "${XDG_CONFIG_HOME:-$HOME/.config}/sway/sounds/end_pomodoro.wav"
+aplay \
+  "${XDG_CONFIG_HOME:-$HOME/.config}/sway/sounds/end_pomodoro.wav" \
+  2> /dev/null
