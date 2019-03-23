@@ -42,7 +42,7 @@ ifeq ($(IS_LOCAL_INSTALL),'true')
 		> /dev/null 2>&1
 
     # generate spell file
-	@vim +"mkspell $(HOME)/.vim/spell/en.utf-8.add.spl $(HOME)/.vim/spell/en.utf-8.add" +qall \
+	@vim +"mkspell! $(HOME)/.vim/spell/en.utf-8.add.spl $(HOME)/.vim/spell/en.utf-8.add" +qall \
 		> /dev/null 2>&1
 endif
 
