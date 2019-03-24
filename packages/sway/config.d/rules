@@ -9,18 +9,6 @@ for_window [title="sway_monitor"] floating enable, \
 for_window [title="sway_launcher"] floating enable, \
                                    resize set 700 400
 
-# display notification as floating window
-# move it at the maximum top right corner
-# and then remove it back a bit to create small margin around
-for_window [title="sway_notification.*"] floating enable, \
-                                         sticky enable, \
-                                         resize set 500 300, \
-                                         move right 3000, \
-                                         move up 3000, \
-                                         move left 30, \
-                                         move down 30
-no_focus [title="sway_notification.*"]
-
 # assign specific windows to workspaces
 assign [title=" Projects environment"] $ws1
 assign [title=" .*server.*"] $ws2
