@@ -7,10 +7,15 @@
 makoctl dismiss --all
 
 TYPE="$1"
-SESSION_NAME="$2"
-WINDOW_NAME="$3"
+SOCKET_NAME="$2"
+SESSION_NAME="$3"
+WINDOW_NAME="$4"
+
+MESSAGE="socket: ${SOCKET_NAME}\n"
+MESSAGE+="session: ${SESSION_NAME}\n"
+MESSAGE+="window: ${WINDOW_NAME}"
 
 notify-send \
   --category 'notice' \
   "Tmux ${TYPE} detected" \
-  "session: ${SESSION_NAME}\nwindow: ${WINDOW_NAME}"
+  "${MESSAGE}"

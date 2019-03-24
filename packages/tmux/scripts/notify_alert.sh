@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
 ALERT_TYPE="$1"
-ALERT_SESSION_ID="$2"
-ALERT_WINDOW_ID="$3"
+ALERT_SOCKET_PATH="$2"
+ALERT_SESSION_ID="$3"
+ALERT_WINDOW_ID="$4"
 
 CURRENT_SESSION_WINDOW=$(
   tmux list-sessions \
@@ -36,5 +37,11 @@ MESSAGE+=" window \"${ALERT_WINDOW_NAME}\""
 tmux display-message "${MESSAGE}"
 
 if [[ -n ${DISPLAY} ]]; then
-  notify_tmux_alert "${ALERT_TYPE}" "${ALERT_SESSION_NAME}" "${ALERT_WINDOW_NAME}"
+  ALERT_SOCKET_NAME=${ALERT_SOCKET_PATH##*/}
+
+  notify_tmux_alert \
+    "${ALERT_TYPE}" \
+    "${ALERT_SOCKET_NAME}" \
+    "${ALERT_SESSION_NAME}" \
+    "${ALERT_WINDOW_NAME}"
 fi

@@ -110,6 +110,6 @@ set -g silence-action any
 # custom handling of activity/bell/silence alerts
 # to manage alerts across sessions (not supported by default)
 # session id starts with '$' so it needs to be quoted not be interpreted as a variable
-set-hook -g alert-activity "run \"~/.tmux/scripts/notify_alert.sh activity '#{session_id}' #{window_id}\""
-set-hook -g alert-bell "run \"~/.tmux/scripts/notify_alert.sh bell '#{session_id}' #{window_id}\""
-set-hook -g alert-silence "run \"~/.tmux/scripts/notify_alert.sh silence '#{session_id}' #{window_id}\""
+set-hook -g alert-activity "run \"~/.tmux/scripts/notify_alert.sh activity '#{socket_path}' '#{session_id}' #{window_id}\""
+set-hook -g alert-bell "run \"~/.tmux/scripts/notify_alert.sh bell '#{socket_path}' '#{session_id}' #{window_id}\""
+set-hook -g alert-silence "run \"~/.tmux/scripts/notify_alert.sh silence '#{socket_path}' '#{session_id}' #{window_id}\""
