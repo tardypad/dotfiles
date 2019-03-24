@@ -12,6 +12,12 @@ bindsym $mod+Shift+x kill
 # lock the screen
 bindsym $mod+Backspace exec swaylock
 
+# dismiss first notification
+bindsym $mod+Ctrl+x exec makoctl dismiss
+
+# dismiss all notifications
+bindsym $mod+Ctrl+Shift+x exec makoctl dismiss --all
+
 # start the system launcher
 bindsym $mod+Shift+Backspace exec launcher launch_system
 
