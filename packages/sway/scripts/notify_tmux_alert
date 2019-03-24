@@ -20,7 +20,7 @@ notify-send \
   "Tmux ${TYPE} detected" \
   "${MESSAGE}"
 
-WINDOW_MARK=tmux_alert
+WINDOW_MARK=_tmux_alert
 WINDOW_MARK+="_${SOCKET_NAME}"
 WINDOW_MARK+="_${SESSION_ID}"
 WINDOW_MARK+="_${WINDOW_ID}"

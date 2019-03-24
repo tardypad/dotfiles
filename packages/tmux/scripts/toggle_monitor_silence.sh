@@ -15,7 +15,7 @@ else
   STATUS='enabled'
 
   if [[ -n ${DISPLAY} ]]; then
-    WINDOW_MARK=tmux_alert
+    WINDOW_MARK=_tmux_alert
     WINDOW_MARK+="_${SOCKET_PATH##*/}"
     WINDOW_MARK+="_${SESSION_ID#$}"
     WINDOW_MARK+="_${WINDOW_ID#@}"

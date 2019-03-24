@@ -3,3 +3,6 @@ focus_follows_mouse no
 
 # disable auto back and forth workspaces switching
 workspace_auto_back_and_forth no
+
+# hide marks from window borders
+show_marks no
