@@ -6,13 +6,8 @@ COMMAND="$@"
 focus_window_title 'sway_launcher' && exit
 
 # launch new launcher otherwise
-#
-# #HACK: need to set termite size at start,
-# also present in sway rules, to have it respected
-# and to have the window centered when floating
 swaymsg exec \
   "termite \
    --exec \"${COMMAND}\" \
    --config ${HOME}/.config/termite/config_launcher \
-   --title sway_launcher \
-   --geometry 700x400"
+   --title sway_launcher"
