@@ -94,17 +94,8 @@ bindsym $mod+Shift+0 move container to workspace $ws10, workspace $ws10
 bindsym $mod+n workspace next_on_output
 bindsym $mod+p workspace prev_on_output
 
-# repeat switch workspace command goes back to previous workspace
-workspace_auto_back_and_forth yes
-
-# go back to previous workspace
-# (needs previous setting to work)
-bindsym $mod+a exec sh -c " \
-  swaymsg -t get_workspaces \
-  | jq '.[]|select(.focused==true)|.name' \
-  | xargs -I {} swaymsg workspace {} \
-  "
-
+# go back to previously focused workspace
+bindsym $mod+a workspace back_and_forth
 
 ### Layout stuff
 
