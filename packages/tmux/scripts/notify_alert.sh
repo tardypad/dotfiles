@@ -23,11 +23,11 @@ MESSAGE+=" window \"${ALERT_WINDOW_NAME}\""
 tmux display-message "${MESSAGE}"
 
 if [[ -n ${DISPLAY} ]]; then
-  ALERT_SOCKET_NAME=${ALERT_SOCKET_PATH##*/}
-
   notify_tmux_alert \
     "${ALERT_TYPE}" \
-    "${ALERT_SOCKET_NAME}" \
+    "${ALERT_SOCKET_PATH##*/}" \
+    "${ALERT_SESSION_ID#$}" \
     "${ALERT_SESSION_NAME}" \
+    "${ALERT_WINDOW_ID#@}" \
     "${ALERT_WINDOW_NAME}"
 fi

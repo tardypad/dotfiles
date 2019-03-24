@@ -19,8 +19,8 @@ bind C-d detach-client
 bind   : command-prompt
 bind   ? list-keys
 bind M-m show-messages
-bind M-a run "~/.tmux/scripts/toggle_monitor_activity.sh"
-bind M-s run "~/.tmux/scripts/toggle_monitor_silence.sh"
+bind M-a run "~/.tmux/scripts/toggle_monitor_activity.sh '#{socket_path}' '#{session_id}' '#{window_id}'"
+bind M-s run "~/.tmux/scripts/toggle_monitor_silence.sh '#{socket_path}' '#{session_id}' '#{window_id}'"
 bind M-b choose-buffer -Z -F '#{buffer_sample}' -O time
 bind M-l clear-history \; \
          display-message "Pane history cleared"
