@@ -5,6 +5,15 @@ ALERT_SOCKET_PATH="$2"
 ALERT_SESSION_ID="$3"
 ALERT_WINDOW_ID="$4"
 
+# disable alerts after trigger
+tmux \
+  set-window-option \
+    -t "${ALERT_SESSION_ID}:${ALERT_WINDOW_ID}" \
+    monitor-activity off \; \
+  set-window-option \
+    -t "${ALERT_SESSION_ID}:${ALERT_WINDOW_ID}" \
+    monitor-silence 0
+
 ALERT_SESSION_NAME=$(
   tmux list-sessions -F '#{session_id} #{session_name}' \
     | grep "^${ALERT_SESSION_ID} " \
