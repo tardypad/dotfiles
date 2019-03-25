@@ -1,3 +1,5 @@
+layer=overlay
+
 font=Source Sans Pro, Font Awesome 5 Free 14
 
 background-color=#{color/background/hex}
