@@ -8,15 +8,11 @@ LIST=(
   'Degree'               '°'
   'Euro'                 '€'
   'Flipping table'       '(╯°□°)╯︵┻━┻'
-  'Flipping text'        '(╯°□°)╯︵ʇxǝʇ'
-  'Full Width'           'T E X T'
   'Happy Gary'           'ᕕ(ᐛ)ᕗ'
   'Look of Disapproval'  'ಠ_ಠ'
-  'Mocking SpongeBob'    'tExT'
   'Registered'           '®'
   'Shrug'                '¯\_(ツ)_/¯'
   'Trademark'            '™'
-  'Upside Down'          'ʇxǝʇ'
 )
 
 display_item() {
@@ -45,33 +41,6 @@ TYPE=$(
 )
 
 [[ -n "${TYPE}" ]] || exit
-
-
-# Text transformations
-if [[ "${TYPE}" =~ 'Mocking SpongeBob*' ]]; then
-  echo 'TyPe ThE tExT tO sTyLe'
-  wl-copy "$( text-style mocking_spongebob )"
-  exit
-fi
-
-if [[ "${TYPE}" =~ 'Upside Down*' ]]; then
-  echo 'ǝlʎʇs oʇ ʇxǝʇ ǝɥʇ ǝdʎʇ'
-  wl-copy "$( text-style upside_down )"
-  exit
-fi
-
-if [[ "${TYPE}" =~ 'Full Width*' ]]; then
-  echo 'T Y P E   T H E   T E X T   T O   S T Y L E'
-  wl-copy "$( text-style full_width )"
-  exit
-fi
-
-if [[ "${TYPE}" =~ 'Flipping text*' ]]; then
-  echo '(╯°□°)╯︵ǝlʎʇs oʇ ʇxǝʇ ǝɥʇ ǝdʎʇ'
-  wl-copy "(╯°□°)╯︵$( text-style upside_down )"
-  exit
-fi
-
 
 for NAME in "${(@k)LIST}"; do
   # regex comparison don't seem to work on some non ASCII characters
