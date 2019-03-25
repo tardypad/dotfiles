@@ -4,7 +4,7 @@ Basic utilities
 
 Source [GNU](http://git.savannah.gnu.org/cgit/coreutils.git/)
 
-Version [8.30](http://git.savannah.gnu.org/cgit/coreutils.git/tag/?h=v8.30)
+Version [8.31](http://git.savannah.gnu.org/cgit/coreutils.git/tag/?h=v8.31)
 
 ## Extras
 
