@@ -127,6 +127,7 @@ Doesn't include (yet?) the following kind of packages:
 | networkmanager         | network manager                      | [freedesktop.org](https://cgit.freedesktop.org/NetworkManager/NetworkManager)          | [1.16.0](https://cgit.freedesktop.org/NetworkManager/NetworkManager/tag/?h=1.16.0)                                     |
 | pacman-contrib         | extra pacman scripts                 | [Arch Linux](https://git.archlinux.org/pacman-contrib.git/)                            | [1.1.0](https://git.archlinux.org/pacman-contrib.git/tag/?h=v1.1.0)                                                    |
 | pass                   | password manager                     | [zx2c4.com](https://git.zx2c4.com/password-store/)                                     | [1.7.3](https://git.zx2c4.com/password-store/tag/?h=1.7.3)                                                             |
+| swayidle               | idle management daemon               | [Github](https://github.com/swaywm/swayidle)                                           | [1.2](https://github.com/swaywm/swayidle/releases/tag/1.2)                                                             |
 | the_silver_searcher    | code search                          | [Github](https://github.com/ggreer/the_silver_searcher)                                | [2.2.0](https://github.com/ggreer/the_silver_searcher/releases/tag/2.2.0)                                              |
 
 
