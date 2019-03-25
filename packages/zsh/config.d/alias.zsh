@@ -83,8 +83,3 @@ alias ungron="gron --ungron"
 
 # Silver searcher default options
 alias ag='ag --color-match="1;{color/search_match/fg}" --color-path="{color/base09/fg}" --color-line-number="{color/base0A/fg}" --case-sensitive --skip-vcs-ignores --follow'
-
-# quick temper
-alias :w="echo 'Do I look like vim to you?...'; emoji-animate disapprove"
-alias :wq=:w
-alias :q=:w
