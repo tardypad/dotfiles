@@ -22,11 +22,9 @@ LIST=(
 display_item() {
   local name="$1"
 
-  # #FIXME: there is a length calculation issue for character such as ツ
-  # which are counted as 1 but are displayed on 2 cells
   local item=$LIST[${NAME}]
   local filler_length=$((
-    COLUMNS - ${#name} - ${#item} - 8
+    30 - ${#name}
   ))
   local filler="${(l.$filler_length.. .)}"
 
@@ -68,18 +66,17 @@ if [[ "${TYPE}" =~ 'Full Width*' ]]; then
   exit
 fi
 
-# Special cases
 if [[ "${TYPE}" =~ 'Flipping text*' ]]; then
   echo '(╯°□°)╯︵ǝlʎʇs oʇ ʇxǝʇ ǝɥʇ ǝdʎʇ'
   wl-copy "(╯°□°)╯︵$( text-style upside_down )"
   exit
 fi
 
-# #FIXME: if there ever are 2 items where one full name is the beginning of another
-# then the loop search will need to start with items of longer length
-# to match the proper item
+
 for NAME in "${(@k)LIST}"; do
-  if [[ "${TYPE}" =~ "${NAME}*" ]]; then
+  # regex comparison don't seem to work on some non ASCII characters
+  # so we check only the name part
+  if [[ "${TYPE}" =~ "${NAME}     .*" ]]; then
     wl-copy "$LIST[${NAME}]"
     exit
   fi
