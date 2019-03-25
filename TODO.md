@@ -43,7 +43,5 @@
     * [vim limelight](https://github.com/junegunn/limelight.vim)
     * [vim goyo](https://github.com/junegunn/goyo.vim)
   - vim debugger [vdebug](https://github.com/joonty/vdebug)
-  - once using Sway 1.0, evaluate third party clients as defined in  
-    [Drew Devault blog post](https://drewdevault.com/2018/10/20/Sway-1.0-highlights.html)
   - Time tracker  
     with maybe integration to JIRA via [go-jira](https://github.com/Netflix-Skunkworks/go-jira)
