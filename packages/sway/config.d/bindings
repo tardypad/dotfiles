@@ -18,6 +18,9 @@ bindsym $mod+Ctrl+x exec makoctl dismiss
 # dismiss all notifications
 bindsym $mod+Ctrl+Shift+x exec makoctl dismiss --all
 
+# focus first window with urgent flag
+bindsym $mod+u [urgent="first"] focus
+
 # start the system launcher
 bindsym $mod+Shift+Backspace exec launcher launch_system
 
