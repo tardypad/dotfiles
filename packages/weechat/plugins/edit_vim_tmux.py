@@ -9,6 +9,8 @@ IMPORT_OK = True
 
 import os
 import os.path
+import shlex
+import subprocess
 
 MESSAGE_FILE_PATH = os.path.expanduser('~/.weechat/message.txt')
 
@@ -43,7 +45,7 @@ def process_vim_result(data, command, rc, out, err):
     return weechat.WEECHAT_RC_OK
 
 
-def edit_vim_tmux_cmd(data, buf, args):
+def run_within_tmux():
     command = ( 'tmux split-window -v -l 20 ' +
                 '"vim +startinsert {}; {}" '.format(
                     MESSAGE_FILE_PATH,
@@ -53,6 +55,26 @@ def edit_vim_tmux_cmd(data, buf, args):
     if not weechat.hook_process(command, 0, 'process_vim_result', ''):
         return weechat.WEECHAT_RC_ERROR
     return weechat.WEECHAT_RC_OK
+
+
+def run_blocking():
+    command = 'vim +startinsert {}'.format(MESSAGE_FILE_PATH)
+    code = subprocess.Popen(shlex.split(command)).wait()
+
+    if code == 0:
+        send_message()
+    cleanup()
+
+    weechat.command('', "/window refresh")
+
+    return weechat.WEECHAT_RC_OK
+
+
+def edit_vim_tmux_cmd(data, buf, args):
+    if os.environ.get('TMUX'):
+        return run_within_tmux()
+    else:
+        return run_blocking()
 
 
 def edit_vim_tmux_main():
