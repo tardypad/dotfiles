@@ -163,24 +163,24 @@ bindsym $mod+r mode "resize"
 
 
 # Volume keys
-bindsym XF86AudioRaiseVolume exec amixer -q set Master unmute 5%+ \
-                                  && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioLowerVolume exec amixer -q set Master unmute 5%- \
-                                  && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioMute        exec amixer -q set Master toggle \
-                                  && pkill -RTMIN+1 i3blocks
+bindsym --locked XF86AudioRaiseVolume exec amixer -q set Master unmute 5%+ \
+                                           && pkill -RTMIN+1 i3blocks
+bindsym --locked XF86AudioLowerVolume exec amixer -q set Master unmute 5%- \
+                                           && pkill -RTMIN+1 i3blocks
+bindsym --locked XF86AudioMute        exec amixer -q set Master toggle \
+                                           && pkill -RTMIN+1 i3blocks
 
 # Microphone key
-bindsym XF86AudioMicMute exec amixer -q set Capture toggle
+bindsym --locked XF86AudioMicMute exec amixer -q set Capture toggle
 
 # Backlight keys
-bindsym XF86MonBrightnessUp   exec light -A 10
-bindsym XF86MonBrightnessDown exec light -U 10
+bindsym --locked XF86MonBrightnessUp   exec light -A 10
+bindsym --locked XF86MonBrightnessDown exec light -U 10
 
 # Media keys
-bindsym XF86AudioPlay exec mpc toggle \
-                           && pkill -RTMIN+3 i3blocks
-bindsym XF86AudioNext exec mpc next \
-                           && pkill -RTMIN+3 i3blocks
-bindsym XF86AudioPrev exec mpc prev \
-                           && pkill -RTMIN+3 i3blocks
+bindsym --locked XF86AudioPlay exec mpc toggle \
+                                    && pkill -RTMIN+3 i3blocks
+bindsym --locked XF86AudioNext exec mpc next \
+                                    && pkill -RTMIN+3 i3blocks
+bindsym --locked XF86AudioPrev exec mpc prev \
+                                    && pkill -RTMIN+3 i3blocks
