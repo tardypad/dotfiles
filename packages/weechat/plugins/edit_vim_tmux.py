@@ -20,6 +20,15 @@ except ImportError:
     print('This script must be run under WeeChat.')
     IMPORT_OK = False
 
+SETTINGS = {
+    'tmux_split_options': (
+        '-v -l 20',
+        'Options for tmux split window command'),
+    'vim_options': (
+        '+startinsert',
+        'Options for vim command'),
+}
+
 
 def send_message():
     try:
@@ -46,8 +55,10 @@ def process_vim_result(data, command, rc, out, err):
 
 
 def run_within_tmux():
-    command = ( 'tmux split-window -v -l 20 ' +
-                '"vim +startinsert {}; {}" '.format(
+    command = ( 'tmux split-window {} '.format(
+                    weechat.config_get_plugin('tmux_split_options')) +
+                '"vim {} -- {}; {}" '.format(
+                    weechat.config_get_plugin('vim_options'),
                     MESSAGE_FILE_PATH,
                    'tmux wait-for -S edit_vim_tmux' ) +
                 '\; wait-for edit_vim_tmux' )
@@ -58,7 +69,9 @@ def run_within_tmux():
 
 
 def run_blocking():
-    command = 'vim +startinsert {}'.format(MESSAGE_FILE_PATH)
+    command = 'vim {} -- {}'.format(
+                weechat.config_get_plugin('vim_options'),
+                MESSAGE_FILE_PATH)
     code = subprocess.Popen(shlex.split(command)).wait()
 
     if code == 0:
@@ -84,6 +97,12 @@ def edit_vim_tmux_main():
     weechat.hook_command(
         SCRIPT_COMMAND, SCRIPT_DESC,
         '', '', '', 'edit_vim_tmux_cmd', '')
+
+    for option, value in SETTINGS.items():
+        if not weechat.config_is_set_plugin(option):
+            weechat.config_set_plugin(option, value[0])
+            weechat.config_set_desc_plugin(
+                option, '%s (default: "%s")' % (value[1], value[0]))
 
 
 if __name__ == '__main__' and IMPORT_OK:

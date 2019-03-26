@@ -17,6 +17,11 @@ except ImportError:
     print('This script must be run under WeeChat.')
     IMPORT_OK = False
 
+SETTINGS = {
+    'fzf_options': (
+        '-d 20',
+        'Options for fzf command'),
+}
 
 def get_buffers():
     buffers = []
@@ -37,13 +42,13 @@ def process_fzf_result(data, command, rc, out, err):
 
 def switch_to_buffer(out):
     selected = out.strip('\n')
-    weechat.command('', '/buffer {0}'.format(selected))
+    weechat.command('', '/buffer {}'.format(selected))
 
 
 def run_within_tmux():
-    command = 'echo "{0}" | {1}'.format(
+    command = 'echo "{}" | fzf-tmux {}'.format(
             '\n'.join(get_buffers()),
-            'fzf-tmux -d 20')
+            weechat.config_get_plugin('fzf_options'))
 
     if not weechat.hook_process_hashtable(
         'sh', {'arg1': '-c', 'arg2': command},
@@ -59,7 +64,8 @@ def run_blocking():
                     stdout=subprocess.PIPE)
 
     try:
-        fzf_command = 'fzf -d 20'
+        fzf_command = 'fzf {}'.format(
+            weechat.config_get_plugin('fzf_options'))
         out = subprocess.check_output(
                 shlex.split(fzf_command),
                 stdin=echo_process.stdout)
@@ -87,6 +93,12 @@ def go_fzf_tmux_main():
     weechat.hook_command(
         SCRIPT_COMMAND, SCRIPT_DESC,
         '', '', '', 'go_fzf_tmux_cmd', '')
+
+    for option, value in SETTINGS.items():
+        if not weechat.config_is_set_plugin(option):
+            weechat.config_set_plugin(option, value[0])
+            weechat.config_set_desc_plugin(
+                option, '%s (default: "%s")' % (value[1], value[0]))
 
 
 if __name__ == '__main__' and IMPORT_OK:
