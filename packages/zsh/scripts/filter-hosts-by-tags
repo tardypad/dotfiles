@@ -1,0 +1,46 @@
+#!/bin/sh
+
+# stdin is expected to have a YAML structure
+# similar to the following example
+#
+# frontend.example.com:
+#   project: website
+#   environment: test
+# backend.example.com:
+#   project: website
+#   environment: test
+#   purpose: backend
+#
+# there is no restriction on the tags key
+# hosts don't have to have all the same tags
+#
+# script should be called with arguments such as
+# project=website environment=test
+# hosts with matching tags will be outputted
+
+CONDITIONS='1'
+
+while [ "$#" -gt 0 ]; do
+  CONDITIONS="${CONDITIONS} && \$0 ~ \"$1\""
+  shift
+done
+
+# transform the YAML structure into multiline records
+# before awk processing
+#
+# frontend.example.com
+#   project=website
+#   environment=test
+#
+# backend.example.com
+#   project=website
+#   environment=test
+#   purpose=backend
+
+sed \
+  -e 's/^[^ ]/\n&/' \
+  -e 's/:$//' \
+  -e 's/: /=/' \
+  | awk \
+    "BEGIN { FS=\"\n\"; RS=\"\" }
+    ${CONDITIONS}  { print \$1 }"

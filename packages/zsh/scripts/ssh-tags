@@ -1,0 +1,17 @@
+#!/bin/sh
+
+HOSTS_TAGS_FILE="${XDG_CACHE_HOME:-$HOME/.cache}/hosts_tags.yaml"
+
+# #IDEA: add fzf preview of tags to help selection of right host
+SELECTED_HOST=$(
+  filter-hosts-by-tags "$@" < "${HOSTS_TAGS_FILE}" \
+    | fzf \
+      --no-multi \
+      --exit-0 \
+      --select-1 \
+      --layout=reverse
+)
+
+[ -n "${SELECTED_HOST}" ] || exit
+
+ssh "${SELECTED_HOST}"
