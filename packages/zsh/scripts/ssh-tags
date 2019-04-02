@@ -1,10 +1,8 @@
 #!/bin/sh
 
-HOSTS_TAGS_FILE="${XDG_CACHE_HOME:-$HOME/.cache}/hosts_tags.yaml"
-
 # #IDEA: add fzf preview of tags to help selection of right host
 SELECTED_HOST=$(
-  filter-hosts-by-tags "$@" < "${HOSTS_TAGS_FILE}" \
+  query-hosts-tags tags "$@" \
     | fzf \
       --no-multi \
       --exit-0 \

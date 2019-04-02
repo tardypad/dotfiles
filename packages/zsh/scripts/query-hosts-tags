@@ -1,0 +1,118 @@
+#!/bin/sh
+
+init_variables() {
+  COMMAND=$0
+
+  # HOSTS_TAGS_FILE is expected to have a YAML structure
+  # similar to the following example
+  #
+  # frontend.example.com:
+  #   project: website
+  #   environment: test
+  # backend.example.com:
+  #   project: website
+  #   environment: test
+  #   purpose: backend
+  #
+  # there is no restriction on the tags key
+  # hosts don't have to have all the same tags
+  HOSTS_TAGS_FILE="${XDG_CACHE_HOME:-$HOME/.cache}/hosts_tags.yaml"
+
+  AWK_SCRIPT=
+  QUERY_TYPE=tags
+  QUERY_ARGUMENTS=
+}
+
+usage() {
+  cat <<- EOF
+	usage: ${COMMAND} [<options>] [ host <host> | tags <tag>=<value> ... ]
+
+	Query the hosts tags file
+	With a host argument, its tags will be displayed
+	With tags arguments, matching hosts will be listed
+
+	Options:
+	  -h,  --help      show this message only
+	EOF
+}
+
+error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  printf "Try '%s --help' for more information.\n" "${COMMAND}"
+  exit 1
+} >&2
+
+query_by_host() {
+  AWK_SCRIPT="\$1 == \"$1\""
+  AWK_SCRIPT="${AWK_SCRIPT} { for (i=2; i<=NF; i++) print \$i }"
+
+  process_file \
+    | column -t -s= -R1
+}
+
+query_by_tags() {
+  AWK_SCRIPT='1'
+  while [ "$#" -gt 0 ]; do
+    AWK_SCRIPT="${AWK_SCRIPT} && \$0 ~ \"$1\""
+    shift
+  done
+  AWK_SCRIPT="${AWK_SCRIPT} { print \$1 }"
+
+  process_file
+}
+
+process_file() {
+  # transform the YAML structure into multiline records
+  # before awk processing
+  #
+  # frontend.example.com
+  # project=website
+  # environment=test
+  #
+  # backend.example.com
+  # project=website
+  # environment=test
+  # purpose=backend
+
+  sed \
+    -e 's/^[^ ]/\n&/' \
+    -e 's/:$//' \
+    -e 's/^  //' \
+    -e 's/: /=/' \
+    "${HOSTS_TAGS_FILE}" \
+    | awk \
+      "BEGIN { FS=\"\n\"; RS=\"\" } ${AWK_SCRIPT}" \
+    | sort
+}
+
+parse_options() {
+  while [ "$#" -gt 0 ]; do
+    case "$1" in
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      *)
+        break 2
+        ;;
+    esac
+  done
+
+  if [ -n "$1" ]; then
+    QUERY_TYPE="$1"
+    shift
+    QUERY_ARGUMENTS=$*
+  fi
+}
+
+validate_options() {
+  if [ "${QUERY_TYPE}" != 'host' ] && [ "${QUERY_TYPE}" != 'tags' ]; then
+    error "invalid query type ${QUERY_TYPE}"
+  fi
+}
+
+init_variables
+parse_options "$@"
+validate_options
+
+query_by_${QUERY_TYPE} ${QUERY_ARGUMENTS}
