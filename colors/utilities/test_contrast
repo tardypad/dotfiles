@@ -7,7 +7,7 @@
 # 3.0 would be enough for larger text size or when using bold
 
 init_variables() {
-  COMMAND=$0
+  COMMAND=${0##*/}
 
   MINIMUM_CONTRAST_NORMAL=4.5
   MINIMUM_CONTRAST_LARGE=3.0

@@ -2,7 +2,7 @@
 
 
 init_variables() {
-  COMMAND=$0
+  COMMAND=${0##*/}
   GIT_COMMAND=${COMMAND#*-}
 
   CONFIG=false

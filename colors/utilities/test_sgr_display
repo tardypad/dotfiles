@@ -4,7 +4,7 @@
 # https://en.wikipedia.org/wiki/ANSI_escape_code
 
 init_variables() {
-  COMMAND=$0
+  COMMAND=${0##*/}
 
   # default run
   BIT_TYPE=4
