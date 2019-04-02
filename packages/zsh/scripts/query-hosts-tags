@@ -19,17 +19,19 @@ init_variables() {
   HOSTS_TAGS_FILE="${XDG_CACHE_HOME:-$HOME/.cache}/hosts_tags.yaml"
 
   AWK_SCRIPT=
-  QUERY_TYPE=tags
+  QUERY_TYPE=hosts
   QUERY_ARGUMENTS=
 }
 
 usage() {
   cat <<- EOF
-	usage: ${COMMAND} [<options>] [ host <host> | tags <tag>=<value> ... ]
+	usage: ${COMMAND} [<options>] [ tags <host> | hosts [<tag>=<value> ...] ]
 
 	Query the hosts tags file
-	With a host argument, its tags will be displayed
-	With tags arguments, matching hosts will be listed
+
+	A "tags" query displays the tags from the host argument
+	A "hosts" query displays the hosts matching the tags arguments
+	Without any argument, it displays all the hosts
 
 	Options:
 	  -h,  --help      show this message only
@@ -42,7 +44,7 @@ error() {
   exit 1
 } >&2
 
-query_by_host() {
+query_tags() {
   AWK_SCRIPT="\$1 == \"$1\""
   AWK_SCRIPT="${AWK_SCRIPT} { for (i=2; i<=NF; i++) print \$i }"
 
@@ -50,7 +52,7 @@ query_by_host() {
     | column -t -s= -R1
 }
 
-query_by_tags() {
+query_hosts() {
   AWK_SCRIPT='1'
   while [ "$#" -gt 0 ]; do
     AWK_SCRIPT="${AWK_SCRIPT} && \$0 ~ \"$1\""
@@ -106,8 +108,12 @@ parse_options() {
 }
 
 validate_options() {
-  if [ "${QUERY_TYPE}" != 'host' ] && [ "${QUERY_TYPE}" != 'tags' ]; then
+  if [ "${QUERY_TYPE}" != 'tags' ] && [ "${QUERY_TYPE}" != 'hosts' ]; then
     error "invalid query type ${QUERY_TYPE}"
+  fi
+
+  if [ "${QUERY_TYPE}" = 'tags' ] && [ -z "${QUERY_ARGUMENTS}" ]; then
+    error 'missing host argument'
   fi
 }
 
@@ -115,4 +121,4 @@ init_variables
 parse_options "$@"
 validate_options
 
-query_by_${QUERY_TYPE} ${QUERY_ARGUMENTS}
+query_${QUERY_TYPE} ${QUERY_ARGUMENTS}

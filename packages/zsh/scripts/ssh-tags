@@ -1,14 +1,14 @@
 #!/bin/sh
 
 SELECTED_HOST=$(
-  query-hosts-tags tags "$@" \
+  query-hosts-tags hosts "$@" \
     | fzf \
       --no-multi \
       --exit-0 \
       --select-1 \
       --height=10 \
       --layout=reverse \
-      --preview="query-hosts-tags host {}" \
+      --preview="query-hosts-tags tags {}" \
       --preview-window=right:70%
 )
 
