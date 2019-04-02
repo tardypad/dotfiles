@@ -1,13 +1,15 @@
 #!/bin/sh
 
-# #IDEA: add fzf preview of tags to help selection of right host
 SELECTED_HOST=$(
   query-hosts-tags tags "$@" \
     | fzf \
       --no-multi \
       --exit-0 \
       --select-1 \
-      --layout=reverse
+      --height=10 \
+      --layout=reverse \
+      --preview="query-hosts-tags host {}" \
+      --preview-window=right:70%
 )
 
 [ -n "${SELECTED_HOST}" ] || exit
