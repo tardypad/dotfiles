@@ -1,0 +1,58 @@
+#compdef query-hosts-tags
+
+local hosts_tags_file="${XDG_CACHE_HOME:-$HOME/.cache}/hosts_tags.yaml"
+
+# exit completion if file not present
+[ -f "${hosts_tags_file}" ] || return 1
+
+_query_types() {
+    declare -a types
+    types=(
+      'tags: list tags from the host argument'
+      'hosts: list hosts matching tags arguments'
+    )
+    _describe 'query type' types
+}
+
+_hosts_tags() {
+  compadd -qS= $(
+    sed -n '/^  /s/^  \(.*\): .*/\1/p' "${hosts_tags_file}" \
+      | sort -u
+  )
+}
+
+_tag_values() {
+  local tag="$1"
+
+  compadd $(
+    sed -n "/^  ${tag}/s/^  ${tag}: \(.*\)/\1/p" "${hosts_tags_file}" \
+      | sort -u
+  )
+}
+
+_hosts() {
+  compadd $(
+    sed -n '/^[^ ]/s/\(.*\):/\1/p' "${hosts_tags_file}" \
+      | sort
+  )
+}
+
+_args() {
+  case $words[2] in
+    tags)
+      _hosts
+      ;;
+    hosts)
+      if compset -P '*\='; then
+        _tag_values ${IPREFIX%=}
+      else
+        _hosts_tags
+      fi
+      ;;
+  esac
+}
+
+_arguments \
+  '(-h --help)'{-h,--help}'[display the help]' \
+  '1:query type:_query_types' \
+  '*:args:_args'

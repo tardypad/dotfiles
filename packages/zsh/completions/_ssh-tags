@@ -1,0 +1,34 @@
+#compdef ssh-tags
+
+local hosts_tags_file="${XDG_CACHE_HOME:-$HOME/.cache}/hosts_tags.yaml"
+
+# exit completion if file not present
+[ -f "${hosts_tags_file}" ] || return 1
+
+_hosts_tags() {
+  compadd -qS= $(
+    sed -n '/^  /s/^  \(.*\): .*/\1/p' "${hosts_tags_file}" \
+      | sort -u
+  )
+}
+
+_tag_values() {
+  local tag="$1"
+
+  compadd $(
+    sed -n "/^  ${tag}/s/^  ${tag}: \(.*\)/\1/p" "${hosts_tags_file}" \
+      | sort -u
+  )
+}
+
+_args() {
+  if compset -P '*\='; then
+    _tag_values ${IPREFIX%=}
+  else
+    _hosts_tags
+  fi
+}
+
+_arguments \
+  '(-h --help)'{-h,--help}'[display the help]' \
+  '*:args:_args'
