@@ -6,6 +6,7 @@ local hosts_tags_file="${XDG_CACHE_HOME:-$HOME/.cache}/hosts_tags.yaml"
 [ -f "${hosts_tags_file}" ] || return 1
 
 _hosts_tags() {
+  # #IDEA: only list tags which are not already specified
   compadd -qS= $(
     sed -n '/^  /s/^  \(.*\): .*/\1/p' "${hosts_tags_file}" \
       | sort -u

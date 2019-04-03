@@ -15,6 +15,7 @@ _query_types() {
 }
 
 _hosts_tags() {
+  # #IDEA: only list tags which are not already specified
   compadd -qS= $(
     sed -n '/^  /s/^  \(.*\): .*/\1/p' "${hosts_tags_file}" \
       | sort -u
