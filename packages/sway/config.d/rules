@@ -25,8 +25,3 @@ assign [class="qutebrowser"] $ws10
 for_window [title="sway_music"] floating enable, \
                                 resize set 1200 800, \
                                 move scratchpad
-
-
-# specific workspaces layout
-for_window [workspace=$ws2] layout tabbed
-for_window [workspace=$ws10] layout tabbed
