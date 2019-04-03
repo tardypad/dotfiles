@@ -7,8 +7,8 @@ gaps inner 10
 # only put gaps if there are several views
 smart_gaps on
 
-# don't show border when to any screen edge
-hide_edge_borders both
+# only show borders if there are several views
+smart_borders on
 
 # title bar font
 font Source Sans Pro, Font Awesome 5 Free 14
