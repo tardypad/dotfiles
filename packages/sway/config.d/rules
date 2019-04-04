@@ -11,7 +11,7 @@ for_window [title="sway_launcher"] floating enable, \
 
 # assign specific windows to workspaces
 assign [title=" Projects environment"] $ws1
-assign [title=" .*server.*"] $ws2
+assign [title=" Servers environment"] $ws2
 assign [title=" Chat client"] $ws3
 assign [title=" Mail client"] $ws4
 assign [title=" News reader"] $ws5
