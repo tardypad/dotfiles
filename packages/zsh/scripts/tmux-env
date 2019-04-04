@@ -14,7 +14,6 @@ init_variables() {
   SESSIONS=
 
   # variables coming from env files
-  HOST=localhost
   SOCKET=default
 }
 
@@ -24,7 +23,6 @@ usage() {
 	usage: ${COMMAND} [<options>] <target> [<session>...]
 
 	Start target tmux environment sessions
-	Each target is a different local or remote tmux server
 
 	Options:
 	  -b,  --background     launch in background, no attach
@@ -76,48 +74,24 @@ start_target_tmux_env() {
     ) )
   fi
 
-  if [[ "${HOST}" == 'localhost' ]]; then
-    local session_names=$(
-      tmux -L "${SOCKET}" list-sessions -F '#{session_name}' 2> /dev/null
-    )
-    for script_path in ${scripts_path}; do
-      local session="${script_path:t:r}"
-      if ! is_session_present "${session_names}" "${session}"; then
-        TMUX_ENV=yes zsh "${script_path}" "${SOCKET}" "${TARGET} ${session}"
-      fi
-    done
-
-    if ! $BACKGROUND; then
-      if [[ -n "${main_session}" ]]; then
-        tmux -L "${SOCKET}" attach-session -t "${TARGET} ${main_session}"
-      else
-        tmux -L "${SOCKET}" attach-session
-      fi
-    elif [[ -n "${main_session}" ]]; then
-      tmux -L "${SOCKET}" switch-client -t "${TARGET} ${main_session}" &> /dev/null
+  local session_names=$(
+    tmux -L "${SOCKET}" list-sessions -F '#{session_name}' 2> /dev/null
+  )
+  for script_path in ${scripts_path}; do
+    local session="${script_path:t:r}"
+    if ! is_session_present "${session_names}" "${session}"; then
+      TMUX_ENV=yes zsh "${script_path}" "${SOCKET}" "${TARGET} ${session}"
     fi
+  done
 
-  else
-
-    local session_names=$(
-      ssh "${HOST}" "tmux -L ${SOCKET} list-sessions -F '#{session_name}'" 2> /dev/null
-    )
-    for script_path in ${scripts_path}; do
-      local session="${script_path:t:r}"
-      if ! is_session_present "${session_names}" "${session}"; then
-        ssh "${HOST}" 'TMUX_ENV=yes bash -s' < "${script_path}" "${SOCKET}" "'${TARGET} ${session}'"
-      fi
-    done
-
-    if ! $BACKGROUND; then
-      if [[ -n "${main_session}" ]]; then
-        ssh -t "${HOST}" tmux -L "${SOCKET}" attach-session -t "'${TARGET} ${main_session}'"
-      else
-        ssh -t "${HOST}" tmux -L "${SOCKET}" attach-session
-      fi
-    elif [[ -n "${main_session}" ]]; then
-      ssh -t "${HOST}" tmux -L "${SOCKET}" switch-client -t "'${TARGET} ${main_session}'" &> /dev/null
+  if ! $BACKGROUND; then
+    if [[ -n "${main_session}" ]]; then
+      tmux -L "${SOCKET}" attach-session -t "${TARGET} ${main_session}"
+    else
+      tmux -L "${SOCKET}" attach-session
     fi
+  elif [[ -n "${main_session}" ]]; then
+    tmux -L "${SOCKET}" switch-client -t "${TARGET} ${main_session}" &> /dev/null
   fi
 }
 
