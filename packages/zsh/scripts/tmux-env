@@ -12,9 +12,6 @@ init_variables() {
 
   TARGET=
   SESSIONS=
-
-  # variables coming from env files
-  SOCKET=default
 }
 
 
@@ -56,8 +53,6 @@ is_session_present() {
 
 
 start_target_tmux_env() {
-  source "${ENV_DIR_PATH}/${TARGET}/env"
-
   local scripts_path=()
   local main_session=
 
@@ -75,23 +70,23 @@ start_target_tmux_env() {
   fi
 
   local session_names=$(
-    tmux -L "${SOCKET}" list-sessions -F '#{session_name}' 2> /dev/null
+    tmux -L "${TARGET}" list-sessions -F '#{session_name}' 2> /dev/null
   )
   for script_path in ${scripts_path}; do
     local session="${script_path:t:r}"
     if ! is_session_present "${session_names}" "${session}"; then
-      TMUX_ENV=yes zsh "${script_path}" "${SOCKET}" "${TARGET} ${session}"
+      TMUX_ENV=yes zsh "${script_path}" "${TARGET}" "${TARGET} ${session}"
     fi
   done
 
   if ! $BACKGROUND; then
     if [[ -n "${main_session}" ]]; then
-      tmux -L "${SOCKET}" attach-session -t "${TARGET} ${main_session}"
+      tmux -L "${TARGET}" attach-session -t "${TARGET} ${main_session}"
     else
-      tmux -L "${SOCKET}" attach-session
+      tmux -L "${TARGET}" attach-session
     fi
   elif [[ -n "${main_session}" ]]; then
-    tmux -L "${SOCKET}" switch-client -t "${TARGET} ${main_session}" &> /dev/null
+    tmux -L "${TARGET}" switch-client -t "${TARGET} ${main_session}" &> /dev/null
   fi
 }
 
