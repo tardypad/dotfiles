@@ -37,7 +37,7 @@ alias status='
 '
 
 # generate a password (mainly used to encrypt files to share)
-alias passwdgen='< /dev/urandom tr --delete --complement "[:graph:]" | head --bytes 30; echo'
+alias passwdgen='echo $( < /dev/urandom tr --delete --complement "[:graph:]" | head --bytes 30 )'
 
 # retrieve my public IP
 alias myip='https api.ipify.org'
