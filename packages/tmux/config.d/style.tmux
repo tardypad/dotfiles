@@ -18,7 +18,7 @@ set -g status-left-style "bg=#{color/base09/hex},fg=#{color/base00/hex}"
 set -g status-right-style "fg=#{color/base09/hex}"
 
 set -g status-left-length 40
-set -g status-left "   #{session_name}   #[bg=#{color/background/hex},fg=#{color/notice/hex},bold] #{?#{==:#{client_key_table},prefix},Ⓟ,#{?#{==:#{client_key_table},extract-mode},Ⓔ, }}  "
+set -g status-left "   #{session_name}   #[bg=#{color/background/hex},fg=#{color/notice/hex},bold] #{?#{==:#{client_key_table},root}, ,#{?#{==:#{client_key_table},prefix},Ⓟ,#{client_key_table}}}  "
 %if #{DISPLAY}
 set -g status-right ''
 %else
