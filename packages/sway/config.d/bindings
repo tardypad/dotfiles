@@ -114,10 +114,8 @@ bindsym $mod+s splitv
 
 mode "layout" {
     bindsym Shift+1 layout splith
-    bindsym Shift+2 layout auto left
-    bindsym Shift+3 layout splitv
-    bindsym Shift+4 layout auto top
-    bindsym Shift+5 layout tabbed
+    bindsym Shift+2 layout splitv
+    bindsym Shift+3 layout tabbed
 
     # return to default mode
     bindsym Return mode "default"
