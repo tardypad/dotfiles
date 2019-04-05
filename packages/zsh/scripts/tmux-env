@@ -26,7 +26,7 @@ usage() {
 	  -h,  --help           show this message only
 
 	Available targets: ${AVAILABLE_TARGETS}
-	If no session is defined, all of the target's ones are started
+	If no session is defined, a new empty one is created
 	EOF
 }
 
@@ -53,39 +53,32 @@ is_session_present() {
 
 
 start_target_tmux_env() {
-  local scripts_path=()
   local main_session=
-
-  if [[ -n "${SESSIONS}" ]]; then
-    for session in ${SESSIONS}; do
-      scripts_path+=(
-        "${ENV_DIR_PATH}/${TARGET}/${session}.sh"
-      )
-    done
-    main_session="${session}"
-  else
-    scripts_path=( $(
-      ls "${ENV_DIR_PATH}/${TARGET}"/*.sh
-    ) )
-  fi
 
   local session_names=$(
     tmux -L "${TARGET}" list-sessions -F '#{session_name}' 2> /dev/null
   )
-  for script_path in ${scripts_path}; do
-    local session="${script_path:t:r}"
-    if ! is_session_present "${session_names}" "${session}"; then
-      TMUX_ENV=yes zsh "${script_path}" "${TARGET}" "${TARGET} ${session}"
+
+  if [[ -n "${SESSIONS}" ]]; then
+    local script_path
+    for session in ${SESSIONS}; do
+      if ! is_session_present "${session_names}" "${session}"; then
+        script_path="${ENV_DIR_PATH}/${TARGET}/${session}.sh"
+        TMUX_ENV=yes zsh "${script_path}" "${TARGET}" "${TARGET} ${session}"
+      fi
+    done
+    main_session="${session}"
+
+  else
+    if ! is_session_present "${session_names}" 'new'; then
+      TMUX_ENV=yes tmux -L "${TARGET}" new-session -d -s "${TARGET} new"
     fi
-  done
+    main_session='new'
+  fi
 
   if ! $BACKGROUND; then
-    if [[ -n "${main_session}" ]]; then
-      tmux -L "${TARGET}" attach-session -t "${TARGET} ${main_session}"
-    else
-      tmux -L "${TARGET}" attach-session
-    fi
-  elif [[ -n "${main_session}" ]]; then
+    tmux -L "${TARGET}" attach-session -t "${TARGET} ${main_session}" &> /dev/null
+  else
     tmux -L "${TARGET}" switch-client -t "${TARGET} ${main_session}" &> /dev/null
   fi
 }

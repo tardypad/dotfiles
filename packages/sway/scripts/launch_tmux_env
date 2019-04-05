@@ -6,7 +6,7 @@ ENV_NAME="$2"
 ENV_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/tmux/env/${ENV_NAME}"
 
 SESSIONS=($(
-  print -l -- ALL "${ENV_PATH}"/*.sh(:t:r) \
+  print -l -- NEW "${ENV_PATH}"/*.sh(:t:r) \
   | fzf --reverse \
         --multi \
         --margin 1,2,0,2 \
@@ -16,6 +16,6 @@ SESSIONS=($(
 
 [[ -n "${SESSIONS}" ]] || exit
 
-(( ${SESSIONS[(Ie)ALL]} )) && SESSIONS=
+(( ${SESSIONS[(Ie)NEW]} )) && SESSIONS=
 
 app_tmux_env "${TITLE}" "${ENV_NAME}" ${SESSIONS}
