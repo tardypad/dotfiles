@@ -21,7 +21,7 @@ build_available_apps() {
     )
 
     local filler_length=$((
-      COLUMNS - ${#app_name} - ${#app_generic_name} - ${#app_icon} - 10
+      50 - ${#app_name} - ${#app_generic_name} - ${#app_icon}
     ))
     local filler="${(l.$filler_length.. .)}"
 
