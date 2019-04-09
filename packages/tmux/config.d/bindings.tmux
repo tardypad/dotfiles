@@ -106,10 +106,13 @@ bind -T root M-k run "~/.tmux/scripts/select_pane_vim.sh k"
 bind -T root M-l run "~/.tmux/scripts/select_pane_vim.sh l"
 bind -T root M-a run "~/.tmux/scripts/select_pane_vim.sh a"
 
-bind -T root M-H resize-pane -L 3
-bind -T root M-J resize-pane -D 3
-bind -T root M-K resize-pane -U 3
-bind -T root M-L resize-pane -R 3
+# resize mode
+bind      S switch-client -T Ⓢ
+bind -T Ⓢ H resize-pane -L 3 \; switch-client -T Ⓢ
+bind -T Ⓢ J resize-pane -D 3 \; switch-client -T Ⓢ
+bind -T Ⓢ K resize-pane -U 3 \; switch-client -T Ⓢ
+bind -T Ⓢ L resize-pane -R 3 \; switch-client -T Ⓢ
+
 
 # copy/paste
 bind Space copy-mode
