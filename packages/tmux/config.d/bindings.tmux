@@ -75,6 +75,15 @@ bind    s split-window -v -c '#{pane_current_path}'
 bind -r [ swap-window -t -
 bind -r ] swap-window -t +
 
+# layout mode
+bind      y switch-client -T ⓨ
+bind -T ⓨ 1 select-layout even-horizontal \; switch-client -T ⓨ
+bind -T ⓨ 2 select-layout main-vertical \; switch-client -T ⓨ
+bind -T ⓨ 3 select-layout even-vertical \; switch-client -T ⓨ
+bind -T ⓨ 4 select-layout main-horizontal \; switch-client -T ⓨ
+bind -T ⓨ 5 select-layout tiled \; switch-client -T ⓨ
+
+
 # panes management (using uppercase except for direct navigation)
 bind       Q display-panes
 bind -r    A select-pane -l
@@ -90,12 +99,6 @@ bind -r    { swap-pane -U
 bind -r    } swap-pane -D
 bind    BSpace respawn-pane
 bind    M-BSpace respawn-pane -k
-
-bind   ! select-layout even-horizontal
-bind   @ select-layout main-vertical
-bind '#' select-layout even-vertical
-bind '$' select-layout main-horizontal
-bind   % select-layout tiled
 
 bind -T root M-h run "~/.tmux/scripts/select_pane_vim.sh h"
 bind -T root M-j run "~/.tmux/scripts/select_pane_vim.sh j"

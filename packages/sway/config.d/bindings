@@ -113,15 +113,15 @@ bindsym $mod+v splith
 bindsym $mod+s splitv
 
 mode "layout" {
-    bindsym Shift+1 layout splith
-    bindsym Shift+2 layout splitv
-    bindsym Shift+3 layout tabbed
+    bindsym 1 layout splith
+    bindsym 2 layout splitv
+    bindsym 3 layout tabbed
 
     # return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+t mode "layout"
+bindsym $mod+y mode "layout"
 
 # fullscreen window (zoom)
 bindsym $mod+Shift+z fullscreen
