@@ -1,81 +1,67 @@
-### Basics
+## general
 
-# start a terminal
-bindsym $mod+Return exec exec_desktop_entry ~/.local/share/applications/terminal.desktop
-
-# start a browser
-bindsym $mod+Shift+Return exec exec_desktop_entry ~/.local/share/applications/qutebrowser_web_browser.desktop
-
-# kill focused window
-bindsym $mod+Shift+x kill
-
-# lock the screen
-bindsym $mod+Backspace exec swaylock
-
-# dismiss first notification
-bindsym $mod+Ctrl+x exec makoctl dismiss
-
-# dismiss all notifications
-bindsym $mod+Ctrl+Shift+x exec makoctl dismiss --all
-
-# focus first window with urgent flag
-bindsym $mod+u [urgent="first"] focus
-
-# start the system launcher
-bindsym $mod+Shift+Backspace exec launcher launch_system
-
-# start the apps launcher
-bindsym $mod+Space exec launcher launch_app
-
-# start the generic launcher
-bindsym $mod+Shift+Space exec launcher launch_command
-
-# start the clipboard launcher
-bindsym $mod+Shift+c exec launcher launch_clipboard
-
-# start the password launcher
-bindsym $mod+Shift+p exec launcher launch_password
-
-# do not disturb toggle
-bindsym $mod+Escape exec do-not-disturb toggle \
-                         && pkill -RTMIN+2 i3blocks
-
-# Drag floating windows by holding down $mod and left mouse button.
-# Resize them with right mouse button + $mod.
-floating_modifier $mod normal
+# exit sway
+bindsym $mod+Shift+q exit
 
 # reload the configuration file
 bindsym $mod+Shift+r reload
 
-# exit sway (logs you out of your wayland session)
-bindsym $mod+Shift+q exit
+# lock the screen
+bindsym $mod+Backspace exec swaylock
 
-# launch help
-bindsym $mod+grave exec exec_desktop_entry ~/.local/share/applications/help.desktop
+# focus first window with urgent flag
+bindsym $mod+u [urgent="first"] focus
+
+# do not disturb toggle
+bindsym $mod+Escape exec do-not-disturb toggle \
+                         && pkill -RTMIN+2 i3blocks
 
 # toggle Pomodoro session
 bindsym $mod+Shift+Escape exec pomodoro toggle \
                                && pkill -RTMIN+4 i3blocks
 
 
-### Moving around
+## notifications
 
-# Move your focus around
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
-bindsym $mod+$right focus right
-
-# _move_ the focused window with the same, but add Shift
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
+bindsym $mod+Ctrl+x       exec makoctl dismiss
+bindsym $mod+Ctrl+Shift+x exec makoctl dismiss --all
 
 
-### Workspaces
+## launch apps
 
-# switch to workspace
+bindsym $mod+Return       exec exec_desktop_entry ~/.local/share/applications/terminal.desktop
+bindsym $mod+Shift+Return exec exec_desktop_entry ~/.local/share/applications/qutebrowser_web_browser.desktop
+bindsym $mod+grave        exec exec_desktop_entry ~/.local/share/applications/help.desktop
+
+
+## launchers
+
+bindsym $mod+Space           exec launcher launch_app
+bindsym $mod+Shift+Space     exec launcher launch_command
+bindsym $mod+Shift+Backspace exec launcher launch_system
+bindsym $mod+Shift+c         exec launcher launch_clipboard
+bindsym $mod+Shift+p         exec launcher launch_password
+
+
+## floating
+
+floating_modifier $mod normal
+bindsym $mod+Shift+f floating toggle
+bindsym $mod+f focus mode_toggle
+
+
+## scratchpad
+
+bindsym $mod+Shift+d move scratchpad
+bindsym $mod+d scratchpad show
+
+
+## workspaces management
+
+# select
+bindsym $mod+n workspace next_on_output
+bindsym $mod+p workspace prev_on_output
+bindsym $mod+a workspace back_and_forth
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
@@ -87,7 +73,41 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
-# move focused container to workspace and follow
+# split
+bindsym $mod+v splith
+bindsym $mod+s splitv
+
+# layout mode
+mode "layout" {
+    bindsym 1 layout splith
+    bindsym 2 layout splitv
+    bindsym 3 layout tabbed
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+y mode "layout"
+
+
+## windows management
+
+bindsym $mod+Shift+x kill
+bindsym $mod+Shift+a focus parent
+bindsym $mod+Shift+z fullscreen
+
+# select
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# move
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# move container to workspace and follow
 bindsym $mod+Shift+1 move container to workspace $ws1, workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2, workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3, workspace $ws3
@@ -99,69 +119,20 @@ bindsym $mod+Shift+8 move container to workspace $ws8, workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9, workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10, workspace $ws10
 
-# go to prev/next workspace on current output
-bindsym $mod+n workspace next_on_output
-bindsym $mod+p workspace prev_on_output
-
-# go back to previously focused workspace
-bindsym $mod+a workspace back_and_forth
-
-### Layout stuff
-
-# split horizontal / vertical
-bindsym $mod+v splith
-bindsym $mod+s splitv
-
-mode "layout" {
-    bindsym 1 layout splith
-    bindsym 2 layout splitv
-    bindsym 3 layout tabbed
-
-    # return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+y mode "layout"
-
-# fullscreen window (zoom)
-bindsym $mod+Shift+z fullscreen
-
-# move focus to the parent container
-bindsym $mod+Shift+a focus parent
-
-
-## Floating stuff
-
-# toggle the current focus between tiling and floating mode
-bindsym $mod+Shift+f floating toggle
-
-# swap focus between the tiling area and the floating area
-bindsym $mod+f focus mode_toggle
-
-
-### Scratchpad
-
-# move current window to scratchpad
-bindsym $mod+Shift+d move scratchpad
-
-# show next window from the scratchpad
-bindsym $mod+d scratchpad show
-
-
-### Resizing containers
-
+# resize mode
 mode "resize" {
     bindsym $left resize shrink width 10 px or 10 ppt
     bindsym $up resize grow height 10 px or 10 ppt
     bindsym $down resize shrink height 10 px or 10 ppt
     bindsym $right resize grow width 10 px or 10 ppt
 
-    # return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 bindsym $mod+Shift+s mode "resize"
 
+
+## XF86 keys
 
 # Volume keys
 bindsym --locked XF86AudioRaiseVolume exec amixer -q set Master unmute 5%+ \
