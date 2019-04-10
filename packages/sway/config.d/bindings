@@ -92,7 +92,6 @@ bindsym $mod+y mode "layout"
 ## windows management
 
 bindsym $mod+Shift+x kill
-bindsym $mod+Shift+a focus parent
 bindsym $mod+Shift+z fullscreen
 
 # select
