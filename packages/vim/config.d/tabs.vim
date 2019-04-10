@@ -27,15 +27,15 @@ nnoremap <silent> <Leader>tn :tabnext<CR>
 
 " tabs moving
 nnoremap <silent> <Leader>tm1 :tabmove 0<CR>
-nnoremap <silent> <Leader>tm2 :tabmove 1<CR>
-nnoremap <silent> <Leader>tm3 :tabmove 2<CR>
-nnoremap <silent> <Leader>tm4 :tabmove 3<CR>
-nnoremap <silent> <Leader>tm5 :tabmove 4<CR>
-nnoremap <silent> <Leader>tm6 :tabmove 5<CR>
-nnoremap <silent> <Leader>tm7 :tabmove 6<CR>
-nnoremap <silent> <Leader>tm8 :tabmove 7<CR>
-nnoremap <silent> <Leader>tm9 :tabmove 8<CR>
-nnoremap <silent> <Leader>tm0 :tabmove 9<CR>
+nnoremap <silent> <Leader>tm2 :tabmove $ <bar> tabmove 1<CR>
+nnoremap <silent> <Leader>tm3 :tabmove $ <bar> tabmove 2<CR>
+nnoremap <silent> <Leader>tm4 :tabmove $ <bar> tabmove 3<CR>
+nnoremap <silent> <Leader>tm5 :tabmove $ <bar> tabmove 4<CR>
+nnoremap <silent> <Leader>tm6 :tabmove $ <bar> tabmove 5<CR>
+nnoremap <silent> <Leader>tm7 :tabmove $ <bar> tabmove 6<CR>
+nnoremap <silent> <Leader>tm8 :tabmove $ <bar> tabmove 7<CR>
+nnoremap <silent> <Leader>tm9 :tabmove $ <bar> tabmove 8<CR>
+nnoremap <silent> <Leader>tm0 :tabmove $ <bar> tabmove 9<CR>
 nnoremap <silent> <Leader>tmh :tabmove -<CR>
 nnoremap <silent> <Leader>tmp :tabmove -<CR>
 nnoremap <silent> <Leader>tml :tabmove +<CR>
