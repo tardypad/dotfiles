@@ -44,7 +44,7 @@ bind    C-s choose-tree -Z -s -w -F '#{?pane_format,#{pane_current_command},#{?w
 %else
 bind    C-s choose-tree -Z -s -w -F '#{?pane_format,#{pane_current_command},#{window_name}}' -O index
 %endif
-bind    C-a if '[ "#{client_last_session}" != "" ]' 'switch-client -l' 'switch-client -n'
+bind -r C-a if '[ "#{client_last_session}" != "" ]' 'switch-client -l' 'switch-client -n'
 bind -r C-n switch-client -n
 bind -r C-j switch-client -n
 bind -r C-p switch-client -p
@@ -69,7 +69,7 @@ bind x confirm-before -p 'kill-window "#{window_name}"? (y/n)' kill-window
 
 # select
 bind    w choose-tree -Z -w -F '#{?pane_format,#{pane_current_command},#{?window_format,#{window_name},}}' -f "#{!=:0,#{session_attached}}" -O index
-bind    a last-window
+bind -r a last-window
 bind -r n next-window
 bind -r l next-window
 bind -r p previous-window
