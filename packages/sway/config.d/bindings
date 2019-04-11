@@ -36,11 +36,17 @@ bindsym $mod+grave        exec exec_desktop_entry ~/.local/share/applications/he
 
 ## launchers
 
-bindsym $mod+Space           exec launcher launch_app
-bindsym $mod+Shift+Space     exec launcher launch_command
-bindsym $mod+Shift+Backspace exec launcher launch_system
-bindsym $mod+Shift+c         exec launcher launch_clipboard
-bindsym $mod+Shift+p         exec launcher launch_password
+mode "launchers" {
+    bindsym Space       mode "default", exec launcher launch_app
+    bindsym Shift+Space mode "default", exec launcher launch_command
+    bindsym Backspace   mode "default", exec launcher launch_system
+    bindsym c           mode "default", exec launcher launch_clipboard
+    bindsym p           mode "default", exec launcher launch_password
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Space mode "launchers"
 
 
 ## floating
