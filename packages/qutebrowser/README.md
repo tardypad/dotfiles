@@ -4,4 +4,4 @@ Web browser
 
 Source [Github](https://github.com/qutebrowser/qutebrowser)
 
-Version [1.6.0](https://github.com/qutebrowser/qutebrowser/releases/tag/v1.6.0)
+Version [1.6.1](https://github.com/qutebrowser/qutebrowser/releases/tag/v1.6.1)
