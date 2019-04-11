@@ -15,8 +15,8 @@ bind M-R source-file ~/.tmux.conf \; \
          display-message "Configuration reloaded"
 
 # detach client
-bind   d detach-client
-bind C-d detach-client
+bind   q detach-client
+bind C-q detach-client
 
 bind   : command-prompt
 bind   ? list-keys
@@ -106,7 +106,7 @@ bind -T ⓨ 5 select-layout tiled \; switch-client -T ⓨ
 
 bind X if '[ #{window_panes} -ne 1 ]' kill-pane 'confirm-before -p "kill-window \"#{window_name}\"? (y/n)" kill-window'
 bind Z resize-pane -Z
-bind Q display-panes
+bind G display-panes
 
 # select
 bind -r A select-pane -l
