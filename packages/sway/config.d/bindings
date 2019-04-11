@@ -1,10 +1,10 @@
 ## general
 
 # exit sway
-bindsym $mod+Shift+q exit
+bindsym $mod+Ctrl+q exit
 
 # reload the configuration file
-bindsym $mod+Shift+r reload
+bindsym $mod+Alt+Shift+r reload
 
 # lock the screen
 bindsym $mod+Backspace exec swaylock
