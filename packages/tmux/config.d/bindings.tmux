@@ -167,7 +167,6 @@ bind -T copy-mode-vi    C-v send-keys -X rectangle-toggle
 bind -T copy-mode-vi Escape send-keys -X clear-selection
 
 # selection actions
-bind -T copy-mode-vi      D send-keys -X copy-end-of-line
 bind -T copy-mode-vi  Enter send-keys -X copy-pipe-and-cancel "tmux paste-buffer"
 %if #{DISPLAY}
 bind -T copy-mode-vi    C-s send-keys -X copy-pipe-and-cancel "xargs -I {} tmux run-shell 'xdg-open https://www.google.com/search?q=\"{}\" > /dev/null'"
