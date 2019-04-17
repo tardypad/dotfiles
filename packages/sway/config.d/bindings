@@ -106,23 +106,35 @@ bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 bindsym $mod+$right focus right
 
-# move
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
+# move mode
+mode "move" {
+    # move focused window within workspace
+    bindsym Shift+$left move left
+    bindsym Shift+$down move down
+    bindsym Shift+$up move up
+    bindsym Shift+$right move right
 
-# move container to workspace and follow
-bindsym $mod+Shift+1 move container to workspace $ws1, workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2, workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3, workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4, workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5, workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6, workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7, workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8, workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9, workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10, workspace $ws10
+    # move focused container to workspace and follow
+    bindsym 1 move container to workspace $ws1, workspace $ws1
+    bindsym 2 move container to workspace $ws2, workspace $ws2
+    bindsym 3 move container to workspace $ws3, workspace $ws3
+    bindsym 4 move container to workspace $ws4, workspace $ws4
+    bindsym 5 move container to workspace $ws5, workspace $ws5
+    bindsym 6 move container to workspace $ws6, workspace $ws6
+    bindsym 7 move container to workspace $ws7, workspace $ws7
+    bindsym 8 move container to workspace $ws8, workspace $ws8
+    bindsym 9 move container to workspace $ws9, workspace $ws9
+    bindsym 0 move container to workspace $ws10, workspace $ws10
+    bindsym a move container to workspace back_and_forth, workspace back_and_forth
+    bindsym p move container to workspace prev_on_output, workspace prev_on_output
+    bindsym n move container to workspace next_on_output, workspace next_on_output
+    bindsym $left move container to workspace prev_on_output, workspace prev_on_output
+    bindsym $right move container to workspace next_on_output, workspace next_on_output
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+m mode "move"
 
 # resize mode
 mode "resize" {
