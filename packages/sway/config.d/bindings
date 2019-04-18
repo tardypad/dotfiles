@@ -65,9 +65,11 @@ bindsym $mod+d scratchpad show
 ## workspaces management
 
 # select
-bindsym $mod+n workspace next_on_output
-bindsym $mod+p workspace prev_on_output
 bindsym $mod+a workspace back_and_forth
+bindsym $mod+n workspace next_on_output
+bindsym $mod+$right workspace next_on_output
+bindsym $mod+p workspace prev_on_output
+bindsym $mod+$left workspace prev_on_output
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
@@ -101,10 +103,10 @@ bindsym $mod+Shift+x kill
 bindsym $mod+Shift+z fullscreen
 
 # select
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
-bindsym $mod+$right focus right
+bindsym $mod+Shift+$left focus left
+bindsym $mod+Shift+$down focus down
+bindsym $mod+Shift+$up focus up
+bindsym $mod+Shift+$right focus right
 
 # move mode
 mode "move" {
@@ -126,10 +128,10 @@ mode "move" {
     bindsym 9 move container to workspace $ws9, workspace $ws9
     bindsym 0 move container to workspace $ws10, workspace $ws10
     bindsym a move container to workspace back_and_forth, workspace back_and_forth
-    bindsym p move container to workspace prev_on_output, workspace prev_on_output
     bindsym n move container to workspace next_on_output, workspace next_on_output
-    bindsym $left move container to workspace prev_on_output, workspace prev_on_output
     bindsym $right move container to workspace next_on_output, workspace next_on_output
+    bindsym p move container to workspace prev_on_output, workspace prev_on_output
+    bindsym $left move container to workspace prev_on_output, workspace prev_on_output
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -138,10 +140,10 @@ bindsym $mod+Shift+m mode "move"
 
 # resize mode
 mode "resize" {
-    bindsym $left resize shrink width 10 px or 10 ppt
-    bindsym $up resize grow height 10 px or 10 ppt
-    bindsym $down resize shrink height 10 px or 10 ppt
-    bindsym $right resize grow width 10 px or 10 ppt
+    bindsym Shift+$left resize shrink width 10 px or 10 ppt
+    bindsym Shift+$up resize grow height 10 px or 10 ppt
+    bindsym Shift+$down resize shrink height 10 px or 10 ppt
+    bindsym Shift+$right resize grow width 10 px or 10 ppt
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
