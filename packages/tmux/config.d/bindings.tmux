@@ -143,6 +143,7 @@ bind M-BSpace respawn-pane -k
 
 # move mode
 bind      M switch-client -T Ⓜ
+bind -T Ⓜ c switch-client -T Ⓜ \; break-pane
 bind -T Ⓜ a switch-client -T Ⓜ \; move-pane -h -t :{last}
 bind -T Ⓜ n switch-client -T Ⓜ \; move-pane -h -t :{next}
 bind -T Ⓜ l switch-client -T Ⓜ \; move-pane -h -t :{next}
