@@ -12,6 +12,6 @@ echo -n "${PATH}" \
         --no-multi \
         --margin 1,2,0,2 \
         --prompt 'run ' \
-        --color info:8 \
+        --color info:{color/background/number} \
   | xargs -I{} \
     -- swaymsg exec {}

@@ -37,7 +37,7 @@ TYPE=$(
           --no-multi \
           --margin 1,2,0,2 \
           --prompt 'copy ' \
-          --color info:8
+          --color info:{color/background/number}
 )
 
 [[ -n "${TYPE}" ]] || exit

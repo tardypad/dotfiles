@@ -10,7 +10,7 @@ echo -n \
   | fzf --reverse \
         --no-multi \
         --margin 1,2,0,2 \
-        --color info:8 \
+        --color info:{color/background/number} \
 )
 
 case "${ACTION}" in

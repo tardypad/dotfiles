@@ -67,7 +67,7 @@ SELECTED_APPS=$(
           --multi \
           --margin 1,2,0,2 \
           --prompt 'run apps ' \
-          --color info:8
+          --color info:{color/background/number}
 )
 
 if [[ -n "${SELECTED_APPS}" ]]; then

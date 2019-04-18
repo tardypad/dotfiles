@@ -8,7 +8,7 @@ NOTE=$(
         --no-multi \
         --margin 1,2,0,2 \
         --prompt 'open note ' \
-        --color info:8 \
+        --color info:{color/background/number} \
 )
 
 [[ -n "${NOTE}" ]] || exit
