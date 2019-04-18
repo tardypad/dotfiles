@@ -22,7 +22,7 @@ export KEYTIMEOUT=10
 export WORDCHARS=''
 
 # fzf default options
-export FZF_DEFAULT_OPTS="--height=20 --no-bold --color=bg:{color/background/number},fg:{color/foreground/number},hl:{color/base0A/number},fg+:{color/base00/number},bg+:{color/current_item/number},hl+:{color/base05/number},info:{color/base0A/number},prompt:{color/base0A/number},pointer:{color/base00/number},marker:{color/selected_item/number},spinner:{color/base0A/number},border:{color/base0A/number}"
+export FZF_DEFAULT_OPTS="--height=20 --no-bold --color=bg:{color/background/number},fg:{color/foreground/number},hl:{color/base0A/number},fg+:{color/base00/number},bg+:{color/current_item/number},hl+:{color/base05/number},info:{color/base0A/number},prompt:{color/base0A/number},pointer:{color/base00/number},marker:{color/selected_item/number},spinner:{color/base0A/number},border:{color/base0A/number},header:{color/base0A/number},gutter:{color/background/number}"
 
 # fzf default find command
 # only ignore build folder
