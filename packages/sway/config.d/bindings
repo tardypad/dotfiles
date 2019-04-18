@@ -31,7 +31,6 @@ bindsym $mod+Ctrl+Shift+x exec makoctl dismiss --all
 
 bindsym $mod+Return       exec exec_desktop_entry ~/.local/share/applications/terminal.desktop
 bindsym $mod+Shift+Return exec exec_desktop_entry ~/.local/share/applications/qutebrowser_web_browser.desktop
-bindsym $mod+grave        exec exec_desktop_entry ~/.local/share/applications/help.desktop
 
 
 ## launchers
@@ -41,7 +40,11 @@ mode "launchers" {
     bindsym Shift+Space mode "default", exec launcher launch_command
     bindsym Backspace   mode "default", exec launcher launch_system
     bindsym c           mode "default", exec launcher launch_clipboard
+    bindsym h           mode "default", exec launcher launch_help
+    bindsym j           mode "default", exec launcher launch_tmux_env "' Projects environment'" projects
+    bindsym n           mode "default", exec launcher launch_note
     bindsym p           mode "default", exec launcher launch_password
+    bindsym s           mode "default", exec launcher launch_tmux_env "' Servers environment'" servers
 
     bindsym Return mode "default"
     bindsym Escape mode "default"

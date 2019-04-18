@@ -1,6 +1,0 @@
-[Desktop Entry]
-Exec=launcher launch_tmux_env "' Servers environment'" servers
-Name=tmux
-GenericName=Servers environment
-Icon=
-Type=Application
