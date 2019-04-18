@@ -3,11 +3,11 @@
 
 # display monitor as floating window
 for_window [title="sway_monitor"] floating enable, \
-                                   resize set 1500 1000
+                                  resize set width 60 ppt height 70 ppt
 
 # display launcher as floating window
 for_window [title="sway_launcher"] floating enable, \
-                                   resize set 700 400
+                                   resize set width 30 ppt height 30 ppt
 
 # assign specific windows to workspaces
 assign [title=" Projects environment"] $ws1
@@ -23,5 +23,5 @@ assign [class="qutebrowser"] $ws10
 
 # assign music window to scratchpad
 for_window [title="sway_music"] floating enable, \
-                                resize set 1200 800, \
+                                resize set width 60 ppt height 70 ppt, \
                                 move scratchpad
