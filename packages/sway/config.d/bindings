@@ -104,6 +104,7 @@ bindsym $mod+y mode "layout"
 
 ## windows management
 
+bindsym $mod+Shift+c exec exec_desktop_entry ~/.local/share/applications/terminal.desktop
 bindsym $mod+Shift+x kill
 bindsym $mod+Shift+z fullscreen
 

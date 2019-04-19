@@ -118,6 +118,7 @@ bind -T ⓨ 5 switch-client -T ⓨ \; select-layout tiled
 
 ## panes management (uppercase)
 
+bind C split-window -h -c '#{pane_current_path}'
 bind X if '[ #{window_panes} -ne 1 ]' kill-pane 'confirm-before -p "kill-window \"#{window_name}\"? (y/n)" kill-window'
 bind Z resize-pane -Z
 bind G display-panes
