@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# move window to a new workspace in the focused output
+# at the lowest index available
+
+is_workspace_num_used() {
+  WORKSPACE_NUM="$1"
+
+  swaymsg -t get_workspaces \
+    | jq --exit-status --raw-output \
+      ".[]|select(.num==${WORKSPACE_NUM})" \
+    > /dev/null
+}
+
+NEW_WORKSPACE_NUM=1
+while is_workspace_num_used "${NEW_WORKSPACE_NUM}"; do
+  NEW_WORKSPACE_NUM=$(( NEW_WORKSPACE_NUM + 1 ))
+done
+
+swaymsg move container to workspace "${NEW_WORKSPACE_NUM}", \
+        workspace "${NEW_WORKSPACE_NUM}"
