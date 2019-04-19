@@ -15,24 +15,14 @@ LIST=(
   'Trademark'            '™'
 )
 
-display_item() {
-  local name="$1"
-
-  local item=$LIST[${NAME}]
-  local filler_length=$((
-    30 - ${#name}
-  ))
-  local filler="${(l.$filler_length.. .)}"
-
-  echo "${name}${filler}${item}"
-}
-
 
 TYPE=$(
   for NAME in "${(@k)LIST}"; do
-    display_item "${NAME}"
+    echo "${NAME}@${LIST[$NAME]}"
   done \
     | sort \
+    | column --table --table-right 2 \
+             --separator '@' --output-separator '     ' \
     | fzf --reverse \
           --no-multi \
           --margin 1,2,0,2 \

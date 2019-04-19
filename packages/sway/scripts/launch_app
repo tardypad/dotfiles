@@ -8,27 +8,20 @@ typeset -A AVAILABLE_APPS
 build_available_apps() {
   for app_desktop_file in "${APP_DESKTOP_FILES_PATH}"/*.desktop; do
     local app_name=$(
-      grep '^Name=' "${app_desktop_file}" \
-        | cut --delimiter = --fields 2
+      sed -n 's/^Name=\(.*\)/\1/p' "${app_desktop_file}"
     )
     local app_generic_name=$(
-      grep '^GenericName=' "${app_desktop_file}" \
-        | cut --delimiter = --fields 2
+      sed -n 's/^GenericName=\(.*\)/\1/p' "${app_desktop_file}"
     )
     local app_icon=$(
-      grep '^Icon=' "${app_desktop_file}" \
-        | cut --delimiter = --fields 2
+      sed -n 's/^Icon=\(.*\)/\1/p' "${app_desktop_file}"
     )
 
-    local filler_length=$((
-      50 - ${#app_name} - ${#app_generic_name} - ${#app_icon}
-    ))
-    local filler="${(l.$filler_length.. .)}"
-
-    local styled_app_names=$(
-      echo "${app_icon}  ${app_generic_name}${filler}${app_name}"
+    local app_index=$(
+      echo "${app_icon}${app_generic_name}${app_name}" \
+        | tr -d ' '
     )
-    AVAILABLE_APPS[${styled_app_names}]="${app_desktop_file}"
+    AVAILABLE_APPS[${app_index}]="${app_desktop_file}"
   done
 }
 
@@ -50,11 +43,21 @@ check_build_cache() {
   if [[ "${cache_last_modified}" -lt "${files_last_modified}" ]]; then
     mkdir --parents "${XDG_CACHE_HOME:-$HOME/.cache}/sway/"
 
-    build_available_apps
-
-    for styled_app_names in ${(k)AVAILABLE_APPS}; do
-      echo "${styled_app_names}"
-    done > "${CACHE_APPS_LIST_PATH}"
+    for app_desktop_file in "${APP_DESKTOP_FILES_PATH}"/*.desktop; do
+      local app_name=$(
+        sed -n 's/^Name=\(.*\)/\1/p' "${app_desktop_file}"
+      )
+      local app_generic_name=$(
+        sed -n 's/^GenericName=\(.*\)/\1/p' "${app_desktop_file}"
+      )
+      local app_icon=$(
+        sed -n 's/^Icon=\(.*\)/\1/p' "${app_desktop_file}"
+      )
+      echo "${app_icon}  ${app_generic_name}@${app_name}"
+    done \
+      | column --table --table-right 2 \
+               --separator '@' --output-separator '     ' \
+      > "${CACHE_APPS_LIST_PATH}"
   fi
 }
 
@@ -71,13 +74,16 @@ SELECTED_APPS=$(
 )
 
 if [[ -n "${SELECTED_APPS}" ]]; then
-  [[ -n "${AVAILABLE_APPS}" ]] || build_available_apps
+  build_available_apps
 
   IFS=$'\n'
   for SELECTED_APP in $( echo ${SELECTED_APPS} ); do
+    SELECTED_APP_INDEX=$(
+      echo "${SELECTED_APP}" | tr -d ' '
+    )
     # not sure why running exec_desktop_entry directly without using swaymsg
     # doesn't work when ran from the launcher
     swaymsg exec \
-      "exec_desktop_entry ${AVAILABLE_APPS[$SELECTED_APP]}"
+      "exec_desktop_entry ${AVAILABLE_APPS[$SELECTED_APP_INDEX]}"
   done
 fi
