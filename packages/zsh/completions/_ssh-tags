@@ -6,10 +6,17 @@ local hosts_tags_file="${XDG_CACHE_HOME:-$HOME/.cache}/hosts_tags.yaml"
 [ -f "${hosts_tags_file}" ] || return 1
 
 _hosts_tags() {
-  # #IDEA: only list tags which are not already specified
+  local ignore_tag ignore_tags='@@@'
+
+  for ((i = 2; i <= CURRENT; i++)); do
+    ignore_tag=$( echo $words[$i] | sed 's/\([^=]*\)=.*/\1/' )
+    ignore_tags="${ignore_tags}|^${ignore_tag}$"
+  done
+
   compadd -qS= $(
-    sed -n '/^  /s/^  \(.*\): .*/\1/p' "${hosts_tags_file}" \
-      | sort -u
+    sed -n 's/^  \(.*\): .*/\1/p' "${hosts_tags_file}" \
+      | sort -u \
+      | grep -vE "'${ignore_tags}'"
   )
 }
 
@@ -17,7 +24,7 @@ _tag_values() {
   local tag="$1"
 
   compadd $(
-    sed -n "/^  ${tag}/s/^  ${tag}: \(.*\)/\1/p" "${hosts_tags_file}" \
+    sed -n "s/^  ${tag}: \(.*\)/\1/p" "${hosts_tags_file}" \
       | sort -u
   )
 }
