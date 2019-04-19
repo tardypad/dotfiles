@@ -67,6 +67,8 @@ bindsym $mod+d scratchpad show
 
 ## workspaces management
 
+bindsym $mod+c exec create_workspace
+
 # select
 bindsym $mod+a workspace back_and_forth
 bindsym $mod+n workspace next_on_output
