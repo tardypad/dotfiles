@@ -1,15 +1,23 @@
 #!/bin/sh
 
-# #IDEA: preview only displays tags which are not already specified
+TAGS=$*
+
+IGNORE_TAGS='^ *name '
+while [ "$#" -gt 0 ]; do
+  IGNORE_TAG=$( echo "$1" | sed 's/\([^=]*\)=.*/\1/' )
+  IGNORE_TAGS="${IGNORE_TAGS}|^ *${IGNORE_TAG} "
+  shift
+done
+
 SELECTED_HOST=$(
-  query-hosts-tags hosts "$@" \
+  query-hosts-tags hosts "${TAGS}" \
     | fzf \
       --no-multi \
       --exit-0 \
       --select-1 \
       --height=10 \
       --layout=reverse \
-      --preview="query-hosts-tags tags {}" \
+      --preview="query-hosts-tags tags {} | grep -vE '${IGNORE_TAGS}'" \
       --preview-window=right:70%
 )
 
