@@ -14,4 +14,4 @@ echo -n "${PATH}" \
         --prompt 'run ' \
         --color info:{color/background/number} \
   | xargs -I{} \
-    -- swaymsg exec {}
+    -- swaymsg --quiet exec {}

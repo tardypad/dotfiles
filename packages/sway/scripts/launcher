@@ -6,7 +6,7 @@ COMMAND="$@"
 focus_window_title 'sway_launcher' && exit
 
 # launch new launcher otherwise
-swaymsg exec \
+swaymsg --quiet exec \
   "termite \
    --exec \"${COMMAND}\" \
    --config ${HOME}/.config/termite/config_launcher \

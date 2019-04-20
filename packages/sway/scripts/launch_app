@@ -83,7 +83,7 @@ if [[ -n "${SELECTED_APPS}" ]]; then
     )
     # not sure why running exec_desktop_entry directly without using swaymsg
     # doesn't work when ran from the launcher
-    swaymsg exec \
+    swaymsg --quiet exec \
       "exec_desktop_entry ${AVAILABLE_APPS[$SELECTED_APP_INDEX]}"
   done
 fi

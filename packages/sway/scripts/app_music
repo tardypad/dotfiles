@@ -10,7 +10,7 @@ if ! systemctl --user is-active mopidy.service; then
   systemctl --user start mopidy.service
 fi
 
-swaymsg exec \
+swaymsg --quiet exec \
   "termite \
    --title \"${TITLE}\" \
    --exec 'tmux new-session \"ncmpcpp\"'"

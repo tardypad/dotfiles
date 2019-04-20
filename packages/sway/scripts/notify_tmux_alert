@@ -25,4 +25,4 @@ WINDOW_MARK+="_${SOCKET_NAME}"
 WINDOW_MARK+="_${SESSION_ID}"
 WINDOW_MARK+="_${WINDOW_ID}"
 
-swaymsg "[con_mark=\"${WINDOW_MARK}\"]" urgent enable
+swaymsg --quiet "[con_mark=\"${WINDOW_MARK}\"]" urgent enable

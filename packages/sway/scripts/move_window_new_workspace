@@ -17,5 +17,6 @@ while is_workspace_num_used "${NEW_WORKSPACE_NUM}"; do
   NEW_WORKSPACE_NUM=$(( NEW_WORKSPACE_NUM + 1 ))
 done
 
-swaymsg move container to workspace "${NEW_WORKSPACE_NUM}", \
+swaymsg --quiet \
+        move container to workspace "${NEW_WORKSPACE_NUM}", \
         workspace "${NEW_WORKSPACE_NUM}"

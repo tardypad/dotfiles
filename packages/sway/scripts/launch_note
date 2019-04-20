@@ -13,7 +13,7 @@ NOTE=$(
 
 [[ -n "${NOTE}" ]] || exit
 
-swaymsg exec \
+swaymsg --quiet exec \
   "termite \
    --title ' Notes' \
    --exec 'tmux new-session \"vim ${NOTES_FOLDER}/${NOTE}\"'"

@@ -6,7 +6,7 @@ TITLE=' Chat client'
 focus_window_title "${TITLE}" && exit
 
 # launch new app otherwise
-swaymsg exec \
+swaymsg --quiet exec \
   "termite \
    --title \"${TITLE}\" \
    --exec 'tmux new-session \"weechat\"'"

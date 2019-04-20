@@ -26,7 +26,7 @@ sway_fullscreen() {
 
   if [[ "${action}" == 'enable' && "${fullscreen_status}" = '0' ]] \
      || [[ "${action}" == 'disable' && "${fullscreen_status}" = '1' ]]; then
-    swaymsg fullscreen &> /dev/null
+    swaymsg --quiet fullscreen &> /dev/null
   fi
 }
 
