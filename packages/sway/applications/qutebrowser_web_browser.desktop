@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=qutebrowser %u
+Exec=qutebrowser --loglevel warning %u
 Name=qutebrowser
 GenericName=Web browser
 Icon=
