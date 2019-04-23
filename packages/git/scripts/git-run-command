@@ -43,7 +43,7 @@ abort_if_dirty_repo() {
   fi
 
   if ! git diff-files --quiet; then
-    erro 'you have unstaged changes that would be lost'
+    error 'you have unstaged changes that would be lost'
   fi
 
   local untracked=$( git ls-files --exclude-standard --others )
