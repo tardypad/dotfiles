@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
-notify-send \
-  --expire-time 5000 \
+notify \
+  --expire-time 5 \
   --category 'notice' \
   'Pomodoro end' \
   'Take a break'

@@ -5,7 +5,7 @@
 # to not be coupled with the interval defined there
 makoctl dismiss --all
 
-notify-send \
+notify \
   --category 'alert' \
   'Low battery' \
   'Battery level is getting low'

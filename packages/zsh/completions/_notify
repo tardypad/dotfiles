@@ -1,0 +1,6 @@
+#compdef notify
+
+_arguments \
+  '(-c --category)'{-c,--category}'[notification category]:()' \
+  '(-h --help)'{-h,--help}'[display the help]' \
+  '(-t --expire-time)'{-t,--expire-time}'[timeout in seconds]:()'

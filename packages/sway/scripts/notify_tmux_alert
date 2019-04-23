@@ -15,7 +15,7 @@ MESSAGE="socket: ${SOCKET_NAME}\n"
 MESSAGE+="session: ${SESSION_NAME}\n"
 MESSAGE+="window: ${WINDOW_NAME}"
 
-notify-send \
+notify \
   --category 'notice' \
   "Tmux ${TYPE} detected" \
   "${MESSAGE}"

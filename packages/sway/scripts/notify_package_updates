@@ -29,7 +29,7 @@ fi
 # exit if no updates available
 [[ -n "${MESSAGE}" ]] || exit
 
-notify-send \
+notify \
   --category 'info' \
   'Packages updates available' \
   "${MESSAGE}"
