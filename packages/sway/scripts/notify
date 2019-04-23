@@ -8,6 +8,7 @@ init_variables() {
   CATEGORY=
   EXPIRE_TIME=0
   HINTS='{}'
+  IDENTIFIER=
 
   # unused as parameters
   APP_NAME=
@@ -25,6 +26,8 @@ usage() {
 	Options:
 	  -c,  --category CATEGORY  notification category
 	  -h,  --help               show this message only
+	  -i,  --identifier ID      notification identifier
+	                            replace similar notification if any
 	  -t,  --expire-time TIME   timeout in seconds
 	EOF
 }
@@ -40,20 +43,33 @@ send_notification() {
     HINTS="{\"category\":<string \"${CATEGORY}\">}"
   fi
 
-  gdbus call \
-    --session \
-    --dest org.freedesktop.Notifications \
-    --object-path /org/freedesktop/Notifications \
-    --method org.freedesktop.Notifications.Notify \
-    "${APP_NAME}" \
-    "${REPLACE_ID}" \
-    "${ICON}" \
-    "${SUMMARY}" \
-    "${BODY}" \
-    "${ACTIONS}" \
-    "${HINTS}" \
-    "int32 $(( EXPIRE_TIME * 1000 ))" \
-  > /dev/null
+  if [ -n "${IDENTIFIER}" ]; then
+    NOTIFICATION_FILE="/tmp/notification_${IDENTIFIER}"
+    if [ -f "${NOTIFICATION_FILE}" ]; then
+      REPLACE_ID=$( cat "${NOTIFICATION_FILE}" )
+    fi
+  fi
+
+  NOTIFICATION_ID=$(
+    gdbus call \
+      --session \
+      --dest org.freedesktop.Notifications \
+      --object-path /org/freedesktop/Notifications \
+      --method org.freedesktop.Notifications.Notify \
+      "${APP_NAME}" \
+      "${REPLACE_ID}" \
+      "${ICON}" \
+      "${SUMMARY}" \
+      "${BODY}" \
+      "${ACTIONS}" \
+      "${HINTS}" \
+      "int32 $(( EXPIRE_TIME * 1000 ))" \
+    | sed 's/(uint32 \([0-9]\+\),)/\1/'
+  )
+
+  if [ -n "${IDENTIFIER}" ]; then
+    echo "${NOTIFICATION_ID}" > "${NOTIFICATION_FILE}"
+  fi
 }
 
 parse_options() {
@@ -67,6 +83,11 @@ parse_options() {
       -h|--help)
         usage
         exit 0
+        ;;
+      -i|--identifier)
+        [ -n "$2" ] || error 'Missing --identifier value'
+        IDENTIFIER="$2"
+        shift 2
         ;;
       -t|--expire-time)
         [ -n "$2" ] || error 'Missing --expire-time value'

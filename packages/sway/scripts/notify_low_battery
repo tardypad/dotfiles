@@ -1,12 +1,8 @@
 #!/usr/bin/env zsh
 
-# #HACK: to prevent multiple display of this notification
-# the trigger of this notification should be made outside of i3blocks
-# to not be coupled with the interval defined there
-makoctl dismiss --all
-
 notify \
   --category 'alert' \
+  --identifier 'low_battery' \
   'Low battery' \
   'Battery level is getting low'
 

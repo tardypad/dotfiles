@@ -1,9 +1,5 @@
 #!/usr/bin/env zsh
 
-# #HACK: when triggered from another session, the hook is run multiple times
-# this should preferably  be fixed on the tmux side
-makoctl dismiss --all
-
 TYPE="$1"
 SOCKET_NAME="$2"
 SESSION_ID="$3"
@@ -15,14 +11,15 @@ MESSAGE="socket: ${SOCKET_NAME}\n"
 MESSAGE+="session: ${SESSION_NAME}\n"
 MESSAGE+="window: ${WINDOW_NAME}"
 
+MARK=_tmux_alert
+MARK+="_${SOCKET_NAME}"
+MARK+="_${SESSION_ID}"
+MARK+="_${WINDOW_ID}"
+
 notify \
   --category 'notice' \
+  --identifier "${MARK}" \
   "Tmux ${TYPE} detected" \
   "${MESSAGE}"
 
-WINDOW_MARK=_tmux_alert
-WINDOW_MARK+="_${SOCKET_NAME}"
-WINDOW_MARK+="_${SESSION_ID}"
-WINDOW_MARK+="_${WINDOW_ID}"
-
-swaymsg --quiet "[con_mark=\"${WINDOW_MARK}\"]" urgent enable
+swaymsg --quiet "[con_mark=\"${MARK}\"]" urgent enable

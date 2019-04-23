@@ -3,4 +3,5 @@
 _arguments \
   '(-c --category)'{-c,--category}'[notification category]:()' \
   '(-h --help)'{-h,--help}'[display the help]' \
+  '(-i --identifier)'{-i,--identifier}'[notification identifier, replace similar notification if any]:()' \
   '(-t --expire-time)'{-t,--expire-time}'[timeout in seconds]:()'
