@@ -11,6 +11,7 @@ init_variables() {
   START_REF=
   END_REF=
   RUN_COMMAND=
+  QUIET=0
 }
 
 
@@ -22,6 +23,7 @@ usage() {
 
 	Options:
 	    -h               show this message only
+	    -q, --quiet      only show command outputs
 	EOF
 }
 
@@ -73,7 +75,7 @@ run_command_over_range() {
   ))
 
   for revision in $revisions; do
-    echo "Checking out: $( git log --oneline -1 ${revision} )"
+    [ "${QUIET}" -eq 0 ] && echo "Checking out: $( git log --oneline -1 ${revision} )"
     git checkout --quiet "${revision}"
     eval "${RUN_COMMAND}"
     git reset --hard --quiet
@@ -87,6 +89,10 @@ parse_options() {
       -h)
         usage
         exit 0
+        ;;
+      -q|--quiet)
+        QUIET=1
+        shift
         ;;
       *)
         break 2
