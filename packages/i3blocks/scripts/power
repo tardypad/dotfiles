@@ -1,25 +1,18 @@
 #! /usr/bin/env zsh
 
-IS_ADAPTER_ON=$( cat /sys/class/power_supply/AC/online )
-IS_ANY_BATTERY_CHARGING=0
-TOTAL_ENERGY_NOW=0
-TOTAL_ENERGY_FULL=0
+BATTERY_STATUS=$( battery_status )
 
-foreach bat in /sys/class/power_supply/BAT*; do
-  (( TOTAL_ENERGY_NOW += $( cat $bat/energy_now ) ))
-  (( TOTAL_ENERGY_FULL += $( cat $bat/energy_full ) ))
-
-  if [[ $( cat $bat/status ) == 'Charging' ]]; then
-    IS_ANY_BATTERY_CHARGING=1
-  fi
-done
-
-
+ADAPTER_STATUS=$(
+  echo "${BATTERY_STATUS}" \
+    | sed -n 's/^Adapter: \(.*\)$/\1/p'
+)
+IS_ANY_BATTERY_CHARGING=$(
+  echo "${BATTERY_STATUS}" \
+    | sed -n 's/^Charging: \(.*\)$/\1/p'
+)
 TOTAL_ENERGY_PERCENT=$(
-  printf %.0f $(
-    echo "( ${TOTAL_ENERGY_NOW} / ${TOTAL_ENERGY_FULL} ) * 100" \
-      | bc -l
-  )
+  echo "${BATTERY_STATUS}" \
+    | sed -n 's/^Charge: \(.*\)%$/\1/p'
 )
 
 if [[ "${TOTAL_ENERGY_PERCENT}" -lt 10 ]]; then
@@ -34,8 +27,8 @@ else
   BATTERY_ICON=''
 fi
 
-if [[ "${IS_ADAPTER_ON}" -eq 1 ]]; then
-  if [[ "${IS_ANY_BATTERY_CHARGING}" -eq 1 ]]; then
+if [[ "${ADAPTER_STATUS}" = 'on' ]]; then
+  if [[ "${IS_ANY_BATTERY_CHARGING}" = 'yes' ]]; then
     echo "<span foreground='#{color/base0A/hex}'> ${BATTERY_ICON}</span> ${TOTAL_ENERGY_PERCENT}%"
   else
     echo "<span foreground='#{color/base0A/hex}'></span> AC"
