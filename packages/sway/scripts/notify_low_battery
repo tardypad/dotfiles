@@ -1,5 +1,23 @@
 #!/usr/bin/env zsh
 
+ALERT_THRESHOLD_PERCENT=10
+
+BATTERY_STATUS=$( battery_status )
+
+ADAPTER_STATUS=$(
+  echo "${BATTERY_STATUS}" \
+    | sed -n 's/^Adapter: \(.*\)$/\1/p'
+)
+
+[ "${ADAPTER_STATUS}" = 'on' ] && exit
+
+TOTAL_ENERGY_PERCENT=$(
+  echo "${BATTERY_STATUS}" \
+    | sed -n 's/^Charge: \(.*\)%$/\1/p'
+)
+
+[ "${TOTAL_ENERGY_PERCENT}" -gt "${ALERT_THRESHOLD_PERCENT}" ] && exit
+
 notify \
   --category 'alert' \
   --identifier 'low_battery' \

@@ -36,7 +36,6 @@ if [[ "${ADAPTER_STATUS}" = 'on' ]]; then
 else
   if [[ "${TOTAL_ENERGY_PERCENT}" -lt 10 ]]; then
     echo "<span foreground='#{color/alert/hex}'>${BATTERY_ICON} ${TOTAL_ENERGY_PERCENT}%</span>"
-    notify_low_battery
     exit 33
   else
     echo "<span foreground='#{color/base0A/hex}'>${BATTERY_ICON}</span> ${TOTAL_ENERGY_PERCENT}%"
