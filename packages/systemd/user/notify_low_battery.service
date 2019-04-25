@@ -3,4 +3,4 @@ Description=Notify about low battery
 
 [Service]
 Type=oneshot
-ExecStart=/home/damien/.config/sway/scripts/notify_low_battery
+ExecStart=/home/damien/.config/sway/scripts/check_notify_low_battery
