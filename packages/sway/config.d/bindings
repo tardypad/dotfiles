@@ -20,6 +20,9 @@ bindsym $mod+Escape exec do-not-disturb toggle \
 bindsym $mod+Shift+Escape exec pomodoro toggle \
                                && pkill -RTMIN+4 i3blocks
 
+# select region and grab screenshot
+bindsym $mod+g exec grab_region_screenshot
+
 
 ## notifications
 
