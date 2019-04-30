@@ -9,6 +9,9 @@ signal=4
 interval=10
 signal=3
 
+[chat]
+interval=10
+
 [volume]
 interval=once
 signal=1
