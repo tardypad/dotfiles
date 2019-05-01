@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# try to focus existing window if it exists
+focus_window_title 'sway_command_input' && exit
+
+# quote arguments for usage in next command
+ARGUMENTS=
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    -*) ARGUMENTS="${ARGUMENTS} $1";;
+    *) ARGUMENTS="${ARGUMENTS} '$1'";;
+  esac
+  shift
+done
+
+# launch new command input window otherwise
+swaymsg --quiet exec \
+  "termite \
+   --exec \"command_input_exec ${ARGUMENTS}\" \
+   --config ${HOME}/.config/termite/config_command_input \
+   --title sway_command_input"

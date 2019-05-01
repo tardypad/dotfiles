@@ -1,0 +1,78 @@
+#!/usr/bin/env zsh
+
+init_variables() {
+  COMMAND=${0##*/}
+
+  PROMPT=
+  FORMAT='%s'
+  USER_INPUT=
+}
+
+usage() {
+  cat <<- EOF
+	usage: ${COMMAND} [<options>]
+
+	Sway command input script
+
+	Options:
+	  -F,  --format  FORMAT  sway command to be executed
+                           %s occurences are replaced by user input
+	  -h,  --help            show this message only
+	  -P,  --prompt  PROMPT  display before user input
+	  -p,  --prefill TEXT    initial text loaded as input
+	EOF
+}
+
+error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  printf "Try '%s --help' for more information.\n" "${COMMAND}"
+  exit 1
+} >&2
+
+run() {
+  vared -p "${PROMPT}" USER_INPUT
+
+  [ -n "${USER_INPUT}" ] || return 1
+
+  SWAY_COMMAND="$(
+    echo "${FORMAT}" \
+      | sed "s/%s/${USER_INPUT}/g"
+  )"
+
+  swaymsg --quiet ${SWAY_COMMAND}
+}
+
+parse_options() {
+  while [ "$#" -gt 0 ]; do
+    case "$1" in
+      -F|--format)
+        [ -n "$2" ] || error 'Missing --format value'
+        FORMAT="$2"
+        shift 2
+        ;;
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      -P|--prompt)
+        [ -n "$2" ] || error 'Missing --prompt value'
+        PROMPT="$2"
+        shift 2
+        ;;
+      -p|--prefill)
+        [ -n "$2" ] || error 'Missing --prefill value'
+        USER_INPUT="$2"
+        shift 2
+        ;;
+      *)
+        break 2
+        ;;
+    esac
+  done
+}
+
+
+init_variables
+parse_options "$@"
+
+run
