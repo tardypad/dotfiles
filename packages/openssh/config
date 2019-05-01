@@ -6,9 +6,9 @@ Host *
     AddKeysToAgent yes
 
 Host github
-	Hostname github.com
-	User git
-	IdentityFile ~/.ssh/id_github
+    Hostname github.com
+    User git
+    IdentityFile ~/.ssh/id_github
 
 Host tardypad
     Hostname tardypad.me
