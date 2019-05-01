@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# rename current workspace
+
+CURRENT_WORKSPACE_NAME=$(
+  swaymsg -t get_workspaces \
+    | jq --raw-output \
+      ".[]|select(.focused==true)|.name"
+)
+
+command_input \
+  -F 'rename workspace to %s' \
+  -P 'rename workspace: ' \
+  -p "${CURRENT_WORKSPACE_NAME}"
