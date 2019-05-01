@@ -13,6 +13,7 @@ init_variables() {
   #   project: website
   #   environment: test
   #   purpose: backend
+  # database.example.com: [invalid data]
   #
   # there is no restriction on the tags key
   # hosts don't have to have all the same tags
@@ -77,8 +78,7 @@ process_file() {
   # purpose=backend
 
   sed \
-    -e 's/^[^ ]/\n&/' \
-    -e 's/:$//' \
+    -e 's/^\([^ ][^:]*\):.*$/\n\1/' \
     -e 's/^  //' \
     -e 's/: /=/' \
     "${HOSTS_TAGS_FILE}" \
