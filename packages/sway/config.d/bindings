@@ -6,6 +6,9 @@ bindsym $mod+Ctrl+q exit
 # reload the configuration file
 bindsym $mod+Alt+Shift+r reload
 
+# general command input
+bindsym $mod+colon exec run_command
+
 # lock the screen
 bindsym $mod+Backspace exec swaylock
 

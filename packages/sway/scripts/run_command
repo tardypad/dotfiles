@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# run general sway command
+
+WINDOW_MARK='command_input'
+
+WINDOW_FOCUSED_ID=$(
+  swaymsg -t get_tree \
+    | jq 'recurse(.nodes[]?)
+          | select(.focused == true and .type == "con")
+          | .id'
+)
+
+if [ -n "${WINDOW_FOCUSED_ID}" ]; then
+  # We need to mark the window first in case the command should affect it
+  # otherwise the command would be run on the input window itself
+  swaymsg --quiet "mark --add ${WINDOW_MARK}"
+  FORMAT="[con_mark=${WINDOW_MARK}] %s"
+else
+  FORMAT='%s'
+fi
+
+command_input \
+  -F "${FORMAT}" \
+  -P ':'
