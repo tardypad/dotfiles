@@ -13,7 +13,7 @@ fi
 swaymsg --quiet exec \
   "termite \
    --title \"${TITLE}\" \
-   --exec 'tmux new-session \"ncmpcpp\"'"
+   --exec 'tmux new-session -A -s music \"ncmpcpp\"'"
 
 # focus the window (not automatic if different workspace)
 # need to wait a bit for the window to be registered
