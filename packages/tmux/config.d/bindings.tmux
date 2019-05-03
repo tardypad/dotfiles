@@ -63,7 +63,7 @@ bind    C-0 switch-client -t $9
 
 ## windows management (lowercase)
 
-bind c new-window
+bind c new-window -c "${HOME}"
 bind r command-prompt -I '#{window_name}' "rename-window '%%'"
 bind x confirm-before -p 'kill-window "#{window_name}"? (y/n)' kill-window
 
