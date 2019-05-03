@@ -44,7 +44,7 @@ bind    C-s choose-tree -Z -s -w -F '#{?pane_format,#{pane_current_command},#{?w
 %else
 bind    C-s choose-tree -Z -s -w -F '#{?pane_format,#{pane_current_command},#{window_name}}' -O index
 %endif
-bind -r C-a if '[ "#{client_last_session}" != "" ]' 'switch-client -l' 'switch-client -n'
+bind -r C-a switch-client -l
 bind -r C-n switch-client -n
 bind -r C-j switch-client -n
 bind -r C-p switch-client -p
