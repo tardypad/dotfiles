@@ -2,10 +2,19 @@
 
 FILE_PATH="${XDG_RUNTIME_DIR}/chat_count"
 
-[ -f "${FILE_PATH}" ] || exit 0
+# don't show anything if weechat is not running
+pidof weechat > /dev/null || exit 0
+
+# show 0 notification if there is no file
+# just to let us know at least that weechat is running
+if [ ! -f "${FILE_PATH}" ]; then
+  echo "<span foreground='#{color/base0A/hex}'></span> 0"
+fi
 
 COUNT=$( cat "${FILE_PATH}" )
 
-[ "${COUNT}" -gt 0 ] || exit 0
-
-echo "<span foreground='#{color/notice/hex}'> ${COUNT}</span>"
+if [ "${COUNT}" -gt 0 ]; then
+  echo "<span foreground='#{color/notice/hex}'> ${COUNT}</span>"
+else
+  echo "<span foreground='#{color/base0A/hex}'></span> 0"
+fi
