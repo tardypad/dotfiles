@@ -90,6 +90,9 @@ set -g lock-command vlock
 # decrease the input escape time
 set -g escape-time 100
 
+# decrease the binding keys repeat time
+set -g repeat-time 300
+
 # do not monitor activity/bell/silence by default
 setw -g monitor-activity off
 setw -g monitor-bell off
