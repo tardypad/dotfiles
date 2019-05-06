@@ -1,7 +1,7 @@
 ## general
 
 # exit sway
-bindsym $mod+Ctrl+q exit
+bindsym $mod+Ctrl+$key_quit exit
 
 # reload the configuration file
 bindsym $mod+Alt+Shift+r reload
@@ -29,8 +29,8 @@ bindsym $mod+g exec grab_region_screenshot
 
 ## notifications
 
-bindsym $mod+Ctrl+x       exec makoctl dismiss
-bindsym $mod+Ctrl+Shift+x exec makoctl dismiss --all
+bindsym $mod+Ctrl+$key_kill       exec makoctl dismiss
+bindsym $mod+Ctrl+Shift+$key_kill exec makoctl dismiss --all
 
 
 ## launch apps
@@ -73,29 +73,29 @@ bindsym $mod+d scratchpad show
 
 ## workspaces management
 
-bindsym $mod+c exec create_workspace
-bindsym $mod+r exec rename_workspace
+bindsym $mod+$key_create exec create_workspace
+bindsym $mod+$key_rename exec rename_workspace
 
 # select
-bindsym $mod+a workspace back_and_forth
-bindsym $mod+n workspace next_on_output
-bindsym $mod+$right workspace next_on_output
-bindsym $mod+p workspace prev_on_output
-bindsym $mod+$left workspace prev_on_output
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
+bindsym $mod+$key_alternate workspace back_and_forth
+bindsym $mod+$key_next      workspace next_on_output
+bindsym $mod+$key_right     workspace next_on_output
+bindsym $mod+$key_previous  workspace prev_on_output
+bindsym $mod+$key_left      workspace prev_on_output
+bindsym $mod+1              workspace $ws1
+bindsym $mod+2              workspace $ws2
+bindsym $mod+3              workspace $ws3
+bindsym $mod+4              workspace $ws4
+bindsym $mod+5              workspace $ws5
+bindsym $mod+6              workspace $ws6
+bindsym $mod+7              workspace $ws7
+bindsym $mod+8              workspace $ws8
+bindsym $mod+9              workspace $ws9
+bindsym $mod+0              workspace $ws10
 
 # split
-bindsym $mod+v splith, exec exec_desktop_entry ~/.local/share/applications/terminal.desktop
-bindsym $mod+s splitv, exec exec_desktop_entry ~/.local/share/applications/terminal.desktop
+bindsym $mod+$key_vsplit splith, exec exec_desktop_entry ~/.local/share/applications/terminal.desktop
+bindsym $mod+$key_split  splitv, exec exec_desktop_entry ~/.local/share/applications/terminal.desktop
 
 # layout mode
 mode "layout" {
@@ -106,63 +106,63 @@ mode "layout" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+y mode "layout"
+bindsym $mod+$key_layout mode "layout"
 
 
 ## windows management
 
-bindsym $mod+Shift+c exec exec_desktop_entry ~/.local/share/applications/terminal.desktop
-bindsym $mod+Shift+x kill
-bindsym $mod+Shift+z fullscreen
+bindsym $mod+Shift+$key_create exec exec_desktop_entry ~/.local/share/applications/terminal.desktop
+bindsym $mod+Shift+$key_kill   kill
+bindsym $mod+Shift+$key_zoom   fullscreen
 
 # select
-bindsym $mod+Shift+$left focus left
-bindsym $mod+Shift+$down focus down
-bindsym $mod+Shift+$up focus up
-bindsym $mod+Shift+$right focus right
+bindsym $mod+Shift+$key_left  focus left
+bindsym $mod+Shift+$key_down  focus down
+bindsym $mod+Shift+$key_up    focus up
+bindsym $mod+Shift+$key_right focus right
 
 # move mode
 mode "move" {
     # move focused window within workspace
-    bindsym Shift+$left move left
-    bindsym Shift+$down move down
-    bindsym Shift+$up move up
-    bindsym Shift+$right move right
+    bindsym Shift+$key_left  move left
+    bindsym Shift+$key_down  move down
+    bindsym Shift+$key_up    move up
+    bindsym Shift+$key_right move right
 
     # move focused container to workspace and follow
-    bindsym 1 move container to workspace $ws1, workspace $ws1
-    bindsym 2 move container to workspace $ws2, workspace $ws2
-    bindsym 3 move container to workspace $ws3, workspace $ws3
-    bindsym 4 move container to workspace $ws4, workspace $ws4
-    bindsym 5 move container to workspace $ws5, workspace $ws5
-    bindsym 6 move container to workspace $ws6, workspace $ws6
-    bindsym 7 move container to workspace $ws7, workspace $ws7
-    bindsym 8 move container to workspace $ws8, workspace $ws8
-    bindsym 9 move container to workspace $ws9, workspace $ws9
-    bindsym 0 move container to workspace $ws10, workspace $ws10
-    bindsym c exec move_window_new_workspace
-    bindsym a move container to workspace back_and_forth, workspace back_and_forth
-    bindsym n move container to workspace next_on_output, workspace next_on_output
-    bindsym $right move container to workspace next_on_output, workspace next_on_output
-    bindsym p move container to workspace prev_on_output, workspace prev_on_output
-    bindsym $left move container to workspace prev_on_output, workspace prev_on_output
+    bindsym 1              move container to workspace $ws1, workspace $ws1
+    bindsym 2              move container to workspace $ws2, workspace $ws2
+    bindsym 3              move container to workspace $ws3, workspace $ws3
+    bindsym 4              move container to workspace $ws4, workspace $ws4
+    bindsym 5              move container to workspace $ws5, workspace $ws5
+    bindsym 6              move container to workspace $ws6, workspace $ws6
+    bindsym 7              move container to workspace $ws7, workspace $ws7
+    bindsym 8              move container to workspace $ws8, workspace $ws8
+    bindsym 9              move container to workspace $ws9, workspace $ws9
+    bindsym 0              move container to workspace $ws10, workspace $ws10
+    bindsym $key_create    exec move_window_new_workspace
+    bindsym $key_alternate move container to workspace back_and_forth, workspace back_and_forth
+    bindsym $key_next      move container to workspace next_on_output, workspace next_on_output
+    bindsym $key_right     move container to workspace next_on_output, workspace next_on_output
+    bindsym $key_previous  move container to workspace prev_on_output, workspace prev_on_output
+    bindsym $key_left      move container to workspace prev_on_output, workspace prev_on_output
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+Shift+m mode "move"
+bindsym $mod+Shift+$key_move mode "move"
 
 # resize mode
 mode "resize" {
-    bindsym Shift+$left resize shrink width 10 px or 10 ppt
-    bindsym Shift+$up resize grow height 10 px or 10 ppt
-    bindsym Shift+$down resize shrink height 10 px or 10 ppt
-    bindsym Shift+$right resize grow width 10 px or 10 ppt
+    bindsym Shift+$key_left  resize shrink width 10 px or 10 ppt
+    bindsym Shift+$key_up    resize grow height 10 px or 10 ppt
+    bindsym Shift+$key_down  resize shrink height 10 px or 10 ppt
+    bindsym Shift+$key_right resize grow width 10 px or 10 ppt
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+Shift+s mode "resize"
+bindsym $mod+Shift+$key_resize mode "resize"
 
 
 ## XF86 keys
