@@ -3,8 +3,6 @@
     email = damien@tardypad.me
 [url "tardypad:~/damien.git/"]
     insteadOf = perso:
-[url "tardypad:~/damien.old/"]
-    insteadOf = perso_old:
 [url "github:"]
     insteadOf = gh:
 [url "github:tardypad/"]
