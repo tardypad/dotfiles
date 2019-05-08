@@ -1,8 +1,5 @@
-" Toggle window zoom
-nnoremap <C-W>Z :call<SID>ZoomToggle()<cr>
-
 " Function to toggle zoom of window
-function! s:ZoomToggle()
+function! ZoomToggle()
   if exists('t:zoomed') && t:zoomed
     execute t:zoom_winrestcmd
     let t:zoomed = 0

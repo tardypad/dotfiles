@@ -1,8 +1,3 @@
-" \uu go to Undotree window
-" \uq hide Undotree window
-nnoremap <silent> <Leader>uu :UndotreeShow<CR>
-nnoremap <silent> <Leader>uq :UndotreeHide<CR>
-
 " switch focus to Undotree window when toggle
 let g:undotree_SetFocusWhenToggle = 1
 

@@ -43,8 +43,3 @@ endfunction
 command! -nargs=1 -complete=customlist,s:complete_sessions_name SessionSave call<SID>session_save(<q-args>)
 command! -nargs=1 -complete=customlist,s:complete_sessions_name SessionDelete call<SID>session_delete(<q-args>)
 command! -nargs=1 -complete=customlist,s:complete_sessions_name SessionOpen call<SID>session_open(<q-args>)
-
-" bindings
-nnoremap ss :SessionSave <c-r>=GetCurrentSessionName()<cr>
-nnoremap sx :SessionDelete <c-r>=GetCurrentSessionName()<cr>
-nnoremap so :SessionOpen<space>

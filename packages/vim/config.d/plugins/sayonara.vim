@@ -5,7 +5,7 @@ let g:sayonara_filetypes = {
   \ 'undotree': 'UndotreeHide',
   \ }
 
-fun! s:SanerSayonara()
+fun! SanerSayonara()
   let editable_windows_count =
     \ len(filter(tabpagebuflist(), 'buflisted(v:val)'))
 
@@ -22,10 +22,3 @@ fun! s:SanerSayonara()
   " default behavior
   Sayonara
 endfunction
-
-" delete the current buffer and close the current window
-" with few exceptions
-nnoremap <silent> <Leader>q :call<SID>SanerSayonara()<CR>
-
-" delete the current buffer and preserve the current window
-nnoremap <silent> <Leader>Q :Sayonara!<CR>

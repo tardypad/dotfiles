@@ -1,8 +1,3 @@
-" \tt go to Tagbar window
-" \tq hide Tagbar window
-nnoremap <silent> <Leader>tt :TagbarOpen j<CR>
-nnoremap <silent> <Leader>tq :TagbarClose<CR>
-
 " switch focus to Tagbar window when toggle
 let g:tagbar_autofocus = 1
 

@@ -1,8 +1,3 @@
-" mappings
-nnoremap <silent> <Leader>lp :ALEPreviousWrap<CR>
-nnoremap <silent> <Leader>ln :ALENextWrap<CR>
-nnoremap <silent> <Leader>lt :ALEToggleBuffer<CR>
-
 " only check when saving file
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0

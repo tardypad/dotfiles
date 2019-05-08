@@ -4,22 +4,6 @@ set nocompatible          " Cancel the compatibility with Vi
 " Define the plugins
 source ~/.vim/plugins.vim
 
-" Use space as leader
-let mapleader = "\<Space>"
-
-" binding to reload config
-nnoremap r :source $MYVIMRC<CR>
-
-" Disable space moves cursor in non editing mode
-noremap <Space> <nop>
-vnoremap <Space> <nop>
-
-" disable usage of Ctrl-J as Enter in command mode
-cnoremap <C-J> <nop>
-
-" remove ex mode binding
-nmap Q <nop>
-
 " Activate syntax coloring
 syntax enable
 
@@ -74,10 +58,6 @@ filetype indent on
 
 " Decrease silent time before swap file gets written
 set updatetime=500
-
-" Go to insert mode after/before 2 newlines
-nmap 2o A<CR><CR>
-nmap 2O I<CR><CR><Esc>kki
 
 " correct joining of lines if comments
 set formatoptions+=j
