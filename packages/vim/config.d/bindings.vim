@@ -16,10 +16,6 @@ cnoremap <C-J> <nop>
 " remove ex mode binding
 nmap Q <nop>
 
-" Go to insert mode after/before 2 newlines
-nmap 2o A<CR><CR>
-nmap 2O I<CR><CR><Esc>kki
-
 " Toggle long lines highlighting
 nnoremap <Leader>L :call LongLineHighlightToggle()<cr>
 
