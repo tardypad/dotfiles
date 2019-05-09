@@ -76,7 +76,7 @@ nnoremap <silent> <Leader>q :call SanerSayonara()<CR>
 nnoremap <silent> <Leader>Q :Sayonara!<CR>
 
 " Toggle window zoom
-nnoremap <C-W>Z :call ZoomToggle()<cr>
+nnoremap <silent> <C-W>Z :WindowZoomToggle<CR>
 
 
 "" tabs management
