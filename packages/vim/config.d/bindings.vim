@@ -96,7 +96,7 @@ nnoremap <silent> <Leader>t7 :tabnext 7<CR>
 nnoremap <silent> <Leader>t8 :tabnext 8<CR>
 nnoremap <silent> <Leader>t9 :tabnext 9<CR>
 nnoremap <silent> <Leader>t0 :tabnext 10<CR>
-nnoremap <silent> <Leader>ta :call GoToAlternateTab()<cr>
+nnoremap <silent> <Leader>ta :TabAlternate<CR>
 nnoremap <silent> <Leader>th :tabprevious<CR>
 nnoremap <silent> <Leader>tp :tabprevious<CR>
 nnoremap <silent> <Leader>tl :tabnext<CR>
