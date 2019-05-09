@@ -17,7 +17,7 @@ cnoremap <C-J> <nop>
 nmap Q <nop>
 
 " Toggle long lines highlighting
-nnoremap <Leader>L :call LongLineHighlightToggle()<cr>
+nnoremap <Leader>L :LongLinesHighlightToggle<CR>
 
 " Disable arrow keys usage to break bad habits
 noremap <Up> <nop>
