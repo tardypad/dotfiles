@@ -121,8 +121,8 @@ nnoremap <silent> <Leader>tmn :tabmove +<CR>
 
 "" sessions management
 
-nnoremap ss :SessionSave <c-r>=GetCurrentSessionName()<cr>
-nnoremap sx :SessionDelete <c-r>=GetCurrentSessionName()<cr>
+nnoremap ss :SessionSave <C-R>=GetCurrentSessionName()<CR>
+nnoremap sx :SessionDelete <C-R>=GetCurrentSessionName()<CR>
 nnoremap so :SessionOpen<space>
 
 
