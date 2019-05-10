@@ -69,8 +69,8 @@ nnoremap <silent> k :TmuxNavigateUp<cr>
 nnoremap <silent> l :TmuxNavigateRight<cr>
 nnoremap <silent> a :TmuxNavigatePrevious<cr>
 
-" delete the current buffer and close the current window with few exceptions
-nnoremap <silent> <Leader>q :call SanerSayonara()<CR>
+" delete the current buffer and close the current window
+nnoremap <silent> <Leader>q :Sayonara<CR>
 
 " delete the current buffer and preserve the current window
 nnoremap <silent> <Leader>Q :Sayonara!<CR>
