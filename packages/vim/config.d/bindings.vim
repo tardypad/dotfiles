@@ -131,26 +131,6 @@ nnoremap so :SessionOpen<space>
 " clear last search highlighting with Enter
 nnoremap <silent> <CR> :noh<CR><Esc>
 
-" remap search related keys
-nnoremap <silent> n :call SearchRegisterPosition()<CR>n
-                    \:call SearchFixPosition(0)<CR>
-nnoremap <silent> N :call SearchRegisterPosition()<CR>N
-                    \:call SearchFixPosition(1)<CR>
-nnoremap <silent> * :call SearchRegisterPosition()<CR>*
-                    \:call SearchSetDirection('down')<CR>
-                    \:call SearchFixPosition(0)<CR>
-nnoremap <silent> # :call SearchRegisterPosition()<CR>#
-                    \:call SearchSetDirection('up')<CR>
-                    \:call SearchFixPosition(0)<CR>
-nnoremap <silent> g* :call SearchRegisterPosition()<CR>g*
-                     \:call SearchSetDirection('down')<CR>
-                     \:call SearchFixPosition(0)<CR>
-nnoremap <silent> g# :call SearchRegisterPosition()<CR>g#
-                     \:call SearchSetDirection('up')<CR>
-                     \:call SearchFixPosition(0)<CR>
-nnoremap / :call SearchSetDirection('down')<CR>/
-nnoremap ? :call SearchSetDirection('up')<CR>?
-
 " Place a marker and search
 nmap <Leader>/ mA:Ack<Space>
 
