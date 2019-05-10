@@ -131,16 +131,3 @@ Doesn't include (yet?) the following kind of packages:
 | swayidle               | idle management daemon               | [Github](https://github.com/swaywm/swayidle)                                           | [1.2](https://github.com/swaywm/swayidle/releases/tag/1.2)                                                             |
 | the_silver_searcher    | code search                          | [Github](https://github.com/ggreer/the_silver_searcher)                                | [2.2.0](https://github.com/ggreer/the_silver_searcher/releases/tag/2.2.0)                                              |
 | wl-clipboard           | clipboard utilities                  | [Github](https://github.com/bugaevc/wl-clipboard)                                      | [1.0.0](https://github.com/bugaevc/wl-clipboard/releases/tag/v1.0.0)                                                   |
-
-
-## Quotes
-
-```
-"Simplicity is prerequisite for reliability"
-        Edsger Wybe Dijkstra
-```
-
-```
-"If a craftsman wants to do good work, he must first sharpen his tools"
-        Confucius
-```
