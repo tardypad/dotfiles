@@ -150,3 +150,149 @@ Plug 'vim-php/tagbar-phpctags.vim',
 
 
 call plug#end()
+
+
+"" ack
+
+" Use the silver searcher ag instead of ack
+let g:ackprg = 'ag --smart-case --skip-vcs-ignores --nogroup --column --follow'
+
+" Don't jump to the first result automatically
+cnoreabbrev Ack Ack!
+
+
+"" ALE
+
+" only check when saving file
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
+
+" better sign interface symbols
+let g:ale_sign_error = 'xx'
+let g:ale_sign_warning = '!!'
+let g:ale_sign_info = '--'
+let g:ale_sign_style_error = 'x'
+let g:ale_sign_style_warning = '!'
+
+
+"" elm
+
+let g:elm_format_autosave = 1
+let g:elm_setup_keybindings = 0
+let g:elm_syntastic_show_warnings = 1
+
+
+"" fzf
+
+" internal bindings
+let g:fzf_action = {
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" same height as in terminal usage
+let g:fzf_layout = { 'down': '20' }
+
+" enable history
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+
+
+"" gutentags
+
+" use current working directory as project root
+let g:gutentags_project_root_finder = 'getcwd'
+
+" Define name of tags file in the root folder
+let g:gutentags_ctags_tagfile = '.tags'
+
+
+"" json
+
+"  Disable concealing of syntax
+let g:vim_json_syntax_conceal = 0
+
+
+"" neocomplete
+
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+call neocomplete#util#set_default_dictionary(
+  \ 'g:neocomplete#sources#omni#input_patterns',
+  \ 'elm',
+  \ '\.')
+
+
+"" php
+
+function! PhpSyntaxOverride()
+  hi! def link phpDocTags  phpDefine
+  hi! def link phpDocParam phpType
+  hi! def link phpDocIdentifier phpIdentifier
+endfunction
+
+augroup phpSyntaxOverride
+  autocmd!
+  autocmd FileType php call PhpSyntaxOverride()
+augroup END
+
+
+"" sayonara
+
+" we don't want to delete the buffer
+" for some specific ones but just close the window
+let g:sayonara_filetypes = {
+  \ 'undotree': 'UndotreeHide',
+  \ }
+
+
+"" taboo
+
+" tab label formats
+let taboo_tab_format = ' %N %f%m '
+let taboo_renamed_tab_format = ' %N %l%m '
+
+" same modified flag as in status line
+let taboo_modified_tab_flag = '[+]'
+
+
+"" tagbar
+
+" switch focus to Tagbar window when toggle
+let g:tagbar_autofocus = 1
+
+" Compact display
+let g:tagbar_compact = 1
+
+" Always open folds automatically to highlight tag
+let g:tagbar_autoshowtag = 1
+
+" decrease size of fold icons
+let g:tagbar_iconchars = ['▸', '▾']
+
+
+"" ultisnips
+
+" trigger mapping is done in bindings config file
+" the plugin should not overwrite the Tab mapping
+let g:UltiSnipsExpandTrigger = "<NUL>"
+
+" internal bindings
+let g:UltiSnipsJumpForwardTrigger = "<C-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
+
+" define where snippets are stored
+let g:UltiSnipsSnippetDirectories = [ 'snips' ]
+
+
+"" undotree
+
+" switch focus to Undotree window when toggle
+let g:undotree_SetFocusWhenToggle = 1
+
+" put the Undotree and diff windows on the right side
+let g:undotree_WindowLayout = 3
+
+" hide help line
+let g:undotree_HelpLine = 0
