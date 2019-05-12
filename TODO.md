@@ -16,8 +16,6 @@
   - review and improve copy paste workflow between terminals/vim/tmux/...
     * [yank](https://github.com/mptre/yank) copy output to clipboard
     * [Joe Schafer blog post](https://blog.d46.us/zsh-tmux-emacs-copy-paste/) zsh/tmux/emacs
-  - make some own vim config as plugin
-  - usage of vim autoload for some functions
   - improve all env scripts usage:
     * allow to receive query/POST body data from stdin
     * editing of such data in vim directly
@@ -27,6 +25,9 @@
 # New Features
   - create scripts to manage AUR packages with personal repository  
     check [Michael Daffin blog](https://disconnected.systems/blog/archlinux-repo-in-aws-bucket/)
+  - use of Sway IPC via [i3ipc](https://github.com/acrisci/i3ipc-python)  
+    for the missing alternate binding to switch back and forth window in current workspace
+  - create scripts for backup to hard drive or USB stick
 
 # Research
   - [Drew Devault blog post](https://drewdevault.com/2018/02/05/Introduction-to-POSIX-shell.html)
@@ -43,5 +44,4 @@
     * [vim limelight](https://github.com/junegunn/limelight.vim)
     * [vim goyo](https://github.com/junegunn/goyo.vim)
   - vim debugger [vdebug](https://github.com/joonty/vdebug)
-  - Time tracker  
-    with maybe integration to JIRA via [go-jira](https://github.com/Netflix-Skunkworks/go-jira)
+  - Time tracker
