@@ -16,7 +16,7 @@ init_variables() {
 
 usage() {
   cat <<- EOF
-	usage: ${COMMAND} [<options>] <topic>
+	usage: ${COMMAND} [<options>] [<topic>]
 
 	Get help about a topic
 
@@ -133,6 +133,40 @@ display_no_help() {
 }
 
 
+select_topic() {
+  local path_commands=$(
+    echo -n "${PATH}" \
+      | xargs --delimiter=: -I{} \
+        -- find -L {} \
+        -maxdepth 1 -mindepth 1 \
+        -type f -executable \
+        -printf '%P\n' \
+        2> /dev/null
+  )
+
+  local zsh_version=$( zsh --version | cut --fields 2 --delimiter ' ' )
+  local zsh_helpdir="/usr/share/zsh/${zsh_version}/help"
+  local zsh_help_topics=$( ls "${zsh_helpdir}" )
+
+  local man_topics=$(
+    find -L /usr/share/man/man* -type f -printf '%P\n' \
+      | sed -r 's#(.*)\.[^\.]*\.gz#\1#'
+  )
+
+  TOPIC=$(
+    {
+      echo "${path_commands}";
+      echo "${zsh_help_topics}";
+      echo "${man_topics}";
+    } \
+    | sort -u \
+    | fzf --layout=reverse \
+          --no-multi \
+          --height=10
+  )
+}
+
+
 parse_options() {
   while [[ "$#" -gt 0 ]]; do
     case "$1" in
@@ -150,16 +184,14 @@ parse_options() {
 }
 
 
-validate_options() {
-  if [[ -z "${TOPIC}" ]]; then
-    error 'missing topic'
-  fi
-}
-
-
 init_variables
 parse_options "$@"
-validate_options
+
+if [ -z "${TOPIC}" ]; then
+  select_topic
+fi
+
+[ -z "${TOPIC}" ] && exit 0
 
 options_selection
 search_help
