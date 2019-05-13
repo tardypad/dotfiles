@@ -8,10 +8,22 @@ export READNULLCMD=less
 # default less options
 # defining them in the #env part of lesskey
 # seems to break even more stuff around...
-export LESS='--ignore-case --line-numbers --chop-long-lines --RAW-CONTROL-CHARS'
+LESS='--ignore-case'
+LESS="${LESS} --line-numbers"
+LESS="${LESS} --chop-long-lines"
+LESS="${LESS} --RAW-CONTROL-CHARS"
+export LESS
 
 # change grep output colors
-export GREP_COLORS='ms=1;{color/search_match/fg}:mc=1;{color/search_match/fg}:sl=:cx=:fn={color/base09/fg}:ln={color/base0A/fg}:bn={color/base0A/fg}:se={color/base08/fg}'
+GREP_COLORS='ms=1;{color/search_match/fg}'
+GREP_COLORS="${GREP_COLORS}:mc=1;{color/search_match/fg}"
+GREP_COLORS="${GREP_COLORS}:sl="
+GREP_COLORS="${GREP_COLORS}:cx="
+GREP_COLORS="${GREP_COLORS}:fn={color/base09/fg}"
+GREP_COLORS="${GREP_COLORS}:ln={color/base0A/fg}"
+GREP_COLORS="${GREP_COLORS}:bn={color/base0A/fg}"
+GREP_COLORS="${GREP_COLORS}:se={color/base08/fg}"
+export GREP_COLORS
 
 # decrease key timeout to 100ms
 export KEYTIMEOUT=10
@@ -22,7 +34,22 @@ export KEYTIMEOUT=10
 export WORDCHARS=''
 
 # fzf default options
-export FZF_DEFAULT_OPTS="--height=20 --no-bold --color=bg:{color/background/number},fg:{color/foreground/number},hl:{color/base0A/number},fg+:{color/base00/number},bg+:{color/current_item/number},hl+:{color/base05/number},info:{color/base0A/number},prompt:{color/base0A/number},pointer:{color/base00/number},marker:{color/selected_item/number},spinner:{color/base0A/number},border:{color/base0A/number},header:{color/base0A/number},gutter:{color/background/number}"
+FZF_DEFAULT_OPTS='--height=20 --no-bold --color='
+FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS}bg:{color/background/number}"
+FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},fg:{color/foreground/number}"
+FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},hl:{color/base0A/number}"
+FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},fg+:{color/base00/number}"
+FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},bg+:{color/current_item/number}"
+FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},hl+:{color/base05/number}"
+FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},info:{color/base0A/number}"
+FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},prompt:{color/base0A/number}"
+FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},pointer:{color/base00/number}"
+FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},marker:{color/selected_item/number}"
+FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},spinner:{color/base0A/number}"
+FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},border:{color/base0A/number}"
+FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},header:{color/base0A/number}"
+FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},gutter:{color/background/number}"
+export FZF_DEFAULT_OPTS
 
 # fzf default find command
 # only ignore build folder
