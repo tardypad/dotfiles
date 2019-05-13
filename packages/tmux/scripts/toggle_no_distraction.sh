@@ -47,10 +47,7 @@ tmux_status_line() {
   if [[ "${action}" == 'hide' ]]; then
     tmux set -g status off
   elif [[ "${action}" == 'show' ]]; then
-    # only reenable for tmux env sessions (same as default config)
-    if tmux show-environment -g TMUX_ENV &> /dev/null; then
-      tmux set -g status on
-    fi
+    tmux set -g status on
   fi
 }
 

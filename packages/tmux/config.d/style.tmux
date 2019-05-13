@@ -7,11 +7,7 @@ set -g display-panes-active-colour "#{color/base0A/hex}"
 
 set -g status-justify left
 
-%if #{TMUX_ENV}
 set -g status on
-%else
-set -g status off
-%endif
 
 set -g status-style "bg=default,fg=#{color/foreground/hex}"
 set -g status-left-style "bg=#{color/base09/hex},fg=#{color/base00/hex}"
