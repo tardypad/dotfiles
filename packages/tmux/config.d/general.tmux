@@ -23,13 +23,8 @@ set -g detach-on-destroy off
 set -g detach-on-destroy on
 %endif
 
-# don't close windows/panes when initial command exits
-# only inside a tmux env
-%if #{TMUX_ENV}
-setw -g remain-on-exit on
-%else
+# close windows/panes when initial command exits
 setw -g remain-on-exit off
-%endif
 
 # define default term type
 %if #{DISPLAY}
