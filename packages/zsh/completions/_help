@@ -1,4 +1,4 @@
-#compdef rtfm
+#compdef help
 
 # run-help completion doesn't include commands which have no man pages
 _run-help || _path_commands

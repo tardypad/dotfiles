@@ -38,4 +38,4 @@ TOPIC=$(
 swaymsg --quiet exec \
   "termite \
    --title ' Help' \
-   --exec 'tmux new-session \"rtfm ${TOPIC}\"'"
+   --exec 'tmux new-session \"help ${TOPIC}\"'"
