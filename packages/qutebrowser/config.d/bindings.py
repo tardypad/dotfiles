@@ -8,7 +8,9 @@ c.bindings.key_mappings = {
     '<Shift-Enter>'  : '<Return>',
     '<Shift-Return>' : '<Return>',
     '<Ctrl-Enter>'   : '<Ctrl-Return>',
-    '<Ctrl-[>'       : '<Escape>'
+    '<Ctrl-[>'       : '<Escape>',
+    '<Ctrl-i>'       : '<Tab>',
+    '<Ctrl-Shift-i>' : '<Shift-Tab>'
 }
 
 
