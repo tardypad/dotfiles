@@ -176,21 +176,21 @@ bind -T RESIZE J switch-client -T RESIZE \; resize-pane -D 3
 bind -T RESIZE K switch-client -T RESIZE \; resize-pane -U 3
 bind -T RESIZE L switch-client -T RESIZE \; resize-pane -R 3
 
+# extract mode
+bind            E switch-client -T EXTRACT
+bind -T EXTRACT h run "~/.tmux/scripts/extract_tokens.sh hashes"
+bind -T EXTRACT l run "~/.tmux/scripts/extract_tokens.sh lines"
+bind -T EXTRACT p run "~/.tmux/scripts/extract_tokens.sh paths"
+bind -T EXTRACT u run "~/.tmux/scripts/extract_tokens.sh urls"
+bind -T EXTRACT w run "~/.tmux/scripts/extract_tokens.sh words"
+bind -T EXTRACT W run "~/.tmux/scripts/extract_tokens.sh WORDS"
+
 
 ## root key space
 
 # no distraction modes
 bind -T root M-Space   run "~/.tmux/scripts/toggle_no_distraction.sh soft"
 bind -T root M-C-Space run "~/.tmux/scripts/toggle_no_distraction.sh hard"
-
-# extract tokens
-bind -T    root C-Tab switch-client -T Extract
-bind -T Extract     h run "~/.tmux/scripts/extract_tokens.sh hashes"
-bind -T Extract     l run "~/.tmux/scripts/extract_tokens.sh lines"
-bind -T Extract     p run "~/.tmux/scripts/extract_tokens.sh paths"
-bind -T Extract     u run "~/.tmux/scripts/extract_tokens.sh urls"
-bind -T Extract     w run "~/.tmux/scripts/extract_tokens.sh words"
-bind -T Extract     W run "~/.tmux/scripts/extract_tokens.sh WORDS"
 
 
 ## copy mode
