@@ -91,30 +91,30 @@ bind v split-window -h -c '#{pane_current_path}'
 bind s split-window -v -c '#{pane_current_path}'
 
 # move mode
-bind      m switch-client -T ⓜ
-bind -T ⓜ a switch-client -T ⓜ \; swap-window -t :{last}
-bind -T ⓜ n switch-client -T ⓜ \; swap-window -t :{next}
-bind -T ⓜ l switch-client -T ⓜ \; swap-window -t :{next}
-bind -T ⓜ p switch-client -T ⓜ \; swap-window -t :{previous}
-bind -T ⓜ h switch-client -T ⓜ \; swap-window -t :{previous}
-bind -T ⓜ 1 switch-client -T ⓜ \; run "~/.tmux/scripts/move_window_index.sh 1"
-bind -T ⓜ 2 switch-client -T ⓜ \; run "~/.tmux/scripts/move_window_index.sh 2"
-bind -T ⓜ 3 switch-client -T ⓜ \; run "~/.tmux/scripts/move_window_index.sh 3"
-bind -T ⓜ 4 switch-client -T ⓜ \; run "~/.tmux/scripts/move_window_index.sh 4"
-bind -T ⓜ 5 switch-client -T ⓜ \; run "~/.tmux/scripts/move_window_index.sh 5"
-bind -T ⓜ 6 switch-client -T ⓜ \; run "~/.tmux/scripts/move_window_index.sh 6"
-bind -T ⓜ 7 switch-client -T ⓜ \; run "~/.tmux/scripts/move_window_index.sh 7"
-bind -T ⓜ 8 switch-client -T ⓜ \; run "~/.tmux/scripts/move_window_index.sh 8"
-bind -T ⓜ 9 switch-client -T ⓜ \; run "~/.tmux/scripts/move_window_index.sh 9"
-bind -T ⓜ 0 switch-client -T ⓜ \; run "~/.tmux/scripts/move_window_index.sh 10"
+bind      m switch-client -T m
+bind -T m a switch-client -T m \; swap-window -t :{last}
+bind -T m n switch-client -T m \; swap-window -t :{next}
+bind -T m l switch-client -T m \; swap-window -t :{next}
+bind -T m p switch-client -T m \; swap-window -t :{previous}
+bind -T m h switch-client -T m \; swap-window -t :{previous}
+bind -T m 1 switch-client -T m \; run "~/.tmux/scripts/move_window_index.sh 1"
+bind -T m 2 switch-client -T m \; run "~/.tmux/scripts/move_window_index.sh 2"
+bind -T m 3 switch-client -T m \; run "~/.tmux/scripts/move_window_index.sh 3"
+bind -T m 4 switch-client -T m \; run "~/.tmux/scripts/move_window_index.sh 4"
+bind -T m 5 switch-client -T m \; run "~/.tmux/scripts/move_window_index.sh 5"
+bind -T m 6 switch-client -T m \; run "~/.tmux/scripts/move_window_index.sh 6"
+bind -T m 7 switch-client -T m \; run "~/.tmux/scripts/move_window_index.sh 7"
+bind -T m 8 switch-client -T m \; run "~/.tmux/scripts/move_window_index.sh 8"
+bind -T m 9 switch-client -T m \; run "~/.tmux/scripts/move_window_index.sh 9"
+bind -T m 0 switch-client -T m \; run "~/.tmux/scripts/move_window_index.sh 10"
 
 # layout mode
-bind      y switch-client -T ⓨ
-bind -T ⓨ 1 switch-client -T ⓨ \; select-layout even-horizontal
-bind -T ⓨ 2 switch-client -T ⓨ \; select-layout main-vertical
-bind -T ⓨ 3 switch-client -T ⓨ \; select-layout even-vertical
-bind -T ⓨ 4 switch-client -T ⓨ \; select-layout main-horizontal
-bind -T ⓨ 5 switch-client -T ⓨ \; select-layout tiled
+bind      y switch-client -T y
+bind -T y 1 switch-client -T y \; select-layout even-horizontal
+bind -T y 2 switch-client -T y \; select-layout main-vertical
+bind -T y 3 switch-client -T y \; select-layout even-vertical
+bind -T y 4 switch-client -T y \; select-layout main-horizontal
+bind -T y 5 switch-client -T y \; select-layout tiled
 
 
 ## panes management (uppercase)
@@ -144,37 +144,37 @@ bind BSpace respawn-pane
 bind M-BSpace respawn-pane -k
 
 # move mode
-bind      M switch-client -T Ⓜ
-bind -T Ⓜ c switch-client -T Ⓜ \; break-pane
-bind -T Ⓜ a switch-client -T Ⓜ \; move-pane -h -t :{last}
-bind -T Ⓜ n switch-client -T Ⓜ \; move-pane -h -t :{next}
-bind -T Ⓜ l switch-client -T Ⓜ \; move-pane -h -t :{next}
-bind -T Ⓜ p switch-client -T Ⓜ \; move-pane -h -t :{previous}
-bind -T Ⓜ h switch-client -T Ⓜ \; move-pane -h -t :{previous}
-bind -T Ⓜ A switch-client -T Ⓜ \; swap-pane -d -t :.{last}
-bind -T Ⓜ N switch-client -T Ⓜ \; swap-pane -d -t :.{next}
-bind -T Ⓜ P switch-client -T Ⓜ \; swap-pane -d -t :.{previous}
-bind -T Ⓜ H switch-client -T Ⓜ \; swap-pane -d -t :.{left-of}
-bind -T Ⓜ J switch-client -T Ⓜ \; swap-pane -d -t :.{down-of}
-bind -T Ⓜ K switch-client -T Ⓜ \; swap-pane -d -t :.{up-of}
-bind -T Ⓜ L switch-client -T Ⓜ \; swap-pane -d -t :.{right-of}
-bind -T Ⓜ 1 switch-client -T Ⓜ \; run "~/.tmux/scripts/move_pane_window_index.sh 1"
-bind -T Ⓜ 2 switch-client -T Ⓜ \; run "~/.tmux/scripts/move_pane_window_index.sh 2"
-bind -T Ⓜ 3 switch-client -T Ⓜ \; run "~/.tmux/scripts/move_pane_window_index.sh 3"
-bind -T Ⓜ 4 switch-client -T Ⓜ \; run "~/.tmux/scripts/move_pane_window_index.sh 4"
-bind -T Ⓜ 5 switch-client -T Ⓜ \; run "~/.tmux/scripts/move_pane_window_index.sh 5"
-bind -T Ⓜ 6 switch-client -T Ⓜ \; run "~/.tmux/scripts/move_pane_window_index.sh 6"
-bind -T Ⓜ 7 switch-client -T Ⓜ \; run "~/.tmux/scripts/move_pane_window_index.sh 7"
-bind -T Ⓜ 8 switch-client -T Ⓜ \; run "~/.tmux/scripts/move_pane_window_index.sh 8"
-bind -T Ⓜ 9 switch-client -T Ⓜ \; run "~/.tmux/scripts/move_pane_window_index.sh 9"
-bind -T Ⓜ 0 switch-client -T Ⓜ \; run "~/.tmux/scripts/move_pane_window_index.sh 10"
+bind      M switch-client -T M
+bind -T M c switch-client -T M \; break-pane
+bind -T M a switch-client -T M \; move-pane -h -t :{last}
+bind -T M n switch-client -T M \; move-pane -h -t :{next}
+bind -T M l switch-client -T M \; move-pane -h -t :{next}
+bind -T M p switch-client -T M \; move-pane -h -t :{previous}
+bind -T M h switch-client -T M \; move-pane -h -t :{previous}
+bind -T M A switch-client -T M \; swap-pane -d -t :.{last}
+bind -T M N switch-client -T M \; swap-pane -d -t :.{next}
+bind -T M P switch-client -T M \; swap-pane -d -t :.{previous}
+bind -T M H switch-client -T M \; swap-pane -d -t :.{left-of}
+bind -T M J switch-client -T M \; swap-pane -d -t :.{down-of}
+bind -T M K switch-client -T M \; swap-pane -d -t :.{up-of}
+bind -T M L switch-client -T M \; swap-pane -d -t :.{right-of}
+bind -T M 1 switch-client -T M \; run "~/.tmux/scripts/move_pane_window_index.sh 1"
+bind -T M 2 switch-client -T M \; run "~/.tmux/scripts/move_pane_window_index.sh 2"
+bind -T M 3 switch-client -T M \; run "~/.tmux/scripts/move_pane_window_index.sh 3"
+bind -T M 4 switch-client -T M \; run "~/.tmux/scripts/move_pane_window_index.sh 4"
+bind -T M 5 switch-client -T M \; run "~/.tmux/scripts/move_pane_window_index.sh 5"
+bind -T M 6 switch-client -T M \; run "~/.tmux/scripts/move_pane_window_index.sh 6"
+bind -T M 7 switch-client -T M \; run "~/.tmux/scripts/move_pane_window_index.sh 7"
+bind -T M 8 switch-client -T M \; run "~/.tmux/scripts/move_pane_window_index.sh 8"
+bind -T M 9 switch-client -T M \; run "~/.tmux/scripts/move_pane_window_index.sh 9"
+bind -T M 0 switch-client -T M \; run "~/.tmux/scripts/move_pane_window_index.sh 10"
 
 # resize mode
-bind      S switch-client -T Ⓢ
-bind -T Ⓢ H switch-client -T Ⓢ \; resize-pane -L 3
-bind -T Ⓢ J switch-client -T Ⓢ \; resize-pane -D 3
-bind -T Ⓢ K switch-client -T Ⓢ \; resize-pane -U 3
-bind -T Ⓢ L switch-client -T Ⓢ \; resize-pane -R 3
+bind      S switch-client -T S
+bind -T S H switch-client -T S \; resize-pane -L 3
+bind -T S J switch-client -T S \; resize-pane -D 3
+bind -T S K switch-client -T S \; resize-pane -U 3
+bind -T S L switch-client -T S \; resize-pane -R 3
 
 
 ## root key space
@@ -184,13 +184,13 @@ bind -T root M-Space   run "~/.tmux/scripts/toggle_no_distraction.sh soft"
 bind -T root M-C-Space run "~/.tmux/scripts/toggle_no_distraction.sh hard"
 
 # extract tokens
-bind -T root C-Tab switch-client -T Ⓔ
-bind -T Ⓔ        h run "~/.tmux/scripts/extract_tokens.sh hashes"
-bind -T Ⓔ        l run "~/.tmux/scripts/extract_tokens.sh lines"
-bind -T Ⓔ        p run "~/.tmux/scripts/extract_tokens.sh paths"
-bind -T Ⓔ        u run "~/.tmux/scripts/extract_tokens.sh urls"
-bind -T Ⓔ        w run "~/.tmux/scripts/extract_tokens.sh words"
-bind -T Ⓔ        W run "~/.tmux/scripts/extract_tokens.sh WORDS"
+bind -T root C-Tab switch-client -T E
+bind -T E        h run "~/.tmux/scripts/extract_tokens.sh hashes"
+bind -T E        l run "~/.tmux/scripts/extract_tokens.sh lines"
+bind -T E        p run "~/.tmux/scripts/extract_tokens.sh paths"
+bind -T E        u run "~/.tmux/scripts/extract_tokens.sh urls"
+bind -T E        w run "~/.tmux/scripts/extract_tokens.sh words"
+bind -T E        W run "~/.tmux/scripts/extract_tokens.sh WORDS"
 
 
 ## copy mode
