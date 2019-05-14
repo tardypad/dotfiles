@@ -41,7 +41,7 @@ bindsym $mod+Shift+Return exec exec_desktop_entry ~/.local/share/applications/qu
 
 ## launchers
 
-mode "launchers" {
+mode "-- Launchers --" {
     bindsym Space       mode "default", exec launcher launch_app
     bindsym Shift+Space mode "default", exec launcher launch_command
     bindsym Backspace   mode "default", exec launcher launch_system
@@ -54,7 +54,7 @@ mode "launchers" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+Space mode "launchers"
+bindsym $mod+Space mode "-- Launchers --"
 
 
 ## floating
@@ -97,7 +97,7 @@ bindsym $mod+$key_vsplit splith, exec exec_desktop_entry ~/.local/share/applicat
 bindsym $mod+$key_split  splitv, exec exec_desktop_entry ~/.local/share/applications/terminal.desktop
 
 # layout mode
-mode "layout" {
+mode "-- layout --" {
     bindsym 1 layout splith
     bindsym 2 layout splitv
     bindsym 3 layout tabbed
@@ -105,7 +105,7 @@ mode "layout" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+$key_layout mode "layout"
+bindsym $mod+$key_layout mode "-- layout --"
 
 
 ## windows management
@@ -121,7 +121,7 @@ bindsym $mod+Shift+$key_up    focus up
 bindsym $mod+Shift+$key_right focus right
 
 # move mode
-mode "move" {
+mode "-- MOVE --" {
     # move focused window within workspace
     bindsym Shift+$key_left  move left
     bindsym Shift+$key_down  move down
@@ -149,10 +149,10 @@ mode "move" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+Shift+$key_move mode "move"
+bindsym $mod+Shift+$key_move mode "-- MOVE --"
 
 # resize mode
-mode "resize" {
+mode "-- RESIZE --" {
     bindsym Shift+$key_left  resize shrink width 10 px or 10 ppt
     bindsym Shift+$key_up    resize grow height 10 px or 10 ppt
     bindsym Shift+$key_down  resize shrink height 10 px or 10 ppt
@@ -161,7 +161,7 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+Shift+$key_resize mode "resize"
+bindsym $mod+Shift+$key_resize mode "-- RESIZE --"
 
 
 ## XF86 keys
