@@ -64,6 +64,7 @@ ITEM=$(
     | "${GREP_FUNCTION}" \
     | sort --unique \
     | fzf-tmux -d "${SPLIT_HEIGHT}" -- \
+        --prompt "${TOKEN_TYPE}> " \
         --expect=enter,ctrl-o,ctrl-s,ctrl-y \
 )
 
