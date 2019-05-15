@@ -3,7 +3,10 @@
 NOTES_FOLDER="$( xdg-user-dir NOTES )"
 
 NOTE=$(
-  ls "${NOTES_FOLDER}" \
+  {
+    echo NEW;
+    ls "${NOTES_FOLDER}";
+  } \
   | fzf --reverse \
         --no-multi \
         --margin 1,2,0,2 \
@@ -12,6 +15,10 @@ NOTE=$(
 )
 
 [[ -n "${NOTE}" ]] || exit
+
+if [[ "${NOTE}" == 'NEW' ]]; then
+  read '?filename: ' NOTE
+fi
 
 swaymsg --quiet exec \
   "termite \
