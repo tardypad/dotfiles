@@ -192,6 +192,9 @@ bind -T '-- EXTRACT --' W run "~/.tmux/scripts/extract_tokens.sh WORDS"
 bind -T root M-Space   run "~/.tmux/scripts/toggle_no_distraction.sh soft"
 bind -T root M-C-Space run "~/.tmux/scripts/toggle_no_distraction.sh hard"
 
+# extract URLS
+bind -T root C-Tab run "~/.tmux/scripts/extract_tokens.sh urls"
+
 
 ## copy mode
 
