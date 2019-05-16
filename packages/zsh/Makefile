@@ -30,4 +30,9 @@ ifneq (,$(wildcard packages/zsh/env/influxdb))
 	$(call copy_folder,env/influxdb,$(CONFIG_DIR)/influxdb/env)
 endif
 
+ifeq ($(IS_LOCAL_INSTALL),'true')
+    # clear completion cache
+	@rm -f $(HOME)/.zcompdump
+endif
+
 	$(end_setup)
