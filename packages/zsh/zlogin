@@ -7,16 +7,12 @@ if [[ $(tty) = /dev/tty1 ]]; then
     echo -n "$(tput setaf {color/alert/number})Alert$(tput sgr0): "
     echo 'There were other users login since your last one:'
     echo "${other_logins}"
+
+    echo
+    echo 'Press any key to continue'
+    read -s -k 1
   fi
   unset other_logins
-
-  # display any short fortune with cookie name
-  echo "$(tput setaf {color/base0A/number})"
-  fortune -acs -n 300
-  echo "$(tput sgr0)"
-
-  echo 'Press any key to continue'
-  read -s -k 1
 
   # Automatically start sway after login on tty 1
   if [[ -z "${DISPLAY}" ]]; then
