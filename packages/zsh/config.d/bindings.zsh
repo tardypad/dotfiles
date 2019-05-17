@@ -1,39 +1,6 @@
 # use vi mode line editing
 bindkey -v
 
-# define modes symbol
-VI_INS_MODE_SYMBOL='>'
-VI_CMD_MODE_SYMBOL='<'
-
-# define initial mode
-VI_MODE_SYMBOL="${VI_INS_MODE_SYMBOL}"
-
-# on keymap change, define the mode and redraw prompt
-zle-keymap-select() {
-  if [ "${KEYMAP}" = 'vicmd' ]; then
-    VI_MODE_SYMBOL="${VI_CMD_MODE_SYMBOL}"
-  else
-    VI_MODE_SYMBOL="${VI_INS_MODE_SYMBOL}"
-  fi
-  zle reset-prompt
-}
-zle -N zle-keymap-select
-
-# reset to default mode at the end of line input reading
-zle-line-finish() {
-  VI_MODE_SYMBOL="${VI_INS_MODE_SYMBOL}"
-}
-zle -N zle-line-finish
-
-# Fix a bug when you C-c in CMD mode, you'd be prompted with CMD mode indicator
-# while in fact you would be in INS mode.
-# Fixed by catching SIGINT (C-c), set mode to INS and repropagate the SIGINT,
-# so if anything else depends on it, we will not break it.
-TRAPINT() {
-  VI_MODE_SYMBOL="${VI_INS_MODE_SYMBOL}"
-  return $(( 128 + $1 ))
-}
-
 # Use Alt-. to insert last word of previous command
 bindkey -M viins '\e.' insert-last-word
 
@@ -115,3 +82,18 @@ bindkey -M vicmd cs change-surround
 bindkey -M vicmd ds delete-surround
 bindkey -M vicmd ys add-surround
 bindkey -M visual S add-surround
+
+
+## autosuggestions
+
+# Ctrl+Enter accepts and executes suggestion
+bindkey '^[[27;5;13~' autosuggest-execute
+bindkey -M vicmd '^[[27;5;13~' autosuggest-execute
+
+
+## history substring search
+
+zle -N history-substring-search-up
+zle -N history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down

@@ -1,81 +1,9 @@
-# use hooks
-autoload -U add-zsh-hook
-
 # load all individual configs
+# plugins with config need to be loaded at the end
 for conf in "${HOME}/.zsh/config.d/"*.zsh; do
+  [[ ${conf} =~ '.*/plugins.zsh' ]] && continue
   source "${conf}"
 done
 unset conf
 
-eval $( dircolors "${HOME}/.dircolors" )
-
-# enable changing directories without typing cd
-setopt auto_cd
-
-# disable flow control within ZSH
-setopt no_flow_control
-
-# use run-help utility
-unalias run-help 2> /dev/null
-autoload -Uz run-help
-
-# reuse ssh-agent across ttys
-ssh-add -l &>/dev/null
-if [ "$?" -eq 2 ]; then
-  test -r ~/.cache/ssh-agent && \
-  eval "$(<~/.cache/ssh-agent)" >/dev/null
-
-  ssh-add -l &>/dev/null
-  if [ "$?" -eq 2 ]; then
-    (umask 066; ssh-agent > ~/.cache/ssh-agent)
-    eval "$(<~/.cache/ssh-agent)" >/dev/null
-  fi
-fi
-
-### Fish-like autosuggestions
-
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg={color/base03/number}
-
-# Ctrl+Enter accepts and executes suggestion
-bindkey '^[[27;5;13~' autosuggest-execute
-bindkey -M vicmd '^[[27;5;13~' autosuggest-execute
-
-### Syntax highlighting
-
-# important to source the syntax highlighting at the end
-# because it needs all widgets to be already created
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# define all highlighters
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(
-  main
-  brackets
-  pattern
-)
-
-# highlight potentially dangerous commands that requires extra attention
-ZSH_HIGHLIGHT_PATTERNS=('rm -(rf|fr) *' 'bg={color/alert/number},fg={color/base00/number},bold')
-ZSH_HIGHLIGHT_PATTERNS+=('rm * -(rf|fr)' 'bg={color/alert/number},fg={color/base00/number},bold')
-
-# brackets matching colors
-ZSH_HIGHLIGHT_STYLES[bracket-error]='fg={color/error/number},bold'
-ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='fg={color/base05/number},bold'
-ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg={color/base08/number}'
-ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg={color/base09/number}'
-ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg={color/base0A/number}'
-ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg={color/base0B/number}'
-ZSH_HIGHLIGHT_STYLES[bracket-level-5]='fg={color/base0C/number}'
-
-### Fish-like history substring search
-
-# important to source the history substring search after syntax highlighting
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-
-# substring history navigation
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
-
-# colors
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg={color/base0C/number},fg={color/base00/number}'
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg={color/base0F/number},fg={color/base00/number}'
+source "${HOME}/.zsh/config.d/plugins.zsh"
