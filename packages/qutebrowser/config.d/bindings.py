@@ -54,8 +54,8 @@ config.bind('<Ctrl-N>', 'command-history-next', mode='command')
 config.bind('<Ctrl-P>', 'command-history-prev', mode='command')
 config.bind('<Down>', 'completion-item-focus --history next', mode='command')
 config.bind('<Up>', 'completion-item-focus --history prev', mode='command')
-config.bind('<Ctrl-J>', 'completion-item-focus next', mode='command')
-config.bind('<Ctrl-K>', 'completion-item-focus prev', mode='command')
+config.bind('<Tab>', 'completion-item-focus next', mode='command')
+config.bind('<Shift-Tab>', 'completion-item-focus prev', mode='command')
 
 # hint mode
 config.bind('<Escape>', 'leave-mode', mode='hint')
