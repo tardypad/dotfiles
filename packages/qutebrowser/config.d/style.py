@@ -142,7 +142,9 @@ c.colors.tabs.selected.even.fg                  = colors['base00']
 c.colors.tabs.selected.odd.bg                   = colors['base0A']
 c.colors.tabs.selected.odd.fg                   = colors['base00']
 
-c.colors.webpage.bg                             = colors['base04']
+# many websites base their design
+# on the assumption that the background is always white...
+c.colors.webpage.bg                             = 'white'
 
 # bars position
 c.statusbar.position = 'bottom'
