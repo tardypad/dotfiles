@@ -18,7 +18,6 @@
     * [Joe Schafer blog post](https://blog.d46.us/zsh-tmux-emacs-copy-paste/) zsh/tmux/emacs
   - improve all env scripts usage:
     * allow to receive query/POST body data from stdin
-    * editing of such data in vim directly
     * syntax highlighting of query/request keywords
     * completion of query/request keywords
 

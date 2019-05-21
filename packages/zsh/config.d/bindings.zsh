@@ -84,6 +84,15 @@ bindkey -M vicmd ys add-surround
 bindkey -M visual S add-surround
 
 
+# edit command line in editor
+
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd '\ee' edit-command-line
+bindkey -M viins '\ee' edit-command-line
+bindkey -M isearch '\ee' edit-command-line
+
+
 ## autosuggestions
 
 # Ctrl+Enter accepts and executes suggestion
