@@ -1,0 +1,3 @@
+#! /usr/bin/env zsh
+
+date +"%a %e %b %H:%M"

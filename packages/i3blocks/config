@@ -20,9 +20,7 @@ signal=2
 
 [power]
 
-[date]
-
-[time]
+[datetime]
 
 [do_not_disturb]
 signal=3
