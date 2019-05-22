@@ -26,6 +26,9 @@ bindsym $mod+Shift+Escape exec pomodoro toggle \
 # select region and grab screenshot
 bindsym $mod+g exec grab_region_screenshot
 
+# toggle bar status mode
+bindsym $mod+Tab exec toggle_bar_status_mode
+
 
 ## notifications
 
