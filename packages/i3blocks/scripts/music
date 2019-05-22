@@ -1,5 +1,7 @@
 #! /usr/bin/env zsh
 
+LIGHT_MODE_FILE_PATH="${XDG_RUNTIME_DIR}/i3blocks_light_mode"
+
 MUSIC_INFO=$(
   mpc status --format '[[%artist% / ]%title%]|[%file%]' 2> /dev/null
 )
@@ -33,4 +35,8 @@ MUSIC_TEXT=$(
     | sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/>/\&gt;/g'
 )
 
-echo "<span foreground='#{color/base0A/hex}'>${MUSIC_ICON}</span> <span style='italic'>${MUSIC_TEXT}</span>"
+if [ ! -f "${LIGHT_MODE_FILE_PATH}" ]; then
+  echo "<span foreground='#{color/base0A/hex}'>${MUSIC_ICON}</span> <span style='italic'>${MUSIC_TEXT}</span>"
+else
+  echo "<span foreground='#{color/base0A/hex}'>${MUSIC_ICON}</span>"
+fi

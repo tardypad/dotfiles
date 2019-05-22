@@ -1,5 +1,7 @@
 #! /usr/bin/env zsh
 
+LIGHT_MODE_FILE_PATH="${XDG_RUNTIME_DIR}/i3blocks_light_mode"
+
 VOLUME_INFO=$(
   amixer get Master \
     | grep \
@@ -23,9 +25,15 @@ else
 fi
 
 if [[ "${IS_VOLUME_MUTED}" -eq 1 ]]; then
-  echo "<span foreground='#{color/base0A/hex}'></span> Muted"
-  echo
-  echo '#{color/warning/hex}'
+  if [ ! -f "${LIGHT_MODE_FILE_PATH}" ]; then
+    echo "<span foreground='#{color/warning/hex}'> Muted</span>"
+  else
+    echo "<span foreground='#{color/warning/hex}'></span>"
+  fi
 else
-  echo "<span foreground='#{color/base0A/hex}'>${VOLUME_ICON}</span> ${VOLUME_PERCENT}%"
+  if [ ! -f "${LIGHT_MODE_FILE_PATH}" ]; then
+    echo "<span foreground='#{color/base0A/hex}'>${VOLUME_ICON}</span> ${VOLUME_PERCENT}%"
+  else
+    echo "<span foreground='#{color/base0A/hex}'>${VOLUME_ICON}</span>"
+  fi
 fi
