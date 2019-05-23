@@ -3,7 +3,7 @@
 init_variables() {
   COMMAND=${0##*/}
 
-  FILE_PATH="${XDG_RUNTIME_DIR}/i3blocks_light_mode"
+  FULL_FILE_PATH="${XDG_RUNTIME_DIR}/bar_status_mode_full"
   SIGNAL_MAX=10
 
   ACTION='show'
@@ -14,6 +14,7 @@ usage() {
 	usage: ${COMMAND} [<options>] [<action>]
 
 	Manage the bar status mode
+	Light mode is the default
 
 	Options:
 	  -h,  --help      show this message only
@@ -38,12 +39,12 @@ refresh_display() {
 }
 
 bar_status_light() {
-  touch "${FILE_PATH}"
+  rm "${FULL_FILE_PATH}" -f
   refresh_display
 }
 
 bar_status_full() {
-  rm "${FILE_PATH}"
+  touch "${FULL_FILE_PATH}"
   refresh_display
 }
 
@@ -56,10 +57,10 @@ bar_status_toggle() {
 }
 
 bar_status_show() {
-  if [ -f "${FILE_PATH}" ]; then
-    echo 'light'
-  else
+  if [ -f "${FULL_FILE_PATH}" ]; then
     echo 'full'
+  else
+    echo 'light'
   fi
 }
 
