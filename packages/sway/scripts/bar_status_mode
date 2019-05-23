@@ -1,0 +1,95 @@
+#!/bin/sh
+
+init_variables() {
+  COMMAND=${0##*/}
+
+  FILE_PATH="${XDG_RUNTIME_DIR}/i3blocks_light_mode"
+  SIGNAL_MAX=10
+
+  ACTION='show'
+}
+
+usage() {
+  cat <<- EOF
+	usage: ${COMMAND} [<options>] [<action>]
+
+	Manage the bar status mode
+
+	Options:
+	  -h,  --help      show this message only
+
+	Actions:
+	  light full toggle show
+	EOF
+}
+
+error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  printf "Try '%s --help' for more information.\n" "${COMMAND}"
+  exit 1
+} >&2
+
+refresh_display() {
+  # send all update signals to the bar status
+  # to refresh all items display
+  for i in $( seq 1 "${SIGNAL_MAX}" ); do
+    pkill -RTMIN+"$i" i3blocks
+  done
+}
+
+bar_status_light() {
+  touch "${FILE_PATH}"
+  refresh_display
+}
+
+bar_status_full() {
+  rm "${FILE_PATH}"
+  refresh_display
+}
+
+bar_status_toggle() {
+  if [ "$( bar_status_show )" = 'light' ]; then
+    bar_status_full
+  else
+    bar_status_light
+  fi
+}
+
+bar_status_show() {
+  if [ -f "${FILE_PATH}" ]; then
+    echo 'light'
+  else
+    echo 'full'
+  fi
+}
+
+parse_options() {
+  while [ "$#" -gt 0 ]; do
+    case "$1" in
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      *)
+        break 2
+        ;;
+    esac
+  done
+
+  [ -z "$1" ] || ACTION="$1"
+}
+
+validate_options() {
+  if [ "${ACTION}" != 'light' ] \
+     && [ "${ACTION}" != 'full' ] \
+     && [ "${ACTION}" != 'toggle' ] \
+     && [ "${ACTION}" != 'show' ]; then
+    error "Invalid action '${ACTION}'"
+  fi
+}
+
+init_variables
+parse_options "$@"
+validate_options
+
+bar_status_${ACTION}

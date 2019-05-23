@@ -1,6 +1,6 @@
 #! /usr/bin/env zsh
 
-LIGHT_MODE_FILE_PATH="${XDG_RUNTIME_DIR}/i3blocks_light_mode"
+MODE="$( bar_status_mode )"
 
 NETWORK_INFO=$(
   nmcli --fields type,state,connection device status \
@@ -29,19 +29,19 @@ WIFI_CONNECTION=$(
 
 # NetworkManager automatically favors wired connections over wireless
 if [[ "${IS_ETHERNET_CONNECTED}" -eq 1 ]]; then
-  if [ ! -f "${LIGHT_MODE_FILE_PATH}" ]; then
+  if [ "${MODE}" = 'full' ]; then
     echo "<span foreground='#{color/base0A/hex}'></span> Wired"
   else
     echo "<span foreground='#{color/base0A/hex}'></span>"
   fi
 elif [[ "${IS_WIFI_CONNECTED}" -eq 1 ]]; then
-  if [ ! -f "${LIGHT_MODE_FILE_PATH}" ]; then
+  if [ "${MODE}" = 'full' ]; then
     echo "<span foreground='#{color/base0A/hex}'></span> ${WIFI_CONNECTION}"
   else
     echo "<span foreground='#{color/base0A/hex}'></span>"
   fi
 else
-  if [ ! -f "${LIGHT_MODE_FILE_PATH}" ]; then
+  if [ "${MODE}" = 'full' ]; then
     echo "<span foreground='#{color/warning/hex}'> Disconnected</span>"
   else
     echo "<span foreground='#{color/warning/hex}'></span>"

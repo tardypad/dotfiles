@@ -1,6 +1,6 @@
 #! /usr/bin/env zsh
 
-LIGHT_MODE_FILE_PATH="${XDG_RUNTIME_DIR}/i3blocks_light_mode"
+MODE="$( bar_status_mode )"
 
 BATTERY_STATUS=$( battery_status )
 
@@ -31,13 +31,13 @@ fi
 
 if [[ "${ADAPTER_STATUS}" = 'on' ]]; then
   if [[ "${IS_ANY_BATTERY_CHARGING}" = 'yes' ]]; then
-    if [ ! -f "${LIGHT_MODE_FILE_PATH}" ]; then
+    if [ "${MODE}" = 'full' ]; then
       echo "<span foreground='#{color/base0A/hex}'> ${BATTERY_ICON}</span> ${TOTAL_ENERGY_PERCENT}%"
     else
       echo "<span foreground='#{color/base0A/hex}'> ${BATTERY_ICON}</span>"
     fi
   else
-    if [ ! -f "${LIGHT_MODE_FILE_PATH}" ]; then
+    if [ "${MODE}" = 'full' ]; then
       echo "<span foreground='#{color/base0A/hex}'></span> AC"
     else
       echo "<span foreground='#{color/base0A/hex}'></span>"
@@ -45,14 +45,14 @@ if [[ "${ADAPTER_STATUS}" = 'on' ]]; then
   fi
 else
   if [[ "${TOTAL_ENERGY_PERCENT}" -lt 10 ]]; then
-    if [ ! -f "${LIGHT_MODE_FILE_PATH}" ]; then
+    if [ "${MODE}" = 'full' ]; then
       echo "<span foreground='#{color/alert/hex}'>${BATTERY_ICON} ${TOTAL_ENERGY_PERCENT}%</span>"
     else
       echo "<span foreground='#{color/alert/hex}'>${BATTERY_ICON}</span>"
     fi
     exit 33
   else
-    if [ ! -f "${LIGHT_MODE_FILE_PATH}" ]; then
+    if [ "${MODE}" = 'full' ]; then
       echo "<span foreground='#{color/base0A/hex}'>${BATTERY_ICON}</span> ${TOTAL_ENERGY_PERCENT}%"
     else
       echo "<span foreground='#{color/base0A/hex}'>${BATTERY_ICON}</span>"

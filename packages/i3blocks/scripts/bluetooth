@@ -1,6 +1,6 @@
 #! /usr/bin/env zsh
 
-LIGHT_MODE_FILE_PATH="${XDG_RUNTIME_DIR}/i3blocks_light_mode"
+MODE="$( bar_status_mode )"
 
 # #TODO: take into account multiple connected devices
 
@@ -17,7 +17,7 @@ BLUETOOTH_DEVICE_ALIAS=$(
     | sed -n 's/.*Alias: \(.*\)/\1/p'
 )
 
-if [ ! -f "${LIGHT_MODE_FILE_PATH}" ]; then
+if [ "${MODE}" = 'full' ]; then
   echo "<span foreground='#{color/base0A/hex}'></span> ${BLUETOOTH_DEVICE_ALIAS}"
 else
   echo "<span foreground='#{color/base0A/hex}'></span>"
