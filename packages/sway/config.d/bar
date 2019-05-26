@@ -15,7 +15,7 @@ bar {
         focused_workspace  $base08     $base08     $base00
         inactive_workspace $background $background $foreground
         active_workspace   $background $background $base08
-        urgent_workspace   $notice     $notice     $base00
+        urgent_workspace   $background $background $notice
 
         binding_mode $background $background $notice
     }

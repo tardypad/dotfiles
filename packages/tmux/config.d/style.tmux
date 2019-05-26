@@ -32,8 +32,8 @@ setw -g pane-border-status off
 
 setw -g window-status-current-style "bg=#{color/base0A/hex},fg=#{color/base00/hex}"
 setw -g window-status-last-style "fg=#{color/base0A/hex}"
-setw -g window-status-activity-style 'underscore'
-setw -g window-status-bell-style 'underscore'
+setw -g window-status-activity-style 'fg=#{color/notice/hex}'
+setw -g window-status-bell-style 'fg=#{color/notice/hex}'
 
 setw -g window-status-separator ' '
 setw -g window-status-format ' #{window_index}:#{window_name} '
