@@ -52,7 +52,6 @@ mode "-- Launchers --" {
     bindsym j           mode "default", exec launcher launch_tmux_env "' Projects environment'" projects
     bindsym n           mode "default", exec launcher launch_note
     bindsym p           mode "default", exec launcher launch_password
-    bindsym s           mode "default", exec launcher launch_tmux_env "' Servers environment'" servers
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
