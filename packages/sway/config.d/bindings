@@ -49,7 +49,7 @@ mode "-- Launchers --" {
     bindsym Shift+Space mode "default", exec launcher launch_command
     bindsym Backspace   mode "default", exec launcher launch_system
     bindsym c           mode "default", exec launcher launch_clipboard
-    bindsym j           mode "default", exec launcher launch_tmux_env "' Projects environment'" projects
+    bindsym j           mode "default", exec launcher launch_tmux_env "'Projects environment'" projects
     bindsym n           mode "default", exec launcher launch_note
     bindsym p           mode "default", exec launcher launch_password
 

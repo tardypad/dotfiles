@@ -42,16 +42,16 @@ set $foreground #{color/foreground/hex}
 set $notice     #{color/notice/hex}
 
 # workspace names
-set $ws1  "1  Projects"
-set $ws2  "2  Servers"
-set $ws3  "3  Chat"
-set $ws4  "4  Mail"
-set $ws5  "5  News"
+set $ws1  "1 Projects"
+set $ws2  "2 Servers"
+set $ws3  "3 Chat"
+set $ws4  "4 Mail"
+set $ws5  "5 News"
 set $ws6  "6"
 set $ws7  "7"
 set $ws8  "8"
 set $ws9  "9"
-set $ws10 "10  Web"
+set $ws10 "10 Web"
 
 # include all config files
 include config.d/*
