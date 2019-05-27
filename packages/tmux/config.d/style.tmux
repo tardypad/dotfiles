@@ -21,6 +21,37 @@ set -g status-right ''
 set -g status-right '  %a %e %b %Y %H:%M'
 %endif
 
+set -g status-format[0] \
+"#[align=left range=left #{status-left-style}]\
+#{T;=/#{status-left-length}:status-left}\
+#[norange default]\
+#[list=on align=#{status-justify}]\
+#[list=left-marker]<\
+#[list=right-marker]>\
+#[list=on]\
+#{W:\
+#[range=window|#{window_index} #{window-status-style}\
+#{?#{&&:#{window_last_flag},#{!=:#{window-status-last-style},default}}, #{window-status-last-style},}\
+#{?#{&&:#{window_bell_flag},#{!=:#{window-status-bell-style},default}}, #{window-status-bell-style},\
+#{?#{&&:#{||:#{window_activity_flag},#{window_silence_flag}},\
+#{!=:#{window-status-activity-style},default}}, #{window-status-activity-style},}}]\
+#{T:window-status-format}\
+#[norange default]\
+#{?window_end_flag,,#{window-status-separator}},\
+#[range=window|#{window_index} list=focus \
+#{?#{!=:#{window-status-current-style},default},#{window-status-current-style},#{window-status-style}}\
+#{?#{&&:#{window_last_flag},#{!=:#{window-status-last-style},default}}, #{window-status-last-style},}\
+#{?#{&&:#{window_bell_flag},#{!=:#{window-status-bell-style},default}}, #{window-status-bell-style},\
+#{?#{&&:#{||:#{window_activity_flag},#{window_silence_flag}},\
+#{!=:#{window-status-activity-style},default}}, #{window-status-activity-style},}}]\
+#{T:window-status-current-format}\
+#[norange list=on default]\
+#{?window_end_flag,,#{window-status-separator}}\
+}\
+#[nolist align=right range=right #{status-right-style}]\
+#{T;=/#{status-right-length}:status-right}\
+#[norange default]"
+
 setw -g window-style "bg=#{color/base01/hex}"
 setw -g window-active-style "bg=#{color/background/hex}"
 
