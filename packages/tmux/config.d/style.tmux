@@ -49,7 +49,7 @@ set -g status-format[0] \
 #{?window_end_flag,,#{window-status-separator}}\
 }\
 #[bg=#{color/background/hex},fg=#{color/notice/hex}]\
-  #{?#{==:#{client_key_table},root},             ,#{?#{==:#{client_key_table},prefix},-- Prefix -- ,#{client_key_table}}}  \
+  #{?#{!=:#{client_key_table},root},-- #{?#{==:#{client_key_table},prefix},Prefix,#{client_key_table}} --,}  \
 #[default]\
 #[nolist align=right range=right #{status-right-style}]\
 #{T;=/#{status-right-length}:status-right}\
