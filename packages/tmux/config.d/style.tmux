@@ -14,7 +14,7 @@ set -g status-left-style "bg=#{color/base09/hex},fg=#{color/base00/hex}"
 set -g status-right-style "fg=#{color/base09/hex}"
 
 set -g status-left-length 40
-set -g status-left "   #{session_name}   #[bg=#{color/background/hex},fg=#{color/notice/hex}]  #{?#{==:#{client_key_table},root},             ,#{?#{==:#{client_key_table},prefix},-- Prefix -- ,#{client_key_table}}}  "
+set -g status-left " #{session_name} "
 %if #{DISPLAY}
 set -g status-right ''
 %else
@@ -24,7 +24,7 @@ set -g status-right '  %a %e %b %Y %H:%M'
 set -g status-format[0] \
 "#[align=left range=left #{status-left-style}]\
 #{T;=/#{status-left-length}:status-left}\
-#[norange default]\
+#[norange default]  \
 #[list=on align=#{status-justify}]\
 #[list=left-marker]<\
 #[list=right-marker]>\
@@ -48,6 +48,9 @@ set -g status-format[0] \
 #[norange list=on default]\
 #{?window_end_flag,,#{window-status-separator}}\
 }\
+#[bg=#{color/background/hex},fg=#{color/notice/hex}]\
+  #{?#{==:#{client_key_table},root},             ,#{?#{==:#{client_key_table},prefix},-- Prefix -- ,#{client_key_table}}}  \
+#[default]\
 #[nolist align=right range=right #{status-right-style}]\
 #{T;=/#{status-right-length}:status-right}\
 #[norange default]"
