@@ -5,14 +5,19 @@ output * bg $base01 solid_color
 output eDP-1 pos 0,0 res 2560x1440
 output DP-1 pos 2560,0 res 2560x1440
 
-# all named workspaces on main output
-workspace $ws1  output DP-1
-workspace $ws2  output DP-1
-workspace $ws3  output DP-1
-workspace $ws4  output DP-1
-workspace $ws5  output DP-1
-workspace $ws6  output DP-1
-workspace $ws7  output DP-1
-workspace $ws8  output DP-1
-workspace $ws9  output DP-1
-workspace $ws10 output DP-1
+# all main workspaces on main output
+workspace 1  output DP-1
+workspace 2  output DP-1
+workspace 3  output DP-1
+workspace 4  output DP-1
+workspace 5  output DP-1
+workspace 6  output DP-1
+workspace 7  output DP-1
+workspace 8  output DP-1
+workspace 9  output DP-1
+workspace 10 output DP-1
+
+# unused workspace on extra output
+# so that the output is initialized with it
+# instead of a main workspace
+workspace 11 output eDP-1

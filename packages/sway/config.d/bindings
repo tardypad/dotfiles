@@ -83,16 +83,16 @@ bindsym $mod+$key_next      workspace next_on_output
 bindsym $mod+$key_right     workspace next_on_output
 bindsym $mod+$key_previous  workspace prev_on_output
 bindsym $mod+$key_left      workspace prev_on_output
-bindsym $mod+1              workspace $ws1
-bindsym $mod+2              workspace $ws2
-bindsym $mod+3              workspace $ws3
-bindsym $mod+4              workspace $ws4
-bindsym $mod+5              workspace $ws5
-bindsym $mod+6              workspace $ws6
-bindsym $mod+7              workspace $ws7
-bindsym $mod+8              workspace $ws8
-bindsym $mod+9              workspace $ws9
-bindsym $mod+0              workspace $ws10
+bindsym $mod+1              workspace number 1
+bindsym $mod+2              workspace number 2
+bindsym $mod+3              workspace number 3
+bindsym $mod+4              workspace number 4
+bindsym $mod+5              workspace number 5
+bindsym $mod+6              workspace number 6
+bindsym $mod+7              workspace number 7
+bindsym $mod+8              workspace number 8
+bindsym $mod+9              workspace number 9
+bindsym $mod+0              workspace number 10
 
 # split
 bindsym $mod+$key_vsplit splith, exec exec_desktop_entry ~/.local/share/applications/terminal.desktop
@@ -131,16 +131,16 @@ mode "-- MOVE --" {
     bindsym Shift+$key_right move right
 
     # move focused container to workspace and follow
-    bindsym 1              move container to workspace $ws1, workspace $ws1
-    bindsym 2              move container to workspace $ws2, workspace $ws2
-    bindsym 3              move container to workspace $ws3, workspace $ws3
-    bindsym 4              move container to workspace $ws4, workspace $ws4
-    bindsym 5              move container to workspace $ws5, workspace $ws5
-    bindsym 6              move container to workspace $ws6, workspace $ws6
-    bindsym 7              move container to workspace $ws7, workspace $ws7
-    bindsym 8              move container to workspace $ws8, workspace $ws8
-    bindsym 9              move container to workspace $ws9, workspace $ws9
-    bindsym 0              move container to workspace $ws10, workspace $ws10
+    bindsym 1              move container to workspace number 1, workspace number 1
+    bindsym 2              move container to workspace number 2, workspace number 2
+    bindsym 3              move container to workspace number 3, workspace number 3
+    bindsym 4              move container to workspace number 4, workspace number 4
+    bindsym 5              move container to workspace number 5, workspace number 5
+    bindsym 6              move container to workspace number 6, workspace number 6
+    bindsym 7              move container to workspace number 7, workspace number 7
+    bindsym 8              move container to workspace number 8, workspace number 8
+    bindsym 9              move container to workspace number 9, workspace number 9
+    bindsym 0              move container to workspace number 10, workspace number 10
     bindsym $key_create    exec move_window_new_workspace
     bindsym $key_alternate move container to workspace back_and_forth, workspace back_and_forth
     bindsym $key_next      move container to workspace next_on_output, workspace next_on_output
