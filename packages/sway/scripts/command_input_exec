@@ -32,8 +32,6 @@ error() {
 run() {
   vared -p "${PROMPT}" USER_INPUT
 
-  [ -n "${USER_INPUT}" ] || return 1
-
   SWAY_COMMAND="$(
     echo "${FORMAT}" \
       | sed "s/%s/${USER_INPUT}/g"
