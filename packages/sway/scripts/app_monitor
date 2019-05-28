@@ -10,8 +10,3 @@ swaymsg --quiet exec \
   "termite \
    --title \"${TITLE}\" \
    --exec 'tmux new-session -A -s monitor \"htop\"'"
-
-# focus the window (not automatic if different workspace)
-# need to wait a bit for the window to be registered
-sleep 0.1
-focus_window_title "${TITLE}"

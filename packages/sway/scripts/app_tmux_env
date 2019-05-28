@@ -11,15 +11,11 @@ tmux-env --background "${ENV_NAME}" ${SESSIONS_NAME}
 # try to focus existing window if it exists
 focus_window_title "${TITLE}" && exit
 
-# launch new app otherwise
+# launch new app otherwise in new workspace
 # needs TERM defined properly beforehand
 # for proper color within vim
+create_workspace
 swaymsg --quiet exec \
   "termite \
    --title \"${TITLE}\" \
    --exec 'zsh -c \"tmux-env ${ENV_NAME} ${SESSIONS_NAME}\"'"
-
-# focus the window (not automatic if different workspace)
-# need to wait a bit for the window to be registered
-sleep 0.1
-focus_window_title "${TITLE}"
