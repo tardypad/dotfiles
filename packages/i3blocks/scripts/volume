@@ -26,9 +26,9 @@ fi
 
 if [[ "${IS_VOLUME_MUTED}" -eq 1 ]]; then
   if [ "${MODE}" = 'full' ]; then
-    echo "<span foreground='#{color/warning/hex}'> Muted</span>"
+    echo "<span foreground='#{color/notice/hex}'> Muted</span>"
   else
-    echo "<span foreground='#{color/warning/hex}'></span>"
+    echo "<span foreground='#{color/notice/hex}'></span>"
   fi
 else
   if [ "${MODE}" = 'full' ]; then
