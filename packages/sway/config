@@ -55,3 +55,6 @@ exec swayidle -w \
    timeout 900 'swaymsg --quiet "output * dpms off"' \
         resume 'swaymsg --quiet "output * dpms on"' \
   before-sleep 'swaylock -f'
+
+# focus workspace 1 on main output
+workspace 1
