@@ -6,7 +6,7 @@ TITLE='Mail client'
 focus_window_title "${TITLE}" && exit
 
 # launch new app otherwise in new workspace
-create_workspace
+create_workspace 'mail'
 swaymsg --quiet exec \
   "termite \
    --title \"${TITLE}\" \
