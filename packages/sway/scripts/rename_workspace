@@ -15,16 +15,16 @@ CURRENT_WORKSPACE_NUMBER=$(
 
 CURRENT_WORKSPACE_NAME=$(
   echo "${CURRENT_WORKSPACE}" \
-    | sed 's/[0-9]* *\(.*\)/\1/'
+    | sed 's/[0-9]*:*\(.*\)/\1/'
 )
 
 if [ -n "${CURRENT_WORKSPACE_NAME}" ]; then
   command_input \
-    -F "rename workspace to ${CURRENT_WORKSPACE_NUMBER} %s" \
+    -F "rename workspace to ${CURRENT_WORKSPACE_NUMBER}:%s" \
     -P 'rename workspace: ' \
     -p "${CURRENT_WORKSPACE_NAME}"
 else
   command_input \
-    -F "rename workspace to ${CURRENT_WORKSPACE_NUMBER} %s" \
+    -F "rename workspace to ${CURRENT_WORKSPACE_NUMBER}:%s" \
     -P 'rename workspace: '
 fi

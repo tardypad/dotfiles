@@ -20,7 +20,7 @@ while is_workspace_num_used "${NEW_WORKSPACE_NUM}"; do
 done
 
 if [ -n "$1" ]; then
-  swaymsg --quiet workspace "${NEW_WORKSPACE_NUM} $1"
+  swaymsg --quiet workspace "${NEW_WORKSPACE_NUM}:$1"
 else
-  swaymsg --quiet workspace "${NEW_WORKSPACE_NUM}"
+  swaymsg --quiet workspace "${NEW_WORKSPACE_NUM}:"
 fi
