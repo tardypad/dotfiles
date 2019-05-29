@@ -43,7 +43,7 @@ is_session_present() {
   local session="$2"
 
   for session_name in ${(f)session_names}; do
-    if [[ "${TARGET} ${session}" = "${session_name}" ]]; then
+    if [[ "${session}" = "${session_name}" ]]; then
       return 0
     fi
   done
@@ -64,22 +64,22 @@ start_target_tmux_env() {
     for session in ${SESSIONS}; do
       if ! is_session_present "${session_names}" "${session}"; then
         script_path="${ENV_DIR_PATH}/${TARGET}/${session}.sh"
-        TMUX_ENV=yes zsh "${script_path}" "${TARGET}" "${TARGET} ${session}"
+        TMUX_ENV=yes zsh "${script_path}" "${TARGET}" "${session}"
       fi
     done
     main_session="${session}"
 
   else
     if ! is_session_present "${session_names}" 'new'; then
-      TMUX_ENV=yes tmux -L "${TARGET}" new-session -d -s "${TARGET} new"
+      TMUX_ENV=yes tmux -L "${TARGET}" new-session -d -s 'new'
     fi
     main_session='new'
   fi
 
   if ! $BACKGROUND; then
-    tmux -L "${TARGET}" attach-session -t "${TARGET} ${main_session}" &> /dev/null
+    tmux -L "${TARGET}" attach-session -t "${main_session}" &> /dev/null
   else
-    tmux -L "${TARGET}" switch-client -t "${TARGET} ${main_session}" &> /dev/null
+    tmux -L "${TARGET}" switch-client -t "${main_session}" &> /dev/null
   fi
 }
 
