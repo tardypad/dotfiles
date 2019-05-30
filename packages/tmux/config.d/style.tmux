@@ -55,10 +55,10 @@ set -g status-format[0] \
 #{T;=/#{status-right-length}:status-right}\
 #[norange default]"
 
-setw -g window-style "bg=#{color/base01/hex}"
+setw -g window-style "bg=#{color/background/hex}"
 setw -g window-active-style "bg=#{color/background/hex}"
 
-setw -g pane-border-style "bg=#{color/base01/hex},fg=#{color/foreground/hex}"
+setw -g pane-border-style "bg=#{color/background/hex},fg=#{color/base03/hex}"
 setw -g pane-active-border-style "bg=#{color/background/hex},fg=#{color/base0A/hex}"
 
 setw -g pane-border-format ' #{pane_current_command} '
