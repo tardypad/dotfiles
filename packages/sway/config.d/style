@@ -16,6 +16,6 @@ font Source Sans Pro, Font Awesome 5 Free 14
 # windows decorations colors
 # title border / title background / title text / indicator / view border
 client.focused          $base09     $base09     $base00     $base08     $base09
-client.focused_inactive $background $background $base09     $background $base08
-client.unfocused        $background $background $foreground $background $base08
+client.focused_inactive $background $background $base09     $background $base02
+client.unfocused        $background $background $foreground $background $base02
 client.urgent           $notice     $notice     $base00     $base08     $notice
