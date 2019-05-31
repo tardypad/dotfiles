@@ -1,8 +1,10 @@
 [user]
     name = Damien Tardy-Panis
     email = damien@tardypad.me
-[url "tardypad:~/damien.git/"]
+[url "surg:~/damien.git/"]
     insteadOf = perso:
+[url "surg:~/damien.git/"]
+    insteadOf = surg:
 [url "github:"]
     insteadOf = gh:
 [url "github:tardypad/"]

@@ -10,11 +10,11 @@ Host github
     User git
     IdentityFile ~/.ssh/id_github
 
-Host tardypad
+Host surg tardypad
     Hostname tardypad.me
     User damien
     Port 11235
-    IdentityFile ~/.ssh/id_perso
+    IdentityFile ~/.ssh/id_surg
 
 Host status
     Hostname tardypad.me

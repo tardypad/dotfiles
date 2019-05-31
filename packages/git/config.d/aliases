@@ -78,7 +78,7 @@
     mgc = merge --continue
     mgrbma = "!f(){ git co $1 && git rbma && git coma && git mg -; }; f"
     pl = pull
-    push-perso = "!git push origin --set-upstream HEAD:$(git current-branch)"
+    push-origin = "!git push origin --set-upstream HEAD:$(git current-branch)"
     push-upstream = "!git push upstream HEAD:$(git current-branch)"
     rb = rebase
     rbma = rebase -i master
