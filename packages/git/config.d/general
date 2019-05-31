@@ -5,10 +5,22 @@
     insteadOf = perso:
 [url "surg:~/damien.git/"]
     insteadOf = surg:
+[url "sourcehut:~"]
+    insteadOf = sh:
+[url "sourcehut:~tardypad/"]
+    insteadOf = sh_perso:
 [url "github:"]
     insteadOf = gh:
 [url "github:tardypad/"]
     insteadOf = gh_perso:
+[browse "sh"]
+    repoPathSed = "s|.*:\\(.*\\)|~\\1|"
+    repoUrl = https://git.sr.ht/{repo_path}
+    commitUrl = https://git.sr.ht/{repo_path}/commit/{commit_id}
+[browse "sh_perso"]
+    repoPathSed = "s|.*:\\(.*\\)|~tardypad/\\1|"
+    repoUrl = https://git.sr.ht/{repo_path}
+    commitUrl = https://git.sr.ht/{repo_path}/commit/{commit_id}
 [browse "gh"]
     repoPathSed = "s|.*:\\(.*\\)|\\1|"
     repoUrl = https://www.github.com/{repo_path}

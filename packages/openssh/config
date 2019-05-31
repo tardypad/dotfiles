@@ -10,6 +10,11 @@ Host github
     User git
     IdentityFile ~/.ssh/id_github
 
+Host sourcehut
+    Hostname git.sr.ht
+    User git
+    IdentityFile ~/.ssh/id_sourcehut
+
 Host surg tardypad
     Hostname tardypad.me
     User damien
