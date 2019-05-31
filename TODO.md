@@ -20,13 +20,27 @@
     * allow to receive query/POST body data from stdin
     * syntax highlighting of query/request keywords
     * completion of query/request keywords
+  - sway create workspace should use current one if there is no window inside
+  - similar keybindings for reload (currently Alt-R) and quit (currently Ctrl-q)  
+    maybe Alt-r and Alt-q
 
 # New Features
   - create scripts to manage AUR packages with personal repository  
     check [Michael Daffin blog](https://disconnected.systems/blog/archlinux-repo-in-aws-bucket/)
-  - use of Sway IPC via [i3ipc](https://github.com/acrisci/i3ipc-python)  
-    for the missing alternate binding to switch back and forth window in current workspace
+  - use of Sway IPC via [i3ipc](https://github.com/acrisci/i3ipc-python)
+    * alternate binding to switch back and forth window in current workspace
+    * keep focus left/right/top/bottom switch within current output
+    * automatically renumber workspaces
+    * bindings to move a whole workspace
   - create scripts for backup to hard drive or USB stick
+  - global keybindings management similar to colors with placeholders and README
+    * limit usage of difficult bindings requiring many simultaneous keys to risky/rare actions
+    * the more often the action is needed, the easier the binding to type (shift for less used type pane/window)
+    * focused on single output usage
+    * aliases list (next/previous/create/...)
+    * global organization (sway:super, termite:ctrl+shift, tmux:ctrl+space,...)
+    * local organization (uppercase for sway windows and tmux panes, lowercase for sway workspace and tmux windows,...)
+  - add light mode colorscheme variant
 
 # Research
   - [Drew Devault blog post](https://drewdevault.com/2018/02/05/Introduction-to-POSIX-shell.html)
