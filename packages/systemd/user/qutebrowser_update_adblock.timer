@@ -2,9 +2,7 @@
 Description=Update qutebrowser adblock list
 
 [Timer]
-OnBootSec=1h
-OnCalendar=weekly
-Persistent=True
+OnBootSec=4h
 
 [Install]
 WantedBy=timers.target
