@@ -11,6 +11,7 @@ local repo_path=$( get-project-repo-path "$1" )
 
 if [[ -n "${repo_path}" ]]; then
   cd "${repo_path}"
+  git current-branch
 else
   echo "No such project repository"
 fi
