@@ -87,6 +87,7 @@ FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},ctrl-p:previous-history"
 FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},ctrl-t:toggle"
 FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},btab:up,up:up"
 FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},tab:down,down:down"
+FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},change:top"
 export FZF_DEFAULT_OPTS
 
 # fzf default find command
