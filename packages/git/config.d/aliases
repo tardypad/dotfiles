@@ -71,7 +71,7 @@
             | nl --starting-line-number=0 --number-width=2 --number-separator=' '; \
         }; f"
     issue = stamp -r Issue
-    head = "! f() { git whatchanged -1 $( git argument $1 ); }; f"
+    head = "! f() { git log --raw -1 $( git argument $1 ); }; f"
     log1 = log --oneline
     mg = merge
     mga = merge --abort
