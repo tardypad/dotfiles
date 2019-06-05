@@ -78,8 +78,15 @@
     mgc = merge --continue
     mgrbma = "!f(){ git co $1 && git rbma && git coma && git mg -; }; f"
     pl = pull
-    push-origin = "!git push origin --set-upstream HEAD:$(git current-branch)"
-    push-upstream = "!git push upstream HEAD:$(git current-branch)"
+    push-current-branch = "! \
+        f() { \
+          remote=\"$1\"; \
+          if [[ \"${remote}\" == 'origin' ]]; then \
+            git push origin --set-upstream HEAD:$(git current-branch); \
+          else \
+            git push \"${remote}\" HEAD:$(git current-branch); \
+          fi \
+        }; f"
     rb = rebase
     rbma = rebase -i master
     rba = rebase --abort

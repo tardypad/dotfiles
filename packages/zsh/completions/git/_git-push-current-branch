@@ -1,0 +1,5 @@
+#compdef git-push-current-branch
+#description push current branch to a remote
+
+_arguments \
+  '1:remote:__git_remotes'
