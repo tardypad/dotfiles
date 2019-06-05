@@ -25,7 +25,6 @@
     bwi = "! f() { git browse --type issue --commit $( git argument $1 ); }; f"
     bwr = "! f() { git browse --type review --commit $( git argument $1 ); }; f"
     cb = checkout -b
-    cfg = config --includes
     ci = commit
     cia = commit -a
     cl = clone
