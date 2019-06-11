@@ -57,7 +57,7 @@
     cp = cherry-pick
     cpa = cherry-pick --abort
     cpc = cherry-pick --continue
-    current-branch = symbolic-ref --short HEAD
+    current-branch = branch --show-current
     df = diff
     df0 = diff --unified=0
     dfc = diff --cached
