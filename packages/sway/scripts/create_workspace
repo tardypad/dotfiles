@@ -11,8 +11,15 @@ is_workspace_num_used() {
   swaymsg -t get_workspaces \
     | jq --exit-status --raw-output \
       ".[]|select(.num==${WORKSPACE_NUM})" \
-    > /dev/null
-}
+  && \
+  swaymsg -t get_tree \
+    | jq --exit-status --raw-output \
+      "recurse(.nodes[]?)
+       | select(
+          .type==\"workspace\" and .num==${WORKSPACE_NUM} and
+          ( (.nodes|length)>0 or (.floating_nodes|length)>0 )
+         )"
+} > /dev/null
 
 NEW_WORKSPACE_NUM=1
 while is_workspace_num_used "${NEW_WORKSPACE_NUM}"; do

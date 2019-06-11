@@ -20,7 +20,6 @@
     * allow to receive query/POST body data from stdin
     * syntax highlighting of query/request keywords
     * completion of query/request keywords
-  - sway create workspace should use current one if there is no window inside
   - similar keybindings for reload (currently Alt-R) and quit (currently Ctrl-q)  
     maybe Alt-r and Alt-q
 
