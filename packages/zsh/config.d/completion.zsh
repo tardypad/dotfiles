@@ -16,6 +16,9 @@ else
   compinit -C
 fi
 
+# enable selection of item via menu
+zstyle ':completion:*' menu select
+
 # Tab case insensitive smart completion
 # lowercase letters match lowercase and uppercase letters
 # uppercase letters match only uppercase letters

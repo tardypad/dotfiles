@@ -7,6 +7,14 @@ bindkey -M viins '\e.' insert-last-word
 # Tab expansion on the current word up to the cursor
 bindkey -M viins '^I' expand-or-complete-prefix
 
+# menu navigation with Tab and Shift-Tab
+zmodload zsh/complist
+bindkey -M menuselect '^I' menu-complete
+bindkey -M menuselect '[Z' reverse-menu-complete
+
+# exit menu selection with Escape
+bindkey -M menuselect '' send-break
+
 # history navigation
 bindkey -M viins '^r' history-incremental-search-backward
 bindkey -M vicmd '^r' history-incremental-search-backward
