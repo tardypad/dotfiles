@@ -1,8 +1,8 @@
 # new window default border is without title bar
-default_border pixel 3
+default_border pixel 2
 
 # put some gaps between views
-gaps inner 10
+gaps inner 6
 
 # only put gaps if there are several views
 smart_gaps on
@@ -16,6 +16,6 @@ font Source Sans Pro, Font Awesome 5 Free 14
 # windows decorations colors
 # title border / title background / title text / indicator / view border
 client.focused          $base09     $base09     $base00     $base08     $base09
-client.focused_inactive $background $background $base09     $background $base02
-client.unfocused        $background $background $foreground $background $base02
+client.focused_inactive $background $background $base09     $background $background
+client.unfocused        $background $background $foreground $background $background
 client.urgent           $notice     $notice     $base00     $base08     $notice

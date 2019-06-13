@@ -1,5 +1,5 @@
 # Define wallpaper
-output * bg $base01 solid_color
+output * bg $base02 solid_color
 
 # monitors
 output eDP-1 pos 0,0 res 2560x1440
