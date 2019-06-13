@@ -55,5 +55,4 @@
   - distraction free mode and scripts to disable tmux status bar, increase tmux pane,...
     * [vim limelight](https://github.com/junegunn/limelight.vim)
     * [vim goyo](https://github.com/junegunn/goyo.vim)
-  - vim debugger [vdebug](https://github.com/joonty/vdebug)
   - Time tracker

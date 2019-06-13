@@ -21,6 +21,11 @@ Plug 'scrooloose/nerdcommenter',
   \ { 'as': 'nerdcommenter',
   \   'tag': '2.5.2' }
 
+" Debugger
+Plug 'vim-vdebug/vdebug',
+  \ { 'as': 'vdebug',
+  \   'tag': 'v2.0.0' }
+
 " fzf wrappers collection
 Plug 'junegunn/fzf.vim',
   \ { 'as': 'fzf',
@@ -173,6 +178,15 @@ let g:ale_sign_warning = '!!'
 let g:ale_sign_info = '--'
 let g:ale_sign_style_error = 'x'
 let g:ale_sign_style_warning = '!'
+
+
+"" vdebug
+let g:vdebug_options = {
+\   'server': 'localhost',
+\   'port': '9001',
+\   'break_on_open': '0',
+\   'watch_window_style': 'compact'
+\   }
 
 
 "" elm
