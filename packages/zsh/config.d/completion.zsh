@@ -19,6 +19,13 @@ fi
 # enable selection of item via menu
 zstyle ':completion:*' menu select
 
+# reuse LS_COLORS for items color
+# and define current item colors
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} 'ma={color/base00/fg};{color/current_item/bg}'
+
+# color options description
+zstyle ':completion:*:options' list-colors '=-- *={color/base08/fg}'
+
 # Tab case insensitive smart completion
 # lowercase letters match lowercase and uppercase letters
 # uppercase letters match only uppercase letters
