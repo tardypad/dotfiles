@@ -13,9 +13,6 @@
 # Testing
 
 # Improvements
-  - review and improve copy paste workflow between terminals/vim/tmux/...
-    * [yank](https://github.com/mptre/yank) copy output to clipboard
-    * [Joe Schafer blog post](https://blog.d46.us/zsh-tmux-emacs-copy-paste/) zsh/tmux/emacs
   - improve all env scripts usage:
     * allow to receive query/POST body data from stdin
     * syntax highlighting of query/request keywords
@@ -47,11 +44,9 @@
   - calendar app
     * [khal](https://github.com/pimutils/khal)
     * [calendar-cli](https://github.com/tobixen/calendar-cli)
-    * [gcalcli](https://github.com/insanum/gcalcli)
   - contacts app to use in neomutt
     * [khard](https://github.com/scheibler/khard)
     * [abook](https://sourceforge.net/p/abook/git)
-    * [goobook](https://gitlab.com/goobook/goobook)
   - distraction free mode and scripts to disable tmux status bar, increase tmux pane,...
     * [vim limelight](https://github.com/junegunn/limelight.vim)
     * [vim goyo](https://github.com/junegunn/goyo.vim)
