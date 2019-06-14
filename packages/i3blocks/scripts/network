@@ -1,21 +1,21 @@
-#! /usr/bin/env zsh
+#!/bin/sh
 
 MODE="$( bar_status_mode )"
 
 NETWORK_INFO=$(
-  nmcli --fields type,state,connection device status \
-    | tr --squeeze-repeats ' '
+  nmcli -f type,state,connection device status \
+    | tr -s ' '
 )
 
 if echo "${NETWORK_INFO}" \
-     | grep --quiet 'ethernet connected'; then
+     | grep -q 'ethernet connected'; then
   IS_ETHERNET_CONNECTED=1
 else
   IS_ETHERNET_CONNECTED=0
 fi
 
 if echo "${NETWORK_INFO}" \
-     | grep --quiet 'wifi connected'; then
+     | grep -q 'wifi connected'; then
   IS_WIFI_CONNECTED=1
 else
   IS_WIFI_CONNECTED=0
@@ -24,17 +24,17 @@ fi
 WIFI_CONNECTION=$(
   echo "${NETWORK_INFO}" \
     | grep 'wifi connected' \
-    | cut --delimiter ' ' --fields 3-
+    | cut -d ' ' -f 3-
 )
 
 # NetworkManager automatically favors wired connections over wireless
-if [[ "${IS_ETHERNET_CONNECTED}" -eq 1 ]]; then
+if [ "${IS_ETHERNET_CONNECTED}" -eq 1 ]; then
   if [ "${MODE}" = 'full' ]; then
     echo "<span foreground='#{color/base0A/hex}'></span> Wired"
   else
     echo "<span foreground='#{color/base0A/hex}'></span>"
   fi
-elif [[ "${IS_WIFI_CONNECTED}" -eq 1 ]]; then
+elif [ "${IS_WIFI_CONNECTED}" -eq 1 ]; then
   if [ "${MODE}" = 'full' ]; then
     echo "<span foreground='#{color/base0A/hex}'></span> ${WIFI_CONNECTION}"
   else

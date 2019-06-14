@@ -1,4 +1,4 @@
-#! /usr/bin/env zsh
+#!/bin/sh
 
 MODE="$( bar_status_mode )"
 
@@ -8,7 +8,7 @@ BLUETOOTH_INFO=$( bluetoothctl info )
 
 # only display something if a device is connected
 if ! echo "${BLUETOOTH_INFO}" \
-     | grep --quiet 'Connected: yes'; then
+     | grep -q 'Connected: yes'; then
   exit 0
 fi
 

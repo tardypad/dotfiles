@@ -1,4 +1,4 @@
-#! /usr/bin/env zsh
+#!/bin/sh
 
 MODE="$( bar_status_mode )"
 
@@ -17,20 +17,20 @@ TOTAL_ENERGY_PERCENT=$(
     | sed -n 's/^Charge: \(.*\)%$/\1/p'
 )
 
-if [[ "${TOTAL_ENERGY_PERCENT}" -lt 10 ]]; then
+if [ "${TOTAL_ENERGY_PERCENT}" -lt 10 ]; then
   BATTERY_ICON=''
-elif [[ "${TOTAL_ENERGY_PERCENT}" -lt 40 ]]; then
+elif [ "${TOTAL_ENERGY_PERCENT}" -lt 40 ]; then
   BATTERY_ICON=''
-elif [[ "${TOTAL_ENERGY_PERCENT}" -lt 60 ]]; then
+elif [ "${TOTAL_ENERGY_PERCENT}" -lt 60 ]; then
   BATTERY_ICON=''
-elif [[ "${TOTAL_ENERGY_PERCENT}" -lt 90 ]]; then
+elif [ "${TOTAL_ENERGY_PERCENT}" -lt 90 ]; then
   BATTERY_ICON=''
 else
   BATTERY_ICON=''
 fi
 
-if [[ "${ADAPTER_STATUS}" = 'on' ]]; then
-  if [[ "${IS_ANY_BATTERY_CHARGING}" = 'yes' ]]; then
+if [ "${ADAPTER_STATUS}" = 'on' ]; then
+  if [ "${IS_ANY_BATTERY_CHARGING}" = 'yes' ]; then
     if [ "${MODE}" = 'full' ]; then
       echo "<span foreground='#{color/base0A/hex}'> ${BATTERY_ICON}</span> ${TOTAL_ENERGY_PERCENT}%"
     else
@@ -44,7 +44,7 @@ if [[ "${ADAPTER_STATUS}" = 'on' ]]; then
     fi
   fi
 else
-  if [[ "${TOTAL_ENERGY_PERCENT}" -lt 10 ]]; then
+  if [ "${TOTAL_ENERGY_PERCENT}" -lt 10 ]; then
     if [ "${MODE}" = 'full' ]; then
       echo "<span foreground='#{color/alert/hex}'>${BATTERY_ICON} ${TOTAL_ENERGY_PERCENT}%</span>"
     else
