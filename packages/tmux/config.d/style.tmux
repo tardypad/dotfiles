@@ -64,8 +64,8 @@ setw -g pane-active-border-style "bg=#{color/background/hex},fg=#{color/base0A/h
 setw -g pane-border-format ' #{pane_current_command} '
 setw -g pane-border-status off
 
-setw -g window-status-current-style "bg=#{color/base0A/hex},fg=#{color/base00/hex}"
-setw -g window-status-last-style "fg=#{color/base0A/hex}"
+setw -g window-status-current-style "bg=#{color/base09/hex},fg=#{color/base00/hex}"
+setw -g window-status-last-style "fg=#{color/base09/hex}"
 setw -g window-status-activity-style 'fg=#{color/notice/hex}'
 setw -g window-status-bell-style 'fg=#{color/notice/hex}'
 
