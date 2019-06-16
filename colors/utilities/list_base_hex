@@ -2,6 +2,13 @@
 
 # list hexadecimal values of base colors
 
-BASE_COLORS_FILE="${0%/*}/../definitions/base"
+THEME="${1:-dark}"
+
+BASE_COLORS_FILE="${0%/*}/../definitions/base_${THEME}"
+
+if [ ! -f "${BASE_COLORS_FILE}" ]; then
+  printf "invalid theme '%s'\n" "${THEME}" >&2
+  exit 1
+fi
 
 sed -n 's/| base0[[:alnum:]] | #\([[:alnum:]]\+\) |.*/\1/p' "${BASE_COLORS_FILE}"

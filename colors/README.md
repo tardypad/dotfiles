@@ -1,7 +1,8 @@
 # Color scheme
 
-See [base colors](definitions/base)
-and [aliases](definitions/aliases) definitions.
+See base colors for [dark](definitions/base_dark)
+and [light](definitions/base_light) schemes
+and also [aliases](definitions/aliases) common to both.
 
 For the base colors, only the first 3 columns are used during the
 substitution process. The other fields are only extra information.
@@ -11,11 +12,10 @@ Colors were chosen initially from HCL values
 and then translated to the closest value in sRGB space.
 
 Colors features to make the environment comfortable to the eyes:
-- low intensity (pastel: light and desaturated)
+- low intensity
 - high contrast against background colors
 
 Colors usage:
-- dark background colors
 - cool foreground colors
 - warm colors are reserved only for alerts
 

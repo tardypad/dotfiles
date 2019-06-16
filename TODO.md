@@ -36,7 +36,6 @@
     * aliases list (next/previous/create/...)
     * global organization (sway:super, termite:ctrl+shift, tmux:ctrl+space,...)
     * local organization (uppercase for sway windows and tmux panes, lowercase for sway workspace and tmux windows,...)
-  - add light mode colorscheme variant
 
 # Research
   - [Drew Devault blog post](https://drewdevault.com/2018/02/05/Introduction-to-POSIX-shell.html)

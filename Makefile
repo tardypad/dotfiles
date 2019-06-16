@@ -8,6 +8,8 @@ PACKAGES := $(subst /,,$(dir $(subst packages/,,$(wildcard packages/*/Makefile))
 
 IS_LOCAL_INSTALL := $(if $(DESTDIR),'false','true')
 
+THEME := $(if $(THEME),$(THEME),dark)
+
 # default target first
 # install all packages
 all: $(PACKAGES)
@@ -21,12 +23,12 @@ end_setup   = @echo -e "\r✔ setup $@"
 define copy_file
 	@mkdir --parents $(DESTDIR)$(dir $(2))
 	@cp packages/$@/$(1) $(DESTDIR)$(2)
-	@colors/substitute_placeholders $(DESTDIR)$(2)
+	@colors/substitute_placeholders $(THEME) $(DESTDIR)$(2)
 endef
 define copy_folder
 	@mkdir --parents $(DESTDIR)$(dir $(2))
 	@cp --recursive --force --no-target-directory packages/$@/$(1) $(DESTDIR)$(2)
-    @find $(DESTDIR)$(2) -type f -exec colors/substitute_placeholders {} \;
+    @find $(DESTDIR)$(2) -type f -exec colors/substitute_placeholders $(THEME) {} \;
 endef
 
 # all Makefiles could be included with "include */Makefile"

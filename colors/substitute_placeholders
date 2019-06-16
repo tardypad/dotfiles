@@ -1,13 +1,14 @@
 #!/bin/sh
 
-FILE="$1"
+THEME="$1"
+FILE="$2"
 
 # exit early if there is no color configuration in the file
 if ! grep -q '{color/' "$FILE"; then
   exit 0
 fi
 
-BASE_COLORS_FILE="${0%/*}/definitions/base"
+BASE_COLORS_FILE="${0%/*}/definitions/base_${THEME}"
 ALIASES_COLORS_FILE="${0%/*}/definitions/aliases"
 
 {

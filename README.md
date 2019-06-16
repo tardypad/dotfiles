@@ -79,6 +79,8 @@ Similarly `{color/base0A/number}` is replaced by that color's number.
 Consistency is enforced by the use of aliases.  
 For example `{color/warning/number}` is replaced by the number of the color chosen to represent warnings.
 
+The THEME variable can be set to "light" or "dark" during setup to choose the color scheme.
+
 See the [colors](colors) folder for more information.
 
 
