@@ -12,6 +12,9 @@ BASE_COLORS_FILE="${0%/*}/definitions/base_${THEME}"
 ALIASES_COLORS_FILE="${0%/*}/definitions/aliases"
 
 {
+  # color theme
+  echo "s|{color/theme}|${THEME}|g"
+
   # aliases intermediate conversion to base color equivalent
   tail -n+3 "${ALIASES_COLORS_FILE}" \
     | while read -r line; do

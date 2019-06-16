@@ -1,5 +1,5 @@
-" reset default colors for dark background
-set background=dark
+" reset default colors
+set background={color/theme}
 highlight clear
 syntax reset
 
