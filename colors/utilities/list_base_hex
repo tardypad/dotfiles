@@ -2,7 +2,12 @@
 
 # list hexadecimal values of base colors
 
-THEME="${1:-dark}"
+THEME="$1"
+
+if [ -z "${THEME}" ]; then
+  printf 'missing theme argument\n' >&2
+  exit 1
+fi
 
 BASE_COLORS_FILE="${0%/*}/../definitions/base_${THEME}"
 

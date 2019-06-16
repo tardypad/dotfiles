@@ -8,7 +8,7 @@ PACKAGES := $(subst /,,$(dir $(subst packages/,,$(wildcard packages/*/Makefile))
 
 IS_LOCAL_INSTALL := $(if $(DESTDIR),'false','true')
 
-THEME := $(if $(THEME),$(THEME),dark)
+THEME := $(if $(THEME),$(THEME),light)
 
 # default target first
 # install all packages
