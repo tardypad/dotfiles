@@ -24,5 +24,7 @@ ANSI meaning (color 2 is meant to have a green tone for example).
 This allows tools whose colors cannot be configured or have not been
 configured yet, to have a meaningful display as was intended initially.  
 This is mainly useful for their error messages, which are often displayed in
-red by default, not to suddenly be displayed white and get unnoticed.  
-Obviously this only works if the theme itself is not overall in the red tones.
+red by default, not to suddenly be displayed white and get unnoticed.
+
+The 8 last colors follow the ANSI meaning as best as possible
+given the remaining colors available in the scheme.
