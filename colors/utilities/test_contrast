@@ -13,6 +13,8 @@ init_variables() {
   MINIMUM_CONTRAST_LARGE=3.0
 
   HEX_COLORS=
+
+  PLAIN=0
 }
 
 usage() {
@@ -28,6 +30,7 @@ usage() {
 
 	Options:
 	  -h,  --help      show this message only
+	  -p,  --plain     disable bold and underline attributes
 	EOF
 }
 
@@ -104,11 +107,13 @@ print_contrast() {
   printf '\033[48;2;%sm' "$rgb2"               # use rgb2 for background
   printf ' '                                   # spacing
 
-  test_normal=$( echo "$contrast >= $MINIMUM_CONTRAST_NORMAL" | bc -l )
-  [ "$test_normal" -eq 1 ] && printf '\033[4m' # underline display
+  if [ "${PLAIN}" -eq 0 ]; then
+    test_normal=$( echo "$contrast >= $MINIMUM_CONTRAST_NORMAL" | bc -l )
+    [ "$test_normal" -eq 1 ] && printf '\033[4m' # underline display
 
-  test_bold=$( echo "$contrast >= $MINIMUM_CONTRAST_LARGE" | bc -l )
-  [ "$test_bold" -eq 1 ] && printf '\033[1m'   # bold display
+    test_bold=$( echo "$contrast >= $MINIMUM_CONTRAST_LARGE" | bc -l )
+    [ "$test_bold" -eq 1 ] && printf '\033[1m'   # bold display
+  fi
 
   printf '%4s' "$contrast"                     # constant width
   printf '\033[21;24m'                         # reset underline and bold
@@ -144,6 +149,10 @@ parse_options() {
       -h|--help)
         usage
         exit 0
+        ;;
+      -p|--plain)
+        PLAIN=1
+        shift;
         ;;
       *)
         break 2
