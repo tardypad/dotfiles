@@ -57,7 +57,16 @@
     cp = cherry-pick
     cpa = cherry-pick --abort
     cpc = cherry-pick --continue
-    current-branch = branch --show-current
+    current-branch = "! \
+        f() { \
+          branch=$( git branch --show-current ); \
+          [ $? -eq 0 ] || return 1; \
+          if [ -z \"${branch}\" ]; then \
+            echo 'no branch'; \
+          else \
+            echo \"${branch}\"; \
+          fi \
+        }; f"
     df = diff
     df0 = diff --unified=0
     dfc = diff --cached
