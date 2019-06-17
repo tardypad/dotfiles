@@ -48,7 +48,7 @@ display_remaining_time = no
 # song formats
 song_status_format = "{{%a{ / %y{ / %b}} / }{%t}}|{%f}"
 song_library_format = "{%n - }{%t}|{%f}"
-song_columns_list_format = "(20)[{color/base0C/name}]{a} (20)[{color/base0A/name}]{b} (6f)[]{nrE} (49)[]{t|f:Title} (7f)[]{lr}"
+song_columns_list_format = "(20)[{color/base0C/name}]{a} (20)[{color/base09/name}]{b} (6f)[]{nrE} (49)[]{t|f:Title} (7f)[]{lr}"
 
 # browser sorting
 browser_sort_mode = format
@@ -60,20 +60,20 @@ empty_tag_marker = "--"
 
 # colors
 main_window_color = default
-header_window_color = {color/base0A/name}
+header_window_color = {color/base09/name}
 volume_color = {color/base0C/name}
-state_line_color = {color/base01/name}
+state_line_color = {color/base00/name}
 state_flags_color = {color/notice/name}
-progressbar_color = {color/base01/name}
+progressbar_color = {color/base00/name}
 progressbar_elapsed_color = {color/base0B/name}
 statusbar_color = default
-statusbar_time_color = {color/base0A/name}
+statusbar_time_color = {color/base09/name}
 player_state_color = {color/base0C/name}
-window_border_color = {color/base0A/name}
+window_border_color = {color/base09/name}
 active_window_border = {color/base0B/name}
 empty_tag_color = default
 color1 = {color/base0B/name}
-color2 = {color/base0A/name}
+color2 = {color/base09/name}
 
 discard_colors_if_item_is_selected = no
 
