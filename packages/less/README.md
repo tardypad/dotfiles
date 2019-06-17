@@ -4,7 +4,7 @@ Pager
 
 Source [GNU](http://ftp.gnu.org/gnu/less/)
 
-Version [530](http://ftp.gnu.org/gnu/less/less-530.tar.gz)
+Version [551](http://ftp.gnu.org/gnu/less/less-551.tar.gz)
 
 ## Required extensions
 
