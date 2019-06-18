@@ -16,8 +16,9 @@ is_workspace_num_used() {
     | jq --exit-status --raw-output \
       "recurse(.nodes[]?)
        | select(
-          .type==\"workspace\" and .num==${WORKSPACE_NUM} and
-          ( (.nodes|length)>0 or (.floating_nodes|length)>0 )
+          .type==\"workspace\"
+          and .num==${WORKSPACE_NUM}
+          and (.nodes|length)>0
          )"
 } > /dev/null
 
