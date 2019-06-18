@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# display general status info about the current shell
+
+DELIMITER='@'
+
+print_item() {
+  HEADER="$1"
+  VALUE="$2"
+
+  printf "%s%c$(tput setaf {color/base09/number} )%s$(tput sgr0)\n" \
+    "${HEADER}" "${DELIMITER}" "${VALUE}"
+}
+
+{
+  print_item 'User' "${LOGNAME}"
+  print_item 'Host' "$(cat /proc/sys/kernel/hostname )"
+  print_item 'Dir' "${PWD}"
+
+  if git rev-parse --git-dir > /dev/null 2>&1; then
+    print_item 'Branch' "$( git current-branch )"
+  fi
+} | column -t -s "${DELIMITER}"

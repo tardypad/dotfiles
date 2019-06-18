@@ -26,16 +26,6 @@ alias ssh='TERM=xterm-256color ssh'
 # switch to root
 alias root='sudo --preserve-env --shell'
 
-# general info about the current shell
-alias status='
-  cat <<- EOF
-	User    $(tput setaf {color/base09/number})${USERNAME}$(tput sgr0)
-	Host    $(tput setaf {color/base09/number})${HOST}$(tput sgr0)
-	Dir     $(tput setaf {color/base09/number})$( print -D "${PWD}" )$(tput sgr0)
-	Branch  $(tput setaf {color/base09/number})$( git current-branch 2> /dev/null || print "not a git repo" )$(tput sgr0)
-	EOF
-'
-
 # generate a password (mainly used to encrypt files to share)
 alias passwdgen='echo $( < /dev/urandom tr --delete --complement "[:graph:]" | head --bytes 30 )'
 
