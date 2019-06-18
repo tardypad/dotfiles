@@ -7,7 +7,6 @@ alias rm='rm -i'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto --palette="rs=0:hd=1:ad={color/add/fg}:de={color/delete/fg}:ln={color/base0B/fg}"'
-alias ncdu='ncdu --color=dark'
 
 # ls alias
 alias lh='ls -lh'
