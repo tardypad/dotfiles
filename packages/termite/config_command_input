@@ -9,4 +9,4 @@ cursor_shape = block
 
 [colors]
 foreground = #{color/base00/hex}
-background = #{color/base08/hex}
+background = #{color/base09/hex}
