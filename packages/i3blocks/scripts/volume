@@ -30,8 +30,8 @@ if [ "${IS_VOLUME_MUTED}" -eq 1 ]; then
   fi
 else
   if [ "${MODE}" = 'full' ]; then
-    echo "<span foreground='#{color/base0A/hex}'>${VOLUME_ICON}</span> ${VOLUME_PERCENT}%"
+    echo "<span foreground='#{color/base09/hex}'>${VOLUME_ICON}</span> ${VOLUME_PERCENT}%"
   else
-    echo "<span foreground='#{color/base0A/hex}'>${VOLUME_ICON}</span>"
+    echo "<span foreground='#{color/base09/hex}'>${VOLUME_ICON}</span>"
   fi
 fi

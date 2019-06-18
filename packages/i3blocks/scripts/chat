@@ -11,9 +11,9 @@ pidof weechat > /dev/null || exit 0
 # just to let us know at least that weechat is running
 if [ ! -f "${COUNT_FILE_PATH}" ]; then
   if [ "${MODE}" = 'full' ]; then
-    echo "<span foreground='#{color/base0A/hex}'></span> 0"
+    echo "<span foreground='#{color/base09/hex}'></span> 0"
   else
-    echo "<span foreground='#{color/base0A/hex}'></span>"
+    echo "<span foreground='#{color/base09/hex}'></span>"
   fi
 fi
 
@@ -27,8 +27,8 @@ if [ "${COUNT}" -gt 0 ]; then
   fi
 else
   if [ "${MODE}" = 'full' ]; then
-    echo "<span foreground='#{color/base0A/hex}'></span> 0"
+    echo "<span foreground='#{color/base09/hex}'></span> 0"
   else
-    echo "<span foreground='#{color/base0A/hex}'></span>"
+    echo "<span foreground='#{color/base09/hex}'></span>"
   fi
 fi

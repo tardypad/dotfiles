@@ -36,7 +36,7 @@ MUSIC_TEXT=$(
 )
 
 if [ "${MODE}" = 'full' ]; then
-  echo "<span foreground='#{color/base0A/hex}'>${MUSIC_ICON}</span> <span style='italic'>${MUSIC_TEXT}</span>"
+  echo "<span foreground='#{color/base09/hex}'>${MUSIC_ICON}</span> <span style='italic'>${MUSIC_TEXT}</span>"
 else
-  echo "<span foreground='#{color/base0A/hex}'>${MUSIC_ICON}</span>"
+  echo "<span foreground='#{color/base09/hex}'>${MUSIC_ICON}</span>"
 fi

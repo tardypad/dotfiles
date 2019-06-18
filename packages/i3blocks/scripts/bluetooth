@@ -18,7 +18,7 @@ BLUETOOTH_DEVICE_ALIAS=$(
 )
 
 if [ "${MODE}" = 'full' ]; then
-  echo "<span foreground='#{color/base0A/hex}'></span> ${BLUETOOTH_DEVICE_ALIAS}"
+  echo "<span foreground='#{color/base09/hex}'></span> ${BLUETOOTH_DEVICE_ALIAS}"
 else
-  echo "<span foreground='#{color/base0A/hex}'></span>"
+  echo "<span foreground='#{color/base09/hex}'></span>"
 fi
