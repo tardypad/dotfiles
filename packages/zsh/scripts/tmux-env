@@ -11,13 +11,13 @@ init_variables() {
   BACKGROUND=false
 
   TARGET=
-  SESSIONS=
+  SESSION=
 }
 
 
 usage() {
   cat <<- EOF
-	usage: ${COMMAND} [<options>] <target> [<session>...]
+	usage: ${COMMAND} [<options>] <target> [<session>]
 
 	Start target tmux environment sessions
 
@@ -53,33 +53,26 @@ is_session_present() {
 
 
 start_target_tmux_env() {
-  local main_session=
-
   local session_names=$(
     tmux -L "${TARGET}" list-sessions -F '#{session_name}' 2> /dev/null
   )
 
-  if [[ -n "${SESSIONS}" ]]; then
-    local script_path
-    for session in ${SESSIONS}; do
-      if ! is_session_present "${session_names}" "${session}"; then
-        script_path="${ENV_DIR_PATH}/${TARGET}/${session}.sh"
-        TMUX_ENV=yes zsh "${script_path}" "${TARGET}" "${session}"
-      fi
-    done
-    main_session="${session}"
-
-  else
-    if ! is_session_present "${session_names}" 'new'; then
-      TMUX_ENV=yes tmux -L "${TARGET}" new-session -d -s 'new'
+  if [[ -n "${SESSION}" ]]; then
+    if ! is_session_present "${session_names}" "${SESSION}"; then
+      local script_path="${ENV_DIR_PATH}/${TARGET}/${SESSION}.sh"
+      TMUX_ENV=yes zsh "${script_path}" "${TARGET}" "${SESSION}"
     fi
-    main_session='new'
+  else
+    SESSION='new'
+    if ! is_session_present "${session_names}" "${SESSION}"; then
+      TMUX_ENV=yes tmux -L "${TARGET}" new-session -d -s "${SESSION}"
+    fi
   fi
 
   if ! $BACKGROUND; then
-    tmux -L "${TARGET}" attach-session -t "${main_session}" &> /dev/null
+    tmux -L "${TARGET}" attach-session -t "${SESSION}" &> /dev/null
   else
-    tmux -L "${TARGET}" switch-client -t "${main_session}" &> /dev/null
+    tmux -L "${TARGET}" switch-client -t "${SESSION}" &> /dev/null
   fi
 }
 
@@ -106,7 +99,7 @@ parse_options() {
   fi
 
   TARGET="$1"
-  SESSIONS=( ${@:2} )
+  SESSION="$2"
 }
 
 
@@ -119,11 +112,10 @@ validate_options() {
     error "invalid target ${TARGET}"
   fi
 
-  for session in ${SESSIONS}; do
-    if [[ ! -f "${ENV_DIR_PATH}/${TARGET}/${session}.sh" ]]; then
-      error "invalid target's session ${session}"
-    fi
-  done
+  if [[ -n "${SESSION}" \
+     && ! -f "${ENV_DIR_PATH}/${TARGET}/${SESSION}.sh" ]]; then
+    error "invalid target's session ${SESSION}"
+  fi
 }
 
 

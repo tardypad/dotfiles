@@ -2,11 +2,11 @@
 
 TITLE="$1"
 ENV_NAME="$2"
-SESSIONS_NAME=( ${@:3} )
+SESSION_NAME="$3"
 
 # create env in background
 # will do nothing if already exists
-tmux-env --background "${ENV_NAME}" ${SESSIONS_NAME}
+tmux-env --background "${ENV_NAME}" "${SESSION_NAME}"
 
 # try to focus existing window if it exists
 focus_window_title "${TITLE}" && exit
@@ -18,4 +18,4 @@ create_workspace "${ENV_NAME}"
 swaymsg --quiet exec \
   "termite \
    --title \"${TITLE}\" \
-   --exec 'zsh -c \"tmux-env ${ENV_NAME} ${SESSIONS_NAME}\"'"
+   --exec 'zsh -c \"tmux-env ${ENV_NAME} ${SESSION_NAME}\"'"
