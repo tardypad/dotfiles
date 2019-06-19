@@ -1,6 +1,9 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # Extract tokens from currently displayed pane (in copy-mode too)
+
+# #FIXME: This script is not POSIX compliant
+# it heavily relies on the -o option from GNU grep
 
 TOKEN_TYPE="$1"
 
@@ -20,58 +23,57 @@ esac
 
 
 capture_current_pane() {
-  local height=$( tmux display -p -F '#{pane_height}')
-  local scroll_position=$( tmux display -p -F '#{scroll_position}')
+  HEIGHT=$( tmux display -p -F '#{pane_height}')
+  SCROLL_POSITION=$( tmux display -p -F '#{scroll_position}')
 
-  if [[ -z "${scroll_position}" ]]; then
-    scroll_position=0
+  if [ -z "${SCROLL_POSITION}" ]; then
+    SCROLL_POSITION=0
   fi
 
-  local start="-${scroll_position}"
-  local end=$(( height - scroll_position - 1 ))
+  START="-${SCROLL_POSITION}"
+  END=$(( HEIGHT - SCROLL_POSITION - 1 ))
 
-  tmux capture-pane -pJ -S "${start}" -E "${end}"
+  tmux capture-pane -pJ -S "${START}" -E "${END}"
 }
 
 grep_hashes() {
-  grep --extended-regex --only-matching '[[:digit:]a-fA-F][-[:digit:]a-fA-F]{5,}'
+  grep -E -o '[[:digit:]a-fA-F][-[:digit:]a-fA-F]{5,}'
 }
 
 grep_lines() {
-  # trim spaces
-  grep '.' | sed 's/^[ \t]*//;s/[ \t]*$//'
+  grep '.' | sed -e 's/^[ \t]*//' -e 's/[ \t]*$//'
 }
 
 grep_paths() {
-  grep --extended-regex --only-matching '[-_.~[:alnum:]]*/[-_./[:alnum:]]+'
+  grep -E -o '[-_.~[:alnum:]]*/[-_./[:alnum:]]+'
 }
 
 grep_urls() {
-  grep --extended-regex --only-matching 'https?://[[:alnum:]?=%/_.:,;~@!#$&*+-]*'
+  grep -E -o 'https?://[[:alnum:]?=%/_.:,;~@!#$&*+-]*'
 }
 
 grep_words() {
-  grep --extended-regex --only-matching '[-_.[:alnum:]]+'
+  grep -E -o '[-_.[:alnum:]]+'
 }
 
 grep_WORDS() {
-  grep --extended-regex --only-matching '[^ ]+'
+  grep -E -o '[^ ]+'
 }
 
 
 ITEM=$(
   capture_current_pane \
     | "${GREP_FUNCTION}" \
-    | sort --unique \
+    | sort -u \
     | fzf-tmux -d "${SPLIT_HEIGHT}" -- \
         --prompt "${TOKEN_TYPE}> " \
         --expect=enter,ctrl-o,ctrl-s,ctrl-y \
 )
 
-[[ -n "${ITEM}" ]] || exit 0
+[ -n "${ITEM}" ] || exit 0
 
-KEY=$( echo "${ITEM}" | head --lines 1 )
-TEXT=$( echo "${ITEM}" | tail --lines +2 )
+KEY=$( echo "${ITEM}" | head -n 1 )
+TEXT=$( echo "${ITEM}" | tail -n +2 )
 
 case "${KEY}" in
   enter)

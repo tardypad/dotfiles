@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 SOCKET_PATH="$1"
 SESSION_ID="$2"
@@ -14,12 +14,12 @@ else
   tmux set-window-option monitor-silence "${THRESHOLD}"
   STATUS='enabled'
 
-  if [[ -n ${DISPLAY} ]]; then
+  if [ -n "${DISPLAY}" ]; then
     WINDOW_MARK=_tmux_alert
-    WINDOW_MARK+="_${SOCKET_PATH##*/}"
-    WINDOW_MARK+="_${SESSION_ID#$}"
-    WINDOW_MARK+="_${WINDOW_ID#@}"
-    swaymsg --quiet "mark --add ${WINDOW_MARK}"
+    WINDOW_MARK="${WINDOW_MARK}_${SOCKET_PATH##*/}"
+    WINDOW_MARK="${WINDOW_MARK}_${SESSION_ID#$}"
+    WINDOW_MARK="${WINDOW_MARK}_${WINDOW_ID#@}"
+    swaymsg -q "mark --add ${WINDOW_MARK}"
   fi
 fi
 

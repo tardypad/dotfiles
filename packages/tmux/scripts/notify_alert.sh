@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 ALERT_TYPE="$1"
 ALERT_SOCKET_PATH="$2"
@@ -17,21 +17,21 @@ tmux \
 ALERT_SESSION_NAME=$(
   tmux list-sessions -F '#{session_id} #{session_name}' \
     | grep "^${ALERT_SESSION_ID} " \
-    | cut --fields 2- --delimiter ' '
+    | cut -f 2- -d ' '
 )
 ALERT_WINDOW_NAME=$(
   tmux list-windows -t "${SESSION_ID}" -F '#{window_id} #{window_name}' \
     | grep "^${ALERT_WINDOW_ID} " \
-    | cut --fields 2- --delimiter ' '
+    | cut -f 2- -d ' '
 )
 
 MESSAGE="${ALERT_TYPE}"
-MESSAGE+=" in session \"${ALERT_SESSION_NAME}\""
-MESSAGE+=" window \"${ALERT_WINDOW_NAME}\""
+MESSAGE="${MESSAGE} in session \"${ALERT_SESSION_NAME}\""
+MESSAGE="${MESSAGE} window \"${ALERT_WINDOW_NAME}\""
 
 tmux display-message "${MESSAGE}"
 
-if [[ -n ${DISPLAY} ]]; then
+if [ -n "${DISPLAY}" ]; then
   notify_tmux_alert \
     "${ALERT_TYPE}" \
     "${ALERT_SOCKET_PATH##*/}" \

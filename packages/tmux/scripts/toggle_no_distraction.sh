@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 LEVEL="$1"
 
@@ -14,52 +14,52 @@ init_variables() {
 
   CURRENT_SWAY_WINDOW_ID=$( echo "${CURRENT_SWAY_WINDOW}" | jq '.id' )
 
-  FILE_PATH+="_${CURRENT_SWAY_WINDOW_ID}"
+  FILE_PATH="${FILE_PATH}_${CURRENT_SWAY_WINDOW_ID}"
 }
 
 sway_fullscreen() {
   [ -n "${DISPLAY}" ] || return
 
-  local action="$1"
+  ACTION="$1"
 
-  local fullscreen_status=$( echo "${CURRENT_SWAY_WINDOW}" | jq '.fullscreen_mode' )
+  FULLSCREEN_STATUS=$( echo "${CURRENT_SWAY_WINDOW}" | jq '.fullscreen_mode' )
 
-  if [[ "${action}" == 'enable' && "${fullscreen_status}" = '0' ]] \
-     || [[ "${action}" == 'disable' && "${fullscreen_status}" = '1' ]]; then
-    swaymsg --quiet fullscreen &> /dev/null
+  if { [ "${ACTION}" = 'enable' ] && [ "${FULLSCREEN_STATUS}" = '0' ]; } \
+    || { [ "${ACTION}" = 'disable' ] && [ "${FULLSCREEN_STATUS}" = '1' ]; }; then
+    swaymsg -q fullscreen >/dev/null 2>&1
   fi
 }
 
 tmux_pane_zoom() {
-  local action="$1"
+  ACTION="$1"
 
-  local zoom_status=$( tmux display -p '#{window_zoomed_flag}' )
+  ZOOM_STATUS=$( tmux display -p '#{window_zoomed_flag}' )
 
-  if [[ "${action}" == 'enable' && "${zoom_status}" = '0' ]] \
-     || [[ "${action}" == 'disable' && "${zoom_status}" = '1' ]]; then
+  if { [ "${ACTION}" = 'enable' ] && [ "${ZOOM_STATUS}" = '0' ]; } \
+    || { [ "${ACTION}" = 'disable' ] && [ "${ZOOM_STATUS}" = '1' ]; }; then
     tmux resize-pane -Z
   fi
 }
 
 tmux_status_line() {
-  local action="$1"
+  ACTION="$1"
 
-  if [[ "${action}" == 'hide' ]]; then
+  if [ "${ACTION}" = 'hide' ]; then
     tmux set -g status off
-  elif [[ "${action}" == 'show' ]]; then
+  elif [ "${ACTION}" = 'show' ]; then
     tmux set -g status on
   fi
 }
 
 is_no_distraction_mode_enabled() {
-  [[ -f "${FILE_PATH}" ]]
+  [ -f "${FILE_PATH}" ]
 }
 
 no_distraction_mode_enable() {
   tmux_status_line 'hide'
   sway_fullscreen 'enable'
 
-  if [ "${LEVEL}" == 'hard' ]; then
+  if [ "${LEVEL}" = 'hard' ]; then
     tmux_pane_zoom 'enable'
   fi
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 TARGET_INDEX="$1"
 
@@ -7,13 +7,17 @@ CURRENT_INDEX=$(
 )
 
 {
+  INDEX="${CURRENT_INDEX}"
+
   if [ "${TARGET_INDEX}" -gt "${CURRENT_INDEX}" ]; then
-    for (( i=CURRENT_INDEX; i<TARGET_INDEX; i++ )); do
-      tmux swap-window -s :=$i -t :=$((i+1))
+    while [ "${INDEX}" -lt "${TARGET_INDEX}" ]; do
+      tmux swap-window -s :="${INDEX}" -t :=$((INDEX+1))
+      INDEX=$(( INDEX + 1 ))
     done
   else
-    for (( i=CURRENT_INDEX; i>TARGET_INDEX; i-- )); do
-      tmux swap-window -s :=$i -t :=$((i-1))
+    while [ "${INDEX}" -gt "${TARGET_INDEX}" ]; do
+      tmux swap-window -s :="${INDEX}" -t :=$((INDEX-1))
+      INDEX=$(( INDEX - 1 ))
     done
   fi
 } 2> /dev/null

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 TARGET_INDEX="$1"
 
