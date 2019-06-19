@@ -1,8 +1,9 @@
 #! /usr/bin/env zsh
 
-TITLE="$1"
-ENV_NAME="$2"
-SESSION_NAME="$3"
+ENV_NAME="$1"
+SESSION_NAME="$2"
+
+TITLE="${ENV_NAME} environment"
 
 # create env in background
 # will do nothing if already exists

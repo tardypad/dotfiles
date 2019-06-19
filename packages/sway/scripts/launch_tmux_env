@@ -1,7 +1,6 @@
 #! /usr/bin/env zsh
 
-TITLE="$1"
-ENV_NAME="$2"
+ENV_NAME="$1"
 
 ENV_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/tmux/env/${ENV_NAME}"
 
@@ -18,4 +17,4 @@ SESSION=($(
 
 [[ "${SESSION}" == 'NEW' ]] && SESSION=
 
-app_tmux_env "${TITLE}" "${ENV_NAME}" "${SESSION}"
+app_tmux_env "${ENV_NAME}" "${SESSION}"
