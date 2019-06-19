@@ -63,27 +63,25 @@ check_build_cache() {
 
 check_build_cache
 
-SELECTED_APPS=$(
+SELECTED_APP=$(
   cat "${CACHE_APPS_LIST_PATH}" \
     | sort \
     | fzf --reverse \
-          --multi \
+          --no-multi \
           --margin 1,2,0,2 \
           --prompt 'run apps ' \
           --color info:{color/background/number}
 )
 
-if [[ -n "${SELECTED_APPS}" ]]; then
+if [[ -n "${SELECTED_APP}" ]]; then
   build_available_apps
 
-  IFS=$'\n'
-  for SELECTED_APP in $( echo ${SELECTED_APPS} ); do
-    SELECTED_APP_INDEX=$(
-      echo "${SELECTED_APP}" | tr -d ' '
-    )
-    # not sure why running exec_desktop_entry directly without using swaymsg
-    # doesn't work when ran from the launcher
-    swaymsg --quiet exec \
-      "exec_desktop_entry ${AVAILABLE_APPS[$SELECTED_APP_INDEX]}"
-  done
+  SELECTED_APP_INDEX=$(
+    echo "${SELECTED_APP}" | tr -d ' '
+  )
+
+  # not sure why running exec_desktop_entry directly without using swaymsg
+  # doesn't work when ran from the launcher
+  swaymsg --quiet exec \
+    "exec_desktop_entry ${AVAILABLE_APPS[$SELECTED_APP_INDEX]}"
 fi
