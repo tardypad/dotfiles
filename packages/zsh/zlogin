@@ -1,19 +1,4 @@
 if [[ $(tty) = /dev/tty1 ]]; then
-  # display logins from other users since my last login
-  # and stop to have time to read it and not overlook it
-  other_logins=$( last-others )
-  if [[ $? -eq 0 ]]; then
-    echo
-    echo -n "$(tput setaf {color/alert/number})Alert$(tput sgr0): "
-    echo 'There were other users login since your last one:'
-    echo "${other_logins}"
-
-    echo
-    echo 'Press any key to continue'
-    read -s -k 1
-  fi
-  unset other_logins
-
   # Automatically start sway after login on tty 1
   if [[ -z "${DISPLAY}" ]]; then
     exec sway &>> /var/log/sway/sway.log
