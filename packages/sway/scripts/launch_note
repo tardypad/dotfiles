@@ -7,11 +7,7 @@ NOTE=$(
     echo NEW;
     ls "${NOTES_FOLDER}";
   } \
-  | fzf --reverse \
-        --no-multi \
-        --margin 1,2,0,2 \
-        --prompt 'open note ' \
-        --color info:{color/background/number}
+  | fzf_launcher 'open note '
 )
 
 [ -n "${NOTE}" ] || exit

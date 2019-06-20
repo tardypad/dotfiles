@@ -8,10 +8,6 @@ printf '%s' "${PATH}" \
        -exec basename {} \; \
        2> /dev/null \
   | sort -u \
-  | fzf --reverse \
-        --no-multi \
-        --margin 1,2,0,2 \
-        --prompt 'run ' \
-        --color info:{color/background/number} \
+  | fzf_launcher 'run ' \
   | xargs -I{} \
     -- swaymsg -q exec {}

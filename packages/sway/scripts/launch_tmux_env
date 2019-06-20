@@ -8,11 +8,7 @@ SESSION=$(
     find "${XDG_CONFIG_HOME:-$HOME/.config}/tmux/env/${ENV_NAME}" \
       -type f -name '*.sh' -exec basename {} .sh \;
   } \
-  | fzf --reverse \
-        --no-multi \
-        --margin 1,2,0,2 \
-        --prompt 'open sessions ' \
-        --color info:{color/background/number}
+  | fzf_launcher "open ${ENV_NAME%s} "
 )
 
 [ -n "${SESSION}" ] || exit

@@ -8,10 +8,7 @@ ACTION=$(
     echo '  Shutdown';
     echo '  Reboot';
   } \
-  | fzf --reverse \
-        --no-multi \
-        --margin 1,2,0,2 \
-        --color info:{color/background/number}
+  | fzf_launcher 'execute '
 )
 
 case "${ACTION}" in

@@ -44,11 +44,7 @@ should_build_cache && build_cache
 SELECTED_APP=$(
   sort "${CACHE_APPS_LIST_PATH}" \
     | sed 's/\(.*\)     @.*/\1/' \
-    | fzf --reverse \
-          --no-multi \
-          --margin 1,2,0,2 \
-          --prompt 'run apps ' \
-          --color info:{color/background/number}
+    | fzf_launcher 'run app '
 )
 
 if [ -n "${SELECTED_APP}" ]; then
