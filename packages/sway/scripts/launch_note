@@ -1,4 +1,4 @@
-#! /usr/bin/env zsh
+#!/bin/sh
 
 NOTES_FOLDER="$( xdg-user-dir NOTES )"
 
@@ -11,16 +11,17 @@ NOTE=$(
         --no-multi \
         --margin 1,2,0,2 \
         --prompt 'open note ' \
-        --color info:{color/background/number} \
+        --color info:{color/background/number}
 )
 
-[[ -n "${NOTE}" ]] || exit
+[ -n "${NOTE}" ] || exit
 
-if [[ "${NOTE}" == 'NEW' ]]; then
-  read '?filename: ' NOTE
+if [ "${NOTE}" = 'NEW' ]; then
+  printf 'filename: '
+  read -r NOTE
 fi
 
-swaymsg --quiet exec \
+swaymsg -q exec \
   "termite \
-   --title ' Notes' \
-   --exec 'tmux new-session \"vim ${NOTES_FOLDER}/${NOTE}\"'"
+   -t ' Notes' \
+   -e 'tmux new-session \"vim ${NOTES_FOLDER}/${NOTE}\"'"

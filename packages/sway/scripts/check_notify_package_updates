@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/sh
 
 MESSAGE=
 
@@ -6,30 +6,30 @@ PACMAN_UPDATES_COUNT=$(
   checkupdates \
     | wc -l
 )
-if [[ "${PACMAN_UPDATES_COUNT}" -gt 0 ]]; then
-  MESSAGE+="pacman: ${PACMAN_UPDATES_COUNT}\n"
+if [ "${PACMAN_UPDATES_COUNT}" -gt 0 ]; then
+  MESSAGE="${MESSAGE}pacman: ${PACMAN_UPDATES_COUNT}\n"
 fi
 
 AUR_UPDATES_COUNT=$(
-  aur repo --database aur --sync --upgrades \
+  aur repo -d aur -S -u \
     | wc -l
 )
-if [[ "${AUR_UPDATES_COUNT}" -gt 0 ]]; then
-  MESSAGE+="aur: ${AUR_UPDATES_COUNT}\n"
+if [ "${AUR_UPDATES_COUNT}" -gt 0 ]; then
+  MESSAGE="${MESSAGE}aur: ${AUR_UPDATES_COUNT}\n"
 fi
 
 TARDYPAD_UPDATES_COUNT=$(
-  aur repo --database tardypad --sync --upgrades \
+  aur repo -d tardypad -S -u \
     | wc -l
 )
-if [[ "${TARDYPAD_UPDATES_COUNT}" -gt 0 ]]; then
-  MESSAGE+="tardypad: ${TARDYPAD_UPDATES_COUNT}\n"
+if [ "${TARDYPAD_UPDATES_COUNT}" -gt 0 ]; then
+  MESSAGE="${MESSAGE}tardypad: ${TARDYPAD_UPDATES_COUNT}\n"
 fi
 
 # exit if no updates available
-[[ -n "${MESSAGE}" ]] || exit
+[ -n "${MESSAGE}" ] || exit
 
 notify \
-  --category 'info' \
+  -c 'info' \
   'Packages updates available' \
   "${MESSAGE}"

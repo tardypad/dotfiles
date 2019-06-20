@@ -1,13 +1,13 @@
-#! /usr/bin/env zsh
+#!/bin/sh
 
-COMMAND="$@"
+COMMAND="$*"
 
 # try to focus existing window if it exists
 focus_window_title 'sway_launcher' && exit
 
 # launch new launcher otherwise
-swaymsg --quiet exec \
+swaymsg -q exec \
   "termite \
-   --exec \"${COMMAND}\" \
-   --config ${HOME}/.config/termite/config_launcher \
-   --title sway_launcher"
+   -e \"${COMMAND}\" \
+   -c ${HOME}/.config/termite/config_launcher \
+   -t sway_launcher"

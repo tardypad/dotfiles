@@ -4,7 +4,7 @@
 
 CURRENT_WORKSPACE=$(
   swaymsg -t get_workspaces \
-    | jq --raw-output \
+    | jq -r \
       ".[]|select(.focused==true)|.name"
 )
 

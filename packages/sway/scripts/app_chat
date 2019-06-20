@@ -1,4 +1,4 @@
-#! /usr/bin/env zsh
+#!/bin/sh
 
 TITLE='Chat client'
 
@@ -7,7 +7,7 @@ focus_window_title "${TITLE}" && exit
 
 # launch new app otherwise in new workspace
 create_workspace 'chat'
-swaymsg --quiet exec \
+swaymsg -q exec \
   "termite \
-   --title \"${TITLE}\" \
-   --exec 'tmux new-session -A -s chat \"weechat\"'"
+   -t \"${TITLE}\" \
+   -e 'tmux new-session -A -s chat \"weechat\"'"

@@ -1,71 +1,49 @@
-#! /usr/bin/env zsh
+#!/bin/sh
 
 APP_DESKTOP_FILES_PATH="${XDG_DATA_HOME:-$HOME/.local/share}/applications"
 CACHE_APPS_LIST_PATH="${XDG_CACHE_HOME:-$HOME/.cache}/sway/launch_app"
 
-typeset -A AVAILABLE_APPS
+should_build_cache() {
+  [ -f "${CACHE_APPS_LIST_PATH}" ] || return 0
 
-build_available_apps() {
-  for app_desktop_file in "${APP_DESKTOP_FILES_PATH}"/*.desktop; do
-    local app_name=$(
-      sed -n 's/^Name=\(.*\)/\1/p' "${app_desktop_file}"
-    )
-    local app_generic_name=$(
-      sed -n 's/^GenericName=\(.*\)/\1/p' "${app_desktop_file}"
-    )
-    local app_icon=$(
-      sed -n 's/^Icon=\(.*\)/\1/p' "${app_desktop_file}"
-    )
-
-    local app_index=$(
-      echo "${app_icon}${app_generic_name}${app_name}" \
-        | tr -d ' '
-    )
-    AVAILABLE_APPS[${app_index}]="${app_desktop_file}"
-  done
-}
-
-check_build_cache() {
-  if [[ -e "${CACHE_APPS_LIST_PATH}" ]]; then
-    local cache_last_modified=$(
-      stat --format '%Y' "${CACHE_APPS_LIST_PATH}"
-    )
-  else
-    local cache_last_modified=0
-  fi
-
-  local files_last_modified=$(
-    find "${APP_DESKTOP_FILES_PATH}" -type f -exec stat --format '%Y' {} \; \
-      | sort \
-      | tail --lines 1
+  CACHE_LAST_MODIFIED=$(
+    stat -c '%Y' "${CACHE_APPS_LIST_PATH}"
   )
 
-  if [[ "${cache_last_modified}" -lt "${files_last_modified}" ]]; then
-    mkdir --parents "${XDG_CACHE_HOME:-$HOME/.cache}/sway/"
+  FILES_LAST_MODIFIED=$(
+    find "${APP_DESKTOP_FILES_PATH}" \
+      -type f -exec stat -c '%Y' {} \; \
+      | sort \
+      | tail -n 1
+  )
 
-    for app_desktop_file in "${APP_DESKTOP_FILES_PATH}"/*.desktop; do
-      local app_name=$(
-        sed -n 's/^Name=\(.*\)/\1/p' "${app_desktop_file}"
-      )
-      local app_generic_name=$(
-        sed -n 's/^GenericName=\(.*\)/\1/p' "${app_desktop_file}"
-      )
-      local app_icon=$(
-        sed -n 's/^Icon=\(.*\)/\1/p' "${app_desktop_file}"
-      )
-      echo "${app_icon}  ${app_generic_name}@${app_name}"
-    done \
-      | column --table --table-right 2 \
-               --separator '@' --output-separator '     ' \
-      > "${CACHE_APPS_LIST_PATH}"
-  fi
+  [ "${CACHE_LAST_MODIFIED}" -lt "${FILES_LAST_MODIFIED}" ]
 }
 
-check_build_cache
+build_cache() {
+    mkdir -p "$( dirname "${CACHE_APPS_LIST_PATH}" )"
+
+    for APP_DESKTOP_FILE in "${APP_DESKTOP_FILES_PATH}"/*.desktop; do
+      APP_NAME=$(
+        sed -n 's/^Name=\(.*\)/\1/p' "${APP_DESKTOP_FILE}"
+      )
+      APP_GENERIC_NAME=$(
+        sed -n 's/^GenericName=\(.*\)/\1/p' "${APP_DESKTOP_FILE}"
+      )
+      APP_ICON=$(
+        sed -n 's/^Icon=\(.*\)/\1/p' "${APP_DESKTOP_FILE}"
+      )
+      echo "${APP_ICON}  ${APP_GENERIC_NAME}&${APP_NAME}&@${APP_DESKTOP_FILE}"
+    done \
+      | column -t -R 2 -s '&' -o '     ' \
+      > "${CACHE_APPS_LIST_PATH}"
+}
+
+should_build_cache && build_cache
 
 SELECTED_APP=$(
-  cat "${CACHE_APPS_LIST_PATH}" \
-    | sort \
+  sort "${CACHE_APPS_LIST_PATH}" \
+    | sed 's/\(.*\)     @.*/\1/' \
     | fzf --reverse \
           --no-multi \
           --margin 1,2,0,2 \
@@ -73,15 +51,13 @@ SELECTED_APP=$(
           --color info:{color/background/number}
 )
 
-if [[ -n "${SELECTED_APP}" ]]; then
-  build_available_apps
-
-  SELECTED_APP_INDEX=$(
-    echo "${SELECTED_APP}" | tr -d ' '
+if [ -n "${SELECTED_APP}" ]; then
+  APP_DESKTOP_FILE=$(
+    sed -n "/^${SELECTED_APP}.*/s/.*@\(.*\)/\1/p" "${CACHE_APPS_LIST_PATH}"
   )
 
-  # not sure why running exec_desktop_entry directly without using swaymsg
+  # #FIXME: not sure why running exec_desktop_entry directly without using swaymsg
   # doesn't work when ran from the launcher
-  swaymsg --quiet exec \
-    "exec_desktop_entry ${AVAILABLE_APPS[$SELECTED_APP_INDEX]}"
+  swaymsg -q exec \
+    "exec_desktop_entry ${APP_DESKTOP_FILE}"
 fi

@@ -1,8 +1,8 @@
-#!/usr/bin/env zsh
+#!/bin/sh
 
 notify \
-  --expire-time 5 \
-  --category 'notice' \
+  -t 5 \
+  -c 'notice' \
   'Pomodoro end' \
   'Take a break'
 

@@ -1,20 +1,22 @@
-#! /usr/bin/env zsh
+#!/bin/sh
 
 ENV_NAME="$1"
 
-ENV_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/tmux/env/${ENV_NAME}"
-
-SESSION=($(
-  print -l -- NEW "${ENV_PATH}"/*.sh(:t:r) \
+SESSION=$(
+  {
+    echo NEW;
+    find "${XDG_CONFIG_HOME:-$HOME/.config}/tmux/env/${ENV_NAME}" \
+      -type f -name '*.sh' -exec basename {} .sh \;
+  } \
   | fzf --reverse \
         --no-multi \
         --margin 1,2,0,2 \
         --prompt 'open sessions ' \
         --color info:{color/background/number}
-))
+)
 
-[[ -n "${SESSION}" ]] || exit
+[ -n "${SESSION}" ] || exit
 
-[[ "${SESSION}" == 'NEW' ]] && SESSION=
+[ "${SESSION}" = 'NEW' ] && SESSION=
 
 app_tmux_env "${ENV_NAME}" "${SESSION}"

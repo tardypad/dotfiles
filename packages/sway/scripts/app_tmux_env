@@ -1,4 +1,4 @@
-#! /usr/bin/env zsh
+#!/bin/sh
 
 ENV_NAME="$1"
 SESSION_NAME="$2"
@@ -7,7 +7,7 @@ TITLE="${ENV_NAME} environment"
 
 # create env in background
 # will do nothing if already exists
-tmux-env --background "${ENV_NAME}" "${SESSION_NAME}"
+tmux-env -b "${ENV_NAME}" "${SESSION_NAME}"
 
 # try to focus existing window if it exists
 focus_window_title "${TITLE}" && exit
@@ -16,7 +16,7 @@ focus_window_title "${TITLE}" && exit
 # needs TERM defined properly beforehand
 # for proper color within vim
 create_workspace "${ENV_NAME}"
-swaymsg --quiet exec \
+swaymsg -q exec \
   "termite \
-   --title \"${TITLE}\" \
-   --exec 'zsh -c \"tmux-env ${ENV_NAME} ${SESSION_NAME}\"'"
+   -t \"${TITLE}\" \
+   -e 'zsh -c \"tmux-env ${ENV_NAME} ${SESSION_NAME}\"'"

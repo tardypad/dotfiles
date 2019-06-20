@@ -1,11 +1,11 @@
-#! /usr/bin/env zsh
+#!/bin/sh
 
-echo -n "${PATH}" \
-  | xargs --delimiter=: -I{} \
-    -- find -L {} \
-       -maxdepth 1 -mindepth 1 \
-       -type f -executable \
-       -printf '%P\n' \
+printf '%s' "${PATH}" \
+  | tr ':' '\n' \
+  | xargs -I [] \
+    -- find -L [] \
+       -type f \
+       -exec basename {} \; \
        2> /dev/null \
   | sort -u \
   | fzf --reverse \
@@ -14,4 +14,4 @@ echo -n "${PATH}" \
         --prompt 'run ' \
         --color info:{color/background/number} \
   | xargs -I{} \
-    -- swaymsg --quiet exec {}
+    -- swaymsg -q exec {}

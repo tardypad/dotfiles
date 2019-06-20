@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/sh
 
 ALERT_THRESHOLD_PERCENT=10
 
@@ -19,8 +19,8 @@ TOTAL_ENERGY_PERCENT=$(
 [ "${TOTAL_ENERGY_PERCENT}" -gt "${ALERT_THRESHOLD_PERCENT}" ] && exit
 
 notify \
-  --category 'alert' \
-  --identifier 'low_battery' \
+  -c 'alert' \
+  -i 'low_battery' \
   'Low battery' \
   'Battery level is getting low'
 

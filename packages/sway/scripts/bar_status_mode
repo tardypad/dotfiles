@@ -93,4 +93,4 @@ init_variables
 parse_options "$@"
 validate_options
 
-bar_status_${ACTION}
+"bar_status_${ACTION}"

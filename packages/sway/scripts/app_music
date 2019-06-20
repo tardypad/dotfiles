@@ -1,4 +1,4 @@
-#! /usr/bin/env zsh
+#!/bin/sh
 
 TITLE='sway_music'
 
@@ -10,7 +10,7 @@ if ! systemctl --user is-active mopidy.service; then
   systemctl --user start mopidy.service
 fi
 
-swaymsg --quiet exec \
+swaymsg -q exec \
   "termite \
-   --title \"${TITLE}\" \
-   --exec 'tmux new-session -A -s music \"ncmpcpp\"'"
+   -t \"${TITLE}\" \
+   -e 'tmux new-session -A -s music \"ncmpcpp\"'"

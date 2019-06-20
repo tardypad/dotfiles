@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/sh
 
 TYPE="$1"
 SOCKET_NAME="$2"
@@ -8,18 +8,18 @@ WINDOW_ID="$5"
 WINDOW_NAME="$6"
 
 MESSAGE="socket: ${SOCKET_NAME}\n"
-MESSAGE+="session: ${SESSION_NAME}\n"
-MESSAGE+="window: ${WINDOW_NAME}"
+MESSAGE="${MESSAGE}session: ${SESSION_NAME}\n"
+MESSAGE="${MESSAGE}window: ${WINDOW_NAME}"
 
 MARK=_tmux_alert
-MARK+="_${SOCKET_NAME}"
-MARK+="_${SESSION_ID}"
-MARK+="_${WINDOW_ID}"
+MARK="${MARK}_${SOCKET_NAME}"
+MARK="${MARK}_${SESSION_ID}"
+MARK="${MARK}_${WINDOW_ID}"
 
 notify \
-  --category 'notice' \
-  --identifier "${MARK}" \
+  -c 'notice' \
+  -i "${MARK}" \
   "Tmux ${TYPE} detected" \
   "${MESSAGE}"
 
-swaymsg --quiet "[con_mark=\"${MARK}\"]" urgent enable
+swaymsg -q "[con_mark=\"${MARK}\"]" urgent enable

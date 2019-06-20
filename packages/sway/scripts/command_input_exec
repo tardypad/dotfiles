@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/sh
 
 init_variables() {
   COMMAND=${0##*/}
@@ -37,7 +37,7 @@ run() {
       | sed "s/%s/${USER_INPUT}/g"
   )"
 
-  swaymsg --quiet ${SWAY_COMMAND}
+  swaymsg -q ${SWAY_COMMAND}
 }
 
 parse_options() {

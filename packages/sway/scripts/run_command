@@ -14,7 +14,7 @@ WINDOW_FOCUSED_ID=$(
 if [ -n "${WINDOW_FOCUSED_ID}" ]; then
   # We need to mark the window first in case the command should affect it
   # otherwise the command would be run on the input window itself
-  swaymsg --quiet "mark --add ${WINDOW_MARK}"
+  swaymsg -q "mark --add ${WINDOW_MARK}"
   FORMAT="[con_mark=${WINDOW_MARK}] %s"
 else
   FORMAT='%s'
