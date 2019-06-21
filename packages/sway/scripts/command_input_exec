@@ -19,7 +19,6 @@ usage() {
                            %s occurences are replaced by user input
 	  -h,  --help            show this message only
 	  -P,  --prompt  PROMPT  display before user input
-	  -p,  --prefill TEXT    initial text loaded as input
 	EOF
 }
 
@@ -30,7 +29,8 @@ error() {
 } >&2
 
 run() {
-  vared -p "${PROMPT}" USER_INPUT
+  printf '%s' "${PROMPT}"
+  read -r USER_INPUT
 
   SWAY_COMMAND="$(
     echo "${FORMAT}" \
@@ -55,11 +55,6 @@ parse_options() {
       -P|--prompt)
         [ -n "$2" ] || error 'Missing --prompt value'
         PROMPT="$2"
-        shift 2
-        ;;
-      -p|--prefill)
-        [ -n "$2" ] || error 'Missing --prefill value'
-        USER_INPUT="$2"
         shift 2
         ;;
       *)

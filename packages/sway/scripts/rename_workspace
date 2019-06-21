@@ -2,29 +2,13 @@
 
 # rename current workspace
 
-CURRENT_WORKSPACE=$(
+CURRENT_WORKSPACE_NUMBER=$(
   swaymsg -t get_workspaces \
     | jq -r \
-      ".[]|select(.focused==true)|.name"
-)
-
-CURRENT_WORKSPACE_NUMBER=$(
-  echo "${CURRENT_WORKSPACE}" \
+      ".[]|select(.focused==true)|.name" \
     | sed 's/\([0-9]*\).*/\1/'
 )
 
-CURRENT_WORKSPACE_NAME=$(
-  echo "${CURRENT_WORKSPACE}" \
-    | sed 's/[0-9]*:*\(.*\)/\1/'
-)
-
-if [ -n "${CURRENT_WORKSPACE_NAME}" ]; then
-  command_input \
-    -F "rename workspace to ${CURRENT_WORKSPACE_NUMBER}:%s" \
-    -P 'rename workspace: ' \
-    -p "${CURRENT_WORKSPACE_NAME}"
-else
-  command_input \
-    -F "rename workspace to ${CURRENT_WORKSPACE_NUMBER}:%s" \
-    -P 'rename workspace: '
-fi
+command_input \
+  -F "rename workspace to ${CURRENT_WORKSPACE_NUMBER}:%s" \
+  -P 'rename workspace: '
