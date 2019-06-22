@@ -5,7 +5,7 @@ weechat:
 	@mkdir --parents $(DESTDIR)$(HOME)/.weechat/python/autoload
 
 	$(call copy_file,config.d/alias.conf,$(HOME)/.weechat/alias.conf)
-	$(call copy_file,config.d/aspell.conf,$(HOME)/.weechat/aspell.conf)
+	$(call copy_file,config.d/spell.conf,$(HOME)/.weechat/spell.conf)
 	$(call copy_file,config.d/buflist.conf,$(HOME)/.weechat/buflist.conf)
 	$(call copy_file,config.d/charset.conf,$(HOME)/.weechat/charset.conf)
 	$(call copy_file,config.d/colorize_nicks.conf,$(HOME)/.weechat/colorize_nicks.conf)
