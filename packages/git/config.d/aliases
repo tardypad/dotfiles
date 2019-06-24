@@ -3,13 +3,16 @@
     amend = commit --amend -a --no-edit
     argument= "! \
         h() {  \
-          if [[ -z $1 ]]; then \
-            echo HEAD; \
-          elif [[ $1 =~ [0-9]+ ]] && ! git rev-parse --verify $1 &> /dev/null; then \
-            echo HEAD~$1; \
-          else \
-            echo $1; \
-          fi \
+          case $1 in \
+            '') echo HEAD ;; \
+            *[!0-9]*) echo $1 ;; \
+            *) \
+              if git rev-parse --verify $1 > /dev/null 2>&1; then \
+                echo $1; \
+              else \
+                echo HEAD~$1; \
+              fi ;; \
+          esac \
         }; h"
     bl = blame --color-by-age --color-lines
     br = branch
@@ -17,7 +20,7 @@
     browse = "! \
         f() { \
           URL=$( git url $@ ); \
-          [[ -z \"${URL}\" ]] && return 1; \
+          [ -z \"${URL}\" ] && return 1; \
           xdg-open \"${URL}\"; \
         }; f"
     bw = browse
@@ -38,16 +41,14 @@
     commit-issue-id = "! \
         f() { \
           git log -1 $( git argument $1 ) --pretty=%b \
-          | grep 'Issue' \
-          | tail --lines 1 \
-          | sed -r 's%.* ([A-Za-z0-9-]+).*%\\1%'; \
+          | sed -n 's/Issue \\(.*\\)/\\1/p' \
+          | tail -n 1; \
         }; f"
     commit-review-id = "! \
         f() { \
           git log -1 $( git argument $1 ) --pretty=%b \
-          | grep 'Reviewed at' \
-          | tail --lines 1 \
-          | sed -r 's%.*/r/([0-9]+)/%\\1%'; \
+          | sed -n 's%Reviewed at .*/r/\\([0-9]*\\)/%\\1%p' \
+          | tail -n 1; \
         }; f"
     commit-subject = "! \
         f() { \
@@ -72,12 +73,12 @@
     dfc = diff --cached
     dfc0 = diff --cached --unified=0
     fe = fetch --all
-    first-commit = ! git rev-list --max-parents=0 HEAD | tail --lines 1
+    first-commit = ! git rev-list --max-parents=0 HEAD | tail -n 1
     head = "! f() { git log --raw -1 $( git argument $1 ); }; f"
     hist = "! \
         f() { \
           git log --color --oneline --max-count=10 \"$@\" \
-            | nl --starting-line-number=0 --number-width=2 --number-separator=' '; \
+            | nl -v0 -w2 -s' '; \
         }; f"
     issue = stamp -r Issue
     log1 = log --oneline
@@ -89,7 +90,7 @@
     push-current-branch = "! \
         f() { \
           remote=\"$1\"; \
-          if [[ \"${remote}\" == 'origin' ]]; then \
+          if [ \"${remote}\" = 'origin' ]; then \
             git push origin --set-upstream HEAD:$(git current-branch); \
           else \
             git push \"${remote}\" HEAD:$(git current-branch); \
@@ -103,7 +104,7 @@
     recent = "! \
         git for-each-ref --count=5 --sort=-committerdate --color \
         --format \"%(HEAD) %(color:$(git config color.recent.refname))%(refname:short)%(color:reset) | %(color:$(git config color.recent.committerdate))%(committerdate:human)%(color:reset) | %(subject)\" refs/heads \
-        | column --table --separator '|'"
+        | column -t -s '|'"
     reset-upstream = reset --hard @{upstream}
     reword = commit --amend
     root = rev-parse --show-toplevel
@@ -116,7 +117,7 @@
     tag-list = "! \
         git tag --sort=creatordate --color \
         --format \"%(color:$(git config color.tag-list.refname))%(refname:short)%(color:reset) | %(taggerdate:iso) | %(taggeremail) | %(subject)\" \
-        | column --table --separator '|'"
+        | column -t -s '|'"
     urlc = "! f() { git url --type commit --commit $( git argument $1 ); }; f"
     urli = "! f() { git url --type issue --commit $( git argument $1 ); }; f"
     urlr = "! f() { git url --type review --commit $( git argument $1 ); }; f"
