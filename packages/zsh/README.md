@@ -1,14 +1,4 @@
-# ZSH
-
-Shell
-
-Source [Github](https://github.com/zsh-users/zsh)
-
-Fork [Github](https://github.com/tardypad/zsh)
-
-Version [5.6.2](https://github.com/zsh-users/zsh/releases/tag/zsh-5.6.2) with patches from fork
-
-## Required extensions
+# Extensions
 
 | Name                            | Purpose                                 | Source                                                                   | Version                                                                                                                   |
 |---------------------------------|-----------------------------------------|--------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|

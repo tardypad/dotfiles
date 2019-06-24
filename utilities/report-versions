@@ -4,10 +4,6 @@ COMMAND=${0:t}
 
 init_variables() {
   ONLY_DIFF=0
-
-  MAIN_PACKAGES=
-  EXTRA_PACKAGES=
-  EXTENSIONS=
 }
 
 
@@ -17,8 +13,7 @@ usage() {
 
 	Check and report packages versions:
 	- version installed on the system
-	- version listed in the main README
-	- version listed in the package individual README
+	- version listed in the READMEs
 
 	Needs to be run from the repository root
 
@@ -36,30 +31,21 @@ error() {
 } >&2
 
 
-main_readme_version() {
-  local package="$1"
+readme_version() {
+  local type="$1"
+  local item="$2"
 
-  sed -n "s#^| \[${package}\].*| \[\(.*\)\].*#\1#p" README.md
-}
-
-extra_readme_version() {
-  local package="$1"
-
-  sed -n "s#^| ${package} .*| \[\(.*\)\].*#\1#p" README.md
-}
-
-
-individual_readme_version() {
-  local package="$1"
-
-  sed -n 's#^Version \[\(.*\)\].*#\1#p' "packages/${package}/README.md"
-}
-
-
-extension_readme_version() {
-  local extension="$1"
-
-  sed -n "s#^| ${extension} .*| \[\(.*\)\].*#\1#p" packages/*/README.md
+  case "${type}" in
+    main)
+      sed -n "s#^| \[${item}\].*| \[\(.*\)\].*#\1#p" README.md
+      ;;
+    extra)
+      sed -n "s#^| ${item} .*| \[\(.*\)\].*#\1#p" README.md
+      ;;
+    extension)
+      sed -n "s#^| ${item} .*| \[\(.*\)\].*#\1#p" packages/*/README.md
+      ;;
+  esac
 }
 
 
@@ -90,85 +76,44 @@ pacman_version() {
 }
 
 
-report_main_packages() {
-  for package in ${MAIN_PACKAGES}; do
-    local version1=$( pacman_version "${package}" )
-    local version2=$( main_readme_version "${package}" )
-    local version3=$( individual_readme_version "${package}" )
+report() {
+  local type="$1"
 
-    if [[ "${ONLY_DIFF}" -eq 1
-       && "${version1}" == "${version2}"
-       && "${version2}" == "${version3}" ]]; then
-      continue
-    fi
-
-    printf '%s %s %s %s\n' \
-      "${package}" \
-      "${version1}" \
-      "${version2}" \
-      "${version3}"
-  done
-}
-
-
-report_extra_packages() {
-  for package in ${EXTRA_PACKAGES}; do
-    local version1=$( pacman_version "${package}" )
-    local version2=$( extra_readme_version "${package}" )
+  while read item; do
+    local version1=$( pacman_version "${item}" )
+    local version2=$( readme_version "${type}" "${item}" )
 
     if [[ "${ONLY_DIFF}" -eq 1
        && "${version1}" == "${version2}" ]]; then
       continue
     fi
 
-    printf '%s %s %s .\n' \
-      "${package}" \
+    printf '%s %s %s\n' \
+      "${item}" \
       "${version1}" \
       "${version2}"
   done
 }
 
 
-report_extensions() {
-  for extension in ${EXTENSIONS}; do
-    local version1=$( pacman_version "${extension}" )
-    local version3=$( extension_readme_version "${extension}" )
-
-    if [[ "${ONLY_DIFF}" -eq 1
-       && "${version1}" == "${version3}" ]]; then
-      continue
-    fi
-
-    printf '%s %s . %s\n' \
-      "${extension}" \
-      "${version1}" \
-      "${version3}"
-  done
-}
-
-
 report_all() {
-  MAIN_PACKAGES=($(
-    sed -n 's#^| \[\([^ ]*\)\].*#\1#p' README.md
-  ))
+  {
+    # main packages
+    sed -n 's#^| \[\([^ ]*\)\].*#\1#p' README.md \
+      | report main
 
-  EXTRA_PACKAGES=($(
-    sed -n 's#^| \([a-z][^ ]*\) .*#\1#p' README.md
-  ))
+    # extra packages
+    sed -n 's#^| \([a-z][^ ]*\) .*#\1#p' README.md \
+      | report extra
 
-  # exclude vim and weechat plugins (not managed by package manager)
-  EXTENSIONS=($(
+    # extensions
+    # exclude vim and weechat plugins (not managed by package manager)
     sed -n 's#^| \([a-z][^ ]*\) .*#\1#p' \
       $(
         find packages -maxdepth 2 -type f -name README.md \
           ! -path '*/vim/*' ! -path '*/weechat/*'
-      )
-  ))
-
-  {
-    report_main_packages;
-    report_extra_packages;
-    report_extensions;
+      ) \
+      | report extension
   } \
     | column --table
 }

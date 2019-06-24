@@ -1,21 +1,12 @@
-# Weechat
+# Manual setup steps
 
-Chat client
-
-Source [Github](https://github.com/weechat/weechat)
-
-Version [2.5](https://github.com/weechat/weechat/releases/tag/v2.5)
-
-## Extras
-
-Manual setup steps:
 - set passphrase for secure storage `/secure passphrase [passphrase]`
 - set slack group token `/secure set slack_token [slack token]`
 
 To join multiple teams (here 2), the last command should be:
 - set slack group token `/secure set slack_token [slack token team 1],[slack token team 2]`
 
-## Plugins
+# Plugins
 
 | Name                | Purpose                          | Source                                                             | Version                                                                                                  |
 |---------------------|----------------------------------|--------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|

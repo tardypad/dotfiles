@@ -1,12 +1,4 @@
-# Mopidy
-
-Music server
-
-Source [Github](https://github.com/mopidy/mopidy)
-
-Version [2.2.3](https://github.com/mopidy/mopidy/releases/tag/v2.2.3)
-
-## Required extensions
+# Extensions
 
 | Name                | Purpose                   | Source                                                      | Version                                                                          |
 |---------------------|---------------------------|-------------------------------------------------------------|----------------------------------------------------------------------------------|

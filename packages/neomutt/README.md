@@ -1,13 +1,6 @@
-# NeoMutt
+# Manual setup steps
 
-Mail client
-
-Source [Github](https://github.com/neomutt/neomutt)
-
-Version [20180716](https://github.com/neomutt/neomutt/releases/tag/neomutt-20180716)
-
-Manual setup steps:
-- create encrypted credentials file for each account
+Create encrypted credentials file for each account
 ```
 set my_gmail_perso_email = "[email]"
 set my_gmail_perso_password = "[password]"

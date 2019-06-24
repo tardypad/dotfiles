@@ -1,12 +1,4 @@
-# Less
-
-Pager
-
-Source [GNU](http://ftp.gnu.org/gnu/less/)
-
-Version [551](http://ftp.gnu.org/gnu/less/less-551.tar.gz)
-
-## Required extensions
+# Extensions
 
 | Name                | Purpose                | Source                                              | Version                                                                                          |
 |---------------------|------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------|
