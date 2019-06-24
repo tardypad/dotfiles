@@ -1,21 +1,21 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 TODO_FILE="$( git root )/TODO.md"
 
-cat << EOF >> "${TODO_FILE}"
-# Periodic
+cat <<- EOF > "${TODO_FILE}"
+	# Periodic
 
-# Cleaning
+	# Cleaning
 
-# Bugs
+	# Bugs
 
-# Testing
+	# Testing
 
-# Improvements
+	# Improvements
 
-# New Features
+	# New Features
 
-# Research
+	# Research
 
 EOF
 

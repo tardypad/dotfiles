@@ -1,5 +1,4 @@
-#!/usr/bin/env bash
-
+#!/bin/sh
 
 init_variables() {
   COMMAND=${0##*/}
@@ -26,30 +25,29 @@ usage() {
 
 
 error() {
-  [[ -z "$1" ]] || echo "${COMMAND}: $1"
+  [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try 'git ${GIT_COMMAND} -h' for more information."
   exit 1
 } >&2
 
 
 stamp() {
-  local commit_msg=$( git log -1 --pretty=%B )
-  local stamp_msg
-  [[ -n "${MSG}" ]] && stamp_msg="${ID} ${MSG}" || stamp_msg="${ID}"
+  COMMIT_MSG=$( git log -1 --pretty=%B )
+  [ -n "${MSG}" ] && STAMP_MSG="${ID} ${MSG}" || STAMP_MSG="${ID}"
 
   if ${REPLACE}; then
     # remove previous stamps with same ID from the commit message
-    commit_msg=$(
-      echo "${commit_msg}" \
-        | grep --ignore-case --invert-match "^${ID}\b" \
-        | cat -s
+    COMMIT_MSG=$(
+      echo "${COMMIT_MSG}" \
+        | grep -i -v "^${ID}" \
+        | sed -e '/^$/N' -e '/^\n$/D'
     )
   fi
 
   # append the stamp to the commit message in a new paragraph
   git commit --amend \
-    --message "${commit_msg}" \
-    --message "${stamp_msg}" \
+    --message "${COMMIT_MSG}" \
+    --message "${STAMP_MSG}" \
     > /dev/null
 
   # show result
@@ -58,7 +56,7 @@ stamp() {
 
 
 parse_options() {
-  while [[ "$#" -gt 0 ]]; do
+  while [ "$#" -gt 0 ]; do
     case "$1" in
       -h)
         usage
@@ -75,13 +73,14 @@ parse_options() {
   done
 
   ID="$1"
-  MSG="${@:2}"
+  shift
+  MSG="$*"
 }
 
 
 validate_options() {
   # ID should be set to non-empty string
-  if [[ -z "${ID}" ]]; then
+  if [ -z "${ID}" ]; then
     error "missing stamp identifier"
   fi
 }

@@ -1,5 +1,4 @@
-#!/usr/bin/env bash
-
+#!/bin/sh
 
 init_variables() {
   COMMAND=${0##*/}
@@ -22,7 +21,7 @@ usage() {
 
 
 error() {
-  [[ -z "$1" ]] || echo "${COMMAND}: $1"
+  [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try 'git ${GIT_COMMAND} -h' for more information."
   exit 1
 } >&2
@@ -30,13 +29,17 @@ error() {
 
 run_sed() {
   # exclude symlinks and binary files
+  # use cp and rm instead of mv to preserve file permissions
   git grep -I --name-only '' \
-    | xargs sed --in-place "${SCRIPT}"
+    | xargs -I {} \
+      sh -c "cp -p {} {}.bk \
+             && sed \"${SCRIPT}\" {}.bk > {} \
+             && rm {}.bk"
 }
 
 
 parse_options() {
-  while [[ "$#" -gt 0 ]]; do
+  while [ "$#" -gt 0 ]; do
     case "$1" in
       -h)
         usage
@@ -48,12 +51,12 @@ parse_options() {
     esac
   done
 
-  SCRIPT="$@"
+  SCRIPT="$*"
 }
 
 
 validate_options() {
-  if [[ -z "${SCRIPT}" ]]; then
+  if [ -z "${SCRIPT}" ]; then
     error "missing sed script argument"
   fi
 }

@@ -1,12 +1,12 @@
-#!/usr/bin/env zsh
+#!/bin/sh
 
 # "heavily inspired" by Gary Bernhardt's dotfiles script
 # https://github.com/garybernhardt/dotfiles/blob/master/bin/run-command-on-git-revisions
 
-COMMAND=${0:t}
-GIT_COMMAND=${COMMAND#*-}
-
 init_variables() {
+  COMMAND=${0##*/}
+  GIT_COMMAND=${COMMAND#*-}
+
   INITIAL_REF=
   START_REF=
   END_REF=
@@ -29,7 +29,7 @@ usage() {
 
 
 error() {
-  [[ -z "$1" ]] || echo "${COMMAND}: $1"
+  [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try 'git ${GIT_COMMAND} -h' for more information."
   exit 1
 } >&2
@@ -48,8 +48,8 @@ abort_if_dirty_repo() {
     error 'you have unstaged changes that would be lost'
   fi
 
-  local untracked=$( git ls-files --exclude-standard --others )
-  if [ -n "${untracked}" ]; then
+  UNTRACKED=$( git ls-files --exclude-standard --others )
+  if [ -n "${UNTRACKED}" ]; then
     error 'you have untracked files that could be overwritten'
   fi
 }
@@ -70,13 +70,9 @@ restore_initial_ref() {
 
 
 run_command_over_range() {
-  local revisions=($(
-    git rev-list --reverse ${START_REF}..${END_REF}
-  ))
-
-  for revision in $revisions; do
-    [ "${QUIET}" -eq 0 ] && echo "Checking out: $( git log --oneline -1 ${revision} )"
-    git checkout --quiet "${revision}"
+  for REVISION in $( git rev-list --reverse ${START_REF}..${END_REF} ); do
+    [ "${QUIET}" -eq 0 ] && echo "Checking out: $( git log --oneline -1 "${REVISION}" )"
+    git checkout --quiet "${REVISION}"
     eval "${RUN_COMMAND}"
     git reset --hard --quiet
   done
@@ -84,7 +80,7 @@ run_command_over_range() {
 
 
 parse_options() {
-  while [[ "$#" -gt 0 ]]; do
+  while [ "$#" -gt 0 ]; do
     case "$1" in
       -h)
         usage
@@ -102,20 +98,21 @@ parse_options() {
 
   START_REF="$1"
   END_REF="$2"
-  RUN_COMMAND="${@:3}"
+  shift 2
+  RUN_COMMAND="$*"
 }
 
 
 validate_options() {
-  if [[ -z "${START_REF}" ]]; then
+  if [ -z "${START_REF}" ]; then
     error 'no start revision'
   fi
 
-  if [[ -z "${END_REF}" ]]; then
+  if [ -z "${END_REF}" ]; then
     error 'no end revision'
   fi
 
-  if [[ -z "${RUN_COMMAND}" ]]; then
+  if [ -z "${RUN_COMMAND}" ]; then
     error 'no command to run'
   fi
 }

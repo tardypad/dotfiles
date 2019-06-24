@@ -1,5 +1,4 @@
-#!/usr/bin/env bash
-
+#!/bin/sh
 
 init_variables() {
   COMMAND=${0##*/}
@@ -34,61 +33,61 @@ usage() {
 
 
 error() {
-  [[ -z "$1" ]] || echo "${COMMAND}: $1"
+  [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try 'git ${GIT_COMMAND} -h' for more information."
   exit 1
 } >&2
 
 
 display_url() {
-  local remote_alias=$(
+  REMOTE_ALIAS=$(
     git config "remote.${REMOTE}.url" \
     | sed 's/:.*//'
   )
 
-  local repo_path_sed=$(
-    git config "browse.${remote_alias}.repoPathSed"
+  REPO_PATH_SED=$(
+    git config "browse.${REMOTE_ALIAS}.repoPathSed"
   )
-  [[ -z "${repo_path_sed}" ]] && error 'remote does not use a valid URL alias for browsing'
+  [ -z "${REPO_PATH_SED}" ] && error 'remote does not use a valid URL alias for browsing'
 
-  local repo_path=$(
+  REPO_PATH=$(
     git config "remote.${REMOTE}.url" \
-    | sed "${repo_path_sed}"
+    | sed "${REPO_PATH_SED}"
   )
 
-  local url=$(
-    git config "browse.${remote_alias}.${TYPE}Url" \
-    | sed "s|{repo_path}|${repo_path}|"
+  URL=$(
+    git config "browse.${REMOTE_ALIAS}.${TYPE}Url" \
+    | sed "s|{repo_path}|${REPO_PATH}|"
   )
-  [[ -z "${url}" ]] && error 'remote does not support this type of URL for browsing'
+  [ -z "${URL}" ] && error 'remote does not support this type of URL for browsing'
 
   case "${TYPE}" in
     repo)
-      echo "${url}"
+      echo "${URL}"
       ;;
     commit)
-      commit_id=$( git rev-parse "${COMMIT}" )
-      echo "${url//\{commit_id\}/${commit_id}}"
+      COMMIT_ID=$( git rev-parse "${COMMIT}" )
+      echo "${URL}" | sed "s/{commit_id}/${COMMIT_ID}/"
       ;;
     issue)
-      issue_id=$( git commit-issue-id "${COMMIT}" )
-      [[ -z "${issue_id}" ]] && error 'commit has not issue id linked to it'
-      echo "${url//\{issue_id\}/${issue_id}}"
+      ISSUE_ID=$( git commit-issue-id "${COMMIT}" )
+      [ -z "${ISSUE_ID}" ] && error 'commit has no issue id linked to it'
+      echo "${URL}" | sed "s/{issue_id}/${ISSUE_ID}/"
       ;;
     review)
-      review_id=$( git commit-review-id "${COMMIT}" )
-      [[ -z "${review_id}" ]] &&  error 'commit has not review id linked to it'
-      echo "${url//\{review_id\}/${review_id}}"
+      REVIEW_ID=$( git commit-review-id "${COMMIT}" )
+      [ -z "${REVIEW_ID}" ] &&  error 'commit has no review id linked to it'
+      echo "${URL}" | sed "s/{review_id}/${REVIEW_ID}/"
       ;;
   esac
 }
 
 
 parse_options() {
-  while [[ "$#" -gt 0 ]]; do
+  while [ "$#" -gt 0 ]; do
     case "$1" in
       --commit|-c)
-        [[ -n "$2" ]] || error 'Missing commit value'
+        [ -n "$2" ] || error 'Missing commit value'
         COMMIT="$2"
         shift 2
         ;;
@@ -97,12 +96,12 @@ parse_options() {
         exit 0
         ;;
       --remote|-r)
-        [[ -n "$2" ]] || error 'Missing remote value'
+        [ -n "$2" ] || error 'Missing remote value'
         REMOTE="$2"
         shift 2
         ;;
       --type|-t)
-        [[ -n "$2" ]] || error 'Missing type value'
+        [ -n "$2" ] || error 'Missing type value'
         TYPE="$2"
         shift 2
         ;;
@@ -115,10 +114,10 @@ parse_options() {
 
 
 validate_options() {
-  if [[ "${TYPE}" != 'repo'
-     && "${TYPE}" != 'commit'
-     && "${TYPE}" != 'issue'
-     && "${TYPE}" != 'review' ]]; then
+  if [ "${TYPE}" != 'repo' ] \
+     && [ "${TYPE}" != 'commit' ] \
+     && [ "${TYPE}" != 'issue' ] \
+     && [ "${TYPE}" != 'review' ]; then
     error "invalid type argument '${TYPE}'"
   fi
 

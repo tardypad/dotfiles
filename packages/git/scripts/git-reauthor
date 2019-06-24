@@ -1,5 +1,4 @@
-#!/usr/bin/env bash
-
+#!/bin/sh
 
 init_variables() {
   COMMAND=${0##*/}
@@ -36,31 +35,30 @@ usage() {
 
 
 error() {
-  [[ -z "$1" ]] || echo -e "${COMMAND}: $1" | sed 's/\\n/\\n       /g'
+  [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try 'git ${GIT_COMMAND} -h' for more information."
   exit 1
 } >&2
 
 
 reauthor() {
-  local author='
+  AUTHOR='
     if ${ALL} || [ "${GIT_AUTHOR_EMAIL}" = "${OLD_EMAIL}" ]; then
       [ -z "${CORRECT_EMAIL+x}" ] || export GIT_AUTHOR_EMAIL="${CORRECT_EMAIL}"
       [ -z "${CORRECT_NAME+x}" ] || export GIT_AUTHOR_NAME="${CORRECT_NAME}"
     fi
   '
-  local committer='
+  COMMITTER='
     if ${ALL} || [ "${GIT_COMMITTER_EMAIL}" = "${OLD_EMAIL}" ]; then
       [ -z "${CORRECT_EMAIL+x}" ] || export GIT_COMMITTER_EMAIL="${CORRECT_EMAIL}"
       [ -z "${CORRECT_NAME+x}" ] || export GIT_COMMITTER_NAME="${CORRECT_NAME}"
     fi
   '
-  local filter
 
   case "${TYPE}" in
-    author) filter="${author}" ;;
-    committer) filter="${committer}" ;;
-    both) filter="${author} ${committer}" ;;
+    author) FILTER="${AUTHOR}" ;;
+    committer) FILTER="${COMMITTER}" ;;
+    both) FILTER="${AUTHOR} ${COMMITTER}" ;;
   esac
 
   export ALL
@@ -68,20 +66,20 @@ reauthor() {
   export CORRECT_EMAIL
   export CORRECT_NAME
 
-  git filter-branch --force --env-filter "${filter}" \
+  git filter-branch --force --env-filter "${FILTER}" \
   --tag-name-filter cat -- --branches --tags
 }
 
 
 parse_options() {
-  while [[ "$#" -gt 0 ]]; do
+  while [ "$#" -gt 0 ]; do
     case "$1" in
       --all|-a)
         ALL=true
         shift
         ;;
       --correct-email|-e)
-        [[ -n "${2+x}" ]] || error 'Missing correct-email value'
+        [ -n "${2+x}" ] || error 'Missing correct-email value'
         CORRECT_EMAIL="$2"
         shift 2
         ;;
@@ -90,17 +88,17 @@ parse_options() {
         exit 0
         ;;
       --correct-name|-n)
-        [[ -n "${2+x}" ]] || error 'Missing correct-name value'
+        [ -n "${2+x}" ] || error 'Missing correct-name value'
         CORRECT_NAME="$2"
         shift 2
         ;;
       --old-email|-o)
-        [[ -n "${2+x}" ]] || error 'Missing old-email value'
+        [ -n "${2+x}" ] || error 'Missing old-email value'
         OLD_EMAIL="$2"
         shift 2
         ;;
       --type|-t)
-        [[ -n "${2+x}" ]] || error 'Missing type value'
+        [ -n "${2+x}" ] || error 'Missing type value'
         TYPE="$2"
         shift 2
         ;;
@@ -116,32 +114,32 @@ parse_options() {
 
   if ${CONFIG}; then
     # use config values if not explicitly already defined
-    [[ -n "${CORRECT_EMAIL+x}" ]] || CORRECT_EMAIL=$( git config user.email )
-    [[ -n "${CORRECT_NAME+x}" ]] || CORRECT_NAME=$( git config user.name )
+    [ -n "${CORRECT_EMAIL+x}" ] || CORRECT_EMAIL=$( git config user.email )
+    [ -n "${CORRECT_NAME+x}" ] || CORRECT_NAME=$( git config user.name )
   fi
 }
 
 
 validate_options() {
   # Either OLD_EMAIL should be set or ALL should be true
-  if [[ -z "${OLD_EMAIL+x}" ]] && ! ${ALL}; then
+  if [ -z "${OLD_EMAIL+x}" ] && ! ${ALL}; then
     msg="missing target of the rewrite"
     msg="${msg}\nuse either --old-email option or --all flag"
     error "${msg}"
   fi
 
   # OLD_EMAIL shouldn't be set if ALL is true as well to prevent misuse
-  if [[ -n "${OLD_EMAIL+x}" ]] && ${ALL}; then
+  if [ -n "${OLD_EMAIL+x}" ] && ${ALL}; then
     msg="ambiguous target of the rewrite"
     msg="${msg}\nuse either --old-email option or --all flag"
     error "${msg}"
   fi
 
   # CORRECT_NAME should be either unset or set to non-empty string
-  [[ -n "${CORRECT_NAME-x}" ]] || error "empty name is not allowed"
+  [ -n "${CORRECT_NAME-x}" ] || error "empty name is not allowed"
 
   # Either CORRECT_EMAIL or CORRECT_NAME should be set
-  if [[ -z "${CORRECT_EMAIL+x}" ]] && [[ -z "${CORRECT_NAME+x}" ]]; then
+  if [ -z "${CORRECT_EMAIL+x}" ] && [ -z "${CORRECT_NAME+x}" ]; then
     msg="missing correct email and/or name to set"
     msg="${msg}\nuse --correct-email and/or --correct-name options"
     msg="${msg}\nor --use-config flag with user values set in Git config"
@@ -149,9 +147,9 @@ validate_options() {
   fi
 
   # TYPE should be a valid identifier
-  if [[ "${TYPE}" != 'both' ]] \
-     && [[ "${TYPE}" != 'author' ]] \
-     && [[ "${TYPE}" != 'committer' ]]; then
+  if [ "${TYPE}" != 'both' ] \
+     && [ "${TYPE}" != 'author' ] \
+     && [ "${TYPE}" != 'committer' ]; then
     error "invalid type '${TYPE}'"
   fi
 }
