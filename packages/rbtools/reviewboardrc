@@ -6,8 +6,8 @@ PUBLISH = False
 ALIASES = {
     'post-head': '! \
         review_id=`git commit-review-id`; \
-        if [[ -z "${review_id}" ]]; then \
-            repository=`grep REPOSITORY .reviewboardrc | grep -o \'".*"\' | tr -d \\"`; \
+        if [ -z "${review_id}" ]; then \
+            repository=`grep REPOSITORY .reviewboardrc | cut -d\\" -f2`; \
             commit_subject=`git commit-subject`; \
             commit_description=`git commit-description`; \
             current_branch=`git current-branch`; \
