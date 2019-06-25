@@ -32,9 +32,6 @@ alias passwdgen='echo $( < /dev/urandom tr --delete --complement "[:graph:]" | h
 # retrieve my public IP
 alias myip='https api.ipify.org'
 
-# similar usage
-alias timer=stopwatch
-
 # all packages update
 alias packages-update="
   checkupdates \
