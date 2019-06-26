@@ -2,15 +2,16 @@
 #
 # Use projects main folder given no argument
 
-if [[ -z "$1" ]]; then
+if [ -z "$1" ]; then
   cd "$( xdg-user-dir PROJECTS)"
   return
 fi
 
-local main_path=$( get-project-main-path "$1" )
+local main_path="$( get-project-main-path "$1" )"
 
-if [[ -n "${main_path}" ]]; then
-  cd "${main_path}"
-else
-  echo "No such main project"
+if [ -z "${main_path}" ]; then
+  echo 'No such main project' >&2
+  return 1
 fi
+
+cd "${main_path}"

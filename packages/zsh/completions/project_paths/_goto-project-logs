@@ -2,9 +2,9 @@
 
 _logs_folders() {
   local logs_folders=( $(
-    find "$( xdg-user-dir PROJECTS_LOGS )" \
-      -mindepth 1 -maxdepth 1 -type d \
-      -printf '%f '
+    find "$( xdg-user-dir PROJECTS_LOGS )"/* \
+      -type d -prune \
+      -exec basename {} \;
   ) )
 
   compadd "$@" $logs_folders

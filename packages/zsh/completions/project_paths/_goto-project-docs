@@ -2,9 +2,9 @@
 
 _docs_folders() {
   local docs_folders=( $(
-    find "$( xdg-user-dir PROJECTS_DOCS )" \
-      -mindepth 1 -maxdepth 1 -type d \
-      -printf '%f '
+    find "$( xdg-user-dir PROJECTS_DOCS )"/* \
+      -type d -prune \
+      -exec basename {} \;
   ) )
 
   compadd "$@" $docs_folders

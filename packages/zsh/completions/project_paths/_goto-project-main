@@ -2,9 +2,9 @@
 
 _main_projects() {
   local main_projects=( $(
-    find "$( xdg-user-dir PROJECTS )" \
-      -mindepth 1 -maxdepth 1 -type d \
-      -printf '%f '
+    find "$( xdg-user-dir PROJECTS )"/* \
+      -type d -prune \
+      -exec basename {} \;
   ) )
 
   compadd "$@" $main_projects

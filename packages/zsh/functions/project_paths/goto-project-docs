@@ -2,15 +2,16 @@
 #
 # Use projects main documents folder given no argument
 
-if [[ -z "$1" ]]; then
+if [ -z "$1" ]; then
   cd "$( xdg-user-dir PROJECTS_DOCS )"
   return
 fi
 
-local docs_path=$( get-project-docs-path "$1" )
+local docs_path="$( get-project-docs-path "$1" )"
 
-if [[ -n "${docs_path}" ]]; then
-  cd "${docs_path}"
-else
-  echo "No such project docs"
+if [ -z "${docs_path}" ]; then
+  echo 'No such project docs' >&2
+  return 1
 fi
+
+cd "${docs_path}"

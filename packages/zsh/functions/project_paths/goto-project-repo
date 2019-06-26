@@ -2,16 +2,17 @@
 #
 # Use projects main folder given no argument
 
-if [[ -z "$1" ]]; then
+if [ -z "$1" ]; then
   cd "$( xdg-user-dir PROJECTS )"
   return
 fi
 
-local repo_path=$( get-project-repo-path "$1" )
+local repo_path="$( get-project-repo-path "$1" )"
 
-if [[ -n "${repo_path}" ]]; then
-  cd "${repo_path}"
-  git current-branch
-else
-  echo "No such project repository"
+if [ -z "${repo_path}" ]; then
+  echo 'No such project repository' >&2
+  return 1
 fi
+
+cd "${repo_path}"
+git current-branch

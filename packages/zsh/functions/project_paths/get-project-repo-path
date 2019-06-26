@@ -4,6 +4,6 @@
 
 local project_name="$1"
 
-find "$( xdg-user-dir PROJECTS )" \
-  -mindepth 2 -maxdepth 2 -type d \
+find "$( xdg-user-dir PROJECTS )"/*/* \
+  -type d -prune \
   -name "${project_name}"

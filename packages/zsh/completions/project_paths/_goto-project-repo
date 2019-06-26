@@ -2,9 +2,9 @@
 
 _projects_repos() {
   local projects_repos=( $(
-    find "$( xdg-user-dir PROJECTS )" \
-      -mindepth 2 -maxdepth 2 -type d \
-      -printf '%f '
+    find "$( xdg-user-dir PROJECTS )"/*/* \
+      -type d -prune \
+      -exec basename {} \;
   ) )
 
   compadd "$@" $projects_repos
