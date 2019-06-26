@@ -6,15 +6,8 @@ fpath=(
 
 autoload -Uz compinit
 
-# Speed up startup by only checking once a day
-# if the cached .zcompdump file should be regenerated
-if [[ ! -f "${HOME}/.zcompdump" ]] \
-   || [[ $( date +'%Y%j' ) > $( date +'%Y%j' -r "${HOME}/.zcompdump" ) ]]; then
-  # skip security checks on completion permissions for when switching to root
-  compinit -u
-else
-  compinit -C
-fi
+# skip security checks on completion permissions for when switching to root
+compinit -u
 
 # enable selection of item via menu
 zstyle ':completion:*' menu select
