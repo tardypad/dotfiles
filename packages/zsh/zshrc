@@ -1,9 +1,13 @@
 # load all individual configs
 # plugins with config need to be loaded at the end
+
+plugins_conf="${HOME}/.zsh/config.d/plugins.zsh"
+
 for conf in "${HOME}/.zsh/config.d/"*.zsh; do
-  [[ ${conf} =~ '.*/plugins.zsh' ]] && continue
+  [ "${conf}" = "${plugins_conf}" ] && continue
   source "${conf}"
 done
 unset conf
 
-source "${HOME}/.zsh/config.d/plugins.zsh"
+source "${plugins_conf}"
+unset plugins_conf

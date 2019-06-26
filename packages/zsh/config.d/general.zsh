@@ -12,14 +12,14 @@ unalias run-help 2> /dev/null
 autoload -Uz run-help
 
 # reuse ssh-agent across ttys
-ssh-add -l &>/dev/null
+ssh-add -l >/dev/null 2>&1
 if [ "$?" -eq 2 ]; then
   test -r ~/.cache/ssh-agent && \
-  eval "$(<~/.cache/ssh-agent)" >/dev/null
+  eval "$( < ~/.cache/ssh-agent )" >/dev/null
 
-  ssh-add -l &>/dev/null
+  ssh-add -l >/dev/null 2>&1
   if [ "$?" -eq 2 ]; then
     (umask 066; ssh-agent > ~/.cache/ssh-agent)
-    eval "$(<~/.cache/ssh-agent)" >/dev/null
+    eval "$( < ~/.cache/ssh-agent )" >/dev/null
   fi
 fi

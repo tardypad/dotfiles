@@ -54,13 +54,13 @@ prompt_set() {
 
   PROMPT=
   # red prompt for root, blue otherwise
-  PROMPT+="%(!.${root}.${normal})"
+  PROMPT="${PROMPT}%(!.${root}.${normal})"
   # underline prompt if last command exited unsuccessfully
-  PROMPT+="%(?..${underline})"
+  PROMPT="${PROMPT}%(?..${underline})"
   # add bold symbol based on vi mode
-  PROMPT+="${bold}"'$VI_MODE_SYMBOL'"${stop_bold}"
+  PROMPT="${PROMPT}${bold}"'$VI_MODE_SYMBOL'"${stop_bold}"
   # clear styling and add space
-  PROMPT+="${stop_foreground}${stop_underline} "
+  PROMPT="${PROMPT}${stop_foreground}${stop_underline} "
 }
 
 setopt prompt_subst

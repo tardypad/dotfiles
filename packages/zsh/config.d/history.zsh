@@ -1,7 +1,7 @@
 # use history and define history file location
-export HISTFILE="$HOME/.zsh_history"
+export HISTFILE="${HOME}/.zsh_history"
 export HISTSIZE=10000
-export SAVEHIST=${HISTSIZE}
+export SAVEHIST="${HISTSIZE}"
 
 # store start and duration of commands
 setopt extended_history
