@@ -19,6 +19,11 @@
     * completion of query/request keywords
   - similar keybindings for reload (currently Alt-R) and quit (currently Ctrl-q)  
     maybe Alt-r and Alt-q
+  - POSIX compliancy:
+    * change scripts, aliases, utilities,...
+    * change Makefiles (make features and also the commands they use)
+    * add info about it in README
+    * remove usage of long options in own scripts and use getopts
 
 # New Features
   - create scripts to manage AUR packages with personal repository  
@@ -38,8 +43,6 @@
     * local organization (uppercase for sway windows and tmux panes, lowercase for sway workspace and tmux windows,...)
 
 # Research
-  - [Drew Devault blog post](https://drewdevault.com/2018/02/05/Introduction-to-POSIX-shell.html)
-    evaluate making scripts POSIX compliant
   - calendar app
     * [khal](https://github.com/pimutils/khal)
     * [calendar-cli](https://github.com/tobixen/calendar-cli)
@@ -50,3 +53,5 @@
     * [vim limelight](https://github.com/junegunn/limelight.vim)
     * [vim goyo](https://github.com/junegunn/goyo.vim)
   - Time tracker
+  - replace vim plug usage with internal vim packages
+  - vim plugins for Go
