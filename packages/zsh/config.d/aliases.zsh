@@ -24,10 +24,10 @@ alias fzf='fzf --reverse'
 alias ssh='TERM=xterm-256color ssh'
 
 # switch to root
-alias root='sudo --preserve-env --shell'
+alias root='sudo -sE'
 
 # generate a password (mainly used to encrypt files to share)
-alias passwdgen='echo $( < /dev/urandom tr --delete --complement "[:graph:]" | head --bytes 30 )'
+alias passwdgen='echo $( < /dev/urandom tr -d -C "[:graph:]" | dd bs=1 count=30 2> /dev/null )'
 
 # retrieve my public IP
 alias myip='https api.ipify.org'
@@ -35,9 +35,9 @@ alias myip='https api.ipify.org'
 # all packages update
 alias packages-update="
   checkupdates \
-  && aur repo --database aur --sync --upgrades \
-  && aur repo --database tardypad --sync --upgrades \
-  && sudo pacman --sync --refresh --sysupgrade \
+  && aur repo -d aur -S --upgrades \
+  && aur repo -d tardypad -S --upgrades \
+  && sudo pacman -Syu \
   && tput setaf {color/notice/number} \
   && echo '-----------------------------' \
   && echo 'Review carefully the messages' \
@@ -60,7 +60,7 @@ alias influx-env='noglob influx-env'
 alias qalc='noglob qalc'
 
 # flush all .log files recursively in the current dir
-alias flush-logs="find . -type f -name '*.log' -exec /bin/sh -c \"> '{}'\" \;"
+alias flush-logs="find . -type f -name '*.log' -exec /bin/sh -c \"printf '' > '{}'\" \;"
 
 # HTTPie other schemes
 alias https='http --default-scheme=https'
