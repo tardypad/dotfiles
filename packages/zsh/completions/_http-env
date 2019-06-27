@@ -4,20 +4,10 @@ local env_dir_path="${XDG_CONFIG_HOME:-$HOME/.config}/http/env/"
 
 _projects() {
   local folders=( $(
-    find "${env_dir_path}" \
-      -mindepth 1 \
-      -type d \
-      -printf "%f\n"
-  ) )
-  local files=( $(
-    find "${env_dir_path}" \
-      -mindepth 1 \
-      -maxdepth 1 \
-      -type f \
-      -printf "%f\n"
+    ls "${env_dir_path}"
   ) )
 
-  compadd "$@" $folders $files
+  compadd "$@" $folders
 }
 
 _envs() {
