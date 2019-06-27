@@ -6,7 +6,6 @@ init_variables() {
   ONLY_DIFF=0
 }
 
-
 usage() {
   cat <<- EOF
 	usage: ${COMMAND} [<options>]
@@ -23,13 +22,11 @@ usage() {
 	EOF
 }
 
-
 error() {
   [[ -z "$1" ]] || echo "${COMMAND}: $1"
   echo "Try '${COMMAND} --help' for more information."
   exit 1
 } >&2
-
 
 readme_version() {
   local type="$1"
@@ -47,7 +44,6 @@ readme_version() {
       ;;
   esac
 }
-
 
 pacman_version() {
   local package="$1"
@@ -75,7 +71,6 @@ pacman_version() {
     | sed -n 's/^Version *: \(.*\)\-[0-9]*/\1/p'
 }
 
-
 report() {
   local type="$1"
 
@@ -94,7 +89,6 @@ report() {
       "${version2}"
   done
 }
-
 
 report_all() {
   {
@@ -118,7 +112,6 @@ report_all() {
     | column --table
 }
 
-
 parse_options() {
   while [[ "$#" -gt 0 ]]; do
     case "$1" in
@@ -136,7 +129,6 @@ parse_options() {
     esac
   done
 }
-
 
 init_variables
 parse_options "$@"

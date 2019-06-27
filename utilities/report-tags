@@ -13,7 +13,6 @@ init_variables() {
   )
 }
 
-
 usage() {
   cat <<- EOF
 	usage: ${COMMAND} [<options>]
@@ -27,13 +26,11 @@ usage() {
 	EOF
 }
 
-
 error() {
   [[ -z "$1" ]] || echo "${COMMAND}: $1"
   echo "Try '${COMMAND} --help' for more information."
   exit 1
 } >&2
-
 
 report_tags() {
  local regex="#($( IFS='|'; echo "${(k)TAGS}" )):"
@@ -44,7 +41,6 @@ report_tags() {
    | sed --regexp-extended 's|#[A-Z]+ packages/([^/]+)/([^:]+):.*(#[A-Z]+): (.*)|\3@\1@\2@\4|' \
    | column --table --separator @
 }
-
 
 parse_options() {
   while [[ "$#" -gt 0 ]]; do
@@ -59,7 +55,6 @@ parse_options() {
     esac
   done
 }
-
 
 init_variables
 parse_options "$@"

@@ -9,7 +9,6 @@ init_variables() {
   ACTION=
 }
 
-
 usage() {
   cat <<- EOF
 	usage: ${COMMAND} [<options>] <action>
@@ -24,13 +23,11 @@ usage() {
 	EOF
 }
 
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try '${COMMAND} --help' for more information."
   exit 1
 } >&2
-
 
 current_time_sec() {
   # values with leading 0 are interpreted as octals
@@ -50,7 +47,6 @@ session_start() {
   ( sleep "${DURATION_SECONDS}" && session_end "${CURRENT_TIME}" )&
 }
 
-
 session_status() {
   is_session_started || return 1
 
@@ -63,13 +59,11 @@ session_status() {
   echo "${MINUTES_LEFT} min left"
 }
 
-
 session_cancel() {
   is_session_started || return 1
 
   rm -f "${FILE_PATH}"
 }
-
 
 session_toggle() {
   if is_session_started; then
@@ -78,7 +72,6 @@ session_toggle() {
     session_start
   fi
 }
-
 
 session_end() {
   is_session_started || return 1
@@ -93,11 +86,9 @@ session_end() {
   fi
 }
 
-
 is_session_started() {
   [ -f "${FILE_PATH}" ]
 }
-
 
 parse_options() {
   while [ "$#" -gt 0 ]; do
@@ -115,7 +106,6 @@ parse_options() {
   ACTION="$1"
 }
 
-
 validate_options() {
   if [ -z "${ACTION}" ]; then
     error 'Missing action argument'
@@ -128,7 +118,6 @@ validate_options() {
     error "Invalid action '${ACTION}'"
   fi
 }
-
 
 init_variables
 parse_options "$@"

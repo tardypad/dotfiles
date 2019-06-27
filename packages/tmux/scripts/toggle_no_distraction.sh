@@ -74,7 +74,6 @@ no_distraction_mode_disable() {
   rm -f "${FILE_PATH}"
 }
 
-
 init_variables
 
 if is_no_distraction_mode_enabled; then

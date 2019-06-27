@@ -17,7 +17,6 @@ init_variables() {
   ENV_PATH=
 }
 
-
 usage() {
   cat <<- EOF
 	usage: ${COMMAND} [<options>] project [query]
@@ -32,13 +31,11 @@ usage() {
 	EOF
 }
 
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try '${COMMAND} --help' for more information."
   exit 1
 } >&2
-
 
 run_mysql() {
   if [ -z "${QUERY}" ]; then
@@ -47,7 +44,6 @@ run_mysql() {
     mysql $( cat "${ENV_PATH}" ) ${MYSQL_OPTIONS} -e "${QUERY}"
   fi
 }
-
 
 parse_options() {
   while [ "$#" -gt 0 ]; do
@@ -71,7 +67,6 @@ parse_options() {
   QUERY="$*"
 }
 
-
 validate_options() {
   if [ -z "${PROJECT}" ]; then
     error 'missing project'
@@ -83,7 +78,6 @@ validate_options() {
     error 'invalid project'
   fi
 }
-
 
 init_variables
 parse_options "$@"

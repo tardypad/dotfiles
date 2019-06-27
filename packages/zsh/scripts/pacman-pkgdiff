@@ -6,7 +6,6 @@ init_variables() {
   PACKAGE_NAME=
 }
 
-
 usage() {
   cat <<- EOF
 	usage: ${COMMAND} [<options>] package
@@ -18,13 +17,11 @@ usage() {
 	EOF
 }
 
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try '${COMMAND} --help' for more information."
   exit 1
 } >&2
-
 
 diff_package() {
   PACKAGE_VERSION=$(
@@ -48,7 +45,6 @@ diff_package() {
      done
 }
 
-
 parse_options() {
   while [ "$#" -gt 0 ]; do
     case "$1" in
@@ -65,7 +61,6 @@ parse_options() {
   PACKAGE_NAME="$1"
 }
 
-
 validate_options() {
   if [ -z "${PACKAGE_NAME}" ]; then
     error 'missing package name'
@@ -75,7 +70,6 @@ validate_options() {
     error "invalid package name ${PACKAGE_NAME}"
   fi
 }
-
 
 init_variables
 parse_options "$@"

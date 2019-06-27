@@ -10,7 +10,6 @@ init_variables() {
   JP_OPTIONS=
 }
 
-
 usage() {
   cat <<- EOF
 	usage: ${COMMAND} [<options>]
@@ -26,13 +25,11 @@ usage() {
 	EOF
 }
 
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try '${COMMAND} --help' for more information."
   exit 1
 } >&2
-
 
 plot_data() {
   awk '
@@ -47,7 +44,6 @@ plot_data() {
       -height "${DEFAULT_HEIGHT}" \
       ${JP_OPTIONS}
 }
-
 
 parse_options() {
   while [ "$#" -gt 0 ]; do
@@ -66,7 +62,6 @@ parse_options() {
     esac
   done
 }
-
 
 init_variables
 parse_options "$@"

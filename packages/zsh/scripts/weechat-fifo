@@ -8,7 +8,6 @@ init_variables() {
   BUFFER=
 }
 
-
 usage() {
   cat <<- EOF
 	usage: ${COMMAND} [<options>] [<buffer>]
@@ -22,20 +21,17 @@ usage() {
 	EOF
 }
 
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try '${COMMAND} --help' for more information."
   exit 1
 } >&2
 
-
 fifo_send() {
   while read -r LINE; do
     echo "${BUFFER} *${LINE}" > "${FIFO_FILE}"
   done
 }
-
 
 parse_options() {
   while [ "$#" -gt 0 ]; do
@@ -53,13 +49,11 @@ parse_options() {
   BUFFER=$1
 }
 
-
 validate_options() {
   if [ ! -p "${FIFO_FILE}" ]; then
     error "FIFO file not present"
   fi
 }
-
 
 init_variables
 parse_options "$@"

@@ -64,7 +64,6 @@ parse_options() {
   done
 }
 
-
 init_variables
 parse_options "$@"
 

@@ -8,7 +8,6 @@ init_variables() {
   ACTION=
 }
 
-
 usage() {
   cat <<- EOF
 	usage: ${COMMAND} [<options>] <action>
@@ -23,13 +22,11 @@ usage() {
 	EOF
 }
 
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try '${COMMAND} --help' for more information."
   exit 1
 } >&2
-
 
 dnd_enable() {
   echo '/slack away' | weechat-fifo 2> /dev/null &
@@ -40,7 +37,6 @@ dnd_enable() {
   touch "${FILE_PATH}"
 }
 
-
 dnd_disable() {
   echo '/slack back' | weechat-fifo 2> /dev/null &
 
@@ -50,7 +46,6 @@ dnd_disable() {
   rm -f "${FILE_PATH}"
 }
 
-
 dnd_status() {
   if is_dnd_enabled; then
     echo 'enabled'
@@ -58,7 +53,6 @@ dnd_status() {
     echo 'disabled'
   fi
 }
-
 
 dnd_toggle() {
   if is_dnd_enabled; then
@@ -68,11 +62,9 @@ dnd_toggle() {
   fi
 }
 
-
 is_dnd_enabled() {
   [ -f "${FILE_PATH}" ]
 }
-
 
 parse_options() {
   while [ "$#" -gt 0 ]; do
@@ -90,7 +82,6 @@ parse_options() {
   ACTION="$1"
 }
 
-
 validate_options() {
   if [ -z "${ACTION}" ]; then
     error 'Missing action argument'
@@ -103,7 +94,6 @@ validate_options() {
     error "Invalid action '${ACTION}'"
   fi
 }
-
 
 init_variables
 parse_options "$@"

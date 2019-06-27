@@ -9,7 +9,6 @@ init_variables() {
   REMOTE=$( git config --default origin browse.remote )
 }
 
-
 usage() {
   cat <<- EOF
 	usage: git ${GIT_COMMAND} [<options>]
@@ -31,13 +30,11 @@ usage() {
 	EOF
 }
 
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try 'git ${GIT_COMMAND} -h' for more information."
   exit 1
 } >&2
-
 
 display_url() {
   REMOTE_ALIAS=$(
@@ -82,7 +79,6 @@ display_url() {
   esac
 }
 
-
 parse_options() {
   while [ "$#" -gt 0 ]; do
     case "$1" in
@@ -112,7 +108,6 @@ parse_options() {
   done
 }
 
-
 validate_options() {
   if [ "${TYPE}" != 'repo' ] \
      && [ "${TYPE}" != 'commit' ] \
@@ -129,7 +124,6 @@ validate_options() {
     error "invalid remote '${REMOTE}'"
   fi
 }
-
 
 init_variables
 parse_options "$@"

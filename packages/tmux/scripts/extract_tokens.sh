@@ -21,7 +21,6 @@ case "${TOKEN_TYPE}" in
   *) exit 1
 esac
 
-
 capture_current_pane() {
   HEIGHT=$( tmux display -p -F '#{pane_height}')
   SCROLL_POSITION=$( tmux display -p -F '#{scroll_position}')
@@ -59,7 +58,6 @@ grep_words() {
 grep_WORDS() {
   grep -E -o '[^ ]+'
 }
-
 
 ITEM=$(
   capture_current_pane \

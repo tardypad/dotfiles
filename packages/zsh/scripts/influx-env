@@ -12,7 +12,6 @@ init_variables() {
   ENV_PATH=
 }
 
-
 usage() {
   cat <<- EOF
 	usage: ${COMMAND} [<options>] project [query]
@@ -27,13 +26,11 @@ usage() {
 	EOF
 }
 
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try '${COMMAND} --help' for more information."
   exit 1
 } >&2
-
 
 run_influx() {
   if [ -z "${QUERY}" ]; then
@@ -42,7 +39,6 @@ run_influx() {
     influx $( cat "${ENV_PATH}" ) ${INFLUX_OPTIONS} -execute ${QUERY}
   fi
 }
-
 
 parse_options() {
   while [ "$#" -gt 0 ]; do
@@ -66,7 +62,6 @@ parse_options() {
   QUERY="$*"
 }
 
-
 validate_options() {
   if [ -z "${PROJECT}" ]; then
     error 'missing project'
@@ -78,7 +73,6 @@ validate_options() {
     error 'invalid project'
   fi
 }
-
 
 init_variables
 parse_options "$@"

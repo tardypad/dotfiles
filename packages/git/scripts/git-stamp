@@ -9,7 +9,6 @@ init_variables() {
   unset MSG
 }
 
-
 usage() {
   cat <<- EOF
 	usage: git ${GIT_COMMAND} [<options>] <id> [<messages>]
@@ -23,13 +22,11 @@ usage() {
 	EOF
 }
 
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try 'git ${GIT_COMMAND} -h' for more information."
   exit 1
 } >&2
-
 
 stamp() {
   COMMIT_MSG=$( git log -1 --pretty=%B )
@@ -54,7 +51,6 @@ stamp() {
   git log -1 --pretty=full
 }
 
-
 parse_options() {
   while [ "$#" -gt 0 ]; do
     case "$1" in
@@ -77,14 +73,12 @@ parse_options() {
   MSG="$*"
 }
 
-
 validate_options() {
   # ID should be set to non-empty string
   if [ -z "${ID}" ]; then
     error "missing stamp identifier"
   fi
 }
-
 
 init_variables
 parse_options "$@"

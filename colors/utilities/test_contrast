@@ -170,7 +170,6 @@ parse_options() {
   fi
 }
 
-
 init_variables
 parse_options "$@"
 

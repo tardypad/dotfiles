@@ -13,7 +13,6 @@ init_variables() {
   TOPIC=
 }
 
-
 usage() {
   cat <<- EOF
 	usage: ${COMMAND} [<options>] [<topic>]
@@ -25,13 +24,11 @@ usage() {
 	EOF
 }
 
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try '${COMMAND} --help' for more information."
   exit 1
 } >&2
-
 
 options_selection()
 {
@@ -74,7 +71,6 @@ options_selection()
   fi
 }
 
-
 get_manual_section_name() {
   local section="$1"
 
@@ -94,7 +90,6 @@ get_manual_section_name() {
   esac
 }
 
-
 search_help() {
   # capture run-help error messages
   local help_result=$( run-help "${TOPIC}" 2>&1 1> /dev/null )
@@ -113,25 +108,21 @@ search_help() {
   fi
 }
 
-
 display_run_help() {
   run-help "${TOPIC}"
   return 0
 }
-
 
 display_help_argument() {
   "${TOPIC}" --help | less
   return 0
 }
 
-
 display_no_help() {
   echo "no help available for '${TOPIC}'"
   sleep 2
   return 1
 }
-
 
 select_topic() {
   local path_commands=$(
@@ -166,7 +157,6 @@ select_topic() {
   )
 }
 
-
 parse_options() {
   while [ "$#" -gt 0 ]; do
     case "$1" in
@@ -182,7 +172,6 @@ parse_options() {
 
   TOPIC="$1"
 }
-
 
 init_variables
 parse_options "$@"

@@ -7,7 +7,6 @@ init_variables() {
   SCRIPT=
 }
 
-
 usage() {
   cat <<- EOF
 	usage: git ${GIT_COMMAND} [<options>] <script>
@@ -19,13 +18,11 @@ usage() {
 	EOF
 }
 
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try 'git ${GIT_COMMAND} -h' for more information."
   exit 1
 } >&2
-
 
 run_sed() {
   # exclude symlinks and binary files
@@ -36,7 +33,6 @@ run_sed() {
              && sed \"${SCRIPT}\" {}.bk > {} \
              && rm {}.bk"
 }
-
 
 parse_options() {
   while [ "$#" -gt 0 ]; do
@@ -54,13 +50,11 @@ parse_options() {
   SCRIPT="$*"
 }
 
-
 validate_options() {
   if [ -z "${SCRIPT}" ]; then
     error "missing sed script argument"
   fi
 }
-
 
 init_variables
 parse_options "$@"

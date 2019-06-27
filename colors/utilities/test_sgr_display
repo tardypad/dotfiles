@@ -404,7 +404,6 @@ parse_options() {
   fi
 }
 
-
 validate_options() {
   if [ "${BIT_TYPE}" != '4' ] \
     && [ "${BIT_TYPE}" != '8' ] \
@@ -450,7 +449,6 @@ validate_options() {
     fi
   fi
 }
-
 
 init_variables
 parse_options "$@"

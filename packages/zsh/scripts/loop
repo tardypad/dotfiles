@@ -9,7 +9,6 @@ init_variables() {
   TIME=
 }
 
-
 usage() {
   cat <<- EOF
 	usage: ${COMMAND} [<options>] command
@@ -25,13 +24,11 @@ usage() {
 	EOF
 }
 
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try '${COMMAND} --help' for more information."
   exit 1
 } >&2
-
 
 current_time_sec() {
   # values with leading 0 are interpreted as octals
@@ -43,7 +40,6 @@ current_time_sec() {
     ${CUR_HOURS#0} * 3600 + ${CUR_MINUTES#0} * 60 + ${CUR_SECONDS#0}
   ))
 }
-
 
 loop_command() {
     [ -n "${TIME}" ] && END_TIME=$(( $( current_time_sec ) + TIME ))
@@ -61,7 +57,6 @@ loop_command() {
       sleep "${INTERVAL}"
     done
 }
-
 
 parse_options() {
   while [ "$#" -gt 0 ]; do
@@ -94,7 +89,6 @@ parse_options() {
   RUN_COMMAND="$*"
 }
 
-
 validate_options() {
   if [ -z "${COUNT}" ] && [ -z "${TIME}" ]; then
     error 'you must specify at least --count or --time options'
@@ -116,7 +110,6 @@ validate_options() {
     error 'no command to run'
   fi
 }
-
 
 init_variables
 parse_options "$@"
