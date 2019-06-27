@@ -24,6 +24,9 @@
     * change Makefiles (make features and also the commands they use)
     * add info about it in README
     * remove usage of long options in own scripts and use getopts
+    * help script can depend on zsh to find some help for its internal commands  
+      but it should overall be POSIX compliant too
+  - speed up help script selection of topic by caching the list
 
 # New Features
   - create scripts to manage AUR packages with personal repository  
