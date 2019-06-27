@@ -1,0 +1,101 @@
+#!/bin/sh
+
+init_variables() {
+  COMMAND=${0##*/}
+
+  TYPE=
+  PROJECT=
+}
+
+usage() {
+  cat <<- EOF
+	usage: ${COMMAND} [<options>] <type> <project>
+
+	Display a path related to a project
+
+	Options:
+	  -h,  --help    show this message only
+
+	Types:
+	  main repo docs logs
+	EOF
+}
+
+error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  echo "Try '${COMMAND} --help' for more information."
+  exit 1
+} >&2
+
+
+get_path() {
+  case "${TYPE}" in
+    main)
+      find "$( xdg-user-dir PROJECTS )"/* \
+        -type d -prune -name "${PROJECT}"
+      ;;
+    repo)
+      find "$( xdg-user-dir PROJECTS )"/*/* \
+        -type d -prune -name "${PROJECT}"
+      ;;
+    docs)
+      find "$( xdg-user-dir PROJECTS_DOCS )"/* \
+        -type d -prune -name "${PROJECT}"
+      ;;
+    logs)
+      find "$( xdg-user-dir PROJECTS_LOGS )"/* \
+        -type d -prune -name "${PROJECT}"
+      ;;
+  esac
+}
+
+display_path() {
+  PROJECT_PATH="$( get_path )"
+
+  if [ -z "${PROJECT_PATH}" ]; then
+    echo 'No such project path' >&2
+    exit 1
+  fi
+
+  echo "${PROJECT_PATH}"
+}
+
+parse_options() {
+  while [ "$#" -gt 0 ]; do
+    case "$1" in
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      *)
+        break 2
+        ;;
+    esac
+  done
+
+  TYPE="$1"
+  PROJECT="$2"
+}
+
+validate_options() {
+  if [ -z "${TYPE}" ]; then
+    error 'Missing type argument'
+  fi
+
+  if [ -z "${PROJECT}" ]; then
+    error 'Missing project argument'
+  fi
+
+  if [ "${TYPE}" != 'main' ] \
+     && [ "${TYPE}" != 'repo' ] \
+     && [ "${TYPE}" != 'docs' ] \
+     && [ "${TYPE}" != 'logs' ]; then
+    error "Invalid type '${TYPE}'"
+  fi
+}
+
+init_variables
+parse_options "$@"
+validate_options
+
+display_path

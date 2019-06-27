@@ -1,7 +1,7 @@
 socket="$1"
 session_name="$2"
 
-arch_packages_path=$( get-project-repo-path arch-packages )
+arch_packages_path=$( project-path repo arch-packages )
 
 tmux -L "${socket}" \
   new-session -d \

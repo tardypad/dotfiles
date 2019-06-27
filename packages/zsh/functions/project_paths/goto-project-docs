@@ -7,11 +7,9 @@ if [ -z "$1" ]; then
   return
 fi
 
-local docs_path="$( get-project-docs-path "$1" )"
+local docs_path
+docs_path="$( project-path docs "$1" )"
 
-if [ -z "${docs_path}" ]; then
-  echo 'No such project docs' >&2
-  return 1
-fi
+[ $? -eq 0 ] || return 1
 
 cd "${docs_path}"

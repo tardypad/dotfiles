@@ -1,9 +1,0 @@
-# Display the full path of a project documents folder
-#
-# Display nothing given no argument or invalid one
-
-local project_name="$1"
-
-find "$( xdg-user-dir PROJECTS_DOCS )"/* \
-  -type d -prune \
-  -name "${project_name}"

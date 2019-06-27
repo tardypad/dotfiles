@@ -7,11 +7,9 @@ if [ -z "$1" ]; then
   return
 fi
 
-local logs_path="$( get-project-logs-path "$1" )"
+local logs_path
+logs_path="$( project-path logs "$1" )"
 
-if [ -z "${logs_path}" ]; then
-  echo 'No such project logs' >&2
-  return 1
-fi
+[ $? -eq 0 ] || return 1
 
 cd "${logs_path}"

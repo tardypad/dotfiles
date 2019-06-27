@@ -1,7 +1,7 @@
 socket="$1"
 session_name="$2"
 
-tardypad_me_path=$( get-project-repo-path tardypad.me )
+tardypad_me_path=$( project-path repo tardypad.me )
 
 tmux -L "${socket}" \
   new-session -d \

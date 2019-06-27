@@ -7,12 +7,10 @@ if [ -z "$1" ]; then
   return
 fi
 
-local repo_path="$( get-project-repo-path "$1" )"
+local repo_path
+repo_path="$( project-path repo "$1" )"
 
-if [ -z "${repo_path}" ]; then
-  echo 'No such project repository' >&2
-  return 1
-fi
+[ $? -eq 0 ] || return 1
 
 cd "${repo_path}"
 git current-branch
