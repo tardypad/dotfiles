@@ -1,8 +1,8 @@
-#!/usr/bin/env zsh
-
-COMMAND=${0:t}
+#!/bin/sh
 
 init_variables() {
+  COMMAND=${0##*/}
+
   FIFO_FILE=~/.weechat/weechat_fifo
 
   BUFFER=
@@ -24,23 +24,21 @@ usage() {
 
 
 error() {
-  [[ -z "$1" ]] || echo "${COMMAND}: $1"
+  [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try '${COMMAND} --help' for more information."
   exit 1
 } >&2
 
 
 fifo_send() {
-  local line
-
-  while read -r line; do
-    echo "${BUFFER} *${line}" > "${FIFO_FILE}"
+  while read -r LINE; do
+    echo "${BUFFER} *${LINE}" > "${FIFO_FILE}"
   done
 }
 
 
 parse_options() {
-  while [[ "$#" -gt 0 ]]; do
+  while [ "$#" -gt 0 ]; do
     case "$1" in
       -h|--help)
         usage
@@ -57,7 +55,7 @@ parse_options() {
 
 
 validate_options() {
-  if [[ ! -p "${FIFO_FILE}" ]]; then
+  if [ ! -p "${FIFO_FILE}" ]; then
     error "FIFO file not present"
   fi
 }

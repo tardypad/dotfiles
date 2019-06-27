@@ -1,8 +1,8 @@
-#!/usr/bin/env zsh
-
-COMMAND=${0:t}
+#!/bin/sh
 
 init_variables() {
+  COMMAND=${0##*/}
+
   ENV_DIR_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/http/env"
 
   HTTP_OPTIONS=
@@ -32,34 +32,34 @@ usage() {
 
 
 error() {
-  [[ -z "$1" ]] || echo "${COMMAND}: $1"
+  [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try '${COMMAND} --help' for more information."
   exit 1
 } >&2
 
 
 run_http() {
-  local url="$( head --lines 1 "${ENV_PATH}" )/${REQUEST_PATH}"
+  URL="$( head -n 1 "${ENV_PATH}" )/${REQUEST_PATH}"
 
-  local options=( $( grep '^-' "${ENV_PATH}" ) )
-  options=( ${options} ${HTTP_OPTIONS} )
+  OPTIONS=$( grep '^-' "${ENV_PATH}" | tr '\n' ' ' )
+  OPTIONS="${OPTIONS} ${HTTP_OPTIONS}"
 
-  local items=( $( tail --lines +2 "${ENV_PATH}" | grep --invert-match '^-' ) )
-  items=( ${items} ${REQUEST_ITEMS} )
+  ITEMS=$( tail -n +2 "${ENV_PATH}" | grep -v '^-' | tr '\n' ' ' )
+  ITEMS="${ITEMS} ${REQUEST_ITEMS}"
 
-  http ${options} "${REQUEST_METHOD}" "${url}" ${items}
+  http ${OPTIONS} "${REQUEST_METHOD}" "${URL}" ${ITEMS}
 }
 
 
 parse_options() {
-  while [[ "$#" -gt 0 ]]; do
+  while [ "$#" -gt 0 ]; do
     case "$1" in
       -h|--help)
         usage
         exit 0
         ;;
       -*)
-        HTTP_OPTIONS+=( "$1" )
+        HTTP_OPTIONS="${HTTP_OPTIONS} $1"
         shift
         ;;
       *)
@@ -72,30 +72,31 @@ parse_options() {
   ENVIRONMENT="$2"
   REQUEST_METHOD="$3"
   REQUEST_PATH="$4"
-  REQUEST_ITEMS=( "${@:5}" )
+  shift 4
+  REQUEST_ITEMS="$*"
 }
 
 
 validate_options() {
-  if [[ -z "${PROJECT}" ]]; then
+  if [ -z "${PROJECT}" ]; then
     error 'missing project'
   fi
 
-  if [[ -z "${ENVIRONMENT}" ]]; then
+  if [ -z "${ENVIRONMENT}" ]; then
     error 'missing environment'
   fi
 
-  if [[ -z "${REQUEST_METHOD}" ]]; then
+  if [ -z "${REQUEST_METHOD}" ]; then
     error 'missing request method'
   fi
 
-  if [[ -z "${REQUEST_PATH}" ]]; then
+  if [ -z "${REQUEST_PATH}" ]; then
     error 'missing request path'
   fi
 
   ENV_PATH="${ENV_DIR_PATH}/${PROJECT}/${ENVIRONMENT}"
 
-  if [[ ! -f "${ENV_PATH}" ]]; then
+  if [ ! -f "${ENV_PATH}" ]; then
     error 'invalid project/environment'
   fi
 }

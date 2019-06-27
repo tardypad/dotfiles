@@ -1,8 +1,8 @@
-#!/usr/bin/env zsh
-
-COMMAND=${0:t}
+#!/bin/sh
 
 init_variables() {
+  COMMAND=${0##*/}
+
   DEFAULT_TYPE=line
   DEFAULT_WIDTH=80
   DEFAULT_HEIGHT=25
@@ -28,7 +28,7 @@ usage() {
 
 
 error() {
-  [[ -z "$1" ]] || echo "${COMMAND}: $1"
+  [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try '${COMMAND} --help' for more information."
   exit 1
 } >&2
@@ -50,14 +50,14 @@ plot_data() {
 
 
 parse_options() {
-  while [[ "$#" -gt 0 ]]; do
+  while [ "$#" -gt 0 ]; do
     case "$1" in
       -h|--help)
         usage
         exit 0
         ;;
       -*)
-        JP_OPTIONS+=( "$1" )
+        JP_OPTIONS="${JP_OPTIONS} $1"
         shift
         ;;
       *)

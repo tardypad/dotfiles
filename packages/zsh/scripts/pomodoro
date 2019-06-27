@@ -1,8 +1,8 @@
-#! /usr/bin/env zsh
-
-COMMAND=${0:t}
+#!/bin/sh
 
 init_variables() {
+  COMMAND=${0##*/}
+
   FILE_PATH="${XDG_RUNTIME_DIR}/pomodoro"
   DURATION_SECONDS=1500
 
@@ -26,30 +26,41 @@ usage() {
 
 
 error() {
-  [[ -z "$1" ]] || echo "${COMMAND}: $1"
+  [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try '${COMMAND} --help' for more information."
   exit 1
 } >&2
 
 
-session_start() {
-  local current_timestamp=$( date +%s )
-  echo "${current_timestamp}" > "${FILE_PATH}"
+current_time_sec() {
+  # values with leading 0 are interpreted as octals
+  # which leads to issue with "08" and "09"
+  CUR_HOURS=$( date +%H )
+  CUR_MINUTES=$( date +%M )
+  CUR_SECONDS=$( date +%S )
+  echo $((
+    ${CUR_HOURS#0} * 3600 + ${CUR_MINUTES#0} * 60 + ${CUR_SECONDS#0}
+  ))
+}
 
-  ( sleep "${DURATION_SECONDS}" && session_end "${current_timestamp}" )&
+session_start() {
+  CURRENT_TIME=$( current_time_sec )
+  echo "${CURRENT_TIME}" > "${FILE_PATH}"
+
+  ( sleep "${DURATION_SECONDS}" && session_end "${CURRENT_TIME}" )&
 }
 
 
 session_status() {
   is_session_started || return 1
 
-  local current_timestamp=$( date +%s )
-  local start_timestamp=$( cat "${FILE_PATH}" )
-  local minutes_left=$((
-    ( DURATION_SECONDS - (current_timestamp - start_timestamp) ) / 60
+  CURRENT_TIME=$( current_time_sec )
+  START_TIME=$( cat "${FILE_PATH}" )
+  MINUTES_LEFT=$((
+    ( DURATION_SECONDS - (CURRENT_TIME - START_TIME) ) / 60
   ))
 
-  echo "${minutes_left} min left"
+  echo "${MINUTES_LEFT} min left"
 }
 
 
@@ -72,11 +83,11 @@ session_toggle() {
 session_end() {
   is_session_started || return 1
 
-  local session_start_timestamp="$1"
-  local current_start_timestamp=$( cat "${FILE_PATH}" )
+  SESSION_START_TIME="$1"
+  CURRENT_START_TIME=$( cat "${FILE_PATH}" )
 
   # only end session if no newer one was created
-  if [[ "${session_start_timestamp}" == "${current_start_timestamp}" ]]; then
+  if [ "${SESSION_START_TIME}" = "${CURRENT_START_TIME}" ]; then
     rm -rf "${FILE_PATH}"
     notify_end_pomodoro
   fi
@@ -84,12 +95,12 @@ session_end() {
 
 
 is_session_started() {
-  [[ -f "${FILE_PATH}" ]]
+  [ -f "${FILE_PATH}" ]
 }
 
 
 parse_options() {
-  while [[ "$#" -gt 0 ]]; do
+  while [ "$#" -gt 0 ]; do
     case "$1" in
       -h|--help)
         usage
@@ -106,14 +117,14 @@ parse_options() {
 
 
 validate_options() {
-  if [[ -z "${ACTION}" ]]; then
+  if [ -z "${ACTION}" ]; then
     error 'Missing action argument'
   fi
 
-  if [[ "${ACTION}" != 'start' \
-     && "${ACTION}" != 'cancel' \
-     && "${ACTION}" != 'toggle' \
-     && "${ACTION}" != 'status' ]]; then
+  if [ "${ACTION}" != 'start' ] \
+     && [ "${ACTION}" != 'cancel' ] \
+     && [ "${ACTION}" != 'toggle' ] \
+     && [ "${ACTION}" != 'status' ]; then
     error "Invalid action '${ACTION}'"
   fi
 }
@@ -123,4 +134,4 @@ init_variables
 parse_options "$@"
 validate_options
 
-session_${ACTION}
+"session_${ACTION}"

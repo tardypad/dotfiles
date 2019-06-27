@@ -1,8 +1,8 @@
-#!/usr/bin/env zsh
-
-COMMAND=${0:t}
+#!/bin/sh
 
 init_variables() {
+  COMMAND=${0##*/}
+
   ENV_DIR_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/influxdb/env"
 
   INFLUX_OPTIONS=
@@ -29,14 +29,14 @@ usage() {
 
 
 error() {
-  [[ -z "$1" ]] || echo "${COMMAND}: $1"
+  [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try '${COMMAND} --help' for more information."
   exit 1
 } >&2
 
 
 run_influx() {
-  if [[ -z "${QUERY}" ]]; then
+  if [ -z "${QUERY}" ]; then
     influx $( cat "${ENV_PATH}" ) ${INFLUX_OPTIONS}
   else
     influx $( cat "${ENV_PATH}" ) ${INFLUX_OPTIONS} -execute ${QUERY}
@@ -45,14 +45,14 @@ run_influx() {
 
 
 parse_options() {
-  while [[ "$#" -gt 0 ]]; do
+  while [ "$#" -gt 0 ]; do
     case "$1" in
       -h|--help)
         usage
         exit 0
         ;;
       -*)
-        INFLUX_OPTIONS+=( "$1" )
+        INFLUX_OPTIONS="${INFLUX_OPTIONS} $1"
         shift
         ;;
       *)
@@ -62,18 +62,19 @@ parse_options() {
   done
 
   PROJECT="$1"
-  QUERY="${@:2}"
+  shift
+  QUERY="$*"
 }
 
 
 validate_options() {
-  if [[ -z "${PROJECT}" ]]; then
+  if [ -z "${PROJECT}" ]; then
     error 'missing project'
   fi
 
   ENV_PATH="${ENV_DIR_PATH}/${PROJECT}"
 
-  if [[ ! -f "${ENV_PATH}" ]]; then
+  if [ ! -f "${ENV_PATH}" ]; then
     error 'invalid project'
   fi
 }

@@ -1,13 +1,10 @@
-#!/usr/bin/env zsh
-
-COMMAND=${0:t}
+#!/bin/sh
 
 init_variables() {
+  COMMAND=${0##*/}
+
   ENV_DIR_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/tmux/env/"
 
-  AVAILABLE_TARGETS=( $(
-    ls "${ENV_DIR_PATH}"
-  ) )
   BACKGROUND=false
 
   TARGET=
@@ -19,66 +16,52 @@ usage() {
   cat <<- EOF
 	usage: ${COMMAND} [<options>] <target> [<session>]
 
-	Start target tmux environment sessions
+	Start target tmux environment session
+	If no session is defined, a new empty one is created
 
 	Options:
 	  -b,  --background     launch in background, no attach
 	  -h,  --help           show this message only
-
-	Available targets: ${AVAILABLE_TARGETS}
-	If no session is defined, a new empty one is created
 	EOF
 }
 
 
 error() {
-  [[ -z "$1" ]] || echo "${COMMAND}: $1"
+  [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try '${COMMAND} --help' for more information."
   exit 1
 } >&2
 
 
 is_session_present() {
-  local session_names="$1"
-  local session="$2"
-
-  for session_name in ${(f)session_names}; do
-    if [[ "${session}" = "${session_name}" ]]; then
-      return 0
-    fi
-  done
-
-  return 1
+  tmux -L "${TARGET}" list-sessions -F '#{session_name}' 2> /dev/null \
+    | grep -q "^${SESSION}$"
 }
 
 
 start_target_tmux_env() {
-  local session_names=$(
-    tmux -L "${TARGET}" list-sessions -F '#{session_name}' 2> /dev/null
-  )
-
-  if [[ -n "${SESSION}" ]]; then
-    if ! is_session_present "${session_names}" "${SESSION}"; then
-      local script_path="${ENV_DIR_PATH}/${TARGET}/${SESSION}.sh"
-      TMUX_ENV=yes zsh "${script_path}" "${TARGET}" "${SESSION}"
+  if [ -n "${SESSION}" ]; then
+    if ! is_session_present; then
+      SCRIPT_PATH="${ENV_DIR_PATH}/${TARGET}/${SESSION}.sh"
+      TMUX_ENV=yes zsh "${SCRIPT_PATH}" "${TARGET}" "${SESSION}"
     fi
   else
     SESSION='new'
-    if ! is_session_present "${session_names}" "${SESSION}"; then
+    if ! is_session_present; then
       TMUX_ENV=yes tmux -L "${TARGET}" new-session -d -s "${SESSION}"
     fi
   fi
 
   if ! $BACKGROUND; then
-    tmux -L "${TARGET}" attach-session -t "${SESSION}" &> /dev/null
+    tmux -L "${TARGET}" attach-session -t "${SESSION}" > /dev/null 2>&1
   else
-    tmux -L "${TARGET}" switch-client -t "${SESSION}" &> /dev/null
+    tmux -L "${TARGET}" switch-client -t "${SESSION}" > /dev/null 2>&1
   fi
 }
 
 
 parse_options() {
-  while [[ "$#" -gt 0 ]]; do
+  while [ "$#" -gt 0 ]; do
     case "$1" in
       -b|--background)
         BACKGROUND=true
@@ -94,26 +77,26 @@ parse_options() {
     esac
   done
 
-  if [[ $# -eq 0 ]]; then
-    error 'missing target'
-  fi
-
   TARGET="$1"
   SESSION="$2"
 }
 
 
 validate_options() {
-  if [[ -n "${TMUX}" ]]; then
+  if [ -n "${TMUX}" ]; then
     error "nested tmux env is not allowed"
   fi
 
-  if ! (( ${AVAILABLE_TARGETS[(Ie)${TARGET}]} )); then
+  if [ -z "${TARGET}" ]; then
+    error 'missing target'
+  fi
+
+  if [ ! -d "${ENV_DIR_PATH}/${TARGET}" ]; then
     error "invalid target ${TARGET}"
   fi
 
-  if [[ -n "${SESSION}" \
-     && ! -f "${ENV_DIR_PATH}/${TARGET}/${SESSION}.sh" ]]; then
+  if [ -n "${SESSION}" ] \
+     && [ ! -f "${ENV_DIR_PATH}/${TARGET}/${SESSION}.sh" ]; then
     error "invalid target's session ${SESSION}"
   fi
 }

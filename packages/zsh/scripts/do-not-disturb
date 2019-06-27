@@ -1,8 +1,8 @@
-#! /usr/bin/env zsh
-
-COMMAND=${0:t}
+#!/bin/sh
 
 init_variables() {
+  COMMAND=${0##*/}
+
   FILE_PATH="${XDG_RUNTIME_DIR}/do_not_disturb"
 
   ACTION=
@@ -25,7 +25,7 @@ usage() {
 
 
 error() {
-  [[ -z "$1" ]] || echo "${COMMAND}: $1"
+  [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try '${COMMAND} --help' for more information."
   exit 1
 } >&2
@@ -70,12 +70,12 @@ dnd_toggle() {
 
 
 is_dnd_enabled() {
-  [[ -f "${FILE_PATH}" ]]
+  [ -f "${FILE_PATH}" ]
 }
 
 
 parse_options() {
-  while [[ "$#" -gt 0 ]]; do
+  while [ "$#" -gt 0 ]; do
     case "$1" in
       -h|--help)
         usage
@@ -92,14 +92,14 @@ parse_options() {
 
 
 validate_options() {
-  if [[ -z "${ACTION}" ]]; then
+  if [ -z "${ACTION}" ]; then
     error 'Missing action argument'
   fi
 
-  if [[ "${ACTION}" != 'enable' \
-     && "${ACTION}" != 'disable' \
-     && "${ACTION}" != 'toggle' \
-     && "${ACTION}" != 'status' ]]; then
+  if [ "${ACTION}" != 'enable' ] \
+     && [ "${ACTION}" != 'disable' ] \
+     && [ "${ACTION}" != 'toggle' ] \
+     && [ "${ACTION}" != 'status' ]; then
     error "Invalid action '${ACTION}'"
   fi
 }
@@ -109,4 +109,4 @@ init_variables
 parse_options "$@"
 validate_options
 
-dnd_${ACTION}
+"dnd_${ACTION}"

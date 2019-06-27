@@ -1,8 +1,8 @@
-#!/usr/bin/env zsh
-
-COMMAND=${0:t}
+#!/bin/sh
 
 init_variables() {
+  COMMAND=${0##*/}
+
   PACKAGE_NAME=
 }
 
@@ -20,41 +20,37 @@ usage() {
 
 
 error() {
-  [[ -z "$1" ]] || echo "${COMMAND}: $1"
+  [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try '${COMMAND} --help' for more information."
   exit 1
 } >&2
 
 
 diff_package() {
-  local package_version=$(
-    pacman --query "${PACKAGE_NAME}" 2> /dev/null \
-      | cut --field 2 --delimiter ' '
+  PACKAGE_VERSION=$(
+    pacman -Q "${PACKAGE_NAME}" 2> /dev/null \
+      | cut -f 2 -d ' '
   )
 
-  # need double --check argument to show modified files
-  local package_modified_files=( $(
-    pacman --query --check --check "${PACKAGE_NAME}" \
-      | grep '^backup file:' \
-      | cut --field 4 --delimiter ' ' \
-      | uniq
-  ) )
-
-  local package_modified_file
-  for package_modified_file in ${package_modified_files}; do
-    echo "${package_modified_file}"
-    tar --extract --to-stdout \
-      --file /var/cache/pacman/pkg/${PACKAGE_NAME}-${package_version}-*.pkg.tar.xz \
-      "${package_modified_file/\//}" \
-      2> /dev/null \
-    | diff - "${package_modified_file}"
-    echo
-  done
+  # need double -k argument to show modified files
+  pacman -Qkk "${PACKAGE_NAME}" \
+   | grep '^backup file:' \
+   | cut -f 4 -d ' ' \
+   | uniq \
+   | while read -r PACKAGE_MODIFIED_FILE; do
+       echo "${PACKAGE_MODIFIED_FILE}"
+       tar -xO \
+         -f "/var/cache/pacman/pkg/${PACKAGE_NAME}-${PACKAGE_VERSION}"-*.pkg.tar.xz \
+         "$( echo "${PACKAGE_MODIFIED_FILE}" | sed 's|/||' )" \
+         2> /dev/null \
+       | diff - "${PACKAGE_MODIFIED_FILE}"
+       echo
+     done
 }
 
 
 parse_options() {
-  while [[ "$#" -gt 0 ]]; do
+  while [ "$#" -gt 0 ]; do
     case "$1" in
       -h|--help)
         usage
@@ -71,11 +67,11 @@ parse_options() {
 
 
 validate_options() {
-  if [[ -z "${PACKAGE_NAME}" ]]; then
+  if [ -z "${PACKAGE_NAME}" ]; then
     error 'missing package name'
   fi
 
-  if ! pacman --query "${PACKAGE_NAME}" &> /dev/null; then
+  if ! pacman -Q "${PACKAGE_NAME}" > /dev/null 2>&1; then
     error "invalid package name ${PACKAGE_NAME}"
   fi
 }

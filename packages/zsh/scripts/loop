@@ -1,8 +1,8 @@
-#!/usr/bin/env zsh
-
-COMMAND=${0:t}
+#!/bin/sh
 
 init_variables() {
+  COMMAND=${0##*/}
+
   RUN_COMMAND=
   COUNT=
   INTERVAL=0
@@ -27,25 +27,36 @@ usage() {
 
 
 error() {
-  [[ -z "$1" ]] || echo "${COMMAND}: $1"
+  [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try '${COMMAND} --help' for more information."
   exit 1
 } >&2
 
 
+current_time_sec() {
+  # values with leading 0 are interpreted as octals
+  # which leads to issue with "08" and "09"
+  CUR_HOURS=$( date +%H )
+  CUR_MINUTES=$( date +%M )
+  CUR_SECONDS=$( date +%S )
+  echo $((
+    ${CUR_HOURS#0} * 3600 + ${CUR_MINUTES#0} * 60 + ${CUR_SECONDS#0}
+  ))
+}
+
+
 loop_command() {
-    local end_time=
-    [[ -n "${TIME}" ]] && end_time=$(( SECONDS + TIME ))
+    [ -n "${TIME}" ] && END_TIME=$(( $( current_time_sec ) + TIME ))
 
-    local run_count=0
+    RUN_COUNT=0
 
-    while : ; do
+    while true; do
       eval "${RUN_COMMAND}"
 
-      ((run_count+=1))
+      RUN_COUNT=$(( RUN_COUNT + 1 ))
 
-      [[ -n "${TIME}" && "${SECONDS}" -ge "${end_time}" ]] && return 0
-      [[ -n "${COUNT}" && "${run_count}" -ge "${COUNT}" ]] && return 0
+      [ -n "${TIME}" ] && [ "$( current_time_sec )" -ge "${END_TIME}" ] && return 0
+      [ -n "${COUNT}" ] && [ "${RUN_COUNT}" -ge "${COUNT}" ] && return 0
 
       sleep "${INTERVAL}"
     done
@@ -53,10 +64,10 @@ loop_command() {
 
 
 parse_options() {
-  while [[ "$#" -gt 0 ]]; do
+  while [ "$#" -gt 0 ]; do
     case "$1" in
       -c|--count)
-        [[ -n "$2" ]] || error 'Missing --count value'
+        [ -n "$2" ] || error 'Missing --count value'
         COUNT="$2"
         shift 2
         ;;
@@ -65,12 +76,12 @@ parse_options() {
         exit 0
         ;;
       -i|--interval)
-        [[ -n "$2" ]] || error 'Missing --interactive value'
+        [ -n "$2" ] || error 'Missing --interactive value'
         INTERVAL="$2"
         shift 2
         ;;
       -t|--time)
-        [[ -n "$2" ]] || error 'Missing --time value'
+        [ -n "$2" ] || error 'Missing --time value'
         TIME="$2"
         shift 2
         ;;
@@ -80,28 +91,28 @@ parse_options() {
     esac
   done
 
-  RUN_COMMAND="$@"
+  RUN_COMMAND="$*"
 }
 
 
 validate_options() {
-  if [[ -z "${COUNT}" && -z "${TIME}" ]]; then
+  if [ -z "${COUNT}" ] && [ -z "${TIME}" ]; then
     error 'you must specify at least --count or --time options'
   fi
 
-  if [[ -n "${COUNT}" && ! ${COUNT} =~ ^[1-9][0-9]*$ ]]; then
-    error 'count must be a strictly positive integer'
-  fi
+  case "${COUNT}" in
+    *[!0-9]*) error 'count must be an integer' ;;
+  esac
 
-  if [[ -n "${TIME}" && ! ${TIME} =~ ^[1-9][0-9]*$ ]]; then
-    error 'time must be a strictly positive integer'
-  fi
+  case "${TIME}" in
+    *[!0-9]*) error 'time must be an integer' ;;
+  esac
 
-  if [[ ! ${INTERVAL} =~ ^[0-9]+(\.[0-9]*)?$ ]]; then
-    error 'interval must be a number'
-  fi
+  case "${INTERVAL}" in
+    *[!0-9.]*) error 'interval must be an number' ;;
+  esac
 
-  if [[ -z "${RUN_COMMAND}" ]]; then
+  if [ -z "${RUN_COMMAND}" ]; then
     error 'no command to run'
   fi
 }
