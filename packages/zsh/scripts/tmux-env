@@ -39,7 +39,7 @@ start_target_tmux_env() {
   if [ -n "${SESSION}" ]; then
     if ! is_session_present; then
       SCRIPT_PATH="${ENV_DIR_PATH}/${TARGET}/${SESSION}.sh"
-      TMUX_ENV=yes zsh "${SCRIPT_PATH}" "${TARGET}" "${SESSION}"
+      TMUX_ENV=yes "${SCRIPT_PATH}" "${TARGET}" "${SESSION}"
     fi
   else
     SESSION='new'

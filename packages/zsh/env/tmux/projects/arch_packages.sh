@@ -1,23 +1,25 @@
-socket="$1"
-session_name="$2"
+#!/bin/sh
 
-arch_packages_path=$( project-path repo arch-packages )
+SOCKET="$1"
+SESSION_NAME="$2"
 
-tmux -L "${socket}" \
+ARCH_PACKAGES_PATH=$( project-path repo arch-packages )
+
+tmux -L "${SOCKET}" \
   new-session -d \
-  -s "${session_name}" \
+  -s "${SESSION_NAME}" \
   -n 'terminal' \
-  -c "${arch_packages_path}"
+  -c "${ARCH_PACKAGES_PATH}"
 
-tmux -L "${socket}" \
+tmux -L "${SOCKET}" \
   new-window \
   -n 'code' \
-  -c "${arch_packages_path}" \
+  -c "${ARCH_PACKAGES_PATH}" \
   "vim \
     -c 'TabooRename TODO' \
     -c 'tabnew' \
     -- TODO.md"
 
-tmux -L "${socket}" \
+tmux -L "${SOCKET}" \
   select-window \
   -t ':terminal'

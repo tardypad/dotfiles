@@ -1,23 +1,25 @@
-socket="$1"
-session_name="$2"
+#!/bin/sh
 
-dotfiles_path=$( project-path repo dotfiles )
+SOCKET="$1"
+SESSION_NAME="$2"
 
-tmux -L "${socket}" \
+DOTFILES_PATH=$( project-path repo dotfiles )
+
+tmux -L "${SOCKET}" \
   new-session -d \
-  -s "${session_name}" \
+  -s "${SESSION_NAME}" \
   -n 'terminal' \
-  -c "${dotfiles_path}"
+  -c "${DOTFILES_PATH}"
 
-tmux -L "${socket}" \
+tmux -L "${SOCKET}" \
   new-window \
   -n 'code' \
-  -c "${dotfiles_path}" \
+  -c "${DOTFILES_PATH}" \
   "vim \
     -c 'TabooRename TODO' \
     -c 'tabnew' \
     -- TODO.md"
 
-tmux -L "${socket}" \
+tmux -L "${SOCKET}" \
   select-window \
   -t ':terminal'

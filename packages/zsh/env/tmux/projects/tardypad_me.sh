@@ -1,23 +1,25 @@
-socket="$1"
-session_name="$2"
+#!/bin/sh
 
-tardypad_me_path=$( project-path repo tardypad.me )
+SOCKET="$1"
+SESSION_NAME="$2"
 
-tmux -L "${socket}" \
+TARDYPAD_ME_PATH=$( project-path repo tardypad.me )
+
+tmux -L "${SOCKET}" \
   new-session -d \
-  -s "${session_name}" \
+  -s "${SESSION_NAME}" \
   -n 'terminal' \
-  -c "${tardypad_me_path}"
+  -c "${TARDYPAD_ME_PATH}"
 
-tmux -L "${socket}" \
+tmux -L "${SOCKET}" \
   new-window \
   -n 'code' \
-  -c "${tardypad_me_path}" \
+  -c "${TARDYPAD_ME_PATH}" \
   "vim \
     -c 'TabooRename TODO' \
     -c 'tabnew' \
     -- TODO.md"
 
-tmux -L "${socket}" \
+tmux -L "${SOCKET}" \
   select-window \
   -t ':terminal'
