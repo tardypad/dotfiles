@@ -68,7 +68,7 @@ parse_options() {
   ENVIRONMENT="$2"
   REQUEST_METHOD="$3"
   REQUEST_PATH="$4"
-  shift 4
+  shift 4 2> /dev/null
   REQUEST_ITEMS="$*"
 }
 

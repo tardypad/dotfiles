@@ -58,7 +58,7 @@ parse_options() {
   done
 
   PROJECT="$1"
-  shift
+  shift 2> /dev/null
   QUERY="$*"
 }
 

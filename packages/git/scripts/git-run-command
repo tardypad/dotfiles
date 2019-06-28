@@ -91,7 +91,7 @@ parse_options() {
 
   START_REF="$1"
   END_REF="$2"
-  shift 2
+  shift 2 > /dev/null
   RUN_COMMAND="$*"
 }
 
