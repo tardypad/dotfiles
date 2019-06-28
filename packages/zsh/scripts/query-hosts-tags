@@ -136,4 +136,4 @@ init_variables
 parse_options "$@"
 validate_options
 
-"query_${QUERY_TYPE} ${QUERY_ARGUMENTS}"
+"query_${QUERY_TYPE}" ${QUERY_ARGUMENTS}
