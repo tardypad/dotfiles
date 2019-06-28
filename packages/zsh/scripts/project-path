@@ -9,15 +9,14 @@ init_variables() {
 
 usage() {
   cat <<- EOF
-	usage: ${COMMAND} [<options>] <type> <project>
+	usage: ${COMMAND} [<options>] <type> [<project>]
 
 	Display a path related to a project
 
 	Options:
 	  -h,  --help    show this message only
 
-	Types:
-	  main repo docs logs
+	Types: main repo docs logs
 	EOF
 }
 
@@ -27,8 +26,7 @@ error() {
   exit 1
 } >&2
 
-
-get_path() {
+get_project_path() {
   case "${TYPE}" in
     main)
       find "$( xdg-user-dir PROJECTS )"/* \
@@ -49,12 +47,25 @@ get_path() {
   esac
 }
 
+get_type_path() {
+  case "${TYPE}" in
+    main) xdg-user-dir PROJECTS ;;
+    repo) xdg-user-dir PROJECTS ;;
+    docs) xdg-user-dir PROJECTS_DOCS ;;
+    logs) xdg-user-dir PROJECTS_LOGS ;;
+  esac
+}
+
 display_path() {
-  PROJECT_PATH="$( get_path )"
+  if [ -n "${PROJECT}" ]; then
+    PROJECT_PATH="$( get_project_path )"
+  else
+    PROJECT_PATH="$( get_type_path )"
+  fi
 
   if [ -z "${PROJECT_PATH}" ]; then
     echo 'No such project path' >&2
-    exit 1
+    return 1
   fi
 
   echo "${PROJECT_PATH}"
@@ -80,10 +91,6 @@ parse_options() {
 validate_options() {
   if [ -z "${TYPE}" ]; then
     error 'Missing type argument'
-  fi
-
-  if [ -z "${PROJECT}" ]; then
-    error 'Missing project argument'
   fi
 
   if [ "${TYPE}" != 'main' ] \

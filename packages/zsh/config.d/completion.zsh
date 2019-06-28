@@ -30,5 +30,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle -e ':completion:*:*:(scp|ssh):*:*' hosts 'reply=()'
 zstyle -e ':completion:*:*:(scp|ssh):*:*' known-hosts-files 'reply=()'
 
-# same completion between neomutt and mutt
+# same completions
 compdef neomutt=mutt
+compdef goto-project=project-path

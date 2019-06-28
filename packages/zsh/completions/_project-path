@@ -1,0 +1,42 @@
+#compdef project-path
+
+_types() {
+  local types=(
+    main
+    repo
+    docs
+    logs
+  )
+
+  compadd "$@" $types
+}
+
+_projects() {
+  case $words[2] in
+    main)
+      compadd $(
+        find "$( xdg-user-dir PROJECTS )"/* \
+            -type d -prune -exec basename {} \;
+      ) ;;
+    repo)
+      compadd $(
+        find "$( xdg-user-dir PROJECTS )"/*/* \
+            -type d -prune -exec basename {} \;
+      ) ;;
+    docs)
+      compadd $(
+        find "$( xdg-user-dir PROJECTS_DOCS )"/* \
+            -type d -prune -exec basename {} \;
+      ) ;;
+    logs)
+      compadd $(
+        find "$( xdg-user-dir PROJECTS_LOGS )"/* \
+            -type d -prune -exec basename {} \;
+      ) ;;
+  esac
+}
+
+_arguments \
+  '(-h --help)'{-h,--help}'[display the help]' \
+  '1:type:_types' \
+  '2:project:_projects'

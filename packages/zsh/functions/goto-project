@@ -1,0 +1,15 @@
+# Change current directory to a project path
+
+local type="$1"
+local project="$2"
+
+local project_path
+project_path="$( project-path "${type}" "${project}" )"
+
+[ $? -eq 0 ] || return 1
+
+cd "${project_path}"
+
+if git rev-parse --git-dir > /dev/null 2>&1; then
+  git current-branch
+fi
