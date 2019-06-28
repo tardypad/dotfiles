@@ -11,27 +11,3 @@ fi
 
 # disable flow control within apps
 stty -ixon 2> /dev/null
-
-# following configs could be in zshrc config file
-# but they are moved here mainly for some tmux use cases
-# where a non interactive shell is invoked for running commands
-
-# needed for use of GnuPG Curses based Pinentry
-export GPG_TTY="$(tty)"
-
-# use less as pager
-export PAGER=less
-
-# enable extended globbing features
-setopt extended_glob
-
-# add personal functions directories
-fpath=(
-  "${HOME}/.zsh/functions"/**/
-  $fpath
-)
-
-# autoload all functions
-for func in "${HOME}/.zsh/functions"/**/*(.); do
-  autoload -Uz "${func##*/}"
-done

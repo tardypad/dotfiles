@@ -11,3 +11,15 @@ unset conf
 
 source "${plugins_conf}"
 unset plugins_conf
+
+# add personal functions directories
+fpath=(
+  "${HOME}/.zsh/functions/"
+  $fpath
+)
+
+# autoload all functions
+for func in "${HOME}/.zsh/functions"/*; do
+  autoload -Uz "${func##*/}"
+done
+unset func

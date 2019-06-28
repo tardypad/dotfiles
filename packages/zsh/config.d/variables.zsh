@@ -5,6 +5,12 @@ export EDITOR=vim
 export NULLCMD=:
 export READNULLCMD=less
 
+# use less as pager
+export PAGER=less
+
+# update gpg tty for pinentry use
+export GPG_TTY="$(tty)"
+
 # default less options
 # defining them in the #env part of lesskey
 # seems to break even more stuff around...

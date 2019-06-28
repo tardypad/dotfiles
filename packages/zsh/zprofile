@@ -1,10 +1,10 @@
-# add customer scripts paths
+# add custom scripts paths
 # and make sure they are no duplicates
 typeset -aU path
 path=(
-  "$HOME/.zsh/scripts"
-  "$HOME/.config/git/scripts"
-  "$HOME/.config/sway/scripts"
+  "${HOME}/.zsh/scripts"
+  "${HOME}/.config/git/scripts"
+  "${HOME}/.config/sway/scripts"
   $path
 )
 

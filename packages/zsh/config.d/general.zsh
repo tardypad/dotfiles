@@ -7,6 +7,9 @@ setopt auto_cd
 # disable flow control within ZSH
 setopt no_flow_control
 
+# enable extended globbing features
+setopt extended_glob
+
 # use run-help utility
 unalias run-help 2> /dev/null
 autoload -Uz run-help
