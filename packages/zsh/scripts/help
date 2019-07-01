@@ -3,6 +3,7 @@
 init_variables() {
   COMMAND=${0##*/}
 
+  CACHE_TOPICS_PATH="${XDG_CACHE_HOME:-$HOME/.cache}/help_topics"
   ZSH_VERSION=$( zsh --version | cut -d ' ' -f 2 )
   ZSH_HELPDIR="/usr/share/zsh/${ZSH_VERSION}/help"
   MAN_DIR='/usr/share/man'
@@ -111,7 +112,30 @@ search_help() {
   return 1
 }
 
-select_topic() {
+should_build_topics_cache() {
+  [ -f "${CACHE_TOPICS_PATH}" ] || return 0
+
+  CACHE_LAST_MODIFIED=$(
+    stat -c '%Y' "${CACHE_TOPICS_PATH}"
+  )
+
+  FOLDERS_LAST_MODIFIED=$(
+    {
+      printf '%s' "${PATH}" | tr ':' '\n';
+      echo "${ZSH_HELPDIR}";
+      find -L "${MAN_DIR}" -type d;
+    } \
+    | xargs -I {} -- stat -c '%Y' {}  2> /dev/null \
+    | sort \
+    | tail -n 1
+  )
+
+  [ "${CACHE_LAST_MODIFIED}" -lt "${FOLDERS_LAST_MODIFIED}" ]
+}
+
+build_topics_cache() {
+  mkdir -p "$( dirname "${CACHE_TOPICS_PATH}" )"
+
   PATH_COMMANDS=$(
     printf '%s' "${PATH}" \
       | tr ':' '\n' \
@@ -129,16 +153,23 @@ select_topic() {
       | sed 's#.*/\([^/]*\)\.[^\.]*\.gz#\1#'
   )
 
+  {
+    echo "${PATH_COMMANDS}";
+    echo "${ZSH_HELP_TOPICS}";
+    echo "${MAN_TOPICS}";
+  } \
+  | sort -u \
+  > "${CACHE_TOPICS_PATH}"
+}
+
+select_topic() {
+  should_build_topics_cache && build_topics_cache
+
   TOPIC=$(
-    {
-      echo "${PATH_COMMANDS}";
-      echo "${ZSH_HELP_TOPICS}";
-      echo "${MAN_TOPICS}";
-    } \
-    | sort -u \
-    | fzf --layout=reverse \
-          --no-multi \
-          --height=10
+    fzf --layout=reverse \
+        --no-multi \
+        --height=10 \
+      < "${CACHE_TOPICS_PATH}"
   )
 }
 
