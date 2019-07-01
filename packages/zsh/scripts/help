@@ -108,7 +108,6 @@ search_help() {
   fi
 
   echo "no help available for '${TOPIC}'"
-  sleep 2
   return 1
 }
 
