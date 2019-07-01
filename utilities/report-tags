@@ -1,16 +1,14 @@
-#!/usr/bin/env zsh
-
-COMMAND=${0:t}
+#!/bin/sh
 
 init_variables() {
-  typeset -gA TAGS=(
-    'BUG'      'known bug that we live with'
-    'IDEA'     'idea for improvement'
-    'FIXME'    'should be refactored'
-    'HACK'     'workaround around a bug or limitation'
-    'OPTIMIZE' 'should be optimized'
-    'TODO'     'something else needs to be done'
-  )
+  COMMAND=${0##*/}
+
+  TAGS='BUG'              # known bug that we live with
+  TAGS="${TAGS}:IDEA"     # idea for improvement
+  TAGS="${TAGS}:FIXME"    # should be refactored
+  TAGS="${TAGS}:HACK"     # workaround around a bug or limitation
+  TAGS="${TAGS}:OPTIMIZE" # should be optimized
+  TAGS="${TAGS}:TODO"     # something else needs to be done
 }
 
 usage() {
@@ -27,23 +25,20 @@ usage() {
 }
 
 error() {
-  [[ -z "$1" ]] || echo "${COMMAND}: $1"
+  [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try '${COMMAND} --help' for more information."
   exit 1
 } >&2
 
 report_tags() {
- local regex="#($( IFS='|'; echo "${(k)TAGS}" )):"
-
- git grep --extended-regexp "${regex}" packages/ \
-   | sed --regexp-extended 's/.*(#[A-Z]+).*/\1 \0/' \
-   | sort \
-   | sed --regexp-extended 's|#[A-Z]+ packages/([^/]+)/([^:]+):.*(#[A-Z]+): (.*)|\3@\1@\2@\4|' \
-   | column --table --separator @
+  git grep -E "#($( echo "${TAGS}" | tr ':' '|' )):" packages/ \
+    | sed 's|packages/\([^/]*\)/\([^:]*\):.*\(#[A-Z]*\): \(.*\)|\3@\1@\2@\4|' \
+    | sort \
+    | column -t -s@
 }
 
 parse_options() {
-  while [[ "$#" -gt 0 ]]; do
+  while [ "$#" -gt 0 ]; do
     case "$1" in
       -h|--help)
         usage

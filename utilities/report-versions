@@ -1,8 +1,8 @@
-#!/usr/bin/env zsh
-
-COMMAND=${0:t}
+#!/bin/sh
 
 init_variables() {
+  COMMAND=${0##*/}
+
   ONLY_DIFF=0
 }
 
@@ -23,70 +23,70 @@ usage() {
 }
 
 error() {
-  [[ -z "$1" ]] || echo "${COMMAND}: $1"
+  [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try '${COMMAND} --help' for more information."
   exit 1
 } >&2
 
 readme_version() {
-  local type="$1"
-  local item="$2"
+  TYPE="$1"
+  ITEM="$2"
 
-  case "${type}" in
+  case "${TYPE}" in
     main)
-      sed -n "s#^| \[${item}\].*| \[\(.*\)\].*#\1#p" README.md
+      sed -n "s#^| \[${ITEM}\].*| \[\(.*\)\].*#\1#p" README.md
       ;;
     extra)
-      sed -n "s#^| ${item} .*| \[\(.*\)\].*#\1#p" README.md
+      sed -n "s#^| ${ITEM} .*| \[\(.*\)\].*#\1#p" README.md
       ;;
     extension)
-      sed -n "s#^| ${item} .*| \[\(.*\)\].*#\1#p" packages/*/README.md
+      sed -n "s#^| ${ITEM} .*| \[\(.*\)\].*#\1#p" packages/*/README.md
       ;;
   esac
 }
 
 pacman_version() {
-  local package="$1"
+  PACKAGE="$1"
 
-  [[ "${package}" == 'gron' ]] && package='gron-bin'
+  [ "${PACKAGE}" = 'gron' ] && PACKAGE='gron-bin'
 
-  local pacman_info=$(
-    pacman --query --info "${package}" 2> /dev/null
+  PACMAN_INFO=$(
+    pacman -Qi "${PACKAGE}" 2> /dev/null
   )
 
-  if [[ -z "${pacman_info}" ]]; then
+  if [ -z "${PACMAN_INFO}" ]; then
     # try with -git suffix if package couldn't be found
-    local pacman_info=$(
-      pacman --query --info "${package}-git" 2> /dev/null
+    PACMAN_INFO=$(
+      pacman -Qi "${PACKAGE}-git" 2> /dev/null
     )
   fi
 
-  if [[ -z "${pacman_info}" ]]; then
+  if [ -z "${PACMAN_INFO}" ]; then
     echo 'unknown'
     return
   fi
 
   # extract version without the release number
-  echo "${pacman_info}" \
+  echo "${PACMAN_INFO}" \
     | sed -n 's/^Version *: \(.*\)\-[0-9]*/\1/p'
 }
 
 report() {
-  local type="$1"
+  TYPE="$1"
 
-  while read item; do
-    local version1=$( pacman_version "${item}" )
-    local version2=$( readme_version "${type}" "${item}" )
+  while read -r ITEM; do
+    VERSION1=$( pacman_version "${ITEM}" )
+    VERSION2=$( readme_version "${TYPE}" "${ITEM}" )
 
-    if [[ "${ONLY_DIFF}" -eq 1
-       && "${version1}" == "${version2}" ]]; then
+    if [ "${ONLY_DIFF}" -eq 1 ] \
+       && [ "${VERSION1}" = "${VERSION2}" ]; then
       continue
     fi
 
     printf '%s %s %s\n' \
-      "${item}" \
-      "${version1}" \
-      "${version2}"
+      "${ITEM}" \
+      "${VERSION1}" \
+      "${VERSION2}"
   done
 }
 
@@ -102,18 +102,16 @@ report_all() {
 
     # extensions
     # exclude vim and weechat plugins (not managed by package manager)
-    sed -n 's#^| \([a-z][^ ]*\) .*#\1#p' \
-      $(
-        find packages -maxdepth 2 -type f -name README.md \
-          ! -path '*/vim/*' ! -path '*/weechat/*'
-      ) \
+    find packages/* -type f -name README.md \
+      ! -path '*/vim/*' ! -path '*/weechat/*' \
+      -exec sed -n 's#^| \([a-z][^ ]*\) .*#\1#p' {} \; \
       | report extension
   } \
-    | column --table
+    | column -t
 }
 
 parse_options() {
-  while [[ "$#" -gt 0 ]]; do
+  while [ "$#" -gt 0 ]; do
     case "$1" in
       -d|--diff)
         ONLY_DIFF=1
