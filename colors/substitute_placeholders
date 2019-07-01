@@ -4,9 +4,11 @@ THEME="$1"
 FILE="$2"
 
 # exit early if there is no color configuration in the file
-if ! grep -q '{color/' "$FILE"; then
+if ! grep -q '{color/' "${FILE}"; then
   exit 0
 fi
+
+TMP_FILE=$( mktemp )
 
 BASE_COLORS_FILE="${0%/*}/definitions/base_${THEME}"
 ALIASES_COLORS_FILE="${0%/*}/definitions/aliases"
@@ -18,16 +20,16 @@ ALIASES_COLORS_FILE="${0%/*}/definitions/aliases"
   # aliases intermediate conversion to base color equivalent
   tail -n+3 "${ALIASES_COLORS_FILE}" \
     | while read -r line; do
-        alias=$( echo "${line}" | sed 's/| \([a-z_]\+\) *|.*/\1/' )
+        alias=$( echo "${line}" | sed 's/| \([a-z_]*\) *|.*/\1/' )
         base_color=$( echo "${line}" | sed 's/.* \(base0[[:alnum:]]\) .*/\1/' )
-        echo "s|{color/${alias}/\([[:alpha:]]\+\)}|{color/${base_color}/\1}|g"
+        echo "s|{color/${alias}/\([[:alpha:]]*\)}|{color/${base_color}/\1}|g"
       done
 
   # hexadecimal final conversion
   for i in $( seq 0 15 )
   do
     index=$( printf '%X' "$i" )
-    base_hex=$( sed -n "s/| base0${index} | #\([[:alnum:]]\+\) |.*/\1/p" "${BASE_COLORS_FILE}" )
+    base_hex=$( sed -n "s/| base0${index} | #\([[:alnum:]]*\) |.*/\1/p" "${BASE_COLORS_FILE}" )
     echo "s|{color/base0${index}/hex}|${base_hex}|g"
   done
 
@@ -47,7 +49,7 @@ ALIASES_COLORS_FILE="${0%/*}/definitions/aliases"
   for i in $( seq 0 15 )
   do
     index=$( printf '%X' "$i" )
-    base_number=$( sed -n "s/| base0${index} | #[[:alnum:]]\+ | *\([[:digit:]]\+\) |.*/\1/p" "${BASE_COLORS_FILE}" )
+    base_number=$( sed -n "s/| base0${index} | #[[:alnum:]]* | *\([[:digit:]]*\) |.*/\1/p" "${BASE_COLORS_FILE}" )
     echo "s|{color/base0${index}/number}|${base_number}|g"
   done
 
@@ -107,4 +109,6 @@ ALIASES_COLORS_FILE="${0%/*}/definitions/aliases"
   echo 's|{color/number_13/bg}|105|g'
   echo 's|{color/number_14/bg}|106|g'
   echo 's|{color/number_15/bg}|107|g'
-} | sed -i -f - "${FILE}"
+} \
+  | sed -f - "${FILE}" > "${TMP_FILE}" \
+    && mv "${TMP_FILE}" "${FILE}"
