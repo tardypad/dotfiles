@@ -23,6 +23,7 @@
     * change Makefiles (make features and also the commands they use)
     * add info about it in README
     * remove usage of long options in own scripts and use getopts
+    * list on top of scripts files, the non POSIX commands used
   - turn script --help usage display into proper man pages
 
 # New Features
