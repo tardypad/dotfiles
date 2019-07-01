@@ -1,14 +1,11 @@
-#!/usr/bin/env zsh
-
-# use run-help utility
-unalias run-help 2> /dev/null
-autoload -Uz run-help
+#!/bin/sh
 
 init_variables() {
   COMMAND=${0##*/}
 
-  local zsh_version=$( zsh --version | cut -d ' ' -f 2 )
-  ZSH_HELPDIR="/usr/share/zsh/${zsh_version}/help"
+  ZSH_VERSION=$( zsh --version | cut -d ' ' -f 2 )
+  ZSH_HELPDIR="/usr/share/zsh/${ZSH_VERSION}/help"
+  MAN_DIR='/usr/share/man'
 
   TOPIC=
 }
@@ -32,22 +29,21 @@ error() {
 
 options_selection()
 {
-  typeset -A options
+  OPTIONS=
 
-  if [ -e "${ZSH_HELPDIR}/${TOPIC}" ]; then
-    options[zsh]='ZSH help'
+  # zsh option
+  if [ -f "${ZSH_HELPDIR}/${TOPIC}" ]; then
+    OPTIONS="${OPTIONS}:zsh"
   fi
 
-  for man_path in $( man --all --where "${TOPIC}" ); do
-    section=$(
-      echo "${man_path}" \
-        | sed 's/.*\.\([^.]*\).gz/\1/'
-    )
-    options[${section}]=$( get_manual_section_name ${section} )
-  done
+  # man options
+  OPTIONS="${OPTIONS}:$(
+    find -L "${MAN_DIR}" -type f -name "${TOPIC}.*" \
+      | sed 's/.*\.\([^.]*\).gz/\1/'
+  )"
 
   # don't show menu if there is not at least 2 options
-  if [ ${#options} -lt 2 ]; then
+  if [ "$( echo "${OPTIONS}" | grep -c '.' )" -lt 2 ]; then
     return 0
   fi
 
@@ -55,77 +51,69 @@ options_selection()
   # order of displayed options is the order of help lookup
   # for example: zsh / 1 / 1p / 3
   echo 'Available help pages:'
-  for k in "${(@k)options}"; do
-    echo "$k)@$options[$k]"
-  done \
+  echo "${OPTIONS}" \
+    | tr ':' '\n' \
+    | grep '.' \
+    | while read -r OPTION; do
+        echo "${OPTION})@$( section_name "${OPTION}" )"
+      done \
     | column -t -s '@' \
     | sort -n
   printf 'Select option (empty for default): '
 
-  read selected_option
+  read -r SELECTED_OPTION
 
   # ZSH help is the default page displayed
-  if [ -n "${selected_option}" ] \
-     && [ "${selected_option}" != 'zsh' ]; then
-    TOPIC="${TOPIC}.${selected_option}"
+  if [ -n "${SELECTED_OPTION}" ] \
+     && [ "${SELECTED_OPTION}" != 'zsh' ]; then
+    TOPIC="${TOPIC}.${SELECTED_OPTION}"
   fi
 }
 
-get_manual_section_name() {
-  local section="$1"
+section_name() {
+  SECTION="$1"
 
-  case "${section}" in
-    0p) echo 'Header files (POSIX)'; return ;;
-    0*) echo 'Header files'; return ;;
-    1p) echo 'General commands (POSIX)'; return ;;
-    1*) echo 'General commands'; return ;;
-    2*) echo 'System functions'; return ;;
-    3*) echo 'Library functions'; return ;;
-    4*) echo 'Special files'; return ;;
-    5*) echo 'File formats and conventions'; return ;;
-    6*) echo 'Games'; return ;;
-    7*) echo 'Miscellaneous'; return ;;
-    8*) echo 'System administration commands'; return ;;
-    9*) echo 'Kernel routines'; return ;;
+  case "${SECTION}" in
+    zsh) echo 'ZSH help' ;;
+    0p) echo 'Header files (POSIX)' ;;
+    0*) echo 'Header files';;
+    1p) echo 'General commands (POSIX)' ;;
+    1*) echo 'General commands' ;;
+    2*) echo 'System functions' ;;
+    3*) echo 'Library functions' ;;
+    4*) echo 'Special files' ;;
+    5*) echo 'File formats and conventions' ;;
+    6*) echo 'Games' ;;
+    7*) echo 'Miscellaneous' ;;
+    8*) echo 'System administration commands' ;;
+    9*) echo 'Kernel routines' ;;
   esac
 }
 
 search_help() {
-  # capture run-help error messages
-  local help_result=$( run-help "${TOPIC}" 2>&1 1> /dev/null )
-
-  # If there is no possible help for the topic
-  # run-help will output 'No manual entry for [topic]'
-  # from a last fail "man" command
-  # There doesn't seem to be another way to check success or failure
-  # (return code is always 0)
-  if ! echo "${help_result}" | grep -q '^No manual entry for'; then
-    display_run_help
-  elif "${TOPIC}" --help > /dev/null 2>&1; then
-    display_help_argument
-  else
-    display_no_help
+  if [ -f "${ZSH_HELPDIR}/${TOPIC}" ]; then
+    "${PAGER}" "${ZSH_HELPDIR}/${TOPIC}"
+    return 0
   fi
-}
 
-display_run_help() {
-  run-help "${TOPIC}"
-  return 0
-}
+  if [ "$( find -L "${MAN_DIR}" -type f -name "${TOPIC}.*" \
+            | wc -l )" -ge 1 ]; then \
+    man "${TOPIC}"
+    return 0
+  fi
 
-display_help_argument() {
-  "${TOPIC}" --help | less
-  return 0
-}
+  if "${TOPIC}" --help > /dev/null 2>&1; then
+    "${TOPIC}" --help | "${PAGER}"
+    return 0
+  fi
 
-display_no_help() {
   echo "no help available for '${TOPIC}'"
   sleep 2
   return 1
 }
 
 select_topic() {
-  local path_commands=$(
+  PATH_COMMANDS=$(
     printf '%s' "${PATH}" \
       | tr ':' '\n' \
       | xargs -I '[]' \
@@ -135,20 +123,18 @@ select_topic() {
            2> /dev/null
   )
 
-  local zsh_version=$( zsh --version | cut -f 2 -d ' ' )
-  local zsh_helpdir="/usr/share/zsh/${zsh_version}/help"
-  local zsh_help_topics=$( ls "${zsh_helpdir}" )
+  ZSH_HELP_TOPICS=$( ls "${ZSH_HELPDIR}" )
 
-  local man_topics=$(
-    find -L /usr/share/man/man* -type f \
+  MAN_TOPICS=$(
+    find -L "${MAN_DIR}" -type f \
       | sed 's#.*/\([^/]*\)\.[^\.]*\.gz#\1#'
   )
 
   TOPIC=$(
     {
-      echo "${path_commands}";
-      echo "${zsh_help_topics}";
-      echo "${man_topics}";
+      echo "${PATH_COMMANDS}";
+      echo "${ZSH_HELP_TOPICS}";
+      echo "${MAN_TOPICS}";
     } \
     | sort -u \
     | fzf --layout=reverse \
