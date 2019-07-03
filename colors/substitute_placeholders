@@ -9,6 +9,7 @@ if ! grep -q '{color/' "${FILE}"; then
 fi
 
 TMP_FILE=$( mktemp )
+trap 'rm "${TMP_FILE}"' EXIT
 
 BASE_COLORS_FILE="${0%/*}/definitions/base_${THEME}"
 ALIASES_COLORS_FILE="${0%/*}/definitions/aliases"
@@ -111,4 +112,4 @@ ALIASES_COLORS_FILE="${0%/*}/definitions/aliases"
   echo 's|{color/number_15/bg}|107|g'
 } \
   | sed -f - "${FILE}" > "${TMP_FILE}" \
-    && mv "${TMP_FILE}" "${FILE}"
+    && cp "${TMP_FILE}" "${FILE}"
