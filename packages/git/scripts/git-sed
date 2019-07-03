@@ -4,6 +4,9 @@ init_variables() {
   COMMAND=${0##*/}
   GIT_COMMAND=${COMMAND#*-}
 
+  TMP_FILE=$( mktemp )
+  trap 'rm "${TMP_FILE}"' EXIT
+
   SCRIPT=
 }
 
@@ -26,12 +29,10 @@ error() {
 
 run_sed() {
   # exclude symlinks and binary files
-  # use cp and rm instead of mv to preserve file permissions
   git grep -I --name-only '' \
     | xargs -I {} \
-      sh -c "cp -p {} {}.bk \
-             && sed \"${SCRIPT}\" {}.bk > {} \
-             && rm {}.bk"
+      sh -c "sed \"${SCRIPT}\" {} > \"${TMP_FILE}\" \
+             && cp \"${TMP_FILE}\" {}"
 }
 
 parse_options() {
