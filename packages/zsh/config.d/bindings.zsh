@@ -64,6 +64,13 @@ bindkey -M viins '\es' replace-run-root
 bindkey -M vicmd '\es' replace-run-root
 bindkey -M isearch '\es' replace-run-root
 
+# bind Alt-D to jump to Desktop
+replace-run-desktop() replace-run-command dk
+zle -N replace-run-desktop
+bindkey -M viins '\ed' replace-run-desktop
+bindkey -M vicmd '\ed' replace-run-desktop
+bindkey -M isearch '\ed' replace-run-desktop
+
 # Enable surround text-objects (quotes, brackets)
 
 autoload -U select-bracketed

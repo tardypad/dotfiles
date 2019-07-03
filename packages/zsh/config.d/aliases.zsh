@@ -11,6 +11,9 @@ alias diff='diff --color=auto --palette="rs=0:hd=1:ad={color/add/fg}:de={color/d
 # ls alias
 alias lh='ls -lh'
 
+# quick jump to the Desktop playground
+alias dk='cd "$( xdg-user-dir DESKTOP )"'
+
 # display calendar for full year with week number and Monday as week start
 alias calendar='cal --monday --week --year'
 
