@@ -6,7 +6,7 @@ gnupg:
 
 	mkdir -p $(DESTDIR)$(HOME)/.gnupg
 
-	$(setup_file)/gpg.conf > $(DESTDIR)$(HOME)/.gnupg/gpg.conf
+	$(setup_file)/gpg.conf       > $(DESTDIR)$(HOME)/.gnupg/gpg.conf
 	$(setup_file)/gpg-agent.conf > $(DESTDIR)$(HOME)/.gnupg/gpg-agent.conf
 
 	chmod 700 $(DESTDIR)$(HOME)/.gnupg
