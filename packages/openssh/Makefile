@@ -1,3 +1,4 @@
+all: openssh
 .SILENT: openssh
 
 openssh:

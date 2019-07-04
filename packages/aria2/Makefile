@@ -1,3 +1,4 @@
+all: aria2
 .SILENT: aria2
 
 aria2:

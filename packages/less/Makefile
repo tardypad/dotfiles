@@ -1,3 +1,4 @@
+all: less
 .SILENT: less
 
 less:

@@ -1,3 +1,4 @@
+all: zathura
 .SILENT: zathura
 
 zathura:

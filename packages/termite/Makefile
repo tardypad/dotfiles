@@ -1,3 +1,4 @@
+all: termite
 .SILENT: termite
 
 termite:

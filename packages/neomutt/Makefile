@@ -1,3 +1,4 @@
+all: neomutt
 .SILENT: neomutt
 
 neomutt:

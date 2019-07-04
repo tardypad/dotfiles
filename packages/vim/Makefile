@@ -1,3 +1,4 @@
+all: vim
 .SILENT: vim
 
 vim:

@@ -1,3 +1,4 @@
+all: swaylock
 .SILENT: swaylock
 
 swaylock:

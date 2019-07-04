@@ -1,3 +1,4 @@
+all: mopidy
 .SILENT: mopidy
 
 mopidy:

@@ -1,3 +1,4 @@
+all: httpie
 .SILENT: httpie
 
 httpie:

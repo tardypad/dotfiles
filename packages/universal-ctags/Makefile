@@ -1,3 +1,4 @@
+all: universal-ctags
 .SILENT: universal-ctags
 
 universal-ctags:

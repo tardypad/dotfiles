@@ -1,3 +1,4 @@
+all: htop
 .SILENT: htop
 
 htop:

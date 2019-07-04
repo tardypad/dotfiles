@@ -1,3 +1,4 @@
+all: rbtools
 .SILENT: rbtools
 
 rbtools:

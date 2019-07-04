@@ -1,3 +1,4 @@
+all: zsh
 .SILENT: zsh
 
 zsh:

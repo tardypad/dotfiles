@@ -1,3 +1,4 @@
+all: coreutils
 .SILENT: coreutils
 
 coreutils:

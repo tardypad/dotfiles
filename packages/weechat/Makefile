@@ -1,3 +1,4 @@
+all: weechat
 .SILENT: weechat
 
 weechat:

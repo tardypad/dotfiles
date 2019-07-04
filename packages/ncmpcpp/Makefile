@@ -1,3 +1,4 @@
+all: ncmpcpp
 .SILENT: ncmpcpp
 
 ncmpcpp:

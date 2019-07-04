@@ -3,17 +3,9 @@ CONFIG_DIR := $(if $(XDG_CONFIG_HOME),$(XDG_CONFIG_HOME),$(HOME)/.config)
 DATA_DIR := $(if $(XDG_DATA_HOME),$(XDG_DATA_HOME),$(HOME)/.local/share)
 CACHE_DIR := $(if $(XDG_CACHE_HOME),$(XDG_CACHE_HOME),$(HOME)/.cache)
 
-# detect all packages target
-PACKAGES := $(subst /,,$(dir $(subst packages/,,$(wildcard packages/*/Makefile))))
-
 IS_LOCAL_INSTALL := $(if $(DESTDIR),'false','true')
 
 THEME := $(if $(THEME),$(THEME),light)
-
-# default target first
-# install all packages
-all: $(PACKAGES)
-.PHONY: all $(PACKAGES)
 
 # info display macros
 start_setup = echo -n "… setup $@"

@@ -1,3 +1,4 @@
+all: newsboat
 .SILENT: newsboat
 
 newsboat:

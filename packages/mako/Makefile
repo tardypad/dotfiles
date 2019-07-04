@@ -1,3 +1,4 @@
+all: mako
 .SILENT: mako
 
 mako:

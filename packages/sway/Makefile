@@ -1,3 +1,4 @@
+all: sway
 .SILENT: sway
 
 sway:

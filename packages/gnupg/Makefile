@@ -1,3 +1,4 @@
+all: gnupg
 .SILENT: gnupg
 
 gnupg:

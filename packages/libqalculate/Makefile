@@ -1,3 +1,4 @@
+all: libqalculate
 .SILENT: libqalculate
 
 libqalculate:

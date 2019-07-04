@@ -1,3 +1,4 @@
+all: translate-shell
 .SILENT: translate-shell
 
 translate-shell:

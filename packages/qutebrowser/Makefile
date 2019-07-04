@@ -1,3 +1,4 @@
+all: qutebrowser
 .SILENT: qutebrowser
 
 qutebrowser:

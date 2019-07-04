@@ -1,3 +1,4 @@
+all: systemd
 .SILENT: systemd
 
 systemd:

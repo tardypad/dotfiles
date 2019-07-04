@@ -1,3 +1,4 @@
+all: git
 .SILENT: git
 
 git:

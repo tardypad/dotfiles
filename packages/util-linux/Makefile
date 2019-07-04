@@ -1,3 +1,4 @@
+all: util-linux
 .SILENT: util-linux
 
 util-linux:

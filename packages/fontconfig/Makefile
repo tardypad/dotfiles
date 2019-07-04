@@ -1,3 +1,4 @@
+all: fontconfig
 .SILENT: fontconfig
 
 fontconfig:

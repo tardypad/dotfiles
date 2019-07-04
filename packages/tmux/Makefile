@@ -1,3 +1,4 @@
+all: tmux
 .SILENT: tmux
 
 tmux:
