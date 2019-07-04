@@ -1,6 +1,8 @@
 libqalculate:
 	$(start_setup)
 
-	$(call copy_file,qalc.cfg,$(CONFIG_DIR)/qalculate/qalc.cfg)
+	@mkdir -p $(DESTDIR)$(CONFIG_DIR)/qalculate
+
+	$(setup_file)/qalc.cfg > $(DESTDIR)$(CONFIG_DIR)/qalculate/qalc.cfg
 
 	$(end_setup)

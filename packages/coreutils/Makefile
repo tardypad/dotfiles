@@ -1,6 +1,8 @@
 coreutils:
 	$(start_setup)
 
-	$(call copy_file,dircolors,$(HOME)/.dircolors)
+	@mkdir -p $(DESTDIR)$(HOME)
+
+	$(setup_file)/dircolors > $(DESTDIR)$(HOME)/.dircolors
 
 	$(end_setup)

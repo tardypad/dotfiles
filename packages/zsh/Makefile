@@ -1,34 +1,91 @@
 zsh:
 	$(start_setup)
 
-	$(call copy_file,zshrc,$(HOME)/.zshrc)
-	$(call copy_file,zshenv,$(HOME)/.zshenv)
-	$(call copy_file,zlogin,$(HOME)/.zlogin)
-	$(call copy_file,zprofile,$(HOME)/.zprofile)
-	$(call copy_folder,config.d,$(HOME)/.zsh/config.d)
-	$(call copy_folder,scripts,$(HOME)/.zsh/scripts)
-	$(call copy_folder,functions,$(HOME)/.zsh/functions)
-	$(call copy_folder,completions,$(HOME)/.zsh/completions)
+	@mkdir -p $(DESTDIR)$(HOME)/.zsh/config.d
+	@mkdir -p $(DESTDIR)$(HOME)/.zsh/completions/git
+	@mkdir -p $(DESTDIR)$(HOME)/.zsh/functions
+	@mkdir -p $(DESTDIR)$(HOME)/.zsh/scripts
+	@mkdir -p $(DESTDIR)$(CONFIG_DIR)/tmux/env/projects
 
-ifneq (,$(wildcard packages/zsh/env/tmux))
-	$(call copy_folder,env/tmux,$(CONFIG_DIR)/tmux/env)
-endif
+	$(setup_file)/zshrc > $(DESTDIR)$(HOME)/.zshrc
+	$(setup_file)/zshenv > $(DESTDIR)$(HOME)/.zshenv
+	$(setup_file)/zlogin > $(DESTDIR)$(HOME)/.zlogin
+	$(setup_file)/zprofile > $(DESTDIR)$(HOME)/.zprofile
+	$(setup_file)/config.d/aliases.zsh > $(DESTDIR)$(HOME)/.zsh/config.d/aliases.zsh
+	$(setup_file)/config.d/bindings.zsh > $(DESTDIR)$(HOME)/.zsh/config.d/bindings.zsh
+	$(setup_file)/config.d/completion.zsh > $(DESTDIR)$(HOME)/.zsh/config.d/completion.zsh
+	$(setup_file)/config.d/general.zsh > $(DESTDIR)$(HOME)/.zsh/config.d/general.zsh
+	$(setup_file)/config.d/history.zsh > $(DESTDIR)$(HOME)/.zsh/config.d/history.zsh
+	$(setup_file)/config.d/plugins.zsh > $(DESTDIR)$(HOME)/.zsh/config.d/plugins.zsh
+	$(setup_file)/config.d/prompt.zsh > $(DESTDIR)$(HOME)/.zsh/config.d/prompt.zsh
+	$(setup_file)/config.d/variables.zsh > $(DESTDIR)$(HOME)/.zsh/config.d/variables.zsh
+	$(setup_file)/completions/_do-not-disturb > $(DESTDIR)$(HOME)/.zsh/completions/_do-not-disturb
+	$(setup_file)/completions/_help > $(DESTDIR)$(HOME)/.zsh/completions/_help
+	$(setup_file)/completions/_http-env > $(DESTDIR)$(HOME)/.zsh/completions/_http-env
+	$(setup_file)/completions/_influx-env > $(DESTDIR)$(HOME)/.zsh/completions/_influx-env
+	$(setup_file)/completions/_loop > $(DESTDIR)$(HOME)/.zsh/completions/_loop
+	$(setup_file)/completions/_mysql-env > $(DESTDIR)$(HOME)/.zsh/completions/_mysql-env
+	$(setup_file)/completions/_notify > $(DESTDIR)$(HOME)/.zsh/completions/_notify
+	$(setup_file)/completions/_pacman-pkgdiff > $(DESTDIR)$(HOME)/.zsh/completions/_pacman-pkgdiff
+	$(setup_file)/completions/_pomodoro > $(DESTDIR)$(HOME)/.zsh/completions/_pomodoro
+	$(setup_file)/completions/_project-path > $(DESTDIR)$(HOME)/.zsh/completions/_project-path
+	$(setup_file)/completions/_query-hosts-tags > $(DESTDIR)$(HOME)/.zsh/completions/_query-hosts-tags
+	$(setup_file)/completions/_rbt > $(DESTDIR)$(HOME)/.zsh/completions/_rbt
+	$(setup_file)/completions/_redis-env > $(DESTDIR)$(HOME)/.zsh/completions/_redis-env
+	$(setup_file)/completions/_ssh-tags > $(DESTDIR)$(HOME)/.zsh/completions/_ssh-tags
+	$(setup_file)/completions/_tmux-env > $(DESTDIR)$(HOME)/.zsh/completions/_tmux-env
+	$(setup_file)/completions/git/_git-argument > $(DESTDIR)$(HOME)/.zsh/completions/git/_git-argument
+	$(setup_file)/completions/git/_git-hist > $(DESTDIR)$(HOME)/.zsh/completions/git/_git-hist
+	$(setup_file)/completions/git/_git-mgrbma > $(DESTDIR)$(HOME)/.zsh/completions/git/_git-mgrbma
+	$(setup_file)/completions/git/_git-push-current-branch > $(DESTDIR)$(HOME)/.zsh/completions/git/_git-push-current-branch
+	$(setup_file)/completions/git/_git-reauthor > $(DESTDIR)$(HOME)/.zsh/completions/git/_git-reauthor
+	$(setup_file)/completions/git/_git-run-command > $(DESTDIR)$(HOME)/.zsh/completions/git/_git-run-command
+	$(setup_file)/completions/git/_git-sed > $(DESTDIR)$(HOME)/.zsh/completions/git/_git-sed
+	$(setup_file)/completions/git/_git-stamp > $(DESTDIR)$(HOME)/.zsh/completions/git/_git-stamp
+	$(setup_file)/completions/git/_git-url > $(DESTDIR)$(HOME)/.zsh/completions/git/_git-url
+	$(setup_file)/functions/goto-project > $(DESTDIR)$(HOME)/.zsh/functions/goto-project
+	$(setup_file)/scripts/backup-bookmarks > $(DESTDIR)$(HOME)/.zsh/scripts/backup-bookmarks
+	$(setup_file)/scripts/backup-notes > $(DESTDIR)$(HOME)/.zsh/scripts/backup-notes
+	$(setup_file)/scripts/battery_status > $(DESTDIR)$(HOME)/.zsh/scripts/battery_status
+	$(setup_file)/scripts/do-not-disturb > $(DESTDIR)$(HOME)/.zsh/scripts/do-not-disturb
+	$(setup_file)/scripts/help > $(DESTDIR)$(HOME)/.zsh/scripts/help
+	$(setup_file)/scripts/http-env > $(DESTDIR)$(HOME)/.zsh/scripts/http-env
+	$(setup_file)/scripts/influx-env > $(DESTDIR)$(HOME)/.zsh/scripts/influx-env
+	$(setup_file)/scripts/loop > $(DESTDIR)$(HOME)/.zsh/scripts/loop
+	$(setup_file)/scripts/man > $(DESTDIR)$(HOME)/.zsh/scripts/man
+	$(setup_file)/scripts/mysql-env > $(DESTDIR)$(HOME)/.zsh/scripts/mysql-env
+	$(setup_file)/scripts/pacman-pkgdiff > $(DESTDIR)$(HOME)/.zsh/scripts/pacman-pkgdiff
+	$(setup_file)/scripts/plot > $(DESTDIR)$(HOME)/.zsh/scripts/plot
+	$(setup_file)/scripts/pomodoro > $(DESTDIR)$(HOME)/.zsh/scripts/pomodoro
+	$(setup_file)/scripts/project-path > $(DESTDIR)$(HOME)/.zsh/scripts/project-path
+	$(setup_file)/scripts/query-hosts-tags > $(DESTDIR)$(HOME)/.zsh/scripts/query-hosts-tags
+	$(setup_file)/scripts/redis-env > $(DESTDIR)$(HOME)/.zsh/scripts/redis-env
+	$(setup_file)/scripts/ssh-tags > $(DESTDIR)$(HOME)/.zsh/scripts/ssh-tags
+	$(setup_file)/scripts/status > $(DESTDIR)$(HOME)/.zsh/scripts/status
+	$(setup_file)/scripts/tmux-env > $(DESTDIR)$(HOME)/.zsh/scripts/tmux-env
+	$(setup_file)/scripts/weechat-fifo > $(DESTDIR)$(HOME)/.zsh/scripts/weechat-fifo
+	$(setup_file)/env/tmux/projects/arch_packages.sh > $(DESTDIR)$(CONFIG_DIR)/tmux/env/projects/arch_packages.sh
+	$(setup_file)/env/tmux/projects/dotfiles.sh > $(DESTDIR)$(CONFIG_DIR)/tmux/env/projects/dotfiles.sh
+	$(setup_file)/env/tmux/projects/tardypad_me.sh > $(DESTDIR)$(CONFIG_DIR)/tmux/env/projects/tardypad_me.sh
 
-ifneq (,$(wildcard packages/zsh/env/mysql))
-	$(call copy_folder,env/mysql,$(CONFIG_DIR)/mysql/env)
-endif
+	@ln -sf _git-url $(DESTDIR)$(HOME)/.zsh/completions/git/_git-browse
+	@ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-bwc
+	@ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-bwi
+	@ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-bwr
+	@ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-commit-description
+	@ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-commit-issue-id
+	@ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-commit-review-id
+	@ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-commit-subject
+	@ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-head
+	@ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-rbi
+	@ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-sh
+	@ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-sh0
+	@ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-urlc
+	@ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-urli
+	@ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-urlr
 
-ifneq (,$(wildcard packages/zsh/env/http))
-	$(call copy_folder,env/http,$(CONFIG_DIR)/http/env)
-endif
-
-ifneq (,$(wildcard packages/zsh/env/redis))
-	$(call copy_folder,env/redis,$(CONFIG_DIR)/redis/env)
-endif
-
-ifneq (,$(wildcard packages/zsh/env/influxdb))
-	$(call copy_folder,env/influxdb,$(CONFIG_DIR)/influxdb/env)
-endif
+	@chmod +x $(DESTDIR)$(HOME)/.zsh/scripts/*
+	@chmod +x $(DESTDIR)$(CONFIG_DIR)/tmux/env/projects/*
 
 ifeq ($(IS_LOCAL_INSTALL),'true')
     # clear completion cache

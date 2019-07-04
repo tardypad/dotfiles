@@ -1,7 +1,9 @@
 fontconfig:
 	$(start_setup)
 
-	$(call copy_file,fonts.conf,$(CONFIG_DIR)/fontconfig/fonts.conf)
+	@mkdir -p $(DESTDIR)$(CONFIG_DIR)/fontconfig
+
+	$(setup_file)/fonts.conf > $(DESTDIR)$(CONFIG_DIR)/fontconfig/fonts.conf
 
 ifeq ($(IS_LOCAL_INSTALL),'true')
     # rebuild fonts cache

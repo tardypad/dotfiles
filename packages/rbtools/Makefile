@@ -1,6 +1,8 @@
 rbtools:
 	$(start_setup)
 
-	$(call copy_file,reviewboardrc,$(HOME)/.reviewboardrc)
+	@mkdir -p $(DESTDIR)$(HOME)
+
+	$(setup_file)/reviewboardrc > $(DESTDIR)$(HOME)/.reviewboardrc
 
 	$(end_setup)

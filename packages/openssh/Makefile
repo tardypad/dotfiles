@@ -1,10 +1,11 @@
 openssh:
 	$(start_setup)
 
-	$(call copy_file,config,$(HOME)/.ssh/config)
+	@mkdir -p $(DESTDIR)$(HOME)/.ssh
 
-    # adjust permissions
-	@chmod 700 "$(DESTDIR)$(HOME)/.ssh"
-	@chmod 600 "$(DESTDIR)$(HOME)/.ssh/config"
+	$(setup_file)/config > $(DESTDIR)$(HOME)/.ssh/config
+
+	@chmod 700 $(DESTDIR)$(HOME)/.ssh
+	@chmod 600 $(DESTDIR)$(HOME)/.ssh/config
 
 	$(end_setup)

@@ -4,32 +4,30 @@ weechat:
     # create necessary installation directories
 	@mkdir --parents $(DESTDIR)$(HOME)/.weechat/python/autoload
 
-	$(call copy_file,config.d/alias.conf,$(HOME)/.weechat/alias.conf)
-	$(call copy_file,config.d/spell.conf,$(HOME)/.weechat/spell.conf)
-	$(call copy_file,config.d/buflist.conf,$(HOME)/.weechat/buflist.conf)
-	$(call copy_file,config.d/charset.conf,$(HOME)/.weechat/charset.conf)
-	$(call copy_file,config.d/colorize_nicks.conf,$(HOME)/.weechat/colorize_nicks.conf)
-	$(call copy_file,config.d/exec.conf,$(HOME)/.weechat/exec.conf)
-	$(call copy_file,config.d/fifo.conf,$(HOME)/.weechat/fifo.conf)
-	$(call copy_file,config.d/fset.conf,$(HOME)/.weechat/fset.conf)
-	$(call copy_file,config.d/irc.conf,$(HOME)/.weechat/irc.conf)
-	$(call copy_file,config.d/logger.conf,$(HOME)/.weechat/logger.conf)
-	$(call copy_file,config.d/plugins.conf,$(HOME)/.weechat/plugins.conf)
-	$(call copy_file,config.d/python.conf,$(HOME)/.weechat/python.conf)
-	$(call copy_file,config.d/relay.conf,$(HOME)/.weechat/relay.conf)
-	$(call copy_file,config.d/script.conf,$(HOME)/.weechat/script.conf)
-	$(call copy_file,config.d/trigger.conf,$(HOME)/.weechat/trigger.conf)
-	$(call copy_file,config.d/weechat.conf,$(HOME)/.weechat/weechat.conf)
-	$(call copy_file,config.d/xfer.conf,$(HOME)/.weechat/xfer.conf)
+	$(setup_file)/config.d/alias.conf > $(DESTDIR)$(HOME)/.weechat/alias.conf
+	$(setup_file)/config.d/spell.conf > $(DESTDIR)$(HOME)/.weechat/spell.conf
+	$(setup_file)/config.d/buflist.conf > $(DESTDIR)$(HOME)/.weechat/buflist.conf
+	$(setup_file)/config.d/charset.conf > $(DESTDIR)$(HOME)/.weechat/charset.conf
+	$(setup_file)/config.d/colorize_nicks.conf > $(DESTDIR)$(HOME)/.weechat/colorize_nicks.conf
+	$(setup_file)/config.d/exec.conf > $(DESTDIR)$(HOME)/.weechat/exec.conf
+	$(setup_file)/config.d/fifo.conf > $(DESTDIR)$(HOME)/.weechat/fifo.conf
+	$(setup_file)/config.d/fset.conf > $(DESTDIR)$(HOME)/.weechat/fset.conf
+	$(setup_file)/config.d/irc.conf > $(DESTDIR)$(HOME)/.weechat/irc.conf
+	$(setup_file)/config.d/logger.conf > $(DESTDIR)$(HOME)/.weechat/logger.conf
+	$(setup_file)/config.d/plugins.conf > $(DESTDIR)$(HOME)/.weechat/plugins.conf
+	$(setup_file)/config.d/python.conf > $(DESTDIR)$(HOME)/.weechat/python.conf
+	$(setup_file)/config.d/relay.conf > $(DESTDIR)$(HOME)/.weechat/relay.conf
+	$(setup_file)/config.d/script.conf > $(DESTDIR)$(HOME)/.weechat/script.conf
+	$(setup_file)/config.d/trigger.conf > $(DESTDIR)$(HOME)/.weechat/trigger.conf
+	$(setup_file)/config.d/weechat.conf > $(DESTDIR)$(HOME)/.weechat/weechat.conf
+	$(setup_file)/config.d/xfer.conf > $(DESTDIR)$(HOME)/.weechat/xfer.conf
+	$(setup_file)/plugins/edit_vim_tmux.py > $(DESTDIR)$(HOME)/.weechat/python/edit_vim_tmux.py
+	$(setup_file)/plugins/export_important_buffers_count.py > $(DESTDIR)$(HOME)/.weechat/python/export_important_buffers_count.py
+	$(setup_file)/plugins/go_fzf_tmux.py > $(DESTDIR)$(HOME)/.weechat/python/go_fzf_tmux.py
 
-	$(call copy_file,plugins/go_fzf_tmux.py,$(HOME)/.weechat/python/go_fzf_tmux.py)
-	@ln -fs ../go_fzf_tmux.py "$(DESTDIR)$(HOME)/.weechat/python/autoload/go_fzf_tmux.py"
-
-	$(call copy_file,plugins/edit_vim_tmux.py,$(HOME)/.weechat/python/edit_vim_tmux.py)
-	@ln -fs ../edit_vim_tmux.py "$(DESTDIR)$(HOME)/.weechat/python/autoload/edit_vim_tmux.py"
-
-	$(call copy_file,plugins/export_important_buffers_count.py,$(HOME)/.weechat/python/export_important_buffers_count.py)
-	@ln -fs ../export_important_buffers_count.py "$(DESTDIR)$(HOME)/.weechat/python/autoload/export_important_buffers_count.py"
+	@ln -fs ../go_fzf_tmux.py $(DESTDIR)$(HOME)/.weechat/python/autoload/go_fzf_tmux.py
+	@ln -fs ../edit_vim_tmux.py $(DESTDIR)$(HOME)/.weechat/python/autoload/edit_vim_tmux.py
+	@ln -fs ../export_important_buffers_count.py $(DESTDIR)$(HOME)/.weechat/python/autoload/export_important_buffers_count.py
 
   # install wee-slack
   # version from github is more recent than one in weechat scripts repo

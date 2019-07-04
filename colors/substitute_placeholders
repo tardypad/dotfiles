@@ -5,6 +5,7 @@ FILE="$2"
 
 # exit early if there is no color configuration in the file
 if ! grep -q '{color/' "${FILE}"; then
+  cat "${FILE}"
   exit 0
 fi
 
@@ -111,5 +112,4 @@ ALIASES_COLORS_FILE="${0%/*}/definitions/aliases"
   echo 's|{color/number_14/bg}|106|g'
   echo 's|{color/number_15/bg}|107|g'
 } \
-  | sed -f - "${FILE}" > "${TMP_FILE}" \
-    && cp "${TMP_FILE}" "${FILE}"
+  | sed -f - "${FILE}"

@@ -1,8 +1,10 @@
 termite:
 	$(start_setup)
 
-	$(call copy_file,config,$(CONFIG_DIR)/termite/config)
-	$(call copy_file,config_launcher,$(CONFIG_DIR)/termite/config_launcher)
-	$(call copy_file,config_command_input,$(CONFIG_DIR)/termite/config_command_input)
+	@mkdir -p $(DESTDIR)$(CONFIG_DIR)/termite
+
+	$(setup_file)/config > $(DESTDIR)$(CONFIG_DIR)/termite/config
+	$(setup_file)/config_launcher > $(DESTDIR)$(CONFIG_DIR)/termite/config_launcher
+	$(setup_file)/config_command_input > $(DESTDIR)$(CONFIG_DIR)/termite/config_command_input
 
 	$(end_setup)

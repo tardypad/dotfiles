@@ -1,6 +1,8 @@
 translate-shell:
 	$(start_setup)
 
-	$(call copy_file,init.trans,$(CONFIG_DIR)/translate-shell/init.trans)
+	@mkdir -p $(DESTDIR)$(CONFIG_DIR)/translate-shell
+
+	$(setup_file)/init.trans > $(DESTDIR)$(CONFIG_DIR)/translate-shell/init.trans
 
 	$(end_setup)

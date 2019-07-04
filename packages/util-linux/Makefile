@@ -1,6 +1,8 @@
 util-linux:
 	$(start_setup)
 
-	$(call copy_file,hushlogin,$(HOME)/.hushlogin)
+	@mkdir -p $(DESTDIR)$(HOME)
+
+	$(setup_file)/hushlogin > $(DESTDIR)$(HOME)/.hushlogin
 
 	$(end_setup)

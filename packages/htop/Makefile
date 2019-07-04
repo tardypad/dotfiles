@@ -1,6 +1,8 @@
 htop:
 	$(start_setup)
 
-	$(call copy_file,htoprc,$(CONFIG_DIR)/htop/htoprc)
+	@mkdir -p $(DESTDIR)$(CONFIG_DIR)/htop
+
+	$(setup_file)/htoprc > $(DESTDIR)$(CONFIG_DIR)/htop/htoprc
 
 	$(end_setup)

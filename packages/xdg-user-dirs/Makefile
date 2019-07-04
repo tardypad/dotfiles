@@ -1,8 +1,10 @@
 xdg-user-dirs:
 	$(start_setup)
 
-	$(call copy_file,user-dirs.dirs,$(CONFIG_DIR)/user-dirs.dirs)
-	$(call copy_file,user-dirs.conf,$(CONFIG_DIR)/user-dirs.conf)
-	$(call copy_file,user-dirs.locale,$(CONFIG_DIR)/user-dirs.locale)
+	@mkdir -p $(DESTDIR)$(CONFIG_DIR)
+
+	$(setup_file)/user-dirs.conf > $(DESTDIR)$(CONFIG_DIR)/user-dirs.conf
+	$(setup_file)/user-dirs.dirs > $(DESTDIR)$(CONFIG_DIR)/user-dirs.dirs
+	$(setup_file)/user-dirs.locale > $(DESTDIR)$(CONFIG_DIR)/user-dirs.locale
 
 	$(end_setup)

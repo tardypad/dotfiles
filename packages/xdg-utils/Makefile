@@ -1,6 +1,8 @@
 xdg-utils:
 	$(start_setup)
 
-	$(call copy_file,mimeapps.list,$(CONFIG_DIR)/mimeapps.list)
+	@mkdir -p $(DESTDIR)$(CONFIG_DIR)
+
+	$(setup_file)/mimeapps.list > $(DESTDIR)$(CONFIG_DIR)/mimeapps.list
 
 	$(end_setup)

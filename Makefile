@@ -19,17 +19,7 @@ all: $(PACKAGES)
 start_setup = @echo -n "… setup $@"
 end_setup   = @echo -e "\r✔ setup $@"
 
-# copy macros with colors update
-define copy_file
-	@mkdir --parents $(DESTDIR)$(dir $(2))
-	@cp -p packages/$@/$(1) $(DESTDIR)$(2)
-	@colors/substitute_placeholders $(THEME) $(DESTDIR)$(2)
-endef
-define copy_folder
-	@mkdir --parents $(DESTDIR)$(dir $(2))
-	@cp --recursive --force --no-target-directory -p packages/$@/$(1) $(DESTDIR)$(2)
-    @find $(DESTDIR)$(2) -type f -exec colors/substitute_placeholders $(THEME) {} \;
-endef
+setup_file = @colors/substitute_placeholders $(THEME) packages/$@
 
 # all Makefiles could be included with "include */Makefile"
 # or "$(foreach package, $(PACKAGES), $(eval include $(package)/Makefile))"
