@@ -5,14 +5,14 @@ vim:
 	$(start_setup)
 
     # create necessary runtime directories
-	mkdir --parents $(DESTDIR)$(HOME)/.vim/backup
-	mkdir --parents $(DESTDIR)$(HOME)/.vim/swap
-	mkdir --parents $(DESTDIR)$(HOME)/.vim/undo
-	mkdir --parents $(DESTDIR)$(HOME)/.vim/sessions
+	mkdir -p $(DESTDIR)$(HOME)/.vim/backup
+	mkdir -p $(DESTDIR)$(HOME)/.vim/swap
+	mkdir -p $(DESTDIR)$(HOME)/.vim/undo
+	mkdir -p $(DESTDIR)$(HOME)/.vim/sessions
 
 ifeq ($(IS_LOCAL_INSTALL),'true')
   # backup locally added new spelling words
-	if ! diff packages/vim/spell/en.utf-8.add $(DESTDIR)$(HOME)/.vim/spell/en.utf-8.add &> /dev/null; then \
+	if ! diff packages/vim/spell/en.utf-8.add $(DESTDIR)$(HOME)/.vim/spell/en.utf-8.add > /dev/null 2>&1; then \
 		cp $(DESTDIR)$(HOME)/.vim/spell/en.utf-8.add vim_spell_en.bkp; \
 	fi
 endif
@@ -63,19 +63,19 @@ endif
 	$(setup_file)/spell/en.utf-8.add                > $(DESTDIR)$(HOME)/.vim/spell/en.utf-8.add
 
   # install the plugins manager
-	curl --silent --location --create-dirs \
-		https://raw.githubusercontent.com/junegunn/vim-plug/0.10.0/plug.vim \
-		--output "$(DESTDIR)$(HOME)/.vim/autoload/plug.vim"; \
+	mkdir -p $(DESTDIR)$(HOME)/.vim/autoload
+	curl -sL https://raw.githubusercontent.com/junegunn/vim-plug/0.10.0/plug.vim \
+		-o $(DESTDIR)$(HOME)/.vim/autoload/plug.vim
 
   # Manually install icinga2 syntax
   # not a real plugin, just one file of a bigger repository
-	curl --silent --location --create-dirs \
-		https://raw.githubusercontent.com/Icinga/icinga2/3cb2c1d1435f19bc5e46fa8f8518645f62549dde/tools/syntax/vim/syntax/icinga2.vim \
-		--output "$(DESTDIR)$(HOME)/.vim/plugged/icinga2/syntax/icinga2.vim"; \
+	mkdir -p $(DESTDIR)$(HOME)/.vim/plugged/icinga2/syntax
+	curl -sL https://raw.githubusercontent.com/Icinga/icinga2/3cb2c1d1435f19bc5e46fa8f8518645f62549dde/tools/syntax/vim/syntax/icinga2.vim \
+		-o $(DESTDIR)$(HOME)/.vim/plugged/icinga2/syntax/icinga2.vim
 
 ifeq ($(IS_LOCAL_INSTALL),'true')
     # load only the plugins definition and install/clean/update them
-	vim -N --noplugin -u "$(HOME)/.vim/plugins.vim" \
+	vim -N --noplugin -u $(HOME)/.vim/plugins.vim \
 		+PlugInstall +PlugClean! +PlugUpdate +qall \
 		> /dev/null 2>&1
 

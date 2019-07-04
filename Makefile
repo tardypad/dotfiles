@@ -8,8 +8,8 @@ IS_LOCAL_INSTALL := $(if $(DESTDIR),'false','true')
 THEME := $(if $(THEME),$(THEME),light)
 
 # info display macros
-start_setup = echo -n "… setup $@"
-end_setup   = echo -e "\r✔ setup $@"
+start_setup = printf "… setup $@"
+end_setup   = printf "\r✔ setup $@\n"
 
 setup_file = colors/substitute_placeholders $(THEME) packages/$@
 

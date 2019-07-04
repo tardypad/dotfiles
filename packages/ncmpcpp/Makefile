@@ -5,7 +5,7 @@ ncmpcpp:
 	$(start_setup)
 
     # create necessary runtime directories
-	mkdir --parents $(DESTDIR)$(DATA_DIR)/ncmpcpp
+	mkdir -p $(DESTDIR)$(DATA_DIR)/ncmpcpp
 
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/ncmpcpp
 

@@ -4,8 +4,7 @@ all: weechat
 weechat:
 	$(start_setup)
 
-    # create necessary installation directories
-	mkdir --parents $(DESTDIR)$(HOME)/.weechat/python/autoload
+	mkdir -p $(DESTDIR)$(HOME)/.weechat/python/autoload
 
 	$(setup_file)/config.d/alias.conf                       > $(DESTDIR)$(HOME)/.weechat/alias.conf
 	$(setup_file)/config.d/spell.conf                       > $(DESTDIR)$(HOME)/.weechat/spell.conf
@@ -34,21 +33,18 @@ weechat:
 
   # install wee-slack
   # version from github is more recent than one in weechat scripts repo
-	curl --silent --location --create-dirs \
-		https://raw.githubusercontent.com/rawdigits/wee-slack/v2.2.0/wee_slack.py \
-		--output "$(DESTDIR)$(HOME)/.weechat/python/wee_slack.py"
-	ln -fs ../wee_slack.py "$(DESTDIR)$(HOME)/.weechat/python/autoload/wee_slack.py"
+	curl -sL https://raw.githubusercontent.com/rawdigits/wee-slack/v2.2.0/wee_slack.py \
+		-o $(DESTDIR)$(HOME)/.weechat/python/wee_slack.py
+	ln -fs ../wee_slack.py $(DESTDIR)$(HOME)/.weechat/python/autoload/wee_slack.py
 
   # install colorize_nicks.py script
-	curl --silent --location --create-dirs \
-		https://raw.githubusercontent.com/weechat/scripts/ffda2e03486d1e90983a35ee3505b84d10fd5244/python/colorize_nicks.py \
-		--output "$(DESTDIR)$(HOME)/.weechat/python/colorize_nicks.py"
-	ln -fs ../colorize_nicks.py "$(DESTDIR)$(HOME)/.weechat/python/autoload/colorize_nicks.py"
+	curl -sL https://raw.githubusercontent.com/weechat/scripts/ffda2e03486d1e90983a35ee3505b84d10fd5244/python/colorize_nicks.py \
+		-o $(DESTDIR)$(HOME)/.weechat/python/colorize_nicks.py
+	ln -fs ../colorize_nicks.py $(DESTDIR)$(HOME)/.weechat/python/autoload/colorize_nicks.py
 
   # install vimode script
-	curl --silent --location --create-dirs \
-		https://raw.githubusercontent.com/GermainZ/weechat-vimode/95661a27f92dc3f3286cf1539ab112a81ad15639/vimode.py \
-		--output "$(DESTDIR)$(HOME)/.weechat/python/vimode.py"
-	ln -fs ../vimode.py "$(DESTDIR)$(HOME)/.weechat/python/autoload/vimode.py"
+	curl -sL https://raw.githubusercontent.com/GermainZ/weechat-vimode/95661a27f92dc3f3286cf1539ab112a81ad15639/vimode.py \
+		-o $(DESTDIR)$(HOME)/.weechat/python/vimode.py
+	ln -fs ../vimode.py $(DESTDIR)$(HOME)/.weechat/python/autoload/vimode.py
 
 	$(end_setup)

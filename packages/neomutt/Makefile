@@ -5,9 +5,9 @@ neomutt:
 	$(start_setup)
 
     # create necessary runtime directories
-	mkdir --parents $(DESTDIR)$(CACHE_DIR)/neomutt/headers
-	mkdir --parents $(DESTDIR)$(CACHE_DIR)/neomutt/bodies
-	mkdir --parents $(DESTDIR)$(CACHE_DIR)/neomutt/tmp
+	mkdir -p $(DESTDIR)$(CACHE_DIR)/neomutt/headers
+	mkdir -p $(DESTDIR)$(CACHE_DIR)/neomutt/bodies
+	mkdir -p $(DESTDIR)$(CACHE_DIR)/neomutt/tmp
 
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/neomutt/config.d/accounts
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/neomutt/config.d/signatures
