@@ -75,7 +75,7 @@ endif
 
 ifeq ($(IS_LOCAL_INSTALL),'true')
     # load only the plugins definition and install/clean/update them
-	vim -N --noplugin -u $(HOME)/.vim/plugins.vim \
+	vim -N --noplugin -u $(HOME)/.vim/config.d/plugins.vim \
 		+PlugInstall +PlugClean! +PlugUpdate +qall \
 		> /dev/null 2>&1
 
