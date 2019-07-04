@@ -1,11 +1,13 @@
+.SILENT: sway
+
 sway:
 	$(start_setup)
 
-	@mkdir -p $(DESTDIR)$(CONFIG_DIR)/sway/config.d
-	@mkdir -p $(DESTDIR)$(CONFIG_DIR)/sway/scripts
-	@mkdir -p $(DESTDIR)$(CONFIG_DIR)/sway/sounds
-	@mkdir -p $(DESTDIR)$(CONFIG_DIR)/swaynag
-	@mkdir -p $(DESTDIR)$(DATA_DIR)/applications
+	mkdir -p $(DESTDIR)$(CONFIG_DIR)/sway/config.d
+	mkdir -p $(DESTDIR)$(CONFIG_DIR)/sway/scripts
+	mkdir -p $(DESTDIR)$(CONFIG_DIR)/sway/sounds
+	mkdir -p $(DESTDIR)$(CONFIG_DIR)/swaynag
+	mkdir -p $(DESTDIR)$(DATA_DIR)/applications
 
 	$(setup_file)/config > $(DESTDIR)$(CONFIG_DIR)/sway/config
 	$(setup_file)/config.d/bar > $(DESTDIR)$(CONFIG_DIR)/sway/config.d/bar
@@ -65,6 +67,6 @@ sway:
 	$(setup_file)/sounds/low_battery.wav > $(DESTDIR)$(CONFIG_DIR)/sway/sounds/low_battery.wav
 	$(setup_file)/swaynag/config > $(DESTDIR)$(CONFIG_DIR)/swaynag/config
 
-	@chmod +x $(DESTDIR)$(CONFIG_DIR)/sway/scripts/*
+	chmod +x $(DESTDIR)$(CONFIG_DIR)/sway/scripts/*
 
 	$(end_setup)

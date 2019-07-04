@@ -1,7 +1,9 @@
+.SILENT: zathura
+
 zathura:
 	$(start_setup)
 
-	@mkdir -p $(DESTDIR)$(CONFIG_DIR)/zathura/config.d
+	mkdir -p $(DESTDIR)$(CONFIG_DIR)/zathura/config.d
 
 	$(setup_file)/zathurarc > $(DESTDIR)$(CONFIG_DIR)/zathura/zathurarc
 	$(setup_file)/config.d/bindings > $(DESTDIR)$(CONFIG_DIR)/zathura/config.d/bindings

@@ -1,7 +1,9 @@
+.SILENT: qutebrowser
+
 qutebrowser:
 	$(start_setup)
 
-	@mkdir -p $(DESTDIR)$(CONFIG_DIR)/qutebrowser/config.d
+	mkdir -p $(DESTDIR)$(CONFIG_DIR)/qutebrowser/config.d
 
 	$(setup_file)/config.py > $(DESTDIR)$(CONFIG_DIR)/qutebrowser/config.py
 	$(setup_file)/config.d/bindings.py > $(DESTDIR)$(CONFIG_DIR)/qutebrowser/config.d/bindings.py

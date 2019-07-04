@@ -1,7 +1,9 @@
+.SILENT: newsboat
+
 newsboat:
 	$(start_setup)
 
-	@mkdir -p $(DESTDIR)$(CONFIG_DIR)/newsboats/config.d
+	mkdir -p $(DESTDIR)$(CONFIG_DIR)/newsboats/config.d
 
 	$(setup_file)/config > $(DESTDIR)$(CONFIG_DIR)/newsboat/config
 	$(setup_file)/urls > $(DESTDIR)$(CONFIG_DIR)/newsboat/urls

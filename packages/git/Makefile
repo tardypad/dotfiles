@@ -1,9 +1,11 @@
+.SILENT: git
+
 git:
 	$(start_setup)
 
-	@mkdir -p $(DESTDIR)$(CONFIG_DIR)/git/config.d
-	@mkdir -p $(DESTDIR)$(CONFIG_DIR)/git/template/info
-	@mkdir -p $(DESTDIR)$(CONFIG_DIR)/git/scripts
+	mkdir -p $(DESTDIR)$(CONFIG_DIR)/git/config.d
+	mkdir -p $(DESTDIR)$(CONFIG_DIR)/git/template/info
+	mkdir -p $(DESTDIR)$(CONFIG_DIR)/git/scripts
 
 	$(setup_file)/config > $(DESTDIR)$(CONFIG_DIR)/git/config
 	$(setup_file)/ignore > $(DESTDIR)$(CONFIG_DIR)/git/ignore
@@ -18,6 +20,6 @@ git:
 	$(setup_file)/scripts/git-stamp > $(DESTDIR)$(CONFIG_DIR)/git/scripts/git-stamp
 	$(setup_file)/scripts/git-url > $(DESTDIR)$(CONFIG_DIR)/git/scripts/git-url
 
-	@chmod +x $(DESTDIR)$(CONFIG_DIR)/git/scripts/*
+	chmod +x $(DESTDIR)$(CONFIG_DIR)/git/scripts/*
 
 	$(end_setup)

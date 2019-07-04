@@ -1,11 +1,13 @@
+.SILENT: zsh
+
 zsh:
 	$(start_setup)
 
-	@mkdir -p $(DESTDIR)$(HOME)/.zsh/config.d
-	@mkdir -p $(DESTDIR)$(HOME)/.zsh/completions/git
-	@mkdir -p $(DESTDIR)$(HOME)/.zsh/functions
-	@mkdir -p $(DESTDIR)$(HOME)/.zsh/scripts
-	@mkdir -p $(DESTDIR)$(CONFIG_DIR)/tmux/env/projects
+	mkdir -p $(DESTDIR)$(HOME)/.zsh/config.d
+	mkdir -p $(DESTDIR)$(HOME)/.zsh/completions/git
+	mkdir -p $(DESTDIR)$(HOME)/.zsh/functions
+	mkdir -p $(DESTDIR)$(HOME)/.zsh/scripts
+	mkdir -p $(DESTDIR)$(CONFIG_DIR)/tmux/env/projects
 
 	$(setup_file)/zshrc > $(DESTDIR)$(HOME)/.zshrc
 	$(setup_file)/zshenv > $(DESTDIR)$(HOME)/.zshenv
@@ -68,28 +70,28 @@ zsh:
 	$(setup_file)/env/tmux/projects/dotfiles.sh > $(DESTDIR)$(CONFIG_DIR)/tmux/env/projects/dotfiles.sh
 	$(setup_file)/env/tmux/projects/tardypad_me.sh > $(DESTDIR)$(CONFIG_DIR)/tmux/env/projects/tardypad_me.sh
 
-	@ln -sf _git-url $(DESTDIR)$(HOME)/.zsh/completions/git/_git-browse
-	@ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-bwc
-	@ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-bwi
-	@ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-bwr
-	@ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-commit-description
-	@ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-commit-issue-id
-	@ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-commit-review-id
-	@ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-commit-subject
-	@ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-head
-	@ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-rbi
-	@ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-sh
-	@ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-sh0
-	@ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-urlc
-	@ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-urli
-	@ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-urlr
+	ln -sf _git-url $(DESTDIR)$(HOME)/.zsh/completions/git/_git-browse
+	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-bwc
+	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-bwi
+	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-bwr
+	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-commit-description
+	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-commit-issue-id
+	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-commit-review-id
+	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-commit-subject
+	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-head
+	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-rbi
+	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-sh
+	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-sh0
+	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-urlc
+	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-urli
+	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-urlr
 
-	@chmod +x $(DESTDIR)$(HOME)/.zsh/scripts/*
-	@chmod +x $(DESTDIR)$(CONFIG_DIR)/tmux/env/projects/*
+	chmod +x $(DESTDIR)$(HOME)/.zsh/scripts/*
+	chmod +x $(DESTDIR)$(CONFIG_DIR)/tmux/env/projects/*
 
 ifeq ($(IS_LOCAL_INSTALL),'true')
     # clear completion cache
-	@rm -f $(HOME)/.zcompdump
+	rm -f $(HOME)/.zcompdump
 endif
 
 	$(end_setup)

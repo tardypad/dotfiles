@@ -1,8 +1,10 @@
+.SILENT: tmux
+
 tmux:
 	$(start_setup)
 
-	@mkdir -p $(DESTDIR)$(HOME)/.tmux/config.d
-	@mkdir -p $(DESTDIR)$(HOME)/.tmux/scripts
+	mkdir -p $(DESTDIR)$(HOME)/.tmux/config.d
+	mkdir -p $(DESTDIR)$(HOME)/.tmux/scripts
 
 	$(setup_file)/tmux.conf > $(DESTDIR)$(HOME)/.tmux.conf
 	$(setup_file)/config.d/bindings.tmux > $(DESTDIR)$(HOME)/.tmux/config.d/bindings.tmux
@@ -17,6 +19,6 @@ tmux:
 	$(setup_file)/scripts/toggle_monitor_silence.sh > $(DESTDIR)$(HOME)/.tmux/scripts/toggle_monitor_silence.sh
 	$(setup_file)/scripts/toggle_no_distraction.sh > $(DESTDIR)$(HOME)/.tmux/scripts/toggle_no_distraction.sh
 
-	@chmod +x $(DESTDIR)$(HOME)/.tmux/scripts/*
+	chmod +x $(DESTDIR)$(HOME)/.tmux/scripts/*
 
 	$(end_setup)

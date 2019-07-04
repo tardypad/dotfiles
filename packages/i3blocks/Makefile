@@ -1,7 +1,9 @@
+.SILENT: i3blocks
+
 i3blocks:
 	$(start_setup)
 
-	@mkdir -p $(DESTDIR)$(CONFIG_DIR)/i3blocks/scripts
+	mkdir -p $(DESTDIR)$(CONFIG_DIR)/i3blocks/scripts
 
 	$(setup_file)/config > $(DESTDIR)$(CONFIG_DIR)/i3blocks/config
 	$(setup_file)/scripts/bluetooth > $(DESTDIR)$(CONFIG_DIR)/i3blocks/scripts/bluetooth
@@ -14,6 +16,6 @@ i3blocks:
 	$(setup_file)/scripts/power > $(DESTDIR)$(CONFIG_DIR)/i3blocks/scripts/power
 	$(setup_file)/scripts/volume > $(DESTDIR)$(CONFIG_DIR)/i3blocks/scripts/volume
 
-	@chmod +x $(DESTDIR)$(CONFIG_DIR)/i3blocks/scripts/*
+	chmod +x $(DESTDIR)$(CONFIG_DIR)/i3blocks/scripts/*
 
 	$(end_setup)

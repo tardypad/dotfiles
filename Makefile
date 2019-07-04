@@ -16,10 +16,10 @@ all: $(PACKAGES)
 .PHONY: all $(PACKAGES)
 
 # info display macros
-start_setup = @echo -n "… setup $@"
-end_setup   = @echo -e "\r✔ setup $@"
+start_setup = echo -n "… setup $@"
+end_setup   = echo -e "\r✔ setup $@"
 
-setup_file = @colors/substitute_placeholders $(THEME) packages/$@
+setup_file = colors/substitute_placeholders $(THEME) packages/$@
 
 # all Makefiles could be included with "include */Makefile"
 # or "$(foreach package, $(PACKAGES), $(eval include $(package)/Makefile))"

@@ -1,7 +1,9 @@
+.SILENT: util-linux
+
 util-linux:
 	$(start_setup)
 
-	@mkdir -p $(DESTDIR)$(HOME)
+	mkdir -p $(DESTDIR)$(HOME)
 
 	$(setup_file)/hushlogin > $(DESTDIR)$(HOME)/.hushlogin
 

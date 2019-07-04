@@ -1,7 +1,9 @@
+.SILENT: rbtools
+
 rbtools:
 	$(start_setup)
 
-	@mkdir -p $(DESTDIR)$(HOME)
+	mkdir -p $(DESTDIR)$(HOME)
 
 	$(setup_file)/reviewboardrc > $(DESTDIR)$(HOME)/.reviewboardrc
 

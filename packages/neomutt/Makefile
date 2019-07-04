@@ -1,13 +1,15 @@
+.SILENT: neomutt
+
 neomutt:
 	$(start_setup)
 
     # create necessary runtime directories
-	@mkdir --parents $(DESTDIR)$(CACHE_DIR)/neomutt/headers
-	@mkdir --parents $(DESTDIR)$(CACHE_DIR)/neomutt/bodies
-	@mkdir --parents $(DESTDIR)$(CACHE_DIR)/neomutt/tmp
+	mkdir --parents $(DESTDIR)$(CACHE_DIR)/neomutt/headers
+	mkdir --parents $(DESTDIR)$(CACHE_DIR)/neomutt/bodies
+	mkdir --parents $(DESTDIR)$(CACHE_DIR)/neomutt/tmp
 
-	@mkdir -p $(DESTDIR)$(CONFIG_DIR)/neomutt/config.d/accounts
-	@mkdir -p $(DESTDIR)$(CONFIG_DIR)/neomutt/config.d/signatures
+	mkdir -p $(DESTDIR)$(CONFIG_DIR)/neomutt/config.d/accounts
+	mkdir -p $(DESTDIR)$(CONFIG_DIR)/neomutt/config.d/signatures
 
 	$(setup_file)/neomuttrc > $(DESTDIR)$(CONFIG_DIR)/neomutt/neomuttrc
 	$(setup_file)/config.d/bindings.mutt > $(DESTDIR)$(CONFIG_DIR)/neomutt/config.d/bindings.mutt
