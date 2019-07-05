@@ -6,7 +6,7 @@ init_variables() {
   CACHE_TOPICS_PATH="${XDG_CACHE_HOME:-$HOME/.cache}/help_topics"
   ZSH_VERSION=$( zsh --version | cut -d ' ' -f 2 )
   ZSH_HELPDIR="/usr/share/zsh/${ZSH_VERSION}/help"
-  MAN_DIR='/usr/share/man'
+  MAN_DIRS='/usr/share/man/man*'
 
   TOPIC=
 }
@@ -39,7 +39,7 @@ options_selection()
 
   # man options
   OPTIONS="${OPTIONS}:$(
-    find -L "${MAN_DIR}" -type f -name "${TOPIC}.*" \
+    find -L ${MAN_DIRS} -type f -name "${TOPIC}.*" \
       | sed 's/.*\.\([^.]*\).gz/\1/'
   )"
 
@@ -97,7 +97,7 @@ search_help() {
     return 0
   fi
 
-  if [ "$( find -L "${MAN_DIR}" -type f -name "${TOPIC}.*" \
+  if [ "$( find -L ${MAN_DIRS} -type f -name "${TOPIC}.*" \
             | wc -l )" -ge 1 ]; then \
     man "${TOPIC}"
     return 0
@@ -123,7 +123,7 @@ should_build_topics_cache() {
     {
       printf '%s' "${PATH}" | tr ':' '\n';
       echo "${ZSH_HELPDIR}";
-      find -L "${MAN_DIR}" -type d;
+      find -L ${MAN_DIRS} -type d;
     } \
     | xargs -I {} -- stat -c '%Y' {}  2> /dev/null \
     | sort \
@@ -149,7 +149,7 @@ build_topics_cache() {
   ZSH_HELP_TOPICS=$( ls "${ZSH_HELPDIR}" )
 
   MAN_TOPICS=$(
-    find -L "${MAN_DIR}" -type f \
+    find -L ${MAN_DIRS} -type f \
       | sed 's#.*/\([^/]*\)\.[^\.]*\.gz#\1#'
   )
 
