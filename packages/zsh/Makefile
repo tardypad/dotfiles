@@ -71,6 +71,7 @@ zsh:
 	$(setup_file)/env/tmux/projects/dotfiles.sh            > $(DESTDIR)$(CONFIG_DIR)/tmux/env/projects/dotfiles.sh
 	$(setup_file)/env/tmux/projects/tardypad_me.sh         > $(DESTDIR)$(CONFIG_DIR)/tmux/env/projects/tardypad_me.sh
 
+    # same git completions
 	ln -sf _git-url      $(DESTDIR)$(HOME)/.zsh/completions/git/_git-browse
 	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-bwc
 	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-bwi

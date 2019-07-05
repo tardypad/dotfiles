@@ -19,6 +19,7 @@ systemd:
 	$(setup_file)/user/qutebrowser_update_adblock.service > $(DESTDIR)$(CONFIG_DIR)/systemd/user/qutebrowser_update_adblock.service
 	$(setup_file)/user/qutebrowser_update_adblock.timer   > $(DESTDIR)$(CONFIG_DIR)/systemd/user/qutebrowser_update_adblock.timer
 
+    # enable paths and timers
 	ln -sf ../backup_bookmarks.path            $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants/backup_bookmarks.path
 	ln -sf ../backup_notes.path                $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants/backup_notes.path
 	ln -sf ../notify_low_battery.timer         $(DESTDIR)$(CONFIG_DIR)/systemd/user/timers.target.wants/notify_low_battery.timer
