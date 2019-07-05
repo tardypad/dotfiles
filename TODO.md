@@ -25,6 +25,9 @@
     * remove usage of long options in own scripts and use getopts
     * list on top of scripts files, the non POSIX commands used
   - turn script --help usage display into proper man pages
+  - simplify launch_app script by using fzf --with-nth options
+  - move env setup outside of zsh package into its own root folder
+  - move sway applications and sounds outside of sway package into their own root folders
 
 # New Features
   - create scripts to manage AUR packages with personal repository  
