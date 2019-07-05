@@ -9,11 +9,12 @@ init_variables() {
   MAN_DIRS='/usr/share/man/man*'
 
   TOPIC=
+  SECTION=
 }
 
 usage() {
   cat <<- EOF
-	usage: ${COMMAND} [<options>] [<topic>]
+	usage: ${COMMAND} [<options>] [<topic>] [<section>]
 
 	Get help about a topic
 
@@ -28,53 +29,45 @@ error() {
   exit 1
 } >&2
 
-options_selection()
+select_section()
 {
-  OPTIONS=
+  SECTIONS=
 
-  # zsh option
+  # zsh section
   if [ -f "${ZSH_HELPDIR}/${TOPIC}" ]; then
-    OPTIONS="${OPTIONS}:zsh"
+    SECTIONS="${SECTIONS}:zsh"
   fi
 
-  # man options
-  OPTIONS="${OPTIONS}:$(
-    find -L ${MAN_DIRS} -type f -name "${TOPIC}.*" \
+  # man sections
+  SECTIONS="${SECTIONS}:$(
+    find -L ${MAN_DIRS} -type f -name "${TOPIC}.[0-9]*" \
       | sed 's/.*\.\([^.]*\).gz/\1/'
   )"
 
-  # don't show menu if there is not at least 2 options
-  if [ "$( echo "${OPTIONS}" | grep -c '.' )" -lt 2 ]; then
+  # don't show menu if there is not at least 2 sections
+  if [ "$( echo "${SECTIONS}" | grep -c '.' )" -lt 2 ]; then
     return 0
   fi
 
   # manual menu building
-  # order of displayed options is the order of help lookup
+  # order of displayed sections is the order of help lookup
   # for example: zsh / 1 / 1p / 3
   echo 'Available help pages:'
-  echo "${OPTIONS}" \
+  echo "${SECTIONS}" \
     | tr ':' '\n' \
     | grep '.' \
-    | while read -r OPTION; do
-        echo "${OPTION})@$( section_name "${OPTION}" )"
+    | while read -r ITEM; do
+        echo "${ITEM})@$( section_name "${ITEM}" )"
       done \
     | column -t -s '@' \
     | sort -n
-  printf 'Select option (empty for default): '
+  printf 'Select section (empty for default): '
 
-  read -r SELECTED_OPTION
-
-  # ZSH help is the default page displayed
-  if [ -n "${SELECTED_OPTION}" ] \
-     && [ "${SELECTED_OPTION}" != 'zsh' ]; then
-    TOPIC="${TOPIC}.${SELECTED_OPTION}"
-  fi
+  read -r SECTION
 }
 
 section_name() {
-  SECTION="$1"
-
-  case "${SECTION}" in
+  case "$1" in
     zsh) echo 'ZSH help' ;;
     0p) echo 'Header files (POSIX)' ;;
     0*) echo 'Header files';;
@@ -92,14 +85,26 @@ section_name() {
 }
 
 search_help() {
-  if [ -f "${ZSH_HELPDIR}/${TOPIC}" ]; then
-    "${PAGER}" "${ZSH_HELPDIR}/${TOPIC}"
-    return 0
+  if [ -z "${SECTION}" ] || [ "${SECTION}" = 'zsh' ]; then
+    if [ -f "${ZSH_HELPDIR}/${TOPIC}" ]; then
+      "${PAGER}" "${ZSH_HELPDIR}/${TOPIC}"
+      return 0
+    fi
   fi
 
-  if [ "$( find -L ${MAN_DIRS} -type f -name "${TOPIC}.*" \
+  if [ -z "${SECTION}" ]; then
+    NAME_PATTERN="${TOPIC}.[0-9]*"
+  else
+    NAME_PATTERN="${TOPIC}.${SECTION}.*"
+  fi
+
+  if [ "$( find -L ${MAN_DIRS} -type f -name "${NAME_PATTERN}" \
             | wc -l )" -ge 1 ]; then \
-    man "${TOPIC}"
+    if [ -z "${SECTION}" ]; then
+      man "${TOPIC}"
+    else
+      man "${TOPIC}.${SECTION}"
+    fi
     return 0
   fi
 
@@ -187,6 +192,7 @@ parse_options() {
   done
 
   TOPIC="$1"
+  SECTION="$2"
 }
 
 init_variables
@@ -198,5 +204,8 @@ fi
 
 [ -z "${TOPIC}" ] && exit 0
 
-options_selection
+if [ -z "${SECTION}" ]; then
+  select_section
+fi
+
 search_help
