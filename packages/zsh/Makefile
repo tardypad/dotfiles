@@ -91,9 +91,9 @@ zsh:
 	chmod +x $(DESTDIR)$(HOME)/.zsh/scripts/*
 	chmod +x $(DESTDIR)$(CONFIG_DIR)/tmux/env/projects/*
 
-ifeq ($(IS_LOCAL_INSTALL),'true')
     # clear completion cache
-	rm -f $(HOME)/.zcompdump
-endif
+	if [ -z $(DESTDIR) ] ; then \
+		rm -f $(HOME)/.zcompdump; \
+	fi
 
 	$(end_setup)

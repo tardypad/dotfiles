@@ -26,9 +26,9 @@ systemd:
 	ln -sf ../notify_package_updates.timer     $(DESTDIR)$(CONFIG_DIR)/systemd/user/timers.target.wants/notify_package_updates.timer
 	ln -sf ../qutebrowser_update_adblock.timer $(DESTDIR)$(CONFIG_DIR)/systemd/user/timers.target.wants/qutebrowser_update_adblock.timer
 
-ifeq ($(IS_LOCAL_INSTALL),'true')
     # reload daemon
-	systemctl --user daemon-reload
-endif
+	if [ -z $(DESTDIR) ] ; then \
+		systemctl --user daemon-reload; \
+	fi
 
 	$(end_setup)

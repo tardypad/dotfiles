@@ -10,12 +10,12 @@ vim:
 	mkdir -p $(DESTDIR)$(HOME)/.vim/undo
 	mkdir -p $(DESTDIR)$(HOME)/.vim/sessions
 
-ifeq ($(IS_LOCAL_INSTALL),'true')
-  # backup locally added new spelling words
-	if ! diff packages/vim/spell/en.utf-8.add $(DESTDIR)$(HOME)/.vim/spell/en.utf-8.add > /dev/null 2>&1; then \
-		cp $(DESTDIR)$(HOME)/.vim/spell/en.utf-8.add vim_spell_en.bkp; \
+    # backup locally added new spelling words
+	if [ -z $(DESTDIR) ] ; then \
+		if ! diff packages/vim/spell/en.utf-8.add $(DESTDIR)$(HOME)/.vim/spell/en.utf-8.add > /dev/null 2>&1; then \
+			cp $(DESTDIR)$(HOME)/.vim/spell/en.utf-8.add vim_spell_en.bkp; \
+		fi \
 	fi
-endif
 
 	mkdir -p $(DESTDIR)$(HOME)/.vim/colors
 	mkdir -p $(DESTDIR)$(HOME)/.vim/config.d
@@ -73,15 +73,17 @@ endif
 	curl -sL https://raw.githubusercontent.com/Icinga/icinga2/3cb2c1d1435f19bc5e46fa8f8518645f62549dde/tools/syntax/vim/syntax/icinga2.vim \
 		-o $(DESTDIR)$(HOME)/.vim/plugged/icinga2/syntax/icinga2.vim
 
-ifeq ($(IS_LOCAL_INSTALL),'true')
     # load only the plugins definition and install/clean/update them
-	vim -N --noplugin -u $(HOME)/.vim/config.d/plugins.vim \
-		+PlugInstall +PlugClean! +PlugUpdate +qall \
-		> /dev/null 2>&1
+	if [ -z $(DESTDIR) ] ; then \
+		vim -N --noplugin -u $(HOME)/.vim/config.d/plugins.vim \
+			+PlugInstall +PlugClean! +PlugUpdate +qall \
+			> /dev/null 2>&1; \
+	fi
 
     # generate spell file
-	vim +"mkspell! $(HOME)/.vim/spell/en.utf-8.add.spl $(HOME)/.vim/spell/en.utf-8.add" +qall \
-		> /dev/null 2>&1
-endif
+	if [ -z $(DESTDIR) ] ; then \
+		vim +"mkspell! $(HOME)/.vim/spell/en.utf-8.add.spl $(HOME)/.vim/spell/en.utf-8.add" +qall \
+		> /dev/null 2>&1; \
+	fi
 
 	$(end_setup)

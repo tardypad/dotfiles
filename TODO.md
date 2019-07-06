@@ -20,7 +20,6 @@
   - similar keybindings for reload (currently Alt-R) and quit (currently Ctrl-q)  
     maybe Alt-r and Alt-q
   - POSIX compliancy:
-    * change Makefiles features
     * add info about it in README
     * remove usage of long options in own scripts and use getopts
     * list on top of scripts files, the non POSIX commands used

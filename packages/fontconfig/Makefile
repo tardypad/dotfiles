@@ -8,9 +8,9 @@ fontconfig:
 
 	$(setup_file)/fonts.conf > $(DESTDIR)$(CONFIG_DIR)/fontconfig/fonts.conf
 
-ifeq ($(IS_LOCAL_INSTALL),'true')
     # rebuild fonts cache
-	fc-cache -f
-endif
+	if [ -z $(DESTDIR) ] ; then \
+		fc-cache -f; \
+	fi
 
 	$(end_setup)

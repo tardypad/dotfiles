@@ -50,7 +50,7 @@ about versions, extensions, plugins,...
 
 ## Setup
 
-The setup is done using [Gnu Make](https://www.gnu.org/software/make/).  
+The setup is done using make.  
 Some tools' setup require `curl` to download files.
 
 ```shell

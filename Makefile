@@ -1,21 +1,16 @@
-# XDG common folders
-CONFIG_DIR := $(if $(XDG_CONFIG_HOME),$(XDG_CONFIG_HOME),$(HOME)/.config)
-DATA_DIR := $(if $(XDG_DATA_HOME),$(XDG_DATA_HOME),$(HOME)/.local/share)
-CACHE_DIR := $(if $(XDG_CACHE_HOME),$(XDG_CACHE_HOME),$(HOME)/.cache)
+.POSIX:
+.DEFAULT: all
 
-IS_LOCAL_INSTALL := $(if $(DESTDIR),'false','true')
+THEME = light
 
-THEME := $(if $(THEME),$(THEME),light)
+CONFIG_DIR = $(HOME)/.config
+DATA_DIR   = $(HOME)/.local/share
+CACHE_DIR  = $(HOME)/.cache
 
-# info display macros
 start_setup = printf "… setup $@"
 end_setup   = printf "\r✔ setup $@\n"
+setup_file  = colors/substitute_placeholders $(THEME) packages/$@
 
-setup_file = colors/substitute_placeholders $(THEME) packages/$@
-
-# all Makefiles could be included with "include */Makefile"
-# or "$(foreach package, $(PACKAGES), $(eval include $(package)/Makefile))"
-# but then we lose the autocompletion in the command line :(
 include packages/aria2/Makefile
 include packages/coreutils/Makefile
 include packages/fontconfig/Makefile
