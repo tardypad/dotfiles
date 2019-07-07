@@ -46,4 +46,5 @@ include packages/zathura/Makefile
 include packages/zsh/Makefile
 
 include data/applications/Makefile
+include data/images/Makefile
 include data/sounds/Makefile

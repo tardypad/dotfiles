@@ -4,9 +4,6 @@ all: swaylock
 swaylock:
 	$(start_setup)
 
-	mkdir -p $(DESTDIR)$(CONFIG_DIR)/swaylock/images
-
-	$(setup_file)/config          > $(DESTDIR)$(CONFIG_DIR)/swaylock/config
-	$(setup_file)/images/lock.svg > $(DESTDIR)$(CONFIG_DIR)/swaylock/images/lock.svg
+	$(setup_file)/config > $(DESTDIR)$(CONFIG_DIR)/swaylock/config
 
 	$(end_setup)

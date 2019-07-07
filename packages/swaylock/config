@@ -1,5 +1,5 @@
 color={color/background/hex}
-image=~/.config/swaylock/images/lock.svg
+image=~/.local/share/images/lock.svg
 scaling=center
 
 ignore-empty-password
