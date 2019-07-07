@@ -8,7 +8,6 @@ sway:
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/sway/scripts
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/sway/sounds
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/swaynag
-	mkdir -p $(DESTDIR)$(DATA_DIR)/applications
 
 	$(setup_file)/config                                       > $(DESTDIR)$(CONFIG_DIR)/sway/config
 	$(setup_file)/config.d/bar                                 > $(DESTDIR)$(CONFIG_DIR)/sway/config.d/bar
@@ -48,22 +47,6 @@ sway:
 	$(setup_file)/scripts/notify_tmux_alert                    > $(DESTDIR)$(CONFIG_DIR)/sway/scripts/notify_tmux_alert
 	$(setup_file)/scripts/rename_workspace                     > $(DESTDIR)$(CONFIG_DIR)/sway/scripts/rename_workspace
 	$(setup_file)/scripts/run_command                          > $(DESTDIR)$(CONFIG_DIR)/sway/scripts/run_command
-	$(setup_file)/applications/chat_client.desktop             > $(DESTDIR)$(DATA_DIR)/applications/chat_client.desktop
-	$(setup_file)/applications/chromium_web_browser.desktop    > $(DESTDIR)$(DATA_DIR)/applications/chromium_web_browser.desktop
-	$(setup_file)/applications/document_viewer.desktop         > $(DESTDIR)$(DATA_DIR)/applications/document_viewer.desktop
-	$(setup_file)/applications/ebook_manager.desktop           > $(DESTDIR)$(DATA_DIR)/applications/ebook_manager.desktop
-	$(setup_file)/applications/file_manager.desktop            > $(DESTDIR)$(DATA_DIR)/applications/file_manager.desktop
-	$(setup_file)/applications/firefox_web_browser.desktop     > $(DESTDIR)$(DATA_DIR)/applications/firefox_web_browser.desktop
-	$(setup_file)/applications/mail_client.desktop             > $(DESTDIR)$(DATA_DIR)/applications/mail_client.desktop
-	$(setup_file)/applications/music_player.desktop            > $(DESTDIR)$(DATA_DIR)/applications/music_player.desktop
-	$(setup_file)/applications/news_reader.desktop             > $(DESTDIR)$(DATA_DIR)/applications/news_reader.desktop
-	$(setup_file)/applications/qutebrowser_web_browser.desktop > $(DESTDIR)$(DATA_DIR)/applications/qutebrowser_web_browser.desktop
-	$(setup_file)/applications/raster_graphics_editor.desktop  > $(DESTDIR)$(DATA_DIR)/applications/raster_graphics_editor.desktop
-	$(setup_file)/applications/sailfishos_ide.desktop          > $(DESTDIR)$(DATA_DIR)/applications/sailfishos_ide.desktop
-	$(setup_file)/applications/system_monitor.desktop          > $(DESTDIR)$(DATA_DIR)/applications/system_monitor.desktop
-	$(setup_file)/applications/terminal.desktop                > $(DESTDIR)$(DATA_DIR)/applications/terminal.desktop
-	$(setup_file)/applications/vector_graphics_editor.desktop  > $(DESTDIR)$(DATA_DIR)/applications/vector_graphics_editor.desktop
-	$(setup_file)/applications/video_player.desktop            > $(DESTDIR)$(DATA_DIR)/applications/video_player.desktop
 	$(setup_file)/sounds/end_pomodoro.wav                      > $(DESTDIR)$(CONFIG_DIR)/sway/sounds/end_pomodoro.wav
 	$(setup_file)/sounds/low_battery.wav                       > $(DESTDIR)$(CONFIG_DIR)/sway/sounds/low_battery.wav
 	$(setup_file)/swaynag/config                               > $(DESTDIR)$(CONFIG_DIR)/swaynag/config

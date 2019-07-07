@@ -25,7 +25,7 @@
     * list on top of scripts files, the non POSIX commands used
   - turn script --help usage display into proper man pages
   - move env setup outside of zsh package into its own root folder
-  - move sway applications and sounds outside of sway package into their own root folders
+  - move sway sounds outside of sway package into its own root folder
 
 # New Features
   - create scripts to manage AUR packages with personal repository  
