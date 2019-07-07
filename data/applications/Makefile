@@ -17,7 +17,6 @@ applications:
 	cp data/applications/news_reader.desktop             $(DESTDIR)$(DATA_DIR)/applications/news_reader.desktop
 	cp data/applications/qutebrowser_web_browser.desktop $(DESTDIR)$(DATA_DIR)/applications/qutebrowser_web_browser.desktop
 	cp data/applications/raster_graphics_editor.desktop  $(DESTDIR)$(DATA_DIR)/applications/raster_graphics_editor.desktop
-	cp data/applications/sailfishos_ide.desktop          $(DESTDIR)$(DATA_DIR)/applications/sailfishos_ide.desktop
 	cp data/applications/system_monitor.desktop          $(DESTDIR)$(DATA_DIR)/applications/system_monitor.desktop
 	cp data/applications/terminal.desktop                $(DESTDIR)$(DATA_DIR)/applications/terminal.desktop
 	cp data/applications/vector_graphics_editor.desktop  $(DESTDIR)$(DATA_DIR)/applications/vector_graphics_editor.desktop
