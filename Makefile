@@ -44,4 +44,6 @@ include packages/xdg-user-dirs/Makefile
 include packages/xdg-utils/Makefile
 include packages/zathura/Makefile
 include packages/zsh/Makefile
+
 include data/applications/Makefile
+include data/sounds/Makefile

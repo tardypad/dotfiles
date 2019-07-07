@@ -6,7 +6,6 @@ sway:
 
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/sway/config.d
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/sway/scripts
-	mkdir -p $(DESTDIR)$(CONFIG_DIR)/sway/sounds
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/swaynag
 
 	$(setup_file)/config                                       > $(DESTDIR)$(CONFIG_DIR)/sway/config
@@ -47,8 +46,6 @@ sway:
 	$(setup_file)/scripts/notify_tmux_alert                    > $(DESTDIR)$(CONFIG_DIR)/sway/scripts/notify_tmux_alert
 	$(setup_file)/scripts/rename_workspace                     > $(DESTDIR)$(CONFIG_DIR)/sway/scripts/rename_workspace
 	$(setup_file)/scripts/run_command                          > $(DESTDIR)$(CONFIG_DIR)/sway/scripts/run_command
-	$(setup_file)/sounds/end_pomodoro.wav                      > $(DESTDIR)$(CONFIG_DIR)/sway/sounds/end_pomodoro.wav
-	$(setup_file)/sounds/low_battery.wav                       > $(DESTDIR)$(CONFIG_DIR)/sway/sounds/low_battery.wav
 	$(setup_file)/swaynag/config                               > $(DESTDIR)$(CONFIG_DIR)/swaynag/config
 
 	chmod +x $(DESTDIR)$(CONFIG_DIR)/sway/scripts/*

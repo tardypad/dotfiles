@@ -25,5 +25,5 @@ notify \
   'Battery level is getting low'
 
 aplay \
-  "${XDG_CONFIG_HOME:-$HOME/.config}/sway/sounds/low_battery.wav" \
+  "${XDG_DATA_HOME:-$HOME/.local/share}/sounds/low_battery.wav" \
   2> /dev/null

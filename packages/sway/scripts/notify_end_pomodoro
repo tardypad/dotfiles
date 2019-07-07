@@ -7,5 +7,5 @@ notify \
   'Take a break'
 
 aplay \
-  "${XDG_CONFIG_HOME:-$HOME/.config}/sway/sounds/end_pomodoro.wav" \
+  "${XDG_DATA_HOME:-$HOME/.local/share}/sounds/end_pomodoro.wav" \
   2> /dev/null
