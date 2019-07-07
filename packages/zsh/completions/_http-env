@@ -1,6 +1,6 @@
 #compdef http-env
 
-local env_dir_path="${XDG_CONFIG_HOME:-$HOME/.config}/http/env/"
+local env_dir_path="${XDG_DATA_HOME:-$HOME/.local/share}/env/http"
 
 _projects() {
   local folders=( $(

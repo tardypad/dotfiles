@@ -3,7 +3,7 @@
 init_variables() {
   COMMAND=${0##*/}
 
-  ENV_DIR_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/http/env"
+  ENV_DIR_PATH="${XDG_DATA_HOME:-$HOME/.local/share}/env/http"
 
   HTTP_OPTIONS=
   PROJECT=

@@ -8,7 +8,6 @@ zsh:
 	mkdir -p $(DESTDIR)$(HOME)/.zsh/completions/git
 	mkdir -p $(DESTDIR)$(HOME)/.zsh/functions
 	mkdir -p $(DESTDIR)$(HOME)/.zsh/scripts
-	mkdir -p $(DESTDIR)$(CONFIG_DIR)/tmux/env/projects
 
 	$(setup_packages_file)/zshrc                                    > $(DESTDIR)$(HOME)/.zshrc
 	$(setup_packages_file)/zshenv                                   > $(DESTDIR)$(HOME)/.zshenv
@@ -67,9 +66,6 @@ zsh:
 	$(setup_packages_file)/scripts/status                           > $(DESTDIR)$(HOME)/.zsh/scripts/status
 	$(setup_packages_file)/scripts/tmux-env                         > $(DESTDIR)$(HOME)/.zsh/scripts/tmux-env
 	$(setup_packages_file)/scripts/weechat-fifo                     > $(DESTDIR)$(HOME)/.zsh/scripts/weechat-fifo
-	$(setup_packages_file)/env/tmux/projects/arch_packages.sh       > $(DESTDIR)$(CONFIG_DIR)/tmux/env/projects/arch_packages.sh
-	$(setup_packages_file)/env/tmux/projects/dotfiles.sh            > $(DESTDIR)$(CONFIG_DIR)/tmux/env/projects/dotfiles.sh
-	$(setup_packages_file)/env/tmux/projects/tardypad_me.sh         > $(DESTDIR)$(CONFIG_DIR)/tmux/env/projects/tardypad_me.sh
 
     # same git completions
 	ln -sf _git-url      $(DESTDIR)$(HOME)/.zsh/completions/git/_git-browse
@@ -89,7 +85,6 @@ zsh:
 	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-urlr
 
 	chmod +x $(DESTDIR)$(HOME)/.zsh/scripts/*
-	chmod +x $(DESTDIR)$(CONFIG_DIR)/tmux/env/projects/*
 
     # clear completion cache
 	if [ -z $(DESTDIR) ] ; then \

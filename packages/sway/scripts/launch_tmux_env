@@ -5,7 +5,7 @@ ENV_NAME="$1"
 SESSION=$(
   {
     echo NEW;
-    find "${XDG_CONFIG_HOME:-$HOME/.config}/tmux/env/${ENV_NAME}" \
+    find "${XDG_DATA_HOME:-$HOME/.local/share}/env/tmux/${ENV_NAME}" \
       -type f -name '*.sh' -exec basename {} .sh \;
   } \
   | fzf_launcher "open ${ENV_NAME%s} "

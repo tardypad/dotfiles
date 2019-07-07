@@ -3,7 +3,7 @@
 init_variables() {
   COMMAND=${0##*/}
 
-  ENV_DIR_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/influxdb/env"
+  ENV_DIR_PATH="${XDG_DATA_HOME:-$HOME/.local/share}/env/influxdb"
 
   INFLUX_OPTIONS=
   PROJECT=

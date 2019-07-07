@@ -24,7 +24,6 @@
     * remove usage of long options in own scripts and use getopts
     * list on top of scripts files, the non POSIX commands used
   - turn script --help usage display into proper man pages
-  - move env setup outside of zsh package into its own root folder
 
 # New Features
   - create scripts to manage AUR packages with personal repository  
