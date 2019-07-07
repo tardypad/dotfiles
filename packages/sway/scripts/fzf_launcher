@@ -1,9 +1,11 @@
 #!/bin/sh
 
 PROMPT="$1"
+shift
 
 fzf --reverse \
     --no-multi \
     --margin 1,2,0,2 \
     --prompt "${PROMPT}" \
-    --color info:{color/background/number}
+    --color info:{color/background/number} \
+    "$@"

@@ -33,27 +33,23 @@ build_cache() {
     APP_ICON=$(
       sed -n 's/^Icon=\(.*\)/\1/p' "${APP_DESKTOP_FILE}"
     )
-    echo "${APP_ICON}  ${APP_GENERIC_NAME}&${APP_NAME}&@${APP_DESKTOP_FILE}"
+    echo "${APP_ICON}  ${APP_GENERIC_NAME}&${APP_NAME}&${APP_DESKTOP_FILE}"
   done \
     | sort \
-    | column -t -R 2 -s '&' -o '     ' \
+    | column -t -R 2 -s '&' \
     > "${CACHE_LIST_PATH}"
 }
 
 should_build_cache && build_cache
 
 SELECTED_APP=$(
-  sed 's/\(.*\)     @.*/\1/' "${CACHE_LIST_PATH}" \
-    | fzf_launcher 'run app '
+  fzf_launcher 'run app ' --with-nth ..-2 < "${CACHE_LIST_PATH}" \
+    | sed 's/.* \(.*\)$/\1/'
 )
 
 if [ -n "${SELECTED_APP}" ]; then
-  APP_DESKTOP_FILE=$(
-    sed -n "/^${SELECTED_APP}.*/s/.*@\(.*\)/\1/p" "${CACHE_LIST_PATH}"
-  )
-
   # #FIXME: not sure why running exec_desktop_entry directly without using swaymsg
   # doesn't work when ran from the launcher
   swaymsg -q exec \
-    "exec_desktop_entry ${APP_DESKTOP_FILE}"
+    "exec_desktop_entry ${SELECTED_APP}"
 fi
