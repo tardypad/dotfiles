@@ -6,6 +6,6 @@ translate-shell:
 
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/translate-shell
 
-	$(setup_file)/init.trans > $(DESTDIR)$(CONFIG_DIR)/translate-shell/init.trans
+	$(setup_packages_file)/init.trans > $(DESTDIR)$(CONFIG_DIR)/translate-shell/init.trans
 
 	$(end_setup)

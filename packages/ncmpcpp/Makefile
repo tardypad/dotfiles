@@ -9,7 +9,7 @@ ncmpcpp:
 
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/ncmpcpp
 
-	$(setup_file)/config   > $(DESTDIR)$(CONFIG_DIR)/ncmpcpp/config
-	$(setup_file)/bindings > $(DESTDIR)$(CONFIG_DIR)/ncmpcpp/bindings
+	$(setup_packages_file)/config   > $(DESTDIR)$(CONFIG_DIR)/ncmpcpp/config
+	$(setup_packages_file)/bindings > $(DESTDIR)$(CONFIG_DIR)/ncmpcpp/bindings
 
 	$(end_setup)

@@ -9,7 +9,8 @@ CACHE_DIR  = $(HOME)/.cache
 
 start_setup = printf "… setup $@"
 end_setup   = printf "\r✔ setup $@\n"
-setup_file  = colors/substitute_placeholders $(THEME) packages/$@
+
+setup_packages_file  = colors/substitute_placeholders $(THEME) packages/$@
 
 include packages/aria2/Makefile
 include packages/coreutils/Makefile

@@ -6,6 +6,6 @@ coreutils:
 
 	mkdir -p $(DESTDIR)$(HOME)
 
-	$(setup_file)/dircolors > $(DESTDIR)$(HOME)/.dircolors
+	$(setup_packages_file)/dircolors > $(DESTDIR)$(HOME)/.dircolors
 
 	$(end_setup)

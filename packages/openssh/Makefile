@@ -6,7 +6,7 @@ openssh:
 
 	mkdir -p $(DESTDIR)$(HOME)/.ssh
 
-	$(setup_file)/config > $(DESTDIR)$(HOME)/.ssh/config
+	$(setup_packages_file)/config > $(DESTDIR)$(HOME)/.ssh/config
 
 	chmod 700 $(DESTDIR)$(HOME)/.ssh
 	chmod 600 $(DESTDIR)$(HOME)/.ssh/config

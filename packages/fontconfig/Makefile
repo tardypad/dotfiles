@@ -6,7 +6,7 @@ fontconfig:
 
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/fontconfig
 
-	$(setup_file)/fonts.conf > $(DESTDIR)$(CONFIG_DIR)/fontconfig/fonts.conf
+	$(setup_packages_file)/fonts.conf > $(DESTDIR)$(CONFIG_DIR)/fontconfig/fonts.conf
 
     # rebuild fonts cache
 	if [ -z $(DESTDIR) ] ; then \

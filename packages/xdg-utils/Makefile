@@ -6,6 +6,6 @@ xdg-utils:
 
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)
 
-	$(setup_file)/mimeapps.list > $(DESTDIR)$(CONFIG_DIR)/mimeapps.list
+	$(setup_packages_file)/mimeapps.list > $(DESTDIR)$(CONFIG_DIR)/mimeapps.list
 
 	$(end_setup)
