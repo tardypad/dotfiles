@@ -28,9 +28,8 @@ weechat:
 	$(setup_packages_file)/plugins/go_fzf_tmux.py                    > $(DESTDIR)$(HOME)/.weechat/python/go_fzf_tmux.py
 
     # install plugins
-    # wee-slack version from github is more recent than one in weechat scripts repo
 	mkdir -p $(DESTDIR)$(HOME)/.weechat/python
-	curl -sL https://raw.githubusercontent.com/rawdigits/wee-slack/v2.2.0/wee_slack.py \
+	curl -sL https://raw.githubusercontent.com/rawdigits/wee-slack/v2.3.0/wee_slack.py \
 		-o $(DESTDIR)$(HOME)/.weechat/python/wee_slack.py
 	curl -sL https://raw.githubusercontent.com/weechat/scripts/ffda2e03486d1e90983a35ee3505b84d10fd5244/python/colorize_nicks.py \
 		-o $(DESTDIR)$(HOME)/.weechat/python/colorize_nicks.py
