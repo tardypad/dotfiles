@@ -94,27 +94,29 @@ search_help() {
   fi
 
   if [ -z "${SECTION}" ]; then
-    NAME_PATTERN="${TOPIC}.[0-9]*"
-  else
-    NAME_PATTERN="${TOPIC}.${SECTION}.*"
-  fi
-
-  if [ "$( find -L ${MAN_DIRS} -type f -name "${NAME_PATTERN}" \
-            | wc -l )" -ge 1 ]; then \
-    if [ -z "${SECTION}" ]; then
+    if [ "$( find -L ${MAN_DIRS} -type f -name "${TOPIC}.[0-9]*" \
+              | wc -l )" -ge 1 ]; then \
       man "${TOPIC}"
-    else
-      man "${TOPIC}.${SECTION}"
+      return 0
     fi
-    return 0
+
+    if "${TOPIC}" --help > /dev/null 2>&1; then
+      "${TOPIC}" --help | "${PAGER}"
+      return 0
+    fi
+
+    echo "no help available for '${TOPIC}'"
+
+  else
+    if [ "$( find -L ${MAN_DIRS} -type f -name "${TOPIC}.${SECTION}.*" \
+              | wc -l )" -ge 1 ]; then \
+      man "${TOPIC}.${SECTION}"
+      return 0
+    fi
+
+    echo "no help available for '${TOPIC}' section '${SECTION}'"
   fi
 
-  if "${TOPIC}" --help > /dev/null 2>&1; then
-    "${TOPIC}" --help | "${PAGER}"
-    return 0
-  fi
-
-  echo "no help available for '${TOPIC}'"
   return 1
 }
 
