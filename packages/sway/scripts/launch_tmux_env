@@ -6,7 +6,8 @@ SESSION=$(
   {
     echo NEW;
     find "${XDG_DATA_HOME:-$HOME/.local/share}/env/tmux/${ENV_NAME}" \
-      -type f -name '*.sh' -exec basename {} .sh \;
+      -type f -name '*.sh' -exec basename {} .sh \; \
+      | sort
   } \
   | fzf_launcher "open ${ENV_NAME%s} "
 )
