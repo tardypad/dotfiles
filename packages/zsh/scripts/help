@@ -41,11 +41,12 @@ select_section()
   # man sections
   SECTIONS="${SECTIONS}:$(
     find -L ${MAN_DIRS} -type f -name "${TOPIC}.[0-9]*" \
-      | sed 's/.*\.\([^.]*\).gz/\1/'
+      | sed 's/.*\.\([^.]*\).gz/\1/' \
+      | tr '\n' ':'
   )"
 
   # don't show menu if there is not at least 2 sections
-  if [ "$( echo "${SECTIONS}" | grep -c '.' )" -lt 2 ]; then
+  if [ "$( echo "${SECTIONS}" | tr ':' '\n' | grep -c '.' )" -lt 2 ]; then
     return 0
   fi
 
