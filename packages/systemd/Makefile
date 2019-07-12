@@ -29,5 +29,3 @@ systemd:
 	if [ -z $(DESTDIR) ] ; then \
 		systemctl --user daemon-reload; \
 	fi
-
-	$(end_setup)

@@ -6,5 +6,3 @@ httpie:
 	mkdir -p $(DESTDIR)$(HOME)/.httpie
 
 	$(setup_packages_file)/config.json > $(DESTDIR)$(HOME)/.httpie/config.json
-
-	$(end_setup)

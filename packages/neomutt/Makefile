@@ -22,5 +22,3 @@ neomutt:
 	$(setup_packages_file)/config.d/accounts/gmail_work.mutt  > $(DESTDIR)$(CONFIG_DIR)/neomutt/config.d/accounts/gmail_work.mutt
 	$(setup_packages_file)/config.d/signatures/simple         > $(DESTDIR)$(CONFIG_DIR)/neomutt/config.d/signatures/simple
 	$(setup_packages_file)/config.d/signatures/work           > $(DESTDIR)$(CONFIG_DIR)/neomutt/config.d/signatures/work
-
-	$(end_setup)

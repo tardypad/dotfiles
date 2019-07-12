@@ -84,5 +84,3 @@ vim:
 		vim +"mkspell! $(HOME)/.vim/spell/en.utf-8.add.spl $(HOME)/.vim/spell/en.utf-8.add" +qall \
 		> /dev/null 2>&1; \
 	fi
-
-	$(end_setup)

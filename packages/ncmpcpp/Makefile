@@ -10,5 +10,3 @@ ncmpcpp:
 
 	$(setup_packages_file)/config   > $(DESTDIR)$(CONFIG_DIR)/ncmpcpp/config
 	$(setup_packages_file)/bindings > $(DESTDIR)$(CONFIG_DIR)/ncmpcpp/bindings
-
-	$(end_setup)

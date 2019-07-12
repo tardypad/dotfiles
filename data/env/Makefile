@@ -10,5 +10,3 @@ env:
 	cp data/env/tmux/projects/tardypad_me.sh   $(DESTDIR)$(DATA_DIR)/env/tmux/projects/tardypad_me.sh
 
 	chmod +x $(DESTDIR)$(DATA_DIR)/env/tmux/projects/*
-
-	$(end_setup)

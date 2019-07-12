@@ -43,5 +43,3 @@ weechat:
 	ln -fs ../wee_slack.py                      $(DESTDIR)$(HOME)/.weechat/python/autoload/wee_slack.py
 	ln -fs ../colorize_nicks.py                 $(DESTDIR)$(HOME)/.weechat/python/autoload/colorize_nicks.py
 	ln -fs ../vimode.py                         $(DESTDIR)$(HOME)/.weechat/python/autoload/vimode.py
-
-	$(end_setup)

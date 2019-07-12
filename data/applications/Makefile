@@ -19,5 +19,3 @@ applications:
 	cp data/applications/terminal.desktop                $(DESTDIR)$(DATA_DIR)/applications/terminal.desktop
 	cp data/applications/vector_graphics_editor.desktop  $(DESTDIR)$(DATA_DIR)/applications/vector_graphics_editor.desktop
 	cp data/applications/video_player.desktop            $(DESTDIR)$(DATA_DIR)/applications/video_player.desktop
-
-	$(end_setup)

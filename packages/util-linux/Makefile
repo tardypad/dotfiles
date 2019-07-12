@@ -6,5 +6,3 @@ util-linux:
 	mkdir -p $(DESTDIR)$(HOME)
 
 	printf '' > $(DESTDIR)$(HOME)/.hushlogin
-
-	$(end_setup)

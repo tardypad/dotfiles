@@ -17,5 +17,3 @@ i3blocks:
 	$(setup_packages_file)/scripts/volume         > $(DESTDIR)$(CONFIG_DIR)/i3blocks/scripts/volume
 
 	chmod +x $(DESTDIR)$(CONFIG_DIR)/i3blocks/scripts/*
-
-	$(end_setup)

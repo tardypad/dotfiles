@@ -20,5 +20,3 @@ tmux:
 	$(setup_packages_file)/scripts/toggle_no_distraction.sh   > $(DESTDIR)$(HOME)/.tmux/scripts/toggle_no_distraction.sh
 
 	chmod +x $(DESTDIR)$(HOME)/.tmux/scripts/*
-
-	$(end_setup)

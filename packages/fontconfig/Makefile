@@ -11,5 +11,3 @@ fontconfig:
 	if [ -z $(DESTDIR) ] ; then \
 		fc-cache -f; \
 	fi
-
-	$(end_setup)

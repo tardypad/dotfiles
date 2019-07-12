@@ -11,5 +11,3 @@ gnupg:
 	chmod 700 $(DESTDIR)$(HOME)/.gnupg
 	chmod 600 $(DESTDIR)$(HOME)/.gnupg/gpg.conf
 	chmod 600 $(DESTDIR)$(HOME)/.gnupg/gpg-agent.conf
-
-	$(end_setup)

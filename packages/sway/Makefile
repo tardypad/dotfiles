@@ -48,5 +48,3 @@ sway:
 	$(setup_packages_file)/swaynag/config                               > $(DESTDIR)$(CONFIG_DIR)/swaynag/config
 
 	chmod +x $(DESTDIR)$(CONFIG_DIR)/sway/scripts/*
-
-	$(end_setup)

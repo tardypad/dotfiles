@@ -21,5 +21,3 @@ git:
 	$(setup_packages_file)/scripts/git-url         > $(DESTDIR)$(CONFIG_DIR)/git/scripts/git-url
 
 	chmod +x $(DESTDIR)$(CONFIG_DIR)/git/scripts/*
-
-	$(end_setup)

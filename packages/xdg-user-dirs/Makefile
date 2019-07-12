@@ -8,5 +8,3 @@ xdg-user-dirs:
 	$(setup_packages_file)/user-dirs.conf   > $(DESTDIR)$(CONFIG_DIR)/user-dirs.conf
 	$(setup_packages_file)/user-dirs.dirs   > $(DESTDIR)$(CONFIG_DIR)/user-dirs.dirs
 	$(setup_packages_file)/user-dirs.locale > $(DESTDIR)$(CONFIG_DIR)/user-dirs.locale
-
-	$(end_setup)

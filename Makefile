@@ -8,8 +8,7 @@ CONFIG_DIR = $(HOME)/.config
 DATA_DIR   = $(HOME)/.local/share
 CACHE_DIR  = $(HOME)/.cache
 
-start_setup = printf "… setup $@"
-end_setup   = printf "\r✔ setup $@\n"
+start_setup = printf "setup $@\n"
 
 setup_packages_file  = colors/substitute_placeholders $(THEME) packages/$@
 

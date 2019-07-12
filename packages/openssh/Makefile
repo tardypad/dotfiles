@@ -9,5 +9,3 @@ openssh:
 
 	chmod 700 $(DESTDIR)$(HOME)/.ssh
 	chmod 600 $(DESTDIR)$(HOME)/.ssh/config
-
-	$(end_setup)

@@ -89,5 +89,3 @@ zsh:
 	if [ -z $(DESTDIR) ] ; then \
 		rm -f $(HOME)/.zcompdump; \
 	fi
-
-	$(end_setup)
