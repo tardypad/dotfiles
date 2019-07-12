@@ -1,5 +1,4 @@
 all: less
-.SILENT: less
 
 less:
 	$(start_setup)

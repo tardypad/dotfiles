@@ -1,5 +1,4 @@
 all: translate-shell
-.SILENT: translate-shell
 
 translate-shell:
 	$(start_setup)

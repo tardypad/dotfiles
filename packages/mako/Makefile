@@ -1,5 +1,4 @@
 all: mako
-.SILENT: mako
 
 mako:
 	$(start_setup)

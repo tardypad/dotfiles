@@ -1,5 +1,4 @@
 all: fontconfig
-.SILENT: fontconfig
 
 fontconfig:
 	$(start_setup)

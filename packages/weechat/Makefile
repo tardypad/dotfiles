@@ -1,5 +1,4 @@
 all: weechat
-.SILENT: weechat
 
 weechat:
 	$(start_setup)

@@ -1,5 +1,4 @@
 all: httpie
-.SILENT: httpie
 
 httpie:
 	$(start_setup)

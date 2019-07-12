@@ -1,5 +1,4 @@
 all: rbtools
-.SILENT: rbtools
 
 rbtools:
 	$(start_setup)

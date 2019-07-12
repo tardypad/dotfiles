@@ -1,5 +1,4 @@
 all: xdg-user-dirs
-.SILENT: xdg-user-dirs
 
 xdg-user-dirs:
 	$(start_setup)

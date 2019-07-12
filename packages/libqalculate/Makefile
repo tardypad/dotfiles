@@ -1,5 +1,4 @@
 all: libqalculate
-.SILENT: libqalculate
 
 libqalculate:
 	$(start_setup)

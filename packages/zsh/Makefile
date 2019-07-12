@@ -1,5 +1,4 @@
 all: zsh
-.SILENT: zsh
 
 zsh:
 	$(start_setup)

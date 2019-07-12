@@ -1,5 +1,4 @@
 all: qutebrowser
-.SILENT: qutebrowser
 
 qutebrowser:
 	$(start_setup)

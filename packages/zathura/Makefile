@@ -1,5 +1,4 @@
 all: zathura
-.SILENT: zathura
 
 zathura:
 	$(start_setup)

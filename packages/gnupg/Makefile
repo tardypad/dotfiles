@@ -1,5 +1,4 @@
 all: gnupg
-.SILENT: gnupg
 
 gnupg:
 	$(start_setup)

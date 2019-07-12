@@ -1,5 +1,4 @@
 all: neomutt
-.SILENT: neomutt
 
 neomutt:
 	$(start_setup)

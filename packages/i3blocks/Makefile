@@ -1,5 +1,4 @@
 all: i3blocks
-.SILENT: i3blocks
 
 i3blocks:
 	$(start_setup)

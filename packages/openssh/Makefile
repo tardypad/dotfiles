@@ -1,5 +1,4 @@
 all: openssh
-.SILENT: openssh
 
 openssh:
 	$(start_setup)

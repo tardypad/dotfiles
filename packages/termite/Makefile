@@ -1,5 +1,4 @@
 all: termite
-.SILENT: termite
 
 termite:
 	$(start_setup)

@@ -1,5 +1,4 @@
 all: xdg-utils
-.SILENT: xdg-utils
 
 xdg-utils:
 	$(start_setup)

@@ -1,5 +1,4 @@
 all: sounds
-.SILENT: sounds
 
 sounds:
 	$(start_setup)

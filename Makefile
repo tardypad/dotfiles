@@ -1,4 +1,5 @@
 .POSIX:
+.SILENT:
 .DEFAULT: all
 
 THEME = light

@@ -1,5 +1,4 @@
 all: applications
-.SILENT: applications
 
 applications:
 	$(start_setup)

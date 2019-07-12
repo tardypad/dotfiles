@@ -1,5 +1,4 @@
 all: vifm
-.SILENT: vifm
 
 vifm:
 	$(start_setup)

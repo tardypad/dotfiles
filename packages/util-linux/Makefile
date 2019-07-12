@@ -1,5 +1,4 @@
 all: util-linux
-.SILENT: util-linux
 
 util-linux:
 	$(start_setup)

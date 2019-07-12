@@ -1,5 +1,4 @@
 all: vim
-.SILENT: vim
 
 vim:
 	$(start_setup)

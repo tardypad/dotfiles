@@ -1,5 +1,4 @@
 all: tmux
-.SILENT: tmux
 
 tmux:
 	$(start_setup)

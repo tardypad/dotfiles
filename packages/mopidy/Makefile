@@ -1,5 +1,4 @@
 all: mopidy
-.SILENT: mopidy
 
 mopidy:
 	$(start_setup)

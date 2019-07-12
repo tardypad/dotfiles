@@ -1,5 +1,4 @@
 all: htop
-.SILENT: htop
 
 htop:
 	$(start_setup)

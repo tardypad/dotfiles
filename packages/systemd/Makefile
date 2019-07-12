@@ -1,5 +1,4 @@
 all: systemd
-.SILENT: systemd
 
 systemd:
 	$(start_setup)

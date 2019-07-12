@@ -1,5 +1,4 @@
 all: coreutils
-.SILENT: coreutils
 
 coreutils:
 	$(start_setup)

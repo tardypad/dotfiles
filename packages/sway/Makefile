@@ -1,5 +1,4 @@
 all: sway
-.SILENT: sway
 
 sway:
 	$(start_setup)

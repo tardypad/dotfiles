@@ -1,5 +1,4 @@
 all: ncmpcpp
-.SILENT: ncmpcpp
 
 ncmpcpp:
 	$(start_setup)

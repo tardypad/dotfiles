@@ -1,5 +1,4 @@
 all: git
-.SILENT: git
 
 git:
 	$(start_setup)

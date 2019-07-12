@@ -1,5 +1,4 @@
 all: images
-.SILENT: images
 
 images:
 	$(start_setup)

@@ -1,5 +1,4 @@
 all: env
-.SILENT: env
 
 env:
 	$(start_setup)

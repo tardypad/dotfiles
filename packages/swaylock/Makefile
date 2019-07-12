@@ -1,5 +1,4 @@
 all: swaylock
-.SILENT: swaylock
 
 swaylock:
 	$(start_setup)

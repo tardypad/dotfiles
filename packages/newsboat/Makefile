@@ -1,5 +1,4 @@
 all: newsboat
-.SILENT: newsboat
 
 newsboat:
 	$(start_setup)
