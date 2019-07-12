@@ -1,7 +1,7 @@
 #compdef loop
 
 _arguments \
-  '(-c --count)'{-c,--count}'[stops after COUNT runs of the command]:()' \
-  '(-h --help)'{-h,--help}'[display the help]' \
-  '(-i --interval)'{-i,--interval}'[wait INTERVAL seconds between each command run]:()' \
-  '(-t --time)'{-t,--time}'[stops commands run after a TIME seconds period]:()'
+  '-c[stops after COUNT runs of the command]:()' \
+  '-h[display the help]' \
+  '-i[wait INTERVAL seconds between each command run]:()' \
+  '-t[stops commands run after a TIME seconds period]:()'

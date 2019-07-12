@@ -21,8 +21,8 @@ usage() {
 	Execute a command over a range of git revisions
 
 	Options:
-	    -h               show this message only
-	    -q, --quiet      only show command outputs
+	    -h      show this message only
+	    -q      only show command outputs
 	EOF
 }
 
@@ -60,34 +60,28 @@ save_initial_ref() {
 }
 
 restore_initial_ref() {
-  git checkout --quiet "${INITIAL_REF}"
+  git checkout -q "${INITIAL_REF}"
 }
 
 run_command_over_range() {
   for REVISION in $( git rev-list --reverse ${START_REF}..${END_REF} ); do
     [ "${QUIET}" -eq 0 ] && echo "Checking out: $( git log --oneline -1 "${REVISION}" )"
-    git checkout --quiet "${REVISION}"
+    git checkout -q "${REVISION}"
     eval "${RUN_COMMAND}"
-    git reset --hard --quiet
+    git reset --hard -q
   done
 }
 
 parse_options() {
-  while [ "$#" -gt 0 ]; do
-    case "$1" in
-      -h)
-        usage
-        exit 0
-        ;;
-      -q|--quiet)
-        QUIET=1
-        shift
-        ;;
-      *)
-        break 2
-        ;;
+  while getopts hq OPT; do
+    case "${OPT}" in
+      h) usage; exit 0 ;;
+      q) QUIET=1 ;;
+      ?) error ;;
     esac
   done
+
+  shift $(( OPTIND - 1 ))
 
   START_REF="$1"
   END_REF="$2"

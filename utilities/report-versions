@@ -17,14 +17,14 @@ usage() {
 	Needs to be run from the repository root
 
 	Options:
-	  -d,  --diff    only list packages where versions are different
-	  -h,  --help    show this message only
+	  -d    only list packages where versions are different
+	  -h    show this message only
 	EOF
 }
 
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
-  echo "Try '${COMMAND} --help' for more information."
+  echo "Try '${COMMAND} -h' for more information."
   exit 1
 } >&2
 
@@ -111,21 +111,15 @@ report_all() {
 }
 
 parse_options() {
-  while [ "$#" -gt 0 ]; do
-    case "$1" in
-      -d|--diff)
-        ONLY_DIFF=1
-        shift;
-        ;;
-      -h|--help)
-        usage
-        exit 0
-        ;;
-      *)
-        error "Invalid option '$1'"
-        ;;
+  while getopts dh OPT; do
+    case "${OPT}" in
+      d) ONLY_DIFF=1 ;;
+      h) usage; exit 0 ;;
+      ?) error ;;
     esac
   done
+
+  shift $(( OPTIND - 1 ))
 }
 
 init_variables

@@ -19,16 +19,16 @@ usage() {
 	Rewrite history to change authors identities
 
 	Options:
-	    -a, --all                     rewrite all identities in commits and tags
-	    -c, --use-config              define correct values from user Git config
-	    -h                            show this message only
-	    -e, --correct-email  <email>  define the correct email to set
-	                                  takes precedence over -c
-	    -n, --correct-name   <name>   define the correct name to set
-	                                  takes precedence over -c
-	    -o, --old-email      <email>  rewrite identities matching old email in commits and tags
-	    -t, --type           <id>     define the type of identities affected by the rewrite
-	                                  author, committer, both (default)
+	    -a           rewrite all identities in commits and tags
+	    -c           define correct values from user Git config
+	    -h           show this message only
+	    -e  <email>  define the correct email to set
+	                 takes precedence over -c
+	    -n  <name>   define the correct name to set
+	                 takes precedence over -c
+	    -o  <email>  rewrite identities matching old email in commits and tags
+	    -t  <id>     define the type of identities affected by the rewrite
+	                 author, committer, both (default)
 	EOF
 }
 
@@ -63,50 +63,25 @@ reauthor() {
   export CORRECT_EMAIL
   export CORRECT_NAME
 
-  git filter-branch --force --env-filter "${FILTER}" \
+  git filter-branch -f --env-filter "${FILTER}" \
   --tag-name-filter cat -- --branches --tags
 }
 
 parse_options() {
-  while [ "$#" -gt 0 ]; do
-    case "$1" in
-      --all|-a)
-        ALL=true
-        shift
-        ;;
-      --correct-email|-e)
-        [ -n "${2+x}" ] || error 'Missing correct-email value'
-        CORRECT_EMAIL="$2"
-        shift 2
-        ;;
-      -h)
-        usage
-        exit 0
-        ;;
-      --correct-name|-n)
-        [ -n "${2+x}" ] || error 'Missing correct-name value'
-        CORRECT_NAME="$2"
-        shift 2
-        ;;
-      --old-email|-o)
-        [ -n "${2+x}" ] || error 'Missing old-email value'
-        OLD_EMAIL="$2"
-        shift 2
-        ;;
-      --type|-t)
-        [ -n "${2+x}" ] || error 'Missing type value'
-        TYPE="$2"
-        shift 2
-        ;;
-      --use-config|-c)
-        CONFIG=true
-        shift
-        ;;
-      *)
-        error "invalid option '$1'"
-        ;;
+  while getopts ache:n:o:t: OPT; do
+    case "${OPT}" in
+      a) ALL=true ;;
+      c) CONFIG=true ;;
+      h) usage; exit 0 ;;
+      e) CORRECT_EMAIL="${OPTARG}" ;;
+      n) CORRECT_NAME="${OPTARG}" ;;
+      o) OLD_EMAIL="${OPTARG}" ;;
+      t) TYPE="${OPTARG}" ;;
+      ?) error ;;
     esac
   done
+
+  shift $(( OPTIND - 1 ))
 
   if ${CONFIG}; then
     # use config values if not explicitly already defined
@@ -119,14 +94,14 @@ validate_options() {
   # Either OLD_EMAIL should be set or ALL should be true
   if [ -z "${OLD_EMAIL+x}" ] && ! ${ALL}; then
     msg="missing target of the rewrite"
-    msg="${msg}\nuse either --old-email option or --all flag"
+    msg="${msg}\nuse either -o option or -a flag"
     error "${msg}"
   fi
 
   # OLD_EMAIL shouldn't be set if ALL is true as well to prevent misuse
   if [ -n "${OLD_EMAIL+x}" ] && ${ALL}; then
     msg="ambiguous target of the rewrite"
-    msg="${msg}\nuse either --old-email option or --all flag"
+    msg="${msg}\nuse either -o option or -a flag"
     error "${msg}"
   fi
 
@@ -136,8 +111,8 @@ validate_options() {
   # Either CORRECT_EMAIL or CORRECT_NAME should be set
   if [ -z "${CORRECT_EMAIL+x}" ] && [ -z "${CORRECT_NAME+x}" ]; then
     msg="missing correct email and/or name to set"
-    msg="${msg}\nuse --correct-email and/or --correct-name options"
-    msg="${msg}\nor --use-config flag with user values set in Git config"
+    msg="${msg}\nuse -e and/or -n options"
+    msg="${msg}\nor -c flag with user values set in Git config"
     error "${msg}"
   fi
 

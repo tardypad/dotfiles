@@ -17,13 +17,13 @@ usage() {
 	If <buffer> is not specified, current buffer is used
 
 	Options:
-	  -h,  --help           show this message only
+	  -h           show this message only
 	EOF
 }
 
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
-  echo "Try '${COMMAND} --help' for more information."
+  echo "Try '${COMMAND} -h' for more information."
   exit 1
 } >&2
 
@@ -34,17 +34,14 @@ fifo_send() {
 }
 
 parse_options() {
-  while [ "$#" -gt 0 ]; do
-    case "$1" in
-      -h|--help)
-        usage
-        exit 0
-        ;;
-      *)
-        break 2
-        ;;
+  while getopts h OPT; do
+    case "${OPT}" in
+      h) usage; exit 0 ;;
+      ?) error ;;
     esac
   done
+
+  shift $(( OPTIND - 1 ))
 
   BUFFER=$1
 }

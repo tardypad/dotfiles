@@ -15,16 +15,16 @@ usage() {
 	Sway command input script
 
 	Options:
-	  -F,  --format  FORMAT  sway command to be executed
-                           %s occurences are replaced by user input
-	  -h,  --help            show this message only
-	  -P,  --prompt  PROMPT  display before user input
+	  -F  FORMAT  sway command to be executed
+                %s occurences are replaced by user input
+	  -h          show this message only
+	  -P  PROMPT  display before user input
 	EOF
 }
 
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
-  printf "Try '%s --help' for more information.\n" "${COMMAND}"
+  printf "Try '%s -h' for more information.\n" "${COMMAND}"
   exit 1
 } >&2
 
@@ -41,27 +41,16 @@ run() {
 }
 
 parse_options() {
-  while [ "$#" -gt 0 ]; do
-    case "$1" in
-      -F|--format)
-        [ -n "$2" ] || error 'Missing --format value'
-        FORMAT="$2"
-        shift 2
-        ;;
-      -h|--help)
-        usage
-        exit 0
-        ;;
-      -P|--prompt)
-        [ -n "$2" ] || error 'Missing --prompt value'
-        PROMPT="$2"
-        shift 2
-        ;;
-      *)
-        break 2
-        ;;
+  while getopts F:hP: OPT; do
+    case "${OPT}" in
+      F) FORMAT="${OPTARG}" ;;
+      h) usage; exit 0 ;;
+      P) PROMPT="${OPTARG}" ;;
+      ?) error ;;
     esac
   done
+
+  shift $(( OPTIND - 1 ))
 }
 
 init_variables

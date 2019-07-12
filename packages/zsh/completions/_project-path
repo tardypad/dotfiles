@@ -37,6 +37,6 @@ _projects() {
 }
 
 _arguments \
-  '(-h --help)'{-h,--help}'[display the help]' \
+  '-h[display the help]' \
   '1:type:_types' \
   '2:project:_projects'

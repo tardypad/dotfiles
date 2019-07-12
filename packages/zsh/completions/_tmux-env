@@ -15,7 +15,7 @@ _sessions() {
 }
 
 _arguments \
-  '(-b --background)'{-b,--background}'[launch in background, no attach]' \
-  '(-h --help)'{-h,--help}'[display the help]' \
+  '-b[launch in background, no attach]' \
+  '-h[display the help]' \
   '1:target:_targets' \
   '*::sessions:_sessions'

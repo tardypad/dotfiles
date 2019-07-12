@@ -38,5 +38,5 @@ _args() {
 }
 
 _arguments \
-  '(-h --help)'{-h,--help}'[display the help]' \
+  '-h[display the help]' \
   '*:args:_args'

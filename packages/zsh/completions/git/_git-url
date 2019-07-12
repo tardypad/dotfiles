@@ -13,7 +13,7 @@ _types() {
 }
 
 _arguments \
-  '(-c --commit)'{-c,--commit}'[commit to selection information]:commit:__git_revisions' \
+  '-c[commit to selection information]:commit:__git_revisions' \
   '-h[display the help]' \
-  '(-r --remote)'{-r,--remote}'[remote to use]:remote:__git_remotes' \
-  '(-t --type)'{-t,--type}'[URL type]:type:_types'
+  '-r[remote to use]:remote:__git_remotes' \
+  '-t[URL type]:type:_types'

@@ -17,10 +17,10 @@ usage() {
 	Based on remote config using an URL alias and "browse" config
 
 	Options:
-	    -c, --commit     commit to select information (default HEAD)
-	    -h               show this message only
-	    -r, --remote     remote to use (default origin)
-	    -t, --type       URL type (default repo)
+	    -c     commit to select information (default HEAD)
+	    -h     show this message only
+	    -r     remote to use (default origin)
+	    -t     URL type (default repo)
 
 	Valid types:
 	- repo: general URL of the repo
@@ -80,32 +80,17 @@ display_url() {
 }
 
 parse_options() {
-  while [ "$#" -gt 0 ]; do
-    case "$1" in
-      --commit|-c)
-        [ -n "$2" ] || error 'Missing commit value'
-        COMMIT="$2"
-        shift 2
-        ;;
-      -h)
-        usage
-        exit 0
-        ;;
-      --remote|-r)
-        [ -n "$2" ] || error 'Missing remote value'
-        REMOTE="$2"
-        shift 2
-        ;;
-      --type|-t)
-        [ -n "$2" ] || error 'Missing type value'
-        TYPE="$2"
-        shift 2
-        ;;
-      *)
-        break
-        ;;
+  while getopts c:hr:t: OPT; do
+    case "${OPT}" in
+      c) COMMIT="${OPTARG}" ;;
+      h) usage; exit 0 ;;
+      r) REMOTE="${OPTARG}" ;;
+      t) TYPE="${OPTARG}" ;;
+      ?) error ;;
     esac
   done
+
+  shift $(( OPTIND - 1 ))
 }
 
 validate_options() {
@@ -116,7 +101,7 @@ validate_options() {
     error "invalid type argument '${TYPE}'"
   fi
 
-  if ! git rev-parse --quiet --verify "${COMMIT}^{commit}" > /dev/null; then
+  if ! git rev-parse -q --verify "${COMMIT}^{commit}" > /dev/null; then
     error "invalid commit '${COMMIT}'"
   fi
 

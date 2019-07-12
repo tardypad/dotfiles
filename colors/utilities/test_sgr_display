@@ -80,7 +80,7 @@ usage() {
 	24 bit: true color
 
 	Options:
-	  -h,  --help      show this message only
+	  -h      show this message only
 
 	Available line and column arguments for 4 bit test:
 	- foreground        / fg (default line)
@@ -97,7 +97,7 @@ usage() {
 
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
-  printf "Try '%s --help' for more information.\n" "${COMMAND}"
+  printf "Try '%s -h' for more information.\n" "${COMMAND}"
   exit 1
 } >&2
 
@@ -382,17 +382,14 @@ test_colors() {
 }
 
 parse_options() {
-  while [ "$#" -gt 0 ]; do
-    case "$1" in
-      -h|--help)
-        usage
-        exit 0
-        ;;
-      *)
-        break 2
-        ;;
+  while getopts h OPT; do
+    case "${OPT}" in
+      h) usage; exit 0 ;;
+      ?) error ;;
     esac
   done
+
+  shift $(( OPTIND - 1 ))
 
   [ -n "$1" ] && BIT_TYPE="$1"
 

@@ -20,13 +20,13 @@ usage() {
 	Needs to be run from the repository root
 
 	Options:
-	  -h,  --help    show this message only
+	  -h    show this message only
 	EOF
 }
 
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
-  echo "Try '${COMMAND} --help' for more information."
+  echo "Try '${COMMAND} -h' for more information."
   exit 1
 } >&2
 
@@ -38,17 +38,14 @@ report_tags() {
 }
 
 parse_options() {
-  while [ "$#" -gt 0 ]; do
-    case "$1" in
-      -h|--help)
-        usage
-        exit 0
-        ;;
-      *)
-        error "Invalid option '$1'"
-        ;;
+  while getopts h OPT; do
+    case "${OPT}" in
+      h) usage; exit 0 ;;
+      ?) error ;;
     esac
   done
+
+  shift $(( OPTIND - 1 ))
 }
 
 init_variables

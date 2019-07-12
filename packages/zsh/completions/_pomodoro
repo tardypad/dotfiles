@@ -11,5 +11,5 @@ _actions() {
 }
 
 _arguments \
-  '(-h --help)'{-h,--help}'[display the help]' \
+  '-h[display the help]' \
   '1:action:_actions'

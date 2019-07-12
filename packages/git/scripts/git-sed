@@ -29,24 +29,21 @@ error() {
 
 run_sed() {
   # exclude symlinks and binary files
-  git grep -I --name-only '' \
+  git grep -I -l '' \
     | xargs -I {} \
       sh -c "sed \"${SCRIPT}\" {} > \"${TMP_FILE}\" \
              && cp \"${TMP_FILE}\" {}"
 }
 
 parse_options() {
-  while [ "$#" -gt 0 ]; do
-    case "$1" in
-      -h)
-        usage
-        exit 0
-        ;;
-      *)
-        break
-        ;;
+  while getopts h OPT; do
+    case "${OPT}" in
+      h) usage; exit 0 ;;
+      ?) error ;;
     esac
   done
+
+  shift $(( OPTIND - 1 ))
 
   SCRIPT="$*"
 }

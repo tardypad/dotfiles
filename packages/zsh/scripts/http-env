@@ -17,21 +17,18 @@ init_variables() {
 
 usage() {
   cat <<- EOF
-	usage: ${COMMAND} [<options>] project environment request_method request_path [<request_items>]
+	usage: ${COMMAND} [<options>] project environment request_method request_path [<request_items>] [ -- <http options> ]
 
 	Run a HTTP request to a project environment
 
 	Options:
-	  -h,  --help    show this message only
-
-	  All available httpie options can be used there too
-	  using an = for the ones needing a parameter (space not supported)
+	  -h    show this message only
 	EOF
 }
 
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
-  echo "Try '${COMMAND} --help' for more information."
+  echo "Try '${COMMAND} -h' for more information."
   exit 1
 } >&2
 
@@ -48,28 +45,28 @@ run_http() {
 }
 
 parse_options() {
-  while [ "$#" -gt 0 ]; do
-    case "$1" in
-      -h|--help)
-        usage
-        exit 0
-        ;;
-      -*)
-        HTTP_OPTIONS="${HTTP_OPTIONS} $1"
-        shift
-        ;;
-      *)
-        break 2
-        ;;
+  while getopts h OPT; do
+    case "${OPT}" in
+      h) usage; exit 0 ;;
+      ?) error ;;
     esac
   done
+
+  shift $(( OPTIND - 1 ))
 
   PROJECT="$1"
   ENVIRONMENT="$2"
   REQUEST_METHOD="$3"
   REQUEST_PATH="$4"
   shift 4 2> /dev/null
-  REQUEST_ITEMS="$*"
+
+  while [ "$#" -gt 0 ] && [ "$1" != '--' ]; do
+    REQUEST_ITEMS="${REQUEST_ITEMS} $1"
+    shift
+  done
+
+  shift 2> /dev/null
+  HTTP_OPTIONS="$*"
 }
 
 validate_options() {

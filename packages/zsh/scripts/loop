@@ -16,17 +16,17 @@ usage() {
 	Execute a command in a loop
 
 	Options:
-	  -c,  --count     COUNT      stops after COUNT runs of the command
-	  -h,  --help                 show this message only
-	  -i,  --interval  INTERVAL   wait INTERVAL seconds between each command run
-	                              default is 0, floating number are accepted
-	  -t,  --time      TIME       stops command runs after a TIME seconds period
+	  -c  COUNT      stops after COUNT runs of the command
+	  -h             show this message only
+	  -i  INTERVAL   wait INTERVAL seconds between each command run
+	                 default is 0, floating number are accepted
+	  -t  TIME       stops command runs after a TIME seconds period
 	EOF
 }
 
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
-  echo "Try '${COMMAND} --help' for more information."
+  echo "Try '${COMMAND} -h' for more information."
   exit 1
 } >&2
 
@@ -59,39 +59,24 @@ loop_command() {
 }
 
 parse_options() {
-  while [ "$#" -gt 0 ]; do
-    case "$1" in
-      -c|--count)
-        [ -n "$2" ] || error 'Missing --count value'
-        COUNT="$2"
-        shift 2
-        ;;
-      -h|--help)
-        usage
-        exit 0
-        ;;
-      -i|--interval)
-        [ -n "$2" ] || error 'Missing --interactive value'
-        INTERVAL="$2"
-        shift 2
-        ;;
-      -t|--time)
-        [ -n "$2" ] || error 'Missing --time value'
-        TIME="$2"
-        shift 2
-        ;;
-      *)
-        break 2
-        ;;
+  while getopts c:hi:t: OPT; do
+    case "${OPT}" in
+      c) COUNT="${OPTARG}" ;;
+      h) usage; exit 0 ;;
+      i) INTERVAL="${OPTARG}" ;;
+      t) TIME="${OPTARG}" ;;
+      ?) error ;;
     esac
   done
+
+  shift $(( OPTIND - 1 ))
 
   RUN_COMMAND="$*"
 }
 
 validate_options() {
   if [ -z "${COUNT}" ] && [ -z "${TIME}" ]; then
-    error 'you must specify at least --count or --time options'
+    error 'you must specify at least -c or -t options'
   fi
 
   case "${COUNT}" in

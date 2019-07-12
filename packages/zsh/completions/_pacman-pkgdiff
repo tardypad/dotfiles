@@ -2,12 +2,12 @@
 
 _packages() {
   local package_names=( $(
-    pacman --query --native --quiet
+    pacman -Qqn
   ) )
 
   compadd "$@" $package_names
 }
 
 _arguments \
-  '(-h --help)'{-h,--help}'[display the help]' \
+  '-h[display the help]' \
   '1:package:_packages'

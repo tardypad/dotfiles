@@ -19,14 +19,14 @@ usage() {
 	If no session is defined, a new empty one is created
 
 	Options:
-	  -b,  --background     launch in background, no attach
-	  -h,  --help           show this message only
+	  -b     launch in background, no attach
+	  -h     show this message only
 	EOF
 }
 
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
-  echo "Try '${COMMAND} --help' for more information."
+  echo "Try '${COMMAND} -h' for more information."
   exit 1
 } >&2
 
@@ -56,21 +56,15 @@ start_target_tmux_env() {
 }
 
 parse_options() {
-  while [ "$#" -gt 0 ]; do
-    case "$1" in
-      -b|--background)
-        BACKGROUND=true
-        shift
-        ;;
-      -h|--help)
-        usage
-        exit 0
-        ;;
-      *)
-        break 2
-        ;;
+  while getopts bh OPT; do
+    case "${OPT}" in
+      b) BACKGROUND=true ;;
+      h) usage; exit 0 ;;
+      ?) error ;;
     esac
   done
+
+  shift $(( OPTIND - 1 ))
 
   TARGET="$1"
   SESSION="$2"

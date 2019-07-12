@@ -16,9 +16,9 @@ usage() {
 	Amend last commit with a stamp message prefixed by an identifier
 
 	Options:
-	    -h               show this message only
-	    -r, --replace    replace all previous stamps with same id
-	                     this is case insensitive
+	    -h    show this message only
+	    -r    replace all previous stamps with same id
+	          this is case insensitive
 	EOF
 }
 
@@ -43,8 +43,8 @@ stamp() {
 
   # append the stamp to the commit message in a new paragraph
   git commit --amend \
-    --message "${COMMIT_MSG}" \
-    --message "${STAMP_MSG}" \
+    -m "${COMMIT_MSG}" \
+    -m "${STAMP_MSG}" \
     > /dev/null
 
   # show result
@@ -52,21 +52,15 @@ stamp() {
 }
 
 parse_options() {
-  while [ "$#" -gt 0 ]; do
-    case "$1" in
-      -h)
-        usage
-        exit 0
-        ;;
-      --replace|-r)
-        REPLACE=true
-        shift
-        ;;
-      *)
-        break
-        ;;
+  while getopts hr OPT; do
+    case "${OPT}" in
+      h) usage; exit 0 ;;
+      r) REPLACE=true ;;
+      ?) error ;;
     esac
   done
+
+  shift $(( OPTIND - 1 ))
 
   ID="$1"
   shift 2> /dev/null

@@ -29,14 +29,14 @@ usage() {
 	Values are also underlined when higher than minimum desired for normal text
 
 	Options:
-	  -h,  --help      show this message only
-	  -p,  --plain     disable bold and underline attributes
+	  -h     show this message only
+	  -p     disable bold and underline attributes
 	EOF
 }
 
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
-  printf "Try '%s --help' for more information.\n" "${COMMAND}"
+  printf "Try '%s -h' for more information.\n" "${COMMAND}"
   exit 1
 } >&2
 
@@ -144,21 +144,15 @@ test_contrast() {
 }
 
 parse_options() {
-  while [ "$#" -gt 0 ]; do
-    case "$1" in
-      -h|--help)
-        usage
-        exit 0
-        ;;
-      -p|--plain)
-        PLAIN=1
-        shift;
-        ;;
-      *)
-        break 2
-        ;;
+  while getopts hp OPT; do
+    case "${OPT}" in
+      h) usage; exit 0 ;;
+      p) PLAIN=1 ;;
+      ?) error ;;
     esac
   done
+
+  shift $(( OPTIND - 1 ))
 
   HEX_COLORS="$*"
 

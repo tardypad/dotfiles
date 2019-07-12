@@ -24,9 +24,9 @@
           xdg-open \"${URL}\"; \
         }; f"
     bw = browse
-    bwc = "! f() { git browse --type commit --commit $( git argument $1 ); }; f"
-    bwi = "! f() { git browse --type issue --commit $( git argument $1 ); }; f"
-    bwr = "! f() { git browse --type review --commit $( git argument $1 ); }; f"
+    bwc = "! f() { git browse -t commit -c $( git argument $1 ); }; f"
+    bwi = "! f() { git browse -t issue -c $( git argument $1 ); }; f"
+    bwr = "! f() { git browse -t review -c $( git argument $1 ); }; f"
     cb = checkout -b
     ci = commit
     cia = commit -a
@@ -118,9 +118,9 @@
         git tag --sort=creatordate --color \
         --format \"%(color:$(git config color.tag-list.refname))%(refname:short)%(color:reset) | %(taggerdate:iso) | %(taggeremail) | %(subject)\" \
         | column -t -s '|'"
-    urlc = "! f() { git url --type commit --commit $( git argument $1 ); }; f"
-    urli = "! f() { git url --type issue --commit $( git argument $1 ); }; f"
-    urlr = "! f() { git url --type review --commit $( git argument $1 ); }; f"
+    urlc = "! f() { git url -t commit -c $( git argument $1 ); }; f"
+    urli = "! f() { git url -t issue -c $( git argument $1 ); }; f"
+    urlr = "! f() { git url -t review -c $( git argument $1 ); }; f"
     wip = "! \
         git add --all \
         && git commit --message WIP \

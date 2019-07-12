@@ -24,17 +24,17 @@ usage() {
 	Send a notification
 
 	Options:
-	  -c,  --category CATEGORY  notification category
-	  -h,  --help               show this message only
-	  -i,  --identifier ID      notification identifier
-	                            replace similar notification if any
-	  -t,  --expire-time TIME   timeout in seconds
+	  -c  CATEGORY  notification category
+	  -h            show this message only
+	  -i  ID        notification identifier
+	                replace similar notification if any
+	  -t  TIME      timeout in seconds
 	EOF
 }
 
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
-  printf "Try '%s --help' for more information.\n" "${COMMAND}"
+  printf "Try '%s -h' for more information.\n" "${COMMAND}"
   exit 1
 } >&2
 
@@ -73,32 +73,17 @@ send_notification() {
 }
 
 parse_options() {
-  while [ "$#" -gt 0 ]; do
-    case "$1" in
-      -c|--category)
-        [ -n "$2" ] || error 'Missing --category value'
-        CATEGORY="$2"
-        shift 2
-        ;;
-      -h|--help)
-        usage
-        exit 0
-        ;;
-      -i|--identifier)
-        [ -n "$2" ] || error 'Missing --identifier value'
-        IDENTIFIER="$2"
-        shift 2
-        ;;
-      -t|--expire-time)
-        [ -n "$2" ] || error 'Missing --expire-time value'
-        EXPIRE_TIME="$2"
-        shift 2
-        ;;
-      *)
-        break 2
-        ;;
+  while getopts c:hi:t: OPT; do
+    case "${OPT}" in
+      c) CATEGORY="${OPTARG}" ;;
+      h) usage; exit 0 ;;
+      i) IDENTIFIER="${OPTARG}" ;;
+      t) EXPIRE_TIME="${OPTARG}" ;;
+      ?) error ;;
     esac
   done
+
+  shift $(( OPTIND - 1 ))
 
   SUMMARY="$1"
   BODY="$2"

@@ -21,4 +21,4 @@ EOF
 
 git add "${TODO_FILE}"
 
-git commit "${TODO_FILE}" --message 'add TODO file skeleton'
+git commit "${TODO_FILE}" -m 'add TODO file skeleton'

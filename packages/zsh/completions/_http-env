@@ -15,6 +15,6 @@ _envs() {
 }
 
 _arguments \
-  '(-h --help)'{-h,--help}'[display the help]' \
+  '-h[display the help]' \
   '1:project:_projects' \
   '2:env:_envs'
