@@ -38,8 +38,8 @@ alias myip='https api.ipify.org'
 # all packages update
 alias packages-update="
   checkupdates \
-  && aur repo -d aur -S --upgrades \
-  && aur repo -d tardypad -S --upgrades \
+  && aur repo -d aur -Su \
+  && aur repo -d tardypad -Su \
   && sudo pacman -Syu \
   && tput setaf {color/notice/number} \
   && echo '-----------------------------' \

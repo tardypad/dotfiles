@@ -14,11 +14,7 @@ export GPG_TTY="$(tty)"
 # default less options
 # defining them in the #env part of lesskey
 # seems to break even more stuff around...
-LESS='--ignore-case'
-LESS="${LESS} --line-numbers"
-LESS="${LESS} --chop-long-lines"
-LESS="${LESS} --RAW-CONTROL-CHARS"
-export LESS
+export LESS='-inRS'
 
 # change grep output colors
 GREP_COLORS='ms=1;{color/search_match/fg}'

@@ -3,6 +3,6 @@
 LOCAL_NOTES_FOLDER="$( xdg-user-dir NOTES )"
 REMOTE_NOTES_FOLDER="$( uname -n )/notes"
 
-rsync -az --delete --backup --exclude=".*" \
+rsync -azb --delete --exclude=".*" \
   "${LOCAL_NOTES_FOLDER}/" \
   backup:"${REMOTE_NOTES_FOLDER}"

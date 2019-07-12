@@ -9,7 +9,7 @@ set wildstyle=popup
 view!
 
 " create compressed archive of selected items to Desktop
-command! tgz tar --create --gzip --file ~/Desktop/%a.tgz %f
+command! tgz tar -czf ~/Desktop/%a.tgz %f
 
 " same custom mapping to quit as closing a buffer in vim
 nnoremap <Space>q :quit<CR>

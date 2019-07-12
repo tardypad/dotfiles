@@ -1,5 +1,5 @@
 [alias]
-    aa = add --all
+    aa = add -A
     amend = commit --amend -a --no-edit
     argument= "! \
         h() {  \
@@ -69,15 +69,15 @@
           fi \
         }; f"
     df = diff
-    df0 = diff --unified=0
+    df0 = diff -U0
     dfc = diff --cached
-    dfc0 = diff --cached --unified=0
+    dfc0 = diff --cached -U0
     fe = fetch --all
     first-commit = ! git rev-list --max-parents=0 HEAD | tail -n 1
     head = "! f() { git log --raw -1 $( git argument $1 ); }; f"
     hist = "! \
         f() { \
-          git log --color --oneline --max-count=10 \"$@\" \
+          git log --color --oneline -n 10 \"$@\" \
             | nl -v0 -w2 -s' '; \
         }; f"
     issue = stamp -r Issue
@@ -91,7 +91,7 @@
         f() { \
           remote=\"$1\"; \
           if [ \"${remote}\" = 'origin' ]; then \
-            git push origin --set-upstream HEAD:$(git current-branch); \
+            git push origin -u HEAD:$(git current-branch); \
           else \
             git push \"${remote}\" HEAD:$(git current-branch); \
           fi \
@@ -112,8 +112,8 @@
     rva = revert --abort
     rvc = revert --continue
     sh = "! f() { git show $( git argument $1 ); }; f"
-    sh0 = "! f() { git show --unified=0 $( git argument $1 ); }; f"
-    st = status --short --branch
+    sh0 = "! f() { git show -U0 $( git argument $1 ); }; f"
+    st = status -s -b
     tag-list = "! \
         git tag --sort=creatordate --color \
         --format \"%(color:$(git config color.tag-list.refname))%(refname:short)%(color:reset) | %(taggerdate:iso) | %(taggeremail) | %(subject)\" \
@@ -122,7 +122,7 @@
     urli = "! f() { git url -t issue -c $( git argument $1 ); }; f"
     urlr = "! f() { git url -t review -c $( git argument $1 ); }; f"
     wip = "! \
-        git add --all \
-        && git commit --message WIP \
-        && git push --force origin HEAD:wip-$(git current-branch) \
+        git add -A \
+        && git commit -m WIP \
+        && git push -f origin HEAD:wip-$(git current-branch) \
         && git reset HEAD~"
