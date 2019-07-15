@@ -1,4 +1,11 @@
 #!/bin/sh
+# commands used:
+# - create_workspace
+# - focus_window_title
+# - neomutt
+# - swaymsg
+# - termite
+# - tmux
 
 TITLE='Mail client'
 

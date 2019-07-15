@@ -1,4 +1,11 @@
 #!/bin/sh
+# commands used:
+# - create_workspace
+# - focus_window_title
+# - swaymsg
+# - termite
+# - tmux-env
+# - zsh #FIXME: remove this zsh dependency
 
 ENV_NAME="$1"
 SESSION_NAME="$2"

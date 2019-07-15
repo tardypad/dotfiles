@@ -1,4 +1,8 @@
 #!/bin/sh
+# commands used:
+# - jq
+# - swaymsg
+# - tmux
 
 LEVEL="$1"
 

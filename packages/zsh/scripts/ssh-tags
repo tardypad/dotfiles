@@ -1,4 +1,8 @@
 #!/bin/sh
+# commands used:
+# - fzf
+# - query-hosts-tags
+# - ssh
 
 TAGS=$*
 

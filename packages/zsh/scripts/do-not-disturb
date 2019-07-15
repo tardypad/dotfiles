@@ -1,4 +1,7 @@
 #!/bin/sh
+# commands used:
+# - ssh
+# - weechat-fifo
 
 init_variables() {
   COMMAND=${0##*/}

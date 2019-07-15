@@ -1,4 +1,9 @@
 #!/bin/sh
+# commands used:
+# - command_input_exec
+# - focus_window_title
+# - swaymsg
+# - termite
 
 # try to focus existing window if it exists
 focus_window_title 'sway_command_input' && exit

@@ -1,4 +1,7 @@
 #!/bin/sh
+# commands used:
+# - jq
+# - swaymsg
 
 # create a new workspace in the focused output
 # at the lowest index available

@@ -1,4 +1,9 @@
 #!/bin/sh
+# commands used:
+# - fzf_launcher
+# - swaylock
+# - swaymsg
+# - systemctl
 
 ACTION=$(
   {
@@ -12,9 +17,9 @@ ACTION=$(
 )
 
 case "${ACTION}" in
-  *Lock\ screen) swaylock;;
-  *Suspend)     systemctl suspend;;
-  *Logout)      swaymsg -q exit;;
-  *Shutdown)    systemctl poweroff;;
-  *Reboot)      systemctl reboot;;
+  *Lock\ screen) swaylock ;;
+  *Suspend)      systemctl suspend ;;
+  *Logout)       swaymsg -q exit ;;
+  *Shutdown)     systemctl poweroff ;;
+  *Reboot)       systemctl reboot ;;
 esac

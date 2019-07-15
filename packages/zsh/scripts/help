@@ -1,4 +1,9 @@
 #!/bin/sh
+# commands used:
+# - column
+# - fzf
+# - stat
+# - zsh
 
 init_variables() {
   COMMAND=${0##*/}

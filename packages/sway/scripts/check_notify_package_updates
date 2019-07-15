@@ -1,4 +1,8 @@
 #!/bin/sh
+# commands used:
+# - aur
+# - checkupdates
+# - notify
 
 MESSAGE=
 

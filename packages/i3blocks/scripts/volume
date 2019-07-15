@@ -1,4 +1,7 @@
 #!/bin/sh
+# commands used:
+# - amixer
+# - bar_status_mode
 
 MODE="$( bar_status_mode )"
 

@@ -1,4 +1,8 @@
 #!/bin/sh
+# commands used:
+# - aplay
+# - battery_status
+# - notify
 
 ALERT_THRESHOLD_PERCENT=10
 

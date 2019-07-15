@@ -1,4 +1,8 @@
 #!/bin/sh
+# commands used:
+# - focus_window_title
+# - swaymsg
+# - termite
 
 COMMAND="$*"
 

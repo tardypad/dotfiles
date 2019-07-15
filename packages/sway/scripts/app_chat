@@ -1,4 +1,11 @@
 #!/bin/sh
+# commands used:
+# - create_workspace
+# - focus_window_title
+# - swaymsg
+# - termite
+# - tmux
+# - weechat
 
 TITLE='Chat client'
 

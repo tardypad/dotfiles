@@ -1,4 +1,7 @@
 #!/bin/sh
+# commands used:
+# - bar_status_mode
+# - mpc
 
 MODE="$( bar_status_mode )"
 

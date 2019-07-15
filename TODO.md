@@ -21,7 +21,6 @@
     maybe Alt-r and Alt-q
   - POSIX compliancy:
     * add info about it in README
-    * list on top of scripts files, the non POSIX commands used
   - turn script --help usage display into proper man pages
 
 # New Features

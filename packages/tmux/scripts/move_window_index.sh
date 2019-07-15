@@ -1,4 +1,6 @@
 #!/bin/sh
+# commands used:
+# - tmux
 
 TARGET_INDEX="$1"
 

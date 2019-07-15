@@ -1,4 +1,7 @@
 #!/bin/sh
+# commands used:
+# - swaymsg
+# - tmux
 
 SOCKET_PATH="$1"
 SESSION_ID="$2"

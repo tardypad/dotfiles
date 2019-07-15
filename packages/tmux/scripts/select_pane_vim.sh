@@ -1,4 +1,6 @@
 #!/bin/sh
+# commands used:
+# - tmux
 
 KEY="$1"
 

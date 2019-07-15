@@ -1,4 +1,10 @@
 #!/bin/sh
+# commands used:
+# - focus_window_title
+# - htop
+# - swaymsg
+# - termite
+# - tmux
 
 TITLE='sway_monitor'
 

@@ -1,4 +1,11 @@
 #!/bin/sh
+# commands used:
+# - focus_window_title
+# - ncmpcpp
+# - swaymsg
+# - systemctl
+# - termite
+# - tmux
 
 TITLE='sway_music'
 
