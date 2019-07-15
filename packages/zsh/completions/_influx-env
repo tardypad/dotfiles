@@ -1,7 +1,7 @@
 #compdef influx-env
 
 _envs() {
-  _path_files -W "${XDG_DATA_HOME:-$HOME/.local/share}/env/influxdb/"
+  _path_files -W "${XDG_DATA_HOME:-$HOME/.local/share}/env/influx/"
 }
 
 _arguments \
