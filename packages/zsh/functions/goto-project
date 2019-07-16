@@ -1,3 +1,7 @@
+# commands used:
+# - project-path
+# - git (includes own command: current-branch)
+
 # Change current directory to a project path
 
 local type="$1"
