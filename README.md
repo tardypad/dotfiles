@@ -67,6 +67,10 @@ make tmux vim zsh
 
 Some packages require some additional manual setup steps, check their own README
 
+Make should be only run from the repository root folder.
+The setup will fail if make is run from somewhere else with the -f option specifying the path to the Makefile.
+This is due to the need of relative includes.
+
 
 ## Portability
 
