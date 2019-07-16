@@ -1,7 +1,7 @@
 #!/bin/sh
 # commands used:
 # - column
-# - git
+# - git (includes own command: current-branch)
 
 # display general status info about the current shell
 
