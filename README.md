@@ -2,7 +2,8 @@
 
 Personal configuration files
 
-Used on a [Arch Linux](https://www.archlinux.org/) system
+Used on a [Arch Linux](https://www.archlinux.org/) system.  
+See [Portability](#portability).
 
 ## Packages
 
@@ -65,6 +66,21 @@ make tmux vim zsh
 ```
 
 Some packages require some additional manual setup steps, check their own README
+
+
+## Portability
+
+Good portability is mainly achieved through [POSIX](https://pubs.opengroup.org/onlinepubs/9699919799/) compliancy.
+
+### Make
+
+The Makefiles used for the setup are POSIX compliant.
+
+### Scripts
+
+Unless explicitly mentioned, all scripts are POSIX compliant.
+Extra commands used are listed on top of each script file.
+Their usage need to be checked within the script to see which options and operands are required.
 
 
 ## Colors management

@@ -19,8 +19,6 @@
     * completion of query/request keywords
   - similar keybindings for reload (currently Alt-R) and quit (currently Ctrl-q)  
     maybe Alt-r and Alt-q
-  - POSIX compliancy:
-    * add info about it in README
   - turn script --help usage display into proper man pages
 
 # New Features
