@@ -39,12 +39,6 @@
     * local organization (uppercase for sway windows and tmux panes, lowercase for sway workspace and tmux windows,...)
 
 # Research
-  - calendar app
-    * [khal](https://github.com/pimutils/khal)
-    * [calendar-cli](https://github.com/tobixen/calendar-cli)
-  - contacts app to use in neomutt
-    * [khard](https://github.com/scheibler/khard)
-    * [abook](https://sourceforge.net/p/abook/git)
   - distraction free mode and scripts to disable tmux status bar, increase tmux pane,...
     * [vim limelight](https://github.com/junegunn/limelight.vim)
     * [vim goyo](https://github.com/junegunn/goyo.vim)
