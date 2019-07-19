@@ -19,7 +19,6 @@
     * completion of query/request keywords
   - similar keybindings for reload (currently Alt-R) and quit (currently Ctrl-q)  
     maybe Alt-r and Alt-q
-  - turn script --help usage display into proper man pages
 
 # New Features
   - create scripts to manage AUR packages with personal repository  

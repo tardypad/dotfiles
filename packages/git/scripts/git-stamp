@@ -4,29 +4,14 @@
 
 init_variables() {
   COMMAND=${0##*/}
-  GIT_COMMAND=${COMMAND#*-}
 
   REPLACE=false
   unset ID
   unset MSG
 }
 
-usage() {
-  cat <<- EOF
-	usage: git ${GIT_COMMAND} [<options>] <id> [<messages>]
-
-	Amend last commit with a stamp message prefixed by an identifier
-
-	Options:
-	    -h    show this message only
-	    -r    replace all previous stamps with same id
-	          this is case insensitive
-	EOF
-}
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
-  echo "Try 'git ${GIT_COMMAND} -h' for more information."
   exit 1
 } >&2
 
@@ -54,9 +39,8 @@ stamp() {
 }
 
 parse_options() {
-  while getopts hr OPT; do
+  while getopts r OPT; do
     case "${OPT}" in
-      h) usage; exit 0 ;;
       r) REPLACE=true ;;
       ?) error ;;
     esac

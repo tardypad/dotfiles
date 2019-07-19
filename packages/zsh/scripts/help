@@ -17,20 +17,8 @@ init_variables() {
   SECTION=
 }
 
-usage() {
-  cat <<- EOF
-	usage: ${COMMAND} [<options>] [<topic>] [<section>]
-
-	Get help about a topic
-
-	Options:
-	  -h           show this message only
-	EOF
-}
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
-  echo "Try '${COMMAND} -h' for more information."
   exit 1
 } >&2
 
@@ -187,15 +175,6 @@ select_topic() {
 }
 
 parse_options() {
-  while getopts h OPT; do
-    case "${OPT}" in
-      h) usage; exit 0 ;;
-      ?) error ;;
-    esac
-  done
-
-  shift $(( OPTIND - 1 ))
-
   TOPIC="$1"
   SECTION="$2"
 }

@@ -19,24 +19,8 @@ init_variables() {
   ACTIONS='[]'
 }
 
-usage() {
-  cat <<- EOF
-	usage: ${COMMAND} [<options>] summary [body]
-
-	Send a notification
-
-	Options:
-	  -c  CATEGORY  notification category
-	  -h            show this message only
-	  -i  ID        notification identifier
-	                replace similar notification if any
-	  -t  TIME      timeout in seconds
-	EOF
-}
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
-  printf "Try '%s -h' for more information.\n" "${COMMAND}"
   exit 1
 } >&2
 
@@ -75,10 +59,9 @@ send_notification() {
 }
 
 parse_options() {
-  while getopts c:hi:t: OPT; do
+  while getopts c:i:t: OPT; do
     case "${OPT}" in
       c) CATEGORY="${OPTARG}" ;;
-      h) usage; exit 0 ;;
       i) IDENTIFIER="${OPTARG}" ;;
       t) EXPIRE_TIME="${OPTARG}" ;;
       ?) error ;;

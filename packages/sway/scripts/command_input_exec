@@ -10,23 +10,8 @@ init_variables() {
   USER_INPUT=
 }
 
-usage() {
-  cat <<- EOF
-	usage: ${COMMAND} [<options>]
-
-	Sway command input script
-
-	Options:
-	  -F  FORMAT  sway command to be executed
-                %s occurences are replaced by user input
-	  -h          show this message only
-	  -P  PROMPT  display before user input
-	EOF
-}
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
-  printf "Try '%s -h' for more information.\n" "${COMMAND}"
   exit 1
 } >&2
 
@@ -43,10 +28,9 @@ run() {
 }
 
 parse_options() {
-  while getopts F:hP: OPT; do
+  while getopts F:P: OPT; do
     case "${OPT}" in
       F) FORMAT="${OPTARG}" ;;
-      h) usage; exit 0 ;;
       P) PROMPT="${OPTARG}" ;;
       ?) error ;;
     esac

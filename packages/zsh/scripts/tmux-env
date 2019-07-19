@@ -13,22 +13,8 @@ init_variables() {
   SESSION=
 }
 
-usage() {
-  cat <<- EOF
-	usage: ${COMMAND} [<options>] <target> [<session>]
-
-	Start target tmux environment session
-	If no session is defined, a new empty one is created
-
-	Options:
-	  -b     launch in background, no attach
-	  -h     show this message only
-	EOF
-}
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
-  echo "Try '${COMMAND} -h' for more information."
   exit 1
 } >&2
 
@@ -58,10 +44,9 @@ start_target_tmux_env() {
 }
 
 parse_options() {
-  while getopts bh OPT; do
+  while getopts b OPT; do
     case "${OPT}" in
       b) BACKGROUND=true ;;
-      h) usage; exit 0 ;;
       ?) error ;;
     esac
   done

@@ -7,30 +7,16 @@
 
 init_variables() {
   COMMAND=${0##*/}
-  GIT_COMMAND=${COMMAND#*-}
 
-  INITIAL_REF=
-  START_REF=
-  END_REF=
+  INITIAL_REV=
+  START_REV=
+  END_REV=
   RUN_COMMAND=
   QUIET=0
 }
 
-usage() {
-  cat <<- EOF
-	usage: git ${GIT_COMMAND} [<options>] start_ref end_ref command
-
-	Execute a command over a range of git revisions
-
-	Options:
-	    -h      show this message only
-	    -q      only show command outputs
-	EOF
-}
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
-  echo "Try 'git ${GIT_COMMAND} -h' for more information."
   exit 1
 } >&2
 
@@ -53,20 +39,20 @@ abort_if_dirty_repo() {
   fi
 }
 
-save_initial_ref() {
+save_initial_rev() {
   if git symbolic-ref HEAD > /dev/null 2>&1; then
-    INITIAL_REF=$( git symbolic-ref --short HEAD )
+    INITIAL_REV=$( git symbolic-ref --short HEAD )
   else
-    INITIAL_REF=$( git rev-parse HEAD )
+    INITIAL_REV=$( git rev-parse HEAD )
   fi
 }
 
-restore_initial_ref() {
-  git checkout -q "${INITIAL_REF}"
+restore_initial_rev() {
+  git checkout -q "${INITIAL_REV}"
 }
 
 run_command_over_range() {
-  for REVISION in $( git rev-list --reverse ${START_REF}..${END_REF} ); do
+  for REVISION in $( git rev-list --reverse ${START_REV}..${END_REV} ); do
     [ "${QUIET}" -eq 0 ] && echo "Checking out: $( git log --oneline -1 "${REVISION}" )"
     git checkout -q "${REVISION}"
     eval "${RUN_COMMAND}"
@@ -75,9 +61,8 @@ run_command_over_range() {
 }
 
 parse_options() {
-  while getopts hq OPT; do
+  while getopts q OPT; do
     case "${OPT}" in
-      h) usage; exit 0 ;;
       q) QUIET=1 ;;
       ?) error ;;
     esac
@@ -85,18 +70,18 @@ parse_options() {
 
   shift $(( OPTIND - 1 ))
 
-  START_REF="$1"
-  END_REF="$2"
+  START_REV="$1"
+  END_REV="$2"
   shift 2 > /dev/null
   RUN_COMMAND="$*"
 }
 
 validate_options() {
-  if [ -z "${START_REF}" ]; then
+  if [ -z "${START_REV}" ]; then
     error 'no start revision'
   fi
 
-  if [ -z "${END_REF}" ]; then
+  if [ -z "${END_REV}" ]; then
     error 'no end revision'
   fi
 
@@ -110,6 +95,6 @@ parse_options "$@"
 validate_options
 
 abort_if_dirty_repo
-save_initial_ref
+save_initial_rev
 run_command_over_range
-restore_initial_ref
+restore_initial_rev

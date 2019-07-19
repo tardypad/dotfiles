@@ -12,21 +12,8 @@ init_variables() {
   JP_OPTIONS=
 }
 
-usage() {
-  cat <<- EOF
-	usage: ${COMMAND} [<options>] [ -- <jp options> ]
-
-	Plot simple data from stdin
-	Data must have 1 or 2 columns
-
-	Options:
-	  -h                 show this message only
-	EOF
-}
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
-  echo "Try '${COMMAND} -h' for more information."
   exit 1
 } >&2
 
@@ -45,15 +32,7 @@ plot_data() {
 }
 
 parse_options() {
-  while getopts h OPT; do
-    case "${OPT}" in
-      h) usage; exit 0 ;;
-      ?) error ;;
-    esac
-  done
-
-  shift $(( OPTIND )) 2> /dev/null
-
+  shift 2> /dev/null
   JP_OPTIONS="$*"
 }
 

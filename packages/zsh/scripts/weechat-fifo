@@ -8,22 +8,8 @@ init_variables() {
   BUFFER=
 }
 
-usage() {
-  cat <<- EOF
-	usage: ${COMMAND} [<options>] [<buffer>]
-
-	Remote control of weechat via FIFO pipe
-	Text or command is read from stdin
-	If <buffer> is not specified, current buffer is used
-
-	Options:
-	  -h           show this message only
-	EOF
-}
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
-  echo "Try '${COMMAND} -h' for more information."
   exit 1
 } >&2
 
@@ -34,15 +20,6 @@ fifo_send() {
 }
 
 parse_options() {
-  while getopts h OPT; do
-    case "${OPT}" in
-      h) usage; exit 0 ;;
-      ?) error ;;
-    esac
-  done
-
-  shift $(( OPTIND - 1 ))
-
   BUFFER=$1
 }
 

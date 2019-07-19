@@ -4,7 +4,6 @@
 
 init_variables() {
   COMMAND=${0##*/}
-  GIT_COMMAND=${COMMAND#*-}
 
   CONFIG=false
   ALL=false
@@ -14,29 +13,8 @@ init_variables() {
   TYPE='both'
 }
 
-usage() {
-  cat <<- EOF
-	usage: git ${GIT_COMMAND} [<options>]
-
-	Rewrite history to change authors identities
-
-	Options:
-	    -a           rewrite all identities in commits and tags
-	    -c           define correct values from user Git config
-	    -h           show this message only
-	    -e  <email>  define the correct email to set
-	                 takes precedence over -c
-	    -n  <name>   define the correct name to set
-	                 takes precedence over -c
-	    -o  <email>  rewrite identities matching old email in commits and tags
-	    -t  <id>     define the type of identities affected by the rewrite
-	                 author, committer, both (default)
-	EOF
-}
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
-  echo "Try 'git ${GIT_COMMAND} -h' for more information."
   exit 1
 } >&2
 
@@ -70,11 +48,10 @@ reauthor() {
 }
 
 parse_options() {
-  while getopts ache:n:o:t: OPT; do
+  while getopts ace:n:o:t: OPT; do
     case "${OPT}" in
       a) ALL=true ;;
       c) CONFIG=true ;;
-      h) usage; exit 0 ;;
       e) CORRECT_EMAIL="${OPTARG}" ;;
       n) CORRECT_NAME="${OPTARG}" ;;
       o) OLD_EMAIL="${OPTARG}" ;;

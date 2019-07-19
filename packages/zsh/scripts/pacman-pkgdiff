@@ -9,20 +9,8 @@ init_variables() {
   PACKAGE_NAME=
 }
 
-usage() {
-  cat <<- EOF
-	usage: ${COMMAND} [<options>] package
-
-	Display a diff of a package modified files
-
-	Options:
-	  -h    show this message only
-	EOF
-}
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
-  echo "Try '${COMMAND} -h' for more information."
   exit 1
 } >&2
 
@@ -49,15 +37,6 @@ diff_package() {
 }
 
 parse_options() {
-  while getopts h OPT; do
-    case "${OPT}" in
-      h) usage; exit 0 ;;
-      ?) error ;;
-    esac
-  done
-
-  shift $(( OPTIND - 1 ))
-
   PACKAGE_NAME="$1"
 }
 

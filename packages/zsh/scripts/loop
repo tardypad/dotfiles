@@ -9,24 +9,8 @@ init_variables() {
   TIME=
 }
 
-usage() {
-  cat <<- EOF
-	usage: ${COMMAND} [<options>] command
-
-	Execute a command in a loop
-
-	Options:
-	  -c  COUNT      stops after COUNT runs of the command
-	  -h             show this message only
-	  -i  INTERVAL   wait INTERVAL seconds between each command run
-	                 default is 0, floating number are accepted
-	  -t  TIME       stops command runs after a TIME seconds period
-	EOF
-}
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
-  echo "Try '${COMMAND} -h' for more information."
   exit 1
 } >&2
 
@@ -59,10 +43,9 @@ loop_command() {
 }
 
 parse_options() {
-  while getopts c:hi:t: OPT; do
+  while getopts c:i:t: OPT; do
     case "${OPT}" in
       c) COUNT="${OPTARG}" ;;
-      h) usage; exit 0 ;;
       i) INTERVAL="${OPTARG}" ;;
       t) TIME="${OPTARG}" ;;
       ?) error ;;

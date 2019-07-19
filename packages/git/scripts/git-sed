@@ -4,7 +4,6 @@
 
 init_variables() {
   COMMAND=${0##*/}
-  GIT_COMMAND=${COMMAND#*-}
 
   TMP_FILE=$( mktemp )
   trap 'rm "${TMP_FILE}"' EXIT
@@ -12,20 +11,8 @@ init_variables() {
   SCRIPT=
 }
 
-usage() {
-  cat <<- EOF
-	usage: git ${GIT_COMMAND} [<options>] <script>
-
-	Apply a sed script over all text files managed by git
-
-	Options:
-	    -h               show this message only
-	EOF
-}
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
-  echo "Try 'git ${GIT_COMMAND} -h' for more information."
   exit 1
 } >&2
 
@@ -38,15 +25,6 @@ run_sed() {
 }
 
 parse_options() {
-  while getopts h OPT; do
-    case "${OPT}" in
-      h) usage; exit 0 ;;
-      ?) error ;;
-    esac
-  done
-
-  shift $(( OPTIND - 1 ))
-
   SCRIPT="$*"
 }
 

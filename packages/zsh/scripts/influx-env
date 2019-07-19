@@ -14,20 +14,8 @@ init_variables() {
   ENV_PATH=
 }
 
-usage() {
-  cat <<- EOF
-	usage: ${COMMAND} [<options>] project [query] [ -- <influx options> ]
-
-	Start InfluxDB or run a query within a project environment
-
-	Options:
-	  -h    show this message only
-	EOF
-}
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
-  echo "Try '${COMMAND} -h' for more information."
   exit 1
 } >&2
 
@@ -40,15 +28,6 @@ run_influx() {
 }
 
 parse_options() {
-  while getopts h OPT; do
-    case "${OPT}" in
-      h) usage; exit 0 ;;
-      ?) error ;;
-    esac
-  done
-
-  shift $(( OPTIND - 1 ))
-
   PROJECT="$1"
   shift 2> /dev/null
 

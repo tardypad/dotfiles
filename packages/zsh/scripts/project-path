@@ -9,22 +9,8 @@ init_variables() {
   PROJECT=
 }
 
-usage() {
-  cat <<- EOF
-	usage: ${COMMAND} [<options>] <type> [<project>]
-
-	Display a path related to a project
-
-	Options:
-	  -h    show this message only
-
-	Types: main repo docs logs
-	EOF
-}
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
-  echo "Try '${COMMAND} -h' for more information."
   exit 1
 } >&2
 
@@ -74,15 +60,6 @@ display_path() {
 }
 
 parse_options() {
-  while getopts h OPT; do
-    case "${OPT}" in
-      h) usage; exit 0 ;;
-      ?) error ;;
-    esac
-  done
-
-  shift $(( OPTIND - 1 ))
-
   TYPE="$1"
   PROJECT="$2"
 }

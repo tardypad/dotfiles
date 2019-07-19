@@ -11,24 +11,8 @@ init_variables() {
   ACTION='show'
 }
 
-usage() {
-  cat <<- EOF
-	usage: ${COMMAND} [<options>] [<action>]
-
-	Manage the bar status mode
-	Light mode is the default
-
-	Options:
-	  -h      show this message only
-
-	Actions:
-	  light full toggle show
-	EOF
-}
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
-  printf "Try '%s -h' for more information.\n" "${COMMAND}"
   exit 1
 } >&2
 
@@ -67,15 +51,6 @@ bar_status_show() {
 }
 
 parse_options() {
-  while getopts h OPT; do
-    case "${OPT}" in
-      h) usage; exit 0 ;;
-      ?) error ;;
-    esac
-  done
-
-  shift $(( OPTIND - 1 ))
-
   [ -z "$1" ] || ACTION="$1"
 }
 

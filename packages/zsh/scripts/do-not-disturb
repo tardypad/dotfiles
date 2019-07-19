@@ -11,23 +11,8 @@ init_variables() {
   ACTION=
 }
 
-usage() {
-  cat <<- EOF
-	usage: ${COMMAND} [<options>] <action>
-
-	Manage "Do not disturb" mode
-
-	Options:
-	  -h    show this message only
-
-	Actions:
-	  enable disable toggle status
-	EOF
-}
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
-  echo "Try '${COMMAND} -h' for more information."
   exit 1
 } >&2
 
@@ -70,15 +55,6 @@ is_dnd_enabled() {
 }
 
 parse_options() {
-  while getopts h OPT; do
-    case "${OPT}" in
-      h) usage; exit 0 ;;
-      ?) error ;;
-    esac
-  done
-
-  shift $(( OPTIND - 1 ))
-
   ACTION="$1"
 }
 

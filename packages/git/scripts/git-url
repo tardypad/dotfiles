@@ -4,37 +4,14 @@
 
 init_variables() {
   COMMAND=${0##*/}
-  GIT_COMMAND=${COMMAND#*-}
 
   TYPE=repo
   COMMIT=HEAD
   REMOTE=$( git config --default origin browse.remote )
 }
 
-usage() {
-  cat <<- EOF
-	usage: git ${GIT_COMMAND} [<options>]
-
-	Display an URL related to the repo or a commit
-	Based on remote config using an URL alias and "browse" config
-
-	Options:
-	    -c     commit to select information (default HEAD)
-	    -h     show this message only
-	    -r     remote to use (default origin)
-	    -t     URL type (default repo)
-
-	Valid types:
-	- repo: general URL of the repo
-	- commit: URL of the selected commit
-	- issue: URL of the issue related to selected commit
-	- review: URL of the review related to selected commit
-	EOF
-}
-
 error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
-  echo "Try 'git ${GIT_COMMAND} -h' for more information."
   exit 1
 } >&2
 
@@ -82,10 +59,9 @@ display_url() {
 }
 
 parse_options() {
-  while getopts c:hr:t: OPT; do
+  while getopts c:r:t: OPT; do
     case "${OPT}" in
       c) COMMIT="${OPTARG}" ;;
-      h) usage; exit 0 ;;
       r) REMOTE="${OPTARG}" ;;
       t) TYPE="${OPTARG}" ;;
       ?) error ;;
