@@ -29,6 +29,8 @@ c.completion.open_categories = [ "history" ]
 c.content.javascript.enabled = False
 config.set('content.javascript.enabled', True, '*.local')
 config.set('content.javascript.enabled', True, '*.youtube.com')
+config.set('content.javascript.enabled', True, '*.migadu.com')
+config.set('content.javascript.enabled', True, '*.gandi.net')
 
 # minimize fingerprinting
 c.content.headers.user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36"
