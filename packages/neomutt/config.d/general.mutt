@@ -1,7 +1,10 @@
 # define credentials variables for each account
-source "gpg -q -d ~/.config/neomutt/config.d/accounts/gmail_work.gpg |"
-source "gpg -q -d ~/.config/neomutt/config.d/accounts/gmail_perso.gpg |"
-source "gpg -q -d ~/.config/neomutt/config.d/accounts/gandi.gpg |"
+set my_gmail_perso_email    = "` pass perso/mail/gmail | sed -n 's/email: \\(.*\\)/\\1/p' `"
+set my_gmail_perso_password = "` pass perso/mail/gmail | head -n 1 `"
+set my_gmail_work_email     = "` pass perso/mail/work | sed -n 's/email: \\(.*\\)/\\1/p' `"
+set my_gmail_work_password  = "` pass perso/mail/work | head -n 1 `"
+set my_gandi_email          = "` pass perso/mail/gandi | sed -n 's/email: \\(.*\\)/\\1/p' `"
+set my_gandi_password       = "` pass perso/mail/gandi | head -n 1 `"
 
 # set config per account
 account-hook "$my_gmail_perso_email" "set imap_user=$my_gmail_perso_email imap_pass=$my_gmail_perso_password"
