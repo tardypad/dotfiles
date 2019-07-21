@@ -91,9 +91,9 @@ bind editor <BackSpace> backspace
 macro generic,pager <Esc>h "<shell-escape>less /usr/share/doc/neomutt/manual.txt<Enter>" "Show documentation"
 
 # change account
-macro index,pager <F1> "<change-folder>imaps://$my_gmail_perso_email@imap.gmail.com<Enter>" "Gmail Perso"
-macro index,pager <F2> "<change-folder>imaps://$my_gmail_work_email@imap.gmail.com<Enter>"  "Gmail Work"
-macro index,pager <F3> "<change-folder>imaps://$my_gandi_email@mail.gandi.net<Enter>"       "Gandi Perso"
+macro index,pager <F1> "<change-folder>imaps://$my_gmail_email@imap.gmail.com<Enter>" "Gmail"
+macro index,pager <F2> "<change-folder>imaps://$my_work_email@imap.gmail.com<Enter>"  "Work"
+macro index,pager <F3> "<change-folder>imaps://$my_gandi_email@mail.gandi.net<Enter>" "Gandi"
 
 # sidebar navigation
 bind index,pager \Cp sidebar-prev

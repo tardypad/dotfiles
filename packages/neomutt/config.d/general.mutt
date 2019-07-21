@@ -1,22 +1,22 @@
 # define credentials variables for each account
-set my_gmail_perso_email    = "` pass perso/mail/gmail | sed -n 's/email: \\(.*\\)/\\1/p' `"
-set my_gmail_perso_password = "` pass perso/mail/gmail | head -n 1 `"
-set my_gmail_work_email     = "` pass perso/mail/work | sed -n 's/email: \\(.*\\)/\\1/p' `"
-set my_gmail_work_password  = "` pass perso/mail/work | head -n 1 `"
-set my_gandi_email          = "` pass perso/mail/gandi | sed -n 's/email: \\(.*\\)/\\1/p' `"
-set my_gandi_password       = "` pass perso/mail/gandi | head -n 1 `"
+set my_gmail_email    = "` pass perso/mail/gmail | sed -n 's/email: \\(.*\\)/\\1/p' `"
+set my_gmail_password = "` pass perso/mail/gmail | head -n 1 `"
+set my_work_email     = "` pass perso/mail/work | sed -n 's/email: \\(.*\\)/\\1/p' `"
+set my_work_password  = "` pass perso/mail/work | head -n 1 `"
+set my_gandi_email    = "` pass perso/mail/gandi | sed -n 's/email: \\(.*\\)/\\1/p' `"
+set my_gandi_password = "` pass perso/mail/gandi | head -n 1 `"
 
 # set config per account
-account-hook "$my_gmail_perso_email" "set imap_user=$my_gmail_perso_email imap_pass=$my_gmail_perso_password"
-account-hook "$my_gmail_work_email" "set imap_user=$my_gmail_work_email imap_pass=$my_gmail_work_password"
+account-hook "$my_gmail_email" "set imap_user=$my_gmail_email imap_pass=$my_gmail_password"
+account-hook "$my_work_email" "set imap_user=$my_work_email imap_pass=$my_work_password"
 account-hook "$my_gandi_email" "set imap_user=$my_gandi_email imap_pass=$my_gandi_password"
 folder-hook . unmailboxes *
-folder-hook "$my_gmail_perso_email" source "~/.config/neomutt/config.d/accounts/gmail_perso.mutt"
-folder-hook "$my_gmail_work_email" source "~/.config/neomutt/config.d/accounts/gmail_work.mutt"
+folder-hook "$my_gmail_email" source "~/.config/neomutt/config.d/accounts/gmail.mutt"
+folder-hook "$my_work_email" source "~/.config/neomutt/config.d/accounts/work.mutt"
 folder-hook "$my_gandi_email" source "~/.config/neomutt/config.d/accounts/gandi.mutt"
 
 # switch to default account
-source "~/.config/neomutt/config.d/accounts/gmail_perso.mutt"
+source "~/.config/neomutt/config.d/accounts/gmail.mutt"
 
 # define some files and folders location
 set header_cache = "~/.cache/neomutt/headers"
