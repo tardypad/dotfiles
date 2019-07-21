@@ -1,8 +1,8 @@
 set realname = "Damien Tardy-Panis"
-set folder = "imaps://$my_gandi_email@mail.gandi.net"
-set from = "$my_gandi_email"
-set smtp_url = "smtps://$my_gandi_email@mail.gandi.net"
-set smtp_pass = "$my_gandi_password"
+set folder = "imaps://$my_migadu_email@imap.migadu.com"
+set from = "$my_migadu_email"
+set smtp_url = "smtp://$my_migadu_email@smtp.migadu.com:587"
+set smtp_pass = "$my_migadu_password"
 set signature = ~/.config/neomutt/config.d/signatures/simple
 set spoolfile = "+INBOX"
 set record = "+Sent"
@@ -13,14 +13,15 @@ set trash = "+Trash"
 macro index,pager gi "<change-folder>+INBOX<Enter>"  "go to inbox folder"
 macro index,pager gd "<change-folder>+Drafts<Enter>" "go to drafts folder"
 macro index,pager gs "<change-folder>+Sent<Enter>"   "go to sent folder"
-macro index,pager gj "<change-folder>+Spam<Enter>"   "go to junk folder"
+macro index,pager gj "<change-folder>+Junk<Enter>"   "go to junk folder"
 macro index,pager gt "<change-folder>+Trash<Enter>"  "go to trash folder"
 
 mailboxes "+INBOX" \
-          "+INBOX/Achats" \
+          "+INBOX/Shopping" \
           "+INBOX/Daily comics" \
           "+INBOX/SomaFM" \
+          "+Archive" \
           "+Drafts" \
           "+Sent" \
-          "+Spam" \
+          "+Junk" \
           "+Trash"
