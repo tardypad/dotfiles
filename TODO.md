@@ -7,6 +7,19 @@
   - check if some code tags can be fixed with the `report-tags` utility script
 
 # Cleaning
+  - review scripts templating especially functions namings  
+    parse_options and validate_options functions also parse/validate operands
+  - repository reorganisation:
+    * move all scripts to a root folder (maybe with subfolders for git, sway,...)
+    * rename packages folder to config (and update related utilities)
+    * consistency of scripts using - instead of _
+    * add info about repository structure in README
+    * packages Makefile targets should be made with prerequisites  
+      for example: sway should require sway-config, sway-scripts,...
+    * review the naming of scripts  
+      for example: prefix sway scripts with sway-
+  - consistency of scripts default action: do-not-disturb/pomodoro have none, bar_status_mode does
+  - consistency of boolean in scripts: true/false vs 1/0 usage
 
 # Bugs
 
@@ -19,8 +32,23 @@
     * completion of query/request keywords
   - similar keybindings for reload (currently Alt-R) and quit (currently Ctrl-q)  
     maybe Alt-r and Alt-q
+  - git run-command could use usual git revisions range argument (see gitrevisions(7))  
+    instead of start and end revision arguments
+  - git stamp should use a single message argument instead of concatenating parameters  
+    would make the script and doc a bit simpler
+  - split help script to simplify it: selection/caching vs search/display
+  - better man pages:
+    * add DESCRIPTION part with better explanation
+    * move commands used listed on top of scripts to the doc (as DEPENDENCIES?)
+    * add FILES used by the script
+    * add ENVIRONMENT VARIABLES used by the script
+    * check common man pages to see what other parts could be make sense to be added  
+      STDIN, STDOUT, EXIT STATUS, EXAMPLES,...
 
 # New Features
+  - add doc target to Makefile to build man pages with scdoc  
+    * update README with info
+    * the output folder should be added to MANPATH and used by the help script
   - create scripts to manage AUR packages with personal repository  
     check [Michael Daffin blog](https://disconnected.systems/blog/archlinux-repo-in-aws-bucket/)
   - use of Sway IPC via [i3ipc](https://github.com/acrisci/i3ipc-python)
