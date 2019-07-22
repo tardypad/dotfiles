@@ -23,6 +23,10 @@ c.tabs.background = True
 # only show history items in "open" completion
 c.completion.open_categories = [ "history" ]
 
+# Disable some websites requests, don't even ask for it
+c.content.notifications = False
+c.content.geolocation   = False
+
 # disable Javascript everywhere by default
 # and only whitelist some regularly used patterns
 # which are trusted or don't work well without it
