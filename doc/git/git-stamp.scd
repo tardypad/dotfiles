@@ -2,11 +2,11 @@ git-stamp(1)
 
 # NAME
 
-git-stamp - Amend last commit with a stamp message prefixed by an identifier
+git-stamp - Amend last commit with a stamp message
 
 # SYNOPSIS
 
-git stamp [-r] _id_ [_message_...]
+git stamp [-r] _id_ [_message_]
 
 # OPTIONS
 
@@ -20,5 +20,4 @@ _id_
 	Identifier of the stamp
 
 _message_
-	Message of the stamp++
-Multiple messages shall be concatenated with a space delimiter
+	Message of the stamp

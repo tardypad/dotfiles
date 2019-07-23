@@ -33,8 +33,6 @@
     maybe Alt-r and Alt-q
   - git run-command could use usual git revisions range argument (see gitrevisions(7))  
     instead of start and end revision arguments
-  - git stamp should use a single message argument instead of concatenating parameters  
-    would make the script and doc a bit simpler
   - split help script to simplify it: selection/caching vs search/display
   - better man pages:
     * add DESCRIPTION part with better explanation

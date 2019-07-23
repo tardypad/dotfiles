@@ -49,8 +49,7 @@ parse_options() {
   shift $(( OPTIND - 1 ))
 
   ID="$1"
-  shift 2> /dev/null
-  MSG="$*"
+  MSG="$2"
 }
 
 validate_options() {
