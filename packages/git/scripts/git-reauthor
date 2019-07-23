@@ -20,13 +20,13 @@ error() {
 
 reauthor() {
   AUTHOR='
-    if ${ALL} || [ "${GIT_AUTHOR_EMAIL}" = "${OLD_EMAIL}" ]; then
+    if [ "${ALL}" = "true" ] || [ "${GIT_AUTHOR_EMAIL}" = "${OLD_EMAIL}" ]; then
       [ -z "${CORRECT_EMAIL+x}" ] || export GIT_AUTHOR_EMAIL="${CORRECT_EMAIL}"
       [ -z "${CORRECT_NAME+x}" ] || export GIT_AUTHOR_NAME="${CORRECT_NAME}"
     fi
   '
   COMMITTER='
-    if ${ALL} || [ "${GIT_COMMITTER_EMAIL}" = "${OLD_EMAIL}" ]; then
+    if [ "${ALL}" = "true" ] || [ "${GIT_COMMITTER_EMAIL}" = "${OLD_EMAIL}" ]; then
       [ -z "${CORRECT_EMAIL+x}" ] || export GIT_COMMITTER_EMAIL="${CORRECT_EMAIL}"
       [ -z "${CORRECT_NAME+x}" ] || export GIT_COMMITTER_NAME="${CORRECT_NAME}"
     fi
@@ -62,7 +62,7 @@ parse_options() {
 
   shift $(( OPTIND - 1 ))
 
-  if ${CONFIG}; then
+  if [ "${CONFIG}" = 'true' ]; then
     # use config values if not explicitly already defined
     [ -n "${CORRECT_EMAIL+x}" ] || CORRECT_EMAIL=$( git config user.email )
     [ -n "${CORRECT_NAME+x}" ] || CORRECT_NAME=$( git config user.name )
@@ -71,14 +71,14 @@ parse_options() {
 
 validate_options() {
   # Either OLD_EMAIL should be set or ALL should be true
-  if [ -z "${OLD_EMAIL+x}" ] && ! ${ALL}; then
+  if [ -z "${OLD_EMAIL+x}" ] && [ "${ALL}" = 'false' ]; then
     msg="missing target of the rewrite"
     msg="${msg}\nuse either -o option or -a flag"
     error "${msg}"
   fi
 
   # OLD_EMAIL shouldn't be set if ALL is true as well to prevent misuse
-  if [ -n "${OLD_EMAIL+x}" ] && ${ALL}; then
+  if [ -n "${OLD_EMAIL+x}" ] && [ "${ALL}" = 'true' ]; then
     msg="ambiguous target of the rewrite"
     msg="${msg}\nuse either -o option or -a flag"
     error "${msg}"

@@ -18,7 +18,6 @@
       for example: sway should require sway-config, sway-scripts,...
     * review the naming of scripts  
       for example: prefix sway scripts with sway-
-  - consistency of boolean in scripts: true/false vs 1/0 usage
 
 # Bugs
 

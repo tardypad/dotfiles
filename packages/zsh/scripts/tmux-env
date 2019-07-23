@@ -36,7 +36,7 @@ start_target_tmux_env() {
     fi
   fi
 
-  if ! $BACKGROUND; then
+  if [ "${BACKGROUND}" = 'false' ]; then
     tmux -L "${TARGET}" attach-session -t "${SESSION}" > /dev/null 2>&1
   else
     tmux -L "${TARGET}" switch-client -t "${SESSION}" > /dev/null 2>&1

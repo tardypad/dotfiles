@@ -19,7 +19,7 @@ stamp() {
   COMMIT_MSG=$( git log -1 --pretty=%B )
   [ -n "${MSG}" ] && STAMP_MSG="${ID} ${MSG}" || STAMP_MSG="${ID}"
 
-  if ${REPLACE}; then
+  if [ "${REPLACE}" = 'true' ]; then
     # remove previous stamps with same ID from the commit message
     COMMIT_MSG=$(
       echo "${COMMIT_MSG}" \
