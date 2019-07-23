@@ -6,7 +6,7 @@ pomodoro - Manage a Pomodoro session
 
 # SYNOPSIS
 
-pomodoro ( _cancel_ | _start_ | _status_ | _toggle_ )
+pomodoro [ _cancel_ | _start_ | _status_ | _toggle_ ]
 
 # OPERANDS
 
@@ -17,7 +17,8 @@ _start_
 	Start session
 
 _status_
-	Display time remaining if session active
+	Display time remaining if session active++
+This is the default action if none is specified
 
 _toggle_
 	Start session if not active, cancel it otherwise

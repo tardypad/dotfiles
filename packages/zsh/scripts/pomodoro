@@ -8,7 +8,7 @@ init_variables() {
   FILE_PATH="${XDG_RUNTIME_DIR}/pomodoro"
   DURATION_SECONDS=1500
 
-  ACTION=
+  ACTION='status'
 }
 
 error() {
@@ -78,14 +78,10 @@ is_session_started() {
 }
 
 parse_options() {
-  ACTION="$1"
+  [ -z "$1" ] || ACTION="$1"
 }
 
 validate_options() {
-  if [ -z "${ACTION}" ]; then
-    error 'Missing action argument'
-  fi
-
   if [ "${ACTION}" != 'start' ] \
      && [ "${ACTION}" != 'cancel' ] \
      && [ "${ACTION}" != 'toggle' ] \

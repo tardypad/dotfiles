@@ -8,7 +8,7 @@ init_variables() {
 
   FILE_PATH="${XDG_RUNTIME_DIR}/do_not_disturb"
 
-  ACTION=
+  ACTION='status'
 }
 
 error() {
@@ -55,14 +55,10 @@ is_dnd_enabled() {
 }
 
 parse_options() {
-  ACTION="$1"
+  [ -z "$1" ] || ACTION="$1"
 }
 
 validate_options() {
-  if [ -z "${ACTION}" ]; then
-    error 'Missing action argument'
-  fi
-
   if [ "${ACTION}" != 'enable' ] \
      && [ "${ACTION}" != 'disable' ] \
      && [ "${ACTION}" != 'toggle' ] \
