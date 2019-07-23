@@ -30,8 +30,6 @@
     * completion of query/request keywords
   - similar keybindings for reload (currently Alt-R) and quit (currently Ctrl-q)  
     maybe Alt-r and Alt-q
-  - git run-command could use usual git revisions range argument (see gitrevisions(7))  
-    instead of start and end revision arguments
   - split help script to simplify it: selection/caching vs search/display
   - better man pages:
     * add DESCRIPTION part with better explanation

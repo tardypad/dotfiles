@@ -9,8 +9,7 @@ init_variables() {
   COMMAND=${0##*/}
 
   INITIAL_REV=
-  START_REV=
-  END_REV=
+  REV_RANGE=
   RUN_COMMAND=
   QUIET=false
 }
@@ -52,7 +51,7 @@ restore_initial_rev() {
 }
 
 run_command_over_range() {
-  for REVISION in $( git rev-list --reverse ${START_REV}..${END_REV} ); do
+  for REVISION in $( git rev-list --reverse "${REV_RANGE}" ); do
     [ "${QUIET}" = 'false' ] && echo "Checking out: $( git log --oneline -1 "${REVISION}" )"
     git checkout -q "${REVISION}"
     eval "${RUN_COMMAND}"
@@ -70,19 +69,14 @@ parse_options() {
 
   shift $(( OPTIND - 1 ))
 
-  START_REV="$1"
-  END_REV="$2"
-  shift 2 > /dev/null
+  REV_RANGE="$1"
+  shift 2> /dev/null
   RUN_COMMAND="$*"
 }
 
 validate_options() {
-  if [ -z "${START_REV}" ]; then
-    error 'no start revision'
-  fi
-
-  if [ -z "${END_REV}" ]; then
-    error 'no end revision'
+  if [ -z "${REV_RANGE}" ]; then
+    error 'no revisions range'
   fi
 
   if [ -z "${RUN_COMMAND}" ]; then
