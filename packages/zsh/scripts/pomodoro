@@ -35,7 +35,10 @@ session_start() {
 }
 
 session_status() {
-  is_session_started || return 1
+  if ! is_session_started; then
+    echo 'No current session' >&2
+    return 1
+  fi
 
   CURRENT_TIME=$( current_time_sec )
   START_TIME=$( cat "${FILE_PATH}" )
@@ -47,7 +50,10 @@ session_status() {
 }
 
 session_cancel() {
-  is_session_started || return 1
+  if ! is_session_started; then
+    echo 'No current session' >&2
+    return 1
+  fi
 
   rm -f "${FILE_PATH}"
 }

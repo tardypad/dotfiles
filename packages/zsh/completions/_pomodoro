@@ -5,6 +5,7 @@ _actions() {
     start
     cancel
     status
+    toggle
   )
 
   compadd "$@" $actions
