@@ -36,7 +36,8 @@ select_section()
     echo "${MAN_PATH}" \
       | tr ':' '\n' \
       | xargs -I{} find -L {} -type f -name "${TOPIC}.[0-9]*" \
-      | sed 's/.*\.\([^.]*\).gz/\1/' \
+      | sed -e '/.*\.gz$/s/.*\.\([^.]*\).gz/\1/' \
+            -e '/.*\.[0-9]$/s/.*\.\([^.]*\)/\1/' \
       | sort -u \
       | tr '\n' ':'
   )"
@@ -106,7 +107,8 @@ search_help() {
 
   else
     if [ "$( echo "${MAN_PATH}" | tr ':' '\n' \
-              | xargs -I{} find -L {} -type f -name "${TOPIC}.${SECTION}.*" \
+              | xargs -I{} find -L {} -type f \
+                -name "${TOPIC}.${SECTION}" -o -name "${TOPIC}.${SECTION}.*" \
               | wc -l )" -ge 1 ]; then \
       man "${TOPIC}.${SECTION}"
       return 0
@@ -158,7 +160,8 @@ build_topics_cache() {
     echo "${MAN_PATH}" \
       | tr ':' '\n' \
       | xargs -I{} find -L {} -type f \
-      | sed 's#.*/\([^/]*\)\.[^\.]*\.gz#\1#'
+      | sed -e '/.*\.gz$/s#.*/\([^/]*\)\.[^\.]*\.gz#\1#' \
+            -e '/.*\.[0-9]$/s#.*/\([^/]*\)\.[0-9]*#\1#'
   )
 
   {
