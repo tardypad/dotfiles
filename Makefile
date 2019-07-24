@@ -50,3 +50,5 @@ include data/applications/Makefile
 include data/env/Makefile
 include data/images/Makefile
 include data/sounds/Makefile
+
+include docs/Makefile

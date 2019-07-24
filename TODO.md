@@ -40,9 +40,7 @@
       STDIN, STDOUT, EXIT STATUS, EXAMPLES,...
 
 # New Features
-  - add doc target to Makefile to build man pages with scdoc  
-    * update README with info
-    * the output folder should be added to MANPATH and used by the help script
+  - the custom man folder should be added to MANPATH and used by the help script
   - create scripts to manage AUR packages with personal repository  
     check [Michael Daffin blog](https://disconnected.systems/blog/archlinux-repo-in-aws-bucket/)
   - use of Sway IPC via [i3ipc](https://github.com/acrisci/i3ipc-python)

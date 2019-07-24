@@ -56,7 +56,8 @@ about versions, extensions, plugins,...
 ## Setup
 
 The setup is done using make.  
-Some tools' setup require `curl` to download files.
+Some tools' setup require `curl` to download files.  
+The documentation target requires `scdoc` to build the man pages.
 
 ```shell
 # install config files of all packages
@@ -67,6 +68,9 @@ make tmux
 
 # install config files of a selection of packages
 make tmux vim zsh
+
+# install documentation
+make doc
 ```
 
 Some packages require some additional manual setup steps, check their own README
@@ -89,6 +93,13 @@ The Makefiles used for the setup are POSIX compliant.
 Unless explicitly mentioned, all scripts are POSIX compliant.
 Extra commands used are listed on top of each script file.
 Their usage need to be checked within the script to see which options and operands are required.
+
+
+## Documentation
+
+All scripts that are meant to be used directly on the command line, and which are not simple wrappers,
+are documented as man pages (see [docs](docs) folder).  
+Other scripts contain some documentation as comments within the code itself.
 
 
 ## Colors management
@@ -152,6 +163,7 @@ Doesn't include (yet?) the following kind of packages:
 | networkmanager         | network manager                      | [freedesktop.org](https://cgit.freedesktop.org/NetworkManager/NetworkManager)          | [1.18.0](https://cgit.freedesktop.org/NetworkManager/NetworkManager/tag/?h=1.18.0)                                     |
 | pacman-contrib         | extra pacman scripts                 | [Arch Linux](https://git.archlinux.org/pacman-contrib.git/)                            | [1.1.0](https://git.archlinux.org/pacman-contrib.git/tag/?h=v1.1.0)                                                    |
 | pass                   | password manager                     | [zx2c4.com](https://git.zx2c4.com/password-store/)                                     | [1.7.3](https://git.zx2c4.com/password-store/tag/?h=1.7.3)                                                             |
+| scdoc                  | man page generator                   | [Sourcehut](https://git.sr.ht/~sircmpwn/scdoc)                                         | [1.9.6](https://git.sr.ht/~sircmpwn/scdoc/refs/1.9.6)                                                                  |
 | slurp                  | region selection                     | [Github](https://github.com/emersion/slurp)                                            | [1.2.0](https://github.com/emersion/slurp/releases/tag/v1.2.0)                                                         |
 | swayidle               | idle management daemon               | [Github](https://github.com/swaywm/swayidle)                                           | [1.5](https://github.com/swaywm/swayidle/releases/tag/1.5)                                                             |
 | the_silver_searcher    | code search                          | [Github](https://github.com/ggreer/the_silver_searcher)                                | [2.2.0](https://github.com/ggreer/the_silver_searcher/releases/tag/2.2.0)                                              |
