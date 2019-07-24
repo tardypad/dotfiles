@@ -11,7 +11,7 @@ init_variables() {
   CACHE_TOPICS_PATH="${XDG_CACHE_HOME:-$HOME/.cache}/help_topics"
   ZSH_VERSION=$( zsh --version | cut -d ' ' -f 2 )
   ZSH_HELPDIR="/usr/share/zsh/${ZSH_VERSION}/help"
-  MAN_DIRS='/usr/share/man/man*'
+  MAN_PATH="${MANPATH:-/usr/share/man}"
 
   TOPIC=
   SECTION=
@@ -33,8 +33,11 @@ select_section()
 
   # man sections
   SECTIONS="${SECTIONS}:$(
-    find -L ${MAN_DIRS} -type f -name "${TOPIC}.[0-9]*" \
+    echo "${MAN_PATH}" \
+      | tr ':' '\n' \
+      | xargs -I{} find -L {} -type f -name "${TOPIC}.[0-9]*" \
       | sed 's/.*\.\([^.]*\).gz/\1/' \
+      | sort -u \
       | tr '\n' ':'
   )"
 
@@ -87,7 +90,8 @@ search_help() {
   fi
 
   if [ -z "${SECTION}" ]; then
-    if [ "$( find -L ${MAN_DIRS} -type f -name "${TOPIC}.[0-9]*" \
+    if [ "$( echo "${MAN_PATH}" | tr ':' '\n' \
+              | xargs -I{} find -L {} -type f -name "${TOPIC}.[0-9]*" \
               | wc -l )" -ge 1 ]; then \
       man "${TOPIC}"
       return 0
@@ -101,7 +105,8 @@ search_help() {
     echo "no help available for '${TOPIC}'"
 
   else
-    if [ "$( find -L ${MAN_DIRS} -type f -name "${TOPIC}.${SECTION}.*" \
+    if [ "$( echo "${MAN_PATH}" | tr ':' '\n' \
+              | xargs -I{} find -L {} -type f -name "${TOPIC}.${SECTION}.*" \
               | wc -l )" -ge 1 ]; then \
       man "${TOPIC}.${SECTION}"
       return 0
@@ -124,7 +129,7 @@ should_build_topics_cache() {
     {
       printf '%s' "${PATH}" | tr ':' '\n';
       echo "${ZSH_HELPDIR}";
-      find -L ${MAN_DIRS} -type d;
+      printf '%s' "${MAN_PATH}" | tr ':' '\n' | xargs -I{} find -L {} -type d;
     } \
     | xargs -I {} -- stat -c '%Y' {}  2> /dev/null \
     | sort \
@@ -150,7 +155,9 @@ build_topics_cache() {
   ZSH_HELP_TOPICS=$( ls "${ZSH_HELPDIR}" )
 
   MAN_TOPICS=$(
-    find -L ${MAN_DIRS} -type f \
+    echo "${MAN_PATH}" \
+      | tr ':' '\n' \
+      | xargs -I{} find -L {} -type f \
       | sed 's#.*/\([^/]*\)\.[^\.]*\.gz#\1#'
   )
 

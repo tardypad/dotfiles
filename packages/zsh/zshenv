@@ -9,5 +9,8 @@ else
   export TERM=xterm-256color
 fi
 
+# Add custom man pages location to man path
+export MANPATH="${HOME}/.local/share/man:/usr/share/man"
+
 # disable flow control within apps
 stty -ixon 2> /dev/null
