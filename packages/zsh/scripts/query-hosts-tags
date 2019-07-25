@@ -1,6 +1,4 @@
 #!/bin/sh
-# commands used:
-# - column
 
 init_variables() {
   COMMAND=${0##*/}
@@ -35,8 +33,18 @@ query_tags() {
   AWK_SCRIPT="\$1 == \"$1\""
   AWK_SCRIPT="${AWK_SCRIPT} { for (i=2; i<=NF; i++) print \$i }"
 
-  process_file \
-    | column -t -s= -R1
+  TAGS_VALUES=$( process_file )
+
+  MAX_TAG_LENGTH=$(
+    echo "${TAGS_VALUES}" \
+      | awk 'BEGIN { FS="=" }
+             { if (length($1) > max) { max = length($1) } }
+             END { print max }'
+  )
+
+  echo "${TAGS_VALUES}" \
+    | sed 's/=/\t/' \
+    | expand -t "$(( MAX_TAG_LENGTH + 2 ))"
 }
 
 query_hosts() {

@@ -1,6 +1,5 @@
 #!/bin/sh
 # commands used:
-# - column
 # - fzf
 # - stat
 # - zsh
@@ -55,9 +54,11 @@ select_section()
     | tr ':' '\n' \
     | grep '.' \
     | while read -r ITEM; do
-        echo "${ITEM})@$( section_name "${ITEM}" )"
+        echo "${ITEM})"
+        section_name "${ITEM}"
       done \
-    | column -t -s '@' \
+    | pr -l1 -s -2 \
+    | expand  -t 8 \
     | sort -n
   printf 'Select section (empty for default): '
 
