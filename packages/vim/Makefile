@@ -39,7 +39,6 @@ vim:
 	$(setup_packages_file)/ftdetect/sshconfig.vim            > $(DESTDIR)$(HOME)/.vim/ftdetect/sshconfig.vim
 	$(setup_packages_file)/ftdetect/sway.vim                 > $(DESTDIR)$(HOME)/.vim/ftdetect/sway.vim
 	$(setup_packages_file)/ftdetect/tmux.vim                 > $(DESTDIR)$(HOME)/.vim/ftdetect/tmux.vim
-	$(setup_packages_file)/ftdetect/vifm.vim                 > $(DESTDIR)$(HOME)/.vim/ftdetect/vifm.vim
 	$(setup_packages_file)/ftdetect/xml.vim                  > $(DESTDIR)$(HOME)/.vim/ftdetect/xml.vim
 	$(setup_packages_file)/ftdetect/zsh.vim                  > $(DESTDIR)$(HOME)/.vim/ftdetect/zsh.vim
 	$(setup_packages_file)/ftplugin/gitcommit.vim            > $(DESTDIR)$(HOME)/.vim/ftplugin/gitcommit.vim

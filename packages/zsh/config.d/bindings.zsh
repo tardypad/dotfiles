@@ -50,13 +50,6 @@ bindkey -M viins '^s' replace-run-status
 bindkey -M vicmd '^s' replace-run-status
 bindkey -M isearch '^s' replace-run-status
 
-# bind Alt-F to launch file browser
-replace-run-file-browser() replace-run-command vifm
-zle -N replace-run-file-browser
-bindkey -M viins '\ef' replace-run-file-browser
-bindkey -M vicmd '\ef' replace-run-file-browser
-bindkey -M isearch '\ef' replace-run-file-browser
-
 # bind Alt-S to switch to root
 replace-run-root() replace-run-command root
 zle -N replace-run-root

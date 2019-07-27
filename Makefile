@@ -38,7 +38,6 @@ include packages/termite/Makefile
 include packages/translate-shell/Makefile
 include packages/universal-ctags/Makefile
 include packages/util-linux/Makefile
-include packages/vifm/Makefile
 include packages/vim/Makefile
 include packages/weechat/Makefile
 include packages/xdg-user-dirs/Makefile

@@ -71,13 +71,6 @@ Plug 'roxma/vim-tmux-clipboard',
   \ { 'as': 'tmux-clipboard',
   \   'commit': 'd69964a' }
 
-" File picker
-Plug 'vifm/vifm.vim',
-  \ { 'as': 'vifm',
-  \   'on': [ 'EditVifm', 'VsplitVifm', 'SplitVifm', 'DiffVifm', 'TabVifm' ],
-  \   'for': 'vifm',
-  \   'tag': 'v0.10' }
-
 " Search text and pattern in files
 Plug 'mileszs/ack.vim',
   \ { 'as': 'ack',

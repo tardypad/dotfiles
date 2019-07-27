@@ -144,9 +144,6 @@ nmap <Leader>* mA:Ack "<C-r>=expand("<cword>")<cr>"
 nnoremap <silent> <Leader>ef :FZF<CR>
 nnoremap <silent> <Leader>eb :Buffers<CR>
 
-" Alt+f to open file picker at current working directory
-nnoremap <silent> f :execute ':EditVifm' getcwd()<CR>
-
 
 "" completion management
 

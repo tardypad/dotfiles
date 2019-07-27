@@ -8,7 +8,6 @@ applications:
 	cp data/applications/chat_client.desktop             $(DESTDIR)$(DATA_DIR)/applications/chat_client.desktop
 	cp data/applications/chromium_web_browser.desktop    $(DESTDIR)$(DATA_DIR)/applications/chromium_web_browser.desktop
 	cp data/applications/document_viewer.desktop         $(DESTDIR)$(DATA_DIR)/applications/document_viewer.desktop
-	cp data/applications/file_manager.desktop            $(DESTDIR)$(DATA_DIR)/applications/file_manager.desktop
 	cp data/applications/firefox_web_browser.desktop     $(DESTDIR)$(DATA_DIR)/applications/firefox_web_browser.desktop
 	cp data/applications/mail_client.desktop             $(DESTDIR)$(DATA_DIR)/applications/mail_client.desktop
 	cp data/applications/music_player.desktop            $(DESTDIR)$(DATA_DIR)/applications/music_player.desktop
