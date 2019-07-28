@@ -30,10 +30,10 @@ export GREP_COLORS
 # decrease key timeout to 100ms
 export KEYTIMEOUT=10
 
-# only alphanumeric characters are considered part of a word
+# only alphanumeric characters and _ are considered part of a word
 # no other character is added
 # (not used by vi-style movement bindings but define it just in case anyway)
-export WORDCHARS=''
+export WORDCHARS='_'
 
 # fzf default options
 FZF_DEFAULT_OPTS='--height=20 --no-bold --color='

@@ -44,8 +44,8 @@ set -ga terminal-overrides ",xterm-termite:Tc"
 set -g update-environment SWAYSOCK
 
 # define characters considered not part of a word
-# remove "all" non alphanumeric characters
-set -g word-separators "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ "
+# remove "all" non alphanumeric characters, except _
+set -g word-separators "!\"#$%&'()*+,-./:;<=>?@[\\]^`{|}~ "
 
 # start windows and panes numbering at 1
 set -g base-index 1

@@ -58,8 +58,8 @@ set updatetime=500
 set formatoptions+=j
 
 " define characters considered part of a word
-" all alpha characters, all digits, all alpha characters with accent
-set iskeyword=@,48-57,192-255
+" all alpha characters, all digits, all alpha characters with accent and _
+set iskeyword=@,48-57,_,192-255
 
 " faster access to grep help files
 cnoreabbrev H helpgrep
