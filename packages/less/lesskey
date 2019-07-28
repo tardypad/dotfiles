@@ -93,10 +93,3 @@ N       reverse-search
 
 # next line prevents less from defining default line-edit keybindings
 #stop
-
-
-#env
-
-# pre/post processors with lesspipe
-LESSOPEN = | lesspipe.sh %s
-LESSCLOSE = lesspipe.sh %s %s
