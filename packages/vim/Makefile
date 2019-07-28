@@ -30,12 +30,14 @@ vim:
 	$(setup_packages_file)/config.d/bindings.vim             > $(DESTDIR)$(HOME)/.vim/config.d/bindings.vim
 	$(setup_packages_file)/config.d/general.vim              > $(DESTDIR)$(HOME)/.vim/config.d/general.vim
 	$(setup_packages_file)/config.d/plugins.vim              > $(DESTDIR)$(HOME)/.vim/config.d/plugins.vim
-	$(setup_packages_file)/ftdetect/bats.vim                 > $(DESTDIR)$(HOME)/.vim/ftdetect/bats.vim
 	$(setup_packages_file)/ftdetect/dircolors.vim            > $(DESTDIR)$(HOME)/.vim/ftdetect/dircolors.vim
 	$(setup_packages_file)/ftdetect/gitconfig.vim            > $(DESTDIR)$(HOME)/.vim/ftdetect/gitconfig.vim
 	$(setup_packages_file)/ftdetect/icinga2.vim              > $(DESTDIR)$(HOME)/.vim/ftdetect/icinga2.vim
-	$(setup_packages_file)/ftdetect/neomutt.vim              > $(DESTDIR)$(HOME)/.vim/ftdetect/neomutt.vim
+	$(setup_packages_file)/ftdetect/mail.vim                 > $(DESTDIR)$(HOME)/.vim/ftdetect/mail.vim
+	$(setup_packages_file)/ftdetect/markdown.vim             > $(DESTDIR)$(HOME)/.vim/ftdetect/markdown.vim
+	$(setup_packages_file)/ftdetect/neomuttrc.vim            > $(DESTDIR)$(HOME)/.vim/ftdetect/neomuttrc.vim
 	$(setup_packages_file)/ftdetect/nginx.vim                > $(DESTDIR)$(HOME)/.vim/ftdetect/nginx.vim
+	$(setup_packages_file)/ftdetect/sh.vim                   > $(DESTDIR)$(HOME)/.vim/ftdetect/sh.vim
 	$(setup_packages_file)/ftdetect/sshconfig.vim            > $(DESTDIR)$(HOME)/.vim/ftdetect/sshconfig.vim
 	$(setup_packages_file)/ftdetect/sway.vim                 > $(DESTDIR)$(HOME)/.vim/ftdetect/sway.vim
 	$(setup_packages_file)/ftdetect/tmux.vim                 > $(DESTDIR)$(HOME)/.vim/ftdetect/tmux.vim
