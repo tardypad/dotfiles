@@ -111,3 +111,7 @@ set statusline+=%#StatusLineLinterInfo#%{LinterInfosCount()}%*       " linter in
 set statusline+=\ %y                                                 " filetype
 set statusline+=\ %p%%                                               " line percentage
 set statusline+=\ %l:%v                                              " line and virtual column number
+
+" netrw
+let g:netrw_liststyle = 3 " tree like view
+let g:netrw_banner = 0    " hide banner
