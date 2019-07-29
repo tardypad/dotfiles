@@ -113,5 +113,6 @@ set statusline+=\ %p%%                                               " line perc
 set statusline+=\ %l:%v                                              " line and virtual column number
 
 " netrw
-let g:netrw_liststyle = 3 " tree like view
-let g:netrw_banner = 0    " hide banner
+let g:netrw_liststyle = 0  " simple list
+let g:netrw_banner = 0     " hide banner
+let g:netrw_fastbrowse = 0 " don't reuse directory listing
