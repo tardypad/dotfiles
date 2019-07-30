@@ -46,11 +46,6 @@ Plug 'sirver/ultisnips',
   \ { 'as': 'ultisnips',
   \   'commit': '6fdc364' }
 
-" Text alignment
-Plug 'godlygeek/tabular',
-  \ { 'as': 'tabular',
-  \   'tag': '1.0.0' }
-
 " Sane buffer/window deletion
 Plug 'mhinz/vim-sayonara',
   \ { 'as': 'sayonara', 'on': 'Sayonara',
