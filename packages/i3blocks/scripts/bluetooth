@@ -5,23 +5,23 @@
 
 MODE="$( bar_status_mode )"
 
-# #TODO: take into account multiple connected devices
-
-BLUETOOTH_INFO=$( bluetoothctl info )
+CONNECTED_DEVICES=$(
+  bluetoothctl paired-devices \
+    | cut -d' ' -f2 \
+    | xargs -I{} bluetoothctl info {} \
+    | sed -n -e 's/.*Alias: \(.*\)/\1/p' -e 's/.*Connected: \(.*\)/\1/p' \
+    | paste - - \
+    | sed -n 's/\(.*\)\tyes$/\1/p' \
+    | paste -sd,
+)
 
 # only display something if a device is connected
-if ! echo "${BLUETOOTH_INFO}" \
-     | grep -q 'Connected: yes'; then
+if [ -z "${CONNECTED_DEVICES}" ]; then
   exit 0
 fi
 
-BLUETOOTH_DEVICE_ALIAS=$(
-  echo "${BLUETOOTH_INFO}" \
-    | sed -n 's/.*Alias: \(.*\)/\1/p'
-)
-
 if [ "${MODE}" = 'full' ]; then
-  echo "<span foreground='#{color/base09/hex}'></span> ${BLUETOOTH_DEVICE_ALIAS}"
+  echo "<span foreground='#{color/base09/hex}'></span> ${CONNECTED_DEVICES}"
 else
   echo "<span foreground='#{color/base09/hex}'></span>"
 fi
