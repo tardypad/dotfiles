@@ -5,7 +5,6 @@
 # - swaymsg
 # - termite
 # - tmux-env
-# - zsh #FIXME: remove this zsh dependency
 
 ENV_NAME="$1"
 SESSION_NAME="$2"
@@ -20,10 +19,8 @@ tmux-env -b "${ENV_NAME}" "${SESSION_NAME}"
 focus_window_title "${TITLE}" && exit
 
 # launch new app otherwise in new workspace
-# needs TERM defined properly beforehand
-# for proper color within vim
 create_workspace "${ENV_NAME}"
 swaymsg -q exec \
   "termite \
    -t \"${TITLE}\" \
-   -e 'zsh -c \"tmux-env ${ENV_NAME} ${SESSION_NAME}\"'"
+   -e 'tmux-env ${ENV_NAME} ${SESSION_NAME}'"
