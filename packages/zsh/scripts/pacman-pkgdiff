@@ -9,7 +9,21 @@ init_variables() {
   PACKAGE_NAME=
 }
 
-error() {
+parse_command_line() {
+  PACKAGE_NAME="$1"
+}
+
+validate_command_line() {
+  if [ -z "${PACKAGE_NAME}" ]; then
+    exit_error 'missing package name'
+  fi
+
+  if ! pacman -Q "${PACKAGE_NAME}" > /dev/null 2>&1; then
+    exit_error "invalid package name ${PACKAGE_NAME}"
+  fi
+}
+
+exit_error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   exit 1
 } >&2
@@ -36,22 +50,8 @@ diff_package() {
      done
 }
 
-parse_options() {
-  PACKAGE_NAME="$1"
-}
-
-validate_options() {
-  if [ -z "${PACKAGE_NAME}" ]; then
-    error 'missing package name'
-  fi
-
-  if ! pacman -Q "${PACKAGE_NAME}" > /dev/null 2>&1; then
-    error "invalid package name ${PACKAGE_NAME}"
-  fi
-}
-
 init_variables
-parse_options "$@"
-validate_options
+parse_command_line "$@"
+validate_command_line
 
 diff_package

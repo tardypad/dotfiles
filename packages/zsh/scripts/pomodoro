@@ -11,7 +11,20 @@ init_variables() {
   ACTION='status'
 }
 
-error() {
+parse_command_line() {
+  [ -z "$1" ] || ACTION="$1"
+}
+
+validate_command_line() {
+  if [ "${ACTION}" != 'start' ] \
+     && [ "${ACTION}" != 'cancel' ] \
+     && [ "${ACTION}" != 'toggle' ] \
+     && [ "${ACTION}" != 'status' ]; then
+    exit_error "Invalid action '${ACTION}'"
+  fi
+}
+
+exit_error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   exit 1
 } >&2
@@ -83,21 +96,8 @@ is_session_started() {
   [ -f "${FILE_PATH}" ]
 }
 
-parse_options() {
-  [ -z "$1" ] || ACTION="$1"
-}
-
-validate_options() {
-  if [ "${ACTION}" != 'start' ] \
-     && [ "${ACTION}" != 'cancel' ] \
-     && [ "${ACTION}" != 'toggle' ] \
-     && [ "${ACTION}" != 'status' ]; then
-    error "Invalid action '${ACTION}'"
-  fi
-}
-
 init_variables
-parse_options "$@"
-validate_options
+parse_command_line "$@"
+validate_command_line
 
 "session_${ACTION}"

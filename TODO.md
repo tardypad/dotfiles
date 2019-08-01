@@ -7,8 +7,6 @@
   - check if some code tags can be fixed with the `report-tags` utility script
 
 # Cleaning
-  - review scripts templating especially functions namings  
-    parse_options and validate_options functions also parse/validate operands
   - repository reorganisation:
     * move all scripts to a root folder (maybe with subfolders for git, sway,...)
     * rename packages folder to config (and update related utilities)

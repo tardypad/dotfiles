@@ -14,27 +14,52 @@ init_variables() {
   QUIET=false
 }
 
-error() {
+parse_command_line() {
+  while getopts q OPT; do
+    case "${OPT}" in
+      q) QUIET=true ;;
+      ?) exit_error ;;
+    esac
+  done
+
+  shift $(( OPTIND - 1 ))
+
+  REV_RANGE="$1"
+  shift 2> /dev/null
+  RUN_COMMAND="$*"
+}
+
+validate_command_line() {
+  if [ -z "${REV_RANGE}" ]; then
+    exit_error 'no revisions range'
+  fi
+
+  if [ -z "${RUN_COMMAND}" ]; then
+    exit_error 'no command to run'
+  fi
+}
+
+exit_error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   exit 1
 } >&2
 
 abort_if_dirty_repo() {
   if ! git rev-parse --git-dir > /dev/null 2>&1; then
-    error 'not in a git repository'
+    exit_error 'not in a git repository'
   fi
 
   if ! git diff-index --quiet --cached HEAD; then
-    error 'you have staged but not committed changes that would be lost'
+    exit_error 'you have staged but not committed changes that would be lost'
   fi
 
   if ! git diff-files --quiet; then
-    error 'you have unstaged changes that would be lost'
+    exit_error 'you have unstaged changes that would be lost'
   fi
 
   UNTRACKED=$( git ls-files --exclude-standard --others )
   if [ -n "${UNTRACKED}" ]; then
-    error 'you have untracked files that could be overwritten'
+    exit_error 'you have untracked files that could be overwritten'
   fi
 }
 
@@ -59,34 +84,9 @@ run_command_over_range() {
   done
 }
 
-parse_options() {
-  while getopts q OPT; do
-    case "${OPT}" in
-      q) QUIET=true ;;
-      ?) error ;;
-    esac
-  done
-
-  shift $(( OPTIND - 1 ))
-
-  REV_RANGE="$1"
-  shift 2> /dev/null
-  RUN_COMMAND="$*"
-}
-
-validate_options() {
-  if [ -z "${REV_RANGE}" ]; then
-    error 'no revisions range'
-  fi
-
-  if [ -z "${RUN_COMMAND}" ]; then
-    error 'no command to run'
-  fi
-}
-
 init_variables
-parse_options "$@"
-validate_options
+parse_command_line "$@"
+validate_command_line
 
 abort_if_dirty_repo
 save_initial_rev

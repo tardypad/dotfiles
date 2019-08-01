@@ -19,7 +19,33 @@ init_variables() {
   ACTIONS='[]'
 }
 
-error() {
+parse_command_line() {
+  while getopts c:i:t: OPT; do
+    case "${OPT}" in
+      c) CATEGORY="${OPTARG}" ;;
+      i) IDENTIFIER="${OPTARG}" ;;
+      t) EXPIRE_TIME="${OPTARG}" ;;
+      ?) exit_error ;;
+    esac
+  done
+
+  shift $(( OPTIND - 1 ))
+
+  SUMMARY="$1"
+  BODY="$2"
+}
+
+validate_command_line() {
+  if [ -z "${SUMMARY}" ]; then
+    exit_error 'missing summary argument'
+  fi
+
+  if ! echo "${EXPIRE_TIME}" | grep -E -q '^[0-9]*$'; then
+    exit_error 'expire time must be a number'
+  fi
+}
+
+exit_error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   exit 1
 } >&2
@@ -58,34 +84,8 @@ send_notification() {
   fi
 }
 
-parse_options() {
-  while getopts c:i:t: OPT; do
-    case "${OPT}" in
-      c) CATEGORY="${OPTARG}" ;;
-      i) IDENTIFIER="${OPTARG}" ;;
-      t) EXPIRE_TIME="${OPTARG}" ;;
-      ?) error ;;
-    esac
-  done
-
-  shift $(( OPTIND - 1 ))
-
-  SUMMARY="$1"
-  BODY="$2"
-}
-
-validate_options() {
-  if [ -z "${SUMMARY}" ]; then
-    error 'missing summary argument'
-  fi
-
-  if ! echo "${EXPIRE_TIME}" | grep -E -q '^[0-9]*$'; then
-    error 'expire time must be a number'
-  fi
-}
-
 init_variables
-parse_options "$@"
-validate_options
+parse_command_line "$@"
+validate_command_line
 
 send_notification

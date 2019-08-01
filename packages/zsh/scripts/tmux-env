@@ -13,7 +13,40 @@ init_variables() {
   SESSION=
 }
 
-error() {
+parse_command_line() {
+  while getopts b OPT; do
+    case "${OPT}" in
+      b) BACKGROUND=true ;;
+      ?) exit_error ;;
+    esac
+  done
+
+  shift $(( OPTIND - 1 ))
+
+  TARGET="$1"
+  SESSION="$2"
+}
+
+validate_command_line() {
+  if [ -n "${TMUX}" ]; then
+    exit_error "nested tmux env is not allowed"
+  fi
+
+  if [ -z "${TARGET}" ]; then
+    exit_error 'missing target'
+  fi
+
+  if [ ! -d "${ENV_DIR_PATH}/${TARGET}" ]; then
+    exit_error "invalid target ${TARGET}"
+  fi
+
+  if [ -n "${SESSION}" ] \
+     && [ ! -f "${ENV_DIR_PATH}/${TARGET}/${SESSION}.sh" ]; then
+    exit_error "invalid target's session ${SESSION}"
+  fi
+}
+
+exit_error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   exit 1
 } >&2
@@ -43,41 +76,8 @@ start_target_tmux_env() {
   fi
 }
 
-parse_options() {
-  while getopts b OPT; do
-    case "${OPT}" in
-      b) BACKGROUND=true ;;
-      ?) error ;;
-    esac
-  done
-
-  shift $(( OPTIND - 1 ))
-
-  TARGET="$1"
-  SESSION="$2"
-}
-
-validate_options() {
-  if [ -n "${TMUX}" ]; then
-    error "nested tmux env is not allowed"
-  fi
-
-  if [ -z "${TARGET}" ]; then
-    error 'missing target'
-  fi
-
-  if [ ! -d "${ENV_DIR_PATH}/${TARGET}" ]; then
-    error "invalid target ${TARGET}"
-  fi
-
-  if [ -n "${SESSION}" ] \
-     && [ ! -f "${ENV_DIR_PATH}/${TARGET}/${SESSION}.sh" ]; then
-    error "invalid target's session ${SESSION}"
-  fi
-}
-
 init_variables
-parse_options "$@"
-validate_options
+parse_command_line "$@"
+validate_command_line
 
 start_target_tmux_env

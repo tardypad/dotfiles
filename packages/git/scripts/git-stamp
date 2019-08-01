@@ -10,7 +10,28 @@ init_variables() {
   unset MSG
 }
 
-error() {
+parse_command_line() {
+  while getopts r OPT; do
+    case "${OPT}" in
+      r) REPLACE=true ;;
+      ?) exit_error ;;
+    esac
+  done
+
+  shift $(( OPTIND - 1 ))
+
+  ID="$1"
+  MSG="$2"
+}
+
+validate_command_line() {
+  # ID should be set to non-empty string
+  if [ -z "${ID}" ]; then
+    exit_error "missing stamp identifier"
+  fi
+}
+
+exit_error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   exit 1
 } >&2
@@ -38,29 +59,8 @@ stamp() {
   git log -1 --pretty=full
 }
 
-parse_options() {
-  while getopts r OPT; do
-    case "${OPT}" in
-      r) REPLACE=true ;;
-      ?) error ;;
-    esac
-  done
-
-  shift $(( OPTIND - 1 ))
-
-  ID="$1"
-  MSG="$2"
-}
-
-validate_options() {
-  # ID should be set to non-empty string
-  if [ -z "${ID}" ]; then
-    error "missing stamp identifier"
-  fi
-}
-
 init_variables
-parse_options "$@"
-validate_options
+parse_command_line "$@"
+validate_command_line
 
 stamp

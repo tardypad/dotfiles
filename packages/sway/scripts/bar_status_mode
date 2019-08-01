@@ -11,7 +11,20 @@ init_variables() {
   ACTION='show'
 }
 
-error() {
+parse_command_line() {
+  [ -z "$1" ] || ACTION="$1"
+}
+
+validate_command_line() {
+  if [ "${ACTION}" != 'light' ] \
+     && [ "${ACTION}" != 'full' ] \
+     && [ "${ACTION}" != 'toggle' ] \
+     && [ "${ACTION}" != 'show' ]; then
+    exit_error "Invalid action '${ACTION}'"
+  fi
+}
+
+exit_error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   exit 1
 } >&2
@@ -50,21 +63,8 @@ bar_status_show() {
   fi
 }
 
-parse_options() {
-  [ -z "$1" ] || ACTION="$1"
-}
-
-validate_options() {
-  if [ "${ACTION}" != 'light' ] \
-     && [ "${ACTION}" != 'full' ] \
-     && [ "${ACTION}" != 'toggle' ] \
-     && [ "${ACTION}" != 'show' ]; then
-    error "Invalid action '${ACTION}'"
-  fi
-}
-
 init_variables
-parse_options "$@"
-validate_options
+parse_command_line "$@"
+validate_command_line
 
 "bar_status_${ACTION}"

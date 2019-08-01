@@ -10,7 +10,19 @@ init_variables() {
   USER_INPUT=
 }
 
-error() {
+parse_command_line() {
+  while getopts F:P: OPT; do
+    case "${OPT}" in
+      F) FORMAT="${OPTARG}" ;;
+      P) PROMPT="${OPTARG}" ;;
+      ?) exit_error ;;
+    esac
+  done
+
+  shift $(( OPTIND - 1 ))
+}
+
+exit_error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   exit 1
 } >&2
@@ -27,19 +39,7 @@ run() {
   swaymsg -q ${SWAY_COMMAND}
 }
 
-parse_options() {
-  while getopts F:P: OPT; do
-    case "${OPT}" in
-      F) FORMAT="${OPTARG}" ;;
-      P) PROMPT="${OPTARG}" ;;
-      ?) error ;;
-    esac
-  done
-
-  shift $(( OPTIND - 1 ))
-}
-
 init_variables
-parse_options "$@"
+parse_command_line "$@"
 
 run

@@ -69,7 +69,7 @@ init_variables() {
   RGB_8BIT=5
 }
 
-usage() {
+show_usage() {
   cat <<- EOF
 	usage: ${COMMAND} [<options>] [ 4 [<line>] [<column>] | 8 [<display>] | 24 [<display>] ]
 
@@ -95,7 +95,73 @@ usage() {
 	EOF
 }
 
-error() {
+parse_command_line() {
+  while getopts h OPT; do
+    case "${OPT}" in
+      h) show_usage; exit 0 ;;
+      ?) exit_error ;;
+    esac
+  done
+
+  shift $(( OPTIND - 1 ))
+
+  [ -n "$1" ] && BIT_TYPE="$1"
+
+  if [ "${BIT_TYPE}" = '4' ]; then
+    [ -n "$2" ] && LINE_TYPE="$2"
+    [ -n "$3" ] && COLUMN_TYPE="$3"
+  else
+    [ -n "$2" ] && DISPLAY_TYPE="$2"
+  fi
+}
+
+validate_command_line() {
+  if [ "${BIT_TYPE}" != '4' ] \
+    && [ "${BIT_TYPE}" != '8' ] \
+    && [ "${BIT_TYPE}" != '24' ]; then
+    exit_error "invalid bit type '${BIT_TYPE}'"
+  fi
+
+  if [ "${BIT_TYPE}" = '4' ]; then
+    [ "${LINE_TYPE}" = 'fg' ] && LINE_TYPE=foreground
+    [ "${LINE_TYPE}" = 'bg' ] && LINE_TYPE=background
+    [ "${LINE_TYPE}" = 'att' ] && LINE_TYPE=attribute
+    [ "${LINE_TYPE}" = 'brfg' ] && LINE_TYPE=bright_foreground
+    [ "${LINE_TYPE}" = 'brbg' ] && LINE_TYPE=bright_background
+    [ "${COLUMN_TYPE}" = 'fg' ] && COLUMN_TYPE=foreground
+    [ "${COLUMN_TYPE}" = 'bg' ] && COLUMN_TYPE=background
+    [ "${COLUMN_TYPE}" = 'att' ] && COLUMN_TYPE=attribute
+    [ "${COLUMN_TYPE}" = 'brfg' ] && COLUMN_TYPE=bright_foreground
+    [ "${COLUMN_TYPE}" = 'brbg' ] && COLUMN_TYPE=bright_background
+
+    if [ "${LINE_TYPE}" != 'foreground' ] \
+      && [ "${LINE_TYPE}" != 'background' ] \
+      && [ "${LINE_TYPE}" != 'attribute' ] \
+      && [ "${LINE_TYPE}" != 'bright_foreground' ] \
+      && [ "${LINE_TYPE}" != 'bright_background' ]; then
+      exit_error "invalid line type '${LINE_TYPE}'"
+    fi
+
+    if [ "${COLUMN_TYPE}" != 'foreground' ] \
+      && [ "${COLUMN_TYPE}" != 'background' ] \
+      && [ "${COLUMN_TYPE}" != 'attribute' ] \
+      && [ "${COLUMN_TYPE}" != 'bright_foreground' ] \
+      && [ "${COLUMN_TYPE}" != 'bright_background' ]; then
+      exit_error "invalid column type '${COLUMN_TYPE}'"
+    fi
+
+  else
+    [ "${DISPLAY_TYPE}" = 'fg' ] && DISPLAY_TYPE=foreground
+    [ "${DISPLAY_TYPE}" = 'bg' ] && DISPLAY_TYPE=background
+
+    if [ "${DISPLAY_TYPE}" != 'foreground' ] \
+      && [ "${DISPLAY_TYPE}" != 'background' ]; then
+      exit_error "invalid display type '${DISPLAY_TYPE}'"
+    fi
+  fi
+}
+
+exit_error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   printf "Try '%s -h' for more information.\n" "${COMMAND}"
   exit 1
@@ -381,74 +447,8 @@ test_colors() {
   esac
 }
 
-parse_options() {
-  while getopts h OPT; do
-    case "${OPT}" in
-      h) usage; exit 0 ;;
-      ?) error ;;
-    esac
-  done
-
-  shift $(( OPTIND - 1 ))
-
-  [ -n "$1" ] && BIT_TYPE="$1"
-
-  if [ "${BIT_TYPE}" = '4' ]; then
-    [ -n "$2" ] && LINE_TYPE="$2"
-    [ -n "$3" ] && COLUMN_TYPE="$3"
-  else
-    [ -n "$2" ] && DISPLAY_TYPE="$2"
-  fi
-}
-
-validate_options() {
-  if [ "${BIT_TYPE}" != '4' ] \
-    && [ "${BIT_TYPE}" != '8' ] \
-    && [ "${BIT_TYPE}" != '24' ]; then
-    error "invalid bit type '${BIT_TYPE}'"
-  fi
-
-  if [ "${BIT_TYPE}" = '4' ]; then
-    [ "${LINE_TYPE}" = 'fg' ] && LINE_TYPE=foreground
-    [ "${LINE_TYPE}" = 'bg' ] && LINE_TYPE=background
-    [ "${LINE_TYPE}" = 'att' ] && LINE_TYPE=attribute
-    [ "${LINE_TYPE}" = 'brfg' ] && LINE_TYPE=bright_foreground
-    [ "${LINE_TYPE}" = 'brbg' ] && LINE_TYPE=bright_background
-    [ "${COLUMN_TYPE}" = 'fg' ] && COLUMN_TYPE=foreground
-    [ "${COLUMN_TYPE}" = 'bg' ] && COLUMN_TYPE=background
-    [ "${COLUMN_TYPE}" = 'att' ] && COLUMN_TYPE=attribute
-    [ "${COLUMN_TYPE}" = 'brfg' ] && COLUMN_TYPE=bright_foreground
-    [ "${COLUMN_TYPE}" = 'brbg' ] && COLUMN_TYPE=bright_background
-
-    if [ "${LINE_TYPE}" != 'foreground' ] \
-      && [ "${LINE_TYPE}" != 'background' ] \
-      && [ "${LINE_TYPE}" != 'attribute' ] \
-      && [ "${LINE_TYPE}" != 'bright_foreground' ] \
-      && [ "${LINE_TYPE}" != 'bright_background' ]; then
-      error "invalid line type '${LINE_TYPE}'"
-    fi
-
-    if [ "${COLUMN_TYPE}" != 'foreground' ] \
-      && [ "${COLUMN_TYPE}" != 'background' ] \
-      && [ "${COLUMN_TYPE}" != 'attribute' ] \
-      && [ "${COLUMN_TYPE}" != 'bright_foreground' ] \
-      && [ "${COLUMN_TYPE}" != 'bright_background' ]; then
-      error "invalid column type '${COLUMN_TYPE}'"
-    fi
-
-  else
-    [ "${DISPLAY_TYPE}" = 'fg' ] && DISPLAY_TYPE=foreground
-    [ "${DISPLAY_TYPE}" = 'bg' ] && DISPLAY_TYPE=background
-
-    if [ "${DISPLAY_TYPE}" != 'foreground' ] \
-      && [ "${DISPLAY_TYPE}" != 'background' ]; then
-      error "invalid display type '${DISPLAY_TYPE}'"
-    fi
-  fi
-}
-
 init_variables
-parse_options "$@"
-validate_options
+parse_command_line "$@"
+validate_command_line
 
 test_colors

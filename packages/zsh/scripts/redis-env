@@ -14,20 +14,7 @@ init_variables() {
   ENV_PATH=
 }
 
-error() {
-  [ -z "$1" ] || echo "${COMMAND}: $1"
-  exit 1
-} >&2
-
-run_redis() {
-  if [ -z "${QUERY}" ]; then
-    redis-cli $( cat "${ENV_PATH}" ) ${REDIS_OPTIONS}
-  else
-    redis-cli $( cat "${ENV_PATH}" ) --raw ${REDIS_OPTIONS} ${QUERY}
-  fi
-}
-
-parse_options() {
+parse_command_line() {
   PROJECT="$1"
   shift 2> /dev/null
 
@@ -40,20 +27,33 @@ parse_options() {
   REDIS_OPTIONS="$*"
 }
 
-validate_options() {
+validate_command_line() {
   if [ -z "${PROJECT}" ]; then
-    error 'missing project'
+    exit_error 'missing project'
   fi
 
   ENV_PATH="${ENV_DIR_PATH}/${PROJECT}"
 
   if [ ! -f "${ENV_PATH}" ]; then
-    error 'invalid project'
+    exit_error 'invalid project'
+  fi
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+run_redis() {
+  if [ -z "${QUERY}" ]; then
+    redis-cli $( cat "${ENV_PATH}" ) ${REDIS_OPTIONS}
+  else
+    redis-cli $( cat "${ENV_PATH}" ) --raw ${REDIS_OPTIONS} ${QUERY}
   fi
 }
 
 init_variables
-parse_options "$@"
-validate_options
+parse_command_line "$@"
+validate_command_line
 
 run_redis

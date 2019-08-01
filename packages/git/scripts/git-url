@@ -10,7 +10,37 @@ init_variables() {
   REMOTE=$( git config --default origin browse.remote )
 }
 
-error() {
+parse_command_line() {
+  while getopts c:r:t: OPT; do
+    case "${OPT}" in
+      c) COMMIT="${OPTARG}" ;;
+      r) REMOTE="${OPTARG}" ;;
+      t) TYPE="${OPTARG}" ;;
+      ?) exit_error ;;
+    esac
+  done
+
+  shift $(( OPTIND - 1 ))
+}
+
+validate_command_line() {
+  if [ "${TYPE}" != 'repo' ] \
+     && [ "${TYPE}" != 'commit' ] \
+     && [ "${TYPE}" != 'issue' ] \
+     && [ "${TYPE}" != 'review' ]; then
+    exit_error "invalid type argument '${TYPE}'"
+  fi
+
+  if ! git rev-parse -q --verify "${COMMIT}^{commit}" > /dev/null; then
+    exit_error "invalid commit '${COMMIT}'"
+  fi
+
+  if ! git remote | grep -q "${REMOTE}"; then
+    exit_error "invalid remote '${REMOTE}'"
+  fi
+}
+
+exit_error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   exit 1
 } >&2
@@ -24,7 +54,7 @@ display_url() {
   REPO_PATH_SED=$(
     git config "browse.${REMOTE_ALIAS}.repoPathSed"
   )
-  [ -z "${REPO_PATH_SED}" ] && error 'remote does not use a valid URL alias for browsing'
+  [ -z "${REPO_PATH_SED}" ] && exit_error 'remote does not use a valid URL alias for browsing'
 
   REPO_PATH=$(
     git config "remote.${REMOTE}.url" \
@@ -35,7 +65,7 @@ display_url() {
     git config "browse.${REMOTE_ALIAS}.${TYPE}Url" \
     | sed "s|{repo_path}|${REPO_PATH}|"
   )
-  [ -z "${URL}" ] && error 'remote does not support this type of URL for browsing'
+  [ -z "${URL}" ] && exit_error 'remote does not support this type of URL for browsing'
 
   case "${TYPE}" in
     repo)
@@ -47,49 +77,19 @@ display_url() {
       ;;
     issue)
       ISSUE_ID=$( git commit-issue-id "${COMMIT}" )
-      [ -z "${ISSUE_ID}" ] && error 'commit has no issue id linked to it'
+      [ -z "${ISSUE_ID}" ] && exit_error 'commit has no issue id linked to it'
       echo "${URL}" | sed "s/{issue_id}/${ISSUE_ID}/"
       ;;
     review)
       REVIEW_ID=$( git commit-review-id "${COMMIT}" )
-      [ -z "${REVIEW_ID}" ] &&  error 'commit has no review id linked to it'
+      [ -z "${REVIEW_ID}" ] &&  exit_error 'commit has no review id linked to it'
       echo "${URL}" | sed "s/{review_id}/${REVIEW_ID}/"
       ;;
   esac
 }
 
-parse_options() {
-  while getopts c:r:t: OPT; do
-    case "${OPT}" in
-      c) COMMIT="${OPTARG}" ;;
-      r) REMOTE="${OPTARG}" ;;
-      t) TYPE="${OPTARG}" ;;
-      ?) error ;;
-    esac
-  done
-
-  shift $(( OPTIND - 1 ))
-}
-
-validate_options() {
-  if [ "${TYPE}" != 'repo' ] \
-     && [ "${TYPE}" != 'commit' ] \
-     && [ "${TYPE}" != 'issue' ] \
-     && [ "${TYPE}" != 'review' ]; then
-    error "invalid type argument '${TYPE}'"
-  fi
-
-  if ! git rev-parse -q --verify "${COMMIT}^{commit}" > /dev/null; then
-    error "invalid commit '${COMMIT}'"
-  fi
-
-  if ! git remote | grep -q "${REMOTE}"; then
-    error "invalid remote '${REMOTE}'"
-  fi
-}
-
 init_variables
-parse_options "$@"
-validate_options
+parse_command_line "$@"
+validate_command_line
 
 display_url

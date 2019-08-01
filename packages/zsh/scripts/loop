@@ -9,7 +9,44 @@ init_variables() {
   TIME=
 }
 
-error() {
+parse_command_line() {
+  while getopts c:i:t: OPT; do
+    case "${OPT}" in
+      c) COUNT="${OPTARG}" ;;
+      i) INTERVAL="${OPTARG}" ;;
+      t) TIME="${OPTARG}" ;;
+      ?) exit_error ;;
+    esac
+  done
+
+  shift $(( OPTIND - 1 ))
+
+  RUN_COMMAND="$*"
+}
+
+validate_command_line() {
+  if [ -z "${COUNT}" ] && [ -z "${TIME}" ]; then
+    exit_error 'you must specify at least -c or -t options'
+  fi
+
+  case "${COUNT}" in
+    *[!0-9]*) exit_error 'count must be an integer' ;;
+  esac
+
+  case "${TIME}" in
+    *[!0-9]*) exit_error 'time must be an integer' ;;
+  esac
+
+  case "${INTERVAL}" in
+    *[!0-9.]*) exit_error 'interval must be an number' ;;
+  esac
+
+  if [ -z "${RUN_COMMAND}" ]; then
+    exit_error 'no command to run'
+  fi
+}
+
+exit_error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   exit 1
 } >&2
@@ -42,45 +79,8 @@ loop_command() {
     done
 }
 
-parse_options() {
-  while getopts c:i:t: OPT; do
-    case "${OPT}" in
-      c) COUNT="${OPTARG}" ;;
-      i) INTERVAL="${OPTARG}" ;;
-      t) TIME="${OPTARG}" ;;
-      ?) error ;;
-    esac
-  done
-
-  shift $(( OPTIND - 1 ))
-
-  RUN_COMMAND="$*"
-}
-
-validate_options() {
-  if [ -z "${COUNT}" ] && [ -z "${TIME}" ]; then
-    error 'you must specify at least -c or -t options'
-  fi
-
-  case "${COUNT}" in
-    *[!0-9]*) error 'count must be an integer' ;;
-  esac
-
-  case "${TIME}" in
-    *[!0-9]*) error 'time must be an integer' ;;
-  esac
-
-  case "${INTERVAL}" in
-    *[!0-9.]*) error 'interval must be an number' ;;
-  esac
-
-  if [ -z "${RUN_COMMAND}" ]; then
-    error 'no command to run'
-  fi
-}
-
 init_variables
-parse_options "$@"
-validate_options
+parse_command_line "$@"
+validate_command_line
 
 loop_command

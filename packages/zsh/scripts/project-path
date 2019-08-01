@@ -9,7 +9,25 @@ init_variables() {
   PROJECT=
 }
 
-error() {
+parse_command_line() {
+  TYPE="$1"
+  PROJECT="$2"
+}
+
+validate_command_line() {
+  if [ -z "${TYPE}" ]; then
+    exit_error 'Missing type argument'
+  fi
+
+  if [ "${TYPE}" != 'main' ] \
+     && [ "${TYPE}" != 'repo' ] \
+     && [ "${TYPE}" != 'docs' ] \
+     && [ "${TYPE}" != 'logs' ]; then
+    exit_error "Invalid type '${TYPE}'"
+  fi
+}
+
+exit_error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   exit 1
 } >&2
@@ -59,26 +77,8 @@ display_path() {
   echo "${PROJECT_PATH}"
 }
 
-parse_options() {
-  TYPE="$1"
-  PROJECT="$2"
-}
-
-validate_options() {
-  if [ -z "${TYPE}" ]; then
-    error 'Missing type argument'
-  fi
-
-  if [ "${TYPE}" != 'main' ] \
-     && [ "${TYPE}" != 'repo' ] \
-     && [ "${TYPE}" != 'docs' ] \
-     && [ "${TYPE}" != 'logs' ]; then
-    error "Invalid type '${TYPE}'"
-  fi
-}
-
 init_variables
-parse_options "$@"
-validate_options
+parse_command_line "$@"
+validate_command_line
 
 display_path

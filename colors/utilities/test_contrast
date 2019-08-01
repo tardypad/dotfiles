@@ -17,7 +17,7 @@ init_variables() {
   PLAIN=0
 }
 
-usage() {
+show_usage() {
   cat <<- EOF
 	usage: ${COMMAND} <color1> <color2> ...
 
@@ -34,7 +34,28 @@ usage() {
 	EOF
 }
 
-error() {
+parse_command_line() {
+  while getopts hp OPT; do
+    case "${OPT}" in
+      h) show_usage; exit 0 ;;
+      p) PLAIN=1 ;;
+      ?) exit_error ;;
+    esac
+  done
+
+  shift $(( OPTIND - 1 ))
+
+  HEX_COLORS="$*"
+
+  # read hex values from stdin if no argument specified
+  if [ -z "${HEX_COLORS}" ]; then
+    while read -r hex_color; do
+      HEX_COLORS="${HEX_COLORS} ${hex_color}"
+    done
+  fi
+}
+
+exit_error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   printf "Try '%s -h' for more information.\n" "${COMMAND}"
   exit 1
@@ -143,28 +164,7 @@ test_contrast() {
   done
 }
 
-parse_options() {
-  while getopts hp OPT; do
-    case "${OPT}" in
-      h) usage; exit 0 ;;
-      p) PLAIN=1 ;;
-      ?) error ;;
-    esac
-  done
-
-  shift $(( OPTIND - 1 ))
-
-  HEX_COLORS="$*"
-
-  # read hex values from stdin if no argument specified
-  if [ -z "${HEX_COLORS}" ]; then
-    while read -r hex_color; do
-      HEX_COLORS="${HEX_COLORS} ${hex_color}"
-    done
-  fi
-}
-
 init_variables
-parse_options "$@"
+parse_command_line "$@"
 
 test_contrast

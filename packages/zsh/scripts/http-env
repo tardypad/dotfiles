@@ -17,7 +17,47 @@ init_variables() {
   ENV_PATH=
 }
 
-error() {
+parse_command_line() {
+  PROJECT="$1"
+  ENVIRONMENT="$2"
+  REQUEST_METHOD="$3"
+  REQUEST_PATH="$4"
+  shift 4 2> /dev/null
+
+  while [ "$#" -gt 0 ] && [ "$1" != '--' ]; do
+    REQUEST_ITEMS="${REQUEST_ITEMS} $1"
+    shift
+  done
+
+  shift 2> /dev/null
+  HTTP_OPTIONS="$*"
+}
+
+validate_command_line() {
+  if [ -z "${PROJECT}" ]; then
+    exit_error 'missing project'
+  fi
+
+  if [ -z "${ENVIRONMENT}" ]; then
+    exit_error 'missing environment'
+  fi
+
+  if [ -z "${REQUEST_METHOD}" ]; then
+    exit_error 'missing request method'
+  fi
+
+  if [ -z "${REQUEST_PATH}" ]; then
+    exit_error 'missing request path'
+  fi
+
+  ENV_PATH="${ENV_DIR_PATH}/${PROJECT}/${ENVIRONMENT}"
+
+  if [ ! -f "${ENV_PATH}" ]; then
+    exit_error 'invalid project/environment'
+  fi
+}
+
+exit_error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   exit 1
 } >&2
@@ -34,48 +74,8 @@ run_http() {
   http ${OPTIONS} "${REQUEST_METHOD}" "${URL}" ${ITEMS}
 }
 
-parse_options() {
-  PROJECT="$1"
-  ENVIRONMENT="$2"
-  REQUEST_METHOD="$3"
-  REQUEST_PATH="$4"
-  shift 4 2> /dev/null
-
-  while [ "$#" -gt 0 ] && [ "$1" != '--' ]; do
-    REQUEST_ITEMS="${REQUEST_ITEMS} $1"
-    shift
-  done
-
-  shift 2> /dev/null
-  HTTP_OPTIONS="$*"
-}
-
-validate_options() {
-  if [ -z "${PROJECT}" ]; then
-    error 'missing project'
-  fi
-
-  if [ -z "${ENVIRONMENT}" ]; then
-    error 'missing environment'
-  fi
-
-  if [ -z "${REQUEST_METHOD}" ]; then
-    error 'missing request method'
-  fi
-
-  if [ -z "${REQUEST_PATH}" ]; then
-    error 'missing request path'
-  fi
-
-  ENV_PATH="${ENV_DIR_PATH}/${PROJECT}/${ENVIRONMENT}"
-
-  if [ ! -f "${ENV_PATH}" ]; then
-    error 'invalid project/environment'
-  fi
-}
-
 init_variables
-parse_options "$@"
-validate_options
+parse_command_line "$@"
+validate_command_line
 
 run_http

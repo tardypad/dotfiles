@@ -14,7 +14,7 @@ init_variables() {
   TAGS="${TAGS}:TODO"     # something else needs to be done
 }
 
-usage() {
+show_usage() {
   cat <<- EOF
 	usage: ${COMMAND} [<options>]
 
@@ -27,7 +27,18 @@ usage() {
 	EOF
 }
 
-error() {
+parse_command_line() {
+  while getopts h OPT; do
+    case "${OPT}" in
+      h) show_usage; exit 0 ;;
+      ?) exit_error ;;
+    esac
+  done
+
+  shift $(( OPTIND - 1 ))
+}
+
+exit_error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   echo "Try '${COMMAND} -h' for more information."
   exit 1
@@ -40,18 +51,7 @@ report_tags() {
     | column -t -s@
 }
 
-parse_options() {
-  while getopts h OPT; do
-    case "${OPT}" in
-      h) usage; exit 0 ;;
-      ?) error ;;
-    esac
-  done
-
-  shift $(( OPTIND - 1 ))
-}
-
 init_variables
-parse_options "$@"
+parse_command_line "$@"
 
 report_tags

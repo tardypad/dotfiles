@@ -24,7 +24,34 @@ init_variables() {
   QUERY_ARGUMENTS=
 }
 
-error() {
+parse_command_line() {
+  if [ -n "$1" ]; then
+    QUERY_TYPE="$1"
+    shift
+    QUERY_ARGUMENTS=$*
+  fi
+}
+
+validate_command_line() {
+  if [ "${QUERY_TYPE}" != 'tags' ] && [ "${QUERY_TYPE}" != 'hosts' ]; then
+    exit_error "invalid query type ${QUERY_TYPE}"
+  fi
+
+  if [ "${QUERY_TYPE}" = 'tags' ] && [ -z "${QUERY_ARGUMENTS}" ]; then
+    exit_error 'missing host argument'
+  fi
+
+  if [ "${QUERY_TYPE}" = 'hosts' ]; then
+    for QUERY_ARG in ${QUERY_ARGUMENTS}; do
+      case "${QUERY_ARG}" in
+        ?*=?*) continue ;;
+        *) exit_error "invalid tag value argument '${QUERY_ARG}'";;
+      esac
+    done
+  fi
+}
+
+exit_error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   exit 1
 } >&2
@@ -87,35 +114,8 @@ process_file() {
     | sort
 }
 
-parse_options() {
-  if [ -n "$1" ]; then
-    QUERY_TYPE="$1"
-    shift
-    QUERY_ARGUMENTS=$*
-  fi
-}
-
-validate_options() {
-  if [ "${QUERY_TYPE}" != 'tags' ] && [ "${QUERY_TYPE}" != 'hosts' ]; then
-    error "invalid query type ${QUERY_TYPE}"
-  fi
-
-  if [ "${QUERY_TYPE}" = 'tags' ] && [ -z "${QUERY_ARGUMENTS}" ]; then
-    error 'missing host argument'
-  fi
-
-  if [ "${QUERY_TYPE}" = 'hosts' ]; then
-    for QUERY_ARG in ${QUERY_ARGUMENTS}; do
-      case "${QUERY_ARG}" in
-        ?*=?*) continue ;;
-        *) error "invalid tag value argument '${QUERY_ARG}'";;
-      esac
-    done
-  fi
-}
-
 init_variables
-parse_options "$@"
-validate_options
+parse_command_line "$@"
+validate_command_line
 
 "query_${QUERY_TYPE}" ${QUERY_ARGUMENTS}

@@ -11,7 +11,17 @@ init_variables() {
   SCRIPT=
 }
 
-error() {
+parse_command_line() {
+  SCRIPT="$*"
+}
+
+validate_command_line() {
+  if [ -z "${SCRIPT}" ]; then
+    exit_error "missing sed script argument"
+  fi
+}
+
+exit_error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   exit 1
 } >&2
@@ -24,18 +34,8 @@ run_sed() {
              && cp \"${TMP_FILE}\" {}"
 }
 
-parse_options() {
-  SCRIPT="$*"
-}
-
-validate_options() {
-  if [ -z "${SCRIPT}" ]; then
-    error "missing sed script argument"
-  fi
-}
-
 init_variables
-parse_options "$@"
-validate_options
+parse_command_line "$@"
+validate_command_line
 
 run_sed

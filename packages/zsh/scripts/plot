@@ -12,7 +12,12 @@ init_variables() {
   JP_OPTIONS=
 }
 
-error() {
+parse_command_line() {
+  shift 2> /dev/null
+  JP_OPTIONS="$*"
+}
+
+exit_error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   exit 1
 } >&2
@@ -31,12 +36,7 @@ plot_data() {
       ${JP_OPTIONS}
 }
 
-parse_options() {
-  shift 2> /dev/null
-  JP_OPTIONS="$*"
-}
-
 init_variables
-parse_options "$@"
+parse_command_line "$@"
 
 plot_data

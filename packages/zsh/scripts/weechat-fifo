@@ -8,7 +8,17 @@ init_variables() {
   BUFFER=
 }
 
-error() {
+parse_command_line() {
+  BUFFER=$1
+}
+
+validate_command_line() {
+  if [ ! -p "${FIFO_FILE}" ]; then
+    exit_error "FIFO file not present"
+  fi
+}
+
+exit_error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   exit 1
 } >&2
@@ -19,18 +29,8 @@ fifo_send() {
   done
 }
 
-parse_options() {
-  BUFFER=$1
-}
-
-validate_options() {
-  if [ ! -p "${FIFO_FILE}" ]; then
-    error "FIFO file not present"
-  fi
-}
-
 init_variables
-parse_options "$@"
-validate_options
+parse_command_line "$@"
+validate_command_line
 
 fifo_send

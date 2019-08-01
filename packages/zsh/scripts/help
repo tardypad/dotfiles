@@ -16,7 +16,12 @@ init_variables() {
   SECTION=
 }
 
-error() {
+parse_command_line() {
+  TOPIC="$1"
+  SECTION="$2"
+}
+
+exit_error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   exit 1
 } >&2
@@ -185,13 +190,8 @@ select_topic() {
   )
 }
 
-parse_options() {
-  TOPIC="$1"
-  SECTION="$2"
-}
-
 init_variables
-parse_options "$@"
+parse_command_line "$@"
 
 if [ -z "${TOPIC}" ]; then
   select_topic
