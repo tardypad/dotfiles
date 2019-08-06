@@ -66,26 +66,26 @@ script:
 	$(setup_scripts_file)/tmux/toggle_monitor_silence.sh    > $(DESTDIR)$(HOME)/.tmux/scripts/toggle_monitor_silence.sh
 	$(setup_scripts_file)/tmux/toggle_no_distraction.sh     > $(DESTDIR)$(HOME)/.tmux/scripts/toggle_no_distraction.sh
 
-	$(setup_scripts_file)/backup-bookmarks                  > $(DESTDIR)$(HOME)/.zsh/scripts/backup-bookmarks
-	$(setup_scripts_file)/backup-notes                      > $(DESTDIR)$(HOME)/.zsh/scripts/backup-notes
-	$(setup_scripts_file)/battery_status                    > $(DESTDIR)$(HOME)/.zsh/scripts/battery_status
-	$(setup_scripts_file)/do-not-disturb                    > $(DESTDIR)$(HOME)/.zsh/scripts/do-not-disturb
-	$(setup_scripts_file)/help                              > $(DESTDIR)$(HOME)/.zsh/scripts/help
-	$(setup_scripts_file)/http-env                          > $(DESTDIR)$(HOME)/.zsh/scripts/http-env
-	$(setup_scripts_file)/influx-env                        > $(DESTDIR)$(HOME)/.zsh/scripts/influx-env
-	$(setup_scripts_file)/loop                              > $(DESTDIR)$(HOME)/.zsh/scripts/loop
-	$(setup_scripts_file)/man                               > $(DESTDIR)$(HOME)/.zsh/scripts/man
-	$(setup_scripts_file)/mysql-env                         > $(DESTDIR)$(HOME)/.zsh/scripts/mysql-env
-	$(setup_scripts_file)/pacman-pkgdiff                    > $(DESTDIR)$(HOME)/.zsh/scripts/pacman-pkgdiff
-	$(setup_scripts_file)/plot                              > $(DESTDIR)$(HOME)/.zsh/scripts/plot
-	$(setup_scripts_file)/pomodoro                          > $(DESTDIR)$(HOME)/.zsh/scripts/pomodoro
-	$(setup_scripts_file)/project-path                      > $(DESTDIR)$(HOME)/.zsh/scripts/project-path
-	$(setup_scripts_file)/query-hosts-tags                  > $(DESTDIR)$(HOME)/.zsh/scripts/query-hosts-tags
-	$(setup_scripts_file)/redis-env                         > $(DESTDIR)$(HOME)/.zsh/scripts/redis-env
-	$(setup_scripts_file)/ssh-tags                          > $(DESTDIR)$(HOME)/.zsh/scripts/ssh-tags
-	$(setup_scripts_file)/status                            > $(DESTDIR)$(HOME)/.zsh/scripts/status
-	$(setup_scripts_file)/tmux-env                          > $(DESTDIR)$(HOME)/.zsh/scripts/tmux-env
-	$(setup_scripts_file)/weechat-fifo                      > $(DESTDIR)$(HOME)/.zsh/scripts/weechat-fifo
+	$(setup_scripts_file)/shell/backup-bookmarks            > $(DESTDIR)$(HOME)/.zsh/scripts/backup-bookmarks
+	$(setup_scripts_file)/shell/backup-notes                > $(DESTDIR)$(HOME)/.zsh/scripts/backup-notes
+	$(setup_scripts_file)/shell/battery_status              > $(DESTDIR)$(HOME)/.zsh/scripts/battery_status
+	$(setup_scripts_file)/shell/do-not-disturb              > $(DESTDIR)$(HOME)/.zsh/scripts/do-not-disturb
+	$(setup_scripts_file)/shell/help                        > $(DESTDIR)$(HOME)/.zsh/scripts/help
+	$(setup_scripts_file)/shell/http-env                    > $(DESTDIR)$(HOME)/.zsh/scripts/http-env
+	$(setup_scripts_file)/shell/influx-env                  > $(DESTDIR)$(HOME)/.zsh/scripts/influx-env
+	$(setup_scripts_file)/shell/loop                        > $(DESTDIR)$(HOME)/.zsh/scripts/loop
+	$(setup_scripts_file)/shell/man                         > $(DESTDIR)$(HOME)/.zsh/scripts/man
+	$(setup_scripts_file)/shell/mysql-env                   > $(DESTDIR)$(HOME)/.zsh/scripts/mysql-env
+	$(setup_scripts_file)/shell/pacman-pkgdiff              > $(DESTDIR)$(HOME)/.zsh/scripts/pacman-pkgdiff
+	$(setup_scripts_file)/shell/plot                        > $(DESTDIR)$(HOME)/.zsh/scripts/plot
+	$(setup_scripts_file)/shell/pomodoro                    > $(DESTDIR)$(HOME)/.zsh/scripts/pomodoro
+	$(setup_scripts_file)/shell/project-path                > $(DESTDIR)$(HOME)/.zsh/scripts/project-path
+	$(setup_scripts_file)/shell/query-hosts-tags            > $(DESTDIR)$(HOME)/.zsh/scripts/query-hosts-tags
+	$(setup_scripts_file)/shell/redis-env                   > $(DESTDIR)$(HOME)/.zsh/scripts/redis-env
+	$(setup_scripts_file)/shell/ssh-tags                    > $(DESTDIR)$(HOME)/.zsh/scripts/ssh-tags
+	$(setup_scripts_file)/shell/status                      > $(DESTDIR)$(HOME)/.zsh/scripts/status
+	$(setup_scripts_file)/shell/tmux-env                    > $(DESTDIR)$(HOME)/.zsh/scripts/tmux-env
+	$(setup_scripts_file)/shell/weechat-fifo                > $(DESTDIR)$(HOME)/.zsh/scripts/weechat-fifo
 
 	chmod +x $(DESTDIR)$(CONFIG_DIR)/git/scripts/*
 	chmod +x $(DESTDIR)$(CONFIG_DIR)/i3blocks/scripts/*
