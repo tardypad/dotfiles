@@ -10,41 +10,41 @@ CACHE_DIR  = $(HOME)/.cache
 
 start_setup = printf "setup $@\n"
 
-setup_packages_file  = colors/substitute_placeholders $(THEME) packages/$@
-setup_scripts_file   = colors/substitute_placeholders $(THEME) scripts/
+setup_configs_file = colors/substitute_placeholders $(THEME) configs/$@
+setup_scripts_file = colors/substitute_placeholders $(THEME) scripts/
 
-include packages/aria2/Makefile
-include packages/coreutils/Makefile
-include packages/fontconfig/Makefile
-include packages/git/Makefile
-include packages/gnupg/Makefile
-include packages/htop/Makefile
-include packages/httpie/Makefile
-include packages/i3blocks/Makefile
-include packages/less/Makefile
-include packages/libqalculate/Makefile
-include packages/mako/Makefile
-include packages/mopidy/Makefile
-include packages/ncmpcpp/Makefile
-include packages/neomutt/Makefile
-include packages/newsboat/Makefile
-include packages/openssh/Makefile
-include packages/qutebrowser/Makefile
-include packages/rbtools/Makefile
-include packages/tmux/Makefile
-include packages/sway/Makefile
-include packages/swaylock/Makefile
-include packages/systemd/Makefile
-include packages/termite/Makefile
-include packages/translate-shell/Makefile
-include packages/universal-ctags/Makefile
-include packages/util-linux/Makefile
-include packages/vim/Makefile
-include packages/weechat/Makefile
-include packages/xdg-user-dirs/Makefile
-include packages/xdg-utils/Makefile
-include packages/zathura/Makefile
-include packages/zsh/Makefile
+include configs/aria2/Makefile
+include configs/coreutils/Makefile
+include configs/fontconfig/Makefile
+include configs/git/Makefile
+include configs/gnupg/Makefile
+include configs/htop/Makefile
+include configs/httpie/Makefile
+include configs/i3blocks/Makefile
+include configs/less/Makefile
+include configs/libqalculate/Makefile
+include configs/mako/Makefile
+include configs/mopidy/Makefile
+include configs/ncmpcpp/Makefile
+include configs/neomutt/Makefile
+include configs/newsboat/Makefile
+include configs/openssh/Makefile
+include configs/qutebrowser/Makefile
+include configs/rbtools/Makefile
+include configs/tmux/Makefile
+include configs/sway/Makefile
+include configs/swaylock/Makefile
+include configs/systemd/Makefile
+include configs/termite/Makefile
+include configs/translate-shell/Makefile
+include configs/universal-ctags/Makefile
+include configs/util-linux/Makefile
+include configs/vim/Makefile
+include configs/weechat/Makefile
+include configs/xdg-user-dirs/Makefile
+include configs/xdg-utils/Makefile
+include configs/zathura/Makefile
+include configs/zsh/Makefile
 
 include data/applications/Makefile
 include data/env/Makefile

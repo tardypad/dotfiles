@@ -55,7 +55,7 @@ readme_version() {
       sed -n "s#^| ${ITEM} .*| \[\(.*\)\].*#\1#p" README.md
       ;;
     extension)
-      sed -n "s#^| ${ITEM} .*| \[\(.*\)\].*#\1#p" packages/*/README.md
+      sed -n "s#^| ${ITEM} .*| \[\(.*\)\].*#\1#p" configs/*/README.md
       ;;
   esac
 }
@@ -117,7 +117,7 @@ report_all() {
 
     # extensions
     # exclude vim and weechat plugins (not managed by package manager)
-    find packages/* -type f -name README.md \
+    find configs/* -type f -name README.md \
       ! -path '*/vim/*' ! -path '*/weechat/*' \
       -exec sed -n 's#^| \([a-z][^ ]*\) .*#\1#p' {} \; \
       | report extension

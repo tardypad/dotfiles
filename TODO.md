@@ -8,7 +8,6 @@
 
 # Cleaning
   - repository reorganisation:
-    * rename packages folder to config (and update related utilities)
     * consistency of scripts using - instead of _
     * add info about repository structure in README
     * packages Makefile targets should be made with prerequisites  

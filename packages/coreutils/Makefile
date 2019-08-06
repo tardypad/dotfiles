@@ -1,8 +1,0 @@
-all: coreutils
-
-coreutils:
-	$(start_setup)
-
-	mkdir -p $(DESTDIR)$(HOME)
-
-	$(setup_packages_file)/dircolors > $(DESTDIR)$(HOME)/.dircolors

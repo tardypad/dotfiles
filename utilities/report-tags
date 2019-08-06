@@ -45,8 +45,8 @@ exit_error() {
 } >&2
 
 report_tags() {
-  git grep -E "#($( echo "${TAGS}" | tr ':' '|' )):" packages/ \
-    | sed 's|packages/\([^/]*\)/\([^:]*\):.*\(#[A-Z]*\): \(.*\)|\3@\1@\2@\4|' \
+  git grep -E "#($( echo "${TAGS}" | tr ':' '|' )):" configs/ \
+    | sed 's|configs/\([^/]*\)/\([^:]*\):.*\(#[A-Z]*\): \(.*\)|\3@\1@\2@\4|' \
     | sort \
     | column -t -s@
 }
