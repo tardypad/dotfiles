@@ -11,6 +11,7 @@ CACHE_DIR  = $(HOME)/.cache
 start_setup = printf "setup $@\n"
 
 setup_packages_file  = colors/substitute_placeholders $(THEME) packages/$@
+setup_scripts_file   = colors/substitute_placeholders $(THEME) scripts/
 
 include packages/aria2/Makefile
 include packages/coreutils/Makefile
@@ -51,3 +52,4 @@ include data/images/Makefile
 include data/sounds/Makefile
 
 include docs/Makefile
+include scripts/Makefile
