@@ -2,4 +2,4 @@
 Description=Backup bookmarks
 
 [Service]
-ExecStart=/home/damien/.zsh/scripts/backup-bookmarks
+ExecStart=/home/damien/.local/bin/backup-bookmarks

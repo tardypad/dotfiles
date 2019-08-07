@@ -1,4 +1,4 @@
-command=~/.config/i3blocks/scripts/i3blocks-$BLOCK_NAME
+command=i3blocks-$BLOCK_NAME
 markup=pango
 interval=10
 signal=1

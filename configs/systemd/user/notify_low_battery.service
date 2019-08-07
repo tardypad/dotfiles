@@ -3,4 +3,4 @@ Description=Notify about low battery
 
 [Service]
 Type=oneshot
-ExecStart=/home/damien/.zsh/scripts/check-notify-low-battery
+ExecStart=/home/damien/.local/bin/check-notify-low-battery

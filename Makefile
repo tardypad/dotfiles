@@ -4,9 +4,10 @@
 
 THEME = light
 
+BIN_DIR    = $(HOME)/.local/bin
+CACHE_DIR  = $(HOME)/.cache
 CONFIG_DIR = $(HOME)/.config
 DATA_DIR   = $(HOME)/.local/share
-CACHE_DIR  = $(HOME)/.cache
 
 start_setup = printf "setup $@\n"
 
