@@ -1,6 +1,6 @@
 #!/bin/sh
 # commands used:
-# - notify_end_pomodoro
+# - notify-end-pomodoro
 
 init_variables() {
   COMMAND=${0##*/}
@@ -88,7 +88,7 @@ session_end() {
   # only end session if no newer one was created
   if [ "${SESSION_START_TIME}" = "${CURRENT_START_TIME}" ]; then
     rm -rf "${FILE_PATH}"
-    notify_end_pomodoro
+    notify-end-pomodoro
   fi
 }
 

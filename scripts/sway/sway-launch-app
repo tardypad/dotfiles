@@ -1,9 +1,9 @@
 #!/bin/sh
 # commands used:
 # - column
-# - exec_desktop_entry
-# - fzf_launcher
+# - exec-desktop-entry
 # - stat
+# - sway-fzf-launcher
 # - swaymsg
 
 APP_DESKTOP_FILES_PATH="${XDG_DATA_HOME:-$HOME/.local/share}/applications"
@@ -49,13 +49,13 @@ build_cache() {
 should_build_cache && build_cache
 
 SELECTED_APP=$(
-  fzf_launcher 'run app ' --with-nth ..-2 < "${CACHE_LIST_PATH}" \
+  sway-fzf-launcher 'run app ' --with-nth ..-2 < "${CACHE_LIST_PATH}" \
     | sed 's/.* \(.*\)$/\1/'
 )
 
 if [ -n "${SELECTED_APP}" ]; then
-  # #FIXME: not sure why running exec_desktop_entry directly without using swaymsg
+  # #FIXME: not sure why running exec-desktop-entry directly without using swaymsg
   # doesn't work when ran from the launcher
   swaymsg -q exec \
-    "exec_desktop_entry ${SELECTED_APP}"
+    "exec-desktop-entry ${SELECTED_APP}"
 fi

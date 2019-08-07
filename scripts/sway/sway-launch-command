@@ -1,7 +1,7 @@
 #!/bin/sh
 # commands used:
-# - fzf_launcher
 # - stat
+# - sway-fzf-launcher
 # - swaymsg
 
 CACHE_LIST_PATH="${XDG_CACHE_HOME:-$HOME/.cache}/sway/launch_command"
@@ -42,6 +42,6 @@ build_cache() {
 
 should_build_cache && build_cache
 
-fzf_launcher 'run ' < "${CACHE_LIST_PATH}" \
+sway-fzf-launcher 'run ' < "${CACHE_LIST_PATH}" \
   | xargs -I{} \
     -- swaymsg -q exec {}

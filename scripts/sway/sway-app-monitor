@@ -1,7 +1,7 @@
 #!/bin/sh
 # commands used:
-# - focus_window_title
 # - htop
+# - sway-focus-window-title
 # - swaymsg
 # - termite
 # - tmux
@@ -9,7 +9,7 @@
 TITLE='sway_monitor'
 
 # try to focus existing window if it exists
-focus_window_title "${TITLE}" && exit
+sway-focus-window-title "${TITLE}" && exit
 
 # launch new app otherwise
 swaymsg -q exec \

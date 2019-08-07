@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=app_music
+Exec=sway-app-music
 Name=ncmpcpp
 GenericName=Music player
 Icon=

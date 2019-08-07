@@ -7,7 +7,7 @@ bindsym $mod+Ctrl+$key_quit exit
 bindsym $mod+Alt+Shift+r reload
 
 # general command input
-bindsym $mod+colon exec run_command
+bindsym $mod+colon exec sway-run-command
 
 # lock the screen
 bindsym $mod+Backspace exec swaylock
@@ -24,10 +24,10 @@ bindsym $mod+Shift+Escape exec pomodoro toggle \
                                && pkill -RTMIN+5 i3blocks
 
 # select region and grab screenshot
-bindsym $mod+g exec grab_region_screenshot
+bindsym $mod+g exec screenshot
 
 # toggle bar status mode
-bindsym $mod+Tab exec bar_status_mode toggle
+bindsym $mod+Tab exec i3blocks-mode toggle
 
 
 ## notifications
@@ -38,19 +38,19 @@ bindsym $mod+Ctrl+Shift+$key_kill exec makoctl dismiss --all
 
 ## launch apps
 
-bindsym $mod+Return       exec exec_desktop_entry ~/.local/share/applications/terminal.desktop
-bindsym $mod+Shift+Return exec exec_desktop_entry ~/.local/share/applications/qutebrowser_web_browser.desktop
+bindsym $mod+Return       exec exec-desktop-entry ~/.local/share/applications/terminal.desktop
+bindsym $mod+Shift+Return exec exec-desktop-entry ~/.local/share/applications/qutebrowser_web_browser.desktop
 
 
 ## launchers
 
 mode "-- Launchers --" {
-    bindsym Space       mode "default", exec launcher launch_app
-    bindsym Shift+Space mode "default", exec launcher launch_command
-    bindsym Backspace   mode "default", exec launcher launch_system
-    bindsym j           mode "default", exec launcher launch_tmux_env projects
-    bindsym n           mode "default", exec launcher launch_note
-    bindsym p           mode "default", exec launcher launch_password
+    bindsym Space       mode "default", exec sway-launcher sway-launch-app
+    bindsym Shift+Space mode "default", exec sway-launcher sway-launch-command
+    bindsym Backspace   mode "default", exec sway-launcher sway-launch-system
+    bindsym j           mode "default", exec sway-launcher sway-launch-tmux-env projects
+    bindsym n           mode "default", exec sway-launcher sway-launch-note
+    bindsym p           mode "default", exec sway-launcher sway-launch-password
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -73,8 +73,8 @@ bindsym $mod+d scratchpad show
 
 ## workspaces management
 
-bindsym $mod+$key_create exec create_workspace
-bindsym $mod+$key_rename exec rename_workspace
+bindsym $mod+$key_create exec sway-create-workspace
+bindsym $mod+$key_rename exec sway-rename-workspace
 
 # select
 bindsym $mod+$key_alternate workspace back_and_forth
@@ -94,8 +94,8 @@ bindsym $mod+9              workspace number 9
 bindsym $mod+0              workspace number 10
 
 # split
-bindsym $mod+$key_vsplit splith, exec exec_desktop_entry ~/.local/share/applications/terminal.desktop
-bindsym $mod+$key_split  splitv, exec exec_desktop_entry ~/.local/share/applications/terminal.desktop
+bindsym $mod+$key_vsplit splith, exec exec-desktop-entry ~/.local/share/applications/terminal.desktop
+bindsym $mod+$key_split  splitv, exec exec-desktop-entry ~/.local/share/applications/terminal.desktop
 
 # layout mode
 mode "-- layout --" {
@@ -111,7 +111,7 @@ bindsym $mod+$key_layout mode "-- layout --"
 
 ## windows management
 
-bindsym $mod+Shift+$key_create exec exec_desktop_entry ~/.local/share/applications/terminal.desktop
+bindsym $mod+Shift+$key_create exec exec-desktop-entry ~/.local/share/applications/terminal.desktop
 bindsym $mod+Shift+$key_kill   kill
 bindsym $mod+Shift+$key_zoom   fullscreen
 
@@ -140,7 +140,7 @@ mode "-- MOVE --" {
     bindsym 8              move container to workspace number 8, workspace number 8
     bindsym 9              move container to workspace number 9, workspace number 9
     bindsym 0              move container to workspace number 10, workspace number 10
-    bindsym $key_create    exec move_window_new_workspace
+    bindsym $key_create    exec sway-move-window-new-workspace
     bindsym $key_alternate move container to workspace back_and_forth, workspace back_and_forth
     bindsym $key_next      move container to workspace next_on_output, workspace next_on_output
     bindsym $key_right     move container to workspace next_on_output, workspace next_on_output

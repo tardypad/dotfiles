@@ -1,6 +1,6 @@
 #!/bin/sh
 # commands used:
-# - fzf_launcher
+# - sway-fzf-launcher
 # - swaylock
 # - swaymsg
 # - systemctl
@@ -13,7 +13,7 @@ ACTION=$(
     echo '  Shutdown';
     echo '  Reboot';
   } \
-  | fzf_launcher 'execute '
+  | sway-fzf-launcher 'execute '
 )
 
 case "${ACTION}" in

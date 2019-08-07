@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=app_mail
+Exec=sway-app-mail
 Name=neomutt
 GenericName=Mail client
 Icon=

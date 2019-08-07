@@ -1,12 +1,12 @@
-command_input_exec(1)
+sway-command-input-exec(1)
 
 # NAME
 
-command_input_exec - Sway command input execution
+sway-command-input-exec - Sway command input execution
 
 # SYNOPSIS
 
-command_input_exec [-F _format_] [-P _prompt_]
+sway-command-input-exec [-F _format_] [-P _prompt_]
 
 # OPTIONS
 

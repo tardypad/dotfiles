@@ -1,7 +1,7 @@
 #!/bin/sh
 # commands used:
-# - command_input
 # - jq
+# - sway-command-input
 # - swaymsg
 
 # rename current workspace
@@ -13,6 +13,6 @@ CURRENT_WORKSPACE_NUMBER=$(
     | sed 's/\([0-9]*\).*/\1/'
 )
 
-command_input \
+sway-command-input \
   -F "rename workspace to ${CURRENT_WORKSPACE_NUMBER}:%s" \
   -P 'rename workspace: '

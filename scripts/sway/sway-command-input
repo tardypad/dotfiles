@@ -1,12 +1,12 @@
 #!/bin/sh
 # commands used:
-# - command_input_exec
-# - focus_window_title
+# - sway-command-input-exec
+# - sway-focus-window-title
 # - swaymsg
 # - termite
 
 # try to focus existing window if it exists
-focus_window_title 'sway_command_input' && exit
+sway-focus-window-title 'sway_command_input' && exit
 
 # quote arguments for usage in next command
 ARGUMENTS=
@@ -21,6 +21,6 @@ done
 # launch new command input window otherwise
 swaymsg -q exec \
   "termite \
-   -e \"command_input_exec ${ARGUMENTS}\" \
+   -e \"sway-command-input-exec ${ARGUMENTS}\" \
    -c ${HOME}/.config/termite/config_command_input \
    -t sway_command_input"

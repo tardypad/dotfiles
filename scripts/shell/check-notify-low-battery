@@ -1,12 +1,12 @@
 #!/bin/sh
 # commands used:
 # - aplay
-# - battery_status
+# - battery-status
 # - notify
 
 ALERT_THRESHOLD_PERCENT=10
 
-BATTERY_STATUS=$( battery_status )
+BATTERY_STATUS=$( battery-status )
 
 ADAPTER_STATUS=$(
   echo "${BATTERY_STATUS}" \

@@ -1,7 +1,7 @@
 #!/bin/sh
 # commands used:
-# - focus_window_title
 # - ncmpcpp
+# - sway-focus-window-title
 # - swaymsg
 # - systemctl
 # - termite
@@ -10,7 +10,7 @@
 TITLE='sway_music'
 
 # try to focus existing window if it exists
-focus_window_title "${TITLE}" && exit
+sway-focus-window-title "${TITLE}" && exit
 
 # launch music server and app otherwise
 if ! systemctl --user is-active mopidy.service; then

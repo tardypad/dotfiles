@@ -1,9 +1,9 @@
 #!/bin/sh
 # commands used:
-# - bar_status_mode
+# - i3blocks-mode
 # - mpc
 
-MODE="$( bar_status_mode )"
+MODE="$( i3blocks-mode )"
 
 MUSIC_INFO=$(
   mpc status -f '[[%artist% / ]%title%]|[%file%]' 2> /dev/null

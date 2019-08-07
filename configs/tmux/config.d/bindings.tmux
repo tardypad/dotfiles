@@ -21,8 +21,8 @@ bind C-q detach-client
 bind   : command-prompt
 bind   ? list-keys
 bind M-m show-messages
-bind M-a run "~/.tmux/scripts/toggle_monitor_activity.sh '#{socket_path}' '#{session_id}' '#{window_id}'"
-bind M-s run "~/.tmux/scripts/toggle_monitor_silence.sh '#{socket_path}' '#{session_id}' '#{window_id}'"
+bind M-a run "~/.tmux/scripts/tmux-toggle-monitor-activity '#{socket_path}' '#{session_id}' '#{window_id}'"
+bind M-s run "~/.tmux/scripts/tmux-toggle-monitor-silence '#{socket_path}' '#{session_id}' '#{window_id}'"
 bind M-b choose-buffer -Z -F '#{buffer_sample}' -O time
 bind M-h split-window -h -f -l 80 "printf 'help\n\n'; help || sleep 2"
 bind M-l clear-history \; \
@@ -97,16 +97,16 @@ bind -T move n switch-client -T move \; swap-window -t :{next}
 bind -T move l switch-client -T move \; swap-window -t :{next}
 bind -T move p switch-client -T move \; swap-window -t :{previous}
 bind -T move h switch-client -T move \; swap-window -t :{previous}
-bind -T move 1 switch-client -T move \; run "~/.tmux/scripts/move_window_index.sh 1"
-bind -T move 2 switch-client -T move \; run "~/.tmux/scripts/move_window_index.sh 2"
-bind -T move 3 switch-client -T move \; run "~/.tmux/scripts/move_window_index.sh 3"
-bind -T move 4 switch-client -T move \; run "~/.tmux/scripts/move_window_index.sh 4"
-bind -T move 5 switch-client -T move \; run "~/.tmux/scripts/move_window_index.sh 5"
-bind -T move 6 switch-client -T move \; run "~/.tmux/scripts/move_window_index.sh 6"
-bind -T move 7 switch-client -T move \; run "~/.tmux/scripts/move_window_index.sh 7"
-bind -T move 8 switch-client -T move \; run "~/.tmux/scripts/move_window_index.sh 8"
-bind -T move 9 switch-client -T move \; run "~/.tmux/scripts/move_window_index.sh 9"
-bind -T move 0 switch-client -T move \; run "~/.tmux/scripts/move_window_index.sh 10"
+bind -T move 1 switch-client -T move \; run "~/.tmux/scripts/tmux-move-window-index 1"
+bind -T move 2 switch-client -T move \; run "~/.tmux/scripts/tmux-move-window-index 2"
+bind -T move 3 switch-client -T move \; run "~/.tmux/scripts/tmux-move-window-index 3"
+bind -T move 4 switch-client -T move \; run "~/.tmux/scripts/tmux-move-window-index 4"
+bind -T move 5 switch-client -T move \; run "~/.tmux/scripts/tmux-move-window-index 5"
+bind -T move 6 switch-client -T move \; run "~/.tmux/scripts/tmux-move-window-index 6"
+bind -T move 7 switch-client -T move \; run "~/.tmux/scripts/tmux-move-window-index 7"
+bind -T move 8 switch-client -T move \; run "~/.tmux/scripts/tmux-move-window-index 8"
+bind -T move 9 switch-client -T move \; run "~/.tmux/scripts/tmux-move-window-index 9"
+bind -T move 0 switch-client -T move \; run "~/.tmux/scripts/tmux-move-window-index 10"
 
 # layout mode
 bind           y switch-client -T layout
@@ -133,11 +133,11 @@ bind -r J select-pane -t :.{down-of}
 bind -r K select-pane -t :.{up-of}
 bind -r L select-pane -t :.{right-of}
 
-bind -T root M-a run "~/.tmux/scripts/select_pane_vim.sh a"
-bind -T root M-h run "~/.tmux/scripts/select_pane_vim.sh h"
-bind -T root M-j run "~/.tmux/scripts/select_pane_vim.sh j"
-bind -T root M-k run "~/.tmux/scripts/select_pane_vim.sh k"
-bind -T root M-l run "~/.tmux/scripts/select_pane_vim.sh l"
+bind -T root M-a run "~/.tmux/scripts/tmux-select-pane-vim a"
+bind -T root M-h run "~/.tmux/scripts/tmux-select-pane-vim h"
+bind -T root M-j run "~/.tmux/scripts/tmux-select-pane-vim j"
+bind -T root M-k run "~/.tmux/scripts/tmux-select-pane-vim k"
+bind -T root M-l run "~/.tmux/scripts/tmux-select-pane-vim l"
 
 # respawn
 bind BSpace respawn-pane
@@ -158,16 +158,16 @@ bind -T MOVE H switch-client -T MOVE \; swap-pane -d -t :.{left-of}
 bind -T MOVE J switch-client -T MOVE \; swap-pane -d -t :.{down-of}
 bind -T MOVE K switch-client -T MOVE \; swap-pane -d -t :.{up-of}
 bind -T MOVE L switch-client -T MOVE \; swap-pane -d -t :.{right-of}
-bind -T MOVE 1 switch-client -T MOVE \; run "~/.tmux/scripts/move_pane_window_index.sh 1"
-bind -T MOVE 2 switch-client -T MOVE \; run "~/.tmux/scripts/move_pane_window_index.sh 2"
-bind -T MOVE 3 switch-client -T MOVE \; run "~/.tmux/scripts/move_pane_window_index.sh 3"
-bind -T MOVE 4 switch-client -T MOVE \; run "~/.tmux/scripts/move_pane_window_index.sh 4"
-bind -T MOVE 5 switch-client -T MOVE \; run "~/.tmux/scripts/move_pane_window_index.sh 5"
-bind -T MOVE 6 switch-client -T MOVE \; run "~/.tmux/scripts/move_pane_window_index.sh 6"
-bind -T MOVE 7 switch-client -T MOVE \; run "~/.tmux/scripts/move_pane_window_index.sh 7"
-bind -T MOVE 8 switch-client -T MOVE \; run "~/.tmux/scripts/move_pane_window_index.sh 8"
-bind -T MOVE 9 switch-client -T MOVE \; run "~/.tmux/scripts/move_pane_window_index.sh 9"
-bind -T MOVE 0 switch-client -T MOVE \; run "~/.tmux/scripts/move_pane_window_index.sh 10"
+bind -T MOVE 1 switch-client -T MOVE \; run "~/.tmux/scripts/tmux-move-pane-window-index 1"
+bind -T MOVE 2 switch-client -T MOVE \; run "~/.tmux/scripts/tmux-move-pane-window-index 2"
+bind -T MOVE 3 switch-client -T MOVE \; run "~/.tmux/scripts/tmux-move-pane-window-index 3"
+bind -T MOVE 4 switch-client -T MOVE \; run "~/.tmux/scripts/tmux-move-pane-window-index 4"
+bind -T MOVE 5 switch-client -T MOVE \; run "~/.tmux/scripts/tmux-move-pane-window-index 5"
+bind -T MOVE 6 switch-client -T MOVE \; run "~/.tmux/scripts/tmux-move-pane-window-index 6"
+bind -T MOVE 7 switch-client -T MOVE \; run "~/.tmux/scripts/tmux-move-pane-window-index 7"
+bind -T MOVE 8 switch-client -T MOVE \; run "~/.tmux/scripts/tmux-move-pane-window-index 8"
+bind -T MOVE 9 switch-client -T MOVE \; run "~/.tmux/scripts/tmux-move-pane-window-index 9"
+bind -T MOVE 0 switch-client -T MOVE \; run "~/.tmux/scripts/tmux-move-pane-window-index 10"
 
 # resize mode
 bind           S switch-client -T RESIZE
@@ -178,22 +178,22 @@ bind -T RESIZE L switch-client -T RESIZE \; resize-pane -R 3
 
 # extract mode
 bind            E switch-client -T EXTRACT
-bind -T EXTRACT h run "~/.tmux/scripts/extract_tokens.sh hashes"
-bind -T EXTRACT l run "~/.tmux/scripts/extract_tokens.sh lines"
-bind -T EXTRACT p run "~/.tmux/scripts/extract_tokens.sh paths"
-bind -T EXTRACT u run "~/.tmux/scripts/extract_tokens.sh urls"
-bind -T EXTRACT w run "~/.tmux/scripts/extract_tokens.sh words"
-bind -T EXTRACT W run "~/.tmux/scripts/extract_tokens.sh WORDS"
+bind -T EXTRACT h run "~/.tmux/scripts/tmux-extract-tokens hashes"
+bind -T EXTRACT l run "~/.tmux/scripts/tmux-extract-tokens lines"
+bind -T EXTRACT p run "~/.tmux/scripts/tmux-extract-tokens paths"
+bind -T EXTRACT u run "~/.tmux/scripts/tmux-extract-tokens urls"
+bind -T EXTRACT w run "~/.tmux/scripts/tmux-extract-tokens words"
+bind -T EXTRACT W run "~/.tmux/scripts/tmux-extract-tokens WORDS"
 
 
 ## root key space
 
 # no distraction modes
-bind -T root M-Space   run "~/.tmux/scripts/toggle_no_distraction.sh soft"
-bind -T root M-C-Space run "~/.tmux/scripts/toggle_no_distraction.sh hard"
+bind -T root M-Space   run "~/.tmux/scripts/tmux-toggle-no-distraction soft"
+bind -T root M-C-Space run "~/.tmux/scripts/tmux-toggle-no-distraction hard"
 
 # extract URLS
-bind -T root C-Tab run "~/.tmux/scripts/extract_tokens.sh urls"
+bind -T root C-Tab run "~/.tmux/scripts/tmux-extract-tokens urls"
 
 
 ## copy mode

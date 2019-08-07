@@ -1,6 +1,6 @@
 #!/bin/sh
 # commands used:
-# - notify_tmux_alert
+# - notify-tmux-alert
 # - tmux
 
 ALERT_TYPE="$1"
@@ -35,7 +35,7 @@ MESSAGE="${MESSAGE} window \"${ALERT_WINDOW_NAME}\""
 tmux display-message "${MESSAGE}"
 
 if [ -n "${DISPLAY}" ]; then
-  notify_tmux_alert \
+  notify-tmux-alert \
     "${ALERT_TYPE}" \
     "${ALERT_SOCKET_PATH##*/}" \
     "${ALERT_SESSION_ID#$}" \

@@ -3,4 +3,4 @@ Description=Notify about packages updates
 
 [Service]
 Type=oneshot
-ExecStart=/home/damien/.config/sway/scripts/check_notify_package_updates
+ExecStart=/home/damien/.zsh/scripts/check-notify-package-updates

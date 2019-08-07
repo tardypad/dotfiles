@@ -1,6 +1,6 @@
 #!/bin/sh
 # commands used:
-# - fzf_launcher
+# - sway-fzf-launcher
 # - swaymsg
 # - termite
 # - tmux
@@ -14,7 +14,7 @@ NOTE=$(
     echo NEW;
     ls "${NOTES_FOLDER}";
   } \
-  | fzf_launcher 'open note '
+  | sway-fzf-launcher 'open note '
 )
 
 [ -n "${NOTE}" ] || exit

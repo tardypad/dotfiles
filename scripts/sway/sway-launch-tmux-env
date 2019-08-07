@@ -1,7 +1,7 @@
 #!/bin/sh
 # commands used:
-# - app_tmux_env
-# - fzf_launcher
+# - sway-app-tmux-env
+# - sway-fzf-launcher
 
 ENV_NAME="$1"
 
@@ -12,11 +12,11 @@ SESSION=$(
       -type f -name '*.sh' -exec basename {} .sh \; \
       | sort
   } \
-  | fzf_launcher "open ${ENV_NAME%s} "
+  | sway-fzf-launcher "open ${ENV_NAME%s} "
 )
 
 [ -n "${SESSION}" ] || exit
 
 [ "${SESSION}" = 'NEW' ] && SESSION=
 
-app_tmux_env "${ENV_NAME}" "${SESSION}"
+sway-app-tmux-env "${ENV_NAME}" "${SESSION}"

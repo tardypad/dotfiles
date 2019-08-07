@@ -1,11 +1,11 @@
 #!/bin/sh
 # commands used:
-# - bar_status_mode
-# - battery_status
+# - battery-status
+# - i3blocks-mode
 
-MODE="$( bar_status_mode )"
+MODE="$( i3blocks-mode )"
 
-BATTERY_STATUS=$( battery_status )
+BATTERY_STATUS=$( battery-status )
 
 ADAPTER_STATUS=$(
   echo "${BATTERY_STATUS}" \

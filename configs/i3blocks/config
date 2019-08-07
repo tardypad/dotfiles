@@ -1,4 +1,4 @@
-command=~/.config/i3blocks/scripts/$BLOCK_NAME
+command=~/.config/i3blocks/scripts/i3blocks-$BLOCK_NAME
 markup=pango
 interval=10
 signal=1
@@ -20,7 +20,7 @@ signal=2
 
 [power]
 
-[do_not_disturb]
+[do-not-disturb]
 signal=3
 
 [datetime]

@@ -8,12 +8,9 @@
 
 # Cleaning
   - repository reorganisation:
-    * consistency of scripts using - instead of _
     * add info about repository structure in README
     * packages Makefile targets should be made with prerequisites  
       for example: sway should require sway-config, sway-scripts,...
-    * review the naming of scripts  
-      for example: prefix sway scripts with sway-
 
 # Bugs
 

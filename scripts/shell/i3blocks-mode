@@ -5,7 +5,7 @@
 init_variables() {
   COMMAND=${0##*/}
 
-  FULL_FILE_PATH="${XDG_RUNTIME_DIR}/bar_status_mode_full"
+  FULL_FILE_PATH="${XDG_RUNTIME_DIR}/i3blocks_mode_full"
   SIGNAL_MAX=10
 
   ACTION='show'

@@ -1,11 +1,11 @@
 #!/bin/sh
 # commands used:
-# - bar_status_mode
+# - i3blocks-mode
 # - pidof
 
 COUNT_FILE_PATH="${XDG_RUNTIME_DIR}/chat_count"
 
-MODE="$( bar_status_mode )"
+MODE="$( i3blocks-mode )"
 
 # don't show anything if weechat is not running
 pidof weechat > /dev/null || exit 0

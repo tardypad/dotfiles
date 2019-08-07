@@ -1,9 +1,9 @@
 #!/bin/sh
 # commands used:
-# - bar_status_mode
 # - bluetoothctl
+# - i3blocks-mode
 
-MODE="$( bar_status_mode )"
+MODE="$( i3blocks-mode )"
 
 CONNECTED_DEVICES=$(
   bluetoothctl paired-devices \
