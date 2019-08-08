@@ -1,4 +1,4 @@
 [include]
-    path = ~/.config/git/config.d/general
-    path = ~/.config/git/config.d/aliases
-    path = ~/.config/git/config.d/style
+    path = {folder/config}/git/config.d/general
+    path = {folder/config}/git/config.d/aliases
+    path = {folder/config}/git/config.d/style

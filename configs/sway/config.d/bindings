@@ -38,8 +38,8 @@ bindsym $mod+Ctrl+Shift+$key_kill exec makoctl dismiss --all
 
 ## launch apps
 
-bindsym $mod+Return       exec exec-desktop-entry ~/.local/share/applications/terminal.desktop
-bindsym $mod+Shift+Return exec exec-desktop-entry ~/.local/share/applications/qutebrowser_web_browser.desktop
+bindsym $mod+Return       exec exec-desktop-entry {folder/data}/applications/terminal.desktop
+bindsym $mod+Shift+Return exec exec-desktop-entry {folder/data}/applications/qutebrowser_web_browser.desktop
 
 
 ## launchers
@@ -94,8 +94,8 @@ bindsym $mod+9              workspace number 9
 bindsym $mod+0              workspace number 10
 
 # split
-bindsym $mod+$key_vsplit splith, exec exec-desktop-entry ~/.local/share/applications/terminal.desktop
-bindsym $mod+$key_split  splitv, exec exec-desktop-entry ~/.local/share/applications/terminal.desktop
+bindsym $mod+$key_vsplit splith, exec exec-desktop-entry {folder/data}/applications/terminal.desktop
+bindsym $mod+$key_split  splitv, exec exec-desktop-entry {folder/data}/applications/terminal.desktop
 
 # layout mode
 mode "-- layout --" {
@@ -111,7 +111,7 @@ bindsym $mod+$key_layout mode "-- layout --"
 
 ## windows management
 
-bindsym $mod+Shift+$key_create exec exec-desktop-entry ~/.local/share/applications/terminal.desktop
+bindsym $mod+Shift+$key_create exec exec-desktop-entry {folder/data}/applications/terminal.desktop
 bindsym $mod+Shift+$key_kill   kill
 bindsym $mod+Shift+$key_zoom   fullscreen
 

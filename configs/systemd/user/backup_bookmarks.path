@@ -2,8 +2,8 @@
 Description=Backup bookmarks
 
 [Path]
-PathChanged=/home/damien/.config/qutebrowser/bookmarks/urls
-PathChanged=/home/damien/.config/qutebrowser/quickmarks
+PathChanged={folder/config}/qutebrowser/bookmarks/urls
+PathChanged={folder/config}/qutebrowser/quickmarks
 
 [Install]
 WantedBy=paths.target

@@ -32,7 +32,7 @@
     commitUrl = https://www.github.com/{repo_path}/commit/{commit_id}
     issueUrl = https://www.github.com/{repo_path}/issues/{issue_id}
 [init]
-    templatedir = ~/.config/git/template
+    templatedir = {folder/config}/git/template
 [push]
     default = upstream
 [log]

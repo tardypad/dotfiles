@@ -1,0 +1,18 @@
+#!/bin/sh
+
+BIN_DIR="${HOME}/.local/bin"
+CACHE_DIR="${HOME}/.cache"
+CONFIG_DIR="${HOME}/.config"
+DATA_DIR="${HOME}/.local/share"
+
+TMP_SCRIPT_FILE=$( mktemp )
+trap 'rm "${TMP_SCRIPT_FILE}"' EXIT
+
+{
+  echo "s|{folder/bin}|${BIN_DIR}|g"
+  echo "s|{folder/cache}|${CACHE_DIR}|g"
+  echo "s|{folder/config}|${CONFIG_DIR}|g"
+  echo "s|{folder/data}|${DATA_DIR}|g"
+} > "${TMP_SCRIPT_FILE}"
+
+sed -f "${TMP_SCRIPT_FILE}" -

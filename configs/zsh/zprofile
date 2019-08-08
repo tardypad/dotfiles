@@ -2,7 +2,7 @@
 # and make sure they are no duplicates
 typeset -aU path
 path=(
-  "${HOME}/.local/bin"
+  {folder/bin}
   $path
 )
 

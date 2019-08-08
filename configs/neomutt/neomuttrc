@@ -1,5 +1,5 @@
-source ~/.config/neomutt/config.d/clean-bindings.mutt
-source ~/.config/neomutt/config.d/general.mutt
-source ~/.config/neomutt/config.d/bindings.mutt
-source ~/.config/neomutt/config.d/style.mutt
-source ~/.config/neomutt/config.d/colors.mutt
+source {folder/config}/neomutt/config.d/clean-bindings.mutt
+source {folder/config}/neomutt/config.d/general.mutt
+source {folder/config}/neomutt/config.d/bindings.mutt
+source {folder/config}/neomutt/config.d/style.mutt
+source {folder/config}/neomutt/config.d/colors.mutt
