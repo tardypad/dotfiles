@@ -12,8 +12,8 @@ fi
 TMP_FILE=$( mktemp )
 trap 'rm "${TMP_FILE}"' EXIT
 
-BASE_COLORS_FILE="${0%/*}/definitions/base_${THEME}"
-ALIASES_COLORS_FILE="${0%/*}/definitions/aliases"
+BASE_COLORS_FILE="colors/base_${THEME}"
+ALIASES_COLORS_FILE="colors/aliases"
 
 {
   # color theme
