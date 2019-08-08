@@ -1,16 +1,9 @@
 #!/bin/sh
 
 THEME="$1"
-FILE="$2"
 
-# exit early if there is no color configuration in the file
-if ! grep -q '{color/' "${FILE}"; then
-  cat "${FILE}"
-  exit 0
-fi
-
-TMP_FILE=$( mktemp )
-trap 'rm "${TMP_FILE}"' EXIT
+TMP_SCRIPT_FILE=$( mktemp )
+trap 'rm "${TMP_SCRIPT_FILE}"' EXIT
 
 BASE_COLORS_FILE="colors/base_${THEME}"
 ALIASES_COLORS_FILE="colors/aliases"
@@ -111,5 +104,6 @@ ALIASES_COLORS_FILE="colors/aliases"
   echo 's|{color/number_13/bg}|105|g'
   echo 's|{color/number_14/bg}|106|g'
   echo 's|{color/number_15/bg}|107|g'
-} \
-  | sed -f - "${FILE}"
+} > "${TMP_SCRIPT_FILE}"
+
+sed -f "${TMP_SCRIPT_FILE}" -
