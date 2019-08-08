@@ -3,7 +3,7 @@ all: newsboat
 newsboat:
 	$(start_setup)
 
-	mkdir -p $(DESTDIR)$(CONFIG_DIR)/newsboats/config.d
+	mkdir -p $(DESTDIR)$(CONFIG_DIR)/newsboat/config.d
 
 	$(setup_configs_file)/config            > $(DESTDIR)$(CONFIG_DIR)/newsboat/config
 	$(setup_configs_file)/urls              > $(DESTDIR)$(CONFIG_DIR)/newsboat/urls
