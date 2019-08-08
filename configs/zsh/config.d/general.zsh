@@ -15,14 +15,16 @@ unalias run-help 2> /dev/null
 autoload -Uz run-help
 
 # reuse ssh-agent across ttys
+SSH_AGENT_FILE="${XDG_CACHE_HOME:-$HOME/.cache}/ssh-agent}"
 ssh-add -l >/dev/null 2>&1
 if [ "$?" -eq 2 ]; then
-  test -r ~/.cache/ssh-agent && \
-  eval "$( < ~/.cache/ssh-agent )" >/dev/null
+  test -r "${SSH_AGENT_FILE}" && \
+  eval "$( < "${SSH_AGENT_FILE}" )" >/dev/null
 
   ssh-add -l >/dev/null 2>&1
   if [ "$?" -eq 2 ]; then
-    (umask 066; ssh-agent > ~/.cache/ssh-agent)
-    eval "$( < ~/.cache/ssh-agent )" >/dev/null
+    (umask 066; ssh-agent > "${SSH_AGENT_FILE}")
+    eval "$( < "${SSH_AGENT_FILE}" )" >/dev/null
   fi
 fi
+unset SSH_AGENT_FILE

@@ -22,5 +22,5 @@ done
 swaymsg -q exec \
   "termite \
    -e \"sway-command-input-exec ${ARGUMENTS}\" \
-   -c ${HOME}/.config/termite/config_command_input \
+   -c ${XDG_CONFIG_HOME:-$HOME/.config}/termite/config_command_input \
    -t sway_command_input"

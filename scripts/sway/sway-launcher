@@ -13,5 +13,5 @@ sway-focus-window-title 'sway_launcher' && exit
 swaymsg -q exec \
   "termite \
    -e \"${COMMAND}\" \
-   -c ${HOME}/.config/termite/config_launcher \
+   -c ${XDG_CONFIG_HOME:-$HOME/.config}/termite/config_launcher \
    -t sway_launcher"
