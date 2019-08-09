@@ -7,6 +7,8 @@ init_variables() {
   COMMAND=${0##*/}
 
   ONLY_DIFF=0
+
+  TYPE=
 }
 
 show_usage() {
@@ -15,7 +17,7 @@ show_usage() {
 
 	Check and report packages versions:
 	- version installed on the system
-	- version listed in the READMEs
+	- version listed in the docs
 
 	Needs to be run from the repository root
 
@@ -43,21 +45,10 @@ exit_error() {
   exit 1
 } >&2
 
-readme_version() {
-  TYPE="$1"
-  ITEM="$2"
+docs_version() {
+  ITEM="$1"
 
-  case "${TYPE}" in
-    main)
-      sed -n "s#^| \[${ITEM}\].*| \[\(.*\)\].*#\1#p" README.md
-      ;;
-    extra)
-      sed -n "s#^| ${ITEM} .*| \[\(.*\)\].*#\1#p" README.md
-      ;;
-    plugin)
-      sed -n "s#^| ${ITEM} .*| \[\(.*\)\].*#\1#p" PLUGINS.md
-      ;;
-  esac
+  sed -n "s#^| ${ITEM} .*| \[\(.*\)\].*#\1#p" "${TYPE}.md"
 }
 
 pacman_version() {
@@ -86,18 +77,16 @@ pacman_version() {
     | sed -n 's/^Version *: \(.*\)\-[0-9]*/\1/p'
 }
 
-report() {
-  TYPE="$1"
-
+report_item() {
   while read -r ITEM; do
     VERSION1=$( pacman_version "${ITEM}" )
 
     # ignore plugins not managed by packages manager
-    if [ "${TYPE}" = 'plugin' ] && [ "${VERSION1}" = 'unknown' ]; then
+    if [ "${TYPE}" = 'PLUGINS' ] && [ "${VERSION1}" = 'unknown' ]; then
       continue
     fi
 
-    VERSION2=$( readme_version "${TYPE}" "${ITEM}" )
+    VERSION2=$( docs_version "${ITEM}" )
 
     if [ "${ONLY_DIFF}" -eq 1 ] \
        && [ "${VERSION1}" = "${VERSION2}" ]; then
@@ -111,19 +100,15 @@ report() {
   done
 }
 
+list_items() {
+  sed -n 's#^| \([a-z][^ ]*\) .*#\1#p' "${TYPE}.md"
+}
+
 report_all() {
   {
-    # main packages
-    sed -n 's#^| \[\([^ ]*\)\].*#\1#p' README.md \
-      | report main
-
-    # extra packages
-    sed -n 's#^| \([a-z][^ ]*\) .*#\1#p' README.md \
-      | report extra
-
-    # packages plugins
-    sed -n 's#^| \([a-z][^ ]*\) .*#\1#p' PLUGINS.md \
-      | report plugin
+    for TYPE in PACKAGES PLUGINS; do
+      list_items | report_item
+    done
   } \
     | sort \
     | column -t
