@@ -54,8 +54,8 @@ readme_version() {
     extra)
       sed -n "s#^| ${ITEM} .*| \[\(.*\)\].*#\1#p" README.md
       ;;
-    extension)
-      sed -n "s#^| ${ITEM} .*| \[\(.*\)\].*#\1#p" files/configs/*/README.md
+    plugin)
+      sed -n "s#^| ${ITEM} .*| \[\(.*\)\].*#\1#p" PLUGINS.md
       ;;
   esac
 }
@@ -91,6 +91,12 @@ report() {
 
   while read -r ITEM; do
     VERSION1=$( pacman_version "${ITEM}" )
+
+    # ignore plugins not managed by packages manager
+    if [ "${TYPE}" = 'plugin' ] && [ "${VERSION1}" = 'unknown' ]; then
+      continue
+    fi
+
     VERSION2=$( readme_version "${TYPE}" "${ITEM}" )
 
     if [ "${ONLY_DIFF}" -eq 1 ] \
@@ -115,12 +121,9 @@ report_all() {
     sed -n 's#^| \([a-z][^ ]*\) .*#\1#p' README.md \
       | report extra
 
-    # extensions
-    # exclude vim and weechat plugins (not managed by package manager)
-    find files/configs/* -type f -name README.md \
-      ! -path '*/vim/*' ! -path '*/weechat/*' \
-      -exec sed -n 's#^| \([a-z][^ ]*\) .*#\1#p' {} \; \
-      | report extension
+    # packages plugins
+    sed -n 's#^| \([a-z][^ ]*\) .*#\1#p' PLUGINS.md \
+      | report plugin
   } \
     | sort \
     | column -t

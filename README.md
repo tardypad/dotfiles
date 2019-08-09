@@ -48,9 +48,6 @@ Note that it is not an exact match as extra patches might be added by the distro
 | zathura                | document viewer                      | [pwmt.org](https://git.pwmt.org/pwmt/zathura)                          |                                                                        | [0.4.3](https://git.pwmt.org/pwmt/zathura/tags/0.4.3)                                                                       |
 | zsh                    | shell                                | [Github](https://github.com/zsh-users/zsh)                             |                                                                        | [5.7.1](https://github.com/zsh-users/zsh/releases/tag/zsh-5.7.1)                                                            |
 
-See each individual package folder README for more information
-about versions, extensions, plugins,...
-
 
 ## Setup
 
@@ -72,11 +69,15 @@ make tmux vim zsh
 make doc
 ```
 
-Some packages require some additional manual setup steps, check their own README
-
 Make should be only run from the repository root folder.
 The setup will fail if make is run from somewhere else with the -f option specifying the path to the Makefile.
 This is due to the need of relative includes.
+
+### Manual setup steps
+
+#### weechat
+- set passphrase for secure storage `/secure passphrase [passphrase]`
+- set slack group token `/secure set slack_token [slack token team 1],[slack token team 2]`
 
 
 ## Portability
