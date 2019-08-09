@@ -111,6 +111,11 @@
     rv = revert
     rva = revert --abort
     rvc = revert --continue
+    sad = stash drop
+    sal = stash list
+    sapo = stash pop
+    sapu = stash push
+    sas = stash show
     sh = "! f() { git show $( git argument $1 ); }; f"
     sh0 = "! f() { git show -U0 $( git argument $1 ); }; f"
     st = status -s -b
