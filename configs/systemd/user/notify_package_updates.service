@@ -3,4 +3,4 @@ Description=Notify about packages updates
 
 [Service]
 Type=oneshot
-ExecStart={folder/bin}/check-notify-package-updates
+ExecStart={dir/bin}/check-notify-package-updates

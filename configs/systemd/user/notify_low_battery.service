@@ -3,4 +3,4 @@ Description=Notify about low battery
 
 [Service]
 Type=oneshot
-ExecStart={folder/bin}/check-notify-low-battery
+ExecStart={dir/bin}/check-notify-low-battery

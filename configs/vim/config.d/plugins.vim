@@ -195,7 +195,7 @@ let g:fzf_action = {
 let g:fzf_layout = { 'down': '20' }
 
 " enable history
-let g:fzf_history_dir = '{folder/data}/fzf-history'
+let g:fzf_history_dir = '{dir/data}/fzf-history'
 
 
 "" gutentags

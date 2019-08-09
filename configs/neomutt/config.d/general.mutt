@@ -11,18 +11,18 @@ account-hook "$my_gmail_email" "set imap_user=$my_gmail_email imap_pass=$my_gmai
 account-hook "$my_work_email" "set imap_user=$my_work_email imap_pass=$my_work_password"
 account-hook "$my_migadu_email" "set imap_user=$my_migadu_email imap_pass=$my_migadu_password"
 folder-hook . unmailboxes *
-folder-hook "$my_gmail_email" source "{folder/config}/neomutt/config.d/accounts/gmail.mutt"
-folder-hook "$my_work_email" source "{folder/config}/neomutt/config.d/accounts/work.mutt"
-folder-hook "$my_migadu_email" source "{folder/config}/neomutt/config.d/accounts/migadu.mutt"
+folder-hook "$my_gmail_email" source "{dir/config}/neomutt/config.d/accounts/gmail.mutt"
+folder-hook "$my_work_email" source "{dir/config}/neomutt/config.d/accounts/work.mutt"
+folder-hook "$my_migadu_email" source "{dir/config}/neomutt/config.d/accounts/migadu.mutt"
 
 # switch to default account
-source "{folder/config}/neomutt/config.d/accounts/gmail.mutt"
+source "{dir/config}/neomutt/config.d/accounts/gmail.mutt"
 
 # define some files and folders location
-set header_cache = "{folder/cache}/neomutt/headers"
-set message_cachedir = "{folder/cache}/neomutt/bodies"
-set mailcap_path = "{folder/config}/neomutt/config.d/mailcap"
-set tmpdir = "{folder/cache}/neomutt/tmp"
+set header_cache = "{dir/cache}/neomutt/headers"
+set message_cachedir = "{dir/cache}/neomutt/bodies"
+set mailcap_path = "{dir/config}/neomutt/config.d/mailcap"
+set tmpdir = "{dir/cache}/neomutt/tmp"
 
 # view html mail directly in pager
 auto_view text/html

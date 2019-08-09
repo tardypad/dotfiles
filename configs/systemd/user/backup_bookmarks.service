@@ -2,4 +2,4 @@
 Description=Backup bookmarks
 
 [Service]
-ExecStart={folder/bin}/backup-bookmarks
+ExecStart={dir/bin}/backup-bookmarks

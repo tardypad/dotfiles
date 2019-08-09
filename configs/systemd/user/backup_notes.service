@@ -2,4 +2,4 @@
 Description=Backup notes
 
 [Service]
-ExecStart={folder/bin}/backup-notes
+ExecStart={dir/bin}/backup-notes

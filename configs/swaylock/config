@@ -1,5 +1,5 @@
 color={color/background/hex}
-image={folder/data}/images/lock.svg
+image={dir/data}/images/lock.svg
 scaling=center
 
 ignore-empty-password
