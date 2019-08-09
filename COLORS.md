@@ -1,8 +1,8 @@
 # Color scheme
 
-See base colors for [dark](base_dark)
-and [light](base_light) schemes
-and also [aliases](aliases) common to both.
+See base colors for [dark](defs/colors/base_dark)
+and [light](defs/colors/base_light) schemes
+and also [aliases](defs/colors/aliases) common to both.
 
 For the base colors, only the first 3 columns are used during the
 substitution process. The other fields are only extra information.

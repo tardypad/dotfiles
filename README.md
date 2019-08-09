@@ -73,7 +73,7 @@ For example `{color/warning/number}` is replaced by the number of the color chos
 
 The THEME variable can be set to "light" or "dark" during setup to choose the color scheme.
 
-See the [colors definitions](defs/colors) folder for more information.
+See the [COLORS](COLORS.md) file for more information.
 
 
 ## Key bindings
