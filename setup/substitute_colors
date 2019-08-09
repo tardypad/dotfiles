@@ -5,8 +5,8 @@ THEME="$1"
 TMP_SCRIPT_FILE=$( mktemp )
 trap 'rm "${TMP_SCRIPT_FILE}"' EXIT
 
-BASE_COLORS_FILE="colors/base_${THEME}"
-ALIASES_COLORS_FILE="colors/aliases"
+BASE_COLORS_FILE="defs/colors/base_${THEME}"
+ALIASES_COLORS_FILE="defs/colors/aliases"
 
 {
   # color theme

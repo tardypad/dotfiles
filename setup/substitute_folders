@@ -1,18 +1,17 @@
 #!/bin/sh
 
-BIN_DIR="${HOME}/.local/bin"
-CACHE_DIR="${HOME}/.cache"
-CONFIG_DIR="${HOME}/.config"
-DATA_DIR="${HOME}/.local/share"
-
 TMP_SCRIPT_FILE=$( mktemp )
 trap 'rm "${TMP_SCRIPT_FILE}"' EXIT
 
+FOLDERS_FILE="defs/folders"
+
 {
-  echo "s|{folder/bin}|${BIN_DIR}|g"
-  echo "s|{folder/cache}|${CACHE_DIR}|g"
-  echo "s|{folder/config}|${CONFIG_DIR}|g"
-  echo "s|{folder/data}|${DATA_DIR}|g"
+  while read -r line; do
+    alias=$( echo "${line}" | cut -f1 -d' ' )
+    path=$( echo "${line}" | tr -s ' ' | cut -f2 -d' ' )
+    path=$( eval "echo ${path}" )
+    echo "s|{folder/${alias}}|${path}|g"
+  done < "${FOLDERS_FILE}"
 } > "${TMP_SCRIPT_FILE}"
 
 sed -f "${TMP_SCRIPT_FILE}" -

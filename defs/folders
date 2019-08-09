@@ -1,0 +1,4 @@
+bin    ${HOME}/.local/bin
+cache  ${HOME}/.cache
+config ${HOME}/.config
+data   ${HOME}/.local/share

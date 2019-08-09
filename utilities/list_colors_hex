@@ -9,7 +9,7 @@ if [ -z "${THEME}" ]; then
   exit 1
 fi
 
-BASE_COLORS_FILE="colors/base_${THEME}"
+BASE_COLORS_FILE="defs/colors/base_${THEME}"
 
 if [ ! -f "${BASE_COLORS_FILE}" ]; then
   printf "invalid theme '%s'\n" "${THEME}" >&2
