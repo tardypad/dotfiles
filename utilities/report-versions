@@ -48,7 +48,7 @@ exit_error() {
 docs_version() {
   ITEM="$1"
 
-  sed -n "s#^| ${ITEM} .*| \[\(.*\)\].*#\1#p" "${TYPE}.md"
+  sed -n "s#^| ${ITEM} .*| \[\(.*\)\].*#\1#p" "doc/${TYPE}.md"
 }
 
 pacman_version() {
@@ -101,7 +101,7 @@ report_item() {
 }
 
 list_items() {
-  sed -n 's#^| \([a-z][^ ]*\) .*#\1#p' "${TYPE}.md"
+  sed -n 's#^| \([a-z][^ ]*\) .*#\1#p' "doc/${TYPE}.md"
 }
 
 report_all() {
