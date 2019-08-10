@@ -52,5 +52,12 @@ include files/data/env/Makefile
 include files/data/images/Makefile
 include files/data/sounds/Makefile
 
-include files/docs/Makefile
-include files/scripts/Makefile
+include files/docs/git/Makefile
+include files/docs/shell/Makefile
+include files/docs/sway/Makefile
+
+include files/scripts/git/Makefile
+include files/scripts/i3blocks/Makefile
+include files/scripts/shell/Makefile
+include files/scripts/sway/Makefile
+include files/scripts/tmux/Makefile
