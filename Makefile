@@ -11,7 +11,7 @@ DATA_DIR   = $(HOME)/.local/share
 
 start_setup = printf "setup $@\n"
 
-setup_configs_file = { setup/substitute_colors $(THEME) | setup/substitute_dirs; } < files/configs/$@
+setup_configs_file = { setup/substitute_colors $(THEME) | setup/substitute_dirs; } < files/configs
 setup_scripts_file = { setup/substitute_colors $(THEME) | setup/substitute_dirs; } < files/scripts
 
 include files/configs/aria2/Makefile

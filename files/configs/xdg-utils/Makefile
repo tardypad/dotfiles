@@ -1,8 +1,8 @@
-all: xdg-utils
+all: xdg-utils-configs
 
-xdg-utils:
+xdg-utils-configs:
 	$(start_setup)
 
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)
 
-	$(setup_configs_file)/mimeapps.list > $(DESTDIR)$(CONFIG_DIR)/mimeapps.list
+	$(setup_configs_file)/xdg-utils/mimeapps.list > $(DESTDIR)$(CONFIG_DIR)/mimeapps.list

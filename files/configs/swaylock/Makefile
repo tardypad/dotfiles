@@ -1,6 +1,6 @@
-all: swaylock
+all: swaylock-configs
 
-swaylock:
+swaylock-configs:
 	$(start_setup)
 
-	$(setup_configs_file)/config > $(DESTDIR)$(CONFIG_DIR)/swaylock/config
+	$(setup_configs_file)/swaylock/config > $(DESTDIR)$(CONFIG_DIR)/swaylock/config

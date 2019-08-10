@@ -1,8 +1,8 @@
-all: httpie
+all: httpie-configs
 
-httpie:
+httpie-configs:
 	$(start_setup)
 
 	mkdir -p $(DESTDIR)$(HOME)/.httpie
 
-	$(setup_configs_file)/config.json > $(DESTDIR)$(HOME)/.httpie/config.json
+	$(setup_configs_file)/httpie/config.json > $(DESTDIR)$(HOME)/.httpie/config.json

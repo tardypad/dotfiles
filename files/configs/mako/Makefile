@@ -1,8 +1,8 @@
-all: mako
+all: mako-configs
 
-mako:
+mako-configs:
 	$(start_setup)
 
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/mako
 
-	$(setup_configs_file)/config > $(DESTDIR)$(CONFIG_DIR)/mako/config
+	$(setup_configs_file)/mako/config > $(DESTDIR)$(CONFIG_DIR)/mako/config

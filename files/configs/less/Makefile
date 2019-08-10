@@ -1,6 +1,6 @@
-all: less
+all: less-configs
 
-less:
+less-configs:
 	$(start_setup)
 
     # generate config file

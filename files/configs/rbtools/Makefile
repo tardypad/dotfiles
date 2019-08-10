@@ -1,8 +1,8 @@
-all: rbtools
+all: rbtools-configs
 
-rbtools:
+rbtools-configs:
 	$(start_setup)
 
 	mkdir -p $(DESTDIR)$(HOME)
 
-	$(setup_configs_file)/reviewboardrc > $(DESTDIR)$(HOME)/.reviewboardrc
+	$(setup_configs_file)/rbtools/reviewboardrc > $(DESTDIR)$(HOME)/.reviewboardrc

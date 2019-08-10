@@ -1,8 +1,8 @@
-all: i3blocks
+all: i3blocks-configs
 
-i3blocks:
+i3blocks-configs:
 	$(start_setup)
 
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/i3blocks
 
-	$(setup_configs_file)/config > $(DESTDIR)$(CONFIG_DIR)/i3blocks/config
+	$(setup_configs_file)/i3blocks/config > $(DESTDIR)$(CONFIG_DIR)/i3blocks/config

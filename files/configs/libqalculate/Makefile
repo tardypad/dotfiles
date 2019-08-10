@@ -1,8 +1,8 @@
-all: libqalculate
+all: libqalculate-configs
 
-libqalculate:
+libqalculate-configs:
 	$(start_setup)
 
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/qalculate
 
-	$(setup_configs_file)/qalc.cfg > $(DESTDIR)$(CONFIG_DIR)/qalculate/qalc.cfg
+	$(setup_configs_file)/libqalculate/qalc.cfg > $(DESTDIR)$(CONFIG_DIR)/qalculate/qalc.cfg

@@ -1,8 +1,8 @@
-all: universal-ctags
+all: universal-ctags-configs
 
-universal-ctags:
+universal-ctags-configs:
 	$(start_setup)
 
 	mkdir -p $(DESTDIR)$(HOME)/.ctags.d
 
-	$(setup_configs_file)/main.ctags > $(DESTDIR)$(HOME)/.ctags.d/main.ctags
+	$(setup_configs_file)/universal-ctags/main.ctags > $(DESTDIR)$(HOME)/.ctags.d/main.ctags

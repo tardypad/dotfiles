@@ -1,6 +1,6 @@
-all: ncmpcpp
+all: ncmpcpp-configs
 
-ncmpcpp:
+ncmpcpp-configs:
 	$(start_setup)
 
     # create necessary runtime directories
@@ -8,5 +8,5 @@ ncmpcpp:
 
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/ncmpcpp
 
-	$(setup_configs_file)/config   > $(DESTDIR)$(CONFIG_DIR)/ncmpcpp/config
-	$(setup_configs_file)/bindings > $(DESTDIR)$(CONFIG_DIR)/ncmpcpp/bindings
+	$(setup_configs_file)/ncmpcpp/config   > $(DESTDIR)$(CONFIG_DIR)/ncmpcpp/config
+	$(setup_configs_file)/ncmpcpp/bindings > $(DESTDIR)$(CONFIG_DIR)/ncmpcpp/bindings
