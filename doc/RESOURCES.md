@@ -1,4 +1,6 @@
-# General
+# Resources
+
+## General
   - [Alexander Bayandin lists](https://github.com/bayandin/awesome-awesomeness)
   - [Paweł Gościcki dotfiles](https://github.com/pjg/dotfiles)
   - [Gary Bernhardt dotfiles](https://github.com/garybernhardt/dotfiles)
@@ -11,24 +13,24 @@
   - [John Kerl scripts](https://github.com/johnkerl/scripts)
   - [dhohdan structured text tools](https://github.com/dbohdan/structured-text-tools)
 
-# Git
+## git
   - [git-tips](https://github.com/git-tips/tips)
   - [git-extras](https://github.com/tj/git-extras)
 
-# i3blocks
+## i3blocks
   - [Anachron i3blocks](https://github.com/Anachron/i3blocks)
 
-# Tmux
+## tmux
   - [Gregory Pakosz config](https://github.com/gpakosz/.tmux)
   - [tmuxcheatsheet plugins list](https://tmuxcheatsheet.com/tmux-plugins-tools/)
   - [tmux plugins repositories](https://github.com/tmux-plugins/)
 
-# Vim
+## vim
   - [Marco Hinz manual](https://github.com/mhinz/vim-galore)
   - [Janus distribution](https://github.com/carlhuda/janus)
   - [SpaceVim distribution](https://spacevim.org/)
   - [Steve Francia distribution](http://vim.spf13.com/)
 
-# ZSH
+## zsh
   - [Joe Block plugins list](https://github.com/unixorn/awesome-zsh-plugins)
   - [Sindre Sorhus prompt](https://github.com/sindresorhus/pure)

@@ -4,20 +4,23 @@
 
 TODO_FILE="$( git root )/TODO.md"
 
+# groups are ordered by importance
 cat <<- EOF > "${TODO_FILE}"
-	# Periodic
+	# TODO
 
-	# Cleaning
+	## Periodic
 
-	# Bugs
+	## Cleaning
 
-	# Testing
+	## Bugs
 
-	# Improvements
+	## Testing
 
-	# New Features
+	## Improvements
 
-	# Research
+	## New Features
+
+	## Research
 
 EOF
 

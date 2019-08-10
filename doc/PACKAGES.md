@@ -1,3 +1,5 @@
+# Packages
+
 All packages selected are [Free Software](https://www.gnu.org/philosophy/free-sw.en.html)
 
 Versions listed are the ones as defined by Arch Linux packages.  
@@ -39,7 +41,7 @@ Note that it is not an exact match as extra patches might be added by the distro
 | zathura                | document viewer                      | [pwmt.org](https://git.pwmt.org/pwmt/zathura)                          |                                                                        | [0.4.3](https://git.pwmt.org/pwmt/zathura/tags/0.4.3)                                                                       |
 | zsh                    | shell                                | [Github](https://github.com/zsh-users/zsh)                             |                                                                        | [5.7.1](https://github.com/zsh-users/zsh/releases/tag/zsh-5.7.1)                                                            |
 
-# Required extra packages
+## Required extra packages
 
 Packages required in the setup which have no own dotfiles config
 

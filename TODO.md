@@ -1,4 +1,6 @@
-# Periodic
+# TODO
+
+## Periodic
   - upgrade packages, plugins, extensions,...
   - remove unused plugins, aliases, functions,...
   - replace unnecessary dependencies with own simpler config, scripts,...
@@ -6,14 +8,14 @@
   - check that packages versions are up to date with the `report-versions` utility script
   - check if some code tags can be fixed with the `report-tags` utility script
 
-# Cleaning
+## Cleaning
     * add info about new repository structure in README
 
-# Bugs
+## Bugs
 
-# Testing
+## Testing
 
-# Improvements
+## Improvements
   - improve all env scripts usage:
     * allow to receive query/POST body data from stdin
     * syntax highlighting of query/request keywords
@@ -29,7 +31,7 @@
     * check common man pages to see what other parts could be make sense to be added  
       STDIN, STDOUT, EXIT STATUS, EXAMPLES,...
 
-# New Features
+## New Features
   - create scripts to manage AUR packages with personal repository  
     check [Michael Daffin blog](https://disconnected.systems/blog/archlinux-repo-in-aws-bucket/)
   - use of Sway IPC via [i3ipc](https://github.com/acrisci/i3ipc-python)
@@ -46,7 +48,7 @@
     * global organization (sway:super, termite:ctrl+shift, tmux:ctrl+space,...)
     * local organization (uppercase for sway windows and tmux panes, lowercase for sway workspace and tmux windows,...)
 
-# Research
+## Research
   - distraction free mode and scripts to disable tmux status bar, increase tmux pane,...
     * [vim limelight](https://github.com/junegunn/limelight.vim)
     * [vim goyo](https://github.com/junegunn/goyo.vim)
