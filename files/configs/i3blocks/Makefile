@@ -5,4 +5,4 @@ i3blocks-configs:
 
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/i3blocks
 
-	$(setup_configs_file)/i3blocks/config > $(DESTDIR)$(CONFIG_DIR)/i3blocks/config
+	$(setup_file)/configs/i3blocks/config > $(DESTDIR)$(CONFIG_DIR)/i3blocks/config

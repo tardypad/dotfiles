@@ -5,4 +5,4 @@ rbtools-configs:
 
 	mkdir -p $(DESTDIR)$(HOME)
 
-	$(setup_configs_file)/rbtools/reviewboardrc > $(DESTDIR)$(HOME)/.reviewboardrc
+	$(setup_file)/configs/rbtools/reviewboardrc > $(DESTDIR)$(HOME)/.reviewboardrc

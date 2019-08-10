@@ -5,4 +5,4 @@ libqalculate-configs:
 
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/qalculate
 
-	$(setup_configs_file)/libqalculate/qalc.cfg > $(DESTDIR)$(CONFIG_DIR)/qalculate/qalc.cfg
+	$(setup_file)/configs/libqalculate/qalc.cfg > $(DESTDIR)$(CONFIG_DIR)/qalculate/qalc.cfg

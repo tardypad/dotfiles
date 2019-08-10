@@ -5,4 +5,4 @@ htop-configs:
 
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/htop
 
-	$(setup_configs_file)/htop/htoprc > $(DESTDIR)$(CONFIG_DIR)/htop/htoprc
+	$(setup_file)/configs/htop/htoprc > $(DESTDIR)$(CONFIG_DIR)/htop/htoprc

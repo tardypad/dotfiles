@@ -5,7 +5,7 @@ qutebrowser-configs:
 
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/qutebrowser/config.d
 
-	$(setup_configs_file)/qutebrowser/config.py            > $(DESTDIR)$(CONFIG_DIR)/qutebrowser/config.py
-	$(setup_configs_file)/qutebrowser/config.d/bindings.py > $(DESTDIR)$(CONFIG_DIR)/qutebrowser/config.d/bindings.py
-	$(setup_configs_file)/qutebrowser/config.d/general.py  > $(DESTDIR)$(CONFIG_DIR)/qutebrowser/config.d/general.py
-	$(setup_configs_file)/qutebrowser/config.d/style.py    > $(DESTDIR)$(CONFIG_DIR)/qutebrowser/config.d/style.py
+	$(setup_file)/configs/qutebrowser/config.py            > $(DESTDIR)$(CONFIG_DIR)/qutebrowser/config.py
+	$(setup_file)/configs/qutebrowser/config.d/bindings.py > $(DESTDIR)$(CONFIG_DIR)/qutebrowser/config.d/bindings.py
+	$(setup_file)/configs/qutebrowser/config.d/general.py  > $(DESTDIR)$(CONFIG_DIR)/qutebrowser/config.d/general.py
+	$(setup_file)/configs/qutebrowser/config.d/style.py    > $(DESTDIR)$(CONFIG_DIR)/qutebrowser/config.d/style.py

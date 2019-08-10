@@ -5,4 +5,4 @@ universal-ctags-configs:
 
 	mkdir -p $(DESTDIR)$(HOME)/.ctags.d
 
-	$(setup_configs_file)/universal-ctags/main.ctags > $(DESTDIR)$(HOME)/.ctags.d/main.ctags
+	$(setup_file)/configs/universal-ctags/main.ctags > $(DESTDIR)$(HOME)/.ctags.d/main.ctags

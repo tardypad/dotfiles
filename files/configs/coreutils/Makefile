@@ -5,4 +5,4 @@ coreutils-configs:
 
 	mkdir -p $(DESTDIR)$(HOME)
 
-	$(setup_configs_file)/coreutils/dircolors > $(DESTDIR)$(HOME)/.dircolors
+	$(setup_file)/configs/coreutils/dircolors > $(DESTDIR)$(HOME)/.dircolors

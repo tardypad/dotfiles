@@ -5,4 +5,4 @@ mopidy-configs:
 
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/mopidy
 
-	$(setup_configs_file)/mopidy/mopidy.conf > $(DESTDIR)$(CONFIG_DIR)/mopidy/mopidy.conf
+	$(setup_file)/configs/mopidy/mopidy.conf > $(DESTDIR)$(CONFIG_DIR)/mopidy/mopidy.conf

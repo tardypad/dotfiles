@@ -6,12 +6,12 @@ sway-configs:
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/sway/config.d
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/swaynag
 
-	$(setup_configs_file)/sway/config            > $(DESTDIR)$(CONFIG_DIR)/sway/config
-	$(setup_configs_file)/sway/config.d/bar      > $(DESTDIR)$(CONFIG_DIR)/sway/config.d/bar
-	$(setup_configs_file)/sway/config.d/bindings > $(DESTDIR)$(CONFIG_DIR)/sway/config.d/bindings
-	$(setup_configs_file)/sway/config.d/general  > $(DESTDIR)$(CONFIG_DIR)/sway/config.d/general
-	$(setup_configs_file)/sway/config.d/inputs   > $(DESTDIR)$(CONFIG_DIR)/sway/config.d/inputs
-	$(setup_configs_file)/sway/config.d/outputs  > $(DESTDIR)$(CONFIG_DIR)/sway/config.d/outputs
-	$(setup_configs_file)/sway/config.d/rules    > $(DESTDIR)$(CONFIG_DIR)/sway/config.d/rules
-	$(setup_configs_file)/sway/config.d/style    > $(DESTDIR)$(CONFIG_DIR)/sway/config.d/style
-	$(setup_configs_file)/sway/swaynag/config    > $(DESTDIR)$(CONFIG_DIR)/swaynag/config
+	$(setup_file)/configs/sway/config            > $(DESTDIR)$(CONFIG_DIR)/sway/config
+	$(setup_file)/configs/sway/config.d/bar      > $(DESTDIR)$(CONFIG_DIR)/sway/config.d/bar
+	$(setup_file)/configs/sway/config.d/bindings > $(DESTDIR)$(CONFIG_DIR)/sway/config.d/bindings
+	$(setup_file)/configs/sway/config.d/general  > $(DESTDIR)$(CONFIG_DIR)/sway/config.d/general
+	$(setup_file)/configs/sway/config.d/inputs   > $(DESTDIR)$(CONFIG_DIR)/sway/config.d/inputs
+	$(setup_file)/configs/sway/config.d/outputs  > $(DESTDIR)$(CONFIG_DIR)/sway/config.d/outputs
+	$(setup_file)/configs/sway/config.d/rules    > $(DESTDIR)$(CONFIG_DIR)/sway/config.d/rules
+	$(setup_file)/configs/sway/config.d/style    > $(DESTDIR)$(CONFIG_DIR)/sway/config.d/style
+	$(setup_file)/configs/sway/swaynag/config    > $(DESTDIR)$(CONFIG_DIR)/swaynag/config

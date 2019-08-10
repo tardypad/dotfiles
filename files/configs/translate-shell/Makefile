@@ -5,4 +5,4 @@ translate-shell-configs:
 
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/translate-shell
 
-	$(setup_configs_file)/translate-shell/init.trans > $(DESTDIR)$(CONFIG_DIR)/translate-shell/init.trans
+	$(setup_file)/configs/translate-shell/init.trans > $(DESTDIR)$(CONFIG_DIR)/translate-shell/init.trans

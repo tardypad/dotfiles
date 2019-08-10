@@ -5,4 +5,4 @@ aria2-configs:
 
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/aria2
 
-	$(setup_configs_file)/aria2/aria2.conf > $(DESTDIR)$(CONFIG_DIR)/aria2/aria2.conf
+	$(setup_file)/configs/aria2/aria2.conf > $(DESTDIR)$(CONFIG_DIR)/aria2/aria2.conf

@@ -5,14 +5,14 @@ tmux-scripts:
 
 	mkdir -p $(DESTDIR)$(BIN_DIR)
 
-	$(setup_scripts_file)/tmux/tmux-extract-tokens          > $(DESTDIR)$(BIN_DIR)/tmux-extract-tokens
-	$(setup_scripts_file)/tmux/tmux-move-pane-window-index  > $(DESTDIR)$(BIN_DIR)/tmux-move-pane-window-index
-	$(setup_scripts_file)/tmux/tmux-move-window-index       > $(DESTDIR)$(BIN_DIR)/tmux-move-window-index
-	$(setup_scripts_file)/tmux/tmux-notify-alert            > $(DESTDIR)$(BIN_DIR)/tmux-notify-alert
-	$(setup_scripts_file)/tmux/tmux-select-pane-vim         > $(DESTDIR)$(BIN_DIR)/tmux-select-pane-vim
-	$(setup_scripts_file)/tmux/tmux-toggle-monitor-activity > $(DESTDIR)$(BIN_DIR)/tmux-toggle-monitor-activity
-	$(setup_scripts_file)/tmux/tmux-toggle-monitor-silence  > $(DESTDIR)$(BIN_DIR)/tmux-toggle-monitor-silence
-	$(setup_scripts_file)/tmux/tmux-toggle-no-distraction   > $(DESTDIR)$(BIN_DIR)/tmux-toggle-no-distraction
+	$(setup_file)/scripts/tmux/tmux-extract-tokens          > $(DESTDIR)$(BIN_DIR)/tmux-extract-tokens
+	$(setup_file)/scripts/tmux/tmux-move-pane-window-index  > $(DESTDIR)$(BIN_DIR)/tmux-move-pane-window-index
+	$(setup_file)/scripts/tmux/tmux-move-window-index       > $(DESTDIR)$(BIN_DIR)/tmux-move-window-index
+	$(setup_file)/scripts/tmux/tmux-notify-alert            > $(DESTDIR)$(BIN_DIR)/tmux-notify-alert
+	$(setup_file)/scripts/tmux/tmux-select-pane-vim         > $(DESTDIR)$(BIN_DIR)/tmux-select-pane-vim
+	$(setup_file)/scripts/tmux/tmux-toggle-monitor-activity > $(DESTDIR)$(BIN_DIR)/tmux-toggle-monitor-activity
+	$(setup_file)/scripts/tmux/tmux-toggle-monitor-silence  > $(DESTDIR)$(BIN_DIR)/tmux-toggle-monitor-silence
+	$(setup_file)/scripts/tmux/tmux-toggle-no-distraction   > $(DESTDIR)$(BIN_DIR)/tmux-toggle-no-distraction
 
 	chmod +x $(DESTDIR)$(BIN_DIR)/tmux-extract-tokens
 	chmod +x $(DESTDIR)$(BIN_DIR)/tmux-move-pane-window-index
