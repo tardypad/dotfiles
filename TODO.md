@@ -7,10 +7,7 @@
   - check if some code tags can be fixed with the `report-tags` utility script
 
 # Cleaning
-  - repository reorganisation:
-    * add info about repository structure in README
-    * packages Makefile targets should be made with prerequisites  
-      for example: sway should require sway-config, sway-scripts,...
+    * add info about new repository structure in README
 
 # Bugs
 

@@ -61,3 +61,5 @@ include files/scripts/i3blocks/Makefile
 include files/scripts/shell/Makefile
 include files/scripts/sway/Makefile
 include files/scripts/tmux/Makefile
+
+include files/Makefile
