@@ -24,7 +24,7 @@ bind M-m show-messages
 bind M-a run "tmux-toggle-monitor-activity '#{socket_path}' '#{session_id}' '#{window_id}'"
 bind M-s run "tmux-toggle-monitor-silence '#{socket_path}' '#{session_id}' '#{window_id}'"
 bind M-b choose-buffer -Z -F '#{buffer_sample}' -O time
-bind M-d split-window -h -f -l 80 "printf 'documentation\n\n'; documentation || sleep 2"
+bind M-d split-window -h -f -l 80 "printf 'documentation\n\n'; documentation-all || sleep 2"
 bind M-l clear-history \; \
          display-message "Pane history cleared"
 

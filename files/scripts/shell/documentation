@@ -1,13 +1,10 @@
 #!/bin/sh
 # commands used:
-# - fzf
-# - stat
 # - zsh
 
 init_variables() {
   COMMAND=${0##*/}
 
-  CACHE_TOPICS_PATH="${XDG_CACHE_HOME:-$HOME/.cache}/documentation_topics"
   ZSH_VERSION=$( zsh --version | cut -d ' ' -f 2 )
   ZSH_HELPDIR="/usr/share/zsh/${ZSH_VERSION}/help"
   MAN_PATH="${MANPATH:-/usr/share/man}"
@@ -19,6 +16,12 @@ init_variables() {
 parse_command_line() {
   TOPIC="$1"
   SECTION="$2"
+}
+
+validate_command_line() {
+  if [ -z "${TOPIC}" ]; then
+    exit_error 'missing topic argument'
+  fi
 }
 
 exit_error() {
@@ -126,78 +129,9 @@ search_documentation() {
   return 1
 }
 
-should_build_topics_cache() {
-  [ -f "${CACHE_TOPICS_PATH}" ] || return 0
-
-  CACHE_LAST_MODIFIED=$(
-    stat -c '%Y' "${CACHE_TOPICS_PATH}"
-  )
-
-  FOLDERS_LAST_MODIFIED=$(
-    {
-      printf '%s' "${PATH}" | tr ':' '\n';
-      echo "${ZSH_HELPDIR}";
-      printf '%s' "${MAN_PATH}" | tr ':' '\n' | xargs -I{} find -L {} -type d;
-    } \
-    | xargs -I {} -- stat -c '%Y' {}  2> /dev/null \
-    | sort \
-    | tail -n 1
-  )
-
-  [ "${CACHE_LAST_MODIFIED}" -lt "${FOLDERS_LAST_MODIFIED}" ]
-}
-
-build_topics_cache() {
-  mkdir -p "$( dirname "${CACHE_TOPICS_PATH}" )"
-
-  PATH_COMMANDS=$(
-    printf '%s' "${PATH}" \
-      | tr ':' '\n' \
-      | xargs -I '[]' \
-        -- find -L '[]' \
-           -type f \
-           -exec basename {} \; \
-           2> /dev/null
-  )
-
-  ZSH_HELP_TOPICS=$( ls "${ZSH_HELPDIR}" )
-
-  MAN_TOPICS=$(
-    echo "${MAN_PATH}" \
-      | tr ':' '\n' \
-      | xargs -I{} find -L {} -type f \
-      | sed -e '/.*\.gz$/s#.*/\([^/]*\)\.[^\.]*\.gz#\1#' \
-            -e '/.*\.[0-9]$/s#.*/\([^/]*\)\.[0-9]*#\1#'
-  )
-
-  {
-    echo "${PATH_COMMANDS}";
-    echo "${ZSH_HELP_TOPICS}";
-    echo "${MAN_TOPICS}";
-  } \
-  | sort -u \
-  > "${CACHE_TOPICS_PATH}"
-}
-
-select_topic() {
-  should_build_topics_cache && build_topics_cache
-
-  TOPIC=$(
-    fzf --layout=reverse \
-        --no-multi \
-        --height=10 \
-      < "${CACHE_TOPICS_PATH}"
-  )
-}
-
 init_variables
 parse_command_line "$@"
-
-if [ -z "${TOPIC}" ]; then
-  select_topic
-fi
-
-[ -z "${TOPIC}" ] && exit 0
+validate_command_line
 
 if [ -z "${SECTION}" ]; then
   select_section

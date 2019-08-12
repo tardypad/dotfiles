@@ -22,7 +22,6 @@
     * completion of query/request keywords
   - similar keybindings for reload (currently Alt-R) and quit (currently Ctrl-q)  
     maybe Alt-r and Alt-q
-  - split help script to simplify it: selection/caching vs search/display
   - better man pages:
     * add DESCRIPTION part with better explanation
     * move commands used listed on top of scripts to the doc (as DEPENDENCIES?)
