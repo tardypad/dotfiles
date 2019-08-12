@@ -7,7 +7,7 @@
 init_variables() {
   COMMAND=${0##*/}
 
-  CACHE_TOPICS_PATH="${XDG_CACHE_HOME:-$HOME/.cache}/help_topics"
+  CACHE_TOPICS_PATH="${XDG_CACHE_HOME:-$HOME/.cache}/documentation_topics"
   ZSH_VERSION=$( zsh --version | cut -d ' ' -f 2 )
   ZSH_HELPDIR="/usr/share/zsh/${ZSH_VERSION}/help"
   MAN_PATH="${MANPATH:-/usr/share/man}"
@@ -52,9 +52,9 @@ select_section()
   fi
 
   # manual menu building
-  # order of displayed sections is the order of help lookup
+  # order of displayed sections is the order of documentation lookup
   # for example: zsh / 1 / 1p / 3
-  echo 'Available help pages:'
+  echo 'Available documentation sections:'
   echo "${SECTIONS}" \
     | tr ':' '\n' \
     | grep '.' \
@@ -88,7 +88,7 @@ section_name() {
   esac
 }
 
-search_help() {
+search_documentation() {
   if [ -z "${SECTION}" ] || [ "${SECTION}" = 'zsh' ]; then
     if [ -f "${ZSH_HELPDIR}/${TOPIC}" ]; then
       "${PAGER}" "${ZSH_HELPDIR}/${TOPIC}"
@@ -109,7 +109,7 @@ search_help() {
       return 0
     fi
 
-    echo "no help available for '${TOPIC}'"
+    echo "no documentation available for '${TOPIC}'"
 
   else
     if [ "$( echo "${MAN_PATH}" | tr ':' '\n' \
@@ -120,7 +120,7 @@ search_help() {
       return 0
     fi
 
-    echo "no help available for '${TOPIC}' section '${SECTION}'"
+    echo "no documentation available for '${TOPIC}' section '${SECTION}'"
   fi
 
   return 1
@@ -203,4 +203,4 @@ if [ -z "${SECTION}" ]; then
   select_section
 fi
 
-search_help
+search_documentation
