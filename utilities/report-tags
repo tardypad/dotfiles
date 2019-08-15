@@ -20,8 +20,6 @@ show_usage() {
 
 	Report all code tags present in config files
 
-	Needs to be run from the repository root
-
 	Options:
 	  -h    show this message only
 	EOF

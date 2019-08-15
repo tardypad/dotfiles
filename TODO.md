@@ -9,7 +9,6 @@
   - check if some code tags can be fixed with the `report-tags` utility script
 
 ## Cleaning
-    * add info about new repository structure in README
 
 ## Bugs
 

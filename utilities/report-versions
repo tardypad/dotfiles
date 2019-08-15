@@ -19,8 +19,6 @@ show_usage() {
 	- version installed on the system
 	- version listed in the docs
 
-	Needs to be run from the repository root
-
 	Options:
 	  -d    only list packages where versions are different
 	  -h    show this message only
