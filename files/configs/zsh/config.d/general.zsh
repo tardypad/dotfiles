@@ -1,9 +1,6 @@
 # load dircolors
 eval $( dircolors "${HOME}/.dircolors" )
 
-# enable changing directories without typing cd
-setopt auto_cd
-
 # disable flow control within ZSH
 setopt no_flow_control
 
