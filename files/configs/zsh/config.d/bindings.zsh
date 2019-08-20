@@ -36,13 +36,6 @@ replace-run-command() {
 }
 zle -N replace-run-command
 
-# bind Alt-Shift-R to reload config
-replace-run-reload-config() replace-run-command 'source "${HOME}/.zshrc"'
-zle -N replace-run-reload-config
-bindkey -M viins '\eR' replace-run-reload-config
-bindkey -M vicmd '\eR' replace-run-reload-config
-bindkey -M isearch '\eR' replace-run-reload-config
-
 # bind Ctrl-S to get a shell status
 replace-run-status() replace-run-command status
 zle -N replace-run-status
@@ -50,19 +43,6 @@ bindkey -M viins '^s' replace-run-status
 bindkey -M vicmd '^s' replace-run-status
 bindkey -M isearch '^s' replace-run-status
 
-# bind Alt-S to switch to root
-replace-run-root() replace-run-command root
-zle -N replace-run-root
-bindkey -M viins '\es' replace-run-root
-bindkey -M vicmd '\es' replace-run-root
-bindkey -M isearch '\es' replace-run-root
-
-# bind Alt-D to jump to Desktop
-replace-run-desktop() replace-run-command dk
-zle -N replace-run-desktop
-bindkey -M viins '\ed' replace-run-desktop
-bindkey -M vicmd '\ed' replace-run-desktop
-bindkey -M isearch '\ed' replace-run-desktop
 
 # Enable surround text-objects (quotes, brackets)
 
@@ -96,9 +76,9 @@ bindkey -M visual S add-surround
 
 autoload -U edit-command-line
 zle -N edit-command-line
-bindkey -M vicmd '\ee' edit-command-line
-bindkey -M viins '\ee' edit-command-line
-bindkey -M isearch '\ee' edit-command-line
+bindkey -M vicmd '^e' edit-command-line
+bindkey -M viins '^e' edit-command-line
+bindkey -M isearch '^e' edit-command-line
 
 
 ## autosuggestions

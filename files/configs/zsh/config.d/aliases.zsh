@@ -29,6 +29,9 @@ alias ssh='TERM=xterm-256color ssh'
 # switch to root
 alias root='sudo -sE'
 
+# reload shell
+alias reload='source "${HOME}/.zshrc"'
+
 # generate a password (mainly used to encrypt files to share)
 alias passwdgen='echo $( < /dev/urandom tr -d -C "[:graph:]" | dd bs=1 count=30 2> /dev/null )'
 
