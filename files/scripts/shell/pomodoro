@@ -1,5 +1,6 @@
 #!/bin/sh
 # commands used:
+# - do-not-disturb
 # - notify-end-pomodoro
 
 init_variables() {
@@ -44,6 +45,8 @@ session_start() {
   CURRENT_TIME=$( current_time_sec )
   echo "${CURRENT_TIME}" > "${FILE_PATH}"
 
+  do-not-disturb enable
+
   ( sleep "${DURATION_SECONDS}" && session_end "${CURRENT_TIME}" )&
 }
 
@@ -69,6 +72,8 @@ session_cancel() {
   fi
 
   rm -f "${FILE_PATH}"
+
+  do-not-disturb disable
 }
 
 session_toggle() {
@@ -89,6 +94,8 @@ session_end() {
   if [ "${SESSION_START_TIME}" = "${CURRENT_START_TIME}" ]; then
     rm -rf "${FILE_PATH}"
     notify-end-pomodoro
+
+    do-not-disturb disable
   fi
 }
 
