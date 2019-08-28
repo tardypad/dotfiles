@@ -6,19 +6,27 @@ do-not-disturb - Manage "Do not disturb" mode
 
 # SYNOPSIS
 
-do-not-disturb [ _disable_ | _enable_ | _status_ | _toggle_ ]
+do-not-disturb [ _status_ | _disable_ ]
+
+do-not-disturb ( _enable_ | _toggle_ ) [ _status_text_ ]
 
 # OPERANDS
 
-_disable_
-	Disable mode
-
-_enable_
-	Enable mode
-
 _status_
-	Display current mode++
+	Display whether the "Do not disturb" mode is "enabled" or "disabled"++
 This is the default action if none is specified
 
+_disable_
+	Disable "Do not disturb" mode++
+The status text can't be modified, it is defined by the website itself++
+It should display "Available" or something similar
+
+_enable_
+	Enable "Do not disturb" mode
+
 _toggle_
-	Toggle mode
+	Toggle "Do not disturb" mode
+
+_status_text_
+	The status text to output when the "Do not disturb" mode is enabled++
+The default text is "Do not disturb"

@@ -9,10 +9,12 @@ init_variables() {
   FILE_PATH="${XDG_RUNTIME_DIR}/do_not_disturb"
 
   ACTION='status'
+  STATUS_TEXT='Do not disturb'
 }
 
 parse_command_line() {
   [ -z "$1" ] || ACTION="$1"
+  [ -z "$2" ] || STATUS_TEXT="$2"
 }
 
 validate_command_line() {
@@ -32,7 +34,7 @@ exit_error() {
 dnd_enable() {
   echo '/slack away' | weechat-fifo 2> /dev/null &
 
-  ssh status busy 'Do not disturb' 2> /dev/null &
+  ssh status busy "${STATUS_TEXT}" 2> /dev/null &
 
   # function return value from file creation
   touch "${FILE_PATH}"
