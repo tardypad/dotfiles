@@ -86,6 +86,7 @@
     mga = merge --abort
     mgc = merge --continue
     mgrbma = "!f(){ git co $1 && git rbma && git coma && git mg -; }; f"
+    pcb = push-current-branch
     pl = pull
     push-current-branch = "! \
         f() { \
