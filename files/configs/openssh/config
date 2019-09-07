@@ -4,6 +4,7 @@ Host *
     EscapeChar %
     ForwardAgent no
     AddKeysToAgent yes
+    IdentitiesOnly yes
 
 Host github
     Hostname github.com
