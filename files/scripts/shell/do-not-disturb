@@ -9,7 +9,7 @@ init_variables() {
   FILE_PATH="${XDG_RUNTIME_DIR}/do_not_disturb"
 
   ACTION='status'
-  STATUS_TEXT='Do not disturb'
+  STATUS_TEXT=
 }
 
 parse_command_line() {
