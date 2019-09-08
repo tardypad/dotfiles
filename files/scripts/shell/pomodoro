@@ -31,21 +31,30 @@ exit_error() {
 } >&2
 
 current_time_sec() {
-  # values with leading 0 are interpreted as octals
-  # which leads to issue with "08" and "09"
   CUR_HOURS=$( date +%H )
   CUR_MINUTES=$( date +%M )
   CUR_SECONDS=$( date +%S )
+  # values with leading 0 are interpreted as octals
+  # which leads to issue with "08" and "09"
+  # so we need to remove them
   echo $((
     ${CUR_HOURS#0} * 3600 + ${CUR_MINUTES#0} * 60 + ${CUR_SECONDS#0}
   ))
+}
+
+end_time() {
+  TIME_MIN=$(( ( $( current_time_sec ) + DURATION_SECONDS ) / 60 ))
+
+  TIME_H=$(( TIME_MIN / 60 ))
+  TIME_M=$(( TIME_MIN % 60 ))
+  printf '%02dH%02d' "${TIME_H}" "${TIME_M}"
 }
 
 session_start() {
   CURRENT_TIME=$( current_time_sec )
   echo "${CURRENT_TIME}" > "${FILE_PATH}"
 
-  do-not-disturb enable
+  do-not-disturb enable "until $( end_time )"
 
   ( sleep "${DURATION_SECONDS}" && session_end "${CURRENT_TIME}" )&
 }
