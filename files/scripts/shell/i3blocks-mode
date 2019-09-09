@@ -33,7 +33,7 @@ refresh_display() {
   # send all update signals to the bar status
   # to refresh all items display
   for i in $( seq 1 "${SIGNAL_MAX}" ); do
-    pkill -RTMIN+"$i" i3blocks
+    pkill -x -RTMIN+"$i" i3blocks
   done
 }
 
