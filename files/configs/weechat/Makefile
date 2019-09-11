@@ -9,7 +9,6 @@ weechat-configs:
 	$(setup_file)/configs/weechat/config.d/spell.conf                       > $(DESTDIR)$(HOME)/.weechat/spell.conf
 	$(setup_file)/configs/weechat/config.d/buflist.conf                     > $(DESTDIR)$(HOME)/.weechat/buflist.conf
 	$(setup_file)/configs/weechat/config.d/charset.conf                     > $(DESTDIR)$(HOME)/.weechat/charset.conf
-	$(setup_file)/configs/weechat/config.d/colorize_nicks.conf              > $(DESTDIR)$(HOME)/.weechat/colorize_nicks.conf
 	$(setup_file)/configs/weechat/config.d/exec.conf                        > $(DESTDIR)$(HOME)/.weechat/exec.conf
 	$(setup_file)/configs/weechat/config.d/fifo.conf                        > $(DESTDIR)$(HOME)/.weechat/fifo.conf
 	$(setup_file)/configs/weechat/config.d/fset.conf                        > $(DESTDIR)$(HOME)/.weechat/fset.conf
@@ -30,8 +29,6 @@ weechat-configs:
 	mkdir -p $(DESTDIR)$(HOME)/.weechat/python
 	curl -sL https://raw.githubusercontent.com/rawdigits/wee-slack/v2.3.0/wee_slack.py \
 		-o $(DESTDIR)$(HOME)/.weechat/python/wee_slack.py
-	curl -sL https://raw.githubusercontent.com/weechat/scripts/ffda2e03486d1e90983a35ee3505b84d10fd5244/python/colorize_nicks.py \
-		-o $(DESTDIR)$(HOME)/.weechat/python/colorize_nicks.py
 	curl -sL https://raw.githubusercontent.com/GermainZ/weechat-vimode/95661a27f92dc3f3286cf1539ab112a81ad15639/vimode.py \
 		-o $(DESTDIR)$(HOME)/.weechat/python/vimode.py
 
@@ -41,5 +38,4 @@ weechat-configs:
 	ln -fs ../edit_vim_tmux.py                  $(DESTDIR)$(HOME)/.weechat/python/autoload/edit_vim_tmux.py
 	ln -fs ../export_important_buffers_count.py $(DESTDIR)$(HOME)/.weechat/python/autoload/export_important_buffers_count.py
 	ln -fs ../wee_slack.py                      $(DESTDIR)$(HOME)/.weechat/python/autoload/wee_slack.py
-	ln -fs ../colorize_nicks.py                 $(DESTDIR)$(HOME)/.weechat/python/autoload/colorize_nicks.py
 	ln -fs ../vimode.py                         $(DESTDIR)$(HOME)/.weechat/python/autoload/vimode.py
