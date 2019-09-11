@@ -48,6 +48,7 @@ vim-configs:
 	$(setup_file)/configs/vim/ftplugin/mail.vim                 > $(DESTDIR)$(HOME)/.vim/ftplugin/mail.vim
 	$(setup_file)/configs/vim/ftplugin/markdown.vim             > $(DESTDIR)$(HOME)/.vim/ftplugin/markdown.vim
 	$(setup_file)/configs/vim/indent/sh.vim                     > $(DESTDIR)$(HOME)/.vim/indent/sh.vim
+	$(setup_file)/configs/vim/plugin/align.vim                  > $(DESTDIR)$(HOME)/.vim/plugin/align.vim
 	$(setup_file)/configs/vim/plugin/alternate_tab.vim          > $(DESTDIR)$(HOME)/.vim/plugin/alternate_tab.vim
 	$(setup_file)/configs/vim/plugin/highlight_long_lines.vim   > $(DESTDIR)$(HOME)/.vim/plugin/highlight_long_lines.vim
 	$(setup_file)/configs/vim/plugin/linter_counts.vim          > $(DESTDIR)$(HOME)/.vim/plugin/linter_counts.vim
