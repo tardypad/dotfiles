@@ -11,6 +11,7 @@ shell-scripts:
 	$(setup_file)/scripts/shell/check-notify-low-battery     > $(DESTDIR)$(BIN_DIR)/check-notify-low-battery
 	$(setup_file)/scripts/shell/check-notify-package-updates > $(DESTDIR)$(BIN_DIR)/check-notify-package-updates
 	$(setup_file)/scripts/shell/color-picker                 > $(DESTDIR)$(BIN_DIR)/color-picker
+	$(setup_file)/scripts/shell/colored-man                  > $(DESTDIR)$(BIN_DIR)/colored-man
 	$(setup_file)/scripts/shell/do-not-disturb               > $(DESTDIR)$(BIN_DIR)/do-not-disturb
 	$(setup_file)/scripts/shell/exec-desktop-entry           > $(DESTDIR)$(BIN_DIR)/exec-desktop-entry
 	$(setup_file)/scripts/shell/documentation                > $(DESTDIR)$(BIN_DIR)/documentation
@@ -19,7 +20,6 @@ shell-scripts:
 	$(setup_file)/scripts/shell/influx-env                   > $(DESTDIR)$(BIN_DIR)/influx-env
 	$(setup_file)/scripts/shell/i3blocks-mode                > $(DESTDIR)$(BIN_DIR)/i3blocks-mode
 	$(setup_file)/scripts/shell/loop                         > $(DESTDIR)$(BIN_DIR)/loop
-	$(setup_file)/scripts/shell/man                          > $(DESTDIR)$(BIN_DIR)/man
 	$(setup_file)/scripts/shell/mysql-env                    > $(DESTDIR)$(BIN_DIR)/mysql-env
 	$(setup_file)/scripts/shell/notify                       > $(DESTDIR)$(BIN_DIR)/notify
 	$(setup_file)/scripts/shell/notify-end-pomodoro          > $(DESTDIR)$(BIN_DIR)/notify-end-pomodoro
@@ -42,6 +42,7 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/check-notify-low-battery
 	chmod +x $(DESTDIR)$(BIN_DIR)/check-notify-package-updates
 	chmod +x $(DESTDIR)$(BIN_DIR)/color-picker
+	chmod +x $(DESTDIR)$(BIN_DIR)/colored-man
 	chmod +x $(DESTDIR)$(BIN_DIR)/do-not-disturb
 	chmod +x $(DESTDIR)$(BIN_DIR)/exec-desktop-entry
 	chmod +x $(DESTDIR)$(BIN_DIR)/documentation
@@ -50,7 +51,6 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/influx-env
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-mode
 	chmod +x $(DESTDIR)$(BIN_DIR)/loop
-	chmod +x $(DESTDIR)$(BIN_DIR)/man
 	chmod +x $(DESTDIR)$(BIN_DIR)/mysql-env
 	chmod +x $(DESTDIR)$(BIN_DIR)/notify
 	chmod +x $(DESTDIR)$(BIN_DIR)/notify-end-pomodoro
