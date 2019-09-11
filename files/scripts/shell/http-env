@@ -25,7 +25,7 @@ parse_command_line() {
   shift 4 2> /dev/null
 
   while [ "$#" -gt 0 ] && [ "$1" != '--' ]; do
-    REQUEST_ITEMS="${REQUEST_ITEMS} $1"
+    REQUEST_ITEMS="${REQUEST_ITEMS} '$1'"
     shift
   done
 
@@ -71,7 +71,7 @@ run_http() {
   ITEMS=$( tail -n +2 "${ENV_PATH}" | grep -v '^-' | tr '\n' ' ' )
   ITEMS="${ITEMS} ${REQUEST_ITEMS}"
 
-  http ${OPTIONS} "${REQUEST_METHOD}" "${URL}" ${ITEMS}
+  eval http "${OPTIONS}" "${REQUEST_METHOD}" "${URL}" "${ITEMS}"
 }
 
 init_variables
