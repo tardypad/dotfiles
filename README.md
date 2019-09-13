@@ -31,9 +31,6 @@ The [files/](files) folder contains all the packages files to setup.
 - [scripts/](files/scripts)
   scripts grouped per package
 
-All scripts that are meant to be used directly on the command line, and which
-are not simple wrappers, are documented as man pages.
-Other scripts contain some documentation as comments within the code itself.
 
 ### Setup files
 

@@ -5,7 +5,7 @@ git: git-configs git-docs git-scripts
 gnupg: gnupg-configs
 htop: htop-configs
 httpie: httpie-configs
-i3blocks: i3blocks-configs i3blocks-scripts
+i3blocks: i3blocks-configs i3blocks-docs i3blocks-scripts
 less: less-configs
 libqalculate: libqalculate-configs
 mako: mako-configs
@@ -20,7 +20,7 @@ sway: sway-configs sway-docs sway-scripts
 swaylock: swaylock-configs
 systemd: systemd-configs
 termite: termite-configs
-tmux: tmux-configs tmux-scripts
+tmux: tmux-configs tmux-docs tmux-scripts
 translate-shell: translate-shell-configs
 universal-ctags: universal-ctags-configs
 util-linux: util-linux-configs
