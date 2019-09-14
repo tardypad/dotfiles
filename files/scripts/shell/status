@@ -1,6 +1,4 @@
 #!/bin/sh
-# commands used:
-# - git (includes own command: current-branch)
 
 # display general status info about the current shell
 

@@ -1,7 +1,4 @@
 #!/bin/sh
-# commands used:
-# - amixer
-# - i3blocks-mode
 
 MODE="$( i3blocks-mode )"
 

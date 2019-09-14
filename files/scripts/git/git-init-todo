@@ -1,6 +1,4 @@
 #!/bin/sh
-# commands used:
-# - git (includes own command: root)
 
 TODO_FILE="$( git root )/TODO.md"
 

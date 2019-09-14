@@ -1,7 +1,4 @@
 #!/bin/sh
-# commands used:
-# - i3blocks-mode
-# - nmcli
 
 MODE="$( i3blocks-mode )"
 

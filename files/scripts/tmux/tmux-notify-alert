@@ -1,7 +1,4 @@
 #!/bin/sh
-# commands used:
-# - notify-tmux-alert
-# - tmux
 
 ALERT_TYPE="$1"
 ALERT_SOCKET_PATH="$2"

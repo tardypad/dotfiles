@@ -12,3 +12,8 @@ sway-focus-window-title _title_
 
 _title_
 	Title of the window to focus
+
+# DEPENDENCIES
+
+- jq
+- swaymsg

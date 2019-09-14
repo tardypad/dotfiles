@@ -27,3 +27,11 @@ _words_
 
 _WORDS_
 	Extract words (any consecutive characters separated by spaces)
+
+# DEPENDENCIES
+
+- GNU grep #FIXME: This script is not POSIX compliant
+- fzf-tmux
+- tmux
+- wl-copy
+- xdg-open

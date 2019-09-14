@@ -1,6 +1,4 @@
 #!/bin/sh
-# commands used:
-# - http
 
 init_variables() {
   COMMAND=${0##*/}

@@ -12,3 +12,9 @@ sway-launcher _command_
 
 _command_
 	Command for the launcher instance
+
+# DEPENDENCIES
+
+- sway-focus-window-title
+- swaymsg
+- termite

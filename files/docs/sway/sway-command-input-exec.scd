@@ -17,3 +17,7 @@ default: %s
 
 *-P* _prompt_
 	Display before user input
+
+# DEPENDENCIES
+
+- swaymsg

@@ -1,7 +1,4 @@
 #!/bin/sh
-# commands used:
-# - notify
-# - swaymsg
 
 TYPE="$1"
 SOCKET_NAME="$2"

@@ -12,3 +12,7 @@ tmux-move-window-index _index_
 
 _index_
 	Index to move the window to
+
+# DEPENDENCIES
+
+- tmux

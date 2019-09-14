@@ -27,3 +27,7 @@ _summary_
 
 _body_
 	Notification body
+
+# DEPENDENCIES
+
+- gdbus

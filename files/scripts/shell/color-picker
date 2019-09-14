@@ -1,8 +1,4 @@
 #!/bin/sh
-# commands used:
-# - convert
-# - grim
-# - slurp
 
 PIXEL_REGION=$( slurp -p 2> /dev/null )
 

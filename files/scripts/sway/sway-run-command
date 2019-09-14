@@ -1,8 +1,4 @@
 #!/bin/sh
-# commands used:
-# - jq
-# - sway-command-input
-# - swaymsg
 
 # run general sway command
 

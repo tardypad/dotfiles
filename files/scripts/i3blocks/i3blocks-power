@@ -1,7 +1,4 @@
 #!/bin/sh
-# commands used:
-# - battery-status
-# - i3blocks-mode
 
 MODE="$( i3blocks-mode )"
 

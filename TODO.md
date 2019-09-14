@@ -23,7 +23,6 @@
     maybe Alt-r and Alt-q
   - better man pages:
     * add DESCRIPTION part with better explanation
-    * move commands used listed on top of scripts to the doc (as DEPENDENCIES?)
     * add FILES used by the script
     * add ENVIRONMENT VARIABLES used by the script
     * check common man pages to see what other parts could be make sense to be added  

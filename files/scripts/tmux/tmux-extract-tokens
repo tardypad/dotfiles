@@ -1,10 +1,4 @@
 #!/bin/sh
-# commands used:
-# - GNU grep #FIXME: This script is not POSIX compliant
-# - fzf-tmux
-# - tmux
-# - wl-copy
-# - xdg-open
 
 # Extract tokens from currently displayed pane (in copy-mode too)
 

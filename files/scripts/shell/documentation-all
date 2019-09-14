@@ -1,9 +1,4 @@
 #!/bin/sh
-# commands used:
-# - fzf
-# - documentation
-# - stat
-# - zsh
 
 CACHE_TOPICS_PATH="${XDG_CACHE_HOME:-$HOME/.cache}/documentation_topics"
 ZSH_VERSION=$( zsh --version | cut -d ' ' -f 2 )

@@ -1,6 +1,4 @@
 #!/bin/sh
-# commands used:
-# - pomodoro
 
 SESSION_STATUS=$( pomodoro status )
 

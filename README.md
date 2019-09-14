@@ -100,7 +100,7 @@ The Makefiles used for the setup are POSIX compliant.
 ### Scripts
 
 Unless explicitly mentioned, all scripts are POSIX compliant.
-Extra commands used are listed on top of each script file.
+Extra commands used are listed as dependencies in their man page.
 Their usage need to be checked within the script to see which options and
 operands are actually required.
 

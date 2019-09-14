@@ -1,6 +1,4 @@
 #!/bin/sh
-# commands used:
-# - git (includes own commands: commit-issue-id, commit-review-id)
 
 init_variables() {
   COMMAND=${0##*/}

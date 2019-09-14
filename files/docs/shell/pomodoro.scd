@@ -22,3 +22,8 @@ This is the default action if none is specified
 
 _toggle_
 	Start session if not active, cancel it otherwise
+
+# DEPENDENCIES
+
+- do-not-disturb
+- notify-end-pomodoro

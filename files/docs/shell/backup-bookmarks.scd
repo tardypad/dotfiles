@@ -7,3 +7,7 @@ backup-bookmarks - Backup browser bookmarks to remote server
 # SYNOPSIS
 
 backup-bookmarks
+
+# DEPENDENCIES
+
+- rsync

@@ -15,3 +15,7 @@ _topic_
 
 _section_
 	Select which *man*(1) section of the _topic_ to display
+
+# DEPENDENCIES
+
+- zsh

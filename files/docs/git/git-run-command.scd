@@ -20,3 +20,7 @@ _rev_range_
 
 _command_
 	command to execute on each revision of the range
+
+# DEPENDENCIES
+
+- git

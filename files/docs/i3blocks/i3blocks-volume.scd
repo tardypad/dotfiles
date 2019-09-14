@@ -7,3 +7,8 @@ i3blocks-volume - Report the volume status for i3blocks
 # SYNOPSIS
 
 i3blocks-volume
+
+# DEPENDENCIES
+
+- amixer
+- i3blocks-mode

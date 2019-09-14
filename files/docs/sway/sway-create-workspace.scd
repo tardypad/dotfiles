@@ -12,3 +12,8 @@ sway-create-workspace [ _name_ ]
 
 _name_
 	Name to give to the new workspace
+
+# DEPENDENCIES
+
+- jq
+- swaymsg

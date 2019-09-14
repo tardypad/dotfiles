@@ -12,3 +12,10 @@ sway-command-input _args_
 
 _args_
 	*sway-command-input-exec*(1) arguments
+
+# DEPENDENCIES
+
+- sway-command-input-exec
+- sway-focus-window-title
+- swaymsg
+- termite

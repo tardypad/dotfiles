@@ -21,3 +21,7 @@ _target_
 _session_
 	_target_' session to start++
 If none specified, a new empty one is created
+
+# DEPENDENCIES
+
+- tmux

@@ -1,6 +1,4 @@
 #!/bin/sh
-# commands used:
-# - fzf
 
 PROMPT="$1"
 shift

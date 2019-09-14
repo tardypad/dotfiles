@@ -12,3 +12,7 @@ sway-fzf-launcher _prompt_
 
 _prompt_
 	Prompt for the fzf selection
+
+# DEPENDENCIES
+
+- fzf

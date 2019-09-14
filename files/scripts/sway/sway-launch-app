@@ -1,10 +1,4 @@
 #!/bin/sh
-# commands used:
-# - column
-# - exec-desktop-entry
-# - stat
-# - sway-fzf-launcher
-# - swaymsg
 
 APP_DESKTOP_FILES_PATH="${XDG_DATA_HOME:-$HOME/.local/share}/applications"
 CACHE_LIST_PATH="${XDG_CACHE_HOME:-$HOME/.cache}/sway/launch_app"

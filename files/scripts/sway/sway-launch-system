@@ -1,9 +1,4 @@
 #!/bin/sh
-# commands used:
-# - sway-fzf-launcher
-# - swaylock
-# - swaymsg
-# - systemctl
 
 ACTION=$(
   {

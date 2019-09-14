@@ -1,8 +1,4 @@
 #!/bin/sh
-# commands used:
-# - grim
-# - slurp
-# - xdg-user-dir
 
 REGION=$( slurp 2> /dev/null )
 

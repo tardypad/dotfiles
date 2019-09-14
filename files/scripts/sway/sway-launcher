@@ -1,8 +1,4 @@
 #!/bin/sh
-# commands used:
-# - sway-focus-window-title
-# - swaymsg
-# - termite
 
 COMMAND="$*"
 

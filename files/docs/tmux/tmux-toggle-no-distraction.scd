@@ -15,3 +15,9 @@ _soft_
 
 _hard_
 	Hard mode
+
+# DEPENDENCIES
+
+- jq
+- swaymsg
+- tmux

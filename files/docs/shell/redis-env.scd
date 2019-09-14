@@ -18,3 +18,7 @@ _query_
 
 _option_
 	*redis-cli* option
+
+# DEPENDENCIES
+
+- redis-cli

@@ -1,9 +1,4 @@
 #!/bin/sh
-# commands used:
-# - sway-command-input-exec
-# - sway-focus-window-title
-# - swaymsg
-# - termite
 
 # try to focus existing window if it exists
 sway-focus-window-title 'sway_command_input' && exit

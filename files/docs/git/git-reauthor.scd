@@ -32,3 +32,7 @@ takes precedence over values coming from -c
 *-t* _id_
 	define the type of identities affected by the rewrite++
 valid ids: author, committer, both (default)
+
+# DEPENDENCIES
+
+- git

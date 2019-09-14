@@ -12,3 +12,8 @@ sway-launch-tmux-env _env_
 
 _env_
 	Name of the environment
+
+# DEPENDENCIES
+
+- sway-app-tmux-env
+- sway-fzf-launcher

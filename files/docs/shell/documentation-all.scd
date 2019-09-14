@@ -7,3 +7,10 @@ documentation-all - Interactive selection of man page to display
 # SYNOPSIS
 
 documentation-all
+
+# DEPENDENCIES
+
+- fzf
+- documentation
+- stat
+- zsh

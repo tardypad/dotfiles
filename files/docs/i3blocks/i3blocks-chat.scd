@@ -7,3 +7,8 @@ i3blocks-chat - Report the chat status for i3blocks
 # SYNOPSIS
 
 i3blocks-chat
+
+# DEPENDENCIES
+
+- i3blocks-mode
+- pidof

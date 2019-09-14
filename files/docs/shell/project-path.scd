@@ -21,3 +21,7 @@ valid types:
 _project_
 	Project to use++
 If none specified, the general path for _type_ is displayed
+
+# DEPENDENCIES
+
+- xdg-user-dir

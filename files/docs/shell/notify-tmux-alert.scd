@@ -27,3 +27,8 @@ _window_id_
 
 _window_name_
 	tmux window name where the alert is coming from
+
+# DEPENDENCIES
+
+- notify
+- swaymsg

@@ -1,11 +1,4 @@
 #!/bin/sh
-# commands used:
-# - sway-fzf-launcher
-# - swaymsg
-# - termite
-# - tmux
-# - vim
-# - xdg-user-dir
 
 NOTES_FOLDER="$( xdg-user-dir NOTES )"
 

@@ -1,10 +1,4 @@
 #!/bin/sh
-# commands used:
-# - sway-create-workspace
-# - sway-focus-window-title
-# - swaymsg
-# - termite
-# - tmux-env
 
 ENV_NAME="$1"
 SESSION_NAME="$2"

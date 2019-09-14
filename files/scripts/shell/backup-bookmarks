@@ -1,6 +1,4 @@
 #!/bin/sh
-# commands used:
-# - rsync
 
 LOCAL_BROWSER_FOLDER="${XDG_CONFIG_HOME:-$HOME/.config}/qutebrowser"
 REMOTE_BOOKMARKS_FOLDER="$( uname -n )/bookmarks"

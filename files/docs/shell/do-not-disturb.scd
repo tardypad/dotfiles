@@ -27,3 +27,8 @@ _toggle_
 
 _info_
 	Extra information when the "Do not disturb" mode is enabled
+
+# DEPENDENCIES
+
+- ssh
+- weechat-fifo

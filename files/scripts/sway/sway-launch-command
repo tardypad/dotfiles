@@ -1,8 +1,4 @@
 #!/bin/sh
-# commands used:
-# - stat
-# - sway-fzf-launcher
-# - swaymsg
 
 CACHE_LIST_PATH="${XDG_CACHE_HOME:-$HOME/.cache}/sway/launch_command"
 

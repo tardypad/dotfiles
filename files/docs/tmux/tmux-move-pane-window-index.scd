@@ -12,3 +12,7 @@ tmux-move-pane-window-index _index_
 
 _index_
 	Index of the window to move the pane to
+
+# DEPENDENCIES
+
+- tmux

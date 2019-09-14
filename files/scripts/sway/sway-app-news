@@ -1,11 +1,4 @@
 #!/bin/sh
-# commands used:
-# - newsboat
-# - sway-create-workspace
-# - sway-focus-window-title
-# - swaymsg
-# - termite
-# - tmux
 
 TITLE='News reader'
 

@@ -1,7 +1,4 @@
 #!/bin/sh
-# commands used:
-# - i3blocks-mode
-# - pidof
 
 COUNT_FILE_PATH="${XDG_RUNTIME_DIR}/chat_count"
 

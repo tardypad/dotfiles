@@ -12,3 +12,7 @@ git sed _script_
 
 _script_
 	string to be used as the *sed*(1) script to apply
+
+# DEPENDENCIES
+
+- git

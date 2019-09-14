@@ -1,7 +1,4 @@
 #!/bin/sh
-# commands used:
-# - aplay
-# - notify
 
 notify \
   -t 5 \

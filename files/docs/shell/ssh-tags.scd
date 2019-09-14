@@ -12,3 +12,9 @@ ssh-tags [_tag_=_value_...]
 
 _tag_=_value_
 	Couple _tag_/_value_ to filter the hosts to display
+
+# DEPENDENCIES
+
+- fzf
+- query-hosts-tags
+- ssh

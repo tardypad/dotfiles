@@ -23,3 +23,7 @@ This is the default action if none is specified
 
 _toggle_
 	Toggle mode
+
+# DEPENDENCIES
+
+- pkill

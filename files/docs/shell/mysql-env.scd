@@ -18,3 +18,7 @@ _query_
 
 _option_
 	*mysql* option
+
+# DEPENDENCIES
+
+- mysql

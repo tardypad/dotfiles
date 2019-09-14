@@ -1,7 +1,4 @@
 #!/bin/sh
-# commands used:
-# - sway-app-tmux-env
-# - sway-fzf-launcher
 
 ENV_NAME="$1"
 

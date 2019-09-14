@@ -1,7 +1,4 @@
 #!/bin/sh
-# commands used:
-# - rsync
-# - xdg-user-dir
 
 LOCAL_NOTES_FOLDER="$( xdg-user-dir NOTES )"
 REMOTE_NOTES_FOLDER="$( uname -n )/notes"

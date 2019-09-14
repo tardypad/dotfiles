@@ -12,3 +12,8 @@ pacman-pkgdiff _package_
 
 _package_
 	Package to inspect
+
+# DEPENDENCIES
+
+- pacman
+- tar

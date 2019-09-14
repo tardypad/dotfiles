@@ -21,3 +21,7 @@ _id_
 
 _message_
 	Message of the stamp
+
+# DEPENDENCIES
+
+- git

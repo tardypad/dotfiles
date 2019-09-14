@@ -13,3 +13,7 @@ plot [-- _option_...]
 
 _option_
 	*jp* option
+
+# DEPENDENCIES
+
+- jp

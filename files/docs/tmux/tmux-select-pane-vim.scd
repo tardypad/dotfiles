@@ -12,3 +12,7 @@ tmux-select-pane-vim _key_
 
 _key_
 	Directional key pressed
+
+# DEPENDENCIES
+
+- tmux

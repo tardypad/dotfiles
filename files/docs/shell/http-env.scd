@@ -27,3 +27,7 @@ _item_
 
 _option_
 	*http* option
+
+# DEPENDENCIES
+
+- http

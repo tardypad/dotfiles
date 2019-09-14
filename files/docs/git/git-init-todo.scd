@@ -7,3 +7,7 @@ git-init-todo - Commit a initial TODO file with usual skeleton
 # SYNOPSIS
 
 git init-todo
+
+# DEPENDENCIES
+
+- git (includes own command: root)

@@ -15,3 +15,11 @@ _env_
 
 _session_
 	Name of the session
+
+# DEPENDENCIES
+
+- sway-create-workspace
+- sway-focus-window-title
+- swaymsg
+- termite
+- tmux-env

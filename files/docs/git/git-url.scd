@@ -27,3 +27,7 @@ valid types:
 	- commit: URL of the selected commit
 	- issue: URL of the issue related to selected commit
 	- review: URL of the review related to selected commit
+
+# DEPENDENCIES
+
+- git (includes own commands: commit-issue-id, commit-review-id)

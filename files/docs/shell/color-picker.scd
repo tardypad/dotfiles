@@ -7,3 +7,9 @@ color-picker - Color picker
 # SYNOPSIS
 
 color-picker
+
+# DEPENDENCIES
+
+- convert
+- grim
+- slurp

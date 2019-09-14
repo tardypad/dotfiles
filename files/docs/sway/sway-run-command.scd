@@ -7,3 +7,9 @@ sway-run-command - Interactive running of sway command
 # SYNOPSIS
 
 sway-run-command
+
+# DEPENDENCIES
+
+- jq
+- sway-command-input
+- swaymsg

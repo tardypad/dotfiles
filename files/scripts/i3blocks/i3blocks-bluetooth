@@ -1,7 +1,4 @@
 #!/bin/sh
-# commands used:
-# - bluetoothctl
-# - i3blocks-mode
 
 MODE="$( i3blocks-mode )"
 

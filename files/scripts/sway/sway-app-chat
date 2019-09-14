@@ -1,11 +1,4 @@
 #!/bin/sh
-# commands used:
-# - sway-create-workspace
-# - sway-focus-window-title
-# - swaymsg
-# - termite
-# - tmux
-# - weechat
 
 TITLE='Chat client'
 
