@@ -10,4 +10,4 @@ sway-create-workspace 'chat'
 swaymsg -q exec \
   "termite \
    -t \"${TITLE}\" \
-   -e 'tmux new-session -A -s chat \"weechat\"'"
+   -e 'tmux new-session -A -s chat \"WEECHAT_PASSPHRASE=$(pass perso/weechat) weechat\"'"
