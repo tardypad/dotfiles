@@ -1,0 +1,15 @@
+#!/bin/sh
+
+NAME=$(
+  ykman oath list 2> /dev/null \
+    | sort \
+    | sway-fzf-launcher 'copy otp '
+)
+
+[ -n "${NAME}" ] || exit
+
+# #FIXME: not sure why I need to use nohup there
+# Without it, the password gets cleared immediately after exiting the launcher
+# even if it works fine when running it manually in a terminal...
+ykman oath code -s "${NAME}" \
+  | nohup wl-copy -o > /dev/null 2>&1
