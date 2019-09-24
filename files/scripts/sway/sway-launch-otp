@@ -12,4 +12,4 @@ NAME=$(
 # Without it, the password gets cleared immediately after exiting the launcher
 # even if it works fine when running it manually in a terminal...
 ykman oath code -s "${NAME}" \
-  | nohup wl-copy -n -o > /dev/null 2>&1
+  | nohup wl-copy -n > /dev/null 2>&1
