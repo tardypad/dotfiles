@@ -87,11 +87,6 @@ Plug 'gcmt/taboo.vim',
   \ { 'as': 'taboo',
   \   'commit': '1367baf' }
 
-" A better JSON
-Plug 'elzr/vim-json',
-  \ { 'as': 'json', 'for': 'json',
-  \   'commit': '3727f08' }
-
 " Sway conf syntax highlighting
 Plug 'aouelete/sway-vim-syntax',
   \ { 'as': 'sway', 'for': 'sway',
@@ -205,12 +200,6 @@ let g:gutentags_project_root_finder = 'getcwd'
 
 " Define name of tags file in the root folder
 let g:gutentags_ctags_tagfile = '.tags'
-
-
-"" json
-
-"  Disable concealing of syntax
-let g:vim_json_syntax_conceal = 0
 
 
 "" neocomplete
