@@ -63,22 +63,34 @@ vim-configs:
 	$(setup_file)/configs/vim/snips/zsh.snippets                > $(DESTDIR)$(HOME)/.vim/snips/zsh.snippets
 	$(setup_file)/configs/vim/spell/en.utf-8.add                > $(DESTDIR)$(HOME)/.vim/spell/en.utf-8.add
 
-  # install the plugins manager
-	mkdir -p $(DESTDIR)$(HOME)/.vim/autoload
-	curl -sL https://raw.githubusercontent.com/junegunn/vim-plug/0.10.0/plug.vim \
-		-o $(DESTDIR)$(HOME)/.vim/autoload/plug.vim
-
-  # Manually install icinga2 syntax
-  # not a real plugin, just one file of a bigger repository
-	mkdir -p $(DESTDIR)$(HOME)/.vim/plugged/icinga2/syntax
-	curl -sL https://raw.githubusercontent.com/Icinga/icinga2/3cb2c1d1435f19bc5e46fa8f8518645f62549dde/tools/syntax/vim/syntax/icinga2.vim \
-		-o $(DESTDIR)$(HOME)/.vim/plugged/icinga2/syntax/icinga2.vim
-
-    # load only the plugins definition and install/clean/update them
-	if [ -z $(DESTDIR) ] ; then \
-		vim -N --noplugin -u $(HOME)/.vim/config.d/plugins.vim \
-			+PlugInstall +PlugClean! +PlugUpdate +qall \
-			> /dev/null 2>&1; \
+	if [ -z $(DESTDIR) ]; then \
+		setup/install-vim-plugin surround          git https://github.com/tpope/vim-surround                 5970688; \
+		setup/install-vim-plugin ale               git https://github.com/w0rp/ale                           v2.3.1;  \
+		setup/install-vim-plugin neocomplete       git https://github.com/shougo/neocomplete.vim             d3b4d28; \
+		setup/install-vim-plugin nerdcommenter     git https://github.com/scrooloose/nerdcommenter           2.5.2;   \
+		setup/install-vim-plugin vdebug            git https://github.com/vim-vdebug/vdebug                  v2.0.0;  \
+		setup/install-vim-plugin fzf               git https://github.com/junegunn/fzf.vim                   b31512e; \
+		setup/install-vim-plugin tagbar            git https://github.com/majutsushi/tagbar                  387bbad; \
+		setup/install-vim-plugin gutentags         git https://github.com/ludovicchabant/vim-gutentags       93616e4; \
+		setup/install-vim-plugin ultisnips         git https://github.com/sirver/ultisnips                   6fdc364; \
+		setup/install-vim-plugin sayonara          git https://github.com/mhinz/vim-sayonara                 357135c; \
+		setup/install-vim-plugin tmux-focus-events git https://github.com/tmux-plugins/vim-tmux-focus-events e555efe; \
+		setup/install-vim-plugin tmux-navigator    git https://github.com/christoomey/vim-tmux-navigator     4e1a877; \
+		setup/install-vim-plugin tmux-clipboard    git https://github.com/roxma/vim-tmux-clipboard           d69964a; \
+		setup/install-vim-plugin ack               git https://github.com/mileszs/ack.vim                    36e40f9; \
+		setup/install-vim-plugin undotree          git https://github.com/mbbill/undotree                    db0223f; \
+		setup/install-vim-plugin redact-pass       git https://sanctum.geek.nz/code/vim-redact-pass.git      v2.0.0;  \
+		setup/install-vim-plugin taboo             git https://github.com/gcmt/taboo.vim                     1367baf; \
+		setup/install-vim-plugin sway              git https://github.com/aouelete/sway-vim-syntax           0aa0626; \
+		setup/install-vim-plugin yaml              git https://github.com/stephpy/vim-yaml                   0da1975; \
+		setup/install-vim-plugin saltstack         git https://github.com/saltstack/salt-vim                 6ca9e35; \
+		setup/install-vim-plugin jinja2            git https://github.com/glench/vim-jinja2-syntax           ff113ba; \
+		setup/install-vim-plugin apiblueprint      git https://github.com/kylef/apiblueprint.vim             776b986; \
+		setup/install-vim-plugin qml               git https://github.com/peterhoeg/vim-qml                  8af43da; \
+		setup/install-vim-plugin elm               git https://github.com/elmcast/elm-vim                    d22c0ba; \
+		setup/install-vim-plugin php               git https://github.com/stanangeloff/php.vim               7671a5a; \
+		setup/install-vim-plugin tagbar-phpctags   git https://github.com/vim-php/tagbar-phpctags.vim        v0.5.1;  \
+		setup/install-vim-plugin icinga2           file https://raw.githubusercontent.com/Icinga/icinga2/3cb2c1d1435f19bc5e46fa8f8518645f62549dde/tools/syntax/vim/syntax/icinga2.vim syntax/icinga2.vim; \
 	fi
 
     # generate spell file

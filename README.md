@@ -56,6 +56,7 @@ The setup is done using `make`.
 Some targets additionally require extra tools:
 - `curl` to download files
 - `scdoc` to build man pages
+- `git` to clone plugins
 - some of the packages used must be installed themselves to setup some files
 
 ```shell

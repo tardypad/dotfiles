@@ -50,5 +50,4 @@
     * [vim limelight](https://github.com/junegunn/limelight.vim)
     * [vim goyo](https://github.com/junegunn/goyo.vim)
   - Time tracker
-  - replace vim plug usage with internal vim packages
   - vim plugins for Go
