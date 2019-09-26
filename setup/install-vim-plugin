@@ -2,6 +2,7 @@
 # commands used:
 # - curl
 # - git
+# - vim
 
 NAME="$1"
 TYPE="$2"
@@ -18,6 +19,10 @@ install_git_plugin() {
   fi
 
   git -C "${PLUGIN_DIR}" checkout -q "${ARG}"
+
+  if [ -d "${PLUGIN_DIR}/doc" ]; then
+    vim --clean -c "helptags ${PLUGIN_DIR}/doc" +qall
+  fi
 }
 
 install_file_plugin() {
