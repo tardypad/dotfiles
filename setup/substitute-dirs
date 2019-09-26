@@ -6,11 +6,11 @@ trap 'rm "${TMP_SCRIPT_FILE}"' EXIT
 DIRS_FILE="config/dirs"
 
 {
-  while read -r line; do
-    alias=$( echo "${line}" | cut -f1 -d' ' )
-    path=$( echo "${line}" | tr -s ' ' | cut -f2 -d' ' )
-    path=$( eval "echo ${path}" )
-    echo "s|{dir/${alias}}|${path}|g"
+  while read -r LINE; do
+    ALIAS=$( echo "${LINE}" | cut -f1 -d' ' )
+    DIR_PATH=$( echo "${LINE}" | tr -s ' ' | cut -f2 -d' ' )
+    DIR_PATH=$( eval "echo ${DIR_PATH}" )
+    echo "s|{dir/${ALIAS}}|${DIR_PATH}|g"
   done < "${DIRS_FILE}"
 } > "${TMP_SCRIPT_FILE}"
 

@@ -49,8 +49,8 @@ parse_command_line() {
 
   # read hex values from stdin if no argument specified
   if [ -z "${HEX_COLORS}" ]; then
-    while read -r hex_color; do
-      HEX_COLORS="${HEX_COLORS} ${hex_color}"
+    while read -r HEX_COLOR; do
+      HEX_COLORS="${HEX_COLORS} ${HEX_COLOR}"
     done
   fi
 }
@@ -62,103 +62,103 @@ exit_error() {
 } >&2
 
 relative_luminance() {
-  r="$1"
-  g="$2"
-  b="$3"
+  R="$1"
+  G="$2"
+  B="$3"
 
   tmp_value() {
-    value="$1"
+    VALUE="$1"
 
-    dec_value=$( echo "${value} / 255" | bc -l )
+    DEC_VALUE=$( echo "${VALUE} / 255" | bc -l )
 
-    if [ "$( echo "${dec_value} <= 0.03928" | bc -l )" -eq 1 ]; then
-      echo "${dec_value} / 12.92" | bc -l
+    if [ "$( echo "${DEC_VALUE} <= 0.03928" | bc -l )" -eq 1 ]; then
+      echo "${DEC_VALUE} / 12.92" | bc -l
     else
       # bc doesn't support fractional exponent so we replace it with exp/ln usage
-      echo "e(2.4 * l( ( ${dec_value} + 0.055 ) / 1.055 ) )" | bc -l
+      echo "e(2.4 * l( ( ${DEC_VALUE} + 0.055 ) / 1.055 ) )" | bc -l
     fi
   }
 
-  R=$( tmp_value "$r" )
-  G=$( tmp_value "$g" )
-  B=$( tmp_value "$b" )
+  R=$( tmp_value "${R}" )
+  G=$( tmp_value "${G}" )
+  B=$( tmp_value "${B}" )
 
-  echo "( 0.2126 * $R + 0.7152 * $G + 0.0722 * $B )" | bc -l
+  echo "( 0.2126 * ${R} + 0.7152 * ${G} + 0.0722 * ${B} )" | bc -l
 }
 
 contrast_ratio() {
-  color_1="$1"
-  color_2="$2"
+  COLOR_1="$1"
+  COLOR_2="$2"
 
-  r1=$( echo "${color_1}" | cut -f 1 -d ';' )
-  g1=$( echo "${color_1}" | cut -f 2 -d ';' )
-  b1=$( echo "${color_1}" | cut -f 3 -d ';' )
+  R1=$( echo "${COLOR_1}" | cut -f 1 -d ';' )
+  G1=$( echo "${COLOR_1}" | cut -f 2 -d ';' )
+  B1=$( echo "${COLOR_1}" | cut -f 3 -d ';' )
 
-  r2=$( echo "${color_2}" | cut -f 1 -d ';' )
-  g2=$( echo "${color_2}" | cut -f 2 -d ';' )
-  b2=$( echo "${color_2}" | cut -f 3 -d ';' )
+  R2=$( echo "${COLOR_2}" | cut -f 1 -d ';' )
+  G2=$( echo "${COLOR_2}" | cut -f 2 -d ';' )
+  B2=$( echo "${COLOR_2}" | cut -f 3 -d ';' )
 
-  L1=$( relative_luminance "${r1}" "${g1}" "${b1}" )
-  L2=$( relative_luminance "${r2}" "${g2}" "${b2}" )
+  L1=$( relative_luminance "${R1}" "${G1}" "${B1}" )
+  L2=$( relative_luminance "${R2}" "${G2}" "${B2}" )
 
   if [ "$( echo "${L1} < ${L2}" | bc -l )" -eq 1 ]; then
-    L_high="${L2}"
-    L_low="${L1}"
+    L_HIGH="${L2}"
+    L_LOW="${L1}"
   else
-    L_high="${L1}"
-    L_low="${L2}"
+    L_HIGH="${L1}"
+    L_LOW="${L2}"
   fi
 
-  echo "( ${L_high} + 0.05 ) / ( ${L_low} + 0.05 )" | bc -l
+  echo "( ${L_HIGH} + 0.05 ) / ( ${L_LOW} + 0.05 )" | bc -l
 }
 
 print_contrast() {
-  rgb1="$1"
-  rgb2="$2"
-  contrast="$3"
+  RGB1="$1"
+  RGB2="$2"
+  CONTRAST="$3"
 
   # only keep 1 decimal for contrast
   # done before minimum comparisons to prevent the issue
   # of having same values displayed differently because of late rounding
   # The lost of precision is not so important
-  contrast=$( printf '%.1f' "${contrast}" )
+  CONTRAST=$( printf '%.1f' "${CONTRAST}" )
 
   printf '\033[0m'                                 # reset
-  printf '\033[38;2;%sm' "${rgb1}"                 # use rgb1 for foreground
-  printf '\033[48;2;%sm' "${rgb2}"                 # use rgb2 for background
+  printf '\033[38;2;%sm' "${RGB1}"                 # use rgb1 for foreground
+  printf '\033[48;2;%sm' "${RGB2}"                 # use rgb2 for background
   printf ' '                                       # spacing
 
   if [ "${PLAIN}" -eq 0 ]; then
-    test_normal=$( echo "${contrast} >= ${MINIMUM_CONTRAST_NORMAL}" | bc -l )
-    [ "${test_normal}" -eq 1 ] && printf '\033[4m' # underline display
+    TEST_NORMAL=$( echo "${CONTRAST} >= ${MINIMUM_CONTRAST_NORMAL}" | bc -l )
+    [ "${TEST_NORMAL}" -eq 1 ] && printf '\033[4m' # underline display
 
-    test_bold=$( echo "${contrast} >= ${MINIMUM_CONTRAST_LARGE}" | bc -l )
-    [ "${test_bold}" -eq 1 ] && printf '\033[1m'   # bold display
+    TEST_BOLD=$( echo "${CONTRAST} >= ${MINIMUM_CONTRAST_LARGE}" | bc -l )
+    [ "${TEST_BOLD}" -eq 1 ] && printf '\033[1m'   # bold display
   fi
 
-  printf '%4s' "${contrast}"                       # constant width
+  printf '%4s' "${CONTRAST}"                       # constant width
   printf '\033[21;24m'                             # reset underline and bold
   printf ' '                                       # spacing
   printf '\033[0m'                                 # reset
 }
 
 hex_to_rgb() {
-  hex_r=$(echo "$1" | cut -c 1-2)
-  hex_g=$(echo "$1" | cut -c 3-4)
-  hex_b=$(echo "$1" | cut -c 5-6)
+  HEX_R=$(echo "$1" | cut -c 1-2)
+  HEX_G=$(echo "$1" | cut -c 3-4)
+  HEX_B=$(echo "$1" | cut -c 5-6)
 
   # use ; as a delimiter between the RGB components
   # to be able to directly use the full value inside ANSI escape sequences
-  printf "%d;%d;%d\n" "0x${hex_r}" "0x${hex_g}" "0x${hex_b}"
+  printf "%d;%d;%d\n" "0x${HEX_R}" "0x${HEX_G}" "0x${HEX_B}"
 }
 
 test_contrast() {
-  for hex1 in ${HEX_COLORS}; do
-    for hex2 in ${HEX_COLORS}; do
-      rgb1=$( hex_to_rgb "${hex1}" )
-      rgb2=$( hex_to_rgb "${hex2}" )
-      contrast=$( contrast_ratio "${rgb1}" "${rgb2}" )
-      print_contrast "${rgb1}" "${rgb2}" "${contrast}"
+  for HEX1 in ${HEX_COLORS}; do
+    for HEX2 in ${HEX_COLORS}; do
+      RGB1=$( hex_to_rgb "${HEX1}" )
+      RGB2=$( hex_to_rgb "${HEX2}" )
+      CONTRAST=$( contrast_ratio "${RGB1}" "${RGB2}" )
+      print_contrast "${RGB1}" "${RGB2}" "${CONTRAST}"
     done
     printf '\n'
   done

@@ -14,18 +14,18 @@ ALIASES_COLORS_FILE="config/colors/aliases"
 
   # aliases intermediate conversion to base color equivalent
   tail -n+3 "${ALIASES_COLORS_FILE}" \
-    | while read -r line; do
-        alias=$( echo "${line}" | sed 's/| \([a-z_]*\) *|.*/\1/' )
-        base_color=$( echo "${line}" | sed 's/.* \(base0[[:alnum:]]\) .*/\1/' )
-        echo "s|{color/${alias}/\([[:alpha:]]*\)}|{color/${base_color}/\1}|g"
+    | while read -r LINE; do
+        ALIAS=$( echo "${LINE}" | sed 's/| \([a-z_]*\) *|.*/\1/' )
+        BASE_COLOR=$( echo "${LINE}" | sed 's/.* \(base0[[:alnum:]]\) .*/\1/' )
+        echo "s|{color/${ALIAS}/\([[:alpha:]]*\)}|{color/${BASE_COLOR}/\1}|g"
       done
 
   # hexadecimal final conversion
   for i in $( seq 0 15 )
   do
-    index=$( printf '%X' "$i" )
-    base_hex=$( sed -n "s/| base0${index} | #\([[:alnum:]]*\) |.*/\1/p" "${BASE_COLORS_FILE}" )
-    echo "s|{color/base0${index}/hex}|${base_hex}|g"
+    INDEX=$( printf '%X' "$i" )
+    BASE_HEX=$( sed -n "s/| base0${INDEX} | #\([[:alnum:]]*\) |.*/\1/p" "${BASE_COLORS_FILE}" )
+    echo "s|{color/base0${INDEX}/hex}|${BASE_HEX}|g"
   done
 
   # fixed intermediate conversion
@@ -43,9 +43,9 @@ ALIASES_COLORS_FILE="config/colors/aliases"
   # number final conversion
   for i in $( seq 0 15 )
   do
-    index=$( printf '%X' "$i" )
-    base_number=$( sed -n "s/| base0${index} | #[[:alnum:]]* | *\([[:digit:]]*\) |.*/\1/p" "${BASE_COLORS_FILE}" )
-    echo "s|{color/base0${index}/number}|${base_number}|g"
+    INDEX=$( printf '%X' "$i" )
+    BASE_NUMBER=$( sed -n "s/| base0${INDEX} | #[[:alnum:]]* | *\([[:digit:]]*\) |.*/\1/p" "${BASE_COLORS_FILE}" )
+    echo "s|{color/base0${INDEX}/number}|${BASE_NUMBER}|g"
   done
 
   # fixed ANSI final conversion

@@ -176,10 +176,10 @@ print_sgr() {
 }
 
 print_text() {
-  text="$1"
+  TEXT="$1"
   shift
   print_sgr "$@"
-  printf '%s' "${text}"
+  printf '%s' "${TEXT}"
   print_sgr "${RESET}"
 }
 
@@ -230,11 +230,11 @@ print_4bit_header() {
 }
 
 print_4bit_line() {
-  name="$1"
-  code="$2"
+  NAME="$1"
+  CODE="$2"
 
-  printf "%${#TEXT_4BIT}s" "${name}"
-  print_4bit_columns_"${COLUMN_TYPE}" "${code}"
+  printf "%${#TEXT_4BIT}s" "${NAME}"
+  print_4bit_columns_"${COLUMN_TYPE}" "${CODE}"
   printf '\n'
 }
 
@@ -299,111 +299,111 @@ print_4bit_lines_bright_background() {
 }
 
 print_4bit_columns_foreground() {
-  line_code="$1"
+  LINE_CODE="$1"
 
-  print_4bit_text "${line_code}" "${FOREGROUND_DEFAULT}"
-  print_4bit_text "${line_code}" "${FOREGROUND_BLACK}"
-  print_4bit_text "${line_code}" "${FOREGROUND_RED}"
-  print_4bit_text "${line_code}" "${FOREGROUND_GREEN}"
-  print_4bit_text "${line_code}" "${FOREGROUND_YELLOW}"
-  print_4bit_text "${line_code}" "${FOREGROUND_BLUE}"
-  print_4bit_text "${line_code}" "${FOREGROUND_MAGENTA}"
-  print_4bit_text "${line_code}" "${FOREGROUND_CYAN}"
-  print_4bit_text "${line_code}" "${FOREGROUND_WHITE}"
+  print_4bit_text "${LINE_CODE}" "${FOREGROUND_DEFAULT}"
+  print_4bit_text "${LINE_CODE}" "${FOREGROUND_BLACK}"
+  print_4bit_text "${LINE_CODE}" "${FOREGROUND_RED}"
+  print_4bit_text "${LINE_CODE}" "${FOREGROUND_GREEN}"
+  print_4bit_text "${LINE_CODE}" "${FOREGROUND_YELLOW}"
+  print_4bit_text "${LINE_CODE}" "${FOREGROUND_BLUE}"
+  print_4bit_text "${LINE_CODE}" "${FOREGROUND_MAGENTA}"
+  print_4bit_text "${LINE_CODE}" "${FOREGROUND_CYAN}"
+  print_4bit_text "${LINE_CODE}" "${FOREGROUND_WHITE}"
 }
 
 print_4bit_columns_background() {
-  line_code="$1"
+  LINE_CODE="$1"
 
-  print_4bit_text "${line_code}" "${BACKGROUND_DEFAULT}"
-  print_4bit_text "${line_code}" "${BACKGROUND_BLACK}"
-  print_4bit_text "${line_code}" "${BACKGROUND_RED}"
-  print_4bit_text "${line_code}" "${BACKGROUND_GREEN}"
-  print_4bit_text "${line_code}" "${BACKGROUND_YELLOW}"
-  print_4bit_text "${line_code}" "${BACKGROUND_BLUE}"
-  print_4bit_text "${line_code}" "${BACKGROUND_MAGENTA}"
-  print_4bit_text "${line_code}" "${BACKGROUND_CYAN}"
-  print_4bit_text "${line_code}" "${BACKGROUND_WHITE}"
+  print_4bit_text "${LINE_CODE}" "${BACKGROUND_DEFAULT}"
+  print_4bit_text "${LINE_CODE}" "${BACKGROUND_BLACK}"
+  print_4bit_text "${LINE_CODE}" "${BACKGROUND_RED}"
+  print_4bit_text "${LINE_CODE}" "${BACKGROUND_GREEN}"
+  print_4bit_text "${LINE_CODE}" "${BACKGROUND_YELLOW}"
+  print_4bit_text "${LINE_CODE}" "${BACKGROUND_BLUE}"
+  print_4bit_text "${LINE_CODE}" "${BACKGROUND_MAGENTA}"
+  print_4bit_text "${LINE_CODE}" "${BACKGROUND_CYAN}"
+  print_4bit_text "${LINE_CODE}" "${BACKGROUND_WHITE}"
 }
 
 print_4bit_columns_attribute() {
-  line_code="$1"
+  LINE_CODE="$1"
 
-  print_4bit_text "${line_code}"
-  print_4bit_text "${line_code}" "${BOLD}"
-  print_4bit_text "${line_code}" "${FAINT}"
-  print_4bit_text "${line_code}" "${ITALIC}"
-  print_4bit_text "${line_code}" "${UNDERLINE}"
-  print_4bit_text "${line_code}" "${BLINK}"
-  print_4bit_text "${line_code}" "${REVERSE}"
-  print_4bit_text "${line_code}" "${CONCEAL}"
-  print_4bit_text "${line_code}" "${CROSSED_OUT}"
+  print_4bit_text "${LINE_CODE}"
+  print_4bit_text "${LINE_CODE}" "${BOLD}"
+  print_4bit_text "${LINE_CODE}" "${FAINT}"
+  print_4bit_text "${LINE_CODE}" "${ITALIC}"
+  print_4bit_text "${LINE_CODE}" "${UNDERLINE}"
+  print_4bit_text "${LINE_CODE}" "${BLINK}"
+  print_4bit_text "${LINE_CODE}" "${REVERSE}"
+  print_4bit_text "${LINE_CODE}" "${CONCEAL}"
+  print_4bit_text "${LINE_CODE}" "${CROSSED_OUT}"
 }
 
 print_4bit_columns_bright_foreground() {
-  line_code="$1"
+  LINE_CODE="$1"
 
-  print_4bit_text "${line_code}" "${FOREGROUND_DEFAULT}"
-  print_4bit_text "${line_code}" "${FOREGROUND_BRIGHT_BLACK}"
-  print_4bit_text "${line_code}" "${FOREGROUND_BRIGHT_RED}"
-  print_4bit_text "${line_code}" "${FOREGROUND_BRIGHT_GREEN}"
-  print_4bit_text "${line_code}" "${FOREGROUND_BRIGHT_YELLOW}"
-  print_4bit_text "${line_code}" "${FOREGROUND_BRIGHT_BLUE}"
-  print_4bit_text "${line_code}" "${FOREGROUND_BRIGHT_MAGENTA}"
-  print_4bit_text "${line_code}" "${FOREGROUND_BRIGHT_CYAN}"
-  print_4bit_text "${line_code}" "${FOREGROUND_BRIGHT_WHITE}"
+  print_4bit_text "${LINE_CODE}" "${FOREGROUND_DEFAULT}"
+  print_4bit_text "${LINE_CODE}" "${FOREGROUND_BRIGHT_BLACK}"
+  print_4bit_text "${LINE_CODE}" "${FOREGROUND_BRIGHT_RED}"
+  print_4bit_text "${LINE_CODE}" "${FOREGROUND_BRIGHT_GREEN}"
+  print_4bit_text "${LINE_CODE}" "${FOREGROUND_BRIGHT_YELLOW}"
+  print_4bit_text "${LINE_CODE}" "${FOREGROUND_BRIGHT_BLUE}"
+  print_4bit_text "${LINE_CODE}" "${FOREGROUND_BRIGHT_MAGENTA}"
+  print_4bit_text "${LINE_CODE}" "${FOREGROUND_BRIGHT_CYAN}"
+  print_4bit_text "${LINE_CODE}" "${FOREGROUND_BRIGHT_WHITE}"
 }
 
 print_4bit_columns_bright_background() {
-  line_code="$1"
+  LINE_CODE="$1"
 
-  print_4bit_text "${line_code}" "${BACKGROUND_DEFAULT}"
-  print_4bit_text "${line_code}" "${BACKGROUND_BRIGHT_BLACK}"
-  print_4bit_text "${line_code}" "${BACKGROUND_BRIGHT_RED}"
-  print_4bit_text "${line_code}" "${BACKGROUND_BRIGHT_GREEN}"
-  print_4bit_text "${line_code}" "${BACKGROUND_BRIGHT_YELLOW}"
-  print_4bit_text "${line_code}" "${BACKGROUND_BRIGHT_BLUE}"
-  print_4bit_text "${line_code}" "${BACKGROUND_BRIGHT_MAGENTA}"
-  print_4bit_text "${line_code}" "${BACKGROUND_BRIGHT_CYAN}"
-  print_4bit_text "${line_code}" "${BACKGROUND_BRIGHT_WHITE}"
+  print_4bit_text "${LINE_CODE}" "${BACKGROUND_DEFAULT}"
+  print_4bit_text "${LINE_CODE}" "${BACKGROUND_BRIGHT_BLACK}"
+  print_4bit_text "${LINE_CODE}" "${BACKGROUND_BRIGHT_RED}"
+  print_4bit_text "${LINE_CODE}" "${BACKGROUND_BRIGHT_GREEN}"
+  print_4bit_text "${LINE_CODE}" "${BACKGROUND_BRIGHT_YELLOW}"
+  print_4bit_text "${LINE_CODE}" "${BACKGROUND_BRIGHT_BLUE}"
+  print_4bit_text "${LINE_CODE}" "${BACKGROUND_BRIGHT_MAGENTA}"
+  print_4bit_text "${LINE_CODE}" "${BACKGROUND_BRIGHT_CYAN}"
+  print_4bit_text "${LINE_CODE}" "${BACKGROUND_BRIGHT_WHITE}"
 }
 
 print_24bit() {
   if [ "${DISPLAY_TYPE}" = 'foreground' ]; then
-    rgb_code="${FOREGROUND_RGB}"
+    RGB_CODE="${FOREGROUND_RGB}"
   else
-    rgb_code="${BACKGROUND_RGB}"
+    RGB_CODE="${BACKGROUND_RGB}"
     TEXT_24BIT=' '
   fi
 
   for i in $( seq 0 76 ); do
-    r=$(( 255 - ( i * 255 / 76 ) ))
-    g=$(( i * 510 / 76 ))
-    b=$(( i * 255 / 76 ))
+    R=$(( 255 - ( i * 255 / 76 ) ))
+    G=$(( i * 510 / 76 ))
+    B=$(( i * 255 / 76 ))
 
-    if [ "${g}" -gt 255 ]; then
-      g=$(( 510 - g ))
+    if [ "${G}" -gt 255 ]; then
+      G=$(( 510 - G ))
     fi
 
-    print_24bit_text "${rgb_code}" "${RGB_24BIT}" "${r}" "${g}" "${b}"
+    print_24bit_text "${RGB_CODE}" "${RGB_24BIT}" "${R}" "${G}" "${B}"
   done
 
   printf '\n'
 }
 
 print_8bit_block() {
-  start="$1"
-  end="$2"
+  START="$1"
+  END="$2"
 
   if [ "${DISPLAY_TYPE}" = 'foreground' ]; then
-    rgb_code="${FOREGROUND_RGB}"
+    RGB_CODE="${FOREGROUND_RGB}"
   else
-    rgb_code="${BACKGROUND_RGB}"
+    RGB_CODE="${BACKGROUND_RGB}"
   fi
 
-  for i in $(seq "${start}" "${end}"); do
+  for i in $(seq "${START}" "${END}"); do
     TEXT_8BIT=$( printf ' %3s' "$i" )
-    print_8bit_text "${rgb_code}" "${RGB_8BIT}" "$i"
+    print_8bit_text "${RGB_CODE}" "${RGB_8BIT}" "$i"
   done
 }
 
@@ -417,12 +417,12 @@ print_8bit() {
   printf '\n\n'
 
   printf 'colors cube\n'
-  cube_start=16
-  cube_size=6
-  for i in $( seq 1 "${cube_size}" ); do
-    block_start=$(( cube_start + ( i - 1 ) * cube_size * cube_size ))
-    block_end=$(( block_start + cube_size * cube_size - 1 ))
-    print_8bit_block "${block_start}" "${block_end}"
+  CUBE_START=16
+  CUBE_SIZE=6
+  for i in $( seq 1 "${CUBE_SIZE}" ); do
+    BLOCK_START=$(( CUBE_START + ( i - 1 ) * CUBE_SIZE * CUBE_SIZE ))
+    BLOCK_END=$(( BLOCK_START + CUBE_SIZE * CUBE_SIZE - 1 ))
+    print_8bit_block "${BLOCK_START}" "${BLOCK_END}"
     printf '\n'
   done
   printf '\n'
