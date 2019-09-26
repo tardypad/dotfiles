@@ -11,7 +11,7 @@ vim-configs:
 
     # backup locally added new spelling words
 	if [ -z $(DESTDIR) ] ; then \
-		if ! diff configs/vim/spell/en.utf-8.add $(DESTDIR)$(HOME)/.vim/spell/en.utf-8.add > /dev/null 2>&1; then \
+		if ! diff files/configs/vim/spell/en.utf-8.add $(DESTDIR)$(HOME)/.vim/spell/en.utf-8.add > /dev/null 2>&1; then \
 			cp $(DESTDIR)$(HOME)/.vim/spell/en.utf-8.add vim_spell_en.bkp; \
 		fi \
 	fi
