@@ -45,7 +45,3 @@ bind-key F reload articlelist
 bind-key r mark-feed-read feedlist
 bind-key R mark-all-feeds-read feedlist
 bind-key R mark-feed-read articlelist
-
-# article urls
-bind-key u show-urls
-bind-key "#" goto-url
