@@ -63,6 +63,4 @@ zsh-configs:
 	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-urlr
 
     # clear completion cache
-	if [ -z $(DESTDIR) ] ; then \
-		rm -f $(HOME)/.zcompdump; \
-	fi
+	rm -f $(DESTDIR)$(HOME)/.zcompdump
