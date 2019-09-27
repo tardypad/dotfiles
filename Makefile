@@ -30,7 +30,6 @@ include files/configs/neomutt/Makefile
 include files/configs/newsboat/Makefile
 include files/configs/openssh/Makefile
 include files/configs/qutebrowser/Makefile
-include files/configs/rbtools/Makefile
 include files/configs/tmux/Makefile
 include files/configs/sway/Makefile
 include files/configs/swaylock/Makefile

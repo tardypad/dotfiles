@@ -15,7 +15,6 @@ neomutt: neomutt-configs
 newsboat: newsboat-configs
 openssh: openssh-configs
 qutebrowser: qutebrowser-configs
-rbtools: rbtools-configs
 sway: sway-configs sway-docs sway-scripts
 swaylock: swaylock-configs
 systemd: systemd-configs
