@@ -17,4 +17,3 @@ applications:
 	cp files/data/applications/system_monitor.desktop          $(DESTDIR)$(DATA_DIR)/applications/system_monitor.desktop
 	cp files/data/applications/terminal.desktop                $(DESTDIR)$(DATA_DIR)/applications/terminal.desktop
 	cp files/data/applications/vector_graphics_editor.desktop  $(DESTDIR)$(DATA_DIR)/applications/vector_graphics_editor.desktop
-	cp files/data/applications/video_player.desktop            $(DESTDIR)$(DATA_DIR)/applications/video_player.desktop
