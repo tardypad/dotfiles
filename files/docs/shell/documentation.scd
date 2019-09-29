@@ -18,4 +18,5 @@ _section_
 
 # DEPENDENCIES
 
+- colored-man
 - zsh

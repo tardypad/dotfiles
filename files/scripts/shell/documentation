@@ -101,7 +101,7 @@ search_documentation() {
     if [ "$( echo "${MAN_PATH}" | tr ':' '\n' \
               | xargs -I{} find -L {} -type f -name "${TOPIC}.[0-9]*" \
               | wc -l )" -ge 1 ]; then \
-      man "${TOPIC}"
+      colored-man "${TOPIC}"
       return 0
     fi
 
@@ -117,7 +117,7 @@ search_documentation() {
               | xargs -I{} find -L {} -type f \
                 -name "${TOPIC}.${SECTION}" -o -name "${TOPIC}.${SECTION}.*" \
               | wc -l )" -ge 1 ]; then \
-      man "${TOPIC}.${SECTION}"
+      colored-man "${TOPIC}.${SECTION}"
       return 0
     fi
 
