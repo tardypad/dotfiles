@@ -45,7 +45,7 @@ prompt_precmd() {
 
 prompt_set() {
   local root='%{%F{{color/alert/name}}%}'
-  local normal='%{%F{{color/base0A/name}}%}'
+  local normal='%{%F{{color/base09/name}}%}'
   local underline='%{%U%}'
   local bold='%{%B%}'
   local stop_foreground='%{%f%}'
