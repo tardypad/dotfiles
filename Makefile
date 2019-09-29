@@ -13,6 +13,7 @@ start_setup = printf "setup $@\n"
 
 setup_file = { setup/substitute-colors $(THEME) | setup/substitute-dirs; } < files
 
+include files/configs/alacritty/Makefile
 include files/configs/aria2/Makefile
 include files/configs/coreutils/Makefile
 include files/configs/fontconfig/Makefile
