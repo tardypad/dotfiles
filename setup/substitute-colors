@@ -20,6 +20,14 @@ ALIASES_COLORS_FILE="config/colors/aliases"
         echo "s|{color/${ALIAS}/\([[:alpha:]]*\)}|{color/${BASE_COLOR}/\1}|g"
       done
 
+  # names intermediate conversion to base equivalent
+  for i in $( seq 0 15 )
+  do
+    INDEX=$( printf '%X' "$i" )
+    NAME=$( sed -n "s/| base0${INDEX} | #[[:alnum:]]* | *[[:digit:]]* | \([[:alpha:]]*\) *|.*/\1/p" "${BASE_COLORS_FILE}" )
+    echo "s|{color/${NAME}/\([[:alpha:]]*\)}|{color/base0${INDEX}/\1}|g"
+  done
+
   # hexadecimal final conversion
   for i in $( seq 0 15 )
   do

@@ -4,7 +4,7 @@ See base colors for [dark](../config/colors/base_dark)
 and [light](../config/colors/base_light) schemes
 and also [aliases](../config/colors/aliases) common to both.
 
-For the base colors, only the first 3 columns are used during the
+For the base colors, only the first 4 columns are used during the
 substitution process. The other fields are only extra information.
 
 Colors were chosen initially from HCL values
