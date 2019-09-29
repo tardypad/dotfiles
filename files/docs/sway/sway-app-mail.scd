@@ -10,9 +10,9 @@ sway-app-mail
 
 # DEPENDENCIES
 
+- alacritty
 - neomutt
 - sway-create-workspace
 - sway-focus-window-title
 - swaymsg
-- termite
 - tmux

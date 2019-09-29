@@ -10,9 +10,9 @@ sway-app-chat
 
 # DEPENDENCIES
 
+- alacritty
 - sway-create-workspace
 - sway-focus-window-title
 - swaymsg
-- termite
 - tmux
 - weechat

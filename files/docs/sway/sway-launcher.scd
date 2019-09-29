@@ -15,6 +15,6 @@ _command_
 
 # DEPENDENCIES
 
+- alacritty
 - sway-focus-window-title
 - swaymsg
-- termite

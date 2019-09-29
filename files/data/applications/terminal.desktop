@@ -1,6 +1,6 @@
 [Desktop Entry]
-Exec=termite -e 'tmux new-session'
-Name=termite
+Exec=alacritty -e tmux new-session
+Name=alacritty
 GenericName=Terminal
 Icon=
 Type=Application

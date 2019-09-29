@@ -7,6 +7,6 @@ sway-focus-window-title "${TITLE}" && exit
 
 # launch new app otherwise
 swaymsg -q exec \
-  "termite \
+  "alacritty \
    -t \"${TITLE}\" \
-   -e 'tmux new-session -A -s monitor \"htop\"'"
+   -e tmux new-session -A -s monitor \"htop\""

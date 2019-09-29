@@ -11,6 +11,6 @@ if ! systemctl --user is-active mopidy.service; then
 fi
 
 swaymsg -q exec \
-  "termite \
+  "alacritty \
    -t \"${TITLE}\" \
-   -e 'tmux new-session -A -s music \"ncmpcpp\"'"
+   -e tmux new-session -A -s music \"ncmpcpp\""

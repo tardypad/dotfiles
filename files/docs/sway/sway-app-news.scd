@@ -10,9 +10,9 @@ sway-app-news
 
 # DEPENDENCIES
 
+- alacritty
 - newsboat
 - sway-create-workspace
 - sway-focus-window-title
 - swaymsg
-- termite
 - tmux

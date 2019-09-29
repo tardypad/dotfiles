@@ -10,9 +10,9 @@ sway-app-music
 
 # DEPENDENCIES
 
+- alacritty
 - ncmpcpp
 - sway-focus-window-title
 - swaymsg
 - systemctl
-- termite
 - tmux

@@ -7,7 +7,7 @@ sway-focus-window-title 'sway_launcher' && exit
 
 # launch new launcher otherwise
 swaymsg -q exec \
-  "termite \
-   -e \"${COMMAND}\" \
-   -c ${XDG_CONFIG_HOME:-$HOME/.config}/termite/config_launcher \
-   -t sway_launcher"
+  "alacritty \
+   -t sway_launcher \
+   --config-file ${XDG_CONFIG_HOME:-$HOME/.config}/alacritty/alacritty_launcher.yml \
+   -e ${COMMAND}" \

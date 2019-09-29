@@ -1,6 +1,3 @@
-# termite as a native Wayland app doesn't support --class argument
-# so we need to rely on title to make most rules
-
 # display monitor as floating window
 for_window [title="sway_monitor"] floating enable, \
                                   resize set width 60 ppt height 70 ppt

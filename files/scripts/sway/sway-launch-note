@@ -18,6 +18,6 @@ if [ "${NOTE}" = 'NEW' ]; then
 fi
 
 swaymsg -q exec \
-  "termite \
+  "alacritty \
    -t ' Notes' \
-   -e 'tmux new-session \"vim ${NOTES_FOLDER}/${NOTE}\"'"
+   -e tmux new-session \"vim ${NOTES_FOLDER}/${NOTE}\""

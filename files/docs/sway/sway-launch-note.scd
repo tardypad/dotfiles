@@ -10,9 +10,9 @@ sway-launch-note
 
 # DEPENDENCIES
 
+- alacritty
 - sway-fzf-launcher
 - swaymsg
-- termite
 - tmux
 - vim
 - xdg-user-dir

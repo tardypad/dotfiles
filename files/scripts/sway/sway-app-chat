@@ -8,6 +8,6 @@ sway-focus-window-title "${TITLE}" && exit
 # launch new app otherwise in new workspace
 sway-create-workspace 'chat'
 swaymsg -q exec \
-  "termite \
+  "alacritty \
    -t \"${TITLE}\" \
-   -e 'tmux new-session -A -s chat \"WEECHAT_PASSPHRASE=$(pass perso/weechat) weechat\"'"
+   -e tmux new-session -A -s chat \"WEECHAT_PASSPHRASE=$(pass perso/weechat) weechat\""

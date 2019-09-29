@@ -10,8 +10,8 @@ sway-app-monitor
 
 # DEPENDENCIES
 
+- alacritty
 - htop
 - sway-focus-window-title
 - swaymsg
-- termite
 - tmux

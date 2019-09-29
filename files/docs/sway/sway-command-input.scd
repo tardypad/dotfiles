@@ -15,7 +15,7 @@ _args_
 
 # DEPENDENCIES
 
+- alacritty
 - sway-command-input-exec
 - sway-focus-window-title
 - swaymsg
-- termite
