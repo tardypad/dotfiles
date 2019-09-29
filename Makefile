@@ -35,7 +35,6 @@ include files/configs/tmux/Makefile
 include files/configs/sway/Makefile
 include files/configs/swaylock/Makefile
 include files/configs/systemd/Makefile
-include files/configs/termite/Makefile
 include files/configs/translate-shell/Makefile
 include files/configs/universal-ctags/Makefile
 include files/configs/util-linux/Makefile

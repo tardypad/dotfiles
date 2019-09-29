@@ -19,7 +19,6 @@ qutebrowser: qutebrowser-configs
 sway: sway-configs sway-docs sway-scripts
 swaylock: swaylock-configs
 systemd: systemd-configs
-termite: termite-configs
 tmux: tmux-configs tmux-docs tmux-scripts
 translate-shell: translate-shell-configs
 universal-ctags: universal-ctags-configs
