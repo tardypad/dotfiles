@@ -130,6 +130,8 @@ Consistency is enforced by the use of aliases. For example
 `{color/warning/number}` is replaced by the number of the color chosen to
 represent warnings.
 
+See the [COLORS.md](doc/COLORS.md) file for more explanation.
+
 ### Directories
 
 See [dirs](config/dirs) configuration file.

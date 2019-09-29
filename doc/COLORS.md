@@ -28,3 +28,22 @@ red by default, not to suddenly be displayed white and get unnoticed.
 
 The 8 last colors follow the ANSI meaning as best as possible
 given the remaining colors available in the scheme.
+
+## Placeholders structure
+
+The placeholders follow the structure "{color/ID/FORMAT}" where ID is used to
+identify the color and FORMAT defines the output format.
+
+ID is a value from:
+- base index ("base00", "base0A",...)
+- alias ("warning", "selected_item",...)
+- ANSI name ("green", "brblue",...)
+
+FORMAT is one of:
+- "name" (ANSI name)
+- "hex" (hexadecimal value)
+- "fg" (ANSI foreground code)
+- "bg" (ANSI background code)
+- "number" (ANSI 16 colors number)
+
+"{color/theme}" is also used to output the current theme name.
