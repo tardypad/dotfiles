@@ -4,8 +4,6 @@ window:
     y: 2
 
 font:
-  normal:
-    family: Source Code Pro
   size: 14.0
 
 draw_bold_text_with_bright_colors: false
