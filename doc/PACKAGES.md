@@ -44,14 +44,14 @@ Note that it is not an exact match as extra patches might be added by the distro
 
 Packages required in the setup which have no own dotfiles config
 
-Reasons for non having any dotfiles config:
+Reasons for not having any dotfiles config:
 - no support for any configuration (e.g., the silver searcher)
 - configuration is only system wide (e.g., networkmanager)
 - none is needed, use defaults (e.g., elinks, only used for basic HTML email display)
 - config is part of another package (e.g., fzf, variables part of shell config)
 
-Doesn't include (yet?) the following kind of packages:
-- common GNU command line packages (e.g., sed)
+Doesn't include the following kind of packages:
+- POSIX utilities
 - packages not required directly by our own config (e.g., gawk, dependency of translate-shell)
 - packages launched with minimal options usage (e.g., chromium, from desktop file)
 - base Arch Linux packages (e.g., pacman)
