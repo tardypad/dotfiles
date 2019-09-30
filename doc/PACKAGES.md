@@ -52,7 +52,7 @@ Reasons for non having any dotfiles config:
 
 Doesn't include (yet?) the following kind of packages:
 - common GNU command line packages (e.g., sed)
-- packages not required directly by our own config (e.g., phpctags, dependency via plugin)
+- packages not required directly by our own config (e.g., gawk, dependency of translate-shell)
 - packages launched with minimal options usage (e.g., chromium, from desktop file)
 - base Arch Linux packages (e.g., pacman)
 

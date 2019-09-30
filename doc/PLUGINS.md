@@ -38,7 +38,6 @@
 | vim-qml                         | QML syntax                                   | [GitHub](https://github.com/peterhoeg/vim-qml)                                                    | [8af43da](https://github.com/peterhoeg/vim-qml/commit/8af43da6950ce5483704bb97f5b24471d8ffda1a)                        |
 | elm-vim                         | Elm language                                 | [GitHub](https://github.com/elmcast/elm-vim)                                                      | [d22c0ba](https://github.com/ElmCast/elm-vim/commit/d22c0ba13afb554257a8c176962e2216cc18edd1)                          |
 | php.vim                         | PHP language                                 | [GitHub](https://github.com/stanangeloff/php.vim)                                                 | [7671a5a](https://github.com/StanAngeloff/php.vim/commit/7671a5aa05e2a8a614551365b7c385ed5b953721)                     |
-| tagbar-phpctags.vim             | improved tag bar for PHP                     | [GitHub](https://github.com/vim-php/tagbar-phpctags.vim)                                          | [0.5.1](https://github.com/vim-php/tagbar-phpctags.vim/releases/tag/v0.5.1)                                            |
 
 
 ## weechat

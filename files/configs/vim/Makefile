@@ -89,7 +89,6 @@ vim-configs:
 		setup/install-vim-plugin qml               git https://github.com/peterhoeg/vim-qml                  8af43da; \
 		setup/install-vim-plugin elm               git https://github.com/elmcast/elm-vim                    d22c0ba; \
 		setup/install-vim-plugin php               git https://github.com/stanangeloff/php.vim               7671a5a; \
-		setup/install-vim-plugin tagbar-phpctags   git https://github.com/vim-php/tagbar-phpctags.vim        v0.5.1;  \
 		setup/install-vim-plugin icinga2           file https://raw.githubusercontent.com/Icinga/icinga2/3cb2c1d1435f19bc5e46fa8f8518645f62549dde/tools/syntax/vim/syntax/icinga2.vim syntax/icinga2.vim; \
 	fi
 

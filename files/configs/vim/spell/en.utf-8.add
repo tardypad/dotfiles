@@ -39,7 +39,6 @@ config
 sed
 utils
 alsa
-phpctags
 freedesktop.org
 util-linux
 dirs
