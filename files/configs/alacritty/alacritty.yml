@@ -62,14 +62,15 @@ key_bindings:
   - { key: Y,        mods: Control|Shift, action: ScrollLineUp     }
   - { key: E,        mods: Control|Shift, action: ScrollLineDown   }
 
-  - { key: Key0,     mods: Control,       chars: "\x1b[27;5;48~"    }
-  - { key: Key1,     mods: Control,       chars: "\x1b[27;5;49~"    }
-  - { key: Key2,     mods: Control,       chars: "\x1b[27;5;50~"    }
-  - { key: Key3,     mods: Control,       chars: "\x1b[27;5;51~"    }
-  - { key: Key4,     mods: Control,       chars: "\x1b[27;5;52~"    }
-  - { key: Key5,     mods: Control,       chars: "\x1b[27;5;53~"    }
-  - { key: Key6,     mods: Control,       chars: "\x1b[27;5;54~"    }
-  - { key: Key7,     mods: Control,       chars: "\x1b[27;5;55~"    }
-  - { key: Key8,     mods: Control,       chars: "\x1b[27;5;56~"    }
-  - { key: Key9,     mods: Control,       chars: "\x1b[27;5;57~"    }
-  - { key: Return,   mods: Control,       chars: "\x1b[27;5;13~"    }
+  - { key: Key0,     mods: Control,       chars: "\x1b[27;5;48~"   }
+  - { key: Key1,     mods: Control,       chars: "\x1b[27;5;49~"   }
+  - { key: Key2,     mods: Control,       chars: "\x1b[27;5;50~"   }
+  - { key: Key3,     mods: Control,       chars: "\x1b[27;5;51~"   }
+  - { key: Key4,     mods: Control,       chars: "\x1b[27;5;52~"   }
+  - { key: Key5,     mods: Control,       chars: "\x1b[27;5;53~"   }
+  - { key: Key6,     mods: Control,       chars: "\x1b[27;5;54~"   }
+  - { key: Key7,     mods: Control,       chars: "\x1b[27;5;55~"   }
+  - { key: Key8,     mods: Control,       chars: "\x1b[27;5;56~"   }
+  - { key: Key9,     mods: Control,       chars: "\x1b[27;5;57~"   }
+  - { key: Return,   mods: Control,       chars: "\x1b[27;5;13~"   }
+  - { key: Tab,      mods: Control,       chars: "\x1b[27;5;9~"    }
