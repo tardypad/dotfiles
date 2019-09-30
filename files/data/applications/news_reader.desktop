@@ -2,5 +2,4 @@
 Exec=sway-app-news
 Name=newsboat
 GenericName=News reader
-Icon=
 Type=Application

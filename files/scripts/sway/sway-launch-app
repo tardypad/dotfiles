@@ -30,10 +30,7 @@ build_cache() {
     APP_GENERIC_NAME=$(
       sed -n 's/^GenericName=\(.*\)/\1/p' "${APP_DESKTOP_FILE}"
     )
-    APP_ICON=$(
-      sed -n 's/^Icon=\(.*\)/\1/p' "${APP_DESKTOP_FILE}"
-    )
-    echo "${APP_ICON}  ${APP_GENERIC_NAME}&${APP_NAME}&${APP_DESKTOP_FILE}"
+    echo "${APP_GENERIC_NAME}&${APP_NAME}&${APP_DESKTOP_FILE}"
   done \
     | sort \
     | column -t -R 2 -s '&' \

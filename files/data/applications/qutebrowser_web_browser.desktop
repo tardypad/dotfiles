@@ -2,5 +2,4 @@
 Exec=qutebrowser -l warning %u
 Name=qutebrowser
 GenericName=Web browser
-Icon=
 Type=Application

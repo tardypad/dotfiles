@@ -2,5 +2,4 @@
 Exec=sway-app-mail
 Name=neomutt
 GenericName=Mail client
-Icon=
 Type=Application

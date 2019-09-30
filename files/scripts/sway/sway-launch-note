@@ -19,5 +19,5 @@ fi
 
 swaymsg -q exec \
   "alacritty \
-   -t ' Notes' \
+   -t 'Notes' \
    -e tmux new-session \"vim ${NOTES_FOLDER}/${NOTE}\""

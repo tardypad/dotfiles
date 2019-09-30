@@ -2,5 +2,4 @@
 Exec=sway-app-music
 Name=ncmpcpp
 GenericName=Music player
-Icon=
 Type=Application

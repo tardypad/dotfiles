@@ -2,5 +2,4 @@
 Exec=alacritty -e tmux new-session
 Name=alacritty
 GenericName=Terminal
-Icon=
 Type=Application

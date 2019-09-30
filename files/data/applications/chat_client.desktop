@@ -2,5 +2,4 @@
 Exec=sway-app-chat
 Name=weechat
 GenericName=Chat client
-Icon=
 Type=Application
