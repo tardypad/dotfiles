@@ -34,6 +34,8 @@ colors:
     cyan:    '0x{color/brcyan/hex}'
     white:   '0x{color/brwhite/hex}'
 
+live_config_reload: false
+
 mouse:
   hide_when_typing: true
   url:

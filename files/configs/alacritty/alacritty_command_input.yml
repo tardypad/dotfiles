@@ -16,6 +16,8 @@ colors:
     text:       '0x{color/base09/hex}'
     background: '0x{color/base00/hex}'
 
+live_config_reload: false
+
 mouse:
   hide_when_typing: true
   url:
