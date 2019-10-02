@@ -63,3 +63,6 @@ include files/scripts/sway/Makefile
 include files/scripts/tmux/Makefile
 
 include files/Makefile
+
+clean:
+	rm -rf build

@@ -2,11 +2,17 @@
 
 THEME="$1"
 
-TMP_SCRIPT_FILE=$( mktemp )
-trap 'rm "${TMP_SCRIPT_FILE}"' EXIT
+SCRIPT_FILE="build/substitute-colors-${THEME}"
+
+if [ -f "${SCRIPT_FILE}" ]; then
+  sed -f "${SCRIPT_FILE}" -
+  exit
+fi
 
 BASE_COLORS_FILE="config/colors/base_${THEME}"
 ALIASES_COLORS_FILE="config/colors/aliases"
+
+mkdir -p build
 
 {
   # color theme
@@ -112,6 +118,6 @@ ALIASES_COLORS_FILE="config/colors/aliases"
   echo 's|{color/number_13/bg}|105|g'
   echo 's|{color/number_14/bg}|106|g'
   echo 's|{color/number_15/bg}|107|g'
-} > "${TMP_SCRIPT_FILE}"
+} > "${SCRIPT_FILE}"
 
-sed -f "${TMP_SCRIPT_FILE}" -
+sed -f "${SCRIPT_FILE}" -
