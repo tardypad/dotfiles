@@ -61,9 +61,6 @@ set formatoptions+=j
 " all alpha characters, all digits, all alpha characters with accent and _
 set iskeyword=@,48-57,_,192-255
 
-" faster access to grep help files
-cnoreabbrev H helpgrep
-
 " enable swap / backup / undo files for buffers
 " and store them preferably separately from the edited file location
 " ^= means prepend to the default directories list
