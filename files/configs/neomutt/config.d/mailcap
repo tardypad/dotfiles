@@ -4,8 +4,8 @@ text/plain; less '%s'; needsterminal
 # open external browser to view html attachments
 # qutebrowser needs .html extension to display the file (Qt limitation)
 text/html; mv %s %s.html && xdg-open %s.html; test=test -n "$DISPLAY"; needsterminal
-# use elinks to display html in pager
-text/html; elinks -dump %s; nametemplate=%s.html; copiousoutput
+# use to w3m display html in pager
+.ext/html; w3m -o display_link_number=1 -T text/html %s; nametemplate=%s.html; copiousoutput
 
 # use default GUI application to view other type of attachments
 image/*; xdg-open %s; test=test -n "$DISPLAY";
