@@ -1,0 +1,23 @@
+confirm_qq 0
+use_mouse  0
+
+extbrowser xdg-open
+
+color           1
+basic_color     terminal
+anchor_color    {color/base09/name}
+image_color     {color/base09/name}
+form_color      {color/base0D/name}
+mark_color      {color/base0C/name}
+bg_color        terminal
+active_style    1
+active_color    {color/base0B/name}
+visited_anchor  1
+visited_color   {color/base07/name}
+
+wrap_search       0
+ignorecase_search 1
+show_srch_str     1
+
+label_topline    1
+nextpage_topline 1
