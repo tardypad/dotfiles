@@ -1,8 +1,6 @@
 all: shell-docs
 
 shell-docs:
-	$(start_setup)
-
 	mkdir -p $(DESTDIR)$(DATA_DIR)/man/man1
 
 	scdoc < files/docs/shell/backup-bookmarks.scd             > $(DESTDIR)$(DATA_DIR)/man/man1/backup-bookmarks.1

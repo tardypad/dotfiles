@@ -1,8 +1,6 @@
 all: tmux-scripts
 
 tmux-scripts:
-	$(start_setup)
-
 	mkdir -p $(DESTDIR)$(BIN_DIR)
 
 	$(setup_file)/scripts/tmux/tmux-extract-tokens          > $(DESTDIR)$(BIN_DIR)/tmux-extract-tokens

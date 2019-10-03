@@ -1,8 +1,6 @@
 all: ncmpcpp-configs
 
 ncmpcpp-configs:
-	$(start_setup)
-
     # create necessary runtime directories
 	mkdir -p $(DESTDIR)$(DATA_DIR)/ncmpcpp
 

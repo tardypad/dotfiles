@@ -1,8 +1,6 @@
 all: env
 
 env:
-	$(start_setup)
-
 	mkdir -p $(DESTDIR)$(DATA_DIR)/env/tmux/projects
 
 	cp files/data/env/tmux/projects/arch_packages.sh $(DESTDIR)$(DATA_DIR)/env/tmux/projects/arch_packages.sh

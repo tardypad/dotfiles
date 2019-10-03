@@ -1,8 +1,6 @@
 all: vim-configs
 
 vim-configs:
-	$(start_setup)
-
     # create necessary runtime directories
 	mkdir -p $(DESTDIR)$(HOME)/.vim/backup
 	mkdir -p $(DESTDIR)$(HOME)/.vim/swap

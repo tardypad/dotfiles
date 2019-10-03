@@ -1,8 +1,6 @@
 all: zsh-configs
 
 zsh-configs:
-	$(start_setup)
-
 	mkdir -p $(DESTDIR)$(HOME)/.zsh/config.d
 	mkdir -p $(DESTDIR)$(HOME)/.zsh/completions/git
 	mkdir -p $(DESTDIR)$(HOME)/.zsh/functions

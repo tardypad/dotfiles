@@ -1,8 +1,6 @@
 all: tmux-configs
 
 tmux-configs:
-	$(start_setup)
-
 	mkdir -p $(DESTDIR)$(HOME)/.tmux/config.d
 
 	$(setup_file)/configs/tmux/tmux.conf              > $(DESTDIR)$(HOME)/.tmux.conf

@@ -1,8 +1,6 @@
 all: applications
 
 applications:
-	$(start_setup)
-
 	mkdir -p $(DESTDIR)$(DATA_DIR)/applications
 
 	cp files/data/applications/chat_client.desktop             $(DESTDIR)$(DATA_DIR)/applications/chat_client.desktop

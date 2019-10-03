@@ -1,8 +1,6 @@
 all: weechat-configs
 
 weechat-configs:
-	$(start_setup)
-
 	mkdir -p $(DESTDIR)$(HOME)/.weechat
 
 	$(setup_file)/configs/weechat/config.d/alias.conf                       > $(DESTDIR)$(HOME)/.weechat/alias.conf

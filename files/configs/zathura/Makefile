@@ -1,8 +1,6 @@
 all: zathura-configs
 
 zathura-configs:
-	$(start_setup)
-
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/zathura/config.d
 
 	$(setup_file)/configs/zathura/zathurarc               > $(DESTDIR)$(CONFIG_DIR)/zathura/zathurarc

@@ -1,8 +1,6 @@
 all: neomutt-configs
 
 neomutt-configs:
-	$(start_setup)
-
     # create necessary runtime directories
 	mkdir -p $(DESTDIR)$(CACHE_DIR)/neomutt/headers
 	mkdir -p $(DESTDIR)$(CACHE_DIR)/neomutt/bodies

@@ -1,8 +1,6 @@
 all: sounds
 
 sounds:
-	$(start_setup)
-
 	mkdir -p $(DESTDIR)$(DATA_DIR)/sounds
 
 	cp files/data/sounds/end_pomodoro.wav $(DESTDIR)$(DATA_DIR)/sounds/end_pomodoro.wav

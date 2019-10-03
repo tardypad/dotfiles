@@ -1,8 +1,6 @@
 all: git-docs
 
 git-docs:
-	$(start_setup)
-
 	mkdir -p $(DESTDIR)$(DATA_DIR)/man/man1
 
 	scdoc < files/docs/git/git-init-todo.scd   > $(DESTDIR)$(DATA_DIR)/man/man1/git-init-todo.1

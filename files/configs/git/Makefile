@@ -1,8 +1,6 @@
 all: git-configs
 
 git-configs:
-	$(start_setup)
-
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/git/config.d
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/git/template/info
 

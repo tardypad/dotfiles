@@ -1,8 +1,6 @@
 all: systemd-configs
 
 systemd-configs:
-	$(start_setup)
-
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/systemd/user/timers.target.wants
 

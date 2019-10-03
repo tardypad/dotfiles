@@ -1,8 +1,6 @@
 all: i3blocks-docs
 
 i3blocks-docs:
-	$(start_setup)
-
 	mkdir -p $(DESTDIR)$(DATA_DIR)/man/man1
 
 	scdoc < files/docs/i3blocks/i3blocks-bluetooth.scd      > $(DESTDIR)$(DATA_DIR)/man/man1/i3blocks-bluetooth.1

@@ -1,8 +1,6 @@
 all: xdg-user-dirs-configs
 
 xdg-user-dirs-configs:
-	$(start_setup)
-
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)
 
 	$(setup_file)/configs/xdg-user-dirs/user-dirs.conf   > $(DESTDIR)$(CONFIG_DIR)/user-dirs.conf

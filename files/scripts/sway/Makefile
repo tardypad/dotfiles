@@ -1,8 +1,6 @@
 all: sway-scripts
 
 sway-scripts:
-	$(start_setup)
-
 	mkdir -p $(DESTDIR)$(BIN_DIR)
 
 	$(setup_file)/scripts/sway/sway-app-chat                  > $(DESTDIR)$(BIN_DIR)/sway-app-chat

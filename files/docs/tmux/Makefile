@@ -1,8 +1,6 @@
 all: tmux-docs
 
 tmux-docs:
-	$(start_setup)
-
 	mkdir -p $(DESTDIR)$(DATA_DIR)/man/man1
 
 	scdoc < files/docs/tmux/tmux-extract-tokens.scd          > $(DESTDIR)$(DATA_DIR)/man/man1/tmux-extract-tokens.1

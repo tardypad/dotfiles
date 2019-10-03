@@ -1,8 +1,6 @@
 all: i3blocks-scripts
 
 i3blocks-scripts:
-	$(start_setup)
-
 	mkdir -p $(DESTDIR)$(BIN_DIR)
 
 	$(setup_file)/scripts/i3blocks/i3blocks-bluetooth      > $(DESTDIR)$(BIN_DIR)/i3blocks-bluetooth

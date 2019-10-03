@@ -1,8 +1,6 @@
 all: sway-configs
 
 sway-configs:
-	$(start_setup)
-
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/sway/config.d
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/swaynag
 

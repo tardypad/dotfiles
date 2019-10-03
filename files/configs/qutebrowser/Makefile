@@ -1,8 +1,6 @@
 all: qutebrowser-configs
 
 qutebrowser-configs:
-	$(start_setup)
-
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/qutebrowser/config.d
 
 	$(setup_file)/configs/qutebrowser/config.py            > $(DESTDIR)$(CONFIG_DIR)/qutebrowser/config.py

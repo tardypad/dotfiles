@@ -1,8 +1,6 @@
 all: sway-docs
 
 sway-docs:
-	$(start_setup)
-
 	mkdir -p $(DESTDIR)$(DATA_DIR)/man/man1
 
 	scdoc < files/docs/sway/sway-app-chat.scd                  > $(DESTDIR)$(DATA_DIR)/man/man1/way-app-chat.1

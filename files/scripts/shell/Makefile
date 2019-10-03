@@ -1,8 +1,6 @@
 all: shell-scripts
 
 shell-scripts:
-	$(start_setup)
-
 	mkdir -p $(DESTDIR)$(BIN_DIR)
 
 	$(setup_file)/scripts/shell/backup-bookmarks             > $(DESTDIR)$(BIN_DIR)/backup-bookmarks

@@ -1,8 +1,6 @@
 all: fontconfig-configs
 
 fontconfig-configs:
-	$(start_setup)
-
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/fontconfig
 
 	$(setup_file)/configs/fontconfig/fonts.conf > $(DESTDIR)$(CONFIG_DIR)/fontconfig/fonts.conf

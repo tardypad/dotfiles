@@ -1,8 +1,6 @@
 all: newsboat-configs
 
 newsboat-configs:
-	$(start_setup)
-
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/newsboat/config.d
 
 	$(setup_file)/configs/newsboat/config            > $(DESTDIR)$(CONFIG_DIR)/newsboat/config
