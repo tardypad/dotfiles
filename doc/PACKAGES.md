@@ -48,7 +48,7 @@ Packages required in the setup which have no own dotfiles config
 Reasons for not having any dotfiles config:
 - no support for any configuration (e.g., the silver searcher)
 - configuration is only system wide (e.g., networkmanager)
-- none is needed, use defaults (e.g., elinks, only used for basic HTML email display)
+- none is needed, use defaults (e.g., curl)
 - config is part of another package (e.g., fzf, variables part of shell config)
 
 Doesn't include the following kind of packages:
@@ -63,7 +63,6 @@ Doesn't include the following kind of packages:
 | aurutils               | AUR helper tools                     | [GitHub](https://github.com/AladW/aurutils)                                            | [2.3.1](https://github.com/AladW/aurutils/releases/tag/2.3.1)                                                          |
 | bluez-utils            | Bluetooth utilities                  | [kernel.org](https://git.kernel.org/pub/scm/bluetooth/bluez.git)                       | [5.51](https://git.kernel.org/pub/scm/bluetooth/bluez.git/tag/?h=5.51)                                                 |
 | curl                   | URL retrieval utility                | [GitHub](https://github.com/curl/curl)                                                 | [7.66.0](https://github.com/curl/curl/releases/tag/curl-7_60_0)                                                        |
-| elinks                 | Web browser                          | [repo.or.cz](http://repo.or.cz/elinks.git)                                             | [0.13](http://repo.or.cz/elinks.git/commit/25c2850b597ee9a89bda8920e7f3d65ac3ac7e01)                                   |
 | grim                   | screenshot utility                   | [GitHub](https://github.com/emersion/grim)                                             | [1.2.0](https://github.com/emersion/grim/releases/tag/v1.2.0)                                                          |
 | otf-font-awesome       | icons font                           | [GitHub](https://github.com/FortAwesome/Font-Awesome)                                  | [5.11.2](https://github.com/FortAwesome/Font-Awesome/releases/tag/5.11.2)                                              |
 | fzf                    | fuzzy finder                         | [GitHub](https://github.com/junegunn/fzf)                                              | [0.18.0](https://github.com/junegunn/fzf/releases/tag/0.18.0)                                                          |
