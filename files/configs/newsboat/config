@@ -1,3 +1,0 @@
-include {dir/config}/newsboat/config.d/general
-include {dir/config}/newsboat/config.d/style
-include {dir/config}/newsboat/config.d/bindings

@@ -13,7 +13,6 @@ mako: mako-configs
 mopidy: mopidy-configs
 ncmpcpp: ncmpcpp-configs
 neomutt: neomutt-configs
-newsboat: newsboat-configs
 openssh: openssh-configs
 qutebrowser: qutebrowser-configs
 sfeed: sfeed-configs

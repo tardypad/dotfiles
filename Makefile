@@ -25,7 +25,6 @@ include files/configs/mako/Makefile
 include files/configs/mopidy/Makefile
 include files/configs/ncmpcpp/Makefile
 include files/configs/neomutt/Makefile
-include files/configs/newsboat/Makefile
 include files/configs/openssh/Makefile
 include files/configs/qutebrowser/Makefile
 include files/configs/tmux/Makefile
