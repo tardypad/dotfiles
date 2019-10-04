@@ -50,7 +50,6 @@ mode "-- Launchers --" {
     bindsym Shift+Space mode "default", exec sway-launcher sway-launch-command
     bindsym Backspace   mode "default", exec sway-launcher sway-launch-system
     bindsym j           mode "default", exec sway-launcher sway-launch-tmux-env projects
-    bindsym n           mode "default", exec sway-launcher sway-launch-note
     bindsym o           mode "default", exec sway-launcher sway-launch-otp
     bindsym p           mode "default", exec sway-launcher sway-launch-password
 

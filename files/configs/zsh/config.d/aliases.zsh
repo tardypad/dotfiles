@@ -14,6 +14,12 @@ alias lh='ls -lh'
 # quick jump to often used folders
 alias dk='cd "$( xdg-user-dir DESKTOP )"'
 alias dw='cd "$( xdg-user-dir DOWNLOAD )"'
+alias nt='cd "$( xdg-user-dir NOTES )"'
+
+alias pj='goto-project repo'
+alias PJ='goto-project main'
+alias logs='goto-project logs'
+alias docs='goto-project docs'
 
 # display calendar for full year with week number and Monday as week start
 alias calendar='cal --monday --week --year'
@@ -57,11 +63,6 @@ alias packages-update="
 # simple linters
 alias json-lint='python -m json.tool'
 alias xml-lint='xmllint --format -'
-
-alias pj='goto-project repo'
-alias PJ='goto-project main'
-alias logs='goto-project logs'
-alias docs='goto-project docs'
 
 # allow usage of * in queries without need for escaping
 alias mysql-env='noglob mysql-env'

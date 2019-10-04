@@ -16,7 +16,6 @@ sway-docs:
 	scdoc < files/docs/sway/sway-fzf-launcher.scd              > $(DESTDIR)$(DATA_DIR)/man/man1/way-fzf-launcher.1
 	scdoc < files/docs/sway/sway-launch-app.scd                > $(DESTDIR)$(DATA_DIR)/man/man1/way-launch-app.1
 	scdoc < files/docs/sway/sway-launch-command.scd            > $(DESTDIR)$(DATA_DIR)/man/man1/way-launch-command.1
-	scdoc < files/docs/sway/sway-launch-note.scd               > $(DESTDIR)$(DATA_DIR)/man/man1/way-launch-note.1
 	scdoc < files/docs/sway/sway-launch-password.scd           > $(DESTDIR)$(DATA_DIR)/man/man1/way-launch-password.1
 	scdoc < files/docs/sway/sway-launch-system.scd             > $(DESTDIR)$(DATA_DIR)/man/man1/way-launch-system.1
 	scdoc < files/docs/sway/sway-launch-tmux-env.scd           > $(DESTDIR)$(DATA_DIR)/man/man1/way-launch-tmux-env.1
