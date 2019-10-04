@@ -10,5 +10,6 @@ read-news
 
 # DEPENDENCIES
 
+- awk with strftime function #FIXME: This script is not POSIX compliant
 - fzf
 - sfeed_update
