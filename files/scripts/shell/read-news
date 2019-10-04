@@ -1,0 +1,30 @@
+#!/bin/sh
+
+FEEDS_PATH="${HOME}/.sfeed/feeds"
+ITEMS_COUNT=20
+
+VIEW_SCRIPT="sed -e 's/\\n/\n/g' -e 's/\\t/\t/g' | w3m -T text/html"
+
+sfeed_update
+
+find "${FEEDS_PATH}" -type f  \
+  | sort \
+  | while read -r FEED_PATH; do
+      FEED_HEADER="$(
+        printf \
+          "$( tput bold )$( tput setaf {color/base0A/number} )%s\n " \
+          "${FEED_PATH##*/}"
+      )"
+
+      head -n "${ITEMS_COUNT}" "${FEED_PATH}" \
+        | cut -f 2-4 \
+        | fzf -d '\t' \
+              --layout reverse \
+              --height 100% \
+              --with-nth 1 \
+              --header "${FEED_HEADER}" \
+              --preview "echo {3} | ${VIEW_SCRIPT} -dump" \
+              --preview-window 'down:60%' \
+              --bind "enter:execute(echo {3} | ${VIEW_SCRIPT})" \
+              --bind "ctrl-o:execute-silent(xdg-open {2} &)"
+    done

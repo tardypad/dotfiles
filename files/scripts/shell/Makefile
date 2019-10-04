@@ -27,6 +27,7 @@ shell-scripts:
 	$(setup_file)/scripts/shell/pomodoro                     > $(DESTDIR)$(BIN_DIR)/pomodoro
 	$(setup_file)/scripts/shell/project-path                 > $(DESTDIR)$(BIN_DIR)/project-path
 	$(setup_file)/scripts/shell/query-hosts-tags             > $(DESTDIR)$(BIN_DIR)/query-hosts-tags
+	$(setup_file)/scripts/shell/read-news                    > $(DESTDIR)$(BIN_DIR)/read-news
 	$(setup_file)/scripts/shell/redis-env                    > $(DESTDIR)$(BIN_DIR)/redis-env
 	$(setup_file)/scripts/shell/screenshot                   > $(DESTDIR)$(BIN_DIR)/screenshot
 	$(setup_file)/scripts/shell/ssh-tags                     > $(DESTDIR)$(BIN_DIR)/ssh-tags
@@ -58,6 +59,7 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/pomodoro
 	chmod +x $(DESTDIR)$(BIN_DIR)/project-path
 	chmod +x $(DESTDIR)$(BIN_DIR)/query-hosts-tags
+	chmod +x $(DESTDIR)$(BIN_DIR)/read-news
 	chmod +x $(DESTDIR)$(BIN_DIR)/redis-env
 	chmod +x $(DESTDIR)$(BIN_DIR)/screenshot
 	chmod +x $(DESTDIR)$(BIN_DIR)/ssh-tags
