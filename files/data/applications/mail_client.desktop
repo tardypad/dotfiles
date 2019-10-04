@@ -1,5 +1,4 @@
 [Desktop Entry]
 Exec=sway-app-mail
-Name=neomutt
-GenericName=Mail client
+Name=Mail client
 Type=Application

@@ -1,5 +1,4 @@
 [Desktop Entry]
 Exec=sway-app-news
-Name=read-news
-GenericName=News reader
+Name=News reader
 Type=Application

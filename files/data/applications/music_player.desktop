@@ -1,5 +1,4 @@
 [Desktop Entry]
 Exec=sway-app-music
-Name=ncmpcpp
-GenericName=Music player
+Name=Music player
 Type=Application

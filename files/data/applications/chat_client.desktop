@@ -1,5 +1,4 @@
 [Desktop Entry]
 Exec=sway-app-chat
-Name=weechat
-GenericName=Chat client
+Name=Chat client
 Type=Application

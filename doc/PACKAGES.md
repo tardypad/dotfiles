@@ -54,7 +54,6 @@ Reasons for not having any dotfiles config:
 Doesn't include the following kind of packages:
 - POSIX utilities
 - packages not required directly by our own config (e.g., gawk, dependency of translate-shell)
-- packages launched with minimal options usage (e.g., chromium, from desktop file)
 - base Arch Linux packages (e.g., pacman)
 
 | Name                   | Purpose                              | Source                                                                                 | Version                                                                                                                |

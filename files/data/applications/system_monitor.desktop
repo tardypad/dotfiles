@@ -1,5 +1,4 @@
 [Desktop Entry]
 Exec=sway-app-monitor
-Name=htop
-GenericName=System monitor
+Name=System monitor
 Type=Application

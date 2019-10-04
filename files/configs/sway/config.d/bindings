@@ -40,7 +40,7 @@ bindsym $mod+Ctrl+Shift+$key_kill exec makoctl dismiss --all
 ## launch apps
 
 bindsym $mod+Return       exec exec-desktop-entry {dir/data}/applications/terminal.desktop
-bindsym $mod+Shift+Return exec exec-desktop-entry {dir/data}/applications/qutebrowser_web_browser.desktop
+bindsym $mod+Shift+Return exec exec-desktop-entry {dir/data}/applications/web_browser.desktop
 
 
 ## launchers
@@ -60,7 +60,7 @@ mode "-- Launchers --" {
     bindsym n mode "default", exec exec-desktop-entry {dir/data}/applications/news_reader.desktop
     bindsym s mode "default", exec exec-desktop-entry {dir/data}/applications/music_player.desktop
     bindsym t mode "default", exec exec-desktop-entry {dir/data}/applications/terminal.desktop
-    bindsym w mode "default", exec exec-desktop-entry {dir/data}/applications/qutebrowser_web_browser.desktop
+    bindsym w mode "default", exec exec-desktop-entry {dir/data}/applications/web_browser.desktop
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
