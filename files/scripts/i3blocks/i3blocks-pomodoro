@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SESSION_STATUS=$( pomodoro status )
+SESSION_STATUS=$( pomodoro status 2> /dev/null )
 
 # only display something if a session was started
 [ -n "${SESSION_STATUS}" ] || exit 0
