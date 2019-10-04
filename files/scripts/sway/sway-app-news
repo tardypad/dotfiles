@@ -10,4 +10,4 @@ sway-create-workspace 'news'
 swaymsg -q exec \
   "alacritty \
    -t \"${TITLE}\" \
-   -e tmux new-session -A -s news \"newsboat\""
+   -e tmux new-session -A -s news \"read-news\""
