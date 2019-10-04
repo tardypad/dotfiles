@@ -46,12 +46,21 @@ bindsym $mod+Shift+Return exec exec-desktop-entry {dir/data}/applications/qutebr
 ## launchers
 
 mode "-- Launchers --" {
-    bindsym Space       mode "default", exec sway-launcher sway-launch-app
-    bindsym Shift+Space mode "default", exec sway-launcher sway-launch-command
-    bindsym Backspace   mode "default", exec sway-launcher sway-launch-system
-    bindsym j           mode "default", exec sway-launcher sway-launch-tmux-env projects
-    bindsym o           mode "default", exec sway-launcher sway-launch-otp
-    bindsym p           mode "default", exec sway-launcher sway-launch-password
+    bindsym Space     mode "default", exec sway-launcher sway-launch-command
+    bindsym Backspace mode "default", exec sway-launcher sway-launch-system
+
+    bindsym j mode "default", exec sway-launcher sway-launch-tmux-env projects
+    bindsym o mode "default", exec sway-launcher sway-launch-otp
+    bindsym p mode "default", exec sway-launcher sway-launch-password
+
+    bindsym c mode "default", exec exec-desktop-entry {dir/data}/applications/chat_client.desktop
+    bindsym d mode "default", exec exec-desktop-entry {dir/data}/applications/document_viewer.desktop
+    bindsym h mode "default", exec exec-desktop-entry {dir/data}/applications/system_monitor.desktop
+    bindsym m mode "default", exec exec-desktop-entry {dir/data}/applications/mail_client.desktop
+    bindsym n mode "default", exec exec-desktop-entry {dir/data}/applications/news_reader.desktop
+    bindsym s mode "default", exec exec-desktop-entry {dir/data}/applications/music_player.desktop
+    bindsym t mode "default", exec exec-desktop-entry {dir/data}/applications/terminal.desktop
+    bindsym w mode "default", exec exec-desktop-entry {dir/data}/applications/qutebrowser_web_browser.desktop
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
