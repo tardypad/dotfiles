@@ -57,7 +57,11 @@ Some targets additionally require extra tools:
 - `curl` to download files
 - `scdoc` to build man pages
 - `git` to clone plugins
-- some of the packages used must be installed themselves to setup some files
+- some of the packages used must be installed themselves to setup some files,
+  reload a service, clear the cache,...:
+  * fontconfig
+  * systemd
+  * vim
 
 ```shell
 # setup config files of a single package
