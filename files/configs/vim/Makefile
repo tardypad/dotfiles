@@ -92,6 +92,12 @@ vim-configs:
 
     # generate spell file
 	if [ -z $(DESTDIR) ] ; then \
-		vim +"mkspell! $(HOME)/.vim/spell/en.utf-8.add.spl $(HOME)/.vim/spell/en.utf-8.add" +qall \
+		vim --clean -c "mkspell! $(HOME)/.vim/spell/en.utf-8.add.spl $(HOME)/.vim/spell/en.utf-8.add" +qall \
+		> /dev/null 2>&1; \
+	fi
+
+	# generate help tags
+	if [ -z $(DESTDIR) ] ; then \
+		vim --clean -c 'helptags ALL' +qall \
 		> /dev/null 2>&1; \
 	fi
