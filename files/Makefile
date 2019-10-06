@@ -10,7 +10,6 @@ i3blocks: i3blocks-configs i3blocks-docs i3blocks-scripts
 less: less-configs
 libqalculate: libqalculate-configs
 mako: mako-configs
-mopidy: mopidy-configs
 mpd: mpd-configs
 ncmpcpp: ncmpcpp-configs
 neomutt: neomutt-configs

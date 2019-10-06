@@ -22,7 +22,6 @@ include files/configs/i3blocks/Makefile
 include files/configs/less/Makefile
 include files/configs/libqalculate/Makefile
 include files/configs/mako/Makefile
-include files/configs/mopidy/Makefile
 include files/configs/mpd/Makefile
 include files/configs/ncmpcpp/Makefile
 include files/configs/neomutt/Makefile
