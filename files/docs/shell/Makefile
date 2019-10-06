@@ -30,6 +30,7 @@ shell-docs:
 	scdoc < files/docs/shell/read-news.scd                    > $(DESTDIR)$(DATA_DIR)/man/man1/read-news.1
 	scdoc < files/docs/shell/redis-env.scd                    > $(DESTDIR)$(DATA_DIR)/man/man1/redis-env.1
 	scdoc < files/docs/shell/screenshot.scd                   > $(DESTDIR)$(DATA_DIR)/man/man1/screenshot.1
+	scdoc < files/docs/shell/somafm.scd                       > $(DESTDIR)$(DATA_DIR)/man/man1/somafm.1
 	scdoc < files/docs/shell/ssh-tags.scd                     > $(DESTDIR)$(DATA_DIR)/man/man1/ssh-tags.1
 	scdoc < files/docs/shell/status.scd                       > $(DESTDIR)$(DATA_DIR)/man/man1/status.1
 	scdoc < files/docs/shell/tmux-env.scd                     > $(DESTDIR)$(DATA_DIR)/man/man1/tmux-env.1

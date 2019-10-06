@@ -1,0 +1,88 @@
+#!/bin/sh
+
+init_variables() {
+  CHANNELS_URL='https://api.somafm.com/channels.json'
+  CACHE_CHANNELS_FILE="${XDG_CACHE_HOME:-$HOME/.cache}/somafm_channels.json"
+
+  ACTION=
+  CHANNEL_ID=
+}
+
+parse_command_line() {
+  ACTION="$1"
+  CHANNEL_ID="$2"
+}
+
+validate_command_line() {
+  if [ -z "${ACTION}" ]; then
+    exit_error "missing action argument"
+  fi
+
+  if [ "${ACTION}" != 'channels' ] && [ "${ACTION}" != 'playlist' ]; then
+    exit_error "invalid action ${ACTION}"
+  fi
+
+  if [ "${ACTION}" = 'playlist' ] && [ -z "${CHANNEL_ID}" ]; then
+    exit_error 'missing channel argument'
+  fi
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+should_build_cache() {
+  [ -f "${CACHE_CHANNELS_FILE}" ] || return 0
+
+  CACHE_LAST_MODIFIED=$(
+    stat -c '%y' "${CACHE_CHANNELS_FILE}" \
+      | cut -f 1 -d ' ' \
+      | tr -d -
+  )
+
+  # keep cache for one day
+  [ "${CACHE_LAST_MODIFIED}" -lt "$( date +%Y%m%d )" ]
+}
+
+build_cache() {
+  mkdir -p "$( dirname "${CACHE_CHANNELS_FILE}" )"
+
+  curl -s "${CHANNELS_URL}" -o "${CACHE_CHANNELS_FILE}"
+}
+
+somafm_channels() {
+  jq -r '.channels[]
+         | (.id, .title, .dj, .genre, .description)' \
+    "${CACHE_CHANNELS_FILE}" \
+    | paste - - - - - -d '\t'
+}
+
+somafm_playlist() {
+  # select highest quality stream preferably in AAC format
+  jq -r ".channels[]
+         | select(.id==\"${CHANNEL_ID}\")
+         | .playlists[]
+         | (.quality, .format, .url)" \
+    "${CACHE_CHANNELS_FILE}" \
+    | paste - - - -d '\t' \
+    | sed '{
+        s/^highest/1/
+        s/^high/2/
+        s/^low/3/
+        s/\taacp/\t2/
+        s/\taac/\t1/
+        s/\tmp3/\t3/
+      }' \
+    | sort -k 1,2 \
+    | head -n 1 \
+    | cut -f 3
+}
+
+init_variables
+parse_command_line "$@"
+validate_command_line
+
+should_build_cache && build_cache
+
+"somafm_${ACTION}"
