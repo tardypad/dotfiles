@@ -11,6 +11,7 @@ less: less-configs
 libqalculate: libqalculate-configs
 mako: mako-configs
 mopidy: mopidy-configs
+mpd: mpd-configs
 ncmpcpp: ncmpcpp-configs
 neomutt: neomutt-configs
 openssh: openssh-configs
