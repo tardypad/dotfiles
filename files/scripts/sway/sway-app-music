@@ -6,8 +6,8 @@ TITLE='sway_music'
 sway-focus-window-title "${TITLE}" && exit
 
 # launch music server and app otherwise
-if ! systemctl --user is-active mopidy.service; then
-  systemctl --user start mopidy.service
+if ! systemctl --user is-active mpd.service; then
+  systemctl --user start mpd.service
 fi
 
 swaymsg -q exec \
