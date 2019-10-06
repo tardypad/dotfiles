@@ -49,9 +49,10 @@ mode "-- Launchers --" {
     bindsym Space     mode "default", exec sway-launcher sway-launch-command
     bindsym Backspace mode "default", exec sway-launcher sway-launch-system
 
-    bindsym j mode "default", exec sway-launcher sway-launch-tmux-env projects
-    bindsym o mode "default", exec sway-launcher sway-launch-otp
-    bindsym p mode "default", exec sway-launcher sway-launch-password
+    bindsym j       mode "default", exec sway-launcher sway-launch-tmux-env projects
+    bindsym o       mode "default", exec sway-launcher sway-launch-otp
+    bindsym p       mode "default", exec sway-launcher sway-launch-password
+    bindsym shift+s mode "default", exec sway-launcher sway-launch-somafm
 
     bindsym c mode "default", exec exec-desktop-entry {dir/data}/applications/chat_client.desktop
     bindsym d mode "default", exec exec-desktop-entry {dir/data}/applications/document_viewer.desktop

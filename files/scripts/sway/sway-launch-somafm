@@ -1,0 +1,18 @@
+#!/bin/sh
+
+CHANNEL_ID=$(
+  somafm channels \
+    | sort -k 2 \
+    | sway-fzf-launcher 'play channel ' \
+        -d '\t' \
+        --with-nth 2 \
+    | cut -f 1
+)
+
+[ -n "${CHANNEL_ID}" ] || exit
+
+CHANNEL_URL=$( somafm playlist "${CHANNEL_ID}" )
+
+mpc -q clear
+mpc -q add "${CHANNEL_URL}"
+mpc -q play
