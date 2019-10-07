@@ -21,7 +21,6 @@ systemd: systemd-configs
 tmux: tmux-configs tmux-docs tmux-scripts
 translate-shell: translate-shell-configs
 universal-ctags: universal-ctags-configs
-util-linux: util-linux-configs
 vim: vim-configs
 w3m: w3m-configs
 weechat: weechat-configs

@@ -31,7 +31,6 @@ Note that it is not an exact match as extra patches might be added by the distro
 | tmux                   | terminal multiplexer                 | [GitHub](https://github.com/tmux/tmux)                                 |                                                                        | [2.9_a](https://github.com/tmux/tmux/releases/tag/2.9a)                                                                     |
 | translate-shell        | translator                           | [GitHub](https://github.com/soimort/translate-shell)                   |                                                                        | [0.9.6.9](https://github.com/soimort/translate-shell/releases/tag/v0.9.6.9)                                                 |
 | universal-ctags        | sources indexation                   | [GitHub](https://github.com/universal-ctags/ctags)                     |                                                                        | [0.r6083.2258b24b](https://github.com/universal-ctags/ctags/commit/2258b24b27962615bc609c6139870be8769f578b)                |
-| util-linux             | system utilities                     | [GitHub](https://github.com/karelzak/util-linux)                       |                                                                        | [2.34](https://github.com/karelzak/util-linux/releases/tag/v2.34)                                                           |
 | vim                    | text editor                          | [GitHub](https://github.com/vim/vim)                                   |                                                                        | [8.1.1467](https://github.com/vim/vim/releases/tag/v8.1.1467)                                                               |
 | w3m                    | web pager                            | [Debian](https://salsa.debian.org/debian/w3m)                          |                                                                        | [0.5.3.git20190105](https://salsa.debian.org/debian/w3m/commit/8e7ee747af00f1a009da42e9633203ea1f7c705e)                    |
 | weechat                | chat client                          | [GitHub](https://github.com/weechat/weechat)                           |                                                                        | [2.6](https://github.com/weechat/weechat/releases/tag/v2.6)                                                                 |
@@ -51,8 +50,9 @@ Reasons for not having any dotfiles config:
 - config is part of another package (e.g., fzf, variables part of shell config)
 
 Doesn't include the following kind of packages:
-- POSIX utilities
+- POSIX utilities (e.g., sed)
 - packages not required directly by our own config (e.g., gawk, dependency of translate-shell)
+- standard Linux packages (e.g., util-linux)
 - base Arch Linux packages (e.g., pacman)
 
 | Name                   | Purpose                              | Source                                                                                 | Version                                                                                                                |

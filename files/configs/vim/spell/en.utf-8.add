@@ -39,7 +39,6 @@ sed
 utils
 alsa
 freedesktop.org
-util-linux
 dirs
 minimalized
 apidoc
