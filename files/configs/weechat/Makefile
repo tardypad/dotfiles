@@ -1,7 +1,7 @@
 all: weechat-configs
 
 weechat-configs:
-	mkdir -p $(DESTDIR)$(HOME)/.weechat
+	mkdir -p $(DESTDIR)$(HOME)/.weechat/python
 
 	$(setup_file)/configs/weechat/config.d/alias.conf                       > $(DESTDIR)$(HOME)/.weechat/alias.conf
 	$(setup_file)/configs/weechat/config.d/spell.conf                       > $(DESTDIR)$(HOME)/.weechat/spell.conf
