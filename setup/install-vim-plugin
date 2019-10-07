@@ -4,11 +4,14 @@
 # - git
 
 NAME="$1"
-TYPE="$2"
-URL="$3"
-ARG="$4"
+DESTDIR="$2"
+TYPE="$3"
+URL="$4"
+ARG="$5"
 
-PLUGIN_DIR="${HOME}/.vim/pack/${NAME}/start/${NAME}"
+PLUGIN_DIR="${DESTDIR}${HOME}/.vim/pack/${NAME}/start/${NAME}"
+
+mkdir -p "${PLUGIN_DIR%/*}"
 
 install_git_plugin() {
   if [ ! -d "${PLUGIN_DIR}" ]; then
