@@ -44,6 +44,9 @@
     * aliases list (next/previous/create/...)
     * global organization (sway:super, alacritty:ctrl+shift, tmux:ctrl+space,...)
     * local organization (uppercase for sway windows and tmux panes, lowercase for sway workspace and tmux windows,...)
+  - extend read-news script:
+    * add an option to restrict news by time ("show only news from last day")
+    * add an option to read only one feed ("show only HN feed")
 
 ## Research
   - distraction free mode and scripts to disable tmux status bar, increase tmux pane,...
