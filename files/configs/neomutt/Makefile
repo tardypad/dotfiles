@@ -14,6 +14,7 @@ neomutt-configs:
 	$(setup_file)/configs/neomutt/config.d/clean-bindings.mutt  > $(DESTDIR)$(CONFIG_DIR)/neomutt/config.d/clean-bindings.mutt
 	$(setup_file)/configs/neomutt/config.d/colors.mutt          > $(DESTDIR)$(CONFIG_DIR)/neomutt/config.d/colors.mutt
 	$(setup_file)/configs/neomutt/config.d/general.mutt         > $(DESTDIR)$(CONFIG_DIR)/neomutt/config.d/general.mutt
+	$(setup_file)/configs/neomutt/config.d/style.mutt           > $(DESTDIR)$(CONFIG_DIR)/neomutt/config.d/style.mutt
 	$(setup_file)/configs/neomutt/config.d/mailcap              > $(DESTDIR)$(CONFIG_DIR)/neomutt/config.d/mailcap
 	$(setup_file)/configs/neomutt/config.d/accounts/migadu.mutt > $(DESTDIR)$(CONFIG_DIR)/neomutt/config.d/accounts/migadu.mutt
 	$(setup_file)/configs/neomutt/config.d/accounts/gmail.mutt  > $(DESTDIR)$(CONFIG_DIR)/neomutt/config.d/accounts/gmail.mutt
