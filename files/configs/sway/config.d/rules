@@ -12,8 +12,3 @@ for_window [title="sway_command_input"] floating enable, \
                                         resize set width 100 ppt height 30 px, \
                                         move position 0 0, \
                                         move up 30 px
-
-# assign music window to scratchpad
-for_window [title="sway_music"] floating enable, \
-                                resize set width 60 ppt height 70 ppt, \
-                                move scratchpad

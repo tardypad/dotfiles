@@ -6,7 +6,6 @@ sway-scripts:
 	$(setup_file)/scripts/sway/sway-app-chat                  > $(DESTDIR)$(BIN_DIR)/sway-app-chat
 	$(setup_file)/scripts/sway/sway-app-mail                  > $(DESTDIR)$(BIN_DIR)/sway-app-mail
 	$(setup_file)/scripts/sway/sway-app-monitor               > $(DESTDIR)$(BIN_DIR)/sway-app-monitor
-	$(setup_file)/scripts/sway/sway-app-music                 > $(DESTDIR)$(BIN_DIR)/sway-app-music
 	$(setup_file)/scripts/sway/sway-app-news                  > $(DESTDIR)$(BIN_DIR)/sway-app-news
 	$(setup_file)/scripts/sway/sway-app-tmux-env              > $(DESTDIR)$(BIN_DIR)/sway-app-tmux-env
 	$(setup_file)/scripts/sway/sway-command-input             > $(DESTDIR)$(BIN_DIR)/sway-command-input
@@ -28,7 +27,6 @@ sway-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-app-chat
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-app-mail
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-app-monitor
-	chmod +x $(DESTDIR)$(BIN_DIR)/sway-app-music
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-app-news
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-app-tmux-env
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-command-input

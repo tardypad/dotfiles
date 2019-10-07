@@ -6,7 +6,6 @@ sway-docs:
 	scdoc < files/docs/sway/sway-app-chat.scd                  > $(DESTDIR)$(DATA_DIR)/man/man1/sway-app-chat.1
 	scdoc < files/docs/sway/sway-app-mail.scd                  > $(DESTDIR)$(DATA_DIR)/man/man1/sway-app-mail.1
 	scdoc < files/docs/sway/sway-app-monitor.scd               > $(DESTDIR)$(DATA_DIR)/man/man1/sway-app-monitor.1
-	scdoc < files/docs/sway/sway-app-music.scd                 > $(DESTDIR)$(DATA_DIR)/man/man1/sway-app-music.1
 	scdoc < files/docs/sway/sway-app-news.scd                  > $(DESTDIR)$(DATA_DIR)/man/man1/sway-app-news.1
 	scdoc < files/docs/sway/sway-app-tmux-env.scd              > $(DESTDIR)$(DATA_DIR)/man/man1/sway-app-tmux-env.1
 	scdoc < files/docs/sway/sway-command-input-exec.scd        > $(DESTDIR)$(DATA_DIR)/man/man1/sway-command-input-exec.1
