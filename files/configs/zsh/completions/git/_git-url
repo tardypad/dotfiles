@@ -14,6 +14,5 @@ _types() {
 
 _arguments \
   '-c[commit to show or get information from]:commit:__git_revisions' \
-  '-h[display the help]' \
   '-r[remote to use]:remote:__git_remotes' \
   '-t[type of information]:type:_types'

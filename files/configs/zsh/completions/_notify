@@ -2,6 +2,5 @@
 
 _arguments \
   '-c[notification category]:()' \
-  '-h[display the help]' \
   '-i[notification identifier, replace similar notification if any]:()' \
   '-t[timeout in seconds]:()'

@@ -61,6 +61,5 @@ _args() {
 }
 
 _arguments \
-  '-h[display the help]' \
   '1:query type:_query_types' \
   '*:args:_args'

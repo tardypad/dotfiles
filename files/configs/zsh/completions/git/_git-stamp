@@ -2,5 +2,4 @@
 #description amend last commit with a stamp message prefixed by an identifier
 
 _arguments \
-  '-h[display the help]' \
   '-r[replace all previous stamps with same id]'

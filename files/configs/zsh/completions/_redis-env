@@ -5,5 +5,4 @@ _envs() {
 }
 
 _arguments \
-  '-h[display the help]' \
   '1:env:_envs'

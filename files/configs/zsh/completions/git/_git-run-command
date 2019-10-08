@@ -2,6 +2,5 @@
 #description execute a command over a range of git revisions
 
 _arguments \
-  '-h[display the help]' \
   '1:start revision:__git_revisions' \
   '2:end revision:__git_revisions'

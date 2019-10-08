@@ -12,5 +12,4 @@ _actions() {
 }
 
 _arguments \
-  '-h[display the help]' \
   '1:action:_actions'

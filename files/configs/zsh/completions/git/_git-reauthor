@@ -14,7 +14,6 @@ _types() {
 _arguments \
   '-a[rewrite all identities in commits and tags]' \
   '-c[define correct values from user Git config]' \
-  '-h[display the help]' \
   '-e[define the correct email to set]:correct email:()' \
   '-n[define the correct name to set]:correct name:()' \
   '-o[rewrite identities matching old email in commits and tags]:old email:()' \

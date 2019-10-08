@@ -2,4 +2,3 @@
 #description apply a sed script over all text files managed by git
 
 _arguments \
-  '-h[display the help]'
