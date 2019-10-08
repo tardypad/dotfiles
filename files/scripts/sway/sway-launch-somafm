@@ -3,7 +3,7 @@
 CHANNEL_ID=$(
   somafm channels \
     | sort -k 2 \
-    | sway-fzf-launcher 'play channel ' \
+    | sway-fzf-launcher 'play SomaFM channel ' \
         -d '\t' \
         --with-nth 2 \
     | cut -f 1
@@ -11,7 +11,9 @@ CHANNEL_ID=$(
 
 [ -n "${CHANNEL_ID}" ] || exit
 
-CHANNEL_URL=$( somafm playlist "${CHANNEL_ID}" )
+echo "Fetching channel..."
+
+CHANNEL_URL=$( somafm direct_url "${CHANNEL_ID}" )
 
 mpc -q clear
 mpc -q add "${CHANNEL_URL}"

@@ -18,11 +18,13 @@ validate_command_line() {
     exit_error "missing action argument"
   fi
 
-  if [ "${ACTION}" != 'channels' ] && [ "${ACTION}" != 'playlist' ]; then
+  if [ "${ACTION}" != 'channels' ] && [ "${ACTION}" != 'playlist' ] \
+     && [ "${ACTION}" != 'direct_url' ]; then
     exit_error "invalid action ${ACTION}"
   fi
 
-  if [ "${ACTION}" = 'playlist' ] && [ -z "${CHANNEL_ID}" ]; then
+  if { [ "${ACTION}" = 'playlist' ] || [ "${ACTION}" = 'direct_url' ]; } \
+    && [ -z "${CHANNEL_ID}" ]; then
     exit_error 'missing channel argument'
   fi
 }
@@ -77,6 +79,11 @@ somafm_playlist() {
     | sort -k 1,2 \
     | head -n 1 \
     | cut -f 3
+}
+
+somafm_direct_url() {
+  curl -s "$( somafm_playlist )" \
+    | sed -n 's/^File1=\(.*\)/\1/p'
 }
 
 init_variables

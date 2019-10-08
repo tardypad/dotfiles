@@ -1,0 +1,14 @@
+#compdef somafm
+
+_actions() {
+  local actions=(
+    channels
+    direct_url
+    playlist
+  )
+
+  compadd "$@" $actions
+}
+
+_arguments \
+  '1:action:_actions'

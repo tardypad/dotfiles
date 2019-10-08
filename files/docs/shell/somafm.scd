@@ -8,6 +8,8 @@ somafm -  display SomaFM channels information
 
 somafm channels
 
+somafm direct_url _channel_
+
 somafm playlist _channel_
 
 # OPERANDS
@@ -17,5 +19,6 @@ _channel_
 
 # DEPENDENCIES
 
+- curl
 - jq
 - stat
