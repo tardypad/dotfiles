@@ -1,8 +1,8 @@
 #!/bin/sh
 
 LOCAL_NOTES_FOLDER="$( xdg-user-dir NOTES )"
-REMOTE_NOTES_FOLDER="$( uname -n )/notes"
+REMOTE_NOTES_FOLDER="backup/$( uname -n )/notes"
 
 rsync -azb --delete --exclude=".*" \
   "${LOCAL_NOTES_FOLDER}/" \
-  backup:"${REMOTE_NOTES_FOLDER}"
+  surg:"${REMOTE_NOTES_FOLDER}"

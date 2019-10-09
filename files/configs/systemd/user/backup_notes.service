@@ -2,4 +2,5 @@
 Description=Backup notes
 
 [Service]
+Environment=SSH_AUTH_SOCK=%t/gnupg/S.gpg-agent.ssh
 ExecStart={dir/bin}/backup-notes
