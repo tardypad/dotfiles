@@ -24,9 +24,3 @@ Host surg tardypad
     Port 11235
     IdentityFile ~/.ssh/id_yubikey.pub
     IdentityFile ~/.ssh/id_surg.pub
-
-Host status
-    Hostname tardypad.me
-    User damien
-    Port 11235
-    IdentityFile ~/.ssh/id_status.pub
