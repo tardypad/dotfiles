@@ -1,31 +1,68 @@
 #!/bin/sh
 
-FEEDS_PATH="${HOME}/.sfeed/feeds"
-ITEMS_COUNT=20
+init_variables() {
+  FEEDS_PATH="${HOME}/.sfeed/feeds"
+  ITEMS_COUNT=20
 
-VIEW_SCRIPT="sed -e 's/\\n/\n/g' -e 's/\\t/\t/g' | w3m -T text/html"
+  VIEW_SCRIPT="sed -e 's/\\n/\n/g' -e 's/\\t/\t/g' | w3m -T text/html"
+
+  FEED=
+}
+
+parse_command_line() {
+  FEED="$1"
+}
+
+validate_command_line() {
+  if [ -n "${FEED}" ] && [ ! -f "${FEEDS_PATH}/${FEED}" ]; then
+    exit_error "Invalid feed name '${FEED}'"
+  fi
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+read_feed() {
+  FEED_PATH="$1"
+
+  FEED_HEADER="$(
+    printf \
+      "$( tput bold )$( tput setaf {color/base0A/number} )%s\n " \
+      "${FEED_PATH##*/}"
+  )"
+
+  head -n "${ITEMS_COUNT}" "${FEED_PATH}" \
+    | cut -f 1-4,7 \
+    | awk -v FS='\t' -v OFS='\t' '$1=strftime("%c", $1)' \
+    | fzf -d '\t' \
+          --layout reverse \
+          --height 100% \
+          --with-nth 2 \
+          --header "${FEED_HEADER}" \
+          --preview "printf '%s\n%s\n\n' {1} {5}; echo {4} | ${VIEW_SCRIPT} -dump" \
+          --preview-window 'down:60%' \
+          --bind "enter:execute(echo {4} | ${VIEW_SCRIPT})" \
+          --bind "ctrl-o:execute-silent(xdg-open {3} &)"
+}
+
+read_all_feeds() {
+  find "${FEEDS_PATH}" -type f  \
+    | sort \
+    | while read -r FEED_PATH; do
+        read_feed "${FEED_PATH}"
+      done
+}
+
+init_variables
+parse_command_line "$@"
+validate_command_line
 
 sfeed_update
 
-find "${FEEDS_PATH}" -type f  \
-  | sort \
-  | while read -r FEED_PATH; do
-      FEED_HEADER="$(
-        printf \
-          "$( tput bold )$( tput setaf {color/base0A/number} )%s\n " \
-          "${FEED_PATH##*/}"
-      )"
-
-      head -n "${ITEMS_COUNT}" "${FEED_PATH}" \
-        | cut -f 1-4,7 \
-        | awk -v FS='\t' -v OFS='\t' '$1=strftime("%c", $1)' \
-        | fzf -d '\t' \
-              --layout reverse \
-              --height 100% \
-              --with-nth 2 \
-              --header "${FEED_HEADER}" \
-              --preview "printf '%s\n%s\n\n' {1} {5}; echo {4} | ${VIEW_SCRIPT} -dump" \
-              --preview-window 'down:60%' \
-              --bind "enter:execute(echo {4} | ${VIEW_SCRIPT})" \
-              --bind "ctrl-o:execute-silent(xdg-open {3} &)"
-    done
+if [ -n "${FEED}" ]; then
+  read_feed "${FEEDS_PATH}/${FEED}"
+else
+  read_all_feeds
+fi

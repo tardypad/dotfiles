@@ -1,0 +1,10 @@
+#compdef read-news
+
+local feeds_path="${HOME}/.sfeed/feeds"
+
+_feeds() {
+  _path_files -W "${feeds_path}/"
+}
+
+_arguments \
+  '1:feed:_feeds' \
