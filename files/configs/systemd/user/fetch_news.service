@@ -1,0 +1,6 @@
+[Unit]
+Description=Fetch news
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/sfeed_update

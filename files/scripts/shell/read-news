@@ -59,8 +59,6 @@ init_variables
 parse_command_line "$@"
 validate_command_line
 
-sfeed_update
-
 if [ -n "${FEED}" ]; then
   read_feed "${FEEDS_PATH}/${FEED}"
 else
