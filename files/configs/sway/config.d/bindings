@@ -58,7 +58,6 @@ mode "-- Launchers --" {
     bindsym d mode "default", exec exec-desktop-entry {dir/data}/applications/document_viewer.desktop
     bindsym h mode "default", exec exec-desktop-entry {dir/data}/applications/system_monitor.desktop
     bindsym m mode "default", exec exec-desktop-entry {dir/data}/applications/mail_client.desktop
-    bindsym n mode "default", exec exec-desktop-entry {dir/data}/applications/news_reader.desktop
     bindsym t mode "default", exec exec-desktop-entry {dir/data}/applications/terminal.desktop
     bindsym w mode "default", exec exec-desktop-entry {dir/data}/applications/web_browser.desktop
 
