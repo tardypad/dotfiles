@@ -55,6 +55,7 @@ read_feed() {
     }" "${FEED_PATH}" \
     | fzf -d '\t' \
           --exit-0 \
+          --tac \
           --layout reverse \
           --height 100% \
           --with-nth 2 \
