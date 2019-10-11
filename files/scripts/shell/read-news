@@ -2,14 +2,23 @@
 
 init_variables() {
   FEEDS_PATH="${HOME}/.sfeed/feeds"
-  ITEMS_COUNT=20
 
   VIEW_SCRIPT="sed -e 's/\\n/\n/g' -e 's/\\t/\t/g' | w3m -T text/html"
 
   FEED=
+  PERIOD=24
 }
 
 parse_command_line() {
+  while getopts t: OPT; do
+    case "${OPT}" in
+      t) PERIOD="${OPTARG}" ;;
+      ?) exit_error ;;
+    esac
+  done
+
+  shift $(( OPTIND - 1 ))
+
   FEED="$1"
 }
 
@@ -17,6 +26,10 @@ validate_command_line() {
   if [ -n "${FEED}" ] && [ ! -f "${FEEDS_PATH}/${FEED}" ]; then
     exit_error "Invalid feed name '${FEED}'"
   fi
+
+  case "${PERIOD}" in
+    *[!0-9]*) exit_error 'period must be an integer' ;;
+  esac
 }
 
 exit_error() {
@@ -33,10 +46,15 @@ read_feed() {
       "${FEED_PATH##*/}"
   )"
 
-  head -n "${ITEMS_COUNT}" "${FEED_PATH}" \
-    | cut -f 1-4,7 \
-    | awk -v FS='\t' -v OFS='\t' '$1=strftime("%c", $1)' \
+  awk -v FS='\t' -v OFS='\t' "\
+    {
+      if (int(\$1) >= ( strftime(\"%s\") - ( ${PERIOD} * 3600 ) ) ) {
+        \$1 = strftime(\"%c\", \$1);
+        print \$1,\$2,\$3,\$4,\$7;
+      }
+    }" "${FEED_PATH}" \
     | fzf -d '\t' \
+          --exit-0 \
           --layout reverse \
           --height 100% \
           --with-nth 2 \
@@ -45,6 +63,8 @@ read_feed() {
           --preview-window 'down:60%' \
           --bind "enter:execute(echo {4} | ${VIEW_SCRIPT})" \
           --bind "ctrl-o:execute-silent(xdg-open {3} &)"
+
+    return 0
 }
 
 read_all_feeds() {

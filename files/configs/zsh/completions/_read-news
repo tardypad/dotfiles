@@ -7,4 +7,5 @@ _feeds() {
 }
 
 _arguments \
+  '-t[period of news to display in hours]:()' \
   '1:feed:_feeds' \
