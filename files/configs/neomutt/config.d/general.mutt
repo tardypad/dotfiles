@@ -69,3 +69,6 @@ set auto_tag = yes
 
 # activate TLS if available on the server
 set ssl_starttls=yes
+
+# open the editor with cursor after the first empty line
+set editor="vim +'/^$/+1' +noh %s"
