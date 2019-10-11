@@ -30,7 +30,7 @@ _WORDS_
 
 # DEPENDENCIES
 
-- GNU grep #FIXME: This script is not POSIX compliant
+- grep with -o option #FIXME: This script is not POSIX compliant
 - fzf-tmux
 - tmux
 - wl-copy
