@@ -69,7 +69,7 @@ read_feed() {
 }
 
 read_all_feeds() {
-  find "${FEEDS_PATH}" -type f  \
+  find "${FEEDS_PATH}" -type f ! -name '*.gz' \
     | sort \
     | while read -r FEED_PATH; do
         read_feed "${FEED_PATH}"
