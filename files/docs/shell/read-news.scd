@@ -12,7 +12,7 @@ read-news [-t _period_] [_feed_]
 
 *-t* _period_
 	Integer defining the period of news to display in hours++
-default: 24 (1 day)
+default: 36 (1.5 day)
 
 # OPERANDS
 

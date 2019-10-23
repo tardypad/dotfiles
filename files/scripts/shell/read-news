@@ -6,7 +6,7 @@ init_variables() {
   VIEW_SCRIPT="sed -e 's/\\n/\n/g' -e 's/\\t/\t/g' | w3m -T text/html"
 
   FEED=
-  PERIOD=24
+  PERIOD=36
 }
 
 parse_command_line() {
