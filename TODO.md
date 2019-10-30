@@ -19,8 +19,6 @@
     * allow to receive query/POST body data from stdin
     * syntax highlighting of query/request keywords
     * completion of query/request keywords
-  - similar keybindings for reload (currently Alt-R) and quit (currently Ctrl-q)  
-    maybe Alt-r and Alt-q
   - better man pages:
     * add DESCRIPTION part with better explanation
     * add FILES used by the script
@@ -46,7 +44,5 @@
     * local organization (uppercase for sway windows and tmux panes, lowercase for sway workspace and tmux windows,...)
 
 ## Research
-  - distraction free mode and scripts to disable tmux status bar, increase tmux pane,...
-    * [vim limelight](https://github.com/junegunn/limelight.vim)
   - Time tracker
   - vim plugins for Go
