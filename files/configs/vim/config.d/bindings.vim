@@ -167,6 +167,11 @@ inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 
 
+" Goyo
+
+nnoremap <silent> <Leader><Space> :Goyo<CR>
+
+
 " ALE
 
 nnoremap <silent> <Leader>lp :ALEPreviousWrap<CR>

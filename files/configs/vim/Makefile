@@ -74,6 +74,7 @@ vim-configs:
 	setup/install-vim-plugin tmux-focus-events "$(DESTDIR)" git https://github.com/tmux-plugins/vim-tmux-focus-events e555efe
 	setup/install-vim-plugin tmux-navigator    "$(DESTDIR)" git https://github.com/christoomey/vim-tmux-navigator     4e1a877
 	setup/install-vim-plugin tmux-clipboard    "$(DESTDIR)" git https://github.com/roxma/vim-tmux-clipboard           d69964a
+	setup/install-vim-plugin goyo              "$(DESTDIR)" git https://github.com/junegunn/goyo.vim                  6b6ed27
 	setup/install-vim-plugin ack               "$(DESTDIR)" git https://github.com/mileszs/ack.vim                    36e40f9
 	setup/install-vim-plugin undotree          "$(DESTDIR)" git https://github.com/mbbill/undotree                    db0223f
 	setup/install-vim-plugin redact-pass       "$(DESTDIR)" git https://sanctum.geek.nz/code/vim-redact-pass.git      v2.0.0
