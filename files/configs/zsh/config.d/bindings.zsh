@@ -41,12 +41,12 @@ replace-run-command() {
 }
 zle -N replace-run-command
 
-# bind Ctrl-S to get a shell status
+# get a shell status
 replace-run-status() replace-run-command status
 zle -N replace-run-status
-bindkey -M viins '^s' replace-run-status
-bindkey -M vicmd '^s' replace-run-status
-bindkey -M isearch '^s' replace-run-status
+bindkey -M viins '^g' replace-run-status
+bindkey -M vicmd '^g' replace-run-status
+bindkey -M isearch '^g' replace-run-status
 
 
 # Enable surround text-objects (quotes, brackets)
