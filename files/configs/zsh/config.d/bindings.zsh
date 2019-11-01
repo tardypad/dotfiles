@@ -88,9 +88,9 @@ bindkey -M isearch '^e' edit-command-line
 
 ## autosuggestions
 
-# Ctrl+Enter accepts and executes suggestion
-bindkey '^[[27;5;13~' autosuggest-execute
-bindkey -M vicmd '^[[27;5;13~' autosuggest-execute
+#  accepts and executes suggestion
+bindkey '^o' autosuggest-execute
+bindkey -M vicmd '^o' autosuggest-execute
 
 
 ## history substring search
