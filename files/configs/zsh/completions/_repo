@@ -1,0 +1,25 @@
+#compdef repo
+
+_repos() {
+  local repos=(
+    aur
+    tardypad
+  )
+
+  compadd "$@" $repos
+}
+
+_actions() {
+  local actions=(
+    add
+    remove
+    sync
+  )
+
+  compadd "$@" $actions
+}
+
+_arguments \
+  '1:repo:_repos' \
+  '2:action:_actions' \
+  '3:package:_files'

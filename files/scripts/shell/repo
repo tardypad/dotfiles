@@ -1,0 +1,84 @@
+#!/bin/sh
+
+init_variables() {
+  COMMAND=${0##*/}
+
+  TMP_DIR='/tmp/repo'
+  trap 'rm -rf "${TMP_DIR}"' EXIT
+
+  REPO=
+  ACTION=
+  PACKAGE=
+}
+
+parse_command_line() {
+  REPO="$1"
+  ACTION="$2"
+  PACKAGE="$3"
+}
+
+validate_command_line() {
+  if [ -z "${REPO}" ]; then
+    exit_error 'missing repo operand'
+  fi
+
+  if [ "${REPO}" != 'aur' ] \
+    && [ "${REPO}" != 'tardypad' ]; then
+    exit_error "invalid repo '${REPO}'"
+  fi
+
+  if [ -z "${ACTION}" ]; then
+    exit_error 'missing action operand'
+  fi
+
+  if [ "${ACTION}" != 'add' ] \
+    && [ "${ACTION}" != 'remove' ] \
+    && [ "${ACTION}" != 'sync' ]; then
+    exit_error "invalid action '${ACTION}'"
+  fi
+
+  if [ -z "${PACKAGE}" ]; then
+    exit_error 'missing package operand'
+  fi
+
+  if [ "${ACTION}" = 'add' ] && [ ! -f "${PACKAGE}" ]; then
+    exit_error "invalid package file '${PACKAGE}'"
+  fi
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+import_env() {
+  mkdir -p "${TMP_DIR}"
+  scp -q "surg:/srv/pkgs/${REPO}/${REPO}.files.tar.xz" "${TMP_DIR}"
+  scp -q "surg:/srv/pkgs/${REPO}/${REPO}.db.tar.xz" "${TMP_DIR}"
+  ln -s "${TMP_DIR}/${REPO}.files.tar.xz" "${TMP_DIR}/${REPO}.files"
+  ln -s "${TMP_DIR}/${REPO}.db.tar.xz" "${TMP_DIR}/${REPO}.db"
+}
+
+export_env() {
+  scp -q "${TMP_DIR}"/*.tar.xz "surg:/srv/pkgs/${REPO}/"
+}
+
+add_package() {
+  repo-add "${TMP_DIR}/${REPO}.db.tar.xz" "${PACKAGE}"
+}
+
+remove_package() {
+  repo-remove "${TMP_DIR}/${REPO}.db.tar.xz" "${PACKAGE}"
+}
+
+sync_package() {
+  aur sync --root "${TMP_DIR}" -d "${REPO}" -rn "${PACKAGE}"
+}
+
+init_variables
+parse_command_line "$@"
+validate_command_line
+
+import_env \
+&& "${ACTION}_package" \
+&& export_env

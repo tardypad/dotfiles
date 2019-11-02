@@ -29,6 +29,7 @@ shell-scripts:
 	$(setup_file)/scripts/shell/query-hosts-tags             > $(DESTDIR)$(BIN_DIR)/query-hosts-tags
 	$(setup_file)/scripts/shell/read-news                    > $(DESTDIR)$(BIN_DIR)/read-news
 	$(setup_file)/scripts/shell/redis-env                    > $(DESTDIR)$(BIN_DIR)/redis-env
+	$(setup_file)/scripts/shell/repo                         > $(DESTDIR)$(BIN_DIR)/repo
 	$(setup_file)/scripts/shell/screenshot                   > $(DESTDIR)$(BIN_DIR)/screenshot
 	$(setup_file)/scripts/shell/somafm                       > $(DESTDIR)$(BIN_DIR)/somafm
 	$(setup_file)/scripts/shell/ssh-tags                     > $(DESTDIR)$(BIN_DIR)/ssh-tags
@@ -62,6 +63,7 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/query-hosts-tags
 	chmod +x $(DESTDIR)$(BIN_DIR)/read-news
 	chmod +x $(DESTDIR)$(BIN_DIR)/redis-env
+	chmod +x $(DESTDIR)$(BIN_DIR)/repo
 	chmod +x $(DESTDIR)$(BIN_DIR)/screenshot
 	chmod +x $(DESTDIR)$(BIN_DIR)/somafm
 	chmod +x $(DESTDIR)$(BIN_DIR)/ssh-tags

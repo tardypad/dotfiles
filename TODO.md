@@ -27,8 +27,6 @@
       STDIN, STDOUT, EXIT STATUS, EXAMPLES,...
 
 ## New Features
-  - create scripts to manage AUR packages with personal repository  
-    check [Michael Daffin blog](https://disconnected.systems/blog/archlinux-repo-in-aws-bucket/)
   - use of Sway IPC via [i3ipc](https://github.com/acrisci/i3ipc-python)
     * alternate binding to switch back and forth window in current workspace
     * keep focus left/right/top/bottom switch within current output
