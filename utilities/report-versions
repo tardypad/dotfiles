@@ -77,24 +77,24 @@ pacman_version() {
 
 report_item() {
   while read -r ITEM; do
-    VERSION1=$( pacman_version "${ITEM}" )
+    VERSION_INSTALLED=$( pacman_version "${ITEM}" )
 
     # ignore plugins not managed by packages manager
-    if [ "${TYPE}" = 'PLUGINS' ] && [ "${VERSION1}" = 'unknown' ]; then
+    if [ "${TYPE}" = 'PLUGINS' ] && [ "${VERSION_INSTALLED}" = 'unknown' ]; then
       continue
     fi
 
-    VERSION2=$( docs_version "${ITEM}" )
+    VERSION_DOCS=$( docs_version "${ITEM}" )
 
     if [ "${ONLY_DIFF}" -eq 1 ] \
-       && [ "${VERSION1}" = "${VERSION2}" ]; then
+       && [ "${VERSION_INSTALLED}" = "${VERSION_DOCS}" ]; then
       continue
     fi
 
     printf '%s %s %s\n' \
       "${ITEM}" \
-      "${VERSION1}" \
-      "${VERSION2}"
+      "${VERSION_DOCS}" \
+      "${VERSION_INSTALLED}"
   done
 }
 
