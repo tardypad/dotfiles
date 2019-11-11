@@ -30,9 +30,9 @@ bindkey -M vicmd '^j' self-insert
 bindkey -M isearch '^j' self-insert
 
 # kill buffer
-bindkey -M viins '^k' kill-buffer
-bindkey -M vicmd '^k' kill-buffer
-bindkey -M isearch '^k' kill-buffer
+bindkey -M viins '^d' kill-buffer
+bindkey -M vicmd '^d' kill-buffer
+bindkey -M isearch '^d' kill-buffer
 
 
 replace-run-command() {
