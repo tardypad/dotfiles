@@ -21,6 +21,8 @@ alias PJ='goto-project main'
 alias logs='goto-project logs'
 alias docs='goto-project docs'
 
+alias rn='read-news'
+
 # display calendar for full year with week number and Monday as week start
 alias calendar='cal --monday --week --year'
 
