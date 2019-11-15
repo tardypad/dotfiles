@@ -35,4 +35,6 @@ _pkg_name_
 # DEPENDENCIES
 
 - aur
+- repo-add
+- repo-remove
 - scp
