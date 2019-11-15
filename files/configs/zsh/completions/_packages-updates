@@ -1,0 +1,13 @@
+#compdef packages-updates
+
+_actions() {
+  local actions=(
+    list
+    update
+  )
+
+  compadd "$@" $actions
+}
+
+_arguments \
+  '1:action:_actions'

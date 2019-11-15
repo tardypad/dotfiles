@@ -22,6 +22,7 @@ alias logs='goto-project logs'
 alias docs='goto-project docs'
 
 alias rn='read-news'
+alias pu='packages-updates'
 
 # display calendar for full year with week number and Monday as week start
 alias calendar='cal --monday --week --year'
@@ -49,18 +50,6 @@ alias passwdgen='echo $( < /dev/urandom tr -d -C "[:graph:]" | dd bs=1 count=30 
 
 # retrieve my public IP
 alias myip='https api.ipify.org'
-
-# all packages update
-alias packages-update="
-  checkupdates \
-  && aur repo -d aur -Su \
-  && aur repo -d tardypad -Su \
-  && sudo pacman -Syu \
-  && tput setaf {color/notice/number} \
-  && echo '-----------------------------' \
-  && echo 'Review carefully the messages' \
-  && echo '-----------------------------'
-"
 
 # simple linters
 alias json-lint='python -m json.tool'

@@ -1,0 +1,55 @@
+#!/bin/sh
+
+init_variables() {
+  COMMAND=${0##*/}
+
+  TMP_DIR='/tmp/packages-updates'
+  trap 'rm -rf "${TMP_DIR}"' EXIT
+
+  ACTION=
+}
+
+parse_command_line() {
+  ACTION="$1"
+}
+
+validate_command_line() {
+  if [ -z "${ACTION}" ]; then
+    exit_error 'missing action operand'
+  fi
+
+  if [ "${ACTION}" != 'list' ] && [ "${ACTION}" != 'update' ]; then
+    exit_error "invalid action '${ACTION}'"
+  fi
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+list_packages_updates() {
+  mkdir -p "${TMP_DIR}"
+  ln -s "$( pacman-conf DBPath )/local" "${TMP_DIR}"
+  fakeroot -- pacman -Sy -b "${TMP_DIR}" --logfile /dev/null > /dev/null
+
+  pacman -Qu -b "${TMP_DIR}" --logfile /dev/null \
+    | grep -v '\[ignored\]' \
+    | cut -d' ' -f1,2,4 \
+    | column -t
+}
+
+update_packages_updates() {
+  sudo pacman -Syu \
+  && tput setaf {color/notice/number} \
+  && echo '-----------------------------' \
+  && echo 'Review carefully the messages' \
+  && echo '-----------------------------'
+}
+
+init_variables
+parse_command_line "$@"
+validate_command_line
+
+"${ACTION}_packages_updates"
+
