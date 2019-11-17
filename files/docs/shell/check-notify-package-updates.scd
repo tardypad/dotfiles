@@ -11,5 +11,5 @@ check-notify-package-updates
 # DEPENDENCIES
 
 - aur
-- checkupdates
 - notify
+- packages-updates

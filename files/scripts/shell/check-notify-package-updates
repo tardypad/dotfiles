@@ -3,7 +3,7 @@
 MESSAGE=
 
 PACMAN_UPDATES_COUNT=$(
-  checkupdates \
+  packages-updates list \
     | wc -l
 )
 if [ "${PACMAN_UPDATES_COUNT}" -gt 0 ]; then
