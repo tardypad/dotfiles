@@ -62,3 +62,7 @@ contrib
 swayidle
 imagemagick
 POSIX
+fakeroot
+scdoc
+yubikey
+Sourcehut
