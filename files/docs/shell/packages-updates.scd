@@ -23,3 +23,4 @@ _update_
 - fakeroot
 - pacman
 - pacman-conf
+- sudo
