@@ -23,7 +23,6 @@ shell-scripts:
 	$(setup_file)/scripts/shell/notify-end-pomodoro          > $(DESTDIR)$(BIN_DIR)/notify-end-pomodoro
 	$(setup_file)/scripts/shell/notify-tmux-alert            > $(DESTDIR)$(BIN_DIR)/notify-tmux-alert
 	$(setup_file)/scripts/shell/packages-updates             > $(DESTDIR)$(BIN_DIR)/packages-updates
-	$(setup_file)/scripts/shell/pacman-pkgdiff               > $(DESTDIR)$(BIN_DIR)/pacman-pkgdiff
 	$(setup_file)/scripts/shell/plot                         > $(DESTDIR)$(BIN_DIR)/plot
 	$(setup_file)/scripts/shell/pomodoro                     > $(DESTDIR)$(BIN_DIR)/pomodoro
 	$(setup_file)/scripts/shell/project-path                 > $(DESTDIR)$(BIN_DIR)/project-path
@@ -58,7 +57,6 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/notify-end-pomodoro
 	chmod +x $(DESTDIR)$(BIN_DIR)/notify-tmux-alert
 	chmod +x $(DESTDIR)$(BIN_DIR)/packages-updates
-	chmod +x $(DESTDIR)$(BIN_DIR)/pacman-pkgdiff
 	chmod +x $(DESTDIR)$(BIN_DIR)/plot
 	chmod +x $(DESTDIR)$(BIN_DIR)/pomodoro
 	chmod +x $(DESTDIR)$(BIN_DIR)/project-path

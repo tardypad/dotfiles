@@ -23,7 +23,6 @@ shell-docs:
 	scdoc < files/docs/shell/notify-tmux-alert.scd            > $(DESTDIR)$(DATA_DIR)/man/man1/notify-tmux-alert.1
 	scdoc < files/docs/shell/notify.scd                       > $(DESTDIR)$(DATA_DIR)/man/man1/notify.1
 	scdoc < files/docs/shell/packages-updates.scd             > $(DESTDIR)$(DATA_DIR)/man/man1/packages-updates.1
-	scdoc < files/docs/shell/pacman-pkgdiff.scd               > $(DESTDIR)$(DATA_DIR)/man/man1/pacman-pkgdiff.1
 	scdoc < files/docs/shell/plot.scd                         > $(DESTDIR)$(DATA_DIR)/man/man1/plot.1
 	scdoc < files/docs/shell/pomodoro.scd                     > $(DESTDIR)$(DATA_DIR)/man/man1/pomodoro.1
 	scdoc < files/docs/shell/project-path.scd                 > $(DESTDIR)$(DATA_DIR)/man/man1/project-path.1

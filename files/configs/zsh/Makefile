@@ -25,7 +25,6 @@ zsh-configs:
 	$(setup_file)/configs/zsh/completions/_mysql-env                   > $(DESTDIR)$(HOME)/.zsh/completions/_mysql-env
 	$(setup_file)/configs/zsh/completions/_notify                      > $(DESTDIR)$(HOME)/.zsh/completions/_notify
 	$(setup_file)/configs/zsh/completions/_packages-updates            > $(DESTDIR)$(HOME)/.zsh/completions/_packages-updates
-	$(setup_file)/configs/zsh/completions/_pacman-pkgdiff              > $(DESTDIR)$(HOME)/.zsh/completions/_pacman-pkgdiff
 	$(setup_file)/configs/zsh/completions/_pomodoro                    > $(DESTDIR)$(HOME)/.zsh/completions/_pomodoro
 	$(setup_file)/configs/zsh/completions/_project-path                > $(DESTDIR)$(HOME)/.zsh/completions/_project-path
 	$(setup_file)/configs/zsh/completions/_query-hosts-tags            > $(DESTDIR)$(HOME)/.zsh/completions/_query-hosts-tags
