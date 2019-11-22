@@ -3,7 +3,7 @@
 init_variables() {
   COMMAND=${0##*/}
 
-  # HOSTS_TAGS_FILE is expected to have a YAML structure
+  # HOSTS_TAGS_FILES are expected to have a YAML structure
   # similar to the following example
   #
   # frontend.example.com:
@@ -17,7 +17,7 @@ init_variables() {
   #
   # there is no restriction on the tags key
   # hosts don't have to have all the same tags
-  HOSTS_TAGS_FILE="${XDG_CACHE_HOME:-$HOME/.cache}/hosts_tags.yaml"
+  HOSTS_TAGS_FILES="${XDG_CACHE_HOME:-$HOME/.cache}/hosts_tags*.yaml"
 
   AWK_SCRIPT=
   QUERY_TYPE=hosts
@@ -108,7 +108,7 @@ process_file() {
     -e 's/^\([^ ][^:]*\):.*$/\n\1/' \
     -e 's/^  //' \
     -e 's/: /=/' \
-    "${HOSTS_TAGS_FILE}" \
+    ${HOSTS_TAGS_FILES} \
     | awk \
       "BEGIN { FS=\"\n\"; RS=\"\" } ${AWK_SCRIPT}" \
     | sort
