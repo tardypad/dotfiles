@@ -22,6 +22,7 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(
   main
   brackets
   pattern
+  influx_env
   mysql_env
   redis_env
 )
@@ -40,6 +41,7 @@ ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg={color/base0B/number}'
 ZSH_HIGHLIGHT_STYLES[bracket-level-5]='fg={color/base0C/number}'
 
 # custom highlighters
+ZSH_HIGHLIGHT_STYLES[influx_env]='bold'
 ZSH_HIGHLIGHT_STYLES[mysql_env]='bold'
 ZSH_HIGHLIGHT_STYLES[redis_env]='bold'
 
