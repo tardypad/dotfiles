@@ -17,7 +17,6 @@
 ## Improvements
   - improve all env scripts usage:
     * allow to receive query/POST body data from stdin
-    * syntax highlighting of query/request keywords
     * completion of query/request keywords
   - better man pages:
     * add DESCRIPTION part with better explanation

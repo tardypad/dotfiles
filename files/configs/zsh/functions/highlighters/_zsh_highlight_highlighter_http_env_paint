@@ -1,0 +1,3 @@
+[[ ! "${BUFFER}" =~ '^http-env ' ]] && return
+
+_zsh_highlight_add_keywords_highlights http http_env
