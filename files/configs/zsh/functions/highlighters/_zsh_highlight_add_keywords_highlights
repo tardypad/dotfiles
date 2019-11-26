@@ -1,0 +1,24 @@
+local type="$1" style_key="$2"
+
+[ -n "${type}" ] || return
+[ -n "${style_key}" ] || return
+
+local keywords_file="${XDG_DATA_HOME:-$HOME/.local/share}/keywords/${type}"
+
+[ -f "${keywords_file}" ] || return
+
+local keywords=(
+  $( cat "${keywords_file}" )
+)
+
+local start_ix=1 ix cur_word
+
+for ix in $( seq 1 ${#BUFFER} ); do
+  if [[ $BUFFER[$ix] == ' ' ]]; then
+    cur_word=$BUFFER[$start_ix,$ix-1]
+    if (( $keywords[(Ie)${cur_word:l}] )); then
+      _zsh_highlight_add_highlight $(( start_ix - 1 )) $ix "${style_key}"
+    fi
+    start_ix=$(( ix + 1 ))
+  fi
+done

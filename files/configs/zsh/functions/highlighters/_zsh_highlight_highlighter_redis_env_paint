@@ -1,0 +1,3 @@
+[[ ! "${BUFFER}" =~ '^redis-env ' ]] && return
+
+_zsh_highlight_add_keywords_highlights redis redis_env
