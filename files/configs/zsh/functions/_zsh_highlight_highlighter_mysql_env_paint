@@ -1,0 +1,76 @@
+[[ ! "${BUFFER}" =~ '^mysql-env ' ]] && return
+
+local keywords=(
+add
+all
+alter
+and
+any
+as
+asc
+backup
+between
+by
+case
+check
+column
+constraint
+create
+database
+default
+delete
+desc
+distinct
+drop
+exec
+exists
+foreign
+from
+full
+group
+having
+in
+index
+inner
+insert
+into
+is
+join
+key
+left
+like
+limit
+not
+null
+or
+order
+outer
+primary
+procedure
+replace
+right
+rownum
+select
+set
+table
+top
+truncate
+union
+unique
+update
+values
+view
+where
+)
+
+local start_ix=1 ix cur_word
+
+for ix in $( seq 1 ${#BUFFER} ); do
+  if [[ $BUFFER[$ix] == ' ' ]]; then
+    cur_word=$BUFFER[$start_ix,$ix-1]
+    if (( $keywords[(Ie)${cur_word:l}] )); then
+      _zsh_highlight_add_highlight $(( start_ix - 1 )) $ix mysql_env
+    fi
+    start_ix=$(( ix + 1 ))
+  fi
+done
