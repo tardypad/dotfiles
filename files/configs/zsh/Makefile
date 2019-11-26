@@ -46,6 +46,8 @@ zsh-configs:
 	$(setup_file)/configs/zsh/functions/goto-project                                   > $(DESTDIR)$(HOME)/.zsh/functions/goto-project
 	$(setup_file)/configs/zsh/functions/_zsh_highlight_highlighter_mysql_env_predicate > $(DESTDIR)$(HOME)/.zsh/functions/_zsh_highlight_highlighter_mysql_env_predicate
 	$(setup_file)/configs/zsh/functions/_zsh_highlight_highlighter_mysql_env_paint     > $(DESTDIR)$(HOME)/.zsh/functions/_zsh_highlight_highlighter_mysql_env_paint
+	$(setup_file)/configs/zsh/functions/_zsh_highlight_highlighter_redis_env_predicate > $(DESTDIR)$(HOME)/.zsh/functions/_zsh_highlight_highlighter_redis_env_predicate
+	$(setup_file)/configs/zsh/functions/_zsh_highlight_highlighter_redis_env_paint     > $(DESTDIR)$(HOME)/.zsh/functions/_zsh_highlight_highlighter_redis_env_paint
 
     # same git completions
 	ln -sf _git-url      $(DESTDIR)$(HOME)/.zsh/completions/git/_git-browse

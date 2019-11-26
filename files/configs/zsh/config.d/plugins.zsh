@@ -23,6 +23,7 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(
   brackets
   pattern
   mysql_env
+  redis_env
 )
 
 # highlight potentially dangerous commands that requires extra attention
@@ -40,6 +41,7 @@ ZSH_HIGHLIGHT_STYLES[bracket-level-5]='fg={color/base0C/number}'
 
 # custom highlighters
 ZSH_HIGHLIGHT_STYLES[mysql_env]='bold'
+ZSH_HIGHLIGHT_STYLES[redis_env]='bold'
 
 
 ## substring history navigation
