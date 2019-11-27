@@ -1,9 +1,11 @@
 #compdef ssh-tags
 
-local hosts_tags_file="${XDG_CACHE_HOME:-$HOME/.cache}/hosts_tags.yaml"
+local hosts_tags_files=(
+  "${XDG_CACHE_HOME:-$HOME/.cache}"/hosts_tags*.yaml
+)
 
-# exit completion if file not present
-[ -f "${hosts_tags_file}" ] || return 1
+# exit completion if no file present
+(( ${#hosts_tags_files[@]} )) || return 1
 
 _hosts_tags() {
   local ignore_tag ignore_tags='@@@'
@@ -14,7 +16,7 @@ _hosts_tags() {
   done
 
   compadd -qS= $(
-    sed -n 's/^  \(.*\): .*/\1/p' "${hosts_tags_file}" \
+    sed -n 's/^  \(.*\): .*/\1/p' ${hosts_tags_files} \
       | sort -u \
       | grep -vE "'${ignore_tags}'"
   )
@@ -24,7 +26,7 @@ _tag_values() {
   local tag="$1"
 
   compadd $(
-    sed -n "s/^  ${tag}: \(.*\)/\1/p" "${hosts_tags_file}" \
+    sed -n "s/^  ${tag}: \(.*\)/\1/p" ${hosts_tags_files} \
       | sort -u
   )
 }
