@@ -19,10 +19,8 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} 'ma={color/base00/
 # color options description
 zstyle ':completion:*:options' list-colors '=-- *={color/base08/fg}'
 
-# Tab case insensitive smart completion
-# lowercase letters match lowercase and uppercase letters
-# uppercase letters match only uppercase letters
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+# case insensitive completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-z}={A-Za-z}'
 
 # Disable hosts completion for ssh and scp
 # from /etc/hosts and ~/.ssh/known_hosts
