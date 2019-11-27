@@ -14,6 +14,13 @@ _envs() {
   _path_files -W "${env_dir_path}/$words[CURRENT-1]"
 }
 
+_keywords() {
+  local keywords_file="${XDG_DATA_HOME:-$HOME/.local/share}/keywords/http"
+  local keywords=( $( cat "${keywords_file}" ) )
+  compadd "$@" $keywords
+}
+
 _arguments \
   '1:project:_projects' \
-  '2:env:_envs'
+  '2:env:_envs' \
+  '*:items:_keywords'
