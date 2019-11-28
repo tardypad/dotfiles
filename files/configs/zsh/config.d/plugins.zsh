@@ -42,7 +42,11 @@ ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg={color/base0B/number}'
 ZSH_HIGHLIGHT_STYLES[bracket-level-5]='fg={color/base0C/number}'
 
 # custom highlighters
-ZSH_HIGHLIGHT_STYLES[http_env]='bold'
+ZSH_HIGHLIGHT_STYLES[http_env:1]='fg={color/blue/number},bold'
+ZSH_HIGHLIGHT_STYLES[http_env:2]='fg={color/blue/number},bold'
+ZSH_HIGHLIGHT_STYLES[http_env:3]='fg={color/yellow/number}'
+ZSH_HIGHLIGHT_STYLES[http_env:4]='fg={color/magenta/number}'
+ZSH_HIGHLIGHT_STYLES[http_env:keywords]='bold'
 ZSH_HIGHLIGHT_STYLES[influx_env]='bold'
 ZSH_HIGHLIGHT_STYLES[mysql_env]='bold'
 ZSH_HIGHLIGHT_STYLES[redis_env]='bold'
