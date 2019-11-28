@@ -1,14 +1,4 @@
 [[ ! "${BUFFER}" =~ '^http-env ' ]] && return
 
-local MATCH; integer MBEGIN MEND
-integer OFFSET=9
-local buf="$BUFFER[$(( OFFSET + 1 )),-1]" i
-
-for i in 1 2 3 4; do
-  [[ "$buf" =~ "[^ ]+" ]] || break
-  _zsh_highlight_add_highlight $(( MBEGIN - 1 + OFFSET )) $(( MEND + OFFSET )) http_env:$i
-  buf="$buf[$(( MEND + 1 )),-1]"
-  OFFSET=$(( MEND + OFFSET ))
-done
-
-_zsh_highlight_add_keywords_highlights http http_env:keywords
+_zsh_highlight_add_positional_params_highlights 4 http_env 9
+_zsh_highlight_add_keywords_highlights http http_env

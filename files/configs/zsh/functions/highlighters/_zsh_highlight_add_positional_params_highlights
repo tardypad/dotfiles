@@ -1,0 +1,15 @@
+local count="$1" style_key_prefix="$2" offset="$3"
+
+[ -n "${count}" ] || return
+[ -n "${style_key_prefix}" ] || return
+[ -n "${offset}" ] || return
+
+local MATCH; integer MBEGIN MEND
+local buf="$BUFFER[$(( offset + 1 )),-1]" i
+
+for i in {1..$count}; do
+  [[ "$buf" =~ "[^ ]+" ]] || break
+  _zsh_highlight_add_highlight $(( MBEGIN - 1 + offset )) $(( MEND + offset )) "${style_key_prefix}:$i"
+  buf="$buf[$(( MEND + 1 )),-1]"
+  offset=$(( MEND + offset ))
+done

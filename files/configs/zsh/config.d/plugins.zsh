@@ -47,9 +47,12 @@ ZSH_HIGHLIGHT_STYLES[http_env:2]='fg={color/blue/number},bold'
 ZSH_HIGHLIGHT_STYLES[http_env:3]='fg={color/yellow/number}'
 ZSH_HIGHLIGHT_STYLES[http_env:4]='fg={color/magenta/number}'
 ZSH_HIGHLIGHT_STYLES[http_env:keywords]='bold'
-ZSH_HIGHLIGHT_STYLES[influx_env]='bold'
-ZSH_HIGHLIGHT_STYLES[mysql_env]='bold'
-ZSH_HIGHLIGHT_STYLES[redis_env]='bold'
+ZSH_HIGHLIGHT_STYLES[influx_env:1]='fg={color/blue/number},bold'
+ZSH_HIGHLIGHT_STYLES[influx_env:keywords]='bold'
+ZSH_HIGHLIGHT_STYLES[mysql_env:1]='fg={color/blue/number},bold'
+ZSH_HIGHLIGHT_STYLES[mysql_env:keywords]='bold'
+ZSH_HIGHLIGHT_STYLES[redis_env:1]='fg={color/blue/number},bold'
+ZSH_HIGHLIGHT_STYLES[redis_env:keywords]='bold'
 
 
 ## substring history navigation

@@ -1,3 +1,4 @@
 [[ ! "${BUFFER}" =~ '^mysql-env ' ]] && return
 
+_zsh_highlight_add_positional_params_highlights 1 mysql_env 10
 _zsh_highlight_add_keywords_highlights mysql mysql_env

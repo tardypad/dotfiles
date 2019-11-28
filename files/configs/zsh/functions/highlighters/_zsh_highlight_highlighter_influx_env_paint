@@ -1,3 +1,4 @@
 [[ ! "${BUFFER}" =~ '^influx-env ' ]] && return
 
+_zsh_highlight_add_positional_params_highlights 1 influx_env 11
 _zsh_highlight_add_keywords_highlights influx influx_env

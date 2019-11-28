@@ -1,7 +1,7 @@
-local type="$1" style_key="$2"
+local type="$1" style_key_prefix="$2"
 
 [ -n "${type}" ] || return
-[ -n "${style_key}" ] || return
+[ -n "${style_key_prefix}" ] || return
 
 local keywords_file="${XDG_DATA_HOME:-$HOME/.local/share}/keywords/${type}"
 
@@ -17,7 +17,7 @@ for ix in $( seq 1 ${#BUFFER} ); do
   if [[ ! $BUFFER[$ix] =~ '^[-_[:alnum:]]*$' ]]; then
     cur_word=$BUFFER[$start_ix,$ix-1]
     if (( $keywords[(Ie)${cur_word:l}] )); then
-      _zsh_highlight_add_highlight $(( start_ix - 1 )) $(( ix - 1 )) "${style_key}"
+      _zsh_highlight_add_highlight $(( start_ix - 1 )) $(( ix - 1 )) "${style_key_prefix}:keywords"
     fi
     start_ix=$(( ix + 1 ))
   fi
