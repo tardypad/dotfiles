@@ -70,11 +70,11 @@ bind x confirm-before -p 'kill-window "#{window_name}"? (y/n)' kill-window
 
 # select
 bind    w choose-tree -Z -w -F '#{?pane_format,#{pane_current_command},#{?window_format,#{window_name},}}' -f "#{!=:0,#{session_attached}}" -O index
-bind -r a select-window -t :{last}
-bind -r n select-window -t :{next}
-bind -r l select-window -t :{next}
-bind -r p select-window -t :{previous}
-bind -r h select-window -t :{previous}
+bind -r a select-window -t ':{last}'
+bind -r n select-window -t ':{next}'
+bind -r l select-window -t ':{next}'
+bind -r p select-window -t ':{previous}'
+bind -r h select-window -t ':{previous}'
 bind    1 select-window -t :=1
 bind    2 select-window -t :=2
 bind    3 select-window -t :=3
@@ -92,11 +92,11 @@ bind s split-window -v -c '#{pane_current_path}'
 
 # move mode
 bind         m switch-client -T move
-bind -T move a switch-client -T move \; swap-window -t :{last}
-bind -T move n switch-client -T move \; swap-window -t :{next}
-bind -T move l switch-client -T move \; swap-window -t :{next}
-bind -T move p switch-client -T move \; swap-window -t :{previous}
-bind -T move h switch-client -T move \; swap-window -t :{previous}
+bind -T move a switch-client -T move \; swap-window -t ':{last}'
+bind -T move n switch-client -T move \; swap-window -t ':{next}'
+bind -T move l switch-client -T move \; swap-window -t ':{next}'
+bind -T move p switch-client -T move \; swap-window -t ':{previous}'
+bind -T move h switch-client -T move \; swap-window -t ':{previous}'
 bind -T move 1 switch-client -T move \; run "tmux-move-window-index 1"
 bind -T move 2 switch-client -T move \; run "tmux-move-window-index 2"
 bind -T move 3 switch-client -T move \; run "tmux-move-window-index 3"
@@ -125,13 +125,13 @@ bind Z resize-pane -Z
 bind G display-panes
 
 # select
-bind -r A select-pane -t :.{last}
-bind -r N select-pane -t :.{next}
-bind -r P select-pane -t :.{previous}
-bind -r H select-pane -t :.{left-of}
-bind -r J select-pane -t :.{down-of}
-bind -r K select-pane -t :.{up-of}
-bind -r L select-pane -t :.{right-of}
+bind -r A select-pane -t ':.{last}'
+bind -r N select-pane -t ':.{next}'
+bind -r P select-pane -t ':.{previous}'
+bind -r H select-pane -t ':.{left-of}'
+bind -r J select-pane -t ':.{down-of}'
+bind -r K select-pane -t ':.{up-of}'
+bind -r L select-pane -t ':.{right-of}'
 
 bind -T root M-a run "tmux-select-pane-vim a"
 bind -T root M-h run "tmux-select-pane-vim h"
@@ -146,18 +146,18 @@ bind M-BSpace respawn-pane -k
 # move mode
 bind         M switch-client -T MOVE
 bind -T MOVE c switch-client -T MOVE \; break-pane
-bind -T MOVE a switch-client -T MOVE \; move-pane -h -t :{last}
-bind -T MOVE n switch-client -T MOVE \; move-pane -h -t :{next}
-bind -T MOVE l switch-client -T MOVE \; move-pane -h -t :{next}
-bind -T MOVE p switch-client -T MOVE \; move-pane -h -t :{previous}
-bind -T MOVE h switch-client -T MOVE \; move-pane -h -t :{previous}
-bind -T MOVE A switch-client -T MOVE \; swap-pane -d -t :.{last}
-bind -T MOVE N switch-client -T MOVE \; swap-pane -d -t :.{next}
-bind -T MOVE P switch-client -T MOVE \; swap-pane -d -t :.{previous}
-bind -T MOVE H switch-client -T MOVE \; swap-pane -d -t :.{left-of}
-bind -T MOVE J switch-client -T MOVE \; swap-pane -d -t :.{down-of}
-bind -T MOVE K switch-client -T MOVE \; swap-pane -d -t :.{up-of}
-bind -T MOVE L switch-client -T MOVE \; swap-pane -d -t :.{right-of}
+bind -T MOVE a switch-client -T MOVE \; move-pane -h -t ':{last}'
+bind -T MOVE n switch-client -T MOVE \; move-pane -h -t ':{next}'
+bind -T MOVE l switch-client -T MOVE \; move-pane -h -t ':{next}'
+bind -T MOVE p switch-client -T MOVE \; move-pane -h -t ':{previous}'
+bind -T MOVE h switch-client -T MOVE \; move-pane -h -t ':{previous}'
+bind -T MOVE A switch-client -T MOVE \; swap-pane -d -t ':.{last}'
+bind -T MOVE N switch-client -T MOVE \; swap-pane -d -t ':.{next}'
+bind -T MOVE P switch-client -T MOVE \; swap-pane -d -t ':.{previous}'
+bind -T MOVE H switch-client -T MOVE \; swap-pane -d -t ':.{left-of}'
+bind -T MOVE J switch-client -T MOVE \; swap-pane -d -t ':.{down-of}'
+bind -T MOVE K switch-client -T MOVE \; swap-pane -d -t ':.{up-of}'
+bind -T MOVE L switch-client -T MOVE \; swap-pane -d -t ':.{right-of}'
 bind -T MOVE 1 switch-client -T MOVE \; run "tmux-move-pane-window-index 1"
 bind -T MOVE 2 switch-client -T MOVE \; run "tmux-move-pane-window-index 2"
 bind -T MOVE 3 switch-client -T MOVE \; run "tmux-move-pane-window-index 3"
@@ -248,8 +248,8 @@ bind -T copy-mode-vi   t command-prompt -1 -p "(jump to forward)" "send -X jump-
 bind -T copy-mode-vi   T command-prompt -1 -p "(jump to backward)" "send -X jump-to-backward \"%%%\""
 bind -T copy-mode-vi  \; send-keys -X jump-again
 bind -T copy-mode-vi   , send-keys -X jump-reverse
-bind -T copy-mode-vi   { send-keys -X previous-paragraph
-bind -T copy-mode-vi   } send-keys -X next-paragraph
+bind -T copy-mode-vi  \{ send-keys -X previous-paragraph
+bind -T copy-mode-vi  \} send-keys -X next-paragraph
 bind -T copy-mode-vi   o send-keys -X other-end
 bind -T copy-mode-vi   : command-prompt -p "(goto line)" "send -X goto-line \"%%%\""
 bind -T copy-mode-vi   / command-prompt -p "(search down)" "send -X search-forward \"%%%\""
