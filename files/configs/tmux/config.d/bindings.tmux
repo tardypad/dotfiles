@@ -250,6 +250,7 @@ bind -T copy-mode-vi  \; send-keys -X jump-again
 bind -T copy-mode-vi   , send-keys -X jump-reverse
 bind -T copy-mode-vi  \{ send-keys -X previous-paragraph
 bind -T copy-mode-vi  \} send-keys -X next-paragraph
+bind -T copy-mode-vi   % send-keys -X next-matching-bracket
 bind -T copy-mode-vi   o send-keys -X other-end
 bind -T copy-mode-vi   : command-prompt -p "(goto line)" "send -X goto-line \"%%%\""
 bind -T copy-mode-vi   / command-prompt -p "(search down)" "send -X search-forward \"%%%\""
