@@ -1,27 +1,27 @@
-set -g message-command-style "bg=#{color/base09/hex},fg=#{color/base00/hex},bold"
-set -g message-style "bg=#{color/base09/hex},fg=#{color/base00/hex}"
-set -g mode-style "bg=#{color/notice/hex},fg=#{color/base00/hex}"
+set-option -g message-command-style "bg=#{color/base09/hex},fg=#{color/base00/hex},bold"
+set-option -g message-style "bg=#{color/base09/hex},fg=#{color/base00/hex}"
+set-option -g mode-style "bg=#{color/notice/hex},fg=#{color/base00/hex}"
 
-set -g display-panes-colour "#{color/base09/hex}"
-set -g display-panes-active-colour "#{color/base0A/hex}"
+set-option -g display-panes-colour "#{color/base09/hex}"
+set-option -g display-panes-active-colour "#{color/base0A/hex}"
 
-set -g status-justify left
+set-option -g status-justify left
 
-set -g status on
+set-option -g status on
 
-set -g status-style "bg=default,fg=#{color/foreground/hex}"
-set -g status-left-style "bg=#{color/base09/hex},fg=#{color/base00/hex}"
-set -g status-right-style "fg=#{color/base09/hex}"
+set-option -g status-style "bg=default,fg=#{color/foreground/hex}"
+set-option -g status-left-style "bg=#{color/base09/hex},fg=#{color/base00/hex}"
+set-option -g status-right-style "fg=#{color/base09/hex}"
 
-set -g status-left-length 40
-set -g status-left " #{session_name} "
+set-option -g status-left-length 40
+set-option -g status-left " #{session_name} "
 %if #{DISPLAY}
-set -g status-right ''
+set-option -g status-right ''
 %else
-set -g status-right '  %a %e %b %Y %H:%M'
+set-option -g status-right '  %a %e %b %Y %H:%M'
 %endif
 
-set -g status-format[0] \
+set-option -g status-format[0] \
 "#[align=left range=left #{status-left-style}]\
 #{T;=/#{status-left-length}:status-left}\
 #[norange default]  \
@@ -55,23 +55,23 @@ set -g status-format[0] \
 #{T;=/#{status-right-length}:status-right}\
 #[norange default]"
 
-setw -g window-style "bg=#{color/background/hex}"
-setw -g window-active-style "bg=#{color/background/hex}"
+set-option -w -g window-style "bg=#{color/background/hex}"
+set-option -w -g window-active-style "bg=#{color/background/hex}"
 
-setw -g pane-border-style "bg=#{color/background/hex},fg=#{color/base03/hex}"
-setw -g pane-active-border-style "bg=#{color/background/hex},fg=#{color/base0A/hex}"
+set-option -w -g pane-border-style "bg=#{color/background/hex},fg=#{color/base03/hex}"
+set-option -w -g pane-active-border-style "bg=#{color/background/hex},fg=#{color/base0A/hex}"
 
-setw -g pane-border-format ' #{pane_current_command} '
-setw -g pane-border-status off
+set-option -w -g pane-border-format ' #{pane_current_command} '
+set-option -w -g pane-border-status off
 
-setw -g window-status-current-style "bg=#{color/base09/hex},fg=#{color/base00/hex}"
-setw -g window-status-last-style "fg=#{color/base09/hex}"
-setw -g window-status-activity-style 'fg=#{color/notice/hex}'
-setw -g window-status-bell-style 'fg=#{color/notice/hex}'
+set-option -w -g window-status-current-style "bg=#{color/base09/hex},fg=#{color/base00/hex}"
+set-option -w -g window-status-last-style "fg=#{color/base09/hex}"
+set-option -w -g window-status-activity-style 'fg=#{color/notice/hex}'
+set-option -w -g window-status-bell-style 'fg=#{color/notice/hex}'
 
-setw -g window-status-separator ' '
-setw -g window-status-format ' #{window_index}:#{window_name} '
-setw -g window-status-current-format \
+set-option -w -g window-status-separator ' '
+set-option -w -g window-status-format ' #{window_index}:#{window_name} '
+set-option -w -g window-status-current-format \
 '#{?pane_in_mode,#[bg=#{color/notice/hex}#,fg=#{color/base00/hex}],}\
 #{?window_zoomed_flag,~~,}\
 #{?pane_in_mode,[,}\
@@ -79,7 +79,7 @@ setw -g window-status-current-format \
 #{?pane_in_mode,],}\
 #{?window_zoomed_flag,~~,}'
 
-setw -g main-pane-width 80
-setw -g main-pane-height 40
-setw -g other-pane-width 60
-setw -g other-pane-height 15
+set-option -w -g main-pane-width 80
+set-option -w -g main-pane-height 40
+set-option -w -g other-pane-width 60
+set-option -w -g other-pane-height 15
