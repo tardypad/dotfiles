@@ -176,14 +176,14 @@ bind -T RESIZE J switch-client -T RESIZE \; resize-pane -D 3
 bind -T RESIZE K switch-client -T RESIZE \; resize-pane -U 3
 bind -T RESIZE L switch-client -T RESIZE \; resize-pane -R 3
 
-# extract mode
-bind            E switch-client -T EXTRACT
-bind -T EXTRACT h run "tmux-extract-tokens hashes"
-bind -T EXTRACT l run "tmux-extract-tokens lines"
-bind -T EXTRACT p run "tmux-extract-tokens paths"
-bind -T EXTRACT u run "tmux-extract-tokens urls"
-bind -T EXTRACT w run "tmux-extract-tokens words"
-bind -T EXTRACT W run "tmux-extract-tokens WORDS"
+# extract menu
+bind            E display-menu -x P -y P -T 'Extract' \
+'hash' h 'run "tmux-extract-tokens hashes"' \
+'line' l 'run "tmux-extract-tokens lines"'  \
+'path' p 'run "tmux-extract-tokens paths"'  \
+'url'  u 'run "tmux-extract-tokens urls"'   \
+'word' w 'run "tmux-extract-tokens words"'  \
+'WORD' W 'run "tmux-extract-tokens WORDS"'
 
 
 ## root key space
