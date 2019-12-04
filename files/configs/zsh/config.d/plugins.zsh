@@ -22,7 +22,7 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(
   main
   brackets
   pattern
-  http-env
+  http_env
   influx_env
   mysql_env
   redis_env
