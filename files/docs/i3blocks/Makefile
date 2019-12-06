@@ -11,4 +11,5 @@ i3blocks-docs:
 	scdoc < files/docs/i3blocks/i3blocks-network.scd        > $(DESTDIR)$(DATA_DIR)/man/man1/i3blocks-network.1
 	scdoc < files/docs/i3blocks/i3blocks-pomodoro.scd       > $(DESTDIR)$(DATA_DIR)/man/man1/i3blocks-pomodoro.1
 	scdoc < files/docs/i3blocks/i3blocks-power.scd          > $(DESTDIR)$(DATA_DIR)/man/man1/i3blocks-power.1
+	scdoc < files/docs/i3blocks/i3blocks-time-tracker.scd   > $(DESTDIR)$(DATA_DIR)/man/man1/i3blocks-time-tracker.1
 	scdoc < files/docs/i3blocks/i3blocks-volume.scd         > $(DESTDIR)$(DATA_DIR)/man/man1/i3blocks-volume.1
