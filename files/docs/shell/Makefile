@@ -34,5 +34,6 @@ shell-docs:
 	scdoc < files/docs/shell/somafm.scd                       > $(DESTDIR)$(DATA_DIR)/man/man1/somafm.1
 	scdoc < files/docs/shell/ssh-tags.scd                     > $(DESTDIR)$(DATA_DIR)/man/man1/ssh-tags.1
 	scdoc < files/docs/shell/status.scd                       > $(DESTDIR)$(DATA_DIR)/man/man1/status.1
+	scdoc < files/docs/shell/time-tracker.scd                 > $(DESTDIR)$(DATA_DIR)/man/man1/time-tracker.1
 	scdoc < files/docs/shell/tmux-env.scd                     > $(DESTDIR)$(DATA_DIR)/man/man1/tmux-env.1
 	scdoc < files/docs/shell/weechat-fifo.scd                 > $(DESTDIR)$(DATA_DIR)/man/man1/weechat-fifo.1

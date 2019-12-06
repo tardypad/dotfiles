@@ -40,5 +40,4 @@
     * local organization (uppercase for sway windows and tmux panes, lowercase for sway workspace and tmux windows,...)
 
 ## Research
-  - Time tracker
   - vim plugins for Go

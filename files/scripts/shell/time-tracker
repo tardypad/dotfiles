@@ -1,0 +1,109 @@
+#!/bin/sh
+
+init_variables() {
+  COMMAND=${0##*/}
+
+  CURRENT_FILE_PATH="${XDG_RUNTIME_DIR}/time_tracker"
+  LOGGING_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/time_tracker"
+
+  ACTION='status'
+  TASK_ID=
+  TASK_NAME=
+  TASK_DESC=
+}
+
+parse_command_line() {
+  [ -z "$1" ] || ACTION="$1"
+
+  if [ "${ACTION}" = 'start' ]; then
+    TASK_ID="$2"
+    TASK_NAME="$3"
+    TASK_DESC="$4"
+  fi
+}
+
+validate_command_line() {
+  if [ "${ACTION}" != 'start' ] \
+     && [ "${ACTION}" != 'stop' ] \
+     && [ "${ACTION}" != 'status' ]; then
+    exit_error "Invalid action '${ACTION}'"
+  fi
+
+  if [ "${ACTION}" = 'start' ]; then
+    if [ -z "${TASK_ID}" ]; then
+      exit_error 'Missing task identifier'
+    fi
+
+    if [ -z "${TASK_NAME}" ]; then
+      exit_error 'Missing task name'
+    fi
+  fi
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+current_time_min() {
+  CUR_HOURS=$( date +%H )
+  CUR_MINUTES=$( date +%M )
+  # values with leading 0 are interpreted as octals
+  # which leads to issue with "08" and "09"
+  # so we need to remove them
+  echo $((
+    ${CUR_HOURS#0} * 60 + ${CUR_MINUTES#0}
+  ))
+}
+
+tracking_start() {
+  if is_tracking_started; then
+    tracking_stop
+  fi
+
+  CURRENT_TIME=$( current_time_min )
+
+  printf '%s\t%s\t%s\t%s' \
+    "${CURRENT_TIME}" "${TASK_ID}" "${TASK_NAME}" "${TASK_DESC}" \
+    > "${CURRENT_FILE_PATH}"
+}
+
+tracking_status() {
+  if ! is_tracking_started; then
+    echo 'No current tracking' >&2
+    return 1
+  fi
+
+  cut -f 2- "${CURRENT_FILE_PATH}"
+}
+
+tracking_stop() {
+  if ! is_tracking_started; then
+    echo 'No current tracking' >&2
+    return 1
+  fi
+
+  CURRENT_DAY=$( date +%Y-%m-%d )
+  START_TIME=$( cut -f 1 "${CURRENT_FILE_PATH}" )
+  CURRENT_TIME=$( current_time_min )
+  DURATION=$(( CURRENT_TIME - START_TIME ))
+
+  mkdir -p "${LOGGING_DIR}"
+
+  {
+    sed 's/^[[:digit:]]*\t\(.*\)/\1/' "${CURRENT_FILE_PATH}";
+    echo "${DURATION}";
+  } >> "${LOGGING_DIR}/${CURRENT_DAY}"
+
+  rm -rf "${CURRENT_FILE_PATH}"
+}
+
+is_tracking_started() {
+  [ -f "${CURRENT_FILE_PATH}" ]
+}
+
+init_variables
+parse_command_line "$@"
+validate_command_line
+
+"tracking_${ACTION}"

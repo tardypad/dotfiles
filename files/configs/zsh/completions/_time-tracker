@@ -1,0 +1,14 @@
+#compdef time-tracker
+
+_actions() {
+  local actions=(
+    start
+    status
+    stop
+  )
+
+  compadd "$@" $actions
+}
+
+_arguments \
+  '1:action:_actions'
