@@ -178,12 +178,12 @@ bind -T RESIZE L switch-client -T RESIZE \; resize-pane -R 3
 
 # extract menu
 bind            E display-menu -x P -y P -T 'Extract' \
-'hash' h 'run "tmux-extract-tokens hashes"' \
-'line' l 'run "tmux-extract-tokens lines"'  \
-'path' p 'run "tmux-extract-tokens paths"'  \
-'url'  u 'run "tmux-extract-tokens urls"'   \
-'word' w 'run "tmux-extract-tokens words"'  \
-'WORD' W 'run "tmux-extract-tokens WORDS"'
+'hash' h 'run -b "tmux-extract-tokens hashes"' \
+'line' l 'run -b "tmux-extract-tokens lines"'  \
+'path' p 'run -b "tmux-extract-tokens paths"'  \
+'url'  u 'run -b "tmux-extract-tokens urls"'   \
+'word' w 'run -b "tmux-extract-tokens words"'  \
+'WORD' W 'run -b "tmux-extract-tokens WORDS"'
 
 
 ## root key space
@@ -193,7 +193,7 @@ bind -T root M-Space   run "tmux-toggle-no-distraction soft"
 bind -T root M-C-Space run "tmux-toggle-no-distraction hard"
 
 # extract URLS
-bind -T root C-Tab run "tmux-extract-tokens urls"
+bind -T root C-Tab run -b "tmux-extract-tokens urls"
 
 
 ## copy mode
