@@ -11,8 +11,6 @@ CHANNEL_ID=$(
 
 [ -n "${CHANNEL_ID}" ] || exit
 
-echo "Fetching channel..."
-
 CHANNEL_URL=$( somafm direct_url "${CHANNEL_ID}" )
 
 mpc -q clear

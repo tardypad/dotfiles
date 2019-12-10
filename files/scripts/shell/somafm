@@ -50,6 +50,7 @@ should_build_cache() {
 build_cache() {
   mkdir -p "$( dirname "${CACHE_CHANNELS_FILE}" )"
 
+  echo "Fetching list of channels..." >&2
   curl -s "${CHANNELS_URL}" -o "${CACHE_CHANNELS_FILE}"
 }
 
@@ -82,6 +83,7 @@ somafm_playlist() {
 }
 
 somafm_direct_url() {
+  echo "Fetching channel..." >&2
   curl -s "$( somafm_playlist )" \
     | sed -n 's/^File1=\(.*\)/\1/p'
 }
