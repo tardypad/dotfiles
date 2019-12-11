@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# display general status info about the current shell
-
 print_item() {
   HEADER="$1"
   VALUE="$2"

@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# move window to a new workspace in the focused output
-# at the lowest index available
-
 is_workspace_num_used() {
   WORKSPACE_NUM="$1"
 

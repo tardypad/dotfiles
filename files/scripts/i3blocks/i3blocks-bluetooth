@@ -12,7 +12,6 @@ CONNECTED_DEVICES=$(
     | paste -sd,
 )
 
-# only display something if a device is connected
 if [ -z "${CONNECTED_DEVICES}" ]; then
   exit 0
 fi

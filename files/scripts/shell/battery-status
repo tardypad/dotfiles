@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# report status of the battery
-
 ADAPTER_STATUS=$(
   [ "$( cat /sys/class/power_supply/AC/online )" -eq 1 ] \
     && echo 'on' \

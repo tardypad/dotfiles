@@ -2,11 +2,10 @@
 
 TITLE='Chat client'
 
-# try to focus existing window if it exists
 sway-focus-window-title "${TITLE}" && exit
 
-# launch new app otherwise in new workspace
 sway-create-workspace 'chat'
+
 swaymsg -q exec \
   "alacritty \
    -t \"${TITLE}\" \

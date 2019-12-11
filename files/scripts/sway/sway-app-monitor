@@ -2,10 +2,8 @@
 
 TITLE='sway_monitor'
 
-# try to focus existing window if it exists
 sway-focus-window-title "${TITLE}" && exit
 
-# launch new app otherwise
 swaymsg -q exec \
   "alacritty \
    -t \"${TITLE}\" \

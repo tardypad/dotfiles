@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# run general sway command
-
 WINDOW_MARK='command_input'
 
 WINDOW_FOCUSED_ID=$(

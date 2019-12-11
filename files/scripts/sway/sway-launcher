@@ -2,12 +2,12 @@
 
 COMMAND="$*"
 
-# try to focus existing window if it exists
-sway-focus-window-title 'sway_launcher' && exit
+TITLE='sway_launcher'
 
-# launch new launcher otherwise
+sway-focus-window-title "${TITLE}" && exit
+
 swaymsg -q exec \
   "alacritty \
-   -t sway_launcher \
+   -t \"${TITLE}\" \
    --config-file ${XDG_CONFIG_HOME:-$HOME/.config}/alacritty/alacritty_launcher.yml \
    -e ${COMMAND}" \

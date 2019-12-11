@@ -2,7 +2,6 @@
 
 TRACKING_STATUS=$( time-tracker status 2> /dev/null )
 
-# only display something if a tracking was started
 [ -n "${TRACKING_STATUS}" ] || exit 0
 
 TASK_NAME=$( echo "${TRACKING_STATUS}" | cut -f 2 )

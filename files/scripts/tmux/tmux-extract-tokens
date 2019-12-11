@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# Extract tokens from currently displayed pane (in copy-mode too)
-
-
 TOKEN_TYPE="$1"
 
 SPLIT_HEIGHT=20

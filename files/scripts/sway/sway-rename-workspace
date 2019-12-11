@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# rename current workspace
-
 CURRENT_WORKSPACE_NUMBER=$(
   swaymsg -t get_workspaces \
     | jq -r \

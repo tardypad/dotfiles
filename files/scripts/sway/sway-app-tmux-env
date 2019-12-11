@@ -9,11 +9,10 @@ TITLE="${ENV_NAME} environment"
 # will do nothing if already exists
 tmux-env -b "${ENV_NAME}" "${SESSION_NAME}"
 
-# try to focus existing window if it exists
 sway-focus-window-title "${TITLE}" && exit
 
-# launch new app otherwise in new workspace
 sway-create-workspace "${ENV_NAME}"
+
 swaymsg -q exec \
   "alacritty \
    -t \"${TITLE}\" \
