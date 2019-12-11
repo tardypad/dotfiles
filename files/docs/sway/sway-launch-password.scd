@@ -8,6 +8,10 @@ sway-launch-password - Launcher to copy a password
 
 sway-launch-password
 
+# DESCRIPTION
+
+Open a launcher window to select and copy a password.
+
 # DEPENDENCIES
 
 - pass

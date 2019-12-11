@@ -2,11 +2,15 @@ sway-command-input-exec(1)
 
 # NAME
 
-sway-command-input-exec - Sway command input execution
+sway-command-input-exec - Sway command user input execution
 
 # SYNOPSIS
 
 sway-command-input-exec [-F _format_] [-P _prompt_]
+
+# DESCRIPTION
+
+Run a sway command given some user input
 
 # OPTIONS
 

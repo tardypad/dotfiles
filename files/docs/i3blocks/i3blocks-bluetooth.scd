@@ -8,6 +8,10 @@ i3blocks-bluetooth - Report the bluetooth status for i3blocks
 
 i3blocks-bluetooth
 
+# DESCRIPTION
+
+Print the bluetooth status for i3blocks
+
 # DEPENDENCIES
 
 - bluetoothctl

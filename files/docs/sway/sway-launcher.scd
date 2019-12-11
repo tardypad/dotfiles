@@ -2,11 +2,15 @@ sway-launcher(1)
 
 # NAME
 
-sway-launcher - Helper for launchers
+sway-launcher - Helper for opening launchers
 
 # SYNOPSIS
 
 sway-launcher _command_
+
+# DESCRIPTION
+
+Open a launcher window. It focus current one if any already exists.
 
 # OPERANDS
 

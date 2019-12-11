@@ -6,23 +6,30 @@ do-not-disturb - Manage "Do not disturb" mode
 
 # SYNOPSIS
 
-do-not-disturb [ _status_ | _disable_ ]
+do-not-disturb [ *status* | *disable* ]
 
-do-not-disturb ( _enable_ | _toggle_ ) [ _info_ ]
+do-not-disturb ( *enable* | *toggle* ) [ _info_ ]
+
+# DESCRIPTION
+
+Manage "Do not disturb" mode. It updates mode on various places:
+- locally on system
+- in Slack chat
+- on remote server
 
 # OPERANDS
 
-_status_
+*status*
 	Display whether the "Do not disturb" mode is "enabled" or "disabled"++
 This is the default action if none is specified
 
-_disable_
+*disable*
 	Disable "Do not disturb" mode
 
-_enable_
+*enable*
 	Enable "Do not disturb" mode
 
-_toggle_
+*toggle*
 	Toggle "Do not disturb" mode
 
 _info_

@@ -8,6 +8,11 @@ tmux-notify-alert - Handle a tmux alert for notification
 
 tmux-notify-alert _type_ _socket_path_ _session_id_ _window_id_
 
+# DESCRIPTION
+
+Handle a tmux alert by displaying a message in tmux about the type and source
+of the alert. It also trigger a system notification with the same info.
+
 # OPERANDS
 
 _type_

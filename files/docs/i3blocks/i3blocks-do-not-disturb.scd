@@ -8,6 +8,10 @@ i3blocks-do-not-disturb - Report the do-not-disturb status for i3blocks
 
 i3blocks-do-not-disturb
 
+# DESCRIPTION
+
+Print the do-not-disturb status for i3blocks
+
 # DEPENDENCIES
 
 - do-not-disturb

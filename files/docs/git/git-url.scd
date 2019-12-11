@@ -2,12 +2,17 @@ git-url(1)
 
 # NAME
 
-git-url - Display an URL related to the repo or a commit++
-          Based on remote config using an URL alias and "browse" config
+git-url - Display an URL related to the repository or a commit
 
 # SYNOPSIS
 
 git url [-c _commit_] [-r _remote_] [-t _type_]
+
+# DESCRIPTION
+
+Print an URL related to the repository or a specific object. It is based on:
+- the remote config using an URL alias
+- a specific "browse" config block using that alias
 
 # OPTIONS
 
@@ -23,7 +28,7 @@ default: origin
 	URL type++
 default: repo++
 valid types:
-	- repo: general URL of the repo
+	- repo: general URL of the repository
 	- commit: URL of the selected commit
 	- issue: URL of the issue related to selected commit
 	- review: URL of the review related to selected commit

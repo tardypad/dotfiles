@@ -8,6 +8,10 @@ mysql-env - Start MySQL or run a query within a project environment
 
 mysql-env _project_ [_query_] [-- _option_...]
 
+# DESCRIPTION
+
+Start MySQL or run a query within a project environment
+
 # OPERANDS
 
 _project_

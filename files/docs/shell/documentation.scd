@@ -8,6 +8,10 @@ documentation - Get documentation about a topic
 
 documentation _topic_ [_section_]
 
+# DESCRIPTION
+
+Display documentation about a topic
+
 # OPERANDS
 
 _topic_

@@ -8,6 +8,10 @@ notify - Send a notification
 
 notify [-c _category_] [-i _id_] [-t _time_] _summary_ [_body_]
 
+# DESCRIPTION
+
+Send a system notification
+
 # OPTIONS
 
 *-c* _category_

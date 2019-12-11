@@ -8,6 +8,10 @@ status - Report current shell status
 
 status
 
+# DESCRIPTION
+
+Print general status info about the current shell
+
 # DEPENDENCIES
 
 - git (includes own command: current-branch)

@@ -8,6 +8,10 @@ loop - Execute a command in a loop
 
 loop [-c _count_] [-i _interval_] [-t _time_] _command_
 
+# DESCRIPTION
+
+Execute a command in a loop
+
 # OPTIONS
 
 *-c* _count_

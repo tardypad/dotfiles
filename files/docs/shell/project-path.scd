@@ -8,6 +8,10 @@ project-path - Display a path related to a project
 
 project-path _type_ [_project_]
 
+# DESCRIPTION
+
+Print a path related to a project
+
 # OPERANDS
 
 _type_

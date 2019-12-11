@@ -8,6 +8,10 @@ i3blocks-chat - Report the chat status for i3blocks
 
 i3blocks-chat
 
+# DESCRIPTION
+
+Print the chat status for i3blocks
+
 # DEPENDENCIES
 
 - i3blocks-mode

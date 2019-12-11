@@ -2,12 +2,15 @@ i3blocks-mode(1)
 
 # NAME
 
-i3blocks-mode - Manage the bar status mode++
-                Light mode is the default
+i3blocks-mode - Manage the bar status mode
 
 # SYNOPSIS
 
 i3blocks-mode [ _full_ | _light_ | _show_ | _toggle_ ]
+
+# DESCRIPTION
+
+Manage the bar status mode. Light mode is the default.
 
 # OPERANDS
 

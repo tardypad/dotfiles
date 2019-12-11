@@ -6,24 +6,28 @@ repo - Manage personal remote repository packages
 
 # SYNOPSIS
 
-repo _repo_name_ _add_ _pkg_file_
+repo _repo_name_ *add* _pkg_file_
 
-repo _repo_name_ _remove_ _pkg_name_
+repo _repo_name_ *remove* _pkg_name_
 
-repo _repo_name_ _sync_ _pkg_name_
+repo _repo_name_ *sync* _pkg_name_
+
+# DESCRIPTION
+
+Manage personal remote repository packages
 
 # OPERANDS
 
 _repo_name_
 	Remote repository name
 
-_add_
+*add*
 	Add the _pkg_file_ to the repo
 
-_remove_
+*remove*
 	Remove the _pkg_name_ from the repo
 
-_sync_
+*sync*
 	Download, build and add the _pkg_name_ to the repo
 
 _pkg_file_

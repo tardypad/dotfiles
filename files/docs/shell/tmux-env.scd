@@ -8,6 +8,10 @@ tmux-env - Start tmux environment session
 
 tmux-env [-b] _target_ [_session_]
 
+# DESCRIPTION
+
+Start a session of a tmux environment
+
 # OPTIONS
 
 *-b*

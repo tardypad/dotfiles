@@ -8,6 +8,10 @@ influx-env - Start InfluxDB or run a query within a project environment
 
 influx-env _project_ [_query_] [-- _option_...]
 
+# DESCRIPTION
+
+Start InfluxDB or run a query within a project environment
+
 # OPERANDS
 
 _project_

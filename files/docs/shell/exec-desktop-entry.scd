@@ -8,6 +8,10 @@ exec-desktop-entry - Execute a desktop entry file
 
 exec-desktop-entry _desktop_file_
 
+# DESCRIPTION
+
+Execute a desktop entry file
+
 # OPERANDS
 
 _desktop_file_

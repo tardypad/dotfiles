@@ -10,6 +10,10 @@ git reauthor -a [-c] [-e _email_] [-n _name_] [-t _type_]
 
 git reauthor -o _email_ [-c] [-e _email_] [-n _name_] [-t _type_]
 
+# DESCRIPTION
+
+Rewrite history to change committer and author name and email.
+
 # OPTIONS
 
 *-a*

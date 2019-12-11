@@ -8,6 +8,10 @@ sway-fzf-launcher - Helper for fzf selection within sway launchers
 
 sway-fzf-launcher _prompt_ [_option_...]
 
+# DESCRIPTION
+
+Helper for fzf selection for usage within sway launchers
+
 # OPERANDS
 
 _prompt_

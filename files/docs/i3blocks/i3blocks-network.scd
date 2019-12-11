@@ -8,6 +8,10 @@ i3blocks-network - Report the network status for i3blocks
 
 i3blocks-network
 
+# DESCRIPTION
+
+Print the network status for i3blocks
+
 # DEPENDENCIES
 
 - i3blocks-mode

@@ -8,6 +8,11 @@ tmux-toggle-monitor-activity - Toggle activity monitoring in tmux window
 
 tmux-toggle-monitor-activity _socket_path_ _session_id_ _window_id_
 
+# DESCRIPTION
+
+Toggle activity monitoring in current tmux window. It also marks the current
+window within sway for further use on trigger.
+
 # OPERANDS
 
 _socket_path_

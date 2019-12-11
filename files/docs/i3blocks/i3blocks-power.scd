@@ -8,6 +8,10 @@ i3blocks-power - Report the power status for i3blocks
 
 i3blocks-power
 
+# DESCRIPTION
+
+Print the power status for i3blocks
+
 # DEPENDENCIES
 
 - battery-status

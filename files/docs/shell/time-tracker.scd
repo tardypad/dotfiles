@@ -6,20 +6,24 @@ time-tracker - Track tasks duration
 
 # SYNOPSIS
 
-time-tracker _start_ _id_ _name_ [ _description_ ]
+time-tracker *start* _id_ _name_ [ _description_ ]
 
-time-tracker [ _status_ | _stop_ ]
+time-tracker [ *status* | *stop* ]
+
+# DESCRIPTION
+
+Manager tasks duration tracking
 
 # OPERANDS
 
-_start_
+*start*
 	Start session
 
-_status_
+*status*
 	Display current task if session active++
 This is the default action if none is specified
 
-_stop_
+*stop*
 	End session
 
 _id_

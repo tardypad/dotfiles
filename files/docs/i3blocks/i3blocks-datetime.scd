@@ -7,3 +7,7 @@ i3blocks-datetime - Report the date and time status for i3blocks
 # SYNOPSIS
 
 i3blocks-datetime
+
+# DESCRIPTION
+
+Print the date and time status for i3blocks

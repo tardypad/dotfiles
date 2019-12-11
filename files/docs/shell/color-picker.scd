@@ -8,6 +8,10 @@ color-picker - Color picker
 
 color-picker
 
+# DESCRIPTION
+
+Open screen overlay to select a pixel to get the color of.
+
 # DEPENDENCIES
 
 - convert

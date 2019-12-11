@@ -8,6 +8,9 @@ packages-updates - Manage packages updates
 
 packages-updates ( _list_ | _update_ )
 
+# DESCRIPTION
+
+Manage packages updates
 
 # OPERANDS
 

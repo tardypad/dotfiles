@@ -8,6 +8,10 @@ i3blocks-pomodoro - Report the pomodoro status for i3blocks
 
 i3blocks-pomodoro
 
+# DESCRIPTION
+
+Print the pomodoro status for i3blocks
+
 # DEPENDENCIES
 
 - pomodoro

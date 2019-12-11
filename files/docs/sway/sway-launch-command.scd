@@ -8,6 +8,10 @@ sway-launch-command - Launcher to run a command
 
 sway-launch-command
 
+# DESCRIPTION
+
+Open a launcher window to select and run a command
+
 # DEPENDENCIES
 
 - stat

@@ -4,21 +4,26 @@ query-hosts-tags(1)
 
 query-hosts-tags - Query the hosts tags file
 
-# DESCRIPTION
-
-A "tags" query displays the tags from the host argument++
-A "hosts" query displays the hosts matching the tags arguments++
-Without any argument, it displays all the hosts
-
 # SYNOPSIS
 
 query-hosts-tags
 
-query-hosts-tags hosts [_tag_=_value_...]
+query-hosts-tags *hosts* [_tag_=_value_...]
 
-query-hosts-tags tags _host_
+query-hosts-tags *tags* _host_
+
+# DESCRIPTION
+
+Print information about hosts and their tags
 
 # OPERANDS
+
+*hosts*
+	Print the hosts matching the tags operands++
+Without any such operand, it displays all the hosts
+
+*tags*
+	Print tags from the host operand
 
 _host_
 	Host to display tags of

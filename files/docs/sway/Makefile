@@ -13,6 +13,7 @@ sway-docs:
 	scdoc < files/docs/sway/sway-focus-window-title.scd        > $(DESTDIR)$(DATA_DIR)/man/man1/sway-focus-window-title.1
 	scdoc < files/docs/sway/sway-fzf-launcher.scd              > $(DESTDIR)$(DATA_DIR)/man/man1/sway-fzf-launcher.1
 	scdoc < files/docs/sway/sway-launch-command.scd            > $(DESTDIR)$(DATA_DIR)/man/man1/sway-launch-command.1
+	scdoc < files/docs/sway/sway-launch-otp.scd                > $(DESTDIR)$(DATA_DIR)/man/man1/sway-launch-otp.1
 	scdoc < files/docs/sway/sway-launch-password.scd           > $(DESTDIR)$(DATA_DIR)/man/man1/sway-launch-password.1
 	scdoc < files/docs/sway/sway-launch-system.scd             > $(DESTDIR)$(DATA_DIR)/man/man1/sway-launch-system.1
 	scdoc < files/docs/sway/sway-launch-somafm.scd             > $(DESTDIR)$(DATA_DIR)/man/man1/sway-launch-somafm.1

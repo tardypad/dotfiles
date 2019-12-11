@@ -8,6 +8,11 @@ sway-app-tmux-env - Launch tmux env app
 
 sway-app-tmux-env _env_ _session_
 
+# DESCRIPTION
+
+Open tmux env app in window in new workspace. It focus current window if it
+already exists.
+
 # OPERANDS
 
 _env_

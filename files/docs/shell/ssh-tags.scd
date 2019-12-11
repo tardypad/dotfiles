@@ -8,6 +8,10 @@ ssh-tags - Interactive selection by tags of an host to ssh to
 
 ssh-tags [_tag_=_value_...]
 
+# DESCRIPTION
+
+Open interface to select an host to connect to via SSH.
+
 # OPERANDS
 
 _tag_=_value_

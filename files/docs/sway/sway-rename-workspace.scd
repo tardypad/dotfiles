@@ -8,6 +8,10 @@ sway-rename-workspace - Interactive renaming of current sway workspace
 
 sway-rename-workspace
 
+# DESCRIPTION
+
+Open a window to enter the new name of the current sway workspace
+
 # DEPENDENCIES
 
 - jq

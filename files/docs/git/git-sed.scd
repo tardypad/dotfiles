@@ -2,11 +2,17 @@ git-sed(1)
 
 # NAME
 
-git-sed - Apply a sed script over all text files managed by git
+git-sed - Apply a sed script over all text files
 
 # SYNOPSIS
 
 git sed _script_
+
+# DESCRIPTION
+
+Run a single sed script over all text files in the repository.
+
+_WARNING_: Untracked files are not included in the list of files
 
 # OPERANDS
 

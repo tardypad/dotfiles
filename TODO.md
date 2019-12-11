@@ -18,10 +18,9 @@
   - improve all env scripts usage:
     * allow to receive query/POST body data from stdin
   - better man pages:
-    * add DESCRIPTION part with better explanation
     * add FILES used by the script
     * add ENVIRONMENT VARIABLES used by the script
-    * check common man pages to see what other parts could be make sense to be added  
+    * check common man pages to see what other parts could make sense to be added  
       STDIN, STDOUT, EXIT STATUS, EXAMPLES,...
 
 ## New Features

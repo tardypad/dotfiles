@@ -8,6 +8,10 @@ redis-env - Start Redis or run a query within a project environment
 
 redis-env _project_ [_query_] [-- _option_...]
 
+# DESCRIPTION
+
+Start Redis or run a query within a project environment
+
 # OPERANDS
 
 _project_

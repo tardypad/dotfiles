@@ -8,6 +8,10 @@ i3blocks-volume - Report the volume status for i3blocks
 
 i3blocks-volume
 
+# DESCRIPTION
+
+Print the volume status for i3blocks
+
 # DEPENDENCIES
 
 - amixer

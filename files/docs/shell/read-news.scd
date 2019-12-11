@@ -8,6 +8,13 @@ read-news - Read news from feeds
 
 read-news [-t _period_] [_feed_]
 
+# DESCRIPTION
+
+Open interface to display all news from each feed.
+Diverse actions are then available on the selected news:
+- open full news in text browser (_enter_)
+- open full news in external browser (_ctrl-o_)
+
 # OPTIONS
 
 *-t* _period_
@@ -24,3 +31,4 @@ _feed_
 - awk with strftime function #FIXME: This script is not POSIX compliant
 - fzf
 - sfeed_update
+- w3m

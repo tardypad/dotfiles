@@ -8,6 +8,11 @@ notify-tmux-alert - Notify an tmux alert
 
 notify-tmux-alert _type_ _socket_name_ _session_id_ _session_name_ _window_id_ _window_name_
 
+# DESCRIPTION
+
+Send a system notification about a tmux alert. It also mark the window
+containing the alert as "urgent".
+
 # OPERANDS
 
 _type_

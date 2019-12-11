@@ -8,6 +8,11 @@ sway-app-chat - Launch chat app
 
 sway-app-chat
 
+# DESCRIPTION
+
+Open chat app in window in new workspace. It focus current window if it already
+exists.
+
 # DEPENDENCIES
 
 - alacritty

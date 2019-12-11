@@ -2,17 +2,30 @@ somafm(1)
 
 # NAME
 
-somafm -  display SomaFM channels information
+somafm - Display SomaFM channels information
 
 # SYNOPSIS
 
-somafm channels
+somafm *channels*
 
-somafm direct_url _channel_
+somafm *direct_url* _channel_
 
-somafm playlist _channel_
+somafm *playlist* _channel_
+
+# DESCRIPTION
+
+Print SomaFM channels information
 
 # OPERANDS
+
+*channels*
+	Prints list of all channels with their information
+
+*direct_url*
+	Prints the URL to a channel stream
+
+*playlist*
+	Prints the URL to a channel playlist
 
 _channel_
 	Identifier of the channel

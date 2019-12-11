@@ -8,6 +8,10 @@ pomodoro - Manage a Pomodoro session
 
 pomodoro [ _cancel_ | _start_ | _status_ | _toggle_ ]
 
+# DESCRIPTION
+
+Manage a Pomodoro session
+
 # OPERANDS
 
 _cancel_

@@ -8,6 +8,10 @@ backup-notes - Backup notes to remote server
 
 backup-notes
 
+# DESCRIPTION
+
+Backup notes to remote server
+
 # DEPENDENCIES
 
 - rsync

@@ -8,6 +8,10 @@ http-env - Run a HTTP request to a project environment
 
 http-env _project_ _env_ _method_ _path_ [_item_...] [-- _option_...]
 
+# DESCRIPTION
+
+Run a HTTP request to a project environment
+
 # OPERANDS
 
 _project_

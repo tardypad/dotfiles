@@ -8,6 +8,10 @@ tmux-move-window-index - Move current window within session
 
 tmux-move-window-index _index_
 
+# DESCRIPTION
+
+Move the current tmux window within the session at desired index.
+
 # OPERANDS
 
 _index_

@@ -8,6 +8,11 @@ sway-command-input - Open window for user input for running sway command
 
 sway-command-input _args_
 
+# DESCRIPTION
+
+Open a window for user input to run sway command. It focus current window if it
+already exists.
+
 # OPERANDS
 
 _args_
