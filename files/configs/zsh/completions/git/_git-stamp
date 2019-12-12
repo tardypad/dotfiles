@@ -1,5 +1,5 @@
 #compdef git-stamp
-#description amend last commit with a stamp message prefixed by an identifier
+#description amend last commit with a stamp message
 
 _arguments \
   '-r[replace all previous stamps with same id]'

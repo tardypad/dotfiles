@@ -1,5 +1,5 @@
 #compdef git-run-command
-#description execute a command over a range of git revisions
+#description execute a command over a range of revisions
 
 _arguments \
   '1:start revision:__git_revisions' \

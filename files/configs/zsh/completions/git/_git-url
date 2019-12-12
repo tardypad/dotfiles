@@ -1,5 +1,5 @@
 #compdef git-url
-#description display an URL related to the repo or a commit
+#description display an URL related to the repository or a commit
 
 _types() {
   local types=(

@@ -1,5 +1,5 @@
 #compdef git-sed
-#description apply a sed script over all text files managed by git
+#description apply a sed script over text files
 
 _arguments \
   '1:script:()' \
