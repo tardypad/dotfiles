@@ -12,9 +12,6 @@ git stamp [-r] _id_ [_message_]
 
 Amend last commit's body with an extra line containing a stamp message.
 
-_WARNING_: this command should be run with no files staged, otherwise those
-changes will also be amended and be part of the last commit.
-
 # OPTIONS
 
 *-r*

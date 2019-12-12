@@ -107,7 +107,7 @@
         --format \"%(HEAD) %(color:$(git config color.recent.refname))%(refname:short)%(color:reset) | %(color:$(git config color.recent.committerdate))%(committerdate:human)%(color:reset) | %(subject)\" refs/heads \
         | column -t -s '|'"
     reset-upstream = reset --hard @{upstream}
-    reword = commit --amend
+    reword = commit --amend -o
     root = rev-parse --show-toplevel
     rv = revert
     rva = revert --abort

@@ -48,7 +48,7 @@ stamp() {
   fi
 
   # append the stamp to the commit message in a new paragraph
-  git commit --amend \
+  git commit --amend -o \
     -m "${COMMIT_MSG}" \
     -m "${STAMP_MSG}" \
     > /dev/null
