@@ -29,5 +29,4 @@ _toggle_
 
 # DEPENDENCIES
 
-- do-not-disturb
 - notify-end-pomodoro

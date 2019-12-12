@@ -21,8 +21,7 @@ bindsym $mod+Escape exec do-not-disturb toggle \
 
 # toggle Pomodoro session
 bindsym $mod+Shift+Escape exec pomodoro toggle \
-                               && pkill -x -RTMIN+5 i3blocks \
-                               && pkill -x -RTMIN+3 i3blocks
+                               && pkill -x -RTMIN+5 i3blocks
 
 # select region and grab screenshot
 bindsym $mod+g exec screenshot
