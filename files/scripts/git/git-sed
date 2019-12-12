@@ -4,13 +4,16 @@ init_variables() {
   COMMAND=${0##*/}
 
   TMP_FILE='/tmp/git-sed'
-  trap 'rm "${TMP_FILE}"' EXIT
+  trap 'rm -f "${TMP_FILE}"' EXIT
 
   SCRIPT=
+  PATHS=
 }
 
 parse_command_line() {
-  SCRIPT="$*"
+  SCRIPT="$1"
+  shift
+  PATHS="$*"
 }
 
 validate_command_line() {
@@ -26,7 +29,7 @@ exit_error() {
 
 run_sed() {
   # exclude symlinks and binary files
-  git grep -I -l '' \
+  git grep -I -l '' -- ${PATHS} \
     | xargs -I {} \
       sh -c "sed \"${SCRIPT}\" {} > \"${TMP_FILE}\" \
              && cp \"${TMP_FILE}\" {}"

@@ -2,3 +2,5 @@
 #description apply a sed script over all text files managed by git
 
 _arguments \
+  '1:script:()' \
+  '*:paths:_path_files' \
