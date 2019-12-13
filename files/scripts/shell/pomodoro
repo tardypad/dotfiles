@@ -11,6 +11,7 @@ init_variables() {
 
 parse_command_line() {
   [ -z "$1" ] || ACTION="$1"
+  [ -z "$2" ] || DURATION_SECONDS="$2"
 }
 
 validate_command_line() {
@@ -20,6 +21,10 @@ validate_command_line() {
      && [ "${ACTION}" != 'status' ]; then
     exit_error "Invalid action '${ACTION}'"
   fi
+
+  case "${DURATION_SECONDS}" in
+    *[!0-9]*) exit_error 'duration must be an integer' ;;
+  esac
 }
 
 exit_error() {
@@ -41,7 +46,10 @@ current_time_sec() {
 
 session_start() {
   CURRENT_TIME=$( current_time_sec )
-  echo "${CURRENT_TIME}" > "${FILE_PATH}"
+  {
+    echo "${CURRENT_TIME}"
+    echo "${DURATION_SECONDS}"
+  } > "${FILE_PATH}"
 
   ( sleep "${DURATION_SECONDS}" && session_end "${CURRENT_TIME}" )&
 }
@@ -53,7 +61,8 @@ session_status() {
   fi
 
   CURRENT_TIME=$( current_time_sec )
-  START_TIME=$( cat "${FILE_PATH}" )
+  START_TIME=$( head -n 1 "${FILE_PATH}" )
+  DURATION_SECONDS=$( tail -n +2 "${FILE_PATH}" )
   MINUTES_LEFT=$((
     ( DURATION_SECONDS - (CURRENT_TIME - START_TIME) ) / 60
   ))
@@ -82,7 +91,7 @@ session_end() {
   is_session_started || return 1
 
   SESSION_START_TIME="$1"
-  CURRENT_START_TIME=$( cat "${FILE_PATH}" )
+  CURRENT_START_TIME=$( head -n 1 "${FILE_PATH}" )
 
   # only end session if no newer one was created
   if [ "${SESSION_START_TIME}" = "${CURRENT_START_TIME}" ]; then
