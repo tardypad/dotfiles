@@ -8,7 +8,6 @@ init_variables() {
 
   ACTION='status'
   TASK_ID=
-  TASK_NAME=
   TASK_DESC=
 }
 
@@ -17,8 +16,7 @@ parse_command_line() {
 
   if [ "${ACTION}" = 'start' ]; then
     TASK_ID="$2"
-    TASK_NAME="$3"
-    TASK_DESC="$4"
+    TASK_DESC="$3"
   fi
 }
 
@@ -29,14 +27,8 @@ validate_command_line() {
     exit_error "Invalid action '${ACTION}'"
   fi
 
-  if [ "${ACTION}" = 'start' ]; then
-    if [ -z "${TASK_ID}" ]; then
+  if [ "${ACTION}" = 'start' ] && [ -z "${TASK_ID}" ]; then
       exit_error 'Missing task identifier'
-    fi
-
-    if [ -z "${TASK_NAME}" ]; then
-      exit_error 'Missing task name'
-    fi
   fi
 }
 
@@ -63,8 +55,8 @@ tracking_start() {
 
   CURRENT_TIME=$( current_time_min )
 
-  printf '%s\t%s\t%s\t%s' \
-    "${CURRENT_TIME}" "${TASK_ID}" "${TASK_NAME}" "${TASK_DESC}" \
+  printf '%s\t%s\t%s' \
+    "${CURRENT_TIME}" "${TASK_ID}" "${TASK_DESC}" \
     > "${CURRENT_FILE_PATH}"
 }
 

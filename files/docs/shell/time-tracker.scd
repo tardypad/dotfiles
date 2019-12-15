@@ -6,7 +6,7 @@ time-tracker - Track tasks duration
 
 # SYNOPSIS
 
-time-tracker *start* _id_ _name_ [ _description_ ]
+time-tracker *start* _id_ [ _description_ ]
 
 time-tracker [ *status* | *stop* ]
 
@@ -28,9 +28,6 @@ This is the default action if none is specified
 
 _id_
 	Task identifier
-
-_name_
-	Task name
 
 _description_
 	Task description
