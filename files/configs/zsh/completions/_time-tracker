@@ -2,6 +2,7 @@
 
 _actions() {
   local actions=(
+    ids
     start
     status
     stop

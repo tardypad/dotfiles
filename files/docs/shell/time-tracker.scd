@@ -8,13 +8,16 @@ time-tracker - Track tasks duration
 
 time-tracker *start* _id_ [ _description_ ]
 
-time-tracker [ *status* | *stop* ]
+time-tracker [ *ids* | *status* | *stop* ]
 
 # DESCRIPTION
 
 Manager tasks duration tracking
 
 # OPERANDS
+
+*ids*
+	List all existing task identifiers
 
 *start*
 	Start session

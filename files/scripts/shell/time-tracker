@@ -23,7 +23,8 @@ parse_command_line() {
 validate_command_line() {
   if [ "${ACTION}" != 'start' ] \
      && [ "${ACTION}" != 'stop' ] \
-     && [ "${ACTION}" != 'status' ]; then
+     && [ "${ACTION}" != 'status' ] \
+     && [ "${ACTION}" != 'ids' ]; then
     exit_error "Invalid action '${ACTION}'"
   fi
 
@@ -92,6 +93,12 @@ tracking_stop() {
 
 is_tracking_started() {
   [ -f "${CURRENT_FILE_PATH}" ]
+}
+
+tracking_ids()
+{
+  find "${LOGGING_DIR}" -type f -exec cut -f1 {} \; \
+    | sort -u
 }
 
 init_variables
