@@ -2,6 +2,7 @@
 
 _actions() {
   local actions=(
+    add
     ids
     start
     status

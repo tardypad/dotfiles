@@ -8,6 +8,8 @@ time-tracker - Track tasks duration
 
 time-tracker *start* _id_ [ _description_ ]
 
+time-tracker *add* _id_ _duration_ [ _description_ ]
+
 time-tracker [ *ids* | *status* | *stop* ]
 
 # DESCRIPTION
@@ -15,6 +17,9 @@ time-tracker [ *ids* | *status* | *stop* ]
 Manager tasks duration tracking
 
 # OPERANDS
+
+*add*
+	Manually log a task
 
 *ids*
 	List all existing task identifiers
@@ -34,3 +39,6 @@ _id_
 
 _description_
 	Task description
+
+_duration_
+	Task duration in minutes

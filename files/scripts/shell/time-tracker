@@ -9,6 +9,7 @@ init_variables() {
   ACTION='status'
   TASK_ID=
   TASK_DESC=
+  TASK_DURATION=
 }
 
 parse_command_line() {
@@ -17,6 +18,10 @@ parse_command_line() {
   if [ "${ACTION}" = 'start' ]; then
     TASK_ID="$2"
     TASK_DESC="$3"
+  elif [ "${ACTION}" = 'add' ]; then
+    TASK_ID="$2"
+    TASK_DURATION="$3"
+    TASK_DESC="$4"
   fi
 }
 
@@ -24,12 +29,22 @@ validate_command_line() {
   if [ "${ACTION}" != 'start' ] \
      && [ "${ACTION}" != 'stop' ] \
      && [ "${ACTION}" != 'status' ] \
+     && [ "${ACTION}" != 'add' ] \
      && [ "${ACTION}" != 'ids' ]; then
     exit_error "Invalid action '${ACTION}'"
   fi
 
   if [ "${ACTION}" = 'start' ] && [ -z "${TASK_ID}" ]; then
       exit_error 'Missing task identifier'
+  fi
+
+  if [ "${ACTION}" = 'add' ]; then
+    if [ -z "${TASK_ID}" ]; then
+      exit_error 'Missing task identifier'
+    fi
+    if [ -z "${TASK_DURATION}" ]; then
+      exit_error 'Missing task duration'
+    fi
   fi
 }
 
@@ -99,6 +114,17 @@ tracking_ids()
 {
   find "${LOGGING_DIR}" -type f -exec cut -f1 {} \; \
     | sort -u
+}
+
+tracking_add()
+{
+  mkdir -p "${LOGGING_DIR}"
+
+  CURRENT_DAY=$( date +%Y-%m-%d )
+
+  printf '%s\t%s\t%s\n' \
+    "${TASK_ID}" "${TASK_DESC}" "${TASK_DURATION}" \
+    >> "${LOGGING_DIR}/${CURRENT_DAY}"
 }
 
 init_variables
