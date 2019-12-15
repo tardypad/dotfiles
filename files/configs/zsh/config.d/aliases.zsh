@@ -23,6 +23,9 @@ alias docs='goto-project docs'
 
 alias rn='read-news'
 alias pu='packages-updates'
+alias tt='time-tracker'
+alias dnd='do-not-disturb'
+alias pmd='pomodoro'
 
 # display calendar for full year with week number and Monday as week start
 alias calendar='cal --monday --week --year'
