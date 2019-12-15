@@ -92,11 +92,11 @@ bind s split-window -v -c '#{pane_current_path}'
 
 # move mode
 bind         m switch-client -T move
-bind -T move a switch-client -T move \; swap-window -t ':{last}'
-bind -T move n switch-client -T move \; swap-window -t ':{next}'
-bind -T move l switch-client -T move \; swap-window -t ':{next}'
-bind -T move p switch-client -T move \; swap-window -t ':{previous}'
-bind -T move h switch-client -T move \; swap-window -t ':{previous}'
+bind -T move a switch-client -T move \; swap-window -d -t ':{last}'
+bind -T move n switch-client -T move \; swap-window -d -t ':{next}'
+bind -T move l switch-client -T move \; swap-window -d -t ':{next}'
+bind -T move p switch-client -T move \; swap-window -d -t ':{previous}'
+bind -T move h switch-client -T move \; swap-window -d -t ':{previous}'
 bind -T move 1 switch-client -T move \; run "tmux-move-window-index 1"
 bind -T move 2 switch-client -T move \; run "tmux-move-window-index 2"
 bind -T move 3 switch-client -T move \; run "tmux-move-window-index 3"
