@@ -12,5 +12,17 @@ _actions() {
   compadd "$@" $actions
 }
 
+_ids() {
+  if [ $words[CURRENT-1] != 'start' ] \
+    && [ $words[CURRENT-1] != 'add' ]; then
+    return
+  fi
+
+  local ids=( "${(@f)$( time-tracker ids )}" )
+
+  compadd "$@" $ids
+}
+
 _arguments \
-  '1:action:_actions'
+  '1:action:_actions' \
+  '2:id:_ids'
