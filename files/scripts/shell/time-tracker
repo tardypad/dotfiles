@@ -84,7 +84,7 @@ tracking_stop() {
 
   {
     sed 's/^[[:digit:]]*\t\(.*\)/\1/' "${CURRENT_FILE_PATH}";
-    echo "${DURATION}";
+    printf '\t%s\n' "${DURATION}";
   } >> "${LOGGING_DIR}/${CURRENT_DAY}"
 
   rm -rf "${CURRENT_FILE_PATH}"
