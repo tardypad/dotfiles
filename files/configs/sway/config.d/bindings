@@ -36,12 +36,6 @@ bindsym $mod+Ctrl+$key_kill       exec makoctl dismiss
 bindsym $mod+Ctrl+Shift+$key_kill exec makoctl dismiss --all
 
 
-## launch apps
-
-bindsym $mod+Return       exec exec-desktop-entry {dir/data}/applications/terminal.desktop
-bindsym $mod+Shift+Return exec exec-desktop-entry {dir/data}/applications/web_browser.desktop
-
-
 ## launchers
 
 mode "-- Launchers --" {
