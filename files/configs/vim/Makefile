@@ -3,9 +3,9 @@ all: vim-configs
 vim-configs:
     # create necessary runtime directories
 	mkdir -p $(DESTDIR)$(HOME)/.vim/backup
+	mkdir -p $(DESTDIR)$(HOME)/.vim/sessions
 	mkdir -p $(DESTDIR)$(HOME)/.vim/swap
 	mkdir -p $(DESTDIR)$(HOME)/.vim/undo
-	mkdir -p $(DESTDIR)$(HOME)/.vim/sessions
 
     # backup locally added new spelling words
 	if [ -z $(DESTDIR) ] ; then \
@@ -55,8 +55,8 @@ vim-configs:
 	$(setup_file)/configs/vim/plugin/scroll_search.vim          > $(DESTDIR)$(HOME)/.vim/plugin/scroll_search.vim
 	$(setup_file)/configs/vim/plugin/zoom_window.vim            > $(DESTDIR)$(HOME)/.vim/plugin/zoom_window.vim
 	$(setup_file)/configs/vim/snips/all.snippets                > $(DESTDIR)$(HOME)/.vim/snips/all.snippets
-	$(setup_file)/configs/vim/snips/php_phpunit.snippets        > $(DESTDIR)$(HOME)/.vim/snips/php_phpunit.snippets
 	$(setup_file)/configs/vim/snips/php.snippets                > $(DESTDIR)$(HOME)/.vim/snips/php.snippets
+	$(setup_file)/configs/vim/snips/php_phpunit.snippets        > $(DESTDIR)$(HOME)/.vim/snips/php_phpunit.snippets
 	$(setup_file)/configs/vim/snips/sh.snippets                 > $(DESTDIR)$(HOME)/.vim/snips/sh.snippets
 	$(setup_file)/configs/vim/snips/zsh.snippets                > $(DESTDIR)$(HOME)/.vim/snips/zsh.snippets
 	$(setup_file)/configs/vim/spell/en.utf-8.add                > $(DESTDIR)$(HOME)/.vim/spell/en.utf-8.add

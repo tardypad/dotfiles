@@ -26,11 +26,11 @@ include files/configs/mpd/Makefile
 include files/configs/neomutt/Makefile
 include files/configs/openssh/Makefile
 include files/configs/qutebrowser/Makefile
-include files/configs/tmux/Makefile
 include files/configs/sfeed/Makefile
 include files/configs/sway/Makefile
 include files/configs/swaylock/Makefile
 include files/configs/systemd/Makefile
+include files/configs/tmux/Makefile
 include files/configs/translate-shell/Makefile
 include files/configs/universal-ctags/Makefile
 include files/configs/vim/Makefile

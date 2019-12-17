@@ -4,7 +4,6 @@ weechat-configs:
 	mkdir -p $(DESTDIR)$(HOME)/.weechat/python
 
 	$(setup_file)/configs/weechat/config.d/alias.conf                       > $(DESTDIR)$(HOME)/.weechat/alias.conf
-	$(setup_file)/configs/weechat/config.d/spell.conf                       > $(DESTDIR)$(HOME)/.weechat/spell.conf
 	$(setup_file)/configs/weechat/config.d/buflist.conf                     > $(DESTDIR)$(HOME)/.weechat/buflist.conf
 	$(setup_file)/configs/weechat/config.d/charset.conf                     > $(DESTDIR)$(HOME)/.weechat/charset.conf
 	$(setup_file)/configs/weechat/config.d/exec.conf                        > $(DESTDIR)$(HOME)/.weechat/exec.conf
@@ -16,6 +15,7 @@ weechat-configs:
 	$(setup_file)/configs/weechat/config.d/python.conf                      > $(DESTDIR)$(HOME)/.weechat/python.conf
 	$(setup_file)/configs/weechat/config.d/relay.conf                       > $(DESTDIR)$(HOME)/.weechat/relay.conf
 	$(setup_file)/configs/weechat/config.d/script.conf                      > $(DESTDIR)$(HOME)/.weechat/script.conf
+	$(setup_file)/configs/weechat/config.d/spell.conf                       > $(DESTDIR)$(HOME)/.weechat/spell.conf
 	$(setup_file)/configs/weechat/config.d/trigger.conf                     > $(DESTDIR)$(HOME)/.weechat/trigger.conf
 	$(setup_file)/configs/weechat/config.d/weechat.conf                     > $(DESTDIR)$(HOME)/.weechat/weechat.conf
 	$(setup_file)/configs/weechat/config.d/xfer.conf                        > $(DESTDIR)$(HOME)/.weechat/xfer.conf
@@ -32,8 +32,8 @@ weechat-configs:
 
     # autoload plugins
 	mkdir -p $(DESTDIR)$(HOME)/.weechat/python/autoload
-	ln -fs ../go_fzf_tmux.py                    $(DESTDIR)$(HOME)/.weechat/python/autoload/go_fzf_tmux.py
 	ln -fs ../edit_vim_tmux.py                  $(DESTDIR)$(HOME)/.weechat/python/autoload/edit_vim_tmux.py
 	ln -fs ../export_important_buffers_count.py $(DESTDIR)$(HOME)/.weechat/python/autoload/export_important_buffers_count.py
-	ln -fs ../wee_slack.py                      $(DESTDIR)$(HOME)/.weechat/python/autoload/wee_slack.py
+	ln -fs ../go_fzf_tmux.py                    $(DESTDIR)$(HOME)/.weechat/python/autoload/go_fzf_tmux.py
 	ln -fs ../vimode.py                         $(DESTDIR)$(HOME)/.weechat/python/autoload/vimode.py
+	ln -fs ../wee_slack.py                      $(DESTDIR)$(HOME)/.weechat/python/autoload/wee_slack.py

@@ -5,10 +5,10 @@ zsh-configs:
 	mkdir -p $(DESTDIR)$(HOME)/.zsh/completions/git
 	mkdir -p $(DESTDIR)$(HOME)/.zsh/functions
 
-	$(setup_file)/configs/zsh/zshrc                                                                  > $(DESTDIR)$(HOME)/.zshrc
-	$(setup_file)/configs/zsh/zshenv                                                                 > $(DESTDIR)$(HOME)/.zshenv
 	$(setup_file)/configs/zsh/zlogin                                                                 > $(DESTDIR)$(HOME)/.zlogin
 	$(setup_file)/configs/zsh/zprofile                                                               > $(DESTDIR)$(HOME)/.zprofile
+	$(setup_file)/configs/zsh/zshenv                                                                 > $(DESTDIR)$(HOME)/.zshenv
+	$(setup_file)/configs/zsh/zshrc                                                                  > $(DESTDIR)$(HOME)/.zshrc
 	$(setup_file)/configs/zsh/config.d/aliases.zsh                                                   > $(DESTDIR)$(HOME)/.zsh/config.d/aliases.zsh
 	$(setup_file)/configs/zsh/config.d/bindings.zsh                                                  > $(DESTDIR)$(HOME)/.zsh/config.d/bindings.zsh
 	$(setup_file)/configs/zsh/config.d/completion.zsh                                                > $(DESTDIR)$(HOME)/.zsh/config.d/completion.zsh
@@ -33,8 +33,8 @@ zsh-configs:
 	$(setup_file)/configs/zsh/completions/_repo                                                      > $(DESTDIR)$(HOME)/.zsh/completions/_repo
 	$(setup_file)/configs/zsh/completions/_somafm                                                    > $(DESTDIR)$(HOME)/.zsh/completions/_somafm
 	$(setup_file)/configs/zsh/completions/_ssh-tags                                                  > $(DESTDIR)$(HOME)/.zsh/completions/_ssh-tags
-	$(setup_file)/configs/zsh/completions/_tmux-env                                                  > $(DESTDIR)$(HOME)/.zsh/completions/_tmux-env
 	$(setup_file)/configs/zsh/completions/_time-tracker                                              > $(DESTDIR)$(HOME)/.zsh/completions/_time-tracker
+	$(setup_file)/configs/zsh/completions/_tmux-env                                                  > $(DESTDIR)$(HOME)/.zsh/completions/_tmux-env
 	$(setup_file)/configs/zsh/completions/git/_git-argument                                          > $(DESTDIR)$(HOME)/.zsh/completions/git/_git-argument
 	$(setup_file)/configs/zsh/completions/git/_git-hist                                              > $(DESTDIR)$(HOME)/.zsh/completions/git/_git-hist
 	$(setup_file)/configs/zsh/completions/git/_git-mgrbma                                            > $(DESTDIR)$(HOME)/.zsh/completions/git/_git-mgrbma
@@ -47,17 +47,16 @@ zsh-configs:
 	$(setup_file)/configs/zsh/functions/goto-project                                                 > $(DESTDIR)$(HOME)/.zsh/functions/goto-project
 	$(setup_file)/configs/zsh/functions/highlighters/_zsh_highlight_add_keywords_highlights          > $(DESTDIR)$(HOME)/.zsh/functions/_zsh_highlight_add_keywords_highlights
 	$(setup_file)/configs/zsh/functions/highlighters/_zsh_highlight_add_positional_params_highlights > $(DESTDIR)$(HOME)/.zsh/functions/_zsh_highlight_add_positional_params_highlights
-	$(setup_file)/configs/zsh/functions/highlighters/_zsh_highlight_highlighter_http_env_predicate   > $(DESTDIR)$(HOME)/.zsh/functions/_zsh_highlight_highlighter_http_env_predicate
 	$(setup_file)/configs/zsh/functions/highlighters/_zsh_highlight_highlighter_http_env_paint       > $(DESTDIR)$(HOME)/.zsh/functions/_zsh_highlight_highlighter_http_env_paint
-	$(setup_file)/configs/zsh/functions/highlighters/_zsh_highlight_highlighter_influx_env_predicate > $(DESTDIR)$(HOME)/.zsh/functions/_zsh_highlight_highlighter_influx_env_predicate
+	$(setup_file)/configs/zsh/functions/highlighters/_zsh_highlight_highlighter_http_env_predicate   > $(DESTDIR)$(HOME)/.zsh/functions/_zsh_highlight_highlighter_http_env_predicate
 	$(setup_file)/configs/zsh/functions/highlighters/_zsh_highlight_highlighter_influx_env_paint     > $(DESTDIR)$(HOME)/.zsh/functions/_zsh_highlight_highlighter_influx_env_paint
-	$(setup_file)/configs/zsh/functions/highlighters/_zsh_highlight_highlighter_mysql_env_predicate  > $(DESTDIR)$(HOME)/.zsh/functions/_zsh_highlight_highlighter_mysql_env_predicate
+	$(setup_file)/configs/zsh/functions/highlighters/_zsh_highlight_highlighter_influx_env_predicate > $(DESTDIR)$(HOME)/.zsh/functions/_zsh_highlight_highlighter_influx_env_predicate
 	$(setup_file)/configs/zsh/functions/highlighters/_zsh_highlight_highlighter_mysql_env_paint      > $(DESTDIR)$(HOME)/.zsh/functions/_zsh_highlight_highlighter_mysql_env_paint
-	$(setup_file)/configs/zsh/functions/highlighters/_zsh_highlight_highlighter_redis_env_predicate  > $(DESTDIR)$(HOME)/.zsh/functions/_zsh_highlight_highlighter_redis_env_predicate
+	$(setup_file)/configs/zsh/functions/highlighters/_zsh_highlight_highlighter_mysql_env_predicate  > $(DESTDIR)$(HOME)/.zsh/functions/_zsh_highlight_highlighter_mysql_env_predicate
 	$(setup_file)/configs/zsh/functions/highlighters/_zsh_highlight_highlighter_redis_env_paint      > $(DESTDIR)$(HOME)/.zsh/functions/_zsh_highlight_highlighter_redis_env_paint
+	$(setup_file)/configs/zsh/functions/highlighters/_zsh_highlight_highlighter_redis_env_predicate  > $(DESTDIR)$(HOME)/.zsh/functions/_zsh_highlight_highlighter_redis_env_predicate
 
     # same git completions
-	ln -sf _git-url      $(DESTDIR)$(HOME)/.zsh/completions/git/_git-browse
 	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-bwc
 	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-bwi
 	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-bwr
@@ -72,6 +71,7 @@ zsh-configs:
 	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-urlc
 	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-urli
 	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-urlr
+	ln -sf _git-url      $(DESTDIR)$(HOME)/.zsh/completions/git/_git-browse
 
     # clear completion cache
 	rm -f $(DESTDIR)$(HOME)/.zcompdump

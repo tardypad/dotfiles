@@ -1,9 +1,9 @@
 all: systemd-configs
 
 systemd-configs:
+	mkdir -p $(DESTDIR)$(CONFIG_DIR)/systemd/user/default.target.wants
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/systemd/user/timers.target.wants
-	mkdir -p $(DESTDIR)$(CONFIG_DIR)/systemd/user/default.target.wants
 
 	$(setup_file)/configs/systemd/user/backup_bookmarks.path              > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_bookmarks.path
 	$(setup_file)/configs/systemd/user/backup_bookmarks.service           > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_bookmarks.service
