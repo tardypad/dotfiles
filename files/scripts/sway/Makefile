@@ -20,6 +20,7 @@ sway-scripts:
 	$(setup_file)/scripts/sway/sway-launch-tmux-env           > $(DESTDIR)$(BIN_DIR)/sway-launch-tmux-env
 	$(setup_file)/scripts/sway/sway-launcher                  > $(DESTDIR)$(BIN_DIR)/sway-launcher
 	$(setup_file)/scripts/sway/sway-move-window-new-workspace > $(DESTDIR)$(BIN_DIR)/sway-move-window-new-workspace
+	$(setup_file)/scripts/sway/sway-quick-command             > $(DESTDIR)$(BIN_DIR)/sway-quick-command
 	$(setup_file)/scripts/sway/sway-rename-workspace          > $(DESTDIR)$(BIN_DIR)/sway-rename-workspace
 	$(setup_file)/scripts/sway/sway-run-command               > $(DESTDIR)$(BIN_DIR)/sway-run-command
 
@@ -40,5 +41,6 @@ sway-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-launch-tmux-env
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-launcher
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-move-window-new-workspace
+	chmod +x $(DESTDIR)$(BIN_DIR)/sway-quick-command
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-rename-workspace
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-run-command
