@@ -10,6 +10,7 @@ init_variables() {
   TASK_ID=
   TASK_DESC=
   TASK_DURATION=
+  LOGGING_DAY=$( date +%Y-%m-%d )
 }
 
 parse_command_line() {
@@ -22,6 +23,8 @@ parse_command_line() {
     TASK_ID="$2"
     TASK_DURATION="$3"
     TASK_DESC="$4"
+  elif [ "${ACTION}" = 'edit' ] || [ "${ACTION}" = 'show' ]; then
+    [ -z "$2" ] || LOGGING_DAY="$2"
   fi
 }
 
@@ -30,6 +33,8 @@ validate_command_line() {
      && [ "${ACTION}" != 'stop' ] \
      && [ "${ACTION}" != 'status' ] \
      && [ "${ACTION}" != 'add' ] \
+     && [ "${ACTION}" != 'edit' ] \
+     && [ "${ACTION}" != 'show' ] \
      && [ "${ACTION}" != 'ids' ]; then
     exit_error "Invalid action '${ACTION}'"
   fi
@@ -45,6 +50,13 @@ validate_command_line() {
     if [ -z "${TASK_DURATION}" ]; then
       exit_error 'Missing task duration'
     fi
+  fi
+
+  if [ "${ACTION}" = 'edit' ] || [ "${ACTION}" = 'show' ]; then
+    case "${LOGGING_DAY}" in
+      [0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]) ;;
+      *) exit_error 'Invalid day format' ;;
+    esac
   fi
 }
 
@@ -96,8 +108,6 @@ tracking_stop() {
   CURRENT_TIME=$( current_time_min )
   DURATION=$(( CURRENT_TIME - START_TIME ))
 
-  mkdir -p "${LOGGING_DIR}"
-
   {
     sed 's/^[[:digit:]]*\t\(.*\)/\1/' "${CURRENT_FILE_PATH}";
     printf '\t%s\n' "${DURATION}";
@@ -118,8 +128,6 @@ tracking_ids()
 
 tracking_add()
 {
-  mkdir -p "${LOGGING_DIR}"
-
   CURRENT_DAY=$( date +%Y-%m-%d )
 
   printf '%s\t%s\t%s\n' \
@@ -127,8 +135,23 @@ tracking_add()
     >> "${LOGGING_DIR}/${CURRENT_DAY}"
 }
 
+tracking_edit()
+{
+  "${EDITOR}" "${LOGGING_DIR}/${LOGGING_DAY}"
+}
+
+tracking_show()
+{
+  if [ ! -f "${LOGGING_DIR}/${LOGGING_DAY}" ]; then
+    return
+  fi
+
+  column -s '	' -t "${LOGGING_DIR}/${LOGGING_DAY}"
+}
+
 init_variables
 parse_command_line "$@"
 validate_command_line
 
+mkdir -p "${LOGGING_DIR}"
 "tracking_${ACTION}"

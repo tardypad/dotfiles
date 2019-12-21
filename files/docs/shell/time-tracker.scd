@@ -12,6 +12,8 @@ time-tracker *add* _id_ _duration_ [ _description_ ]
 
 time-tracker [ *ids* | *status* | *stop* ]
 
+time-tracker [ *show* | *edit* ] [ _day_ ]
+
 # DESCRIPTION
 
 Manager tasks duration tracking
@@ -20,6 +22,12 @@ Manager tasks duration tracking
 
 *add*
 	Manually log a task
+
+*edit*
+	Open editor to manually edit the logging of a day
+
+*show*
+	Display the logging a day
 
 *ids*
 	List all existing task identifiers
@@ -42,3 +50,10 @@ _description_
 
 _duration_
 	Task duration in minutes
+
+_day_
+	Logging day in YYYY-MM-DD format
+
+# DEPENDENCIES
+
+- column

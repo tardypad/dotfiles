@@ -1,9 +1,13 @@
 #compdef time-tracker
 
+local logging_dir="${XDG_DATA_HOME:-$HOME/.local/share}/time_tracker"
+
 _actions() {
   local actions=(
     add
+    edit
     ids
+    show
     start
     status
     stop
@@ -13,16 +17,24 @@ _actions() {
 }
 
 _ids() {
-  if [ $words[CURRENT-1] != 'start' ] \
-    && [ $words[CURRENT-1] != 'add' ]; then
-    return
-  fi
-
   local ids=( "${(@f)$( time-tracker ids )}" )
-
   compadd "$@" $ids
+}
+
+_days() {
+  _path_files -W "${logging_dir}"
+}
+
+_operands() {
+  if [ $words[CURRENT-1] = 'start' ] \
+    || [ $words[CURRENT-1] = 'add' ]; then
+    _ids
+  elif [ $words[CURRENT-1] = 'edit' ] \
+    || [ $words[CURRENT-1] = 'show' ]; then
+    _days
+  fi
 }
 
 _arguments \
   '1:action:_actions' \
-  '2:id:_ids'
+  '2:operand:_operands'
