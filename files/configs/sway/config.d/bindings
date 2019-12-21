@@ -52,9 +52,9 @@ mode "-- Launchers --" {
 
     bindsym c mode "default", exec exec-desktop-entry {dir/data}/applications/chat_client.desktop
     bindsym d mode "default", exec exec-desktop-entry {dir/data}/applications/document_viewer.desktop
+    bindsym e mode "default", exec exec-desktop-entry {dir/data}/applications/terminal_emulator.desktop
     bindsym h mode "default", exec exec-desktop-entry {dir/data}/applications/system_monitor.desktop
     bindsym m mode "default", exec exec-desktop-entry {dir/data}/applications/mail_client.desktop
-    bindsym t mode "default", exec exec-desktop-entry {dir/data}/applications/terminal.desktop
     bindsym w mode "default", exec exec-desktop-entry {dir/data}/applications/web_browser.desktop
 
     bindsym Return mode "default"
@@ -99,8 +99,8 @@ bindsym $mod+9              workspace number 9
 bindsym $mod+0              workspace number 10
 
 # split
-bindsym $mod+$key_vsplit splith, exec exec-desktop-entry {dir/data}/applications/terminal.desktop
-bindsym $mod+$key_split  splitv, exec exec-desktop-entry {dir/data}/applications/terminal.desktop
+bindsym $mod+$key_vsplit splith, exec exec-desktop-entry {dir/data}/applications/terminal_emulator.desktop
+bindsym $mod+$key_split  splitv, exec exec-desktop-entry {dir/data}/applications/terminal_emulator.desktop
 
 # layout mode
 mode "-- layout --" {
@@ -116,7 +116,7 @@ bindsym $mod+$key_layout mode "-- layout --"
 
 ## windows management
 
-bindsym $mod+Shift+$key_create exec exec-desktop-entry {dir/data}/applications/terminal.desktop
+bindsym $mod+Shift+$key_create exec exec-desktop-entry {dir/data}/applications/terminal_emulator.desktop
 bindsym $mod+Shift+$key_kill   kill
 bindsym $mod+Shift+$key_zoom   fullscreen
 
