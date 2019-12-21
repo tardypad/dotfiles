@@ -28,6 +28,7 @@ validate_command_line() {
   if [ "${ACTION}" != 'enable' ] \
      && [ "${ACTION}" != 'disable' ] \
      && [ "${ACTION}" != 'toggle' ] \
+     && [ "${ACTION}" != 'remote-status' ] \
      && [ "${ACTION}" != 'status' ]; then
     exit_error "Invalid action '${ACTION}'"
   fi
@@ -106,8 +107,13 @@ is_dnd_enabled() {
   [ -f "${FILE_PATH}" ]
 }
 
+dnd_remote_status() {
+  curl -s -H 'Accept: text/plain' https://status.tardypad.me \
+    | grep -v '^$'
+}
+
 init_variables
 parse_command_line "$@"
 validate_command_line
 
-"dnd_${ACTION}"
+"dnd_$( echo "${ACTION}" | tr '-' '_' )"

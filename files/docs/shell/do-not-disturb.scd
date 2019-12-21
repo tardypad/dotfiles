@@ -6,7 +6,7 @@ do-not-disturb - Manage "Do not disturb" mode
 
 # SYNOPSIS
 
-do-not-disturb [ *status* | *disable* ]
+do-not-disturb [ *status* | *remote-status* | *disable* ]
 
 do-not-disturb [-d _duration_] [-w _work_] ( *enable* | *toggle* )
 
@@ -31,6 +31,9 @@ Manage "Do not disturb" mode. It updates mode on various places:
 	Display whether the "Do not disturb" mode is "enabled" or "disabled"++
 This is the default action if none is specified
 
+*remote-status*
+	Display "Do not disturb" mode from remote server
+
 *disable*
 	Disable "Do not disturb" mode
 
@@ -42,5 +45,6 @@ This is the default action if none is specified
 
 # DEPENDENCIES
 
+- curl
 - ssh
 - weechat-fifo
