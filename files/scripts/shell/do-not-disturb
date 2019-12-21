@@ -6,12 +6,22 @@ init_variables() {
   FILE_PATH="${XDG_RUNTIME_DIR}/do_not_disturb"
 
   ACTION='status'
-  STATUS_TEXT=
+  DURATION_MIN=
+  WORK=
 }
 
 parse_command_line() {
+  while getopts d:u:U:w: OPT; do
+    case "${OPT}" in
+      d) DURATION_MIN="${OPTARG}" ;;
+      w) WORK="${OPTARG}" ;;
+      ?) exit_error ;;
+    esac
+  done
+
+  shift $(( OPTIND - 1 ))
+
   [ -z "$1" ] || ACTION="$1"
-  [ -z "$2" ] || STATUS_TEXT="$2"
 }
 
 validate_command_line() {
@@ -21,6 +31,10 @@ validate_command_line() {
      && [ "${ACTION}" != 'status' ]; then
     exit_error "Invalid action '${ACTION}'"
   fi
+
+  case "${DURATION_MIN}" in
+    *[!0-9]*) exit_error 'duration must be an integer' ;;
+  esac
 }
 
 exit_error() {
@@ -28,8 +42,34 @@ exit_error() {
   exit 1
 } >&2
 
+end_time() {
+  CUR_HOURS=$( date +%H )
+  CUR_MINUTES=$( date +%M )
+  # values with leading 0 are interpreted as octals
+  # which leads to issue with "08" and "09"
+  # so we need to remove them
+  TIME_MIN=$((
+    ${CUR_HOURS#0} * 60 + ${CUR_MINUTES#0} + ${DURATION_MIN}
+  ))
+
+  TIME_H=$(( TIME_MIN / 60 ))
+  TIME_M=$(( TIME_MIN % 60 ))
+  printf '%02dH%02d' "${TIME_H}" "${TIME_M}"
+}
+
 dnd_enable() {
   echo '/slack away' | weechat-fifo 2> /dev/null &
+
+  STATUS_TEXT=
+
+  if [ -n "${DURATION_MIN}" ]; then
+    STATUS_TEXT="until $( end_time )"
+    ( sleep $(( DURATION_MIN * 60 )) && dnd_disable )&
+  fi
+
+  if [ -n "${WORK}" ]; then
+    STATUS_TEXT="${STATUS_TEXT} working on ${WORK}"
+  fi
 
   ssh surg bin/set-status busy "${STATUS_TEXT}" 2> /dev/null &
 

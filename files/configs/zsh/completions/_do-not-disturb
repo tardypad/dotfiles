@@ -12,4 +12,6 @@ _actions() {
 }
 
 _arguments \
+  '-d[duration in minutes]:()' \
+  '-w[work being done]:()' \
   '1:action:_actions'
