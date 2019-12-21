@@ -9,6 +9,8 @@ systemd-configs:
 	$(setup_file)/configs/systemd/user/backup_bookmarks.service           > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_bookmarks.service
 	$(setup_file)/configs/systemd/user/backup_notes.path                  > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_notes.path
 	$(setup_file)/configs/systemd/user/backup_notes.service               > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_notes.service
+	$(setup_file)/configs/systemd/user/backup_time_tracker_logs.path      > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_time_tracker_logs.path
+	$(setup_file)/configs/systemd/user/backup_time_tracker_logs.service   > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_time_tracker_logs.service
 	$(setup_file)/configs/systemd/user/fetch_news.service                 > $(DESTDIR)$(CONFIG_DIR)/systemd/user/fetch_news.service
 	$(setup_file)/configs/systemd/user/fetch_news.timer                   > $(DESTDIR)$(CONFIG_DIR)/systemd/user/fetch_news.timer
 	$(setup_file)/configs/systemd/user/notify_low_battery.service         > $(DESTDIR)$(CONFIG_DIR)/systemd/user/notify_low_battery.service
@@ -21,6 +23,7 @@ systemd-configs:
     # enable paths, timers and services
 	ln -sf ../backup_bookmarks.path            $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants/backup_bookmarks.path
 	ln -sf ../backup_notes.path                $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants/backup_notes.path
+	ln -sf ../backup_time_tracker_logs.path    $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants/backup_time_tracker_logs.path
 	ln -sf ../fetch_news.timer                 $(DESTDIR)$(CONFIG_DIR)/systemd/user/timers.target.wants/fetch_news.timer
 	ln -sf ../notify_low_battery.timer         $(DESTDIR)$(CONFIG_DIR)/systemd/user/timers.target.wants/notify_low_battery.timer
 	ln -sf ../notify_package_updates.timer     $(DESTDIR)$(CONFIG_DIR)/systemd/user/timers.target.wants/notify_package_updates.timer

@@ -5,6 +5,7 @@ shell-docs:
 
 	scdoc < files/docs/shell/backup-bookmarks.scd             > $(DESTDIR)$(DATA_DIR)/man/man1/backup-bookmarks.1
 	scdoc < files/docs/shell/backup-notes.scd                 > $(DESTDIR)$(DATA_DIR)/man/man1/backup-notes.1
+	scdoc < files/docs/shell/backup-time-tracker-logs.scd     > $(DESTDIR)$(DATA_DIR)/man/man1/backup-time-tracker-logs.1
 	scdoc < files/docs/shell/battery-status.scd               > $(DESTDIR)$(DATA_DIR)/man/man1/battery-status.1
 	scdoc < files/docs/shell/check-notify-low-battery.scd     > $(DESTDIR)$(DATA_DIR)/man/man1/check-notify-low-battery.1
 	scdoc < files/docs/shell/check-notify-package-updates.scd > $(DESTDIR)$(DATA_DIR)/man/man1/check-notify-package-updates.1
