@@ -40,5 +40,7 @@ fi
 if [ -z "${DO_NOT_DISTURB}" ] \
    || [ "${DO_NOT_DISTURB}" = 'Y' ] \
    || [ "${DO_NOT_DISTURB}" = 'y' ]; then
-  do-not-disturb -d "${POMODORO_DURATION}" -w "${TASK_ID}" enable
+  nohup \
+    do-not-disturb -d "${POMODORO_DURATION}" -w "${TASK_ID}" enable \
+    > /dev/null 2>&1
 fi

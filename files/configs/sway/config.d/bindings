@@ -23,6 +23,10 @@ bindsym $mod+Escape exec do-not-disturb toggle \
 bindsym $mod+Shift+Escape exec pomodoro toggle \
                                && pkill -x -RTMIN+5 i3blocks
 
+# stop time tracker
+bindsym $mod+Ctrl+Escape exec time-tracker stop \
+                              && pkill -x -RTMIN+6 i3blocks
+
 # select region and grab screenshot
 bindsym $mod+g exec screenshot
 
@@ -49,6 +53,10 @@ mode "-- Launchers --" {
     bindsym o mode "default", exec sway-launcher sway-launch-otp
     bindsym p mode "default", exec sway-launcher sway-launch-password
     bindsym s mode "default", exec sway-launcher sway-launch-somafm
+    bindsym t mode "default", exec sway-launcher sway-launch-task \
+                                   && pkill -x -RTMIN+3 i3blocks \
+                                   && pkill -x -RTMIN+5 i3blocks \
+                                   && pkill -x -RTMIN+6 i3blocks
 
     bindsym c mode "default", exec exec-desktop-entry {dir/data}/applications/chat_client.desktop
     bindsym d mode "default", exec exec-desktop-entry {dir/data}/applications/document_viewer.desktop
