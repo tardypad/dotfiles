@@ -10,4 +10,4 @@ swaymsg -q exec \
   "alacritty \
    -t \"${TITLE}\" \
    --config-file ${XDG_CONFIG_HOME:-$HOME/.config}/alacritty/alacritty_launcher.yml \
-   -e ${COMMAND}" \
+   -e ${COMMAND}"
