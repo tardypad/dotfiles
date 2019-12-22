@@ -37,3 +37,4 @@ Default is 25 min
 # DEPENDENCIES
 
 - notify-end-pomodoro
+- pkill

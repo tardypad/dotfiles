@@ -57,3 +57,4 @@ _day_
 # DEPENDENCIES
 
 - column
+- pkill

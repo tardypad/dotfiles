@@ -46,5 +46,6 @@ This is the default action if none is specified
 # DEPENDENCIES
 
 - curl
+- pkill
 - ssh
 - weechat-fifo
