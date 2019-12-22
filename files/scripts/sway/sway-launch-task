@@ -1,0 +1,44 @@
+#!/bin/sh
+
+TASK_ID=$(
+  time-tracker ids \
+    | sway-fzf-launcher 'task ' \
+        --print-query \
+    | tail -n1
+)
+
+[ -n "${TASK_ID}" ] || exit
+
+printf 'Task: %s\n' "${TASK_ID}"
+
+printf 'Description: '
+read -r TASK_DESC
+
+while true; do
+  printf 'Pomodoro duration (min): '
+  read -r POMODORO_DURATION
+
+  case "${POMODORO_DURATION}" in
+    *[!0-9]*)
+      echo 'duration must be an integer' >&2
+      continue
+      ;;
+  esac
+
+  break
+done
+
+printf 'Do not disturb [Y/n]: '
+read -r DO_NOT_DISTURB
+
+time-tracker start "${TASK_ID}" "${TASK_DESC}"
+
+if [ -n "${POMODORO_DURATION}" ]; then
+  pomodoro start "${POMODORO_DURATION}"
+fi
+
+if [ -z "${DO_NOT_DISTURB}" ] \
+   || [ "${DO_NOT_DISTURB}" = 'Y' ] \
+   || [ "${DO_NOT_DISTURB}" = 'y' ]; then
+  do-not-disturb -d "${POMODORO_DURATION}" -w "${TASK_ID}" enable
+fi

@@ -17,6 +17,7 @@ sway-scripts:
 	$(setup_file)/scripts/sway/sway-launch-password           > $(DESTDIR)$(BIN_DIR)/sway-launch-password
 	$(setup_file)/scripts/sway/sway-launch-somafm             > $(DESTDIR)$(BIN_DIR)/sway-launch-somafm
 	$(setup_file)/scripts/sway/sway-launch-system             > $(DESTDIR)$(BIN_DIR)/sway-launch-system
+	$(setup_file)/scripts/sway/sway-launch-task               > $(DESTDIR)$(BIN_DIR)/sway-launch-task
 	$(setup_file)/scripts/sway/sway-launch-tmux-env           > $(DESTDIR)$(BIN_DIR)/sway-launch-tmux-env
 	$(setup_file)/scripts/sway/sway-launcher                  > $(DESTDIR)$(BIN_DIR)/sway-launcher
 	$(setup_file)/scripts/sway/sway-move-window-new-workspace > $(DESTDIR)$(BIN_DIR)/sway-move-window-new-workspace
@@ -38,6 +39,7 @@ sway-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-launch-password
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-launch-somafm
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-launch-system
+	chmod +x $(DESTDIR)$(BIN_DIR)/sway-launch-task
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-launch-tmux-env
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-launcher
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-move-window-new-workspace
