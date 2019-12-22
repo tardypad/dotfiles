@@ -4,14 +4,14 @@ init_variables() {
   COMMAND=${0##*/}
 
   FILE_PATH="${XDG_RUNTIME_DIR}/pomodoro"
-  DURATION_SECONDS=1500
+  DURATION_MIN=25
 
   ACTION='status'
 }
 
 parse_command_line() {
   [ -z "$1" ] || ACTION="$1"
-  [ -z "$2" ] || DURATION_SECONDS="$2"
+  [ -z "$2" ] || DURATION_MIN="$2"
 }
 
 validate_command_line() {
@@ -22,7 +22,7 @@ validate_command_line() {
     exit_error "Invalid action '${ACTION}'"
   fi
 
-  case "${DURATION_SECONDS}" in
+  case "${DURATION_MIN}" in
     *[!0-9]*) exit_error 'duration must be an integer' ;;
   esac
 }
@@ -48,10 +48,10 @@ session_start() {
   CURRENT_TIME=$( current_time_sec )
   {
     echo "${CURRENT_TIME}"
-    echo "${DURATION_SECONDS}"
+    echo "${DURATION_MIN}"
   } > "${FILE_PATH}"
 
-  ( sleep "${DURATION_SECONDS}" && session_end "${CURRENT_TIME}" )&
+  ( sleep $(( DURATION_MIN * 60 )) && session_end "${CURRENT_TIME}" )&
 }
 
 session_status() {
@@ -62,9 +62,9 @@ session_status() {
 
   CURRENT_TIME=$( current_time_sec )
   START_TIME=$( head -n 1 "${FILE_PATH}" )
-  DURATION_SECONDS=$( tail -n +2 "${FILE_PATH}" )
+  DURATION_MIN=$( tail -n +2 "${FILE_PATH}" )
   MINUTES_LEFT=$((
-    ( DURATION_SECONDS - (CURRENT_TIME - START_TIME) ) / 60
+    DURATION_MIN - ( (CURRENT_TIME - START_TIME) / 60 )
   ))
 
   echo "${MINUTES_LEFT} min left"

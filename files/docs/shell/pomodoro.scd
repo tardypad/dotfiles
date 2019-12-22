@@ -31,8 +31,8 @@ This is the default action if none is specified
 	Start session if not active, cancel it otherwise
 
 _duration_
-	Duration in seconds++
-Default is 1500 (25 minutes)
+	Duration in minutes++
+Default is 25 min
 
 # DEPENDENCIES
 
