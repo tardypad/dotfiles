@@ -16,6 +16,10 @@ query-hosts-tags *tags* _host_
 
 Print information about hosts and their tags
 
+# OPTIONS
+
+None
+
 # OPERANDS
 
 *hosts*
@@ -30,3 +34,7 @@ _host_
 
 _tag_=_value_
 	Couple _tag_/_value_ to filter the hosts to display
+
+# DEPENDENCIES
+
+None

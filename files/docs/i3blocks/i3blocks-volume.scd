@@ -12,6 +12,14 @@ i3blocks-volume
 
 Print the volume status for i3blocks
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - amixer

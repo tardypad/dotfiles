@@ -12,6 +12,14 @@ notify-end-pomodoro
 
 Send a notification for the end of a pomodoro session
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - aplay

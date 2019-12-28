@@ -12,6 +12,14 @@ i3blocks-chat
 
 Print the chat status for i3blocks
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - i3blocks-mode

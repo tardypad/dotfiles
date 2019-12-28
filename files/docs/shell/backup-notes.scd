@@ -12,6 +12,14 @@ backup-notes
 
 Backup notes to remote server
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - rsync

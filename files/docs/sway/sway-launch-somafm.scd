@@ -12,6 +12,14 @@ sway-launch-somafm
 
 Open a launcher window to select and play a SomaFM channel.
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - mpc

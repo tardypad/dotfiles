@@ -13,6 +13,10 @@ tmux-toggle-monitor-silence _socket_path_ _session_id_ _window_id_
 Toggle silence monitoring in current tmux window. It also marks the current
 window within sway for further use on trigger.
 
+# OPTIONS
+
+None
+
 # OPERANDS
 
 _socket_path_

@@ -11,3 +11,15 @@ battery-status
 # DESCRIPTION
 
 Print general status info about the battery
+
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
+# DEPENDENCIES
+
+None

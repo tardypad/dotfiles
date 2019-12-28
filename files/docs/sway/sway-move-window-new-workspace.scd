@@ -8,6 +8,14 @@ sway-move-window-new-workspace - Move a sway window to new workspace
 
 sway-move-window-new-workspace
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DESCRIPTION
 
 Move a sway window to a new workspace in the focused output at the lowest index

@@ -12,6 +12,10 @@ tmux-move-pane-window-index _index_
 
 Move the current tmux pane to another window specified by its index
 
+# OPTIONS
+
+None
+
 # OPERANDS
 
 _index_

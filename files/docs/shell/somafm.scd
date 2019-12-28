@@ -16,6 +16,10 @@ somafm *playlist* _channel_
 
 Print SomaFM channels information
 
+# OPTIONS
+
+None
+
 # OPERANDS
 
 *channels*

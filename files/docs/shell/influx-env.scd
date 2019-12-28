@@ -12,6 +12,10 @@ influx-env _project_ [_query_] [-- _option_...]
 
 Start InfluxDB or run a query within a project environment
 
+# OPTIONS
+
+None
+
 # OPERANDS
 
 _project_

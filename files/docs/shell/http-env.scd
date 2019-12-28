@@ -12,6 +12,10 @@ http-env _project_ _env_ _method_ _path_ [_item_...] [-- _option_...]
 
 Run a HTTP request to a project environment
 
+# OPTIONS
+
+None
+
 # OPERANDS
 
 _project_

@@ -12,6 +12,10 @@ documentation _topic_ [_section_]
 
 Display documentation about a topic
 
+# OPTIONS
+
+None
+
 # OPERANDS
 
 _topic_

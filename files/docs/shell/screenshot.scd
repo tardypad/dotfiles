@@ -13,6 +13,14 @@ screenshot
 Open screen overlay to select a region to screenshot. The image is saved in the
 Desktop folder.
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - grim

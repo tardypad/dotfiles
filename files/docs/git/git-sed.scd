@@ -14,6 +14,10 @@ Run a single sed script over text files in the repository.
 
 _WARNING_: Untracked files are not included in the list of files
 
+# OPTIONS
+
+None
+
 # OPERANDS
 
 _script_

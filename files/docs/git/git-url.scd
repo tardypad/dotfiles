@@ -33,6 +33,10 @@ valid types:
 	- issue: URL of the issue related to selected commit
 	- review: URL of the review related to selected commit
 
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - git (includes own commands: commit-issue-id, commit-review-id)

@@ -12,6 +12,14 @@ i3blocks-do-not-disturb
 
 Print the do-not-disturb status for i3blocks
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - do-not-disturb

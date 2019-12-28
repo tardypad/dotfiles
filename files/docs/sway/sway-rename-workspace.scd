@@ -12,6 +12,14 @@ sway-rename-workspace
 
 Open a window to enter the new name of the current sway workspace
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - jq

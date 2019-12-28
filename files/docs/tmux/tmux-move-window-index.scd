@@ -13,6 +13,10 @@ tmux-move-window-index _index_
 Move the current tmux window within the session at desired index. It supports
 indexes which are not part of the current windows indexes.
 
+# OPTIONS
+
+None
+
 # OPERANDS
 
 _index_

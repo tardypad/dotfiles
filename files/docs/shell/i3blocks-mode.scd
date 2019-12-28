@@ -12,6 +12,10 @@ i3blocks-mode [ _full_ | _light_ | _show_ | _toggle_ ]
 
 Manage the bar status mode. Light mode is the default.
 
+# OPTIONS
+
+None
+
 # OPERANDS
 
 _full_

@@ -12,6 +12,14 @@ color-picker
 
 Open screen overlay to select a pixel to get the color of.
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - convert

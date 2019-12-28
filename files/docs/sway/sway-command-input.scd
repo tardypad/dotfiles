@@ -13,6 +13,10 @@ sway-command-input _args_
 Open a window for user input to run sway command. It focus current window if it
 already exists.
 
+# OPTIONS
+
+None
+
 # OPERANDS
 
 _args_

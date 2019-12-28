@@ -12,6 +12,14 @@ sway-launch-otp
 
 Open a launcher window to select and copy an one time password.
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - sway-fzf-launcher

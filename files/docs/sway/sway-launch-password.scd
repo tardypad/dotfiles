@@ -12,6 +12,14 @@ sway-launch-password
 
 Open a launcher window to select and copy a password.
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - pass

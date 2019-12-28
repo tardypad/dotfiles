@@ -12,6 +12,14 @@ i3blocks-music
 
 Print the music status for i3blocks
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - i3blocks-mode

@@ -12,6 +12,10 @@ ssh-tags [_tag_=_value_...]
 
 Open interface to select an host to connect to via SSH.
 
+# OPTIONS
+
+None
+
 # OPERANDS
 
 _tag_=_value_

@@ -12,6 +12,10 @@ sway-create-workspace [ _name_ ]
 
 Create a new sway workspace in the focused output at the lowest index available.
 
+# OPTIONS
+
+None
+
 # OPERANDS
 
 _name_

@@ -12,6 +12,14 @@ i3blocks-power
 
 Print the power status for i3blocks
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - battery-status

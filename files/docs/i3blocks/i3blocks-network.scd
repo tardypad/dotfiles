@@ -12,6 +12,14 @@ i3blocks-network
 
 Print the network status for i3blocks
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - i3blocks-mode

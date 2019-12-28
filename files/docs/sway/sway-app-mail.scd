@@ -13,6 +13,14 @@ sway-app-mail
 Open mail app in window in new workspace. It focus current window if it already
 exists.
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - alacritty

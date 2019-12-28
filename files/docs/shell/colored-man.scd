@@ -11,3 +11,15 @@ colored-man
 # DESCRIPTION
 
 Man command with colored display
+
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
+# DEPENDENCIES
+
+None

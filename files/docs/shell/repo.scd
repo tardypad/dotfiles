@@ -16,6 +16,10 @@ repo _repo_name_ *sync* _pkg_name_
 
 Manage personal remote repository packages
 
+# OPTIONS
+
+None
+
 # OPERANDS
 
 _repo_name_

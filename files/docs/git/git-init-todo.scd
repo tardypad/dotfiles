@@ -13,6 +13,14 @@ git init-todo
 Create a TODO.md file at the root of the repository containing the usual
 skeleton and commit it.
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - git (includes own command: root)

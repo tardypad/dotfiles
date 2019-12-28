@@ -15,6 +15,14 @@ Open a launcher window to start a task:
 - start a pomodoro session (optional)
 - enable "Do not disturb" mode (optional)
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - do-not-disturb

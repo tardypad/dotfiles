@@ -11,3 +11,15 @@ i3blocks-datetime
 # DESCRIPTION
 
 Print the date and time status for i3blocks
+
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
+# DEPENDENCIES
+
+None

@@ -27,3 +27,7 @@ Execute a command in a loop
 
 _command_
 	Command to execute
+
+# DEPENDENCIES
+
+None

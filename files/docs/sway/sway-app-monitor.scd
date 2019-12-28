@@ -12,6 +12,14 @@ sway-app-monitor
 
 Open monitor app in window. It focus current window if it already exists.
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - alacritty

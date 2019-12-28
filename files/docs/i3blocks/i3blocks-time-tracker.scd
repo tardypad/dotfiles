@@ -12,6 +12,14 @@ i3blocks-time-tracker
 
 Print the time tracker status for i3blocks
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - time-tracker

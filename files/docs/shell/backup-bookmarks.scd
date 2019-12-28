@@ -12,6 +12,14 @@ backup-bookmarks
 
 Backup browser bookmarks to remote server
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - rsync

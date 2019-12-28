@@ -12,6 +12,14 @@ check-notify-package-updates
 
 Check for packages updates and send system notification if any
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - aur

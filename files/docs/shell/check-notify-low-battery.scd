@@ -12,6 +12,14 @@ check-notify-low-battery
 
 Check the battery level and send system notification if too low
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - aplay

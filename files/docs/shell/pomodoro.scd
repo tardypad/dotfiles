@@ -10,10 +10,13 @@ pomodoro [ *cancel* | *status* ]
 
 pomodoro [ *start* | *toggle* ] [_duration_]
 
-
 # DESCRIPTION
 
 Manage a Pomodoro session
+
+# OPTIONS
+
+None
 
 # OPERANDS
 

@@ -12,6 +12,10 @@ sway-focus-window-title _title_
 
 Focus a sway window given its title
 
+# OPTIONS
+
+None
+
 # OPERANDS
 
 _title_

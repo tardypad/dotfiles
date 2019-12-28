@@ -12,6 +12,10 @@ sway-launch-tmux-env _env_
 
 Open a launcher window to select and start a session of a tmux env
 
+# OPTIONS
+
+None
+
 # OPERANDS
 
 _env_

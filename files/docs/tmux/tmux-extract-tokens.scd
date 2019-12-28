@@ -17,6 +17,10 @@ Diverse actions are then available on the selected item:
 - search in browser (_ctrl-s_)
 - copy in system clipboard (_ctrl-y_)
 
+# OPTIONS
+
+None
+
 # OPERANDS
 
 _hashes_

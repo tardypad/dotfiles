@@ -14,6 +14,10 @@ If the current tmux pane is running vim, send the vim keybindings to try to
 select the window in vim in the desired direction. If not, select the tmux pane
 in the same direction.
 
+# OPTIONS
+
+None
+
 # OPERANDS
 
 _key_

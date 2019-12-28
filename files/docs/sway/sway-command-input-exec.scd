@@ -22,6 +22,10 @@ default: %s
 *-P* _prompt_
 	Display before user input
 
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - swaymsg

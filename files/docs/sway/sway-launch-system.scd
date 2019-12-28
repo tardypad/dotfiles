@@ -12,6 +12,14 @@ sway-launch-system
 
 Open a launcher window to select and run a system action.
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - sway-fzf-launcher

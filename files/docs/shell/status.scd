@@ -12,6 +12,14 @@ status
 
 Print general status info about the current shell
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - git (includes own command: current-branch)

@@ -18,6 +18,10 @@ time-tracker [ *show* | *edit* ] [ _day_ ]
 
 Manager tasks duration tracking
 
+# OPTIONS
+
+None
+
 # OPERANDS
 
 *add*

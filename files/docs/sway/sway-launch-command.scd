@@ -12,6 +12,14 @@ sway-launch-command
 
 Open a launcher window to select and run a command
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - stat

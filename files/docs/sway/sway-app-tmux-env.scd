@@ -13,6 +13,10 @@ sway-app-tmux-env _env_ _session_
 Open tmux env app in window in new workspace. It focus current window if it
 already exists.
 
+# OPTIONS
+
+None
+
 # OPERANDS
 
 _env_

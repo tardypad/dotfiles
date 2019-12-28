@@ -12,6 +12,14 @@ i3blocks-pomodoro
 
 Print the pomodoro status for i3blocks
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - pomodoro

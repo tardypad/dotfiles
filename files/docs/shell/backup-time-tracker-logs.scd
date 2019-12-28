@@ -12,6 +12,14 @@ backup-time-tracker-logs
 
 Backup time tracker logs to remote server
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - rsync

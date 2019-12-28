@@ -14,6 +14,10 @@ Toggle no distraction mode from tmux:
 - fullscreen sway window
 - hide tmux status bar
 
+# OPTIONS
+
+None
+
 # OPERANDS
 
 _soft_

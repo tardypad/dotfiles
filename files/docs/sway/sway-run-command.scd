@@ -13,6 +13,14 @@ sway-run-command
 Open a window for user to enter any sway command. The command is relative to
 current window, workspace, output,...
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - jq

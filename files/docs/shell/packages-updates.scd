@@ -12,6 +12,10 @@ packages-updates ( _list_ | _update_ )
 
 Manage packages updates
 
+# OPTIONS
+
+None
+
 # OPERANDS
 
 _list_

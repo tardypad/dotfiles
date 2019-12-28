@@ -37,6 +37,10 @@ takes precedence over values coming from -c
 	define the type of identities affected by the rewrite++
 valid ids: author, committer, both (default)
 
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - git

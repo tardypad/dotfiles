@@ -12,6 +12,10 @@ sway-launcher _command_
 
 Open a launcher window. It focus current one if any already exists.
 
+# OPTIONS
+
+None
+
 # OPERANDS
 
 _command_

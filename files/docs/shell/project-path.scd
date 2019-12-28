@@ -12,6 +12,10 @@ project-path _type_ [_project_]
 
 Print a path related to a project
 
+# OPTIONS
+
+None
+
 # OPERANDS
 
 _type_

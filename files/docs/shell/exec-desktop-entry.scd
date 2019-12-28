@@ -12,7 +12,15 @@ exec-desktop-entry _desktop_file_
 
 Execute a desktop entry file
 
+# OPTIONS
+
+None
+
 # OPERANDS
 
 _desktop_file_
 	Desktop entry file to execute
+
+# DEPENDENCIES
+
+None

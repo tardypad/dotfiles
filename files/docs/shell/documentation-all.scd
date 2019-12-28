@@ -12,6 +12,14 @@ documentation-all
 
 Open interface to select topic to display documentation of.
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - fzf

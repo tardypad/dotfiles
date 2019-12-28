@@ -12,6 +12,14 @@ i3blocks-bluetooth
 
 Print the bluetooth status for i3blocks
 
+# OPTIONS
+
+None
+
+# OPERANDS
+
+None
+
 # DEPENDENCIES
 
 - bluetoothctl
