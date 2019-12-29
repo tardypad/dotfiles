@@ -1,0 +1,5 @@
+#compdef script
+
+_arguments \
+  '-o[option]:option:()' \
+  '1:operand:()'

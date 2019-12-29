@@ -1,0 +1,43 @@
+#!/bin/sh
+
+init_variables() {
+  COMMAND=${0##*/}
+
+  OPTION=
+  OPERAND=
+}
+
+parse_command_line() {
+  while getopts o: OPT; do
+    case "${OPT}" in
+      o) OPTION="${OPTARG}" ;;
+      ?) exit_error ;;
+    esac
+  done
+
+  shift $(( OPTIND - 1 ))
+
+  OPERAND="$1"
+}
+
+validate_command_line() {
+  if [ -z "${OPERAND}" ]; then
+    exit_error 'missing operand'
+  fi
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+print_items() {
+  printf 'option: %s\n' "${OPTION}"
+  printf 'operand: %s\n' "${OPERAND}"
+}
+
+init_variables
+parse_command_line "$@"
+validate_command_line
+
+print_items

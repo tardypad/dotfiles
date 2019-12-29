@@ -49,6 +49,12 @@ They need to be run from the repository root folder as some of them depends on
 the repository structure.
 
 
+### Templates
+
+The [templates/](templates) folder contains various templates used to bootstrap
+the creation of some internal files of the repository.
+
+
 ## Setup
 
 The setup is done using `make`.
