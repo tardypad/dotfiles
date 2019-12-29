@@ -189,8 +189,8 @@ bind            E display-menu -x P -y P -T 'Extract' \
 ## root key space
 
 # no distraction modes
-bind -T root M-Space   run "tmux-toggle-no-distraction soft"
-bind -T root M-C-Space run "tmux-toggle-no-distraction hard"
+bind -T root M-Space   run "tmux-toggle-no-distraction window"
+bind -T root M-C-Space run "tmux-toggle-no-distraction pane"
 
 # extract URLS
 bind -T root C-Tab run -b "tmux-extract-tokens urls"

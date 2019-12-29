@@ -1,6 +1,6 @@
 #!/bin/sh
 
-LEVEL="$1"
+TARGET="$1"
 
 init_variables() {
   FILE_PATH="${XDG_RUNTIME_DIR}/tmux_no_distraction"
@@ -59,7 +59,7 @@ no_distraction_mode_enable() {
   tmux_status_line 'hide'
   sway_fullscreen 'enable'
 
-  if [ "${LEVEL}" = 'hard' ]; then
+  if [ "${TARGET}" = 'pane' ]; then
     tmux_pane_zoom 'enable'
   fi
 

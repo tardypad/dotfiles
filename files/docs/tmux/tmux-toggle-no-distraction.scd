@@ -6,7 +6,7 @@ tmux-toggle-no-distraction - Toggle no distraction mode from tmux
 
 # SYNOPSIS
 
-tmux-toggle-no-distraction [ _soft_ | _hard_ ]
+tmux-toggle-no-distraction [ _window_ | _pane_ ]
 
 # DESCRIPTION
 
@@ -20,12 +20,12 @@ None
 
 # OPERANDS
 
-_soft_
-	Soft mode
+_window_
+	Focus the current window only++
+This is the default target if none specified
 
-_hard_
-	Hard mode++
-Same as soft mode with current tmux pane zoomed
+_pane_
+	Focus the current pane only
 
 # DEPENDENCIES
 
