@@ -86,6 +86,7 @@ vim-configs:
 	setup/install-vim-plugin apiblueprint      "$(DESTDIR)" git https://github.com/kylef/apiblueprint.vim             776b986
 	setup/install-vim-plugin qml               "$(DESTDIR)" git https://github.com/peterhoeg/vim-qml                  8af43da
 	setup/install-vim-plugin elm               "$(DESTDIR)" git https://github.com/elmcast/elm-vim                    d22c0ba
+	setup/install-vim-plugin go                "$(DESTDIR)" git https://github.com/fatih/vim-go                       v1.21
 	setup/install-vim-plugin php               "$(DESTDIR)" git https://github.com/stanangeloff/php.vim               7671a5a
 	setup/install-vim-plugin icinga2           "$(DESTDIR)" file https://raw.githubusercontent.com/Icinga/icinga2/3cb2c1d1435f19bc5e46fa8f8518645f62549dde/tools/syntax/vim/syntax/icinga2.vim syntax/icinga2.vim
 

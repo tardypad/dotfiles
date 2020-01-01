@@ -39,4 +39,3 @@
     * local organization (uppercase for sway windows and tmux panes, lowercase for sway workspace and tmux windows,...)
 
 ## Research
-  - vim plugins for Go

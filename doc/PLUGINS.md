@@ -31,6 +31,7 @@
 | icinga2                         | icinga2 syntax                               | [GitHub](https://github.com/Icinga/icinga2/blob/master/tools/syntax/vim/syntax/icinga2.vim)       | [3cb2c1d](https://github.com/Icinga/icinga2/commit/3cb2c1d1435f19bc5e46fa8f8518645f62549dde)                           |
 | vim-qml                         | QML syntax                                   | [GitHub](https://github.com/peterhoeg/vim-qml)                                                    | [8af43da](https://github.com/peterhoeg/vim-qml/commit/8af43da6950ce5483704bb97f5b24471d8ffda1a)                        |
 | elm-vim                         | Elm language                                 | [GitHub](https://github.com/elmcast/elm-vim)                                                      | [d22c0ba](https://github.com/ElmCast/elm-vim/commit/d22c0ba13afb554257a8c176962e2216cc18edd1)                          |
+| vim-go                          | Go language                                  | [GitHub](https://github.com/fatih/vim-go)                                                         | [1.21](https://github.com/fatih/vim-go/releases/tag/v1.21)                                                             |
 | php.vim                         | PHP language                                 | [GitHub](https://github.com/stanangeloff/php.vim)                                                 | [7671a5a](https://github.com/StanAngeloff/php.vim/commit/7671a5aa05e2a8a614551365b7c385ed5b953721)                     |
 
 
