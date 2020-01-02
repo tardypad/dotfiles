@@ -2,15 +2,15 @@ tmux-extract-tokens(1)
 
 # NAME
 
-tmux-extract-tokens - Extract token from current tmux pane
+tmux-extract-tokens - Extract token from current tmux pane or window
 
 # SYNOPSIS
 
-tmux-extract-tokens ( _hashes_ | _lines_ | _paths_ | _urls_ | _words_ | _WORDS_ )
+tmux-extract-tokens ( _pane_ | _window_ ) ( _hashes_ | _lines_ | _paths_ | _urls_ | _words_ | _WORDS_ )
 
 # DESCRIPTION
 
-Open interface to allow the selection of a token from the current tmux pane.
+Open interface to allow the selection of a token from the current tmux pane or window.
 Diverse actions are then available on the selected item:
 - copy in tmux buffer and paste in tmux pane (_enter_)
 - open in browser (_ctrl-o_)
@@ -22,6 +22,12 @@ Diverse actions are then available on the selected item:
 None
 
 # OPERANDS
+
+_pane_
+	Extract token from current pane
+
+_window_
+	Extract token from all panes of the current window
 
 _hashes_
 	Extract hexadecimal hashes

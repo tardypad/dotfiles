@@ -1,6 +1,7 @@
 #!/bin/sh
 
-TOKEN_TYPE="$1"
+TARGET="$1"
+TOKEN_TYPE="$2"
 
 SPLIT_HEIGHT=20
 
@@ -16,9 +17,21 @@ case "${TOKEN_TYPE}" in
   *) exit 1
 esac
 
-capture_current_pane() {
-  HEIGHT=$( tmux display -p -F '#{pane_height}')
-  SCROLL_POSITION=$( tmux display -p -F '#{scroll_position}')
+capture_text() {
+  if [ "${TARGET}" = 'pane' ]; then
+    capture_pane "$( tmux display -p -F '#{pane_id}' )"
+  elif [ "${TARGET}" = 'window' ]; then
+    for PANE_ID in $( tmux list-panes -F '#{pane_id}' ); do
+      capture_pane "${PANE_ID}"
+    done
+  fi
+}
+
+capture_pane() {
+  PANE_ID="$1"
+
+  HEIGHT=$( tmux display -t ":.${PANE_ID}" -p -F '#{pane_height}')
+  SCROLL_POSITION=$( tmux display -t ":.${PANE_ID}" -p -F '#{scroll_position}')
 
   if [ -z "${SCROLL_POSITION}" ]; then
     SCROLL_POSITION=0
@@ -27,7 +40,7 @@ capture_current_pane() {
   START="-${SCROLL_POSITION}"
   END=$(( HEIGHT - SCROLL_POSITION - 1 ))
 
-  tmux capture-pane -pJ -S "${START}" -E "${END}"
+  tmux capture-pane -t ":.${PANE_ID}" -pJ -S "${START}" -E "${END}"
 }
 
 grep_hashes() {
@@ -55,7 +68,7 @@ grep_WORDS() {
 }
 
 ITEM=$(
-  capture_current_pane \
+  capture_text \
     | "${GREP_FUNCTION}" \
     | sort -u \
     | fzf-tmux -d "${SPLIT_HEIGHT}" -- \

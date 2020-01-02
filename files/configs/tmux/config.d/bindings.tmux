@@ -176,14 +176,23 @@ bind -T RESIZE J switch-client -T RESIZE \; resize-pane -D 3
 bind -T RESIZE K switch-client -T RESIZE \; resize-pane -U 3
 bind -T RESIZE L switch-client -T RESIZE \; resize-pane -R 3
 
-# extract menu
-bind            E display-menu -x P -y P -T 'Extract' \
-'hash' h 'run -b "tmux-extract-tokens hashes"' \
-'line' l 'run -b "tmux-extract-tokens lines"'  \
-'path' p 'run -b "tmux-extract-tokens paths"'  \
-'url'  u 'run -b "tmux-extract-tokens urls"'   \
-'word' w 'run -b "tmux-extract-tokens words"'  \
-'WORD' W 'run -b "tmux-extract-tokens WORDS"'
+# extract menus
+
+bind e display-menu -x W -y S -T 'Extract' \
+'hash' h 'run -b "tmux-extract-tokens window hashes"' \
+'line' l 'run -b "tmux-extract-tokens window lines"'  \
+'path' p 'run -b "tmux-extract-tokens window paths"'  \
+'url'  u 'run -b "tmux-extract-tokens window urls"'   \
+'word' w 'run -b "tmux-extract-tokens window words"'  \
+'WORD' W 'run -b "tmux-extract-tokens window WORDS"'
+
+bind E display-menu -x P -y P -T 'Extract' \
+'hash' h 'run -b "tmux-extract-tokens pane hashes"' \
+'line' l 'run -b "tmux-extract-tokens pane lines"'  \
+'path' p 'run -b "tmux-extract-tokens pane paths"'  \
+'url'  u 'run -b "tmux-extract-tokens pane urls"'   \
+'word' w 'run -b "tmux-extract-tokens pane words"'  \
+'WORD' W 'run -b "tmux-extract-tokens pane WORDS"'
 
 
 ## root key space
@@ -193,7 +202,7 @@ bind -T root M-Space   run "tmux-toggle-no-distraction window"
 bind -T root M-C-Space run "tmux-toggle-no-distraction pane"
 
 # extract URLS
-bind -T root C-Tab run -b "tmux-extract-tokens urls"
+bind -T root C-Tab run -b "tmux-extract-tokens pane urls"
 
 
 ## copy mode
