@@ -67,3 +67,6 @@ scdoc
 yubikey
 Sourcehut
 sudo
+stdin
+stderr
+stdout
