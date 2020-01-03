@@ -34,7 +34,9 @@ read -r DO_NOT_DISTURB
 time-tracker start "${TASK_ID}" "${TASK_DESC}"
 
 if [ -n "${POMODORO_DURATION}" ]; then
-  pomodoro start "${POMODORO_DURATION}"
+  nohup \
+    pomodoro start "${POMODORO_DURATION}" \
+    > /dev/null 2>&1
 fi
 
 if [ -z "${DO_NOT_DISTURB}" ] \
