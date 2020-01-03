@@ -1,7 +1,11 @@
 #!/bin/sh
 
+# Fetch channels before the start of the fzf interface to have its informative
+# messages displayed properly beforehand
+CHANNELS=$( somafm channels )
+
 CHANNEL_ID=$(
-  somafm channels \
+    echo "${CHANNELS}" \
     | sort -k 2 \
     | sway-fzf-launcher 'play SomaFM channel ' \
         -d '\t' \
