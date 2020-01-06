@@ -70,3 +70,4 @@ sudo
 stdin
 stderr
 stdout
+rsync
