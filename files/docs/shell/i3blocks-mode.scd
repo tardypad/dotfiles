@@ -31,6 +31,16 @@ This is the default action if none is specified
 _toggle_
 	Toggle mode
 
+# ENVIRONMENT VARIABLES
+
+_XDG_RUNTIME_DIR_
+	Path to user-specific base directory to store runtime files
+
+# FILES
+
+_$XDG_RUNTIME_DIR/i3blocks_mode_full_
+	File used as a flag to store the status of the mode
+
 # DEPENDENCIES
 
 - pkill

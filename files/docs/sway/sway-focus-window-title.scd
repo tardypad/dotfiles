@@ -21,6 +21,14 @@ None
 _title_
 	Title of the window to focus
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+None
+
 # DEPENDENCIES
 
 - jq

@@ -21,6 +21,14 @@ None
 _desktop_file_
 	Desktop entry file to execute
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+None
+
 # DEPENDENCIES
 
 None

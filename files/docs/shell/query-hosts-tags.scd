@@ -35,6 +35,17 @@ _host_
 _tag_=_value_
 	Couple _tag_/_value_ to filter the hosts to display
 
+# ENVIRONMENT VARIABLES
+
+_XDG_CACHE_HOME_
+	Path to user-specific base directory to store cached data++
+If unset, defaults to $HOME/.cache
+
+# FILES
+
+_$XDG_CACHE_HOME/hosts_tags_\*.yaml_
+	Hosts tags files
+
 # DEPENDENCIES
 
 None

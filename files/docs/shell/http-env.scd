@@ -36,6 +36,17 @@ _item_
 _option_
 	*http* option
 
+# ENVIRONMENT VARIABLES
+
+_XDG_DATA_HOME_
+	Path to user-specific base directory to store data files++
+If unset, defaults to $HOME/.local/share
+
+# FILES
+
+_$XDG_DATA_HOME/env/http/\*/\*_
+	Files defining the http environment
+
 # DEPENDENCIES
 
 - http

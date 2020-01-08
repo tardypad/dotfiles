@@ -18,10 +18,8 @@
   - improve all env scripts usage:
     * allow to receive query/POST body data from stdin
   - better man pages:
-    * add FILES used by the script
-    * add ENVIRONMENT VARIABLES used by the script
-    * check common man pages to see what other parts could make sense to be added  
-      STDIN, STDOUT, EXIT STATUS, EXAMPLES,...
+    * per script add new specific relevant parts: STDIN, STDOUT, EXIT STATUS, EXAMPLES, CONFIG, ACKNOWLEDGMENTS...  
+      and extend current ones: files format, files naming conventions,...
 
 ## New Features
   - use of Sway IPC via [i3ipc](https://github.com/acrisci/i3ipc-python)

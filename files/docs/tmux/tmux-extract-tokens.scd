@@ -47,6 +47,14 @@ _words_
 _WORDS_
 	Extract words (any consecutive characters separated by spaces)
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+None
+
 # DEPENDENCIES
 
 - grep with -o option #FIXME: This script is not POSIX compliant

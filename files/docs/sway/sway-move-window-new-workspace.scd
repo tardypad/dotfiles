@@ -21,6 +21,14 @@ None
 Move a sway window to a new workspace in the focused output at the lowest index
 available.
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+None
+
 # DEPENDENCIES
 
 - jq

@@ -21,6 +21,17 @@ None
 _command_
 	Command for the launcher instance
 
+# ENVIRONMENT VARIABLES
+
+XDG_CONFIG_HOME
+	Path to user-specific base directory to store configuration files++
+If unset, defaults to $HOME/.config
+
+# FILES
+
+$XDG_CONFIG_HOME/alacritty/alacritty_launcher.yml
+	Specific alacritty config file
+
 # DEPENDENCIES
 
 - alacritty

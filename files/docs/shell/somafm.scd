@@ -34,6 +34,17 @@ None
 _channel_
 	Identifier of the channel
 
+# ENVIRONMENT VARIABLES
+
+_XDG_CACHE_HOME_
+	Path to user-specific base directory to store cached data++
+If unset, defaults to $HOME/.cache
+
+# FILES
+
+_$XDG_CACHE_HOME/somafm_channels.json_
+	File used as cache for the list of channels
+
 # DEPENDENCIES
 
 - curl

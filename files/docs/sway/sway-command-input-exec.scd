@@ -26,6 +26,14 @@ default: %s
 
 None
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+None
+
 # DEPENDENCIES
 
 - swaymsg

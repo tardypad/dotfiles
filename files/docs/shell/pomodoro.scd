@@ -37,6 +37,16 @@ _duration_
 	Duration in minutes++
 Default is 25 min
 
+# ENVIRONMENT VARIABLES
+
+_XDG_RUNTIME_DIR_
+	Path to user-specific base directory to store runtime files
+
+# FILES
+
+_$XDG_RUNTIME_DIR/pomodoro_
+	Contains information about the current session
+
 # DEPENDENCIES
 
 - notify-end-pomodoro

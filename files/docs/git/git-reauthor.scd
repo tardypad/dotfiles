@@ -41,6 +41,14 @@ valid ids: author, committer, both (default)
 
 None
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+None
+
 # DEPENDENCIES
 
 - git

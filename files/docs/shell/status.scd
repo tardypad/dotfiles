@@ -20,6 +20,15 @@ None
 
 None
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+_/proc/sys/kernel/hostname_
+	Contains the system hostname
+
 # DEPENDENCIES
 
 - git (includes own command: current-branch)

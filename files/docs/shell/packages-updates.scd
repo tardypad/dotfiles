@@ -24,6 +24,15 @@ _list_
 _update_
 	Update all the packages
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+_/tmp/packages-updates_
+	Temporary directory for packages storage and operations
+
 # DEPENDENCIES
 
 - column

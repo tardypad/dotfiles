@@ -22,6 +22,14 @@ Print the option and operand
 _operand_
 	Operand
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+None
+
 # DEPENDENCIES
 
 None

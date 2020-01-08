@@ -20,6 +20,17 @@ None
 
 None
 
+# ENVIRONMENT VARIABLES
+
+_XDG_CACHE_HOME_
+	Path to user-specific base directory to store cached data++
+If unset, defaults to $HOME/.cache
+
+# FILES
+
+_$XDG_CACHE_HOME/sway/launch_command_
+	File used as cache for the list of commands
+
 # DEPENDENCIES
 
 - stat

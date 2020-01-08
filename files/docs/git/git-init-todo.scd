@@ -21,6 +21,14 @@ None
 
 None
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+None
+
 # DEPENDENCIES
 
 - git (includes own command: root)

@@ -21,6 +21,14 @@ None
 _name_
 	Name to give to the new workspace
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+None
+
 # DEPENDENCIES
 
 - jq

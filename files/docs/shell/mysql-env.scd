@@ -27,6 +27,17 @@ _query_
 _option_
 	*mysql* option
 
+# ENVIRONMENT VARIABLES
+
+_XDG_DATA_HOME_
+	Path to user-specific base directory to store data files++
+If unset, defaults to $HOME/.local/share
+
+# FILES
+
+_$XDG_DATA_HOME/env/mysql/\*_
+	Files defining the MySQL environment
+
 # DEPENDENCIES
 
 - mysql

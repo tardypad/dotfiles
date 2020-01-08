@@ -23,6 +23,15 @@ _buffer_
 	Buffer to use++
 Default: current one
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+_$HOME/.weechat/weechat_fifo_
+	Weechat FIFO pipe
+
 # DEPENDENCIES
 
 None

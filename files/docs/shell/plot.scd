@@ -21,6 +21,14 @@ None
 _option_
 	*jp* option
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+None
+
 # DEPENDENCIES
 
 - jp

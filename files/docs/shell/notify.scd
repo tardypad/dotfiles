@@ -32,6 +32,16 @@ _summary_
 _body_
 	Notification body
 
+# ENVIRONMENT VARIABLES
+
+_XDG_RUNTIME_DIR_
+	Path to user-specific base directory to store runtime files
+
+# FILES
+
+_$XDG_RUNTIME_DIR/notification_\*_
+	Contains the internal notification identifier for our custom identifier
+
 # DEPENDENCIES
 
 - gdbus

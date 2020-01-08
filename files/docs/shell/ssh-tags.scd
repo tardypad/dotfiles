@@ -21,6 +21,14 @@ None
 _tag_=_value_
 	Couple _tag_/_value_ to filter the hosts to display
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+None
+
 # DEPENDENCIES
 
 - fzf

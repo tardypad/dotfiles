@@ -25,6 +25,14 @@ _env_
 _session_
 	Name of the session
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+None
+
 # DEPENDENCIES
 
 - alacritty

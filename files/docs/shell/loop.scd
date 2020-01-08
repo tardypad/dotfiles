@@ -28,6 +28,14 @@ Execute a command in a loop
 _command_
 	Command to execute
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+None
+
 # DEPENDENCIES
 
 None

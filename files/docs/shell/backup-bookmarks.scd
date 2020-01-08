@@ -20,6 +20,20 @@ None
 
 None
 
+# ENVIRONMENT VARIABLES
+
+_XDG_CONFIG_HOME_
+	Path to user-specific base directory to store configuration files++
+If unset, defaults to $HOME/.config
+
+# FILES
+
+_$XDG_CONFIG_HOME/qutebrowser/bookmarks/urls_
+	File containing browser bookmarks
+
+_$XDG_CONFIG_HOME/qutebrowser/quickmarks_
+	File containing browser quickmarks
+
 # DEPENDENCIES
 
 - rsync

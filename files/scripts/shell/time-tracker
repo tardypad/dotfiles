@@ -137,7 +137,7 @@ tracking_add()
 
 tracking_edit()
 {
-  "${EDITOR}" "${LOGGING_DIR}/${LOGGING_DAY}"
+  "${EDITOR:-vi}" "${LOGGING_DIR}/${LOGGING_DAY}"
 }
 
 tracking_show()

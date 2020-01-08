@@ -26,6 +26,14 @@ _id_
 _message_
 	Message of the stamp
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+None
+
 # DEPENDENCIES
 
 - git

@@ -58,6 +58,27 @@ _duration_
 _day_
 	Logging day in YYYY-MM-DD format
 
+# ENVIRONMENT VARIABLES
+
+_EDITOR_
+	Determine the application to be invoked to edit files++
+If unset, defaults to vi
+
+_XDG_DATA_HOME_
+	Path to user-specific base directory to store data files++
+If unset, defaults to $HOME/.local/share
+
+_XDG_RUNTIME_DIR_
+	Path to user-specific base directory to store runtime files
+
+# FILES
+
+_$XDG_DATA_HOME/time_tracker_
+	Directory containing time tracker logs
+
+_$XDG_RUNTIME_DIR/time_tracker_
+	Contains information about the current task being tracked
+
 # DEPENDENCIES
 
 - column

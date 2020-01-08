@@ -20,6 +20,14 @@ None
 
 None
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+None
+
 # DEPENDENCIES
 
 - sway-fzf-launcher

@@ -24,6 +24,20 @@ _topic_
 _section_
 	Select which *man*(1) section of the _topic_ to display
 
+# ENVIRONMENT VARIABLES
+
+_MAN_PATH_
+	Path to base directory containing man pages++
+If unset, defaults to /usr/share/man
+
+# FILES
+
+_$MAN_PATH_
+	Man pages directory
+
+_/usr/share/zsh/{ version }/help_
+	Directory containing zsh utilities help files
+
 # DEPENDENCIES
 
 - colored-man

@@ -114,6 +114,9 @@ Unless explicitly mentioned, all scripts are POSIX compliant.
 Extra commands used are listed as dependencies in their man page.
 Their usage need to be checked within the script to see which options and
 operands are actually required.
+The man page list the environment variables used by the script. The variables
+which are defined in the POSIX standard with a meaning (such as HOME, PATH,...)
+are not part of that list.
 
 
 ## Placeholders

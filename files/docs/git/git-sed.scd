@@ -26,6 +26,15 @@ _script_
 _path_
 	restrict the execution to some files or directories
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+_/tmp/git-sed_
+	Temporary file to store sed results
+
 # DEPENDENCIES
 
 - git

@@ -24,6 +24,14 @@ _prompt_
 _option_
 	Extra *fzf* option
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+None
+
 # DEPENDENCIES
 
 - fzf

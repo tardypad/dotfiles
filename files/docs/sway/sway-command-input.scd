@@ -22,6 +22,17 @@ None
 _args_
 	*sway-command-input-exec*(1) arguments
 
+# ENVIRONMENT VARIABLES
+
+_XDG_CONFIG_HOME_
+	Path to user-specific base directory to store configuration files++
+If unset, defaults to $HOME/.config
+
+# FILES
+
+_$XDG_CONFIG_HOME/alacritty/alacritty_command_input.yml_
+	Specific alacritty config file
+
 # DEPENDENCIES
 
 - alacritty

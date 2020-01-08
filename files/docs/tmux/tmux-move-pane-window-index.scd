@@ -21,6 +21,14 @@ None
 _index_
 	Index of the window to move the pane to
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+None
+
 # DEPENDENCIES
 
 - tmux

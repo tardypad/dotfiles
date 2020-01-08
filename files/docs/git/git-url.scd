@@ -37,6 +37,14 @@ valid types:
 
 None
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+None
+
 # DEPENDENCIES
 
 - git (includes own commands: commit-issue-id, commit-review-id)

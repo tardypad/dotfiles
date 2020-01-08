@@ -30,6 +30,14 @@ _project_
 	Project to use++
 If none specified, the general path for _type_ is displayed
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+None
+
 # DEPENDENCIES
 
 - xdg-user-dir

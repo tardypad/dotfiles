@@ -40,6 +40,15 @@ _pkg_file_
 _pkg_name_
 	Package name
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+_/tmp/repo_
+	Temporary directory for packages storage and operations
+
 # DEPENDENCIES
 
 - aur

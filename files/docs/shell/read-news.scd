@@ -26,6 +26,15 @@ default: 36 (1.5 day)
 _feed_
 	Name of the feed to read
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+_$HOME/.sfeed/feeds_
+	Directory containing the feeds
+
 # DEPENDENCIES
 
 - awk with strftime function #FIXME: This script is not POSIX compliant

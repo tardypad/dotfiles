@@ -27,6 +27,16 @@ This is the default target if none specified
 _pane_
 	Focus the current pane only
 
+# ENVIRONMENT VARIABLES
+
+_XDG_RUNTIME_DIR_
+	Path to user-specific base directory to store runtime files
+
+# FILES
+
+_$XDG_RUNTIME_DIR/tmux_no_distraction_
+	File used as a flag to store the status of the mode
+
 # DEPENDENCIES
 
 - jq

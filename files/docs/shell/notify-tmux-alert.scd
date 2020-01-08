@@ -37,6 +37,14 @@ _window_id_
 _window_name_
 	tmux window name where the alert is coming from
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+None
+
 # DEPENDENCIES
 
 - notify

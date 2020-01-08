@@ -22,6 +22,14 @@ None
 _index_
 	Index to move the window to
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+None
+
 # DEPENDENCIES
 
 - tmux

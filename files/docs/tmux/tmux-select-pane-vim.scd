@@ -23,6 +23,14 @@ None
 _key_
 	Directional key pressed
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+None
+
 # DEPENDENCIES
 
 - tmux

@@ -28,6 +28,14 @@ _session_id_
 _window_id_
 	tmux window id of window to monitor
 
+# ENVIRONMENT VARIABLES
+
+None
+
+# FILES
+
+None
+
 # DEPENDENCIES
 
 - swaymsg

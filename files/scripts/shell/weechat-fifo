@@ -3,7 +3,7 @@
 init_variables() {
   COMMAND=${0##*/}
 
-  FIFO_FILE=~/.weechat/weechat_fifo
+  FIFO_FILE="${HOME}/.weechat/weechat_fifo"
 
   BUFFER=
 }
