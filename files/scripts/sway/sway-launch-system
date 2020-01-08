@@ -5,7 +5,7 @@ ACTION=$(
     echo 'Lock screen';
     echo 'Suspend';
     echo 'Logout';
-    echo 'Shutdown';
+    echo 'Shut down';
     echo 'Reboot';
   } \
   | sway-fzf-launcher 'execute '
@@ -15,6 +15,6 @@ case "${ACTION}" in
   Lock\ screen) swaylock ;;
   Suspend)      systemctl suspend ;;
   Logout)       swaymsg -q exit ;;
-  Shutdown)     systemctl poweroff ;;
+  Shut\ down)   systemctl poweroff ;;
   Reboot)       systemctl reboot ;;
 esac
