@@ -116,12 +116,13 @@ tracking_stop() {
   CURRENT_DAY=$( date +%Y-%m-%d )
   START_TIME=$( cut -f 1 "${CURRENT_FILE_PATH}" )
   CURRENT_TIME=$( current_time_min )
-  DURATION=$(( CURRENT_TIME - START_TIME ))
+  CURRENT_DURATION=$(( CURRENT_TIME - START_TIME ))
+  CURRENT_ID=$( cut -f 2 "${CURRENT_FILE_PATH}" )
+  CURRENT_DESC=$( cut -f 3 "${CURRENT_FILE_PATH}" )
 
-  {
-    sed 's/^[[:digit:]]*\t\(.*\)/\1/' "${CURRENT_FILE_PATH}";
-    printf '\t%s\n' "${DURATION}";
-  } >> "${LOGGING_DIR}/${CURRENT_DAY}"
+  printf '%s\t%s\t%s\n' \
+    "${CURRENT_ID}" "${CURRENT_DURATION}"  "${CURRENT_DESC}" \
+    >> "${LOGGING_DIR}/${CURRENT_DAY}"
 
   rm -rf "${CURRENT_FILE_PATH}"
 }
@@ -141,7 +142,7 @@ tracking_add()
   CURRENT_DAY=$( date +%Y-%m-%d )
 
   printf '%s\t%s\t%s\n' \
-    "${TASK_ID}" "${TASK_DESC}" "${TASK_DURATION}" \
+    "${TASK_ID}" "${TASK_DURATION}" "${TASK_DESC}" \
     >> "${LOGGING_DIR}/${CURRENT_DAY}"
 }
 
@@ -157,22 +158,23 @@ tracking_show()
   fi
 
   if [ "${GROUPED_DISPLAY}" = 'false' ]; then
-    column -s '	' -t  "${LOGGING_DIR}/${LOGGING_DAY}"
+    column -s '	' -R2 -t  "${LOGGING_DIR}/${LOGGING_DAY}"
     return
   fi
 
   awk -v FS='\t' -v OFS='\t' \
     '{
-      sum[$1] += $3;
-      if ($2) desc[$1] = desc[$1] $2 ", "
+      sum[$1] += $2;
+      if ($3 && desc[$1] !~ $3", ")
+        desc[$1] = desc[$1] $3", "
      }
     END {
       for (id in sum)
-      print id, desc[id], sum[id]
+      print id, sum[id], desc[id]
     }' \
     "${LOGGING_DIR}/${LOGGING_DAY}" \
-    | sed 's/, \t/\t/' \
-    | column -s '	' -t
+    | sed 's/, $//' \
+    | column -s '	' -R2 -t
 }
 
 init_variables
