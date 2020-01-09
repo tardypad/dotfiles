@@ -11,9 +11,19 @@ init_variables() {
   TASK_DESC=
   TASK_DURATION=
   LOGGING_DAY=$( date +%Y-%m-%d )
+  GROUPED_DISPLAY=false
 }
 
 parse_command_line() {
+  while getopts g OPT; do
+    case "${OPT}" in
+      g) GROUPED_DISPLAY=true ;;
+      ?) exit_error ;;
+    esac
+  done
+
+  shift $(( OPTIND - 1 ))
+
   [ -z "$1" ] || ACTION="$1"
 
   if [ "${ACTION}" = 'start' ]; then
@@ -146,7 +156,23 @@ tracking_show()
     return
   fi
 
-  column -s '	' -t "${LOGGING_DIR}/${LOGGING_DAY}"
+  if [ "${GROUPED_DISPLAY}" = 'false' ]; then
+    column -s '	' -t  "${LOGGING_DIR}/${LOGGING_DAY}"
+    return
+  fi
+
+  awk -v FS='\t' -v OFS='\t' \
+    '{
+      sum[$1] += $3;
+      if ($2) desc[$1] = desc[$1] $2 ", "
+     }
+    END {
+      for (id in sum)
+      print id, desc[id], sum[id]
+    }' \
+    "${LOGGING_DIR}/${LOGGING_DAY}" \
+    | sed 's/, \t/\t/' \
+    | column -s '	' -t
 }
 
 init_variables

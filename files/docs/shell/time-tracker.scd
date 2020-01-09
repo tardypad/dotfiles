@@ -12,7 +12,9 @@ time-tracker *add* _id_ _duration_ [ _description_ ]
 
 time-tracker [ *ids* | *status* | *stop* ]
 
-time-tracker [ *show* | *edit* ] [ _day_ ]
+time-tracker *edit* [ _day_ ]
+
+time-tracker [-g] *show* [ _day_ ]
 
 # DESCRIPTION
 
@@ -20,7 +22,8 @@ Manager tasks duration tracking
 
 # OPTIONS
 
-None
+*-g*
+	Display logs grouped by identifier with durations summed
 
 # OPERANDS
 
