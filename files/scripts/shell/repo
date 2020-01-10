@@ -61,6 +61,7 @@ import_env() {
 
 export_env() {
   scp -q "${TMP_DIR}"/*.tar.xz "surg:/srv/pkgs/${REPO}/"
+  scp -q "${TMP_DIR}"/*.tar.zst "surg:/srv/pkgs/${REPO}/" 2> /dev/null
 
   if [ "${ACTION}" = 'add' ]; then
     scp -q "${PACKAGE}" "surg:/srv/pkgs/${REPO}/"
