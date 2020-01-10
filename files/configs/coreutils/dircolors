@@ -136,3 +136,4 @@ EXEC           1;{color/base0C/fg}                   # executable
 .xz   1;{color/base04/fg}
 .z    1;{color/base04/fg}
 .zip  1;{color/base04/fg}
+.zst  1;{color/base04/fg}
