@@ -20,6 +20,9 @@ c.url.searchengines = {
 # open new tabs from middle/ctrl click in the background
 c.tabs.background = True
 
+# hide tabs tooltips
+c.tabs.tooltips = False
+
 # only show history items in "open" completion
 c.completion.open_categories = [ "history" ]
 
