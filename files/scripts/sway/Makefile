@@ -23,6 +23,7 @@ sway-scripts:
 	$(setup_file)/scripts/sway/sway-move-window-new-workspace > $(DESTDIR)$(BIN_DIR)/sway-move-window-new-workspace
 	$(setup_file)/scripts/sway/sway-quick-command             > $(DESTDIR)$(BIN_DIR)/sway-quick-command
 	$(setup_file)/scripts/sway/sway-rename-workspace          > $(DESTDIR)$(BIN_DIR)/sway-rename-workspace
+	$(setup_file)/scripts/sway/sway-renumber-workspaces       > $(DESTDIR)$(BIN_DIR)/sway-renumber-workspaces
 	$(setup_file)/scripts/sway/sway-run-command               > $(DESTDIR)$(BIN_DIR)/sway-run-command
 
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-app-chat
@@ -45,4 +46,5 @@ sway-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-move-window-new-workspace
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-quick-command
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-rename-workspace
+	chmod +x $(DESTDIR)$(BIN_DIR)/sway-renumber-workspaces
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-run-command

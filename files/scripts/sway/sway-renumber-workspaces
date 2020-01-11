@@ -1,0 +1,28 @@
+#!/bin/sh
+
+CURRENT_OUTPUT=$(
+  swaymsg -t get_outputs \
+    | jq -r '.[] | select(.focused == true) | .name'
+)
+
+WS_NUM=1
+
+workspace_name_text() {
+  case "$1" in
+    *[!0-9]*) echo "$1" | sed 's/[0-9][0-9]*:\(.*\)/\1/'
+  esac
+}
+
+# we assume that the workspaces are returned ordered as in display
+swaymsg -t get_workspaces \
+  | jq -r ".[]
+           | select(.output == \"${CURRENT_OUTPUT}\")
+           | .name" \
+  | while read -r WS_NAME; do
+      WS_NAME_TEXT=$( workspace_name_text "${WS_NAME}" )
+
+      swaymsg -q \
+        rename workspace "${WS_NAME}" to "${WS_NUM}:${WS_NAME_TEXT}"
+
+      WS_NUM=$(( WS_NUM + 1 ))
+    done
