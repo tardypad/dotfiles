@@ -22,10 +22,9 @@
       and extend current ones: files format, files naming conventions,...
 
 ## New Features
-  - use of Sway IPC via [i3ipc](https://github.com/acrisci/i3ipc-python)
+  - use of Sway IPC
     * alternate binding to switch back and forth window in current workspace
     * keep focus left/right/top/bottom switch within current output
-    * automatically renumber workspaces
     * bindings to move a whole workspace
   - create scripts for backup to hard drive or USB stick
   - global keybindings management similar to colors with placeholders and README

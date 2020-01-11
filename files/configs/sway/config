@@ -58,3 +58,5 @@ exec swayidle -w \
 
 # focus workspace 1 on main output
 workspace 1
+
+exec sway-subscribe-events-run

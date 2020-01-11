@@ -1,0 +1,12 @@
+#!/bin/sh
+
+{
+  swaymsg -t subscribe -m '[ "workspace" ]' |
+  while read -r EVENT; do
+    CHANGE=$( echo "${EVENT}" | jq -r '.change' )
+    if [ "${CHANGE}" != 'focus' ] \
+      && [ "${CHANGE}" != 'urgent' ]; then
+      sway-renumber-workspaces
+    fi
+  done
+}&

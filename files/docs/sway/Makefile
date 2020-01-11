@@ -24,3 +24,4 @@ sway-docs:
 	scdoc < files/docs/sway/sway-rename-workspace.scd          > $(DESTDIR)$(DATA_DIR)/man/man1/sway-rename-workspace.1
 	scdoc < files/docs/sway/sway-renumber-workspaces.scd       > $(DESTDIR)$(DATA_DIR)/man/man1/sway-renumber-workspaces.1
 	scdoc < files/docs/sway/sway-run-command.scd               > $(DESTDIR)$(DATA_DIR)/man/man1/sway-run-command.1
+	scdoc < files/docs/sway/sway-subscribe-events-run.scd      > $(DESTDIR)$(DATA_DIR)/man/man1/sway-subscribe-events-run.1
