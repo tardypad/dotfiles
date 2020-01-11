@@ -15,22 +15,22 @@ _projects() {
   case $words[2] in
     main)
       compadd $(
-        find "$( xdg-user-dir PROJECTS )"/* \
+        find "${PROJECTS_REPO_DIR}"/* \
             -type d -prune -exec basename {} \;
       ) ;;
     repo)
       compadd $(
-        find "$( xdg-user-dir PROJECTS )"/*/* \
+        find "${PROJECTS_REPO_DIR}"/*/* \
             -type d -prune -exec basename {} \;
       ) ;;
     docs)
       compadd $(
-        find "$( xdg-user-dir PROJECTS_DOCS )"/* \
+        find "${PROJECTS_DOC_DIR}"/* \
             -type d -prune -exec basename {} \;
       ) ;;
     logs)
       compadd $(
-        find "$( xdg-user-dir PROJECTS_LOGS )"/* \
+        find "${PROJECTS_LOG_DIR}"/* \
             -type d -prune -exec basename {} \;
       ) ;;
   esac

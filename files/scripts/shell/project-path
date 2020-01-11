@@ -33,19 +33,19 @@ exit_error() {
 get_project_path() {
   case "${TYPE}" in
     main)
-      find "$( xdg-user-dir PROJECTS )"/* \
+      find "${PROJECTS_REPO_DIR}"/* \
         -type d -prune -name "${PROJECT}"
       ;;
     repo)
-      find "$( xdg-user-dir PROJECTS )"/*/* \
+      find "${PROJECTS_REPO_DIR}"/*/* \
         -type d -prune -name "${PROJECT}"
       ;;
     docs)
-      find "$( xdg-user-dir PROJECTS_DOCS )"/* \
+      find "${PROJECTS_DOC_DIR}"/* \
         -type d -prune -name "${PROJECT}"
       ;;
     logs)
-      find "$( xdg-user-dir PROJECTS_LOGS )"/* \
+      find "${PROJECTS_LOG_DIR}"/* \
         -type d -prune -name "${PROJECT}"
       ;;
   esac
@@ -53,10 +53,10 @@ get_project_path() {
 
 get_type_path() {
   case "${TYPE}" in
-    main) xdg-user-dir PROJECTS ;;
-    repo) xdg-user-dir PROJECTS ;;
-    docs) xdg-user-dir PROJECTS_DOCS ;;
-    logs) xdg-user-dir PROJECTS_LOGS ;;
+    main) echo "${PROJECTS_REPO_DIR}" ;;
+    repo) echo "${PROJECTS_REPO_DIR}" ;;
+    docs) echo "${PROJECTS_LOG_DIR}" ;;
+    logs) echo "${PROJECTS_DOC_DIR}" ;;
   esac
 }
 

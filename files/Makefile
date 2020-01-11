@@ -24,7 +24,6 @@ universal-ctags: universal-ctags-configs
 vim: vim-configs
 w3m: w3m-configs
 weechat: weechat-configs
-xdg-user-dirs: xdg-user-dirs-configs
 xdg-utils: xdg-utils-configs
 zathura: zathura-configs
 zsh: zsh-configs shell-docs shell-scripts

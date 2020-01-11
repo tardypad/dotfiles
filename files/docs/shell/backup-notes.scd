@@ -26,9 +26,9 @@ None
 
 # FILES
 
-None
+_$HOME/Notes_
+	Directory containing the notes
 
 # DEPENDENCIES
 
 - rsync
-- xdg-user-dir

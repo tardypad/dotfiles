@@ -32,12 +32,25 @@ If none specified, the general path for _type_ is displayed
 
 # ENVIRONMENT VARIABLES
 
-None
+_PROJECTS_DOC_DIR_
+	Path to base directory of projects documentation
+
+_PROJECTS_LOG_DIR_
+	Path to base directory of projects log files
+
+_PROJECTS_REPO_DIR_
+	Path to base directory of projects repositories
 
 # FILES
 
-None
+_$PROJECTS_DOC_DIR_
+	Base directory for projects documentation
+
+_$PROJECTS_LOG_DIR_
+	Base directory for projects log files
+
+_$PROJECTS_REPO_DIR_
+	Base directory for projects repositories
 
 # DEPENDENCIES
 
-- xdg-user-dir

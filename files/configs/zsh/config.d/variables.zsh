@@ -1,3 +1,8 @@
+# define project paths
+export PROJECTS_REPO_DIR="${HOME}/Projects"
+export PROJECTS_DOC_DIR="${HOME}/Documents/Projects"
+export PROJECTS_LOG_DIR="/var/log/projects"
+
 # Make vim the default editor everywhere
 export EDITOR=vim
 

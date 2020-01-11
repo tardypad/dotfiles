@@ -27,10 +27,10 @@ None
 
 # FILES
 
-None
+_$HOME/Desktop_
+	Target directory to contain the images
 
 # DEPENDENCIES
 
 - grim
 - slurp
-- xdg-user-dir

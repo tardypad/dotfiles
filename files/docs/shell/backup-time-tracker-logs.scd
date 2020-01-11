@@ -34,4 +34,3 @@ _$XDG_DATA_HOME/time_tracker_
 # DEPENDENCIES
 
 - rsync
-- xdg-user-dir
