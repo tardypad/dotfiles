@@ -1,6 +1,7 @@
 # fonts
 c.fonts.completion.category       = "bold 14pt monospace"
 c.fonts.completion.entry          = "14pt monospace"
+c.fonts.contextmenu               = "10pt Source Sans Pro"
 c.fonts.debug_console             = "14pt monospace"
 c.fonts.downloads                 = "14pt Source Sans Pro"
 c.fonts.hints                     = "bold 14pt monospace"
@@ -69,6 +70,11 @@ c.colors.completion.match.fg                    = colors['base09']
 c.colors.completion.odd.bg                      = colors['popup_background']
 c.colors.completion.scrollbar.bg                = colors['popup_background']
 c.colors.completion.scrollbar.fg                = colors['popup_foreground']
+
+c.colors.contextmenu.menu.bg                    = colors['popup_background']
+c.colors.contextmenu.menu.fg                    = colors['popup_foreground']
+c.colors.contextmenu.selected.bg                = colors['current_item']
+c.colors.contextmenu.selected.fg                = colors['base00']
 
 c.colors.downloads.bar.bg                       = colors['background']
 c.colors.downloads.error.bg                     = colors['error']
