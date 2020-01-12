@@ -1,0 +1,56 @@
+#!/bin/sh
+
+TARGET_INDEX="$1"
+
+TMP_WS_NAME='tmp'
+
+CURRENT_OUTPUT=$(
+  swaymsg -t get_outputs \
+    | jq -r '.[] | select(.focused == true) | .name'
+)
+
+CURRENT_WS_NAME=$(
+  swaymsg -t get_workspaces \
+    | jq -r '.[] | select(.focused == true) | .name'
+)
+
+workspace_name_text() {
+  case "$1" in
+    *[!0-9]*) echo "$1" | sed 's/[0-9][0-9]*:\(.*\)/\1/'
+  esac
+}
+
+swaymsg rename workspace to "${TMP_WS_NAME}"
+
+WORKSPACE_NAMES=$(
+  swaymsg -t get_workspaces \
+    | jq -r ".[]
+             | select(.output == \"${CURRENT_OUTPUT}\")
+             | .name"
+)
+
+WORKSPACES_COUNT=$( echo "${WORKSPACE_NAMES}" | wc -l )
+
+if [ "${TARGET_INDEX}" -gt "${WORKSPACES_COUNT}" ]; then
+  TARGET_INDEX="${WORKSPACES_COUNT}"
+fi
+
+WS_NUM=1
+
+# we assume that the workspaces are returned ordered as in display
+echo "${WORKSPACE_NAMES}" \
+  | while read -r WS_NAME; do
+      if [ "${WS_NUM}" = "${TARGET_INDEX}" ]; then
+        swaymsg -q \
+          rename workspace "${TMP_WS_NAME}" \
+          to "${WS_NUM}:$( workspace_name_text "${CURRENT_WS_NAME}" )"
+
+        WS_NUM=$(( WS_NUM + 1 ))
+      fi
+
+      swaymsg -q \
+        rename workspace "${WS_NAME}" \
+        to "${WS_NUM}:$( workspace_name_text "${WS_NAME}" )"
+
+      WS_NUM=$(( WS_NUM + 1 ))
+    done

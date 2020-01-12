@@ -19,10 +19,9 @@ swaymsg -t get_workspaces \
            | select(.output == \"${CURRENT_OUTPUT}\")
            | .name" \
   | while read -r WS_NAME; do
-      WS_NAME_TEXT=$( workspace_name_text "${WS_NAME}" )
-
       swaymsg -q \
-        rename workspace "${WS_NAME}" to "${WS_NUM}:${WS_NAME_TEXT}"
+        rename workspace "${WS_NAME}" \
+        to "${WS_NUM}:$( workspace_name_text "${WS_NAME}" )"
 
       WS_NUM=$(( WS_NUM + 1 ))
     done

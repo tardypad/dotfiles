@@ -21,6 +21,7 @@ sway-docs:
 	scdoc < files/docs/sway/sway-launch-tmux-env.scd           > $(DESTDIR)$(DATA_DIR)/man/man1/sway-launch-tmux-env.1
 	scdoc < files/docs/sway/sway-launcher.scd                  > $(DESTDIR)$(DATA_DIR)/man/man1/sway-launcher.1
 	scdoc < files/docs/sway/sway-move-window-new-workspace.scd > $(DESTDIR)$(DATA_DIR)/man/man1/sway-move-window-new-workspace.1
+	scdoc < files/docs/sway/sway-move-workspace-index.scd      > $(DESTDIR)$(DATA_DIR)/man/man1/sway-move-workspace-index.1
 	scdoc < files/docs/sway/sway-rename-workspace.scd          > $(DESTDIR)$(DATA_DIR)/man/man1/sway-rename-workspace.1
 	scdoc < files/docs/sway/sway-renumber-workspaces.scd       > $(DESTDIR)$(DATA_DIR)/man/man1/sway-renumber-workspaces.1
 	scdoc < files/docs/sway/sway-run-command.scd               > $(DESTDIR)$(DATA_DIR)/man/man1/sway-run-command.1
