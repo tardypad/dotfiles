@@ -2,7 +2,6 @@
 
 TARGET_INDEX="$1"
 
-TMP_WS_NAME='tmp'
 
 CURRENT_OUTPUT=$(
   swaymsg -t get_outputs \
@@ -19,6 +18,9 @@ workspace_name_text() {
     *[!0-9]*) echo "$1" | sed 's/[0-9][0-9]*:\(.*\)/\1/'
   esac
 }
+
+CURRENT_WS_NAME_TEXT="$( workspace_name_text "${CURRENT_WS_NAME}" )"
+TMP_WS_NAME="99:${CURRENT_WS_NAME_TEXT}"
 
 swaymsg rename workspace to "${TMP_WS_NAME}"
 
@@ -43,7 +45,7 @@ echo "${WORKSPACE_NAMES}" \
       if [ "${WS_NUM}" = "${TARGET_INDEX}" ]; then
         swaymsg -q \
           rename workspace "${TMP_WS_NAME}" \
-          to "${WS_NUM}:$( workspace_name_text "${CURRENT_WS_NAME}" )"
+          to "${WS_NUM}:${CURRENT_WS_NAME_TEXT}"
 
         WS_NUM=$(( WS_NUM + 1 ))
       fi
