@@ -25,7 +25,6 @@
   - use of Sway IPC
     * alternate binding to switch back and forth window in current workspace
     * keep focus left/right/top/bottom switch within current output
-    * bindings to move a whole workspace
   - create scripts for backup to hard drive or USB stick
   - global keybindings management similar to colors with placeholders and README
     * limit usage of difficult bindings requiring many simultaneous keys to risky/rare actions

@@ -104,6 +104,25 @@ bindsym $mod+0              workspace number 10
 bindsym $mod+$key_vsplit splith, exec exec-desktop-entry {dir/data}/applications/terminal_emulator.desktop
 bindsym $mod+$key_split  splitv, exec exec-desktop-entry {dir/data}/applications/terminal_emulator.desktop
 
+# move mode
+mode "-- move --" {
+    # move focused workspace to index
+    bindsym 1 exec sway-move-workspace-index 1
+    bindsym 2 exec sway-move-workspace-index 2
+    bindsym 3 exec sway-move-workspace-index 3
+    bindsym 4 exec sway-move-workspace-index 4
+    bindsym 5 exec sway-move-workspace-index 5
+    bindsym 6 exec sway-move-workspace-index 6
+    bindsym 7 exec sway-move-workspace-index 7
+    bindsym 8 exec sway-move-workspace-index 8
+    bindsym 9 exec sway-move-workspace-index 9
+    bindsym 0 exec sway-move-workspace-index 0
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+$key_move mode "-- move --"
+
 # layout mode
 mode "-- layout --" {
     bindsym 1 layout splith
