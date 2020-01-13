@@ -32,4 +32,5 @@ None
 
 - aur
 - notify
+- pacman-conf
 - packages-updates

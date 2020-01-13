@@ -10,9 +10,11 @@ if [ "${PACMAN_UPDATES_COUNT}" -gt 0 ]; then
   MESSAGE="${MESSAGE}pacman: ${PACMAN_UPDATES_COUNT}\n"
 fi
 
+IGNORED_PACKAGES=$( pacman-conf IgnorePkg )
+
 AUR_UPDATES_COUNT=$(
   aur repo -d aur -S -u \
-    | wc -l
+    | grep -cvE "^($( echo "${IGNORED_PACKAGES}" | tr '\n' '|' )):"
 )
 if [ "${AUR_UPDATES_COUNT}" -gt 0 ]; then
   MESSAGE="${MESSAGE}aur: ${AUR_UPDATES_COUNT}\n"
@@ -20,7 +22,7 @@ fi
 
 TARDYPAD_UPDATES_COUNT=$(
   aur repo -d tardypad -S -u \
-    | wc -l
+    | grep -cvE "^($( echo "${IGNORED_PACKAGES}" | tr '\n' '|' )):"
 )
 if [ "${TARDYPAD_UPDATES_COUNT}" -gt 0 ]; then
   MESSAGE="${MESSAGE}tardypad: ${TARDYPAD_UPDATES_COUNT}\n"
