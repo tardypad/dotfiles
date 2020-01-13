@@ -13,6 +13,8 @@
     or at least use the same algorithm for the creation of the workspace
 
 ## Bugs
+  - man pages should be marked with section "(1perso)"
+    however this is currently not allowed by scdoc
 
 ## Testing
 
@@ -24,7 +26,6 @@
     * extend info about some current sections:
       files format, files naming conventions,...
   - rename once again colored-man to man to have it used everywhere automatically  
-    implies changing all man pages to use "1dotfiles" suffix to be able to access both docs
   - speed up sway-create-workspace by creating workspace with "max(workspaces number) + 1" as number
 
 ## New Features
