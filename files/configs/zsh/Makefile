@@ -18,7 +18,7 @@ zsh-configs:
 	$(setup_file)/configs/zsh/config.d/prompt.zsh                                                    > $(DESTDIR)$(HOME)/.zsh/config.d/prompt.zsh
 	$(setup_file)/configs/zsh/config.d/variables.zsh                                                 > $(DESTDIR)$(HOME)/.zsh/config.d/variables.zsh
 	$(setup_file)/configs/zsh/completions/_do-not-disturb                                            > $(DESTDIR)$(HOME)/.zsh/completions/_do-not-disturb
-	$(setup_file)/configs/zsh/completions/_help                                                      > $(DESTDIR)$(HOME)/.zsh/completions/_help
+	$(setup_file)/configs/zsh/completions/_documentation                                             > $(DESTDIR)$(HOME)/.zsh/completions/_documentation
 	$(setup_file)/configs/zsh/completions/_http-env                                                  > $(DESTDIR)$(HOME)/.zsh/completions/_http-env
 	$(setup_file)/configs/zsh/completions/_influx-env                                                > $(DESTDIR)$(HOME)/.zsh/completions/_influx-env
 	$(setup_file)/configs/zsh/completions/_loop                                                      > $(DESTDIR)$(HOME)/.zsh/completions/_loop
