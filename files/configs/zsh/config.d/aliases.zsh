@@ -67,9 +67,6 @@ alias qalc='noglob qalc'
 # flush all .log files recursively in the current dir
 alias flush-logs="find . -type f -name '*.log' -exec /bin/sh -c \"printf '' > '{}'\" \;"
 
-# HTTPie other schemes
-alias https='http --default-scheme=https'
-
 # simpler ungronning
 alias ungron="gron --ungron"
 
