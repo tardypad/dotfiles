@@ -39,9 +39,6 @@ alias fzf='fzf --reverse'
 # most remote hosts don't have the tmux terminfo we use within tmux
 alias ssh='TERM=xterm-256color ssh'
 
-# use our colored man by default
-alias man=colored-man
-
 # switch to root
 alias root='sudo -sE'
 

@@ -1,12 +1,12 @@
-colored-man(1)
+man(1)
 
 # NAME
 
-colored-man - Colored man
+man - Colored man
 
 # SYNOPSIS
 
-colored-man
+man
 
 # DESCRIPTION
 

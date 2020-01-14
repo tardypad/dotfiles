@@ -10,7 +10,7 @@ shell-scripts:
 	$(setup_file)/scripts/shell/check-notify-low-battery     > $(DESTDIR)$(BIN_DIR)/check-notify-low-battery
 	$(setup_file)/scripts/shell/check-notify-package-updates > $(DESTDIR)$(BIN_DIR)/check-notify-package-updates
 	$(setup_file)/scripts/shell/color-picker                 > $(DESTDIR)$(BIN_DIR)/color-picker
-	$(setup_file)/scripts/shell/colored-man                  > $(DESTDIR)$(BIN_DIR)/colored-man
+	$(setup_file)/scripts/shell/man                          > $(DESTDIR)$(BIN_DIR)/man
 	$(setup_file)/scripts/shell/do-not-disturb               > $(DESTDIR)$(BIN_DIR)/do-not-disturb
 	$(setup_file)/scripts/shell/documentation                > $(DESTDIR)$(BIN_DIR)/documentation
 	$(setup_file)/scripts/shell/documentation-all            > $(DESTDIR)$(BIN_DIR)/documentation-all
@@ -46,7 +46,7 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/check-notify-low-battery
 	chmod +x $(DESTDIR)$(BIN_DIR)/check-notify-package-updates
 	chmod +x $(DESTDIR)$(BIN_DIR)/color-picker
-	chmod +x $(DESTDIR)$(BIN_DIR)/colored-man
+	chmod +x $(DESTDIR)$(BIN_DIR)/man
 	chmod +x $(DESTDIR)$(BIN_DIR)/do-not-disturb
 	chmod +x $(DESTDIR)$(BIN_DIR)/documentation
 	chmod +x $(DESTDIR)$(BIN_DIR)/documentation-all

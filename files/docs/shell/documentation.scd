@@ -40,5 +40,4 @@ _/usr/share/zsh/{ version }/help_
 
 # DEPENDENCIES
 
-- colored-man
 - zsh

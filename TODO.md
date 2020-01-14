@@ -25,7 +25,6 @@
       STDIN, STDOUT, EXIT STATUS, EXAMPLES, CONFIG, ACKNOWLEDGMENTS,...
     * extend info about some current sections:
       files format, files naming conventions,...
-  - rename once again colored-man to man to have it used everywhere automatically  
   - speed up sway-create-workspace by creating workspace with "max(workspaces number) + 1" as number
 
 ## New Features

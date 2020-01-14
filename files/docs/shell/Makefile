@@ -10,7 +10,7 @@ shell-docs:
 	scdoc < files/docs/shell/check-notify-low-battery.scd     > $(DESTDIR)$(DATA_DIR)/man/man1/check-notify-low-battery.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/check-notify-package-updates.scd > $(DESTDIR)$(DATA_DIR)/man/man1/check-notify-package-updates.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/color-picker.scd                 > $(DESTDIR)$(DATA_DIR)/man/man1/color-picker.1$(MAN_SUFFIX)
-	scdoc < files/docs/shell/colored-man.scd                  > $(DESTDIR)$(DATA_DIR)/man/man1/colored-man.1$(MAN_SUFFIX)
+	scdoc < files/docs/shell/man.scd                          > $(DESTDIR)$(DATA_DIR)/man/man1/man.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/do-not-disturb.scd               > $(DESTDIR)$(DATA_DIR)/man/man1/do-not-disturb.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/documentation-all.scd            > $(DESTDIR)$(DATA_DIR)/man/man1/documentation-all.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/documentation.scd                > $(DESTDIR)$(DATA_DIR)/man/man1/documentation.1$(MAN_SUFFIX)
