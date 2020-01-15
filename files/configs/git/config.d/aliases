@@ -1,5 +1,7 @@
 [alias]
     aa = add -A
+    ama = am --abort
+    amc = am --continue
     amend = commit --amend -a --no-edit
     argument= "! \
         h() {  \
