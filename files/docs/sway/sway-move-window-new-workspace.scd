@@ -10,8 +10,7 @@ sway-move-window-new-workspace
 
 # DESCRIPTION
 
-Move a sway window to a new workspace in the focused output at the lowest index
-available.
+Move a sway window to a new workspace in the focused output.
 
 # OPTIONS
 
@@ -32,4 +31,5 @@ None
 # DEPENDENCIES
 
 - jq
+- sway-create-workspace
 - swaymsg

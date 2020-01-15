@@ -9,8 +9,6 @@
   - check if some code tags can be fixed with the `report-tags` utility script
 
 ## Cleaning
-  - sway-move-window-new-workspace should use sway-create-workspace
-    or at least use the same algorithm for the creation of the workspace
 
 ## Bugs
   - man pages should be marked with section "(1perso)"

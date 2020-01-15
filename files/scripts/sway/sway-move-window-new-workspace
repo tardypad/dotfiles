@@ -1,19 +1,13 @@
 #!/bin/sh
 
-is_workspace_num_used() {
-  WORKSPACE_NUM="$1"
+MARK='move'
 
-  swaymsg -t get_workspaces \
-    | jq -e -r \
-      ".[]|select(.num==${WORKSPACE_NUM})" \
-    > /dev/null
-}
+swaymsg -q "mark --add ${MARK}"
 
-NEW_WORKSPACE_NUM=1
-while is_workspace_num_used "${NEW_WORKSPACE_NUM}"; do
-  NEW_WORKSPACE_NUM=$(( NEW_WORKSPACE_NUM + 1 ))
-done
+sway-create-workspace
 
-swaymsg -q \
-        move container to workspace "${NEW_WORKSPACE_NUM}", \
-        workspace "${NEW_WORKSPACE_NUM}"
+swaymsg [con_mark="${MARK}"] -q \
+        move container to workspace current, \
+        focus
+
+swaymsg -q unmark "${MARK}"
