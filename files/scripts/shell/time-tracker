@@ -3,7 +3,7 @@
 init_variables() {
   COMMAND=${0##*/}
 
-  CURRENT_FILE_PATH="${XDG_RUNTIME_DIR}/time_tracker"
+  CURRENT_FILE_PATH="${XDG_RUNTIME_DIR:-/tmp}/time_tracker"
   LOGGING_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/time_tracker"
 
   ACTION='status'

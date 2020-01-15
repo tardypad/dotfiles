@@ -54,7 +54,7 @@ send_notification() {
   fi
 
   if [ -n "${IDENTIFIER}" ]; then
-    NOTIFICATION_FILE="${XDG_RUNTIME_DIR}/notification_${IDENTIFIER}"
+    NOTIFICATION_FILE="${XDG_RUNTIME_DIR:-/tmp}/notification_${IDENTIFIER}"
     if [ -f "${NOTIFICATION_FILE}" ]; then
       REPLACE_ID=$( cat "${NOTIFICATION_FILE}" )
     fi

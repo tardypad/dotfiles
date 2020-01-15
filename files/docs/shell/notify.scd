@@ -35,7 +35,8 @@ _body_
 # ENVIRONMENT VARIABLES
 
 _XDG_RUNTIME_DIR_
-	Path to user-specific base directory to store runtime files
+	Path to user-specific base directory to store runtime files++
+If unset, defaults to /tmp
 
 # FILES
 

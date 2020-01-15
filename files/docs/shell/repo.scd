@@ -42,11 +42,13 @@ _pkg_name_
 
 # ENVIRONMENT VARIABLES
 
-None
+_XDG_RUNTIME_DIR_
+	Path to user-specific base directory to store runtime files++
+If unset, defaults to /tmp
 
 # FILES
 
-_/tmp/repo_
+_$XDG_RUNTIME_DIR/repo_
 	Temporary directory for packages storage and operations
 
 # DEPENDENCIES

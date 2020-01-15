@@ -1,6 +1,6 @@
 #!/bin/sh
 
-COUNT_FILE_PATH="${XDG_RUNTIME_DIR}/chat_count"
+COUNT_FILE_PATH="${XDG_RUNTIME_DIR:-/tmp}/chat_count"
 
 MODE="$( i3blocks-mode )"
 

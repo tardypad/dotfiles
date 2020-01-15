@@ -28,11 +28,13 @@ _path_
 
 # ENVIRONMENT VARIABLES
 
-None
+_XDG_RUNTIME_DIR_
+	Path to user-specific base directory to store runtime files++
+If unset, defaults to /tmp
 
 # FILES
 
-_/tmp/git-sed_
+_$XDG_RUNTIME_DIR/git-sed_
 	Temporary file to store sed results
 
 # DEPENDENCIES

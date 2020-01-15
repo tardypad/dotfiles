@@ -3,7 +3,7 @@
 TARGET="$1"
 
 init_variables() {
-  FILE_PATH="${XDG_RUNTIME_DIR}/tmux_no_distraction"
+  FILE_PATH="${XDG_RUNTIME_DIR:-/tmp}/tmux_no_distraction"
 
   [ -n "${DISPLAY}" ] || return
 

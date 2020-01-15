@@ -3,7 +3,7 @@
 init_variables() {
   COMMAND=${0##*/}
 
-  TMP_DIR='/tmp/packages-updates'
+  TMP_DIR="${XDG_RUNTIME_DIR:-/tmp}/packages-updates"
   trap 'rm -rf "${TMP_DIR}"' EXIT
 
   ACTION=
@@ -29,6 +29,7 @@ exit_error() {
 } >&2
 
 list_packages_updates() {
+  rm -rf "${TMP_DIR}"
   mkdir -p "${TMP_DIR}"
   ln -s "$( pacman-conf DBPath )/local" "${TMP_DIR}"
   fakeroot -- pacman -Sy -b "${TMP_DIR}" --logfile /dev/null > /dev/null

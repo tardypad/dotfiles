@@ -3,7 +3,7 @@
 init_variables() {
   COMMAND=${0##*/}
 
-  FILE_PATH="${XDG_RUNTIME_DIR}/pomodoro"
+  FILE_PATH="${XDG_RUNTIME_DIR:-/tmp}/pomodoro"
   DURATION_MIN=25
 
   ACTION='status'

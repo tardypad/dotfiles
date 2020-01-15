@@ -3,7 +3,7 @@
 init_variables() {
   COMMAND=${0##*/}
 
-  TMP_DIR='/tmp/repo'
+  TMP_DIR="${XDG_RUNTIME_DIR:-/tmp}/repo"
   trap 'rm -rf "${TMP_DIR}"' EXIT
 
   REPO=
@@ -52,6 +52,7 @@ exit_error() {
 } >&2
 
 import_env() {
+  rm -rf "${TMP_DIR}"
   mkdir -p "${TMP_DIR}"
   scp -q "surg:/srv/pkgs/${REPO}/${REPO}.files.tar.xz" "${TMP_DIR}"
   scp -q "surg:/srv/pkgs/${REPO}/${REPO}.db.tar.xz" "${TMP_DIR}"

@@ -3,7 +3,7 @@
 init_variables() {
   COMMAND=${0##*/}
 
-  FILE_PATH="${XDG_RUNTIME_DIR}/do_not_disturb"
+  FILE_PATH="${XDG_RUNTIME_DIR:-/tmp}/do_not_disturb"
 
   ACTION='status'
   DURATION_MIN=
