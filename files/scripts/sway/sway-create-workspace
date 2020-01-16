@@ -1,26 +1,12 @@
 #!/bin/sh
 
-is_workspace_num_used() {
-  WORKSPACE_NUM="$1"
-
-  swaymsg -t get_workspaces \
-    | jq -e -r \
-      ".[]|select(.num==${WORKSPACE_NUM})" \
-  && \
-  swaymsg -t get_tree \
-    | jq -e -r \
-      "recurse(.nodes[]?)
-       | select(
-          .type==\"workspace\"
-          and .num==${WORKSPACE_NUM}
-          and (.nodes|length)>0
-         )"
-} > /dev/null
-
-NEW_WORKSPACE_NUM=1
-while is_workspace_num_used "${NEW_WORKSPACE_NUM}"; do
-  NEW_WORKSPACE_NUM=$(( NEW_WORKSPACE_NUM + 1 ))
-done
+NEW_WORKSPACE_NUM=$((
+  $(
+    swaymsg -t get_workspaces \
+      | jq '.[] | .num' \
+      | tail -n1
+  ) + 1
+))
 
 if [ -n "$1" ]; then
   swaymsg -q workspace "${NEW_WORKSPACE_NUM}:$1"

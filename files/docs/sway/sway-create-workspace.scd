@@ -10,7 +10,10 @@ sway-create-workspace [ _name_ ]
 
 # DESCRIPTION
 
-Create a new sway workspace in the focused output at the lowest index available.
+Create a new sway workspace in the focused output.
+
+The workspace is created with the next successive number of the workspaces
+from the focused output.
 
 # OPTIONS
 

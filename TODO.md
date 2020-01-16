@@ -23,7 +23,6 @@
       STDIN, STDOUT, EXIT STATUS, EXAMPLES, CONFIG, ACKNOWLEDGMENTS,...
     * extend info about some current sections:
       files format, files naming conventions,...
-  - speed up sway-create-workspace by creating workspace with "max(workspaces number) + 1" as number
 
 ## New Features
   - add sway binding with script to switch back and forth windows in current workspace
