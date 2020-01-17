@@ -23,11 +23,13 @@ None
 
 # ENVIRONMENT VARIABLES
 
-None
+_XDG_DESKTOP_DIR_
+	Path to user-specific desktop directory++
+If unset, defaults to $HOME/Desktop
 
 # FILES
 
-_$HOME/Desktop_
+_$XDG_DESKTOP_DIR_
 	Target directory to contain the images
 
 # DEPENDENCIES

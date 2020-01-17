@@ -22,11 +22,13 @@ None
 
 # ENVIRONMENT VARIABLES
 
-None
+_XDG_NOTES_DIR_
+	Path to user-specific notes directory++
+If unset, defaults to $HOME/Notes
 
 # FILES
 
-_$HOME/Notes_
+_$XDG_NOTES_DIR_
 	Directory containing the notes
 
 # DEPENDENCIES

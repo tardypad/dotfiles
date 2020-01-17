@@ -4,6 +4,6 @@ REGION=$( slurp 2> /dev/null )
 
 [ -z "${REGION}" ] && exit 1
 
-FILE_PATH="${HOME}/Desktop/screenshot_$(date +'%Y-%m-%d-%H:%M:%S').png"
+FILE_PATH="${XDG_DESKTOP_DIR:-$HOME/Desktop}/screenshot_$(date +'%Y-%m-%d-%H:%M:%S').png"
 
 grim -g "${REGION}" "${FILE_PATH}"

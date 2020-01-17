@@ -3,6 +3,11 @@ export PROJECTS_REPO_DIR="${HOME}/Projects"
 export PROJECTS_DOC_DIR="${HOME}/Documents/Projects"
 export PROJECTS_LOG_DIR="/var/log/projects"
 
+# define common paths
+export XDG_DESKTOP_DIR="${HOME}/Desktop"
+export XDG_DOWNLOAD_DIR="${HOME}/Downloads"
+export XDG_NOTES_DIR="${HOME}/Notes"
+
 # Make vim the default editor everywhere
 export EDITOR=vim
 
