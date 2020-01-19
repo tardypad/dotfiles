@@ -56,9 +56,9 @@ build_cache() {
 
 somafm_channels() {
   jq -r '.channels[]
-         | (.id, .title, .dj, .genre, .description)' \
-    "${CACHE_CHANNELS_FILE}" \
-    | paste - - - - - -d '\t'
+         | [ .id, .title, .dj, .genre, .description ]
+         | @tsv' \
+    "${CACHE_CHANNELS_FILE}"
 }
 
 somafm_playlist() {
@@ -66,9 +66,9 @@ somafm_playlist() {
   jq -r ".channels[]
          | select(.id==\"${CHANNEL_ID}\")
          | .playlists[]
-         | (.quality, .format, .url)" \
+         | [ .quality, .format, .url ]
+         | @tsv" \
     "${CACHE_CHANNELS_FILE}" \
-    | paste - - - -d '\t' \
     | sed '{
         s/^highest/1/
         s/^high/2/
