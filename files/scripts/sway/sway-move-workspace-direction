@@ -1,0 +1,31 @@
+#!/bin/sh
+
+TARGET_DIRECTION="$1"
+
+CURRENT_OUTPUT=$(
+  swaymsg -t get_outputs \
+    | jq -r '.[] | select(.focused == true) | .name'
+)
+
+# we assume that the workspaces are returned ordered as in display
+CURRENT_INDEX=$((
+  $( swaymsg -t get_workspaces \
+       | jq -r "to_entries
+                | .[]
+                | select(.value.output == \"${CURRENT_OUTPUT}\"
+                         and .value.focused == true)
+                | .key" ) + 1
+))
+
+if [ "${TARGET_DIRECTION}" = 'prev' ] \
+   && [ "${CURRENT_INDEX}" -le 1 ]; then
+  exit 0
+fi
+
+if [ "${TARGET_DIRECTION}" = 'prev' ]; then
+  TARGET_INDEX=$(( CURRENT_INDEX - 1 ))
+elif [ "${TARGET_DIRECTION}" = 'next' ]; then
+  TARGET_INDEX=$(( CURRENT_INDEX + 1 ))
+fi
+
+sway-move-workspace-index "${TARGET_INDEX}"

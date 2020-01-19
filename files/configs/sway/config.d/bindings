@@ -106,7 +106,10 @@ bindsym $mod+$key_split  splitv, exec exec-desktop-entry {dir/data}/applications
 
 # move mode
 mode "-- move --" {
-    # move focused workspace to index
+    bindsym n exec sway-move-workspace-direction next
+    bindsym l exec sway-move-workspace-direction next
+    bindsym p exec sway-move-workspace-direction prev
+    bindsym h exec sway-move-workspace-direction prev
     bindsym 1 exec sway-move-workspace-index 1
     bindsym 2 exec sway-move-workspace-index 2
     bindsym 3 exec sway-move-workspace-index 3

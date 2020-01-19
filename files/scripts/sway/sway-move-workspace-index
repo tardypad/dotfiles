@@ -2,7 +2,6 @@
 
 TARGET_INDEX="$1"
 
-
 CURRENT_OUTPUT=$(
   swaymsg -t get_outputs \
     | jq -r '.[] | select(.focused == true) | .name'

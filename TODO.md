@@ -26,7 +26,6 @@
 
 ## New Features
   - add sway binding with script to switch back and forth windows in current workspace
-  - add sway bindings and script to move workspace right/next or left/previous
   - create scripts for backup to hard drive or USB stick
   - global keybindings management similar to colors with placeholders and README
     * limit usage of difficult bindings requiring many simultaneous keys to risky/rare actions
