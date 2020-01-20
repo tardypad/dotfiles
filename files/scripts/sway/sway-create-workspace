@@ -1,9 +1,14 @@
 #!/bin/sh
 
+CURRENT_OUTPUT=$(
+  swaymsg -t get_outputs \
+    | jq -r '.[] | select(.focused == true) | .name'
+)
+
 NEW_WORKSPACE_NUM=$((
   $(
     swaymsg -t get_workspaces \
-      | jq '.[] | .num' \
+      | jq ".[] | select(.output == \"${CURRENT_OUTPUT}\") | .num" \
       | tail -n1
   ) + 1
 ))
