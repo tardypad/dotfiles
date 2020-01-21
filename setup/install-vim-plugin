@@ -23,6 +23,15 @@ install_git_plugin() {
     git -C "${PLUGIN_DIR}" fetch -q
   fi \
     && git -C "${PLUGIN_DIR}" checkout -q "${ARG}"
+
+  if [ "$?" -ne 0 ]; then
+    return 1
+  fi
+
+  if [ -n "${DESTDIR}" ]; then
+    # remove .git history on remote installations
+    rm -rf "${PLUGIN_DIR}/.git"
+  fi
 }
 
 install_file_plugin() {
