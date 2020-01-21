@@ -41,3 +41,4 @@ _$HOME/.sfeed/feeds_
 - fzf
 - sfeed_update
 - w3m
+- xdg-open
