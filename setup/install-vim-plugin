@@ -16,11 +16,13 @@ mkdir -p "${PLUGIN_DIR%/*}"
 install_git_plugin() {
   if [ ! -d "${PLUGIN_DIR}" ]; then
     git clone -q "${URL}" "${PLUGIN_DIR}"
+  elif [ ! -d "${PLUGIN_DIR}/.git" ]; then
+    rm -rf "${PLUGIN_DIR}"
+    git clone -q "${URL}" "${PLUGIN_DIR}"
   else
     git -C "${PLUGIN_DIR}" fetch -q
-  fi
-
-  git -C "${PLUGIN_DIR}" checkout -q "${ARG}"
+  fi \
+    && git -C "${PLUGIN_DIR}" checkout -q "${ARG}"
 }
 
 install_file_plugin() {
