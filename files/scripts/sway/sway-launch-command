@@ -25,6 +25,8 @@ should_build_cache() {
 build_cache() {
   mkdir -p "$( dirname "${CACHE_LIST_PATH}" )"
 
+  echo "Building list of commands..." >&2
+
   printf '%s' "${PATH}" \
     | tr ':' '\n' \
     | xargs -I [] \

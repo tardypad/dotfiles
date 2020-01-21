@@ -29,6 +29,8 @@ should_build_cache() {
 build_cache() {
   mkdir -p "$( dirname "${CACHE_TOPICS_PATH}" )"
 
+  echo "Building list of topics..." >&2
+
   PATH_COMMANDS=$(
     printf '%s' "${PATH}" \
       | tr ':' '\n' \
