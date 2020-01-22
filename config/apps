@@ -1,0 +1,6 @@
+chat_client       sway-app-chat
+document_viewer   zathura
+mail_client       sway-app-mail
+system_monitor    sway-app-monitor
+terminal_emulator alacritty -e tmux new-session
+web_browser       qutebrowser -l warning

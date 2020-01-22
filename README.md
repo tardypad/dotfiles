@@ -130,6 +130,13 @@ This means that if you want to copy just some scripts or config files from this
 repository, you should check for the presence of those placeholders and replace
 them manually.
 
+### Applications
+
+See [apps](config/apps) configuration file.
+
+`{app/web_browser}` gets substituted by the command to launch the web browser.
+And similarly for the other apps.
+
 ### Colors
 
 See [colors](config/colors) configuration folder.

@@ -1,0 +1,22 @@
+#!/bin/sh
+
+SCRIPT_FILE="build/substitute-apps"
+
+if [ -f "${SCRIPT_FILE}" ]; then
+  sed -f "${SCRIPT_FILE}" -
+  exit
+fi
+
+APPS_FILE="config/apps"
+
+mkdir -p build
+
+{
+  while read -r LINE; do
+    ALIAS=$( echo "${LINE}" | cut -f1 -d' ' )
+    APP_COMMAND=$( echo "${LINE}" | tr -s ' ' | cut -f2- -d' ' )
+    echo "s|{app/${ALIAS}}|${APP_COMMAND}|g"
+  done < "${APPS_FILE}"
+} > "${SCRIPT_FILE}"
+
+sed -f "${SCRIPT_FILE}" -
