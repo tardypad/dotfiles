@@ -14,7 +14,6 @@ shell-docs:
 	scdoc < files/docs/shell/do-not-disturb.scd               > $(DESTDIR)$(DATA_DIR)/man/man1/do-not-disturb.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/documentation-all.scd            > $(DESTDIR)$(DATA_DIR)/man/man1/documentation-all.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/documentation.scd                > $(DESTDIR)$(DATA_DIR)/man/man1/documentation.1$(MAN_SUFFIX)
-	scdoc < files/docs/shell/exec-desktop-entry.scd           > $(DESTDIR)$(DATA_DIR)/man/man1/exec-desktop-entry.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/http-env.scd                     > $(DESTDIR)$(DATA_DIR)/man/man1/http-env.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/i3blocks-mode.scd                > $(DESTDIR)$(DATA_DIR)/man/man1/i3blocks-mode.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/influx-env.scd                   > $(DESTDIR)$(DATA_DIR)/man/man1/influx-env.1$(MAN_SUFFIX)

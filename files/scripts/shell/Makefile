@@ -14,7 +14,6 @@ shell-scripts:
 	$(setup_file)/scripts/shell/do-not-disturb               > $(DESTDIR)$(BIN_DIR)/do-not-disturb
 	$(setup_file)/scripts/shell/documentation                > $(DESTDIR)$(BIN_DIR)/documentation
 	$(setup_file)/scripts/shell/documentation-all            > $(DESTDIR)$(BIN_DIR)/documentation-all
-	$(setup_file)/scripts/shell/exec-desktop-entry           > $(DESTDIR)$(BIN_DIR)/exec-desktop-entry
 	$(setup_file)/scripts/shell/http-env                     > $(DESTDIR)$(BIN_DIR)/http-env
 	$(setup_file)/scripts/shell/i3blocks-mode                > $(DESTDIR)$(BIN_DIR)/i3blocks-mode
 	$(setup_file)/scripts/shell/influx-env                   > $(DESTDIR)$(BIN_DIR)/influx-env
@@ -50,7 +49,6 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/do-not-disturb
 	chmod +x $(DESTDIR)$(BIN_DIR)/documentation
 	chmod +x $(DESTDIR)$(BIN_DIR)/documentation-all
-	chmod +x $(DESTDIR)$(BIN_DIR)/exec-desktop-entry
 	chmod +x $(DESTDIR)$(BIN_DIR)/http-env
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-mode
 	chmod +x $(DESTDIR)$(BIN_DIR)/influx-env
