@@ -2,7 +2,7 @@
 Description=Backup notes
 
 [Path]
-PathChanged=/home/damien/Notes
+PathChanged=%h/Notes
 
 [Install]
 WantedBy=paths.target
