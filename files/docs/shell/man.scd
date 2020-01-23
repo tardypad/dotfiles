@@ -2,32 +2,32 @@ man(1)
 
 # NAME
 
-man - Colored man
+man - Wrapper for *man*(1)
 
 # SYNOPSIS
 
-man
+see *man*(1)
 
 # DESCRIPTION
 
-Man command with colored display
+Colored manual
 
 # OPTIONS
 
-None
+No change
 
 # OPERANDS
 
-None
+No change
 
 # ENVIRONMENT VARIABLES
 
-None
+None extra
 
 # FILES
 
-None
+None extra
 
 # DEPENDENCIES
 
-None
+None extra

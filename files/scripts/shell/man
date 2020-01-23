@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# colored man
-
 # mb: start blink
 # md: start bold
 # me: end all attributes
