@@ -37,3 +37,4 @@ shell-docs:
 	scdoc < files/docs/shell/time-tracker.scd                 > $(DESTDIR)$(DATA_DIR)/man/man1/time-tracker.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/tmux-env.scd                     > $(DESTDIR)$(DATA_DIR)/man/man1/tmux-env.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/weechat-fifo.scd                 > $(DESTDIR)$(DATA_DIR)/man/man1/weechat-fifo.1$(MAN_SUFFIX)
+	scdoc < files/docs/shell/xdg-open.scd                     > $(DESTDIR)$(DATA_DIR)/man/man1/xdg-open.1$(MAN_SUFFIX)

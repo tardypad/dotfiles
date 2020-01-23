@@ -38,7 +38,6 @@ include files/configs/universal-ctags/Makefile
 include files/configs/vim/Makefile
 include files/configs/w3m/Makefile
 include files/configs/weechat/Makefile
-include files/configs/xdg-utils/Makefile
 include files/configs/zathura/Makefile
 include files/configs/zsh/Makefile
 

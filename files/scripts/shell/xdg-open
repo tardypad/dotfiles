@@ -1,0 +1,11 @@
+#!/bin/sh
+
+case "${1%%:*}" in
+  http|https) exec {app/web_browser} "$1" ;;
+esac
+
+case "${1##*.}" in
+  pdf) exec {app/document_viewer} "$1" ;;
+esac
+
+exec /usr/bin/xdg-open "$@"

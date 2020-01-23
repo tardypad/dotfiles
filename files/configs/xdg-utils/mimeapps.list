@@ -1,7 +1,0 @@
-[Default Applications]
-text/html=web_browser.desktop
-application/pdf=document_viewer.desktop
-x-scheme-handler/http=web_browser.desktop
-x-scheme-handler/https=web_browser.desktop
-x-scheme-handler/about=web_browser.desktop
-x-scheme-handler/unknown=web_browser.desktop

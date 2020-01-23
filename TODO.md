@@ -36,5 +36,3 @@
     * local organization (uppercase for sway windows and tmux panes, lowercase for sway workspace and tmux windows,...)
 
 ## Research
-  - replace xdg-utils with wrapper for xdg-open  
-    see [Drew Devault script](https://git.sr.ht/~sircmpwn/dotfiles/tree/master/bin/xdg-open)
