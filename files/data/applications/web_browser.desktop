@@ -1,4 +1,0 @@
-[Desktop Entry]
-Exec=qutebrowser -l warning %u
-Name=Web browser
-Type=Application

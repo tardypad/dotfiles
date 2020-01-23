@@ -1,4 +1,0 @@
-[Desktop Entry]
-Exec=alacritty -e tmux new-session
-Name=Terminal
-Type=Application

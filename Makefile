@@ -41,7 +41,6 @@ include files/configs/weechat/Makefile
 include files/configs/zathura/Makefile
 include files/configs/zsh/Makefile
 
-include files/data/applications/Makefile
 include files/data/env/Makefile
 include files/data/images/Makefile
 include files/data/keywords/Makefile
