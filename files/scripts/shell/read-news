@@ -1,6 +1,8 @@
 #!/bin/sh
 
 init_variables() {
+  COMMAND=${0##*/}
+
   FEEDS_PATH="${HOME}/.sfeed/feeds"
 
   VIEW_SCRIPT="sed -e 's/\\n/\n/g' -e 's/\\t/\t/g' | w3m -T text/html"
