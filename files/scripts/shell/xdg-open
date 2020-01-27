@@ -5,6 +5,7 @@ case "${1%%:*}" in
 esac
 
 case "${1##*.}" in
+  html) exec {app/web_browser} "$1" ;;
   pdf) exec {app/document_viewer} "$1" ;;
 esac
 
