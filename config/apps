@@ -1,6 +1,6 @@
-chat_client       sway-app-chat
+chat_client       alacritty -e tmux new-session -A -s chat "WEECHAT_PASSPHRASE=$(pass perso/weechat) weechat"
 document_viewer   zathura
-mail_client       sway-app-mail
-system_monitor    sway-app-monitor
+mail_client       alacritty -e tmux new-session -A -s mail "neomutt"
+system_monitor    alacritty -t sway_monitor -e tmux new-session -A -s monitor "htop"
 terminal_emulator alacritty -e tmux new-session
 web_browser       qutebrowser -l warning

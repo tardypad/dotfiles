@@ -3,9 +3,6 @@ all: sway-scripts
 sway-scripts:
 	mkdir -p $(DESTDIR)$(BIN_DIR)
 
-	$(setup_file)/scripts/sway/sway-app-chat                  > $(DESTDIR)$(BIN_DIR)/sway-app-chat
-	$(setup_file)/scripts/sway/sway-app-mail                  > $(DESTDIR)$(BIN_DIR)/sway-app-mail
-	$(setup_file)/scripts/sway/sway-app-monitor               > $(DESTDIR)$(BIN_DIR)/sway-app-monitor
 	$(setup_file)/scripts/sway/sway-app-tmux-env              > $(DESTDIR)$(BIN_DIR)/sway-app-tmux-env
 	$(setup_file)/scripts/sway/sway-command-input             > $(DESTDIR)$(BIN_DIR)/sway-command-input
 	$(setup_file)/scripts/sway/sway-command-input-exec        > $(DESTDIR)$(BIN_DIR)/sway-command-input-exec
@@ -29,9 +26,6 @@ sway-scripts:
 	$(setup_file)/scripts/sway/sway-run-command               > $(DESTDIR)$(BIN_DIR)/sway-run-command
 	$(setup_file)/scripts/sway/sway-subscribe-events-run      > $(DESTDIR)$(BIN_DIR)/sway-subscribe-events-run
 
-	chmod +x $(DESTDIR)$(BIN_DIR)/sway-app-chat
-	chmod +x $(DESTDIR)$(BIN_DIR)/sway-app-mail
-	chmod +x $(DESTDIR)$(BIN_DIR)/sway-app-monitor
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-app-tmux-env
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-command-input
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-command-input-exec
