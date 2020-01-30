@@ -1,0 +1,89 @@
+#!/bin/sh
+
+init_variables() {
+  COMMAND=${0##*/}
+
+  OPERATION=
+}
+
+parse_command_line() {
+  OPERATION="$1"
+}
+
+validate_command_line() {
+  if [ "${OPERATION}" != 'maximum' ] \
+     && [ "${OPERATION}" != 'minimum' ] \
+     && [ "${OPERATION}" != 'mean' ] \
+     && [ "${OPERATION}" != 'sum' ]; then
+    exit_error "invalid operation '${OPERATION}'"
+  fi
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+calculate_maximum() {
+  awk '
+    BEGIN { max = 0 }
+    $1 !~ /^-?[0-9]+(\.[0-9]+)?$/ {
+      printf "line %s: Non number field \"%s\"\n", NR, $1 > "/dev/stderr"
+      error = 1
+      exit(1)
+    }
+    NR == 1 || $1 > max { max = $1 }
+    END {
+      if (!NR) exit(1)
+      if (! error) print max
+    }'
+}
+
+calculate_minimum() {
+  awk '
+    BEGIN { min = 0 }
+    $1 !~ /^-?[0-9]+(\.[0-9]+)?$/ {
+      printf "line %s: Non number field \"%s\"\n", NR, $1 > "/dev/stderr"
+      error = 1
+      exit(1)
+    }
+    NR == 1 || $1 < min { min = $1 }
+    END {
+      if (!NR) exit(1)
+      if (! error) print min
+    }'
+}
+
+calculate_mean() {
+  awk '
+    $1 !~ /^-?[0-9]+(\.[0-9]+)?$/ {
+      printf "line %s: Non number field \"%s\"\n", NR, $1 > "/dev/stderr"
+      error = 1
+      exit(1)
+    }
+    { total += $1 }
+    END {
+      if (!NR) exit(1)
+      if (! error) print total / NR
+    }'
+}
+
+calculate_sum() {
+  awk '
+    $1 !~ /^-?[0-9]+(\.[0-9]+)?$/ {
+      printf "line %s: Non number field \"%s\"\n", NR, $1 > "/dev/stderr"
+      error = 1
+      exit(1)
+    }
+    { sum += $1 }
+    END {
+      if (!NR) exit(1)
+      if (! error) print sum
+    }'
+}
+
+init_variables
+parse_command_line "$@"
+validate_command_line
+
+"calculate_${OPERATION}"
