@@ -21,6 +21,11 @@ alias PJ='goto-project main'
 alias logs='goto-project logs'
 alias docs='goto-project docs'
 
+alias max='calculate maximum'
+alias min='calculate minimum'
+alias mean='calculate mean'
+alias sum='calculate sum'
+
 alias rn='read-news'
 alias pu='packages-updates'
 alias tt='time-tracker'
