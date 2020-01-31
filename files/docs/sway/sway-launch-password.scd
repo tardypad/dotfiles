@@ -6,7 +6,7 @@ sway-launch-password - Launcher to copy a password
 
 # SYNOPSIS
 
-sway-launch-password
+sway-launch-password [_fzf_options_...]
 
 # DESCRIPTION
 
@@ -18,7 +18,8 @@ None
 
 # OPERANDS
 
-None
+_fzf_option_
+	*fzf* option
 
 # ENVIRONMENT VARIABLES
 
@@ -33,5 +34,5 @@ _$PASSWORD_STORE_DIR_
 
 # DEPENDENCIES
 
+- fzf
 - pass
-- sway-fzf-launcher

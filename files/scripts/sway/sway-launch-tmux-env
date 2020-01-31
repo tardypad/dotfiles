@@ -1,6 +1,7 @@
 #!/bin/sh
 
 ENV_NAME="$1"
+shift
 
 SESSION=$(
   {
@@ -9,7 +10,11 @@ SESSION=$(
       -type f -name '*.sh' -exec basename {} .sh \; \
       | sort
   } \
-  | sway-fzf-launcher "open ${ENV_NAME%s} "
+  | fzf --reverse \
+        --no-multi \
+        --info hidden \
+        --header "$( printf '\n' )" \
+        "$@"
 )
 
 [ -n "${SESSION}" ] || exit

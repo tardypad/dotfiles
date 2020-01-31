@@ -6,7 +6,7 @@ sway-launch-command - Launcher to run a command
 
 # SYNOPSIS
 
-sway-launch-command
+sway-launch-command [_fzf_options_...]
 
 # DESCRIPTION
 
@@ -18,7 +18,8 @@ None
 
 # OPERANDS
 
-None
+_fzf_option_
+	*fzf* option
 
 # ENVIRONMENT VARIABLES
 
@@ -33,6 +34,6 @@ _$XDG_CACHE_HOME/sway/launch_command_
 
 # DEPENDENCIES
 
+- fzf
 - stat
-- sway-fzf-launcher
 - swaymsg

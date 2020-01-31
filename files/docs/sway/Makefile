@@ -8,7 +8,6 @@ sway-docs:
 	scdoc < files/docs/sway/sway-command-input.scd             > $(DESTDIR)$(DATA_DIR)/man/man1/sway-command-input.1$(MAN_SUFFIX)
 	scdoc < files/docs/sway/sway-create-workspace.scd          > $(DESTDIR)$(DATA_DIR)/man/man1/sway-create-workspace.1$(MAN_SUFFIX)
 	scdoc < files/docs/sway/sway-focus-window-title.scd        > $(DESTDIR)$(DATA_DIR)/man/man1/sway-focus-window-title.1$(MAN_SUFFIX)
-	scdoc < files/docs/sway/sway-fzf-launcher.scd              > $(DESTDIR)$(DATA_DIR)/man/man1/sway-fzf-launcher.1$(MAN_SUFFIX)
 	scdoc < files/docs/sway/sway-launch-command.scd            > $(DESTDIR)$(DATA_DIR)/man/man1/sway-launch-command.1$(MAN_SUFFIX)
 	scdoc < files/docs/sway/sway-launch-otp.scd                > $(DESTDIR)$(DATA_DIR)/man/man1/sway-launch-otp.1$(MAN_SUFFIX)
 	scdoc < files/docs/sway/sway-launch-password.scd           > $(DESTDIR)$(DATA_DIR)/man/man1/sway-launch-password.1$(MAN_SUFFIX)

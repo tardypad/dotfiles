@@ -6,7 +6,7 @@ sway-launch-tmux-env - Launcher to start a session of a tmux env
 
 # SYNOPSIS
 
-sway-launch-tmux-env _env_
+sway-launch-tmux-env _env_ [_fzf_options_...]
 
 # DESCRIPTION
 
@@ -21,6 +21,9 @@ None
 _env_
 	Name of the environment
 
+_fzf_option_
+	*fzf* option
+
 # ENVIRONMENT VARIABLES
 
 _XDG_DATA_HOME_
@@ -34,5 +37,5 @@ _$XDG_DATA_HOME/env/tmux/\*.sh_
 
 # DEPENDENCIES
 
+- fzf
 - sway-app-tmux-env
-- sway-fzf-launcher

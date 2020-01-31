@@ -3,7 +3,11 @@
 NAME=$(
   ykman oath list 2> /dev/null \
     | sort \
-    | sway-fzf-launcher 'copy otp '
+    | fzf --reverse \
+          --no-multi \
+          --info hidden \
+          --header "$( printf '\n' )" \
+          "$@"
 )
 
 [ -n "${NAME}" ] || exit

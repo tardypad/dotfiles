@@ -6,7 +6,7 @@ sway-launch-otp - Launcher to copy a OTP
 
 # SYNOPSIS
 
-sway-launch-otp
+sway-launch-otp [_fzf_options_...]
 
 # DESCRIPTION
 
@@ -18,7 +18,8 @@ None
 
 # OPERANDS
 
-None
+_fzf_option_
+	*fzf* option
 
 # ENVIRONMENT VARIABLES
 
@@ -30,6 +31,6 @@ None
 
 # DEPENDENCIES
 
-- sway-fzf-launcher
+- fzf
 - wl-copy
 - ykman

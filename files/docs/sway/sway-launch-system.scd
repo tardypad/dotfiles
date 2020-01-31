@@ -6,7 +6,7 @@ sway-launch-system - Launcher to run system actions
 
 # SYNOPSIS
 
-sway-launch-system
+sway-launch-system [_fzf_options_...]
 
 # DESCRIPTION
 
@@ -18,7 +18,8 @@ None
 
 # OPERANDS
 
-None
+_fzf_option_
+	*fzf* option
 
 # ENVIRONMENT VARIABLES
 
@@ -30,7 +31,7 @@ None
 
 # DEPENDENCIES
 
-- sway-fzf-launcher
+- fzf
 - swaylock
 - swaymsg
 - systemctl

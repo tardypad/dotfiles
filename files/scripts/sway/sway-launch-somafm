@@ -7,9 +7,13 @@ CHANNELS=$( somafm channels )
 CHANNEL_ID=$(
     echo "${CHANNELS}" \
     | sort -k 2 \
-    | sway-fzf-launcher 'play SomaFM channel ' \
-        -d '\t' \
-        --with-nth 2 \
+    | fzf --reverse \
+          --no-multi \
+          --info hidden \
+          --header "$( printf '\n' )" \
+          -d '\t' \
+          --with-nth 2 \
+          "$@" \
     | cut -f 1
 )
 

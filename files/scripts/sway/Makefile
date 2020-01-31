@@ -8,7 +8,6 @@ sway-scripts:
 	$(setup_file)/scripts/sway/sway-command-input-exec        > $(DESTDIR)$(BIN_DIR)/sway-command-input-exec
 	$(setup_file)/scripts/sway/sway-create-workspace          > $(DESTDIR)$(BIN_DIR)/sway-create-workspace
 	$(setup_file)/scripts/sway/sway-focus-window-title        > $(DESTDIR)$(BIN_DIR)/sway-focus-window-title
-	$(setup_file)/scripts/sway/sway-fzf-launcher              > $(DESTDIR)$(BIN_DIR)/sway-fzf-launcher
 	$(setup_file)/scripts/sway/sway-launch-command            > $(DESTDIR)$(BIN_DIR)/sway-launch-command
 	$(setup_file)/scripts/sway/sway-launch-otp                > $(DESTDIR)$(BIN_DIR)/sway-launch-otp
 	$(setup_file)/scripts/sway/sway-launch-password           > $(DESTDIR)$(BIN_DIR)/sway-launch-password
@@ -31,7 +30,6 @@ sway-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-command-input-exec
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-create-workspace
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-focus-window-title
-	chmod +x $(DESTDIR)$(BIN_DIR)/sway-fzf-launcher
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-launch-command
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-launch-otp
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-launch-password

@@ -2,8 +2,12 @@
 
 TASK_ID=$(
   time-tracker ids \
-    | sway-fzf-launcher 'task ' \
-        --print-query \
+    | fzf --reverse \
+          --no-multi \
+          --info hidden \
+          --header "$( printf '\n' )" \
+          --print-query \
+          "$@" \
     | tail -n1
 )
 

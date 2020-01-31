@@ -40,6 +40,11 @@ build_cache() {
 
 should_build_cache && build_cache
 
-sway-fzf-launcher 'run ' < "${CACHE_LIST_PATH}" \
+fzf --reverse \
+    --no-multi \
+    --info hidden \
+    --header "$( printf '\n' )" \
+    "$@" \
+    < "${CACHE_LIST_PATH}" \
   | xargs -I{} \
     -- swaymsg -q exec {}

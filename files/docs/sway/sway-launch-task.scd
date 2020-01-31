@@ -6,7 +6,7 @@ sway-launch-task - Launcher to start a task
 
 # SYNOPSIS
 
-sway-launch-task
+sway-launch-task [_fzf_options_...]
 
 # DESCRIPTION
 
@@ -21,7 +21,8 @@ None
 
 # OPERANDS
 
-None
+_fzf_option_
+	*fzf* option
 
 # ENVIRONMENT VARIABLES
 
@@ -34,6 +35,6 @@ None
 # DEPENDENCIES
 
 - do-not-disturb
+- fzf
 - pomodoro
-- sway-fzf-launcher
 - time-tracker

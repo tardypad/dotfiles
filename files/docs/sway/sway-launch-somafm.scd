@@ -6,7 +6,7 @@ sway-launch-somafm - Launcher to play a SomaFM channel
 
 # SYNOPSIS
 
-sway-launch-somafm
+sway-launch-somafm [_fzf_options_...]
 
 # DESCRIPTION
 
@@ -18,7 +18,8 @@ None
 
 # OPERANDS
 
-None
+_fzf_option_
+	*fzf* option
 
 # ENVIRONMENT VARIABLES
 
@@ -30,6 +31,6 @@ None
 
 # DEPENDENCIES
 
+- fzf
 - mpc
 - somafm
-- sway-fzf-launcher
