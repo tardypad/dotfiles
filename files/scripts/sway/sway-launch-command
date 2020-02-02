@@ -40,11 +40,15 @@ build_cache() {
 
 should_build_cache && build_cache
 
-fzf --reverse \
-    --no-multi \
-    --info hidden \
-    --header "$( printf '\n' )" \
-    "$@" \
-    < "${CACHE_LIST_PATH}" \
-  | xargs -I{} \
-    -- swaymsg -q exec {}
+COMMAND=$(
+  fzf --reverse \
+      --no-multi \
+      --info hidden \
+      --header "$( printf '\n' )" \
+      "$@" \
+      < "${CACHE_LIST_PATH}"
+)
+
+[ -n "${COMMAND}" ] || exit
+
+swaymsg exec "${COMMAND}"
