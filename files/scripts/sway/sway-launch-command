@@ -1,6 +1,6 @@
 #!/bin/sh
 
-CACHE_LIST_PATH="${XDG_CACHE_HOME:-$HOME/.cache}/sway/launch_command"
+CACHE_LIST_PATH="${XDG_CACHE_HOME:-$HOME/.cache}/commands"
 
 should_build_cache() {
   [ -f "${CACHE_LIST_PATH}" ] || return 0

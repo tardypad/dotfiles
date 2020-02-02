@@ -29,7 +29,7 @@ If unset, defaults to $HOME/.cache
 
 # FILES
 
-_$XDG_CACHE_HOME/sway/launch_command_
+_$XDG_CACHE_HOME/commands_
 	File used as cache for the list of commands
 
 # DEPENDENCIES
