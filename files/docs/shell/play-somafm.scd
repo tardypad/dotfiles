@@ -1,16 +1,16 @@
-sway-launch-somafm(1)
+play-somafm(1)
 
 # NAME
 
-sway-launch-somafm - Launcher to play a SomaFM channel
+play-somafm - Interactive selection to play a SomaFM channel
 
 # SYNOPSIS
 
-sway-launch-somafm [_fzf_options_...]
+play-somafm [_fzf_options_...]
 
 # DESCRIPTION
 
-Open a launcher window to select and play a SomaFM channel.
+Open interface to select and play a SomaFM channel.
 
 # OPTIONS
 

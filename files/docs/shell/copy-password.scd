@@ -1,16 +1,16 @@
-sway-launch-password(1)
+copy-password(1)
 
 # NAME
 
-sway-launch-password - Launcher to copy a password
+copy-password - Interactive selection to copy a password
 
 # SYNOPSIS
 
-sway-launch-password [_fzf_options_...]
+copy-password [_fzf_options_...]
 
 # DESCRIPTION
 
-Open a launcher window to select and copy a password.
+Open interface to select and copy a password.
 
 # OPTIONS
 

@@ -11,6 +11,8 @@ shell-scripts:
 	$(setup_file)/scripts/shell/check-notify-low-battery     > $(DESTDIR)$(BIN_DIR)/check-notify-low-battery
 	$(setup_file)/scripts/shell/check-notify-package-updates > $(DESTDIR)$(BIN_DIR)/check-notify-package-updates
 	$(setup_file)/scripts/shell/color-picker                 > $(DESTDIR)$(BIN_DIR)/color-picker
+	$(setup_file)/scripts/shell/copy-otp                     > $(DESTDIR)$(BIN_DIR)/copy-otp
+	$(setup_file)/scripts/shell/copy-password                > $(DESTDIR)$(BIN_DIR)/copy-password
 	$(setup_file)/scripts/shell/man                          > $(DESTDIR)$(BIN_DIR)/man
 	$(setup_file)/scripts/shell/do-not-disturb               > $(DESTDIR)$(BIN_DIR)/do-not-disturb
 	$(setup_file)/scripts/shell/documentation                > $(DESTDIR)$(BIN_DIR)/documentation
@@ -24,6 +26,7 @@ shell-scripts:
 	$(setup_file)/scripts/shell/notify-end-pomodoro          > $(DESTDIR)$(BIN_DIR)/notify-end-pomodoro
 	$(setup_file)/scripts/shell/notify-tmux-alert            > $(DESTDIR)$(BIN_DIR)/notify-tmux-alert
 	$(setup_file)/scripts/shell/packages-updates             > $(DESTDIR)$(BIN_DIR)/packages-updates
+	$(setup_file)/scripts/shell/play-somafm                  > $(DESTDIR)$(BIN_DIR)/play-somafm
 	$(setup_file)/scripts/shell/plot                         > $(DESTDIR)$(BIN_DIR)/plot
 	$(setup_file)/scripts/shell/pomodoro                     > $(DESTDIR)$(BIN_DIR)/pomodoro
 	$(setup_file)/scripts/shell/project-path                 > $(DESTDIR)$(BIN_DIR)/project-path
@@ -34,6 +37,7 @@ shell-scripts:
 	$(setup_file)/scripts/shell/screenshot                   > $(DESTDIR)$(BIN_DIR)/screenshot
 	$(setup_file)/scripts/shell/somafm                       > $(DESTDIR)$(BIN_DIR)/somafm
 	$(setup_file)/scripts/shell/ssh-tags                     > $(DESTDIR)$(BIN_DIR)/ssh-tags
+	$(setup_file)/scripts/shell/start-task                   > $(DESTDIR)$(BIN_DIR)/start-task
 	$(setup_file)/scripts/shell/status                       > $(DESTDIR)$(BIN_DIR)/status
 	$(setup_file)/scripts/shell/time-tracker                 > $(DESTDIR)$(BIN_DIR)/time-tracker
 	$(setup_file)/scripts/shell/tmux-env                     > $(DESTDIR)$(BIN_DIR)/tmux-env
@@ -48,6 +52,8 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/check-notify-low-battery
 	chmod +x $(DESTDIR)$(BIN_DIR)/check-notify-package-updates
 	chmod +x $(DESTDIR)$(BIN_DIR)/color-picker
+	chmod +x $(DESTDIR)$(BIN_DIR)/copy-otp
+	chmod +x $(DESTDIR)$(BIN_DIR)/copy-password
 	chmod +x $(DESTDIR)$(BIN_DIR)/man
 	chmod +x $(DESTDIR)$(BIN_DIR)/do-not-disturb
 	chmod +x $(DESTDIR)$(BIN_DIR)/documentation
@@ -61,6 +67,7 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/notify-end-pomodoro
 	chmod +x $(DESTDIR)$(BIN_DIR)/notify-tmux-alert
 	chmod +x $(DESTDIR)$(BIN_DIR)/packages-updates
+	chmod +x $(DESTDIR)$(BIN_DIR)/play-somafm
 	chmod +x $(DESTDIR)$(BIN_DIR)/plot
 	chmod +x $(DESTDIR)$(BIN_DIR)/pomodoro
 	chmod +x $(DESTDIR)$(BIN_DIR)/project-path
@@ -71,6 +78,7 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/screenshot
 	chmod +x $(DESTDIR)$(BIN_DIR)/somafm
 	chmod +x $(DESTDIR)$(BIN_DIR)/ssh-tags
+	chmod +x $(DESTDIR)$(BIN_DIR)/start-task
 	chmod +x $(DESTDIR)$(BIN_DIR)/status
 	chmod +x $(DESTDIR)$(BIN_DIR)/time-tracker
 	chmod +x $(DESTDIR)$(BIN_DIR)/tmux-env

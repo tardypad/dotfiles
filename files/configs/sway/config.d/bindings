@@ -47,10 +47,10 @@ mode "-- Launchers --" {
     bindsym Backspace mode "default", exec sway-launcher sway-launch-system  "--margin '1,2,0,2' --prompt 'execute '"
 
     bindsym j mode "default", exec sway-launcher sway-launch-tmux-env projects "--margin '1,2,0,2' --prompt 'open project '"
-    bindsym o mode "default", exec sway-launcher sway-launch-otp               "--margin '1,2,0,2' --prompt 'copy otp '"
-    bindsym p mode "default", exec sway-launcher sway-launch-password          "--margin '1,2,0,2' --prompt 'copy password '"
-    bindsym s mode "default", exec sway-launcher sway-launch-somafm            "--margin '1,2,0,2' --prompt 'play SomaFM channel '"
-    bindsym t mode "default", exec sway-launcher sway-launch-task              "--margin '1,2,0,2' --prompt 'start task '"
+    bindsym o mode "default", exec sway-launcher copy-otp                      "--margin '1,2,0,2' --prompt 'copy otp '"
+    bindsym p mode "default", exec sway-launcher copy-password                 "--margin '1,2,0,2' --prompt 'copy password '"
+    bindsym s mode "default", exec sway-launcher play-somafm                   "--margin '1,2,0,2' --prompt 'play SomaFM channel '"
+    bindsym t mode "default", exec sway-launcher start-task                    "--margin '1,2,0,2' --prompt 'start task '"
 
     bindsym c mode "default", exec {app/chat_client}
     bindsym d mode "default", exec {app/document_viewer}

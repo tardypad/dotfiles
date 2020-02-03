@@ -1,16 +1,16 @@
-sway-launch-task(1)
+start-task(1)
 
 # NAME
 
-sway-launch-task - Launcher to start a task
+start-task - Interactive start of a task
 
 # SYNOPSIS
 
-sway-launch-task [_fzf_options_...]
+start-task [_fzf_options_...]
 
 # DESCRIPTION
 
-Open a launcher window to start a task:
+Open interface to start a task:
 - start time tracker
 - start a pomodoro session (optional)
 - enable "Do not disturb" mode (optional)
