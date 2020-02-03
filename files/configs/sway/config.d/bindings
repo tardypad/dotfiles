@@ -145,10 +145,12 @@ bindsym $mod+Shift+$key_kill   kill
 bindsym $mod+Shift+$key_zoom   fullscreen
 
 # select
-bindsym $mod+Shift+$key_left  focus left
-bindsym $mod+Shift+$key_down  focus down
-bindsym $mod+Shift+$key_up    focus up
-bindsym $mod+Shift+$key_right focus right
+bindsym $mod+Shift+$key_next     focus next
+bindsym $mod+Shift+$key_previous focus prev
+bindsym $mod+Shift+$key_left     focus left
+bindsym $mod+Shift+$key_down     focus down
+bindsym $mod+Shift+$key_up       focus up
+bindsym $mod+Shift+$key_right    focus right
 
 # move mode
 mode "-- MOVE --" {
