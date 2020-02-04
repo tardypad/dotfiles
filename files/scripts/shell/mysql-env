@@ -9,7 +9,7 @@ init_variables() {
   QUERY=
 
   if [ -t 1 ]; then
-    MYSQL_OPTIONS='--raw --column-names'
+    MYSQL_OPTIONS='--raw --table --column-names'
   else
     MYSQL_OPTIONS='--raw --batch --skip-column-names'
   fi
