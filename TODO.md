@@ -17,7 +17,6 @@
 ## Testing
 
 ## Improvements
-  - allow env scripts to receive data from stdin
   - better man pages:
     * add new sections only to relevant scripts:
       STDIN, STDOUT, EXIT STATUS, EXAMPLES, CONFIG, ACKNOWLEDGMENTS,...
