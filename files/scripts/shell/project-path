@@ -55,8 +55,8 @@ get_type_path() {
   case "${TYPE}" in
     main) echo "${PROJECTS_REPO_DIR}" ;;
     repo) echo "${PROJECTS_REPO_DIR}" ;;
-    docs) echo "${PROJECTS_LOG_DIR}" ;;
-    logs) echo "${PROJECTS_DOC_DIR}" ;;
+    docs) echo "${PROJECTS_DOC_DIR}" ;;
+    logs) echo "${PROJECTS_LOG_DIR}" ;;
   esac
 }
 
