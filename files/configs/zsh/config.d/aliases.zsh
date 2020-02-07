@@ -32,6 +32,9 @@ alias tt='time-tracker'
 alias dnd='do-not-disturb'
 alias pmd='pomodoro'
 
+# clean the tmux pane before running a command
+alias clean='clear && tmux clear-history &&'
+
 # display calendar for full year with week number and Monday as week start
 alias calendar='cal --monday --week --year'
 
