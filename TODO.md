@@ -24,7 +24,6 @@
       files format, files naming conventions,...
 
 ## New Features
-  - add sway binding with script to switch back and forth windows in current workspace
   - create scripts for backup to hard drive or USB stick
   - global keybindings management similar to colors with placeholders and README
     * limit usage of difficult bindings requiring many simultaneous keys to risky/rare actions
