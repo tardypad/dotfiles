@@ -1,6 +1,0 @@
-[Unit]
-Description=Notify about packages updates
-
-[Service]
-Type=oneshot
-ExecStart={dir/bin}/check-notify-package-updates

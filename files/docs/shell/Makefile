@@ -9,7 +9,6 @@ shell-docs:
 	scdoc < files/docs/shell/battery-status.scd               > $(DESTDIR)$(DATA_DIR)/man/man1/battery-status.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/calculate.scd                    > $(DESTDIR)$(DATA_DIR)/man/man1/calculate.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/check-notify-low-battery.scd     > $(DESTDIR)$(DATA_DIR)/man/man1/check-notify-low-battery.1$(MAN_SUFFIX)
-	scdoc < files/docs/shell/check-notify-package-updates.scd > $(DESTDIR)$(DATA_DIR)/man/man1/check-notify-package-updates.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/color-picker.scd                 > $(DESTDIR)$(DATA_DIR)/man/man1/color-picker.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/copy-otp.scd                     > $(DESTDIR)$(DATA_DIR)/man/man1/copy-otp.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/copy-password.scd                > $(DESTDIR)$(DATA_DIR)/man/man1/copy-password.1$(MAN_SUFFIX)

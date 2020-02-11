@@ -9,7 +9,6 @@ shell-scripts:
 	$(setup_file)/scripts/shell/battery-status               > $(DESTDIR)$(BIN_DIR)/battery-status
 	$(setup_file)/scripts/shell/calculate                    > $(DESTDIR)$(BIN_DIR)/calculate
 	$(setup_file)/scripts/shell/check-notify-low-battery     > $(DESTDIR)$(BIN_DIR)/check-notify-low-battery
-	$(setup_file)/scripts/shell/check-notify-package-updates > $(DESTDIR)$(BIN_DIR)/check-notify-package-updates
 	$(setup_file)/scripts/shell/color-picker                 > $(DESTDIR)$(BIN_DIR)/color-picker
 	$(setup_file)/scripts/shell/copy-otp                     > $(DESTDIR)$(BIN_DIR)/copy-otp
 	$(setup_file)/scripts/shell/copy-password                > $(DESTDIR)$(BIN_DIR)/copy-password
@@ -50,7 +49,6 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/battery-status
 	chmod +x $(DESTDIR)$(BIN_DIR)/calculate
 	chmod +x $(DESTDIR)$(BIN_DIR)/check-notify-low-battery
-	chmod +x $(DESTDIR)$(BIN_DIR)/check-notify-package-updates
 	chmod +x $(DESTDIR)$(BIN_DIR)/color-picker
 	chmod +x $(DESTDIR)$(BIN_DIR)/copy-otp
 	chmod +x $(DESTDIR)$(BIN_DIR)/copy-password
