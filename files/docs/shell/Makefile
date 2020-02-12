@@ -31,7 +31,6 @@ shell-docs:
 	scdoc < files/docs/shell/query-hosts-tags.scd             > $(DESTDIR)$(DATA_DIR)/man/man1/query-hosts-tags.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/read-news.scd                    > $(DESTDIR)$(DATA_DIR)/man/man1/read-news.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/redis-env.scd                    > $(DESTDIR)$(DATA_DIR)/man/man1/redis-env.1$(MAN_SUFFIX)
-	scdoc < files/docs/shell/repo.scd                         > $(DESTDIR)$(DATA_DIR)/man/man1/repo.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/screenshot.scd                   > $(DESTDIR)$(DATA_DIR)/man/man1/screenshot.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/somafm.scd                       > $(DESTDIR)$(DATA_DIR)/man/man1/somafm.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/ssh-tags.scd                     > $(DESTDIR)$(DATA_DIR)/man/man1/ssh-tags.1$(MAN_SUFFIX)

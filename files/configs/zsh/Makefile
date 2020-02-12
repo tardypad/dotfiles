@@ -29,7 +29,6 @@ zsh-configs:
 	$(setup_file)/configs/zsh/completions/_query-hosts-tags                                          > $(DESTDIR)$(HOME)/.zsh/completions/_query-hosts-tags
 	$(setup_file)/configs/zsh/completions/_rbt                                                       > $(DESTDIR)$(HOME)/.zsh/completions/_rbt
 	$(setup_file)/configs/zsh/completions/_redis-env                                                 > $(DESTDIR)$(HOME)/.zsh/completions/_redis-env
-	$(setup_file)/configs/zsh/completions/_repo                                                      > $(DESTDIR)$(HOME)/.zsh/completions/_repo
 	$(setup_file)/configs/zsh/completions/_somafm                                                    > $(DESTDIR)$(HOME)/.zsh/completions/_somafm
 	$(setup_file)/configs/zsh/completions/_ssh-tags                                                  > $(DESTDIR)$(HOME)/.zsh/completions/_ssh-tags
 	$(setup_file)/configs/zsh/completions/_time-tracker                                              > $(DESTDIR)$(HOME)/.zsh/completions/_time-tracker
