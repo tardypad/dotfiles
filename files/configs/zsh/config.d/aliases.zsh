@@ -27,7 +27,6 @@ alias mean='calculate mean'
 alias sum='calculate sum'
 
 alias rn='read-news'
-alias pu='packages-updates'
 alias tt='time-tracker'
 alias dnd='do-not-disturb'
 alias pmd='pomodoro'

@@ -24,7 +24,6 @@ shell-docs:
 	scdoc < files/docs/shell/notify-end-pomodoro.scd          > $(DESTDIR)$(DATA_DIR)/man/man1/notify-end-pomodoro.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/notify-tmux-alert.scd            > $(DESTDIR)$(DATA_DIR)/man/man1/notify-tmux-alert.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/notify.scd                       > $(DESTDIR)$(DATA_DIR)/man/man1/notify.1$(MAN_SUFFIX)
-	scdoc < files/docs/shell/packages-updates.scd             > $(DESTDIR)$(DATA_DIR)/man/man1/packages-updates.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/play-somafm.scd                  > $(DESTDIR)$(DATA_DIR)/man/man1/play-somafm.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/plot.scd                         > $(DESTDIR)$(DATA_DIR)/man/man1/plot.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/pomodoro.scd                     > $(DESTDIR)$(DATA_DIR)/man/man1/pomodoro.1$(MAN_SUFFIX)

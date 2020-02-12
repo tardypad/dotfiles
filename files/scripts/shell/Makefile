@@ -24,7 +24,6 @@ shell-scripts:
 	$(setup_file)/scripts/shell/notify                       > $(DESTDIR)$(BIN_DIR)/notify
 	$(setup_file)/scripts/shell/notify-end-pomodoro          > $(DESTDIR)$(BIN_DIR)/notify-end-pomodoro
 	$(setup_file)/scripts/shell/notify-tmux-alert            > $(DESTDIR)$(BIN_DIR)/notify-tmux-alert
-	$(setup_file)/scripts/shell/packages-updates             > $(DESTDIR)$(BIN_DIR)/packages-updates
 	$(setup_file)/scripts/shell/play-somafm                  > $(DESTDIR)$(BIN_DIR)/play-somafm
 	$(setup_file)/scripts/shell/plot                         > $(DESTDIR)$(BIN_DIR)/plot
 	$(setup_file)/scripts/shell/pomodoro                     > $(DESTDIR)$(BIN_DIR)/pomodoro
@@ -64,7 +63,6 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/notify
 	chmod +x $(DESTDIR)$(BIN_DIR)/notify-end-pomodoro
 	chmod +x $(DESTDIR)$(BIN_DIR)/notify-tmux-alert
-	chmod +x $(DESTDIR)$(BIN_DIR)/packages-updates
 	chmod +x $(DESTDIR)$(BIN_DIR)/play-somafm
 	chmod +x $(DESTDIR)$(BIN_DIR)/plot
 	chmod +x $(DESTDIR)$(BIN_DIR)/pomodoro
