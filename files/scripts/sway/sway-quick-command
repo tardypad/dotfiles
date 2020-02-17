@@ -4,4 +4,5 @@ TITLE='sway_quick_command'
 
 sway-focus-window-title "${TITLE}" && exit
 
-swaymsg -q exec "alacritty -t \"${TITLE}\""
+swaymsg -q fullscreen disable, \
+  exec "alacritty -t \"${TITLE}\""

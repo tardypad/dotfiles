@@ -6,7 +6,8 @@ TITLE='sway_launcher'
 
 sway-focus-window-title "${TITLE}" && exit
 
-swaymsg -q exec \
+swaymsg -q fullscreen disable, \
+  exec \
   "alacritty \
    -t \"${TITLE}\" \
    --config-file ${XDG_CONFIG_HOME:-$HOME/.config}/alacritty/alacritty_launcher.yml \

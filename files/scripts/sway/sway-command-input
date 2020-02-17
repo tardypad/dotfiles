@@ -14,7 +14,8 @@ while [ "$#" -gt 0 ]; do
   shift
 done
 
-swaymsg -q exec \
+swaymsg -q fullscreen disable, \
+  exec \
   "alacritty \
    -t \"${TITLE}\" \
    --config-file ${XDG_CONFIG_HOME:-$HOME/.config}/alacritty/alacritty_command_input.yml \
