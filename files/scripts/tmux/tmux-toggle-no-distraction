@@ -22,12 +22,7 @@ sway_fullscreen() {
 
   ACTION="$1"
 
-  FULLSCREEN_STATUS=$( echo "${CURRENT_SWAY_WINDOW}" | jq '.fullscreen_mode' )
-
-  if { [ "${ACTION}" = 'enable' ] && [ "${FULLSCREEN_STATUS}" = '0' ]; } \
-    || { [ "${ACTION}" = 'disable' ] && [ "${FULLSCREEN_STATUS}" = '1' ]; }; then
-    swaymsg -q fullscreen >/dev/null 2>&1
-  fi
+  swaymsg -q fullscreen "${ACTION}"
 }
 
 tmux_pane_zoom() {
