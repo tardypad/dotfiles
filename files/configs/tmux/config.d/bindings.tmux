@@ -45,21 +45,21 @@ bind    C-s choose-tree -Z -s -w -F '#{?pane_format,#{pane_current_command},#{?w
 %else
 bind    C-s choose-tree -Z -s -w -F '#{?pane_format,#{pane_current_command},#{window_name}}' -O index
 %endif
-bind -r C-a switch-client -l
-bind -r C-n switch-client -n
-bind -r C-j switch-client -n
-bind -r C-p switch-client -p
-bind -r C-k switch-client -p
-bind    C-1 switch-client -t $0
-bind    C-2 switch-client -t $1
-bind    C-3 switch-client -t $2
-bind    C-4 switch-client -t $3
-bind    C-5 switch-client -t $4
-bind    C-6 switch-client -t $5
-bind    C-7 switch-client -t $6
-bind    C-8 switch-client -t $7
-bind    C-9 switch-client -t $8
-bind    C-0 switch-client -t $9
+bind C-a switch-client -l
+bind C-n switch-client -n
+bind C-j switch-client -n
+bind C-p switch-client -p
+bind C-k switch-client -p
+bind C-1 switch-client -t $0
+bind C-2 switch-client -t $1
+bind C-3 switch-client -t $2
+bind C-4 switch-client -t $3
+bind C-5 switch-client -t $4
+bind C-6 switch-client -t $5
+bind C-7 switch-client -t $6
+bind C-8 switch-client -t $7
+bind C-9 switch-client -t $8
+bind C-0 switch-client -t $9
 
 
 ## windows management (lowercase)
@@ -69,22 +69,22 @@ bind r command-prompt -I '#{window_name}' "rename-window '%%'"
 bind x confirm-before -p 'kill-window "#{window_name}"? (y/n)' kill-window
 
 # select
-bind    w choose-tree -Z -w -F '#{?pane_format,#{pane_current_command},#{?window_format,#{window_name},}}' -f "#{!=:0,#{session_attached}}" -O index
-bind -r a select-window -t ':{last}'
-bind -r n select-window -t ':{next}'
-bind -r l select-window -t ':{next}'
-bind -r p select-window -t ':{previous}'
-bind -r h select-window -t ':{previous}'
-bind    1 select-window -t :=1
-bind    2 select-window -t :=2
-bind    3 select-window -t :=3
-bind    4 select-window -t :=4
-bind    5 select-window -t :=5
-bind    6 select-window -t :=6
-bind    7 select-window -t :=7
-bind    8 select-window -t :=8
-bind    9 select-window -t :=9
-bind    0 select-window -t :=10
+bind w choose-tree -Z -w -F '#{?pane_format,#{pane_current_command},#{?window_format,#{window_name},}}' -f "#{!=:0,#{session_attached}}" -O index
+bind a select-window -t ':{last}'
+bind n select-window -t ':{next}'
+bind l select-window -t ':{next}'
+bind p select-window -t ':{previous}'
+bind h select-window -t ':{previous}'
+bind 1 select-window -t :=1
+bind 2 select-window -t :=2
+bind 3 select-window -t :=3
+bind 4 select-window -t :=4
+bind 5 select-window -t :=5
+bind 6 select-window -t :=6
+bind 7 select-window -t :=7
+bind 8 select-window -t :=8
+bind 9 select-window -t :=9
+bind 0 select-window -t :=10
 
 # split
 bind v split-window -h -c '#{pane_current_path}'
@@ -125,13 +125,13 @@ bind Z resize-pane -Z
 bind G display-panes
 
 # select
-bind -r A select-pane -t ':.{last}'
-bind -r N select-pane -t ':.{next}'
-bind -r P select-pane -t ':.{previous}'
-bind -r H select-pane -t ':.{left-of}'
-bind -r J select-pane -t ':.{down-of}'
-bind -r K select-pane -t ':.{up-of}'
-bind -r L select-pane -t ':.{right-of}'
+bind A select-pane -t ':.{last}'
+bind N select-pane -t ':.{next}'
+bind P select-pane -t ':.{previous}'
+bind H select-pane -t ':.{left-of}'
+bind J select-pane -t ':.{down-of}'
+bind K select-pane -t ':.{up-of}'
+bind L select-pane -t ':.{right-of}'
 
 bind -T root M-a run "tmux-select-pane-vim a"
 bind -T root M-h run "tmux-select-pane-vim h"
