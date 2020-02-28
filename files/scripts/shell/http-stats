@@ -1,0 +1,129 @@
+#!/bin/sh
+
+# "heavily inspired" by Masaki Ishiyama httpstat bash version
+# https://github.com/b4b4r07/httpstat/blob/master/httpstat.sh
+
+init_variables() {
+  COMMAND=${0##*/}
+
+  CURL_OPTIONS=
+
+  CURL_FORMAT='
+time_namelookup: %{time_namelookup}
+time_connect: %{time_connect}
+time_appconnect: %{time_appconnect}
+time_pretransfer: %{time_pretransfer}
+time_starttransfer: %{time_starttransfer}
+time_total: %{time_total}
+speed_download: %{speed_download}
+speed_upload: %{speed_upload}
+size_download: %{size_download}
+size_upload: %{size_upload}
+'
+
+  REQUEST_DATA=
+}
+
+parse_command_line() {
+  CURL_OPTIONS="$*"
+}
+
+validate_command_line() {
+  if [ -z "${CURL_OPTIONS}" ]; then
+    exit_error 'missing curl options'
+  fi
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+perform_request() {
+  REQUEST_DATA=$(
+    curl -sS \
+      -w "${CURL_FORMAT}" \
+      -o /dev/null \
+      ${CURL_OPTIONS}
+  )
+}
+
+get_value() {
+  TYPE="$1"
+  NAME="$2"
+
+  case "${TYPE}" in
+    time)  CALC='* 1000' ;; # s to ms
+    speed) CALC='/ 1000' ;; # B/s to kB/s
+    size)  CALC='/ 1000' ;; # B to kB
+  esac
+
+  echo "$(
+    echo "${REQUEST_DATA}" \
+      | sed -n "s/^${TYPE}_${NAME}: \(.*\)$/\1/p"
+  ) ${CALC}" | bc -l
+}
+
+print_range() {
+  RANGE_NAME="$1"
+  START_TIME="$2"
+  END_TIME="$3"
+
+  printf '%s\t%0.f ms\t(%0.f ms)\n' \
+    "${RANGE_NAME}" \
+    "$( echo "${END_TIME} - ${START_TIME}" | bc -l )" \
+    "${END_TIME}"
+}
+
+print_speed() {
+  printf '%s\t%0.2f kB/s\n' "$1" "$2"
+}
+
+print_size() {
+  printf '%s\t%0.2f kB\n' "$1" "$2"
+}
+
+print_stats() {
+  TIME_NAMELOOKUP=$( get_value time namelookup )
+  TIME_CONNECT=$( get_value time connect )
+  TIME_APPCONNECT=$( get_value time appconnect )
+  TIME_PRETRANSFER=$( get_value time pretransfer )
+  TIME_STARTTRANSFER=$( get_value time starttransfer )
+  TIME_TOTAL=$( get_value time total )
+  SPEED_DOWNLOADS=$( get_value speed download )
+  SPEED_UPLOADS=$( get_value speed upload )
+  SIZE_DOWNLOAD=$( get_value size download )
+  SIZE_UPLOAD=$( get_value size upload )
+
+  {
+    print_range 'DNS lookup' 0 "${TIME_NAMELOOKUP}"
+    print_range 'TCP connection' "${TIME_NAMELOOKUP}" "${TIME_CONNECT}"
+
+    case "${TIME_APPCONNECT}" in
+      *[!0.]*)
+          print_range 'SSL handshake' "${TIME_CONNECT}" "${TIME_APPCONNECT}" ;;
+    esac
+
+    print_range 'Server processing' "${TIME_PRETRANSFER}" "${TIME_STARTTRANSFER}"
+    print_range 'Content transfer' "${TIME_STARTTRANSFER}" "${TIME_TOTAL}"
+
+    printf '\n'
+    print_speed 'Speed upload' "${SPEED_UPLOADS}"
+    print_speed 'Speed download' "${SPEED_DOWNLOADS}"
+
+    printf '\n'
+    print_size 'Size upload' "${SIZE_UPLOAD}"
+    print_size 'Size download' "${SIZE_DOWNLOAD}"
+  } \
+    | column -t -s '	' -R2 -L
+}
+
+init_variables
+parse_command_line "$@"
+validate_command_line
+
+if ! perform_request; then
+  exit 1
+fi
+
+print_stats

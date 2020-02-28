@@ -17,6 +17,7 @@ shell-scripts:
 	$(setup_file)/scripts/shell/documentation                > $(DESTDIR)$(BIN_DIR)/documentation
 	$(setup_file)/scripts/shell/documentation-all            > $(DESTDIR)$(BIN_DIR)/documentation-all
 	$(setup_file)/scripts/shell/http-env                     > $(DESTDIR)$(BIN_DIR)/http-env
+	$(setup_file)/scripts/shell/http-stats                   > $(DESTDIR)$(BIN_DIR)/http-stats
 	$(setup_file)/scripts/shell/i3blocks-mode                > $(DESTDIR)$(BIN_DIR)/i3blocks-mode
 	$(setup_file)/scripts/shell/influx-env                   > $(DESTDIR)$(BIN_DIR)/influx-env
 	$(setup_file)/scripts/shell/loop                         > $(DESTDIR)$(BIN_DIR)/loop
@@ -55,6 +56,7 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/documentation
 	chmod +x $(DESTDIR)$(BIN_DIR)/documentation-all
 	chmod +x $(DESTDIR)$(BIN_DIR)/http-env
+	chmod +x $(DESTDIR)$(BIN_DIR)/http-stats
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-mode
 	chmod +x $(DESTDIR)$(BIN_DIR)/influx-env
 	chmod +x $(DESTDIR)$(BIN_DIR)/loop

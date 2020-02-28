@@ -70,3 +70,4 @@ stdin
 stderr
 stdout
 rsync
+curl
