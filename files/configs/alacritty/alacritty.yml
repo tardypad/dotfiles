@@ -74,3 +74,4 @@ key_bindings:
   - { key: Key9,     mods: Control,       chars: "\x1b[27;5;57~"   }
   - { key: Return,   mods: Control,       chars: "\x1b[27;5;13~"   }
   - { key: Tab,      mods: Control,       chars: "\x1b[27;5;9~"    }
+  - { key: Tab,      mods: Control|Shift, chars: "\x1b[27;6;9~"    }
