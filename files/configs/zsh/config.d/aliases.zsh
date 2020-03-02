@@ -31,6 +31,9 @@ alias tt='time-tracker'
 alias dnd='do-not-disturb'
 alias pmd='pomodoro'
 
+# smart cut on spaces
+alias scut="tr -s ' ' '\t' | cut"
+
 # clean the tmux pane before running a command
 alias clean='clear && tmux clear-history &&'
 
