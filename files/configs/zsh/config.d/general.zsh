@@ -12,7 +12,7 @@ unalias run-help 2> /dev/null
 autoload -Uz run-help
 
 # reuse ssh-agent across ttys
-SSH_AGENT_FILE="${XDG_CACHE_HOME:-$HOME/.cache}/ssh-agent}"
+SSH_AGENT_FILE="${XDG_CACHE_HOME:-$HOME/.cache}/ssh-agent"
 ssh-add -l >/dev/null 2>&1
 if [ "$?" -eq 2 ]; then
   test -r "${SSH_AGENT_FILE}" && \
