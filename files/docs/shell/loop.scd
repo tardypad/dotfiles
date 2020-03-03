@@ -10,7 +10,9 @@ loop [-c _count_] [-i _interval_] [-t _time_] _command_
 
 # DESCRIPTION
 
-Execute a command in a loop
+Execute a command in a loop.
+
+The $i variable used as a counter of the executions can be used in the command.
 
 # OPTIONS
 

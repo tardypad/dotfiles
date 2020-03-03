@@ -65,15 +65,16 @@ current_time_sec() {
 loop_command() {
     [ -n "${TIME}" ] && END_TIME=$(( $( current_time_sec ) + TIME ))
 
-    RUN_COUNT=0
+    RUN_COUNT=1
 
     while true; do
-      eval "${RUN_COMMAND}"
+      [ -n "${COUNT}" ] && [ "${RUN_COUNT}" -gt "${COUNT}" ] && return 0
+
+      i="${RUN_COUNT}" eval "${RUN_COMMAND}"
 
       RUN_COUNT=$(( RUN_COUNT + 1 ))
 
       [ -n "${TIME}" ] && [ "$( current_time_sec )" -ge "${END_TIME}" ] && return 0
-      [ -n "${COUNT}" ] && [ "${RUN_COUNT}" -ge "${COUNT}" ] && return 0
 
       sleep "${INTERVAL}"
     done
