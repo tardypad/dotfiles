@@ -40,7 +40,7 @@
 | Name                            | Purpose                                      | Source                                                                                            | Version                                                                                                                |
 |---------------------------------|----------------------------------------------|---------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
 | vimode                          | vim-like mode and keybindings                | [GitHub](https://github.com/GermainZ/weechat-vimode)                                              | [95661a2](https://github.com/GermainZ/weechat-vimode/commit/95661a27f92dc3f3286cf1539ab112a81ad15639)                  |
-| wee_slack                       | slack integration                            | [GitHub](https://github.com/wee-slack/wee-slack)                                                  | [2.3.0](https://github.com/wee-slack/wee-slack/releases/tag/v2.3.0)                                                    |
+| wee_slack                       | slack integration                            | [GitHub](https://github.com/wee-slack/wee-slack)                                                  | [2.4.0](https://github.com/wee-slack/wee-slack/releases/tag/v2.4.0)                                                    |
 
 
 ## zsh

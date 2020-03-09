@@ -25,7 +25,7 @@ weechat-configs:
 
     # install plugins
 	mkdir -p $(DESTDIR)$(HOME)/.weechat/python
-	curl -sL https://raw.githubusercontent.com/rawdigits/wee-slack/v2.3.0/wee_slack.py \
+	curl -sL https://raw.githubusercontent.com/rawdigits/wee-slack/v2.4.0/wee_slack.py \
 		-o $(DESTDIR)$(HOME)/.weechat/python/wee_slack.py
 	curl -sL https://raw.githubusercontent.com/GermainZ/weechat-vimode/95661a27f92dc3f3286cf1539ab112a81ad15639/vimode.py \
 		-o $(DESTDIR)$(HOME)/.weechat/python/vimode.py
