@@ -17,16 +17,12 @@ macro index,pager gj "<change-folder>+[Gmail]/Spam<Enter>"      "go to junk fold
 macro index,pager gt "<change-folder>+[Gmail]/Trash<Enter>"     "go to trash folder"
 
 mailboxes "+INBOX" \
-          "+INBOX/Achats" \
-          "+INBOX/Appart" \
-          "+INBOX/Dev" \
-          "+INBOX/Dev/Jolla" \
-          "+INBOX/Dev/Pebble" \
+          "+INBOX/Apartment" \
           "+INBOX/Foot" \
           "+INBOX/Job" \
-          "+INBOX/Koentact" \
           "+INBOX/Medical" \
           "+INBOX/Perso" \
+          "+INBOX/Shopping" \
           "+[Gmail]/Drafts" \
           "+[Gmail]/Sent Mail" \
           "+[Gmail]/Spam" \
