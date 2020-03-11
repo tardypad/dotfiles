@@ -1,6 +1,18 @@
 [user]
     name = Damien Tardy-Panis
     email = damien@tardypad.me
+[sendemail]
+    identity = tardypad
+    annotate = yes
+    confirm = always
+[sendemail "tardypad"]
+    smtpserver = smtp.migadu.com
+    smtpuser = damien@tardypad.me
+    from = Damien Tardy-Panis <damien@tardypad.me>
+    smtpencryption = tls
+    smtpserverport = 587
+[credential "smtp://damien%40tardypad.me@smtp.migadu.com%3a587"]
+    helper = !pass perso/git/migadu
 [url "surg:~/damien.git/"]
     insteadOf = perso:
 [url "surg:~/damien.git/"]
