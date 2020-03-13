@@ -46,7 +46,8 @@ export KEYTIMEOUT=10
 export WORDCHARS='_'
 
 # fzf default options
-FZF_DEFAULT_OPTS='--height=20 --no-bold --color='
+FZF_DEFAULT_OPTS='--height=20 --no-bold --marker="*"'
+FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --color="
 FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS}bg:{color/background/number}"
 FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},fg:{color/foreground/number}"
 FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},hl:{color/base0A/number}"
