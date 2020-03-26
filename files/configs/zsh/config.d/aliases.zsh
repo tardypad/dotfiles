@@ -30,6 +30,7 @@ alias rn='read-news'
 alias tt='time-tracker'
 alias dnd='do-not-disturb'
 alias pmd='pomodoro'
+alias lbl='line-by-line'
 
 # smart cut on spaces
 alias scut="tr -s ' ' '\t' | cut"

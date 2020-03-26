@@ -20,6 +20,7 @@ shell-docs:
 	scdoc < files/docs/shell/http-stats.scd                   > $(DESTDIR)$(DATA_DIR)/man/man1/http-stats.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/i3blocks-mode.scd                > $(DESTDIR)$(DATA_DIR)/man/man1/i3blocks-mode.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/influx-env.scd                   > $(DESTDIR)$(DATA_DIR)/man/man1/influx-env.1$(MAN_SUFFIX)
+	scdoc < files/docs/shell/line-by-line.scd                 > $(DESTDIR)$(DATA_DIR)/man/man1/line-by-line.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/loop.scd                         > $(DESTDIR)$(DATA_DIR)/man/man1/loop.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/mysql-env.scd                    > $(DESTDIR)$(DATA_DIR)/man/man1/mysql-env.1$(MAN_SUFFIX)
 	scdoc < files/docs/shell/notify-end-pomodoro.scd          > $(DESTDIR)$(DATA_DIR)/man/man1/notify-end-pomodoro.1$(MAN_SUFFIX)

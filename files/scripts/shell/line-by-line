@@ -1,0 +1,44 @@
+#!/bin/sh
+
+init_variables() {
+  COMMAND=${0##*/}
+
+  ONLY_ONE=false
+}
+
+parse_command_line() {
+  while getopts o OPT; do
+    case "${OPT}" in
+      o) ONLY_ONE=true ;;
+      ?) exit_error ;;
+    esac
+  done
+
+  shift $(( OPTIND - 1 ))
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+print_line_by_line() {
+  if [ "${ONLY_ONE}" = 'true' ]; then
+    clear
+  fi
+
+  while read -r LINE; do
+    printf '%s' "${LINE}" | sed 's/\t/\n/g'
+    read -r < /dev/tty
+
+    if [ "${ONLY_ONE}" = 'true' ]; then
+      tput cup 0 0
+      tput ed
+    fi
+  done
+}
+
+init_variables
+parse_command_line "$@"
+
+print_line_by_line
