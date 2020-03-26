@@ -12,12 +12,14 @@ init_variables() {
   TASK_DURATION=
   LOGGING_DAY=$( date +%Y-%m-%d )
   GROUPED_DISPLAY=false
+  TAB_SEPARATED=false
 }
 
 parse_command_line() {
-  while getopts g OPT; do
+  while getopts gt OPT; do
     case "${OPT}" in
       g) GROUPED_DISPLAY=true ;;
+      t) TAB_SEPARATED=true ;;
       ?) exit_error ;;
     esac
   done
@@ -157,8 +159,14 @@ tracking_show()
     return
   fi
 
+  if [ "${TAB_SEPARATED}" = 'false' ]; then
+    FORMAT_CMD='column -s "	" -t'
+  else
+    FORMAT_CMD='cat'
+  fi
+
   if [ "${GROUPED_DISPLAY}" = 'false' ]; then
-    column -s '	' -R2 -t  "${LOGGING_DIR}/${LOGGING_DAY}"
+    eval "${FORMAT_CMD}" "${LOGGING_DIR}/${LOGGING_DAY}"
     return
   fi
 
@@ -174,7 +182,7 @@ tracking_show()
     }' \
     "${LOGGING_DIR}/${LOGGING_DAY}" \
     | sed 's/, $//' \
-    | column -s '	' -R2 -t
+    | eval "${FORMAT_CMD}"
 }
 
 init_variables
