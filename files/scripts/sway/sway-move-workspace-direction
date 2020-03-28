@@ -8,14 +8,13 @@ CURRENT_OUTPUT=$(
 )
 
 # we assume that the workspaces are returned ordered as in display
-CURRENT_INDEX=$((
-  $( swaymsg -t get_workspaces \
-       | jq -r "to_entries
-                | .[]
-                | select(.value.output == \"${CURRENT_OUTPUT}\"
-                         and .value.focused == true)
-                | .key" ) + 1
-))
+CURRENT_INDEX=$(
+  swaymsg -t get_workspaces \
+    | jq -r "to_entries[]
+             | select(.value.output == \"${CURRENT_OUTPUT}\"
+                      and .value.focused == true)
+             | .key"
+)
 
 if [ "${TARGET_DIRECTION}" = 'prev' ] \
    && [ "${CURRENT_INDEX}" -le 1 ]; then
