@@ -6,13 +6,6 @@ for_window [title="sway_monitor"] floating enable, \
 for_window [title="sway_launcher"] floating enable, \
                                    resize set width 30 ppt height 30 ppt
 
-# display command input as floating window above top bar
-for_window [title="sway_command_input"] floating enable, \
-                                        border none, \
-                                        resize set width 100 ppt height 30 px, \
-                                        move position 0 0, \
-                                        move up 30 px
-
 # display quick command as floating window
 for_window [title="sway_quick_command"] floating enable, \
                                         resize set width 40 ppt height 40 ppt

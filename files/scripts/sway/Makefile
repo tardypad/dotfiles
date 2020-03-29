@@ -5,7 +5,6 @@ sway-scripts:
 
 	$(setup_file)/scripts/sway/sway-app-tmux-env              > $(DESTDIR)$(BIN_DIR)/sway-app-tmux-env
 	$(setup_file)/scripts/sway/sway-command-input             > $(DESTDIR)$(BIN_DIR)/sway-command-input
-	$(setup_file)/scripts/sway/sway-command-input-exec        > $(DESTDIR)$(BIN_DIR)/sway-command-input-exec
 	$(setup_file)/scripts/sway/sway-create-workspace          > $(DESTDIR)$(BIN_DIR)/sway-create-workspace
 	$(setup_file)/scripts/sway/sway-focus-window-title        > $(DESTDIR)$(BIN_DIR)/sway-focus-window-title
 	$(setup_file)/scripts/sway/sway-launch-command            > $(DESTDIR)$(BIN_DIR)/sway-launch-command
@@ -23,7 +22,6 @@ sway-scripts:
 
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-app-tmux-env
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-command-input
-	chmod +x $(DESTDIR)$(BIN_DIR)/sway-command-input-exec
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-create-workspace
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-focus-window-title
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-launch-command

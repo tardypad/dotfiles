@@ -1,22 +1,49 @@
 #!/bin/sh
 
-TITLE='sway_command_input'
+init_variables() {
+  COMMAND=${0##*/}
 
-sway-focus-window-title "${TITLE}" && exit
+  PROMPT=
+  FORMAT='%s'
+  USER_INPUT=
+}
 
-# quote arguments for usage in next command
-ARGUMENTS=
-while [ "$#" -gt 0 ]; do
-  case "$1" in
-    -*) ARGUMENTS="${ARGUMENTS} $1";;
-    *) ARGUMENTS="${ARGUMENTS} '$1'";;
-  esac
-  shift
-done
+parse_command_line() {
+  while getopts F:P: OPT; do
+    case "${OPT}" in
+      F) FORMAT="${OPTARG}" ;;
+      P) PROMPT="${OPTARG}" ;;
+      ?) exit_error ;;
+    esac
+  done
 
-swaymsg -q fullscreen disable, \
-  exec \
-  "alacritty \
-   -t \"${TITLE}\" \
-   --config-file ${XDG_CONFIG_HOME:-$HOME/.config}/alacritty/alacritty_command_input.yml \
-   -e sway-command-input-exec ${ARGUMENTS}" \
+  shift $(( OPTIND - 1 ))
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+run() {
+  USER_INPUT=$(
+    echo '' | bemenu -p "${PROMPT}" \
+      --fn 'Source Sans Pro 14' \
+      --tb '#{color/base09/hex}' --tf '#{color/base00/hex}' \
+      --fb '#{color/base09/hex}' --ff '#{color/base00/hex}'
+  )
+
+  [ "$?" -eq 0 ] || return
+
+  SWAY_COMMAND="$(
+    echo "${FORMAT}" \
+      | sed "s/%s/${USER_INPUT}/g"
+  )"
+
+  swaymsg -q ${SWAY_COMMAND}
+}
+
+init_variables
+parse_command_line "$@"
+
+run

@@ -4,7 +4,6 @@ sway-docs:
 	mkdir -p $(DESTDIR)$(DATA_DIR)/man/man1
 
 	scdoc < files/docs/sway/sway-app-tmux-env.scd              > $(DESTDIR)$(DATA_DIR)/man/man1/sway-app-tmux-env.1$(MAN_SUFFIX)
-	scdoc < files/docs/sway/sway-command-input-exec.scd        > $(DESTDIR)$(DATA_DIR)/man/man1/sway-command-input-exec.1$(MAN_SUFFIX)
 	scdoc < files/docs/sway/sway-command-input.scd             > $(DESTDIR)$(DATA_DIR)/man/man1/sway-command-input.1$(MAN_SUFFIX)
 	scdoc < files/docs/sway/sway-create-workspace.scd          > $(DESTDIR)$(DATA_DIR)/man/man1/sway-create-workspace.1$(MAN_SUFFIX)
 	scdoc < files/docs/sway/sway-focus-window-title.scd        > $(DESTDIR)$(DATA_DIR)/man/man1/sway-focus-window-title.1$(MAN_SUFFIX)

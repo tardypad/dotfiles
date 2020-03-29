@@ -2,40 +2,39 @@ sway-command-input(1)
 
 # NAME
 
-sway-command-input - Open window for user input for running sway command
+sway-command-input - Open bar for user input to run sway command
 
 # SYNOPSIS
 
-sway-command-input _args_
+sway-command-input [-F _format_] [-P _prompt_]
 
 # DESCRIPTION
 
-Open a window for user input to run sway command. It focus current window if it
-already exists.
+Open a bar for user input to run sway command.
 
 # OPTIONS
 
-None
+*-F* _format_
+	Sway command to be executed++
+%s occurrences are replaced by user input++
+default: %s
+
+*-P* _prompt_
+	Display before user input
 
 # OPERANDS
 
-_args_
-	*sway-command-input-exec*(1) arguments
+None
 
 # ENVIRONMENT VARIABLES
 
-_XDG_CONFIG_HOME_
-	Path to user-specific base directory to store configuration files++
-If unset, defaults to $HOME/.config
+None
 
 # FILES
 
-_$XDG_CONFIG_HOME/alacritty/alacritty_command_input.yml_
-	Specific alacritty config file
+None
 
 # DEPENDENCIES
 
-- alacritty
-- sway-command-input-exec
-- sway-focus-window-title
+- bemenu
 - swaymsg
