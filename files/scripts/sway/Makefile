@@ -11,6 +11,7 @@ sway-scripts:
 	$(setup_file)/scripts/sway/sway-launch-system             > $(DESTDIR)$(BIN_DIR)/sway-launch-system
 	$(setup_file)/scripts/sway/sway-launch-tmux-env           > $(DESTDIR)$(BIN_DIR)/sway-launch-tmux-env
 	$(setup_file)/scripts/sway/sway-launcher                  > $(DESTDIR)$(BIN_DIR)/sway-launcher
+	$(setup_file)/scripts/sway/sway-menu                      > $(DESTDIR)$(BIN_DIR)/sway-menu
 	$(setup_file)/scripts/sway/sway-move-window-new-workspace > $(DESTDIR)$(BIN_DIR)/sway-move-window-new-workspace
 	$(setup_file)/scripts/sway/sway-move-workspace-direction  > $(DESTDIR)$(BIN_DIR)/sway-move-workspace-direction
 	$(setup_file)/scripts/sway/sway-move-workspace-index      > $(DESTDIR)$(BIN_DIR)/sway-move-workspace-index
@@ -27,6 +28,7 @@ sway-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-launch-system
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-launch-tmux-env
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-launcher
+	chmod +x $(DESTDIR)$(BIN_DIR)/sway-menu
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-move-window-new-workspace
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-move-workspace-direction
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-move-workspace-index

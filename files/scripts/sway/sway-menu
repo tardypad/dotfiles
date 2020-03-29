@@ -1,0 +1,48 @@
+#!/bin/sh
+
+init_variables() {
+  COMMAND=${0##*/}
+
+  MENU_COMMAND='bemenu'
+  MENU_OPTIONS=''
+}
+
+parse_command_line() {
+  while getopts r OPT; do
+    case "${OPT}" in
+      r) MENU_COMMAND='bemenu-run' ;;
+      ?) exit_error ;;
+    esac
+  done
+
+  shift $(( OPTIND - 1 ))
+
+  MENU_OPTIONS="${MENU_OPTIONS} $*"
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+display_menu() {
+  "${MENU_COMMAND}" \
+    -i -l 10 \
+    --fn 'Source Sans Pro 14' \
+    --tb '#{color/base08/hex}' \
+    --tf '#{color/base00/hex}' \
+    --fb '#{color/base08/hex}' \
+    --ff '#{color/base00/hex}' \
+    --nb '#{color/popup_background/hex}' \
+    --nf '#{color/popup_foreground/hex}' \
+    --hb '#{color/current_item/hex}' \
+    --hf '#{color/base00/hex}' \
+    --sb '#{color/selected_item/hex}' \
+    --sf '#{color/base00/hex}' \
+    ${MENU_OPTIONS}
+}
+
+init_variables
+parse_command_line "$@"
+
+display_menu
