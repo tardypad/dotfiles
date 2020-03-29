@@ -3,7 +3,7 @@
 init_variables() {
   COMMAND=${0##*/}
 
-  PROMPT=
+  PROMPT=':'
   FORMAT='%s'
   USER_INPUT=
 }

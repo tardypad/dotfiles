@@ -20,7 +20,8 @@ Open a bar for user input to run sway command.
 default: %s
 
 *-P* _prompt_
-	Display before user input
+	Display before user input++
+default: :
 
 # OPERANDS
 

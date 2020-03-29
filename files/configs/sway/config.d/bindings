@@ -7,7 +7,7 @@ bindsym $mod+Ctrl+$key_quit exit
 bindsym $mod+Alt+Shift+r reload
 
 # general command input
-bindsym $mod+colon exec sway-run-command
+bindsym $mod+colon exec sway-command-input
 
 # lock the screen
 bindsym $mod+Backspace exec swaylock
