@@ -44,7 +44,7 @@ bindsym $mod+Ctrl+Shift+$key_kill exec makoctl dismiss --all
 
 mode "-- Launchers --" {
     bindsym Space     mode "default", exec sway-menu -r -- -p 'Run'
-    bindsym Backspace mode "default", exec sway-launcher sway-launch-system  "--margin '1,2,0,2' --prompt 'execute '"
+    bindsym Backspace mode "default", exec sway-menu-system
 
     bindsym j mode "default", exec sway-launcher sway-launch-tmux-env projects "--margin '1,2,0,2' --prompt 'open project '"
     bindsym o mode "default", exec sway-launcher copy-otp                      "--margin '1,2,0,2' --prompt 'copy otp '"

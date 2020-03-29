@@ -8,11 +8,7 @@ ACTION=$(
     echo 'Shut down';
     echo 'Reboot';
   } \
-  | fzf --reverse \
-        --no-multi \
-        --info hidden \
-        --header "$( printf '\n' )" \
-        "$@"
+    | sway-menu -- -p 'Execute'
 )
 
 case "${ACTION}" in
