@@ -36,7 +36,7 @@ bind Enter paste-buffer
 ## sessions management (Ctrl)
 
 bind C-c new-session -c "${HOME}"
-bind C-r command-prompt -I '#{session_name}' "rename-session '%%'"
+bind C-r command-prompt "rename-session '%%'"
 bind C-x confirm-before -p 'kill-session "#{session_name}"? (y/n)' kill-session
 
 # select
@@ -65,7 +65,7 @@ bind C-0 switch-client -t $9
 ## windows management (lowercase)
 
 bind c new-window -c "${HOME}"
-bind r command-prompt -I '#{window_name}' "rename-window '%%'"
+bind r command-prompt "rename-window '%%'"
 bind x confirm-before -p 'kill-window "#{window_name}"? (y/n)' kill-window
 
 # select
