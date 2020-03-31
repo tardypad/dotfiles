@@ -21,6 +21,7 @@ include files/configs/gnupg/Makefile
 include files/configs/htop/Makefile
 include files/configs/httpie/Makefile
 include files/configs/i3blocks/Makefile
+include files/configs/imv/Makefile
 include files/configs/less/Makefile
 include files/configs/libqalculate/Makefile
 include files/configs/mako/Makefile

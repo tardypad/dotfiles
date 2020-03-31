@@ -1,0 +1,54 @@
+[options]
+
+background = {color/background/hex}
+
+overlay = false
+overlay_font = 'Source Code Pro:16'
+overlay_text = "[$imv_current_index/$imv_file_count] $imv_current_file"
+
+scaling_mode = shrink
+
+suppress_default_binds = true
+
+[binds]
+
+# General
+q = quit
+v = overlay
+z = fullscreen
+r = reset
+
+<Shift+X> = close
+<Shift+P> = exec echo $imv_current_file; close
+
+# Navigation
+<Left> = prev
+<Shift+H> = prev
+<Ctrl+p> = prev
+<Right> = next
+<Shift+L> = next
+<Ctrl+n> = next
+gg = goto 1
+<Shift+G> = goto 0
+
+# Panning
+c = center
+h = pan 50 0
+j = pan 0 -50
+k = pan 0 50
+l = pan -50 0
+
+# Zooming
+<Ctrl+Shift+plus> = zoom 5
+<Ctrl+minus> = zoom -5
+<Ctrl+equal> = zoom actual
+
+# Scaling
+sc = scaling crop
+sf = scaling full
+sn = scaling none
+ss = scaling shrink
+
+# Gif playback
+<period> = next_frame
+<space> = toggle_playing

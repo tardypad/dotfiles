@@ -7,6 +7,7 @@ gnupg: gnupg-configs
 htop: htop-configs
 httpie: httpie-configs
 i3blocks: i3blocks-configs i3blocks-docs i3blocks-scripts
+imv: imv-configs
 less: less-configs
 libqalculate: libqalculate-configs
 mako: mako-configs
