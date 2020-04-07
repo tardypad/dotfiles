@@ -62,6 +62,10 @@ validate_command_line() {
     if [ -z "${TASK_DURATION}" ]; then
       exit_error 'Missing task duration'
     fi
+
+    case "${TASK_DURATION}" in
+      *[!0-9]*) exit_error 'task duration must be an integer' ;;
+    esac
   fi
 
   if [ "${ACTION}" = 'edit' ] || [ "${ACTION}" = 'show' ]; then
