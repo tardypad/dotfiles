@@ -52,7 +52,7 @@ grep_lines() {
 }
 
 grep_paths() {
-  grep -E -o '[-_.~[:alnum:]]*/[-_./[:alnum:]]+'
+  grep -E -o '[-_.~[:alnum:]]*/[-_.%~/[:alnum:]]+'
 }
 
 grep_urls() {
