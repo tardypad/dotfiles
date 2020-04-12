@@ -12,10 +12,10 @@ tmux-extract-tokens ( _pane_ | _window_ ) ( _hashes_ | _lines_ | _paths_ | _urls
 
 Open interface to allow the selection of a token from the current tmux pane or window.
 Diverse actions are then available on the selected item:
-- copy in tmux buffer and paste in tmux pane (_enter_)
-- open in browser (_ctrl-o_)
-- search in browser (_ctrl-s_)
-- copy in system clipboard (_ctrl-y_)
+- copy in tmux buffer and paste in tmux pane (_{key/enter}_)
+- open in browser (_ctrl-{key/open/low}_)
+- search in browser (_ctrl-{key/search/low}_)
+- copy in system clipboard (_ctrl-{key/yank/low}_)
 
 # OPTIONS
 

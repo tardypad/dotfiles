@@ -66,16 +66,16 @@ read_feed() {
           --header "${FEED_HEADER}" \
           --preview "printf '%s\n%s\n\n' {1} {5}; echo {4} | ${VIEW_SCRIPT} -dump" \
           --preview-window 'down:60%' \
-          --bind "enter:execute(echo {4} | ${VIEW_SCRIPT})" \
-          --bind "ctrl-o:execute-silent(xdg-open {3} &)" \
+          --bind "{key/enter}:execute(echo {4} | ${VIEW_SCRIPT})" \
+          --bind "ctrl-{key/open/low}:execute-silent(xdg-open {3} &)" \
           --bind "change:ignore" \
-          --bind "g:top" \
-          --bind "k:up" \
-          --bind "j:down" \
-          --bind "ctrl-u:half-page-up" \
-          --bind "ctrl-d:half-page-down" \
-          --bind "ctrl-b:page-up" \
-          --bind "ctrl-f:page-down"
+          --bind "{key/goto_top}:top" \
+          --bind "{key/up}:up" \
+          --bind "{key/down}:down" \
+          --bind "ctrl-{key/scroll_up/low}:half-page-up" \
+          --bind "ctrl-{key/scroll_down/low}:half-page-down" \
+          --bind "ctrl-{key/scroll_page_up/low}:page-up" \
+          --bind "ctrl-{key/scroll_page_down/low}f:page-down"
 
     return 0
 }
