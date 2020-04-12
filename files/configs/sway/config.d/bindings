@@ -1,222 +1,222 @@
 ## general
 
 # exit sway
-bindsym $mod+Ctrl+$key_quit exit
+bindsym $mod+Ctrl+{key/quit/low} exit
 
 # reload the configuration file
-bindsym $mod+Alt+Shift+r reload
+bindsym $mod+Alt+Shift+{key/reload_config/low} reload
 
 # general command input
-bindsym $mod+colon exec sway-command-input
+bindsym $mod+{key/colon} exec sway-command-input
 
 # lock the screen
-bindsym $mod+Backspace exec swaylock
+bindsym $mod+{key/Backspace} exec swaylock
 
 # focus first window with urgent flag
-bindsym $mod+u [urgent="first"] focus
+bindsym $mod+{key/u} [urgent="first"] focus
 
 # do not disturb toggle
-bindsym $mod+Escape exec do-not-disturb toggle
+bindsym $mod+{key/Escape} exec do-not-disturb toggle
 
 # toggle Pomodoro session
-bindsym $mod+Shift+Escape exec pomodoro toggle
+bindsym $mod+Shift+{key/Escape} exec pomodoro toggle
 
 # stop time tracker
-bindsym $mod+Ctrl+Escape exec time-tracker stop
+bindsym $mod+Ctrl+{key/Escape} exec time-tracker stop
 
 # select region and grab screenshot
-bindsym $mod+g exec screenshot
+bindsym $mod+{key/g} exec screenshot
 
 # toggle bar status mode
-bindsym $mod+Tab exec i3blocks-mode toggle
+bindsym $mod+{key/Tab} exec i3blocks-mode toggle
 
 # run quick command
-bindsym $mod+Return exec sway-quick-command
+bindsym $mod+{key/Return} exec sway-quick-command
 
 
 ## notifications
 
-bindsym $mod+Ctrl+$key_kill       exec makoctl dismiss
-bindsym $mod+Ctrl+Shift+$key_kill exec makoctl dismiss --all
+bindsym $mod+Ctrl+{key/kill/low}       exec makoctl dismiss
+bindsym $mod+Ctrl+Shift+{key/kill/low} exec makoctl dismiss --all
 
 
 ## launchers
 
 mode "-- Launchers --" {
-    bindsym Space     mode "default", exec sway-menu -r -- -p 'Run'
-    bindsym Backspace mode "default", exec sway-menu-system
+    bindsym {key/Space}     mode "default", exec sway-menu -r -- -p 'Run'
+    bindsym {key/Backspace} mode "default", exec sway-menu-system
 
-    bindsym j mode "default", exec sway-launcher sway-launch-tmux-env projects "--margin '1,2,0,2' --prompt 'open project '"
-    bindsym o mode "default", exec sway-launcher copy-otp                      "--margin '1,2,0,2' --prompt 'copy otp '"
-    bindsym p mode "default", exec sway-launcher copy-password                 "--margin '1,2,0,2' --prompt 'copy password '"
-    bindsym s mode "default", exec sway-launcher play-somafm                   "--margin '1,2,0,2' --prompt 'play SomaFM channel '"
-    bindsym t mode "default", exec sway-launcher start-task                    "--margin '1,2,0,2' --prompt 'start task '"
+    bindsym {key/j} mode "default", exec sway-launcher sway-launch-tmux-env projects "--margin '1,2,0,2' --prompt 'open project '"
+    bindsym {key/o} mode "default", exec sway-launcher copy-otp                      "--margin '1,2,0,2' --prompt 'copy otp '"
+    bindsym {key/p} mode "default", exec sway-launcher copy-password                 "--margin '1,2,0,2' --prompt 'copy password '"
+    bindsym {key/s} mode "default", exec sway-launcher play-somafm                   "--margin '1,2,0,2' --prompt 'play SomaFM channel '"
+    bindsym {key/t} mode "default", exec sway-launcher start-task                    "--margin '1,2,0,2' --prompt 'start task '"
 
-    bindsym c mode "default", exec {app/chat_client}
-    bindsym d mode "default", exec {app/document_viewer}
-    bindsym e mode "default", exec {app/terminal_emulator}
-    bindsym h mode "default", exec {app/system_monitor}
-    bindsym m mode "default", exec {app/mail_client}
-    bindsym w mode "default", exec {app/web_browser}
+    bindsym {key/c} mode "default", exec {app/chat_client}
+    bindsym {key/d} mode "default", exec {app/document_viewer}
+    bindsym {key/e} mode "default", exec {app/terminal_emulator}
+    bindsym {key/h} mode "default", exec {app/system_monitor}
+    bindsym {key/m} mode "default", exec {app/mail_client}
+    bindsym {key/w} mode "default", exec {app/web_browser}
 
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+    bindsym {key/Return} mode "default"
+    bindsym {key/Escape} mode "default"
 }
-bindsym $mod+Space mode "-- Launchers --"
+bindsym $mod+{key/Space} mode "-- Launchers --"
 
 
 ## floating
 
 floating_modifier $mod normal
-bindsym $mod+Shift+f floating toggle
-bindsym $mod+f focus mode_toggle
+bindsym $mod+Shift+{key/f} floating toggle
+bindsym $mod+{key/f}       focus mode_toggle
 
 
 ## scratchpad
 
-bindsym $mod+Shift+d move scratchpad
-bindsym $mod+d scratchpad show
+bindsym $mod+Shift+{key/d} move scratchpad
+bindsym $mod+{key/d}       scratchpad show
 
 
-## workspaces management
+## workspaces management (lowercase)
 
-bindsym $mod+$key_create exec sway-create-workspace
-bindsym $mod+$key_rename exec sway-rename-workspace
+bindsym $mod+{key/create/low} exec sway-create-workspace
+bindsym $mod+{key/rename/low} exec sway-rename-workspace
 
 # select
-bindsym $mod+$key_alternate workspace back_and_forth
-bindsym $mod+$key_next      workspace next_on_output
-bindsym $mod+$key_right     workspace next_on_output
-bindsym $mod+$key_previous  workspace prev_on_output
-bindsym $mod+$key_left      workspace prev_on_output
-bindsym $mod+1              workspace number 1
-bindsym $mod+2              workspace number 2
-bindsym $mod+3              workspace number 3
-bindsym $mod+4              workspace number 4
-bindsym $mod+5              workspace number 5
-bindsym $mod+6              workspace number 6
-bindsym $mod+7              workspace number 7
-bindsym $mod+8              workspace number 8
-bindsym $mod+9              workspace number 9
-bindsym $mod+0              workspace number 10
+bindsym $mod+{key/alternate/low} workspace back_and_forth
+bindsym $mod+{key/next/low}      workspace next_on_output
+bindsym $mod+{key/right/low}     workspace next_on_output
+bindsym $mod+{key/previous/low}  workspace prev_on_output
+bindsym $mod+{key/left/low}      workspace prev_on_output
+bindsym $mod+{key/1}             workspace number 1
+bindsym $mod+{key/2}             workspace number 2
+bindsym $mod+{key/3}             workspace number 3
+bindsym $mod+{key/4}             workspace number 4
+bindsym $mod+{key/5}             workspace number 5
+bindsym $mod+{key/6}             workspace number 6
+bindsym $mod+{key/7}             workspace number 7
+bindsym $mod+{key/8}             workspace number 8
+bindsym $mod+{key/9}             workspace number 9
+bindsym $mod+{key/0}             workspace number 10
 
 # split
-bindsym $mod+$key_vsplit splith, exec {app/terminal_emulator}
-bindsym $mod+$key_split  splitv, exec {app/terminal_emulator}
+bindsym $mod+{key/split_vertical/low}   splith, exec {app/terminal_emulator}
+bindsym $mod+{key/split_horizontal/low} splitv, exec {app/terminal_emulator}
 
 # move mode
 mode "-- move --" {
-    bindsym n exec sway-move-workspace-direction next
-    bindsym l exec sway-move-workspace-direction next
-    bindsym p exec sway-move-workspace-direction prev
-    bindsym h exec sway-move-workspace-direction prev
-    bindsym 1 exec sway-move-workspace-index 1
-    bindsym 2 exec sway-move-workspace-index 2
-    bindsym 3 exec sway-move-workspace-index 3
-    bindsym 4 exec sway-move-workspace-index 4
-    bindsym 5 exec sway-move-workspace-index 5
-    bindsym 6 exec sway-move-workspace-index 6
-    bindsym 7 exec sway-move-workspace-index 7
-    bindsym 8 exec sway-move-workspace-index 8
-    bindsym 9 exec sway-move-workspace-index 9
-    bindsym 0 exec sway-move-workspace-index 0
+    bindsym {key/next/low}     exec sway-move-workspace-direction next
+    bindsym {key/right/low}    exec sway-move-workspace-direction next
+    bindsym {key/previous/low} exec sway-move-workspace-direction prev
+    bindsym {key/left/low}     exec sway-move-workspace-direction prev
+    bindsym {key/1}            exec sway-move-workspace-index 1
+    bindsym {key/2}            exec sway-move-workspace-index 2
+    bindsym {key/3}            exec sway-move-workspace-index 3
+    bindsym {key/4}            exec sway-move-workspace-index 4
+    bindsym {key/5}            exec sway-move-workspace-index 5
+    bindsym {key/6}            exec sway-move-workspace-index 6
+    bindsym {key/7}            exec sway-move-workspace-index 7
+    bindsym {key/8}            exec sway-move-workspace-index 8
+    bindsym {key/9}            exec sway-move-workspace-index 9
+    bindsym {key/0}            exec sway-move-workspace-index 0
 
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+    bindsym {key/Return} mode "default"
+    bindsym {key/Escape} mode "default"
 }
-bindsym $mod+$key_move mode "-- move --"
+bindsym $mod+{key/move/low} mode "-- move --"
 
 # layout mode
 mode "-- layout --" {
-    bindsym 1 layout splith
-    bindsym 2 layout splitv
-    bindsym 3 layout tabbed
+    bindsym {key/1} layout splith
+    bindsym {key/2} layout splitv
+    bindsym {key/3} layout tabbed
 
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+    bindsym {key/Return} mode "default"
+    bindsym {key/Escape} mode "default"
 }
-bindsym $mod+$key_layout mode "-- layout --"
+bindsym $mod+{key/layout/low} mode "-- layout --"
 
 
-## windows management
+## windows management (uppercase)
 
-bindsym $mod+Shift+$key_create exec {app/terminal_emulator}
-bindsym $mod+Shift+$key_kill   kill
-bindsym $mod+Shift+$key_zoom   fullscreen
+bindsym $mod+Shift+{key/create/low} exec {app/terminal_emulator}
+bindsym $mod+Shift+{key/kill/low}   kill
+bindsym $mod+Shift+{key/zoom/low}   fullscreen
 
 # select
-bindsym $mod+Shift+$key_next     focus next
-bindsym $mod+Shift+$key_previous focus prev
-bindsym $mod+Shift+$key_left     focus left
-bindsym $mod+Shift+$key_down     focus down
-bindsym $mod+Shift+$key_up       focus up
-bindsym $mod+Shift+$key_right    focus right
+bindsym $mod+Shift+{key/next/low}     focus next
+bindsym $mod+Shift+{key/previous/low} focus prev
+bindsym $mod+Shift+{key/left/low}     focus left
+bindsym $mod+Shift+{key/down/low}     focus down
+bindsym $mod+Shift+{key/up/low}       focus up
+bindsym $mod+Shift+{key/right/low}    focus right
 
 # move mode
 mode "-- MOVE --" {
     # move focused window within workspace
-    bindsym Shift+$key_left  move left
-    bindsym Shift+$key_down  move down
-    bindsym Shift+$key_up    move up
-    bindsym Shift+$key_right move right
+    bindsym Shift+{key/left/low}  move left
+    bindsym Shift+{key/down/low}  move down
+    bindsym Shift+{key/up/low}    move up
+    bindsym Shift+{key/right/low} move right
 
     # move focused container to workspace and follow
-    bindsym 1              move container to workspace number 1, workspace number 1
-    bindsym 2              move container to workspace number 2, workspace number 2
-    bindsym 3              move container to workspace number 3, workspace number 3
-    bindsym 4              move container to workspace number 4, workspace number 4
-    bindsym 5              move container to workspace number 5, workspace number 5
-    bindsym 6              move container to workspace number 6, workspace number 6
-    bindsym 7              move container to workspace number 7, workspace number 7
-    bindsym 8              move container to workspace number 8, workspace number 8
-    bindsym 9              move container to workspace number 9, workspace number 9
-    bindsym 0              move container to workspace number 10, workspace number 10
-    bindsym $key_create    exec sway-move-window-new-workspace
-    bindsym $key_alternate move container to workspace back_and_forth, workspace back_and_forth
-    bindsym $key_next      move container to workspace next_on_output, workspace next_on_output
-    bindsym $key_right     move container to workspace next_on_output, workspace next_on_output
-    bindsym $key_previous  move container to workspace prev_on_output, workspace prev_on_output
-    bindsym $key_left      move container to workspace prev_on_output, workspace prev_on_output
+    bindsym {key/1}             move container to workspace number 1, workspace number 1
+    bindsym {key/2}             move container to workspace number 2, workspace number 2
+    bindsym {key/3}             move container to workspace number 3, workspace number 3
+    bindsym {key/4}             move container to workspace number 4, workspace number 4
+    bindsym {key/5}             move container to workspace number 5, workspace number 5
+    bindsym {key/6}             move container to workspace number 6, workspace number 6
+    bindsym {key/7}             move container to workspace number 7, workspace number 7
+    bindsym {key/8}             move container to workspace number 8, workspace number 8
+    bindsym {key/9}             move container to workspace number 9, workspace number 9
+    bindsym {key/0}             move container to workspace number 10, workspace number 10
+    bindsym {key/create/low}    exec sway-move-window-new-workspace
+    bindsym {key/alternate/low} move container to workspace back_and_forth, workspace back_and_forth
+    bindsym {key/next/low}      move container to workspace next_on_output, workspace next_on_output
+    bindsym {key/right/low}     move container to workspace next_on_output, workspace next_on_output
+    bindsym {key/previous/low}  move container to workspace prev_on_output, workspace prev_on_output
+    bindsym {key/left/low}      move container to workspace prev_on_output, workspace prev_on_output
 
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+    bindsym {key/Return} mode "default"
+    bindsym {key/Escape} mode "default"
 }
-bindsym $mod+Shift+$key_move mode "-- MOVE --"
+bindsym $mod+Shift+{key/move/low} mode "-- MOVE --"
 
 # resize mode
 mode "-- RESIZE --" {
-    bindsym Shift+$key_left  resize shrink width 10 px or 10 ppt
-    bindsym Shift+$key_up    resize grow height 10 px or 10 ppt
-    bindsym Shift+$key_down  resize shrink height 10 px or 10 ppt
-    bindsym Shift+$key_right resize grow width 10 px or 10 ppt
+    bindsym Shift+{key/left/low}  resize shrink width 10 px or 10 ppt
+    bindsym Shift+{key/up/low}    resize grow height 10 px or 10 ppt
+    bindsym Shift+{key/down/low}  resize shrink height 10 px or 10 ppt
+    bindsym Shift+{key/right/low} resize grow width 10 px or 10 ppt
 
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+    bindsym {key/Return} mode "default"
+    bindsym {key/Escape} mode "default"
 }
-bindsym $mod+Shift+$key_resize mode "-- RESIZE --"
+bindsym $mod+Shift+{key/resize/low} mode "-- RESIZE --"
 
 
 ## XF86 keys
 
 # Volume keys
-bindsym --locked XF86AudioRaiseVolume exec amixer -q set Master unmute 5%+ \
-                                           && pkill -x -RTMIN+2 i3blocks
-bindsym --locked XF86AudioLowerVolume exec amixer -q set Master unmute 5%- \
-                                           && pkill -x -RTMIN+2 i3blocks
-bindsym --locked XF86AudioMute        exec amixer -q set Master toggle \
-                                           && pkill -x -RTMIN+2 i3blocks
+bindsym --locked {key/XF86AudioRaiseVolume} exec amixer -q set Master unmute 5%+ \
+                                                 && pkill -x -RTMIN+2 i3blocks
+bindsym --locked {key/XF86AudioLowerVolume} exec amixer -q set Master unmute 5%- \
+                                                 && pkill -x -RTMIN+2 i3blocks
+bindsym --locked {key/XF86AudioMute}        exec amixer -q set Master toggle \
+                                                 && pkill -x -RTMIN+2 i3blocks
 
 # Microphone key
-bindsym --locked XF86AudioMicMute exec amixer -q set Capture toggle
+bindsym --locked {key/XF86AudioMicMute} exec amixer -q set Capture toggle
 
 # Backlight keys
-bindsym --locked XF86MonBrightnessUp   exec light -A 10
-bindsym --locked XF86MonBrightnessDown exec light -U 10
+bindsym --locked {key/XF86MonBrightnessUp}   exec light -A 10
+bindsym --locked {key/XF86MonBrightnessDown} exec light -U 10
 
 # Media keys
-bindsym --locked XF86AudioPlay exec mpc toggle \
-                                    && pkill -x -RTMIN+4 i3blocks
-bindsym --locked XF86AudioNext exec mpc next \
-                                    && pkill -x -RTMIN+4 i3blocks
-bindsym --locked XF86AudioPrev exec mpc prev \
-                                    && pkill -x -RTMIN+4 i3blocks
+bindsym --locked {key/XF86AudioPlay} exec mpc toggle \
+                                          && pkill -x -RTMIN+4 i3blocks
+bindsym --locked {key/XF86AudioNext} exec mpc next \
+                                          && pkill -x -RTMIN+4 i3blocks
+bindsym --locked {key/XF86AudioPrev} exec mpc prev \
+                                          && pkill -x -RTMIN+4 i3blocks

@@ -41,8 +41,8 @@ let g:elm_syntastic_show_warnings = 1
 
 " internal bindings
 let g:fzf_action = {
-  \ 'ctrl-s': 'split',
-  \ 'ctrl-v': 'vsplit' }
+  \ 'ctrl-{key/split_horizontal/low}': 'split',
+  \ 'ctrl-{key/split_vertical/low}': 'vsplit' }
 
 " same height as in terminal usage
 let g:fzf_layout = { 'down': '20' }

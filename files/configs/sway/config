@@ -1,25 +1,6 @@
 # Super key as modifier
 set $mod Mod4
 
-# keys
-set $key_alternate a
-set $key_create    c
-set $key_left      h
-set $key_down      j
-set $key_up        k
-set $key_right     l
-set $key_move      m
-set $key_next      n
-set $key_previous  p
-set $key_quit      q
-set $key_rename    r
-set $key_split     s
-set $key_resize    s
-set $key_vsplit    v
-set $key_kill      x
-set $key_layout    y
-set $key_zoom      z
-
 # colors
 set $base00     #{color/base00/hex}
 set $base01     #{color/base01/hex}

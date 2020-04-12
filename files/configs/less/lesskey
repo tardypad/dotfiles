@@ -1,66 +1,66 @@
 #command
 
 # general
-q       quit
-:q      quit
-\eh     help
-:h      help
-^L      repaint
-0       digit
-1       digit
-2       digit
-3       digit
-4       digit
-5       digit
-6       digit
-7       digit
-8       digit
-9       digit
--       toggle-option
-_       display-option
-|       pipe
-!       shell
-+       firstcmd
-v       visual
-s       toggle-option o
-=       status
-\ef     forw-forever
+{key/quit}       quit
+:{key/quit}      quit
+\e{key/h}        help
+:{key/h}         help
+^{key/clear/upp} repaint
+{key/0}          digit
+{key/1}          digit
+{key/2}          digit
+{key/3}          digit
+{key/4}          digit
+{key/5}          digit
+{key/6}          digit
+{key/7}          digit
+{key/8}          digit
+{key/9}          digit
+{key/-}          toggle-option
+{key/_}          display-option
+{key/|}          pipe
+{key/!}          shell
+{key/+}          firstcmd
+{key/v}          visual
+{key/s}          toggle-option o
+{key/=}          status
+\e{key/f}        forw-forever
 
 # navigation
-j       forw-line
-^E      forw-line
-k       back-line
-^Y      back-line
-h       left-scroll
-l       right-scroll
-^D      forw-scroll
-^U      back-scroll
-^F      forw-window
-^B      back-window
-g       goto-line
-G       goto-end
-%       percent
-m       set-mark
-'       goto-mark
+{key/down}                  forw-line
+^{key/scroll_line_down/upp} forw-line
+{key/up}                    back-line
+^{key/scroll_line_up/upp}   back-line
+{key/left}                  left-scroll
+{key/right}                 right-scroll
+^{key/scroll_down/upp}      forw-scroll
+^{key/scroll_up/upp}        back-scroll
+^{key/scroll_page_down/upp} forw-window
+^{key/scroll_page_up/upp}   back-window
+{key/goto_top}              goto-line
+{key/goto_bottom}           goto-end
+{key/%}                     percent
+{key/mark_set}              set-mark
+{key/mark_jump}             goto-mark
 
 # search
-/       forw-search
-?       back-search
-n       repeat-search
-N       reverse-search
-\en     repeat-search-all
-\eN     reverse-search-all
-&       filter
-\n      undo-hilite
+{key/search_forward}          forw-search
+{key/search_backward}         back-search
+{key/search_repeat}           repeat-search
+{key/search_repeat_reverse}   reverse-search
+\e{key/search_repeat}         repeat-search-all
+\e{key/search_repeat_reverse} reverse-search-all
+{key/&}                       filter
+{key/\n}                      undo-hilite
 
 # files
-^n      next-file
-:n      next-file
-^p      prev-file
-:p      prev-file
-:e      examine
-:d      remove-file
-:1      index-file
+^{key/next}     next-file
+:{key/next}     next-file
+^{key/previous} prev-file
+:{key/previous} prev-file
+:{key/edit}     examine
+:{key/delete}   remove-file
+:{key/1}        index-file
 
 # next line prevents less from defining default command keybindings
 #stop
@@ -68,28 +68,28 @@ N       reverse-search
 
 #line-edit
 
-\kr     right
-\el     right
-\kl     left
-\eh     left
-^B      home
-^E      end
-\eb     word-left
-\eB     word-left
-\ew     word-right
-\eW     word-right
-\ee     word-right
-\eE     word-right
-\ex     delete
-\kx     delete
-\ed     word-delete
-\eD     word-delete
-^W      word-backspace
-\ku     up
-^P      up
-\kd     down
-^N      down
-\t      forw-complete
+{key/\kr}                               right
+\e{key/right}                           right
+{key/\kl}                               left
+\e{key/left}                            left
+^{key/command_start/upp}                home
+^{key/command_end/upp}                  end
+\e{key/word_previous_start}             word-left
+\e{key/word_space_previous_start}       word-left
+\e{key/word_next_start}                 word-right
+\e{key/word_space_next_start}           word-right
+\e{key/word_next_end}                   word-right
+\e{key/word_space_next_end}             word-right
+\e{key/kill}                            delete
+\key/\kx}                               delete
+\e{key/delete/low}                      word-delete
+\e{key/delete/upp}                      word-delete
+^{key/command_delete_backward_word/upp} word-backspace
+{key/\ku}                               up
+^{key/previous/upp}                     up
+{key/\kd}                               down
+^{key/next/upp}                         down
+{key/\t}                                forw-complete
 
 # next line prevents less from defining default line-edit keybindings
 #stop

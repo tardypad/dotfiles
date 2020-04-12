@@ -1,33 +1,33 @@
 "" general
 
 " Use space as leader
-let mapleader = "\<Space>"
+let mapleader = "\<{key/Space}>"
 
 " binding to reload config
-nnoremap r :source $MYVIMRC<CR>
+nnoremap {key/reload_config/low} :source $MYVIMRC<CR>
 
 " Disable space moves cursor in non editing mode
-noremap <Space> <nop>
-vnoremap <Space> <nop>
+noremap  <{key/Space}> <nop>
+vnoremap <{key/Space}> <nop>
 
 " disable usage of Ctrl-J as Enter in command mode
-cnoremap <C-J> <nop>
+cnoremap <C-{key/newline/upp}> <nop>
 
 " remove ex mode binding
-nmap Q <nop>
+nmap {key/Q} <nop>
 
 " Toggle long lines highlighting
-nnoremap <Leader>L :LongLinesHighlightToggle<CR>
+nnoremap <Leader>{key/L} :LongLinesHighlightToggle<CR>
 
 
 "" buffers management
 
-nnoremap <silent> <Leader>ba :b#<CR>
-nnoremap <silent> <Leader>bp :bprevious<CR>
-nnoremap <silent> <Leader>bn :bnext<CR>
-nnoremap <silent> <Leader>bc :vnew<CR>
-nnoremap <silent> <Leader>bx :bdelete<CR>
-nnoremap          <Leader>br :write<Space>
+nnoremap <silent> <Leader>{key/buffer}{key/alternate} :b#<CR>
+nnoremap <silent> <Leader>{key/buffer}{key/previous}  :bprevious<CR>
+nnoremap <silent> <Leader>{key/buffer}{key/next}      :bnext<CR>
+nnoremap <silent> <Leader>{key/buffer}{key/create}    :vnew<CR>
+nnoremap <silent> <Leader>{key/buffer}{key/kill}      :bdelete<CR>
+nnoremap          <Leader>{key/buffer}{key/rename}    :write<Space>
 
 
 "" windows management
@@ -35,138 +35,138 @@ nnoremap          <Leader>br :write<Space>
 let g:tmux_navigator_no_mappings = 1
 
 " use same tmux custom mappings with the Alt key
-nnoremap <silent> h :TmuxNavigateLeft<cr>
-nnoremap <silent> j :TmuxNavigateDown<cr>
-nnoremap <silent> k :TmuxNavigateUp<cr>
-nnoremap <silent> l :TmuxNavigateRight<cr>
-nnoremap <silent> a :TmuxNavigatePrevious<cr>
+nnoremap <silent> {key/left}      :TmuxNavigateLeft<cr>
+nnoremap <silent> {key/down}      :TmuxNavigateDown<cr>
+nnoremap <silent> {key/up}        :TmuxNavigateUp<cr>
+nnoremap <silent> {key/right}     :TmuxNavigateRight<cr>
+nnoremap <silent> {key/alternate} :TmuxNavigatePrevious<cr>
 
 " delete the current buffer and close the current window
-nnoremap <silent> <Leader>q :Sayonara<CR>
+nnoremap <silent> <Leader>{key/quit/low} :Sayonara<CR>
 
 " delete the current buffer and preserve the current window
-nnoremap <silent> <Leader>Q :Sayonara!<CR>
+nnoremap <silent> <Leader>{key/quit/upp} :Sayonara!<CR>
 
 " Toggle window zoom
-nnoremap <silent> <C-W>Z :WindowZoomToggle<CR>
+nnoremap <silent> <C-{key/window/upp}>{key/zoom/upp} :WindowZoomToggle<CR>
 
 
 "" tabs management
 
-nnoremap          <Leader>tc :tabnew<CR>
-nnoremap <silent> <Leader>tx :tabclose<CR>
-nnoremap          <Leader>tr :TabooRename<Space>
+nnoremap          <Leader>{key/tab}{key/create} :tabnew<CR>
+nnoremap <silent> <Leader>{key/tab}{key/kill}   :tabclose<CR>
+nnoremap          <Leader>{key/tab}{key/rename} :TabooRename<Space>
 
 " select
-nnoremap <silent> <Leader>t1 :tabnext 1<CR>
-nnoremap <silent> <Leader>t2 :tabnext 2<CR>
-nnoremap <silent> <Leader>t3 :tabnext 3<CR>
-nnoremap <silent> <Leader>t4 :tabnext 4<CR>
-nnoremap <silent> <Leader>t5 :tabnext 5<CR>
-nnoremap <silent> <Leader>t6 :tabnext 6<CR>
-nnoremap <silent> <Leader>t7 :tabnext 7<CR>
-nnoremap <silent> <Leader>t8 :tabnext 8<CR>
-nnoremap <silent> <Leader>t9 :tabnext 9<CR>
-nnoremap <silent> <Leader>t0 :tabnext 10<CR>
-nnoremap <silent> <Leader>ta :TabAlternate<CR>
-nnoremap <silent> <Leader>th :tabprevious<CR>
-nnoremap <silent> <Leader>tp :tabprevious<CR>
-nnoremap <silent> <Leader>tl :tabnext<CR>
-nnoremap <silent> <Leader>tn :tabnext<CR>
+nnoremap <silent> <Leader>{key/tab}{key/1}         :tabnext 1<CR>
+nnoremap <silent> <Leader>{key/tab}{key/2}         :tabnext 2<CR>
+nnoremap <silent> <Leader>{key/tab}{key/3}         :tabnext 3<CR>
+nnoremap <silent> <Leader>{key/tab}{key/4}         :tabnext 4<CR>
+nnoremap <silent> <Leader>{key/tab}{key/5}         :tabnext 5<CR>
+nnoremap <silent> <Leader>{key/tab}{key/6}         :tabnext 6<CR>
+nnoremap <silent> <Leader>{key/tab}{key/7}         :tabnext 7<CR>
+nnoremap <silent> <Leader>{key/tab}{key/8}         :tabnext 8<CR>
+nnoremap <silent> <Leader>{key/tab}{key/9}         :tabnext 9<CR>
+nnoremap <silent> <Leader>{key/tab}{key/0}         :tabnext 10<CR>
+nnoremap <silent> <Leader>{key/tab}{key/alternate} :TabAlternate<CR>
+nnoremap <silent> <Leader>{key/tab}{key/left}      :tabprevious<CR>
+nnoremap <silent> <Leader>{key/tab}{key/previous}  :tabprevious<CR>
+nnoremap <silent> <Leader>{key/tab}{key/right}     :tabnext<CR>
+nnoremap <silent> <Leader>{key/tab}{key/next}      :tabnext<CR>
 
 " move
-nnoremap <silent> <Leader>tm1 :tabmove 0<CR>
-nnoremap <silent> <Leader>tm2 :tabmove $ <bar> tabmove 1<CR>
-nnoremap <silent> <Leader>tm3 :tabmove $ <bar> tabmove 2<CR>
-nnoremap <silent> <Leader>tm4 :tabmove $ <bar> tabmove 3<CR>
-nnoremap <silent> <Leader>tm5 :tabmove $ <bar> tabmove 4<CR>
-nnoremap <silent> <Leader>tm6 :tabmove $ <bar> tabmove 5<CR>
-nnoremap <silent> <Leader>tm7 :tabmove $ <bar> tabmove 6<CR>
-nnoremap <silent> <Leader>tm8 :tabmove $ <bar> tabmove 7<CR>
-nnoremap <silent> <Leader>tm9 :tabmove $ <bar> tabmove 8<CR>
-nnoremap <silent> <Leader>tm0 :tabmove $ <bar> tabmove 9<CR>
-nnoremap <silent> <Leader>tmh :tabmove -<CR>
-nnoremap <silent> <Leader>tmp :tabmove -<CR>
-nnoremap <silent> <Leader>tml :tabmove +<CR>
-nnoremap <silent> <Leader>tmn :tabmove +<CR>
+nnoremap <silent> <Leader>{key/tab}{key/move}{key/1}        :tabmove 0<CR>
+nnoremap <silent> <Leader>{key/tab}{key/move}{key/2}        :tabmove $ <bar> tabmove 1<CR>
+nnoremap <silent> <Leader>{key/tab}{key/move}{key/3}        :tabmove $ <bar> tabmove 2<CR>
+nnoremap <silent> <Leader>{key/tab}{key/move}{key/4}        :tabmove $ <bar> tabmove 3<CR>
+nnoremap <silent> <Leader>{key/tab}{key/move}{key/5}        :tabmove $ <bar> tabmove 4<CR>
+nnoremap <silent> <Leader>{key/tab}{key/move}{key/6}        :tabmove $ <bar> tabmove 5<CR>
+nnoremap <silent> <Leader>{key/tab}{key/move}{key/7}        :tabmove $ <bar> tabmove 6<CR>
+nnoremap <silent> <Leader>{key/tab}{key/move}{key/8}        :tabmove $ <bar> tabmove 7<CR>
+nnoremap <silent> <Leader>{key/tab}{key/move}{key/9}        :tabmove $ <bar> tabmove 8<CR>
+nnoremap <silent> <Leader>{key/tab}{key/move}{key/0}        :tabmove $ <bar> tabmove 9<CR>
+nnoremap <silent> <Leader>{key/tab}{key/move}{key/left}     :tabmove -<CR>
+nnoremap <silent> <Leader>{key/tab}{key/move}{key/previous} :tabmove -<CR>
+nnoremap <silent> <Leader>{key/tab}{key/move}{key/right}    :tabmove +<CR>
+nnoremap <silent> <Leader>{key/tab}{key/move}{key/next}     :tabmove +<CR>
 
 
 "" sessions management
 
-nnoremap ss :SessionSave <C-R>=GetCurrentSessionName()<CR>
-nnoremap sx :SessionDelete <C-R>=GetCurrentSessionName()<CR>
-nnoremap so :SessionOpen<space>
+nnoremap {key/session}{key/save} :SessionSave <C-R>=GetCurrentSessionName()<CR>
+nnoremap {key/session}{key/kill} :SessionDelete <C-R>=GetCurrentSessionName()<CR>
+nnoremap {key/session}{key/open} :SessionOpen<space>
 
 
 "" search management
 
 " clear last search highlighting with Enter
-nnoremap <silent> <CR> :noh<CR><Esc>
+nnoremap <silent> <{key/CR}> :noh<CR><Esc>
 
 " Place a marker and search
-nmap <Leader>/ mA:Ack<Space>
+nmap <Leader>{key/search_forward} mA:Ack<Space>
 
 " Place a marker and search current word
-nmap <Leader>* mA:Ack "<C-r>=expand("<cword>")<cr>"
+nmap <Leader>{key/search_forward_current} mA:Ack "<C-r>=expand("<cword>")<cr>"
 
 
 "" files/buffers selection
 
 " fzf edit binding
-nnoremap <silent> <Leader>ef :FZF<CR>
-nnoremap <silent> <Leader>eb :Buffers<CR>
+nnoremap <silent> <Leader>{key/edit}{key/file}   :FZF<CR>
+nnoremap <silent> <Leader>{key/edit}{key/buffer} :Buffers<CR>
 
 " Alt+f to open file picker at current working directory
-nnoremap <silent> f :execute ':Ntree' getcwd()<CR>
+nnoremap <silent> {key/file} :execute ':Ntree' getcwd()<CR>
 
 
 "" completion management
 
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
+inoremap <expr><C-{key/g}> neocomplete#undo_completion()
+inoremap <expr><C-{key/l}> neocomplete#complete_common_string()
 
 " <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+inoremap <silent> <{key/CR}> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
   return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
 endfunction
 
 " <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><{key/TAB}>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-{key/h}> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><{key/BS}>  neocomplete#smart_close_popup()."\<C-h>"
 
 
 " Goyo
 
-nnoremap <silent> <Leader><Space> :Goyo<CR>
+nnoremap <silent> <Leader><{key/Space}> :Goyo<CR>
 
 
 " ALE
 
-nnoremap <silent> <Leader>lp :ALEPreviousWrap<CR>
-nnoremap <silent> <Leader>ln :ALENextWrap<CR>
-nnoremap <silent> <Leader>lt :ALEToggleBuffer<CR>
+nnoremap <silent> <Leader>{key/l}{key/previous} :ALEPreviousWrap<CR>
+nnoremap <silent> <Leader>{key/l}{key/next}     :ALENextWrap<CR>
+nnoremap <silent> <Leader>{key/l}{key/t}        :ALEToggleBuffer<CR>
 
 
 "" tagbar
 
-nnoremap <silent> <Leader>tt :TagbarOpen j<CR>
-nnoremap <silent> <Leader>tq :TagbarClose<CR>
+nnoremap <silent> <Leader>{key/tag}{key/tag}  :TagbarOpen j<CR>
+nnoremap <silent> <Leader>{key/tag}{key/quit} :TagbarClose<CR>
 
 
 "" undotree
 
-nnoremap <silent> <Leader>uu :UndotreeShow<CR>
-nnoremap <silent> <Leader>uq :UndotreeHide<CR>
+nnoremap <silent> <Leader>{key/undo}{key/undo} :UndotreeShow<CR>
+nnoremap <silent> <Leader>{key/undo}{key/quit} :UndotreeHide<CR>
 
 
 "" snippets
 
 " trigger insertion
-inoremap <silent> s <C-R>=UltiSnips#ExpandSnippet()<CR>
+inoremap <silent> {key/snippet} <C-R>=UltiSnips#ExpandSnippet()<CR>
 
 " insertion of snippet from list selection
-nnoremap <silent> <Leader>is :Snippets<CR>
+nnoremap <silent> <Leader>{key/insert}{key/snippet} :Snippets<CR>

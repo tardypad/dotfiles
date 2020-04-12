@@ -1,0 +1,30 @@
+#!/bin/sh
+
+SCRIPT_FILE="build/substitute-keys"
+
+if [ -f "${SCRIPT_FILE}" ]; then
+  sed -f "${SCRIPT_FILE}" -
+  exit
+fi
+
+KEYS_FILE="config/keys"
+
+mkdir -p build
+
+{
+  sed '/^$/d' "${KEYS_FILE}" \
+    | while read -r LINE; do
+        ALIAS=$( echo "${LINE}" | cut -f1 -d' ' )
+        KEY=$( echo "${LINE}" | tr -s ' ' | cut -f2 -d' ' )
+        KEY_LOW=$( echo "${KEY}" | tr '[:upper:]' '[:lower:]' )
+        KEY_UPP=$( echo "${KEY}" | tr '[:lower:]' '[:upper:]' )
+        echo "s|{key/${ALIAS}}|${KEY}|g"
+        echo "s|{key/${ALIAS}/low}|${KEY_LOW}|g"
+        echo "s|{key/${ALIAS}/upp}|${KEY_UPP}|g"
+      done
+
+  # other non aliased keys
+  echo 's|{key/\([^}]*\)}|\1|g'
+} > "${SCRIPT_FILE}"
+
+sed -f "${SCRIPT_FILE}" -

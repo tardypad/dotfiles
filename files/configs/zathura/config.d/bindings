@@ -1,106 +1,106 @@
 # normal mode
-map      q quit
-map  <C-c> abort
-map Escape abort
-map      : focus_inputbar :
-map      o focus_inputbar ':open '
-map      R reload
-map    Tab toggle_index
-map      h scroll left
-map      j scroll down
-map      k scroll up
-map      l scroll right
-map  <C-f> scroll full-down
-map  <C-b> scroll full-up
-map  <C-d> scroll half-down
-map  <C-u> scroll half-up
-map  <C-e> scroll down
-map  <C-y> scroll up
-map     gg goto top
-map      G goto bottom
-map      H scroll page-top
-map      L scroll page-bottom
-map  <C-i> jumplist forward
-map  <C-o> jumplist backward
-map      m mark_add
-map    "'" mark_evaluate
-map      / focus_inputbar /
-map      ? focus_inputbar ?
-map      n search forward
-map      N search backward
-map      f follow
-map  <C--> zoom out
-map  <C-+> zoom in
-map  <C-=> zoom specific
-map     zf adjust_window best-fit
-map     zw adjust_window width
-map      d toggle_page_mode
-map      Z toggle_fullscreen
-map  <C-p> toggle_presentation
+map {key/quit}                     quit
+map <C-{key/interrupt/low}>        abort
+map {key/Escape}                   abort
+map {key/command}                  focus_inputbar :
+map {key/open}                     focus_inputbar ':open '
+map {key/reload}                   reload
+map {key/Tab}                      toggle_index
+map {key/left}                     scroll left
+map {key/down}                     scroll down
+map {key/up}                       scroll up
+map {key/right}                    scroll right
+map <C-{key/scroll_page_down/low>  scroll full-down
+map <C-{key/scroll_page_up/low}>   scroll full-up
+map <C-{key/scroll_down/low}>      scroll half-down
+map <C-{key/scroll_up/low}>        scroll half-up
+map <C-{key/scroll_line_down/low}> scroll down
+map <C-{key/scroll_line_up/low}>   scroll up
+map {key/goto_top}{key/goto_top}   goto top
+map {key/goto_bottom}              goto bottom
+map {key/line_top}                 scroll page-top
+map {key/line_bottom}              scroll page-bottom
+map <C-{key/i}>                    jumplist forward
+map <C-{key/o}>                    jumplist backward
+map {key/mark_set}                 mark_add
+map "{key/mark_jump}"              mark_evaluate
+map {key/search_forward}           focus_inputbar /
+map {key/search_backward}          focus_inputbar ?
+map {key/search_repeat}            search forward
+map {key/search_repeat_reverse}    search backward
+map {key/f}                        follow
+map <C-{key/-}>                    zoom out
+map <C-{key/+}>                    zoom in
+map <C-{key/=}>                    zoom specific
+map {key/zoom}{key/f}              adjust_window best-fit
+map {key/zoom}{key/w}              adjust_window width
+map {key/d}                        toggle_page_mode
+map {key/zoom/upp}                 toggle_fullscreen
+map <C-{key/p}>                    toggle_presentation
 
 # fullscreen mode
 # (mostly duplicated from normal mode...)
-map [fullscreen]     q quit
-map [fullscreen] <C-c> abort
-map [fullscreen]Escape abort
-map [fullscreen]     : focus_inputbar :
-map [fullscreen]     o focus_inputbar ':open '
-map [fullscreen]     R reload
-map [fullscreen]   Tab toggle_index
-map [fullscreen]     h scroll left
-map [fullscreen]     j scroll down
-map [fullscreen]     k scroll up
-map [fullscreen]     l scroll right
-map [fullscreen] <C-f> scroll full-down
-map [fullscreen] <C-b> scroll full-up
-map [fullscreen] <C-d> scroll half-down
-map [fullscreen] <C-u> scroll half-up
-map [fullscreen] <C-e> scroll down
-map [fullscreen] <C-y> scroll up
-map [fullscreen]    gg goto top
-map [fullscreen]     G goto bottom
-map [fullscreen]     H scroll page-top
-map [fullscreen]     L scroll page-bottom
-map [fullscreen] <C-i> jumplist forward
-map [fullscreen] <C-o> jumplist backward
-map [fullscreen]     m mark_add
-map [fullscreen]   "'" mark_evaluate
-map [fullscreen]     / focus_inputbar /
-map [fullscreen]     ? focus_inputbar ?
-map [fullscreen]     n search forward
-map [fullscreen]     N search backward
-map [fullscreen]     f follow
-map [fullscreen] <C--> zoom out
-map [fullscreen] <C-+> zoom in
-map [fullscreen] <C-=> zoom specific
-map [fullscreen]    zf adjust_window best-fit
-map [fullscreen]    zw adjust_window width
-map [fullscreen]     d toggle_page_mode
-map [fullscreen]     Z toggle_fullscreen
+map [fullscreen] {key/quit}                     quit
+map [fullscreen] <C-{key/interrupt/low}>        abort
+map [fullscreen] {key/Escape}                   abort
+map [fullscreen] {key/command}                  focus_inputbar :
+map [fullscreen] {key/open}                     focus_inputbar ':open '
+map [fullscreen] {key/reload}                   reload
+map [fullscreen] {key/Tab}                      toggle_index
+map [fullscreen] {key/left}                     scroll left
+map [fullscreen] {key/down}                     scroll down
+map [fullscreen] {key/up}                       scroll up
+map [fullscreen] {key/right}                    scroll right
+map [fullscreen] <C-{key/scroll_page_down/low>  scroll full-down
+map [fullscreen] <C-{key/scroll_page_up/low}>   scroll full-up
+map [fullscreen] <C-{key/scroll_down/low}>      scroll half-down
+map [fullscreen] <C-{key/scroll_up/low}>        scroll half-up
+map [fullscreen] <C-{key/scroll_line_down/low}> scroll down
+map [fullscreen] <C-{key/scroll_line_up/low}>   scroll up
+map [fullscreen] {key/goto_top}{key/goto_top}   goto top
+map [fullscreen] {key/goto_bottom}              goto bottom
+map [fullscreen] {key/line_top}              scroll page-top
+map [fullscreen] {key/line_bottom}              scroll page-bottom
+map [fullscreen] <C-{key/i}>                    jumplist forward
+map [fullscreen] <C-{key/o}>                    jumplist backward
+map [fullscreen] {key/mark_set}                 mark_add
+map [fullscreen] "{key/mark_jump}"              mark_evaluate
+map [fullscreen] {key/search_forward}           focus_inputbar /
+map [fullscreen] {key/search_backward}          focus_inputbar ?
+map [fullscreen] {key/search_repeat}            search forward
+map [fullscreen] {key/search_repeat_reverse}    search backward
+map [fullscreen] {key/f}                        follow
+map [fullscreen] <C-{key/-}>                    zoom out
+map [fullscreen] <C-{key/+}>                    zoom in
+map [fullscreen] <C-{key/=}>                    zoom specific
+map [fullscreen] {key/zoom}{key/f}              adjust_window best-fit
+map [fullscreen] {key/zoom}{key/w}              adjust_window width
+map [fullscreen] {key/d}                        toggle_page_mode
+map [fullscreen] {key/zoom/upp}                 toggle_fullscreen
 
 # index mode
-map [index]      j navigate_index down
-map [index]      k navigate_index up
-map [index]     gg navigate_index top
-map [index]      G navigate_index bottom
-map [index]      h navigate_index collapse
-map [index]      l navigate_index expand
-map [index]      H navigate_index collapse-all
-map [index]      L navigate_index expand-all
-map [index]  <C-m> navigate_index select
-map [index] Return navigate_index select
-map [index]    Tab toggle_index
-map [index]  <C-c> toggle_index
-map [index] Escape toggle_index
-map [index]      q toggle_index
+map [index] {key/down}                   navigate_index down
+map [index] {key/up}                     navigate_index up
+map [index] {key/goto_top}{key/goto_top} navigate_index top
+map [index] {key/goto_bottom}            navigate_index bottom
+map [index] {key/left/low}               navigate_index collapse
+map [index] {key/right/low}              navigate_index expand
+map [index] {key/left/upp}               navigate_index collapse-all
+map [index] {key/right/upp}              navigate_index expand-all
+map [index] <C-{key/return/low}>         navigate_index select
+map [index] {key/Return}                 navigate_index select
+map [index] {key/Tab}                    toggle_index
+map [index] <C-{key/interrupt/low}>      toggle_index
+map [index] {key/Escape}                 toggle_index
+map [index] {key/quit}                   toggle_index
 
 # presentation mode
-map [presentation]      k navigate previous
-map [presentation]      j navigate next
-map [presentation]  Space navigate next
-map [presentation]     gg goto top
-map [presentation]      G goto bottom
-map [presentation]  <C-c> toggle_presentation
-map [presentation] Escape toggle_presentation
-map [presentation]  <C-p> toggle_presentation
-map [presentation]      q toggle_presentation
+map [presentation] {key/up}                     navigate previous
+map [presentation] {key/down}                   navigate next
+map [presentation] {key/Space}                  navigate next
+map [presentation] {key/goto_top}{key/goto_top} goto top
+map [presentation] {key/goto_bottom}            goto bottom
+map [presentation] <C-{key/interrupt/low}>      toggle_presentation
+map [presentation] {key/Escape}                 toggle_presentation
+map [presentation] <C-{key/p}>                  toggle_presentation
+map [presentation] {key/quit}                   toggle_presentation

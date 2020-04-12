@@ -1,112 +1,112 @@
 # general
-bind index,pager \Cq quit
-bind index q quit
-bind generic,pager q exit
-bind generic,pager <Esc>? help
-bind generic,pager : enter-command
-bind generic <Return> select-entry
-bind index,pager $ sync-mailbox
-bind index <Return> display-message
+bind index,pager   \C{key/quit/low}    quit
+bind index         {key/quit}          quit
+bind generic,pager {key/quit}          exit
+bind generic,pager <{key/Esc}>{key/?}> help
+bind generic,pager {key/command}       enter-command
+bind generic       <{key/Return}>      select-entry
+bind index,pager   {key/$}             sync-mailbox
+bind index         <{key/Return}>      display-message
 
 # mail
-bind index,pager m mail
-bind index,pager f forward-message
-bind index,pager r reply
-bind index,pager R group-reply
-bind index,pager s save-message
+bind index,pager {key/m}    mail
+bind index,pager {key/f}    forward-message
+bind index,pager {key/r}    reply
+bind index,pager {key/R}    group-reply
+bind index,pager {key/save} save-message
 
 # navigation
-bind generic,index,pager j next-entry
-bind generic,index,pager k previous-entry
-bind index,pager J next-undeleted
-bind index,pager K previous-undeleted
-bind generic,index gg first-entry
-bind generic,index G last-entry
-bind pager gg top
-bind pager G bottom
-bind generic,index,pager \Cf next-page
-bind generic,index,pager \Cb previous-page
-bind generic,index,pager \Cu half-up
-bind generic,index,pager \Cd half-down
-bind generic,index,pager \Cy previous-line
-bind generic,index,pager \Ce next-line
-bind generic,index zt current-top
-bind generic,index zz current-middle
-bind generic,index zb current-bottom
-bind generic,index H top-page
-bind generic,index M middle-page
-bind generic,index L bottom-page
+bind generic,index,pager {key/down/low}                              next-entry
+bind generic,index,pager {key/up/low}                                previous-entry
+bind index,pager         {key/down/upp}                              next-undeleted
+bind index,pager         {key/up/upp}                                previous-undeleted
+bind generic,index       {key/goto_top}{key/goto_top}                first-entry
+bind generic,index       {key/goto_bottom}                           last-entry
+bind pager               {key/goto_top}{key/goto_top}                top
+bind pager               {key/goto_bottom}                           bottom
+bind generic,index,pager \C{key/scroll_page_up}                      previous-page
+bind generic,index,pager \C{key/scroll_page_down}                    next-page
+bind generic,index,pager \C{key/scroll_up}                           half-up
+bind generic,index,pager \C{key/scroll_down}                         half-down
+bind generic,index,pager \C{key/scroll_line_up}                      previous-line
+bind generic,index,pager \C{key/scroll_line_down}                    next-line
+bind generic,index       {key/scroll_prefix}{key/scroll_line_top}    current-top
+bind generic,index       {key/scroll_prefix}{key/scroll_line_middle} current-middle
+bind generic,index       {key/scroll_prefix}{key/scroll_line_bottom} current-bottom
+bind generic,index       {key/line_top}                              top-page
+bind generic,index       {key/line_middle}                           middle-page
+bind generic,index       {key/line_bottom}                           bottom-page
 
 # search
-bind generic,index,pager / search
-bind generic,index,pager ? search-reverse
-bind generic,index,pager n search-next
-bind generic,index,pager N search-opposite
+bind generic,index,pager {key/search_forward}        search
+bind generic,index,pager {key/search_backward}       search-reverse
+bind generic,index,pager {key/search_repeat}         search-next
+bind generic,index,pager {key/search_repeat_reverse} search-opposite
 
 # tagging
-bind generic t       tag-entry
-bind index   Tp      tag-pattern
-bind index   Tt      tag-thread
-bind index   <Esc>Tp untag-pattern
-bind generic \;      tag-prefix
+bind generic {key/tag/low}                   tag-entry
+bind index   {key/tag/upp}{key/p}            tag-pattern
+bind index   {key/tag/upp}{key/t}            tag-thread
+bind index   <{key/Esc}>{key/tag/upp}{key/p} untag-pattern
+bind generic \{key/;}                        tag-prefix
 
 # browser
-bind browser v view-file
+bind browser {key/v} view-file
 
 # deletion
-bind index,pager d       delete-message
-bind index       Dp      delete-pattern
-bind index,pager Dt      delete-thread
-bind index,pager <Esc>d  undelete-message
-bind index       <Esc>Dp undelete-pattern
-bind index,pager <Esc>Dt undelete-thread
+bind index,pager {key/delete/low}                   delete-message
+bind index       {key/delete/upp}{key/p}            delete-pattern
+bind index,pager {key/delete/upp}{key/t}            delete-thread
+bind index,pager <{key/Esc}>{key/delete}            undelete-message
+bind index       <{key/Esc}>{key/delete/upp}{key/p} undelete-pattern
+bind index,pager <{key/Esc}>{key/delete/upp}{key/t} undelete-thread
 
 # purge deleted messages from Spam folder on sync
-folder-hook . "macro index,pager $ <sync-mailbox> 'sync mailbox'"
-folder-hook .*/Spam "macro index,pager $ <tag-pattern>~D<enter><tag-prefix><purge-message><sync-mailbox> 'purge deleted messages and sync mailbox'"
+folder-hook .       "macro index,pager {key/$} <sync-mailbox> 'sync mailbox'"
+folder-hook .*/Spam "macro index,pager {key/$} <tag-pattern>~D<enter><tag-prefix><purge-message><sync-mailbox> 'purge deleted messages and sync mailbox'"
 
 # attachments
-bind index,pager v view-attachments
-bind attach v view-mailcap
-bind attach <Return> view-attach
-macro attach s <save-entry><bol>~/Downloads/<eol>
+bind index,pager {key/v}        view-attachments
+bind attach      {key/v}        view-mailcap
+bind attach      <{key/Return}> view-attach
+macro attach     {key/save}     <save-entry><bol>~/Downloads/<eol>
 
 # threads
-bind index za collapse-thread
-bind index zA collapse-all
+bind index {key/z}{key/a} collapse-thread
+bind index {key/z}{key/A} collapse-all
 
 # editor menu
-bind editor \Cb bol
-bind editor \Ce eol
-bind editor \Ch backspace
-bind editor \Ck kill-eol
-bind editor \Cn history-down
-bind editor \Cp history-up
-bind editor \Cu kill-line
-bind editor \Cw kill-word
-bind editor <Tab> complete
-bind editor <BackSpace> backspace
+bind editor \C{key/command_start/low}                bol
+bind editor \C{key/command_end/low}                  eol
+bind editor \C{key/command_delete_backward_char/low} backspace
+bind editor \C{key/k}                                kill-eol
+bind editor \C{key/next/low}                         history-down
+bind editor \C{key/previous/low}                     history-up
+bind editor \C{key/command_delete_all/low}           kill-line
+bind editor \C{key/command_delete_backward_word/low} kill-word
+bind editor <{key/Tab}>                              complete
+bind editor <{key/BackSpace}>                        backspace
 
 # Show documentation
-macro generic,pager <Esc>h "<shell-escape>less /usr/share/doc/neomutt/manual.txt<Enter>" "Show documentation"
+macro generic,pager <{key/Esc}>{key/h} "<shell-escape>less /usr/share/doc/neomutt/manual.txt<Enter>" "Show documentation"
 
 # change account
-macro index,pager <F1> "<change-folder>imaps://$my_gmail_email@imap.gmail.com<Enter>"   "Gmail"
-macro index,pager <F2> "<change-folder>imaps://$my_work_email@imap.gmail.com<Enter>"    "Work"
-macro index,pager <F3> "<change-folder>imaps://$my_migadu_email@imap.migadu.com<Enter>" "Migadu"
+macro index,pager <{key/F1}> "<change-folder>imaps://$my_gmail_email@imap.gmail.com<Enter>"   "Gmail"
+macro index,pager <{key/F2}> "<change-folder>imaps://$my_work_email@imap.gmail.com<Enter>"    "Work"
+macro index,pager <{key/F3}> "<change-folder>imaps://$my_migadu_email@imap.migadu.com<Enter>" "Migadu"
 
 # sidebar navigation
-bind index,pager \Cp sidebar-prev
-bind index,pager \Cn sidebar-next
-bind index,pager \Co sidebar-open
+bind index,pager \C{key/previous/low} sidebar-prev
+bind index,pager \C{key/next/low}     sidebar-next
+bind index,pager \C{key/open/low}     sidebar-open
 
 # compose message
-bind compose ef edit-from
-bind compose et edit-to
-bind compose ec edit-cc
-bind compose es edit-subject
-bind compose em edit-message
-bind compose <Return> view-attach
-bind compose y send-message
-bind compose a attach-file
-bind compose d detach-file
+bind compose {key/edit}{key/f} edit-from
+bind compose {key/edit}{key/t} edit-to
+bind compose {key/edit}{key/c} edit-cc
+bind compose {key/edit}{key/s} edit-subject
+bind compose {key/edit}{key/m} edit-message
+bind compose <{key/Return}>    view-attach
+bind compose {key/y}           send-message
+bind compose {key/a}           attach-file
+bind compose {key/d}           detach-file

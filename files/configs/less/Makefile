@@ -2,4 +2,4 @@ all: less-configs
 
 less-configs:
     # generate config file
-	lesskey -o "$(DESTDIR)$(HOME)/.less" "files/configs/less/lesskey"
+	$(setup_file)/configs/less/lesskey | lesskey -o "$(DESTDIR)$(HOME)/.less" -

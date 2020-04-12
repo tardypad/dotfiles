@@ -45,33 +45,33 @@ selection:
   semantic_escape_chars: "/-,│`|:\"' ()[]{}<>"
 
 key_bindings:
-  - { key: L,        mods: Control|Shift, action: ClearHistory     }
-  - { key: Q,        mods: Control|Shift, action: Quit             }
-  - { key: Z,        mods: Control|Shift, action: ToggleFullscreen }
+  - { key: {key/clear/upp},            mods: Control|Shift, action: ClearHistory     }
+  - { key: {key/quit/upp},             mods: Control|Shift, action: Quit             }
+  - { key: {key/zoom/upp},             mods: Control|Shift, action: ToggleFullscreen }
 
-  - { key: Equals,   mods: Control,       action: ResetFontSize    }
-  - { key: Add,      mods: Control|Shift, action: IncreaseFontSize }
-  - { key: Subtract, mods: Control,       action: DecreaseFontSize }
+  - { key: {key/Equals},               mods: Control,       action: ResetFontSize    }
+  - { key: {key/Add},                  mods: Control|Shift, action: IncreaseFontSize }
+  - { key: {key/Subtract},             mods: Control,       action: DecreaseFontSize }
 
-  - { key: V,        mods: Control|Shift, action: Paste            }
-  - { key: C,        mods: Control|Shift, action: Copy             }
+  - { key: {key/V},                    mods: Control|Shift, action: Paste            }
+  - { key: {key/C},                    mods: Control|Shift, action: Copy             }
 
-  - { key: G,        mods: Control|Shift, action: ScrollToBottom   }
-  - { key: B,        mods: Control|Shift, action: ScrollPageUp     }
-  - { key: F,        mods: Control|Shift, action: ScrollPageDown   }
-  - { key: Y,        mods: Control|Shift, action: ScrollLineUp     }
-  - { key: E,        mods: Control|Shift, action: ScrollLineDown   }
+  - { key: {key/goto_bottom/upp},      mods: Control|Shift, action: ScrollToBottom   }
+  - { key: {key/scroll_page_up/upp},   mods: Control|Shift, action: ScrollPageUp     }
+  - { key: {key/scroll_page_down/upp}, mods: Control|Shift, action: ScrollPageDown   }
+  - { key: {key/scroll_line_up/upp},   mods: Control|Shift, action: ScrollLineUp     }
+  - { key: {key/scroll_line_down/upp}, mods: Control|Shift, action: ScrollLineDown   }
 
-  - { key: Key0,     mods: Control,       chars: "\x1b[27;5;48~"   }
-  - { key: Key1,     mods: Control,       chars: "\x1b[27;5;49~"   }
-  - { key: Key2,     mods: Control,       chars: "\x1b[27;5;50~"   }
-  - { key: Key3,     mods: Control,       chars: "\x1b[27;5;51~"   }
-  - { key: Key4,     mods: Control,       chars: "\x1b[27;5;52~"   }
-  - { key: Key5,     mods: Control,       chars: "\x1b[27;5;53~"   }
-  - { key: Key6,     mods: Control,       chars: "\x1b[27;5;54~"   }
-  - { key: Key7,     mods: Control,       chars: "\x1b[27;5;55~"   }
-  - { key: Key8,     mods: Control,       chars: "\x1b[27;5;56~"   }
-  - { key: Key9,     mods: Control,       chars: "\x1b[27;5;57~"   }
-  - { key: Return,   mods: Control,       chars: "\x1b[27;5;13~"   }
-  - { key: Tab,      mods: Control,       chars: "\x1b[27;5;9~"    }
-  - { key: Tab,      mods: Control|Shift, chars: "\x1b[27;6;9~"    }
+  - { key: {key/Key0},                 mods: Control,       chars: "\x1b[27;5;48~"   }
+  - { key: {key/Key1},                 mods: Control,       chars: "\x1b[27;5;49~"   }
+  - { key: {key/Key2},                 mods: Control,       chars: "\x1b[27;5;50~"   }
+  - { key: {key/Key3},                 mods: Control,       chars: "\x1b[27;5;51~"   }
+  - { key: {key/Key4},                 mods: Control,       chars: "\x1b[27;5;52~"   }
+  - { key: {key/Key5},                 mods: Control,       chars: "\x1b[27;5;53~"   }
+  - { key: {key/Key6},                 mods: Control,       chars: "\x1b[27;5;54~"   }
+  - { key: {key/Key7},                 mods: Control,       chars: "\x1b[27;5;55~"   }
+  - { key: {key/Key8},                 mods: Control,       chars: "\x1b[27;5;56~"   }
+  - { key: {key/Key9},                 mods: Control,       chars: "\x1b[27;5;57~"   }
+  - { key: {key/Return},               mods: Control,       chars: "\x1b[27;5;13~"   }
+  - { key: {key/Tab},                  mods: Control,       chars: "\x1b[27;5;9~"    }
+  - { key: {key/Tab},                  mods: Control|Shift, chars: "\x1b[27;6;9~"    }

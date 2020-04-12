@@ -13,42 +13,42 @@ suppress_default_binds = true
 [binds]
 
 # General
-q = quit
-v = overlay
-z = fullscreen
-r = reset
+{key/quit}   = quit
+{key/v}      = overlay
+{key/zoom}   = fullscreen
+{key/reload} = reset
 
-<Shift+X> = close
-<Shift+P> = exec echo $imv_current_file; close
+<Shift+{key/kill/upp}> = close
+<Shift+{key/P}>        = exec echo $imv_current_file; close
 
 # Navigation
-<Left> = prev
-<Shift+H> = prev
-<Ctrl+p> = prev
-<Right> = next
-<Shift+L> = next
-<Ctrl+n> = next
-gg = goto 1
-<Shift+G> = goto 0
+<{key/Left}>                  = prev
+<Shift+{key/left/upp}>        = prev
+<Ctrl+{key/previous/low}>     = prev
+<{key/Right}>                 = next
+<Shift+{key/right/upp}>       = next
+<Ctrl+{key/next/low}>         = next
+{key/goto_top}{key/goto_top}  = goto 1
+<Shift+{key/goto_bottom/upp}> = goto 0
 
 # Panning
-c = center
-h = pan 50 0
-j = pan 0 -50
-k = pan 0 50
-l = pan -50 0
+{key/c}     = center
+{key/left}  = pan 50 0
+{key/down}  = pan 0 -50
+{key/up}    = pan 0 50
+{key/right} = pan -50 0
 
 # Zooming
-<Ctrl+Shift+plus> = zoom 5
-<Ctrl+minus> = zoom -5
-<Ctrl+equal> = zoom actual
+<Ctrl+Shift+{key/plus}> = zoom 5
+<Ctrl+{key/minus}>      = zoom -5
+<Ctrl+{key/equal}>      = zoom actual
 
 # Scaling
-sc = scaling crop
-sf = scaling full
-sn = scaling none
-ss = scaling shrink
+{key/s}{key/c} = scaling crop
+{key/s}{key/f} = scaling full
+{key/s}{key/n} = scaling none
+{key/s}{key/s} = scaling shrink
 
 # Gif playback
-<period> = next_frame
-<space> = toggle_playing
+<{key/period}> = next_frame
+<{key/space}>  = toggle_playing

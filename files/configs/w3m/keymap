@@ -1,46 +1,45 @@
-keymap q   QUIT
-keymap :   COMMAND
-keymap C-h HELP
-keymap C-z SUSPEND
-keymap C-l REDRAW
+keymap   {key/quit}        QUIT
+keymap   {key/command}     COMMAND
+keymap C-{key/h}           HELP
+keymap C-{key/suspend/low} SUSPEND
+keymap   {key/clear/low}   REDRAW
 
 keymap = LINE_INFO
 
-keymap h   MOVE_LEFT
-keymap j   MOVE_DOWN
-keymap k   MOVE_UP
-keymap l   MOVE_RIGHT
-keymap C-b PREV_PAGE
-keymap C-f NEXT_PAGE
-keymap C-u PREV_HALF_PAGE
-keymap C-d NEXT_HALF_PAGE
-keymap C-y DOWN
-keymap C-e UP
-keymap g   BEGIN
-keymap G   END
-keymap C-g GOTO_LINE
-keymap z   CENTER_V
-keymap 0   LINE_BEGIN
-keymap $   LINE_END
-keymap w   NEXT_WORD
-keymap b   PREV_WORD
+keymap   {key/left}                 MOVE_LEFT
+keymap   {key/down}                 MOVE_DOWN
+keymap   {key/up}                   MOVE_UP
+keymap   {key/right}                MOVE_RIGHT
+keymap C-{key/scroll_page_up/low}   PREV_PAGE
+keymap C-{key/scroll_page_down/low} NEXT_PAGE
+keymap C-{key/scroll_up/low}        PREV_HALF_PAGE
+keymap C-{key/scroll_down/low}      NEXT_HALF_PAGE
+keymap C-{key/scroll_line_up/low}   DOWN
+keymap C-{key/scroll_line_down/low} UP
+keymap   {key/goto_top}             BEGIN
+keymap   {key/goto_bottom}          END
+keymap C-{key/g}                    GOTO_LINE
+keymap   {key/scroll_line_middle}   CENTER_V
+keymap   {key/line_start}           LINE_BEGIN
+keymap   {key/line_end}             LINE_END
+keymap   {key/word_next_start}      NEXT_WORD
+keymap   {key/word_previous_start}  PREV_WORD
 
-keymap / SEARCH_FORE
-keymap ? SEARCH_BACK
-keymap n SEARCH_NEXT
-keymap N SEARCH_PREV
+keymap {key/search_forward}        SEARCH_FORE
+keymap {key/search_backward}       SEARCH_BACK
+keymap {key/search_repeat}         SEARCH_NEXT
+keymap {key/search_repeat_reverse} SEARCH_PREV
 
-keymap H BACK
-keymap r RELOAD
+keymap {key/left/upp} BACK
+keymap {key/reload}   RELOAD
 
-keymap o   EXTERN_LINK
-keymap C-o EXTERN
+keymap   {key/open}     EXTERN_LINK
+keymap C-{key/open/low} EXTERN
 
 
 # clear other default keymaps
 keymap C-@    NULL
 keymap C-a    NULL
-keymap C-e    NULL
 keymap TAB    NULL
 keymap C-j    NULL
 keymap C-k    NULL

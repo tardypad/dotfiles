@@ -1,0 +1,105 @@
+complete  i
+interrupt c
+newline   j
+return    m
+suspend   z
+
+clear         l
+command       :
+create        c
+delete        d
+edit          e
+insert        i
+kill          x
+layout        y
+move          m
+open          o
+quit          q
+reload        r
+reload_config R
+rename        r
+repeat        .
+resize        s
+save          s
+search        s
+select        v
+select_line   V
+undo          u
+yank          y
+zoom          z
+
+left  h
+right l
+up    k
+down  j
+
+alternate a
+next      n
+previous  p
+
+split_horizontal s
+split_vertical   v
+
+bookmark b
+buffer   b
+download d
+file     f
+session  s
+snippet  s
+tab      t
+tag      t
+window   w
+
+scroll_page_up            b
+scroll_page_down          f
+scroll_up                 u
+scroll_down               d
+scroll_line_up            y
+scroll_line_down          e
+scroll_prefix             z
+scroll_line_top           t
+scroll_line_middle        z
+scroll_line_bottom        b
+goto_top                  g
+goto_bottom               G
+line_top                  H
+line_middle               M
+line_bottom               L
+line_start                0
+line_first_char           ^
+line_end                  $
+word_previous_start       b
+word_space_previous_start B
+word_next_start           w
+word_space_next_start     W
+word_next_end             e
+word_space_next_end       E
+char_forward              f
+char_backward             F
+char_forward_before       t
+char_backward_before      T
+char_repeat               ;
+char_repeat_reverse       ,
+paragraph_previous        {
+paragraph_next            }
+matching_item             %
+selection_other_end       o
+
+mark_set  m
+mark_jump '
+
+macro_record q
+macro_run    @
+
+search_forward         /
+search_backward        ?
+search_repeat          n
+search_repeat_reverse  N
+search_forward_current *
+
+command_start                b
+command_end                  e
+command_delete_backward_char h
+command_delete_backward_word w
+command_delete_all           d
+command_delete_start         u

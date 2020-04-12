@@ -45,11 +45,11 @@ selection:
   semantic_escape_chars: "/-,│`|:\"' ()[]{}<>"
 
 key_bindings:
-  - { key: Q,        mods: Control|Shift, action: Quit             }
+  - { key: {key/quit/upp}, mods: Control|Shift, action: Quit             }
 
-  - { key: Equals,   mods: Control,       action: ResetFontSize    }
-  - { key: Add,      mods: Control|Shift, action: IncreaseFontSize }
-  - { key: Subtract, mods: Control,       action: DecreaseFontSize }
+  - { key: {key/Equals},   mods: Control,       action: ResetFontSize    }
+  - { key: {key/Add},      mods: Control|Shift, action: IncreaseFontSize }
+  - { key: {key/Subtract}, mods: Control,       action: DecreaseFontSize }
 
-  - { key: V,        mods: Control|Shift, action: Paste            }
-  - { key: C,        mods: Control|Shift, action: Copy             }
+  - { key: {key/V},        mods: Control|Shift, action: Paste            }
+  - { key: {key/C},        mods: Control|Shift, action: Copy             }
