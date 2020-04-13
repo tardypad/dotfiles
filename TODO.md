@@ -25,12 +25,5 @@
 
 ## New Features
   - create scripts for backup to hard drive or USB stick
-  - global keybindings management similar to colors with placeholders and README
-    * limit usage of difficult bindings requiring many simultaneous keys to risky/rare actions
-    * the more often the action is needed, the easier the binding to type (shift for less used type pane/window)
-    * focused on single output usage
-    * aliases list (next/previous/create/...)
-    * global organization (sway:super, alacritty:ctrl+shift, tmux:ctrl+space,...)
-    * local organization (uppercase for sway windows and tmux panes, lowercase for sway workspace and tmux windows,...)
 
 ## Research

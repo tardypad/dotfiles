@@ -11,6 +11,8 @@ The [doc/](doc) folder contains general documentation about the repository.
 
 - [COLORS.md](doc/COLORS.md)
   color scheme information
+- [KEYBINDINGS.md](doc/KEYBINDINGS.md)
+  key bindings scheme information
 - [PACKAGES.md](doc/PACKAGES.md)
   list of all packages used with purpose, version, link,...
 - [PLUGINS.md](doc/PLUGINS.md)
@@ -160,10 +162,15 @@ See [dirs](config/dirs) configuration file.
 And similarly for the other directories.
 
 
-## Key bindings
+### Key bindings
 
-All packages are configured to use as consistent as possible key bindings
-across them.
+See [keys](config/keys) configuration file.
 
-Most key bindings are minimalized per package to keep only relevant ones
-and configured to be as much vim-like as possible.
+`{key/a}` gets substituted by "a".
+Similarly `{key/Space}` get substituted by "Space".
+
+Consistency is enforced by the use of aliases. For example
+`{key/previous/upp}` is replaced by the uppercase version of the key chosen for
+"previous" action.
+
+See the [KEYBINDINGS.md](doc/KEYBINDINGS.md) file for more explanation.
