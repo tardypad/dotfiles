@@ -28,12 +28,10 @@ alias sum='calculate sum'
 
 alias rn='read-news'
 alias tt='time-tracker'
+alias tts='time-tracker-sum'
 alias dnd='do-not-disturb'
 alias pmd='pomodoro'
 alias lbl='line-by-line'
-
-# display sum of hours reported in time tracker for current day
-alias tts='echo "scale=1; $(time-tracker -t show | cut -f 2 | sum) / 60" | bc -l'
 
 # smart cut on spaces
 alias scut="tr -s ' ' '\t' | cut"

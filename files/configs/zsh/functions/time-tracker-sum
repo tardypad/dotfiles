@@ -1,0 +1,19 @@
+# commands used:
+# - sum
+# - time-tracker
+
+# display sum of hours reported in time tracker for a day
+
+local day="$1"
+
+local total
+
+total=$(
+  time-tracker -t show "$day" \
+    | cut -f 2 \
+    | sum
+)
+
+[ "$?" -ne 0 ] && return 1
+
+echo "scale=1; ${total} / 60" | bc -l
