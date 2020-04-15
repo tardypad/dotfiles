@@ -16,4 +16,4 @@ total=$(
 
 [ "$?" -ne 0 ] && return 1
 
-echo "scale=1; ${total} / 60" | bc -l
+printf '%.1f\n' $( echo "${total} / 60" | bc -l )
