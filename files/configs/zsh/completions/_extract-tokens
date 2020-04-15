@@ -2,12 +2,12 @@
 
 _types() {
   local types=(
-    hashes
-    lines
-    paths
-    urls
-    words
-    WORDS
+    hash
+    line
+    path
+    url
+    word
+    WORD
   )
 
   compadd "$@" $types

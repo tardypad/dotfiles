@@ -186,20 +186,20 @@ bind -T root M-C-{key/Space} run "tmux-toggle-no-distraction pane"
 # extract menus
 
 bind -T root C-{key/Tab} display-menu -x W -y S -T 'Extract' \
-'hash' {key/h} 'run -b "tmux-extract-tokens window hashes"' \
-'line' {key/l} 'run -b "tmux-extract-tokens window lines"'  \
-'path' {key/p} 'run -b "tmux-extract-tokens window paths"'  \
-'url'  {key/u} 'run -b "tmux-extract-tokens window urls"'   \
-'word' {key/w} 'run -b "tmux-extract-tokens window words"'  \
-'WORD' {key/W} 'run -b "tmux-extract-tokens window WORDS"'
+'hash' {key/h} 'run -b "tmux-extract-tokens window hash"' \
+'line' {key/l} 'run -b "tmux-extract-tokens window line"'  \
+'path' {key/p} 'run -b "tmux-extract-tokens window path"'  \
+'url'  {key/u} 'run -b "tmux-extract-tokens window url"'   \
+'word' {key/w} 'run -b "tmux-extract-tokens window word"'  \
+'WORD' {key/W} 'run -b "tmux-extract-tokens window WORD"'
 
 bind -T root C-S-{key/Tab} display-menu -x P -y P -T 'Extract' \
-'hash' {key/h} 'run -b "tmux-extract-tokens pane hashes"' \
-'line' {key/l} 'run -b "tmux-extract-tokens pane lines"'  \
-'path' {key/p} 'run -b "tmux-extract-tokens pane paths"'  \
-'url'  {key/u} 'run -b "tmux-extract-tokens pane urls"'   \
-'word' {key/w} 'run -b "tmux-extract-tokens pane words"'  \
-'WORD' {key/W} 'run -b "tmux-extract-tokens pane WORDS"'
+'hash' {key/h} 'run -b "tmux-extract-tokens pane hash"' \
+'line' {key/l} 'run -b "tmux-extract-tokens pane line"'  \
+'path' {key/p} 'run -b "tmux-extract-tokens pane path"'  \
+'url'  {key/u} 'run -b "tmux-extract-tokens pane url"'   \
+'word' {key/w} 'run -b "tmux-extract-tokens pane word"'  \
+'WORD' {key/W} 'run -b "tmux-extract-tokens pane WORD"'
 
 
 ## copy mode

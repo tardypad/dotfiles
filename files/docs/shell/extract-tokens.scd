@@ -21,12 +21,12 @@ None
 _type_
 	Type of token to extract++
 valid types:
-	- hashes:  hexadecimal hashes
-	- lines: full lines
-	- paths: file paths
-	- urls: URLs
-	- words: alphanumerical characters and few symbols allowed
-	- WORDS: any consecutive characters separated by spaces
+	- hash:  hexadecimal hash
+	- line: full line
+	- path: file path
+	- url: URL
+	- word: alphanumerical characters and few symbols allowed
+	- WORD: any consecutive characters separated by spaces
 
 # ENVIRONMENT VARIABLES
 

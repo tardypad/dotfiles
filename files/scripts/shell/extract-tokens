@@ -15,12 +15,12 @@ validate_command_line() {
     exit_error 'missing token type'
   fi
 
-  if [ "${TOKEN_TYPE}" != 'hashes' ] \
-     && [ "${TOKEN_TYPE}" != 'lines' ] \
-     && [ "${TOKEN_TYPE}" != 'paths' ] \
-     && [ "${TOKEN_TYPE}" != 'urls' ] \
-     && [ "${TOKEN_TYPE}" != 'words' ] \
-     && [ "${TOKEN_TYPE}" != 'WORDS' ]; then
+  if [ "${TOKEN_TYPE}" != 'hash' ] \
+     && [ "${TOKEN_TYPE}" != 'line' ] \
+     && [ "${TOKEN_TYPE}" != 'path' ] \
+     && [ "${TOKEN_TYPE}" != 'url' ] \
+     && [ "${TOKEN_TYPE}" != 'word' ] \
+     && [ "${TOKEN_TYPE}" != 'WORD' ]; then
     exit_error "Invalid action '${TOKEN_TYPE}'"
   fi
 }
@@ -30,27 +30,27 @@ exit_error() {
   exit 1
 } >&2
 
-grep_hashes() {
+grep_hash() {
   grep -E -o '[[:digit:]a-fA-F][-[:digit:]a-fA-F]{5,}'
 }
 
-grep_lines() {
+grep_line() {
   grep '.' | sed -e 's/^[ \t]*//' -e 's/[ \t]*$//'
 }
 
-grep_paths() {
+grep_path() {
   grep -E -o '[-_.~[:alnum:]]*/[-_.%~/[:alnum:]]+'
 }
 
-grep_urls() {
+grep_url() {
   grep -E -o 'https?://[[:alnum:]?=%/_.:,;~@!#$&*+-]*'
 }
 
-grep_words() {
+grep_word() {
   grep -E -o '[-_.[:alnum:]]+'
 }
 
-grep_WORDS() {
+grep_WORD() {
   grep -E -o '[^ ]+'
 }
 
