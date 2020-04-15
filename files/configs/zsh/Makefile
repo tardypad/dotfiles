@@ -19,6 +19,7 @@ zsh-configs:
 	$(setup_file)/configs/zsh/config.d/variables.zsh                                                 > $(DESTDIR)$(HOME)/.zsh/config.d/variables.zsh
 	$(setup_file)/configs/zsh/completions/_do-not-disturb                                            > $(DESTDIR)$(HOME)/.zsh/completions/_do-not-disturb
 	$(setup_file)/configs/zsh/completions/_documentation                                             > $(DESTDIR)$(HOME)/.zsh/completions/_documentation
+	$(setup_file)/configs/zsh/completions/_extract-tokens                                            > $(DESTDIR)$(HOME)/.zsh/completions/_extract-tokens
 	$(setup_file)/configs/zsh/completions/_http-env                                                  > $(DESTDIR)$(HOME)/.zsh/completions/_http-env
 	$(setup_file)/configs/zsh/completions/_http-stats                                                > $(DESTDIR)$(HOME)/.zsh/completions/_http-stats
 	$(setup_file)/configs/zsh/completions/_influx-env                                                > $(DESTDIR)$(HOME)/.zsh/completions/_influx-env

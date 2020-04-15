@@ -16,6 +16,7 @@ shell-docs:
 	$(setup_file)/docs/shell/do-not-disturb.scd           | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/do-not-disturb.1$(MAN_SUFFIX)
 	$(setup_file)/docs/shell/documentation-all.scd        | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/documentation-all.1$(MAN_SUFFIX)
 	$(setup_file)/docs/shell/documentation.scd            | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/documentation.1$(MAN_SUFFIX)
+	$(setup_file)/docs/shell/extract-tokens.scd           | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/extract-tokens.1$(MAN_SUFFIX)
 	$(setup_file)/docs/shell/http-env.scd                 | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/http-env.1$(MAN_SUFFIX)
 	$(setup_file)/docs/shell/http-stats.scd               | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/http-stats.1$(MAN_SUFFIX)
 	$(setup_file)/docs/shell/i3blocks-mode.scd            | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/i3blocks-mode.1$(MAN_SUFFIX)

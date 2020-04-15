@@ -1,0 +1,61 @@
+#!/bin/sh
+
+init_variables() {
+  COMMAND=${0##*/}
+
+  TOKEN_TYPE=
+}
+
+parse_command_line() {
+  TOKEN_TYPE="$1"
+}
+
+validate_command_line() {
+  if [ -z "${TOKEN_TYPE}" ]; then
+    exit_error 'missing token type'
+  fi
+
+  if [ "${TOKEN_TYPE}" != 'hashes' ] \
+     && [ "${TOKEN_TYPE}" != 'lines' ] \
+     && [ "${TOKEN_TYPE}" != 'paths' ] \
+     && [ "${TOKEN_TYPE}" != 'urls' ] \
+     && [ "${TOKEN_TYPE}" != 'words' ] \
+     && [ "${TOKEN_TYPE}" != 'WORDS' ]; then
+    exit_error "Invalid action '${TOKEN_TYPE}'"
+  fi
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+grep_hashes() {
+  grep -E -o '[[:digit:]a-fA-F][-[:digit:]a-fA-F]{5,}'
+}
+
+grep_lines() {
+  grep '.' | sed -e 's/^[ \t]*//' -e 's/[ \t]*$//'
+}
+
+grep_paths() {
+  grep -E -o '[-_.~[:alnum:]]*/[-_.%~/[:alnum:]]+'
+}
+
+grep_urls() {
+  grep -E -o 'https?://[[:alnum:]?=%/_.:,;~@!#$&*+-]*'
+}
+
+grep_words() {
+  grep -E -o '[-_.[:alnum:]]+'
+}
+
+grep_WORDS() {
+  grep -E -o '[^ ]+'
+}
+
+init_variables
+parse_command_line "$@"
+validate_command_line
+
+"grep_${TOKEN_TYPE}"

@@ -1,0 +1,17 @@
+#compdef extract-tokens
+
+_types() {
+  local types=(
+    hashes
+    lines
+    paths
+    urls
+    words
+    WORDS
+  )
+
+  compadd "$@" $types
+}
+
+_arguments \
+  '1:type:_types'

@@ -5,18 +5,6 @@ TOKEN_TYPE="$2"
 
 SPLIT_HEIGHT=20
 
-GREP_FUNCTION=
-
-case "${TOKEN_TYPE}" in
-  hashes) GREP_FUNCTION=grep_hashes ;;
-  lines) GREP_FUNCTION=grep_lines ;;
-  paths) GREP_FUNCTION=grep_paths ;;
-  urls)  GREP_FUNCTION=grep_urls ;;
-  words) GREP_FUNCTION=grep_words ;;
-  WORDS) GREP_FUNCTION=grep_WORDS ;;
-  *) exit 1
-esac
-
 capture_text() {
   if [ "${TARGET}" = 'pane' ]; then
     capture_pane "$( tmux display -p -F '#{pane_id}' )"
@@ -43,33 +31,9 @@ capture_pane() {
   tmux capture-pane -t ":.${PANE_ID}" -pJ -S "${START}" -E "${END}"
 }
 
-grep_hashes() {
-  grep -E -o '[[:digit:]a-fA-F][-[:digit:]a-fA-F]{5,}'
-}
-
-grep_lines() {
-  grep '.' | sed -e 's/^[ \t]*//' -e 's/[ \t]*$//'
-}
-
-grep_paths() {
-  grep -E -o '[-_.~[:alnum:]]*/[-_.%~/[:alnum:]]+'
-}
-
-grep_urls() {
-  grep -E -o 'https?://[[:alnum:]?=%/_.:,;~@!#$&*+-]*'
-}
-
-grep_words() {
-  grep -E -o '[-_.[:alnum:]]+'
-}
-
-grep_WORDS() {
-  grep -E -o '[^ ]+'
-}
-
 ITEM=$(
   capture_text \
-    | "${GREP_FUNCTION}" \
+    | extract-tokens "${TOKEN_TYPE}" \
     | sort -u \
     | fzf-tmux -d "${SPLIT_HEIGHT}" -- \
         --prompt "${TOKEN_TYPE}> " \
