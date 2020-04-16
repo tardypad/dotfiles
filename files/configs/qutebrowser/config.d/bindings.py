@@ -138,7 +138,7 @@ config.bind('{key/right/low}',                   'scroll right',       mode='nor
 
 # history navigation
 config.bind('{key/left/upp}',  'back',    mode='normal')
-config.bind('{key/right/low}', 'forward', mode='normal')
+config.bind('{key/right/upp}', 'forward', mode='normal')
 
 # search
 config.bind('{key/search_forward}',        'set-cmd-text /', mode='normal')
