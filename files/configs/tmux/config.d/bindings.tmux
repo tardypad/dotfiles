@@ -174,7 +174,7 @@ bind           {key/resize/upp} switch-client -T RESIZE
 bind -T RESIZE {key/left/upp}   switch-client -T RESIZE \; resize-pane -L 3
 bind -T RESIZE {key/down/upp}   switch-client -T RESIZE \; resize-pane -D 3
 bind -T RESIZE {key/up/upp}     switch-client -T RESIZE \; resize-pane -U 3
-bind -T RESIZE {key/left/upp}   switch-client -T RESIZE \; resize-pane -R 3
+bind -T RESIZE {key/right/upp}  switch-client -T RESIZE \; resize-pane -R 3
 
 
 ## root key space
