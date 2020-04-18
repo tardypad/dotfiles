@@ -129,7 +129,7 @@ function! s:my_cr_function()
   return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
 endfunction
 
-inoremap <expr><{key/TAB}>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><{key/complete/TAB}>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 inoremap <expr><C-{key/h}> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><{key/BS}>  neocomplete#smart_close_popup()."\<C-h>"

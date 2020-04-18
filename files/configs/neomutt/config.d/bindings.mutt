@@ -84,7 +84,7 @@ bind editor \C{key/next/low}                         history-down
 bind editor \C{key/previous/low}                     history-up
 bind editor \C{key/command_delete_all/low}           kill-line
 bind editor \C{key/command_delete_backward_word/low} kill-word
-bind editor <{key/Tab}>                              complete
+bind editor <{key/complete/Tab}>                     complete
 bind editor <{key/BackSpace}>                        backspace
 
 # Show documentation

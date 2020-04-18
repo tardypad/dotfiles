@@ -88,7 +88,7 @@
 ^{key/previous/upp}                     up
 {key/\kd}                               down
 ^{key/next/upp}                         down
-{key/\t}                                forw-complete
+{key/complete/\t}                       forw-complete
 
 # next line prevents less from defining default line-edit keybindings
 #stop

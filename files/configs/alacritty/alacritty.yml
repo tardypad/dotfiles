@@ -73,5 +73,5 @@ key_bindings:
   - { key: {key/Key8},                 mods: Control,       chars: "\x1b[27;5;56~"   }
   - { key: {key/Key9},                 mods: Control,       chars: "\x1b[27;5;57~"   }
   - { key: {key/Return},               mods: Control,       chars: "\x1b[27;5;13~"   }
-  - { key: {key/Tab},                  mods: Control,       chars: "\x1b[27;5;9~"    }
-  - { key: {key/Tab},                  mods: Control|Shift, chars: "\x1b[27;6;9~"    }
+  - { key: {key/tabulation/Tab},       mods: Control,       chars: "\x1b[27;5;9~"    }
+  - { key: {key/tabulation/Tab},       mods: Control|Shift, chars: "\x1b[27;6;9~"    }

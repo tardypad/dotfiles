@@ -98,8 +98,8 @@ FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},ctrl-{key/next/low}:next-history"
 FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},ctrl-{key/previous/low}:previous-history"
 FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},ctrl-{key/t}:toggle"
 FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},ctrl-alt-{key/t}:toggle-all"
-FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},{key/btab}:up,{key/up/up}:up"
-FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},{key/tab}:down,{key/down/down}:down"
+FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},shift-{key/tabulation/tab}:up,{key/up/up}:up"
+FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},{key/tabulation/tab}:down,{key/down/down}:down"
 FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},change:top"
 export FZF_DEFAULT_OPTS
 

@@ -1,11 +1,13 @@
-complete  i
-interrupt c
-enter     j
-return    m
-suspend   z
+interrupt  c
+suspend    z
+
+enter      j
+return     m
+tabulation i
 
 clear         l
 command       :
+complete      i
 create        c
 delete        d
 edit          e

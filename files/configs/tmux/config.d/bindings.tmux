@@ -185,7 +185,7 @@ bind -T root M-C-{key/Space} run "tmux-toggle-no-distraction pane"
 
 # extract menus
 
-bind -T root C-{key/Tab} display-menu -x W -y S -T 'Extract' \
+bind -T root C-{key/tabulation/Tab} display-menu -x W -y S -T 'Extract' \
 'hash' {key/h} 'run -b "tmux-extract-tokens window hash"' \
 'line' {key/l} 'run -b "tmux-extract-tokens window line"'  \
 'path' {key/p} 'run -b "tmux-extract-tokens window path"'  \
@@ -193,7 +193,7 @@ bind -T root C-{key/Tab} display-menu -x W -y S -T 'Extract' \
 'word' {key/w} 'run -b "tmux-extract-tokens window word"'  \
 'WORD' {key/W} 'run -b "tmux-extract-tokens window WORD"'
 
-bind -T root C-S-{key/Tab} display-menu -x P -y P -T 'Extract' \
+bind -T root C-S-{key/tabulation/Tab} display-menu -x P -y P -T 'Extract' \
 'hash' {key/h} 'run -b "tmux-extract-tokens pane hash"' \
 'line' {key/l} 'run -b "tmux-extract-tokens pane line"'  \
 'path' {key/p} 'run -b "tmux-extract-tokens pane path"'  \

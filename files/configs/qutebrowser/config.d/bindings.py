@@ -3,13 +3,13 @@ c.bindings.default = {}
 
 # maps some keys to other keys
 c.bindings.key_mappings = {
-    '<Ctrl-{key/return/upp}>'         : '<Return>',
-    '<{key/Enter}>'                   : '<Return>',
-    '<Shift-{key/Enter}>'             : '<Return>',
-    '<Shift-{key/Return}>'            : '<Return>',
-    '<Ctrl-{key/Enter}>'              : '<Ctrl-Return>',
-    '<Ctrl-{key/complete/low}>'       : '<Tab>',
-    '<Ctrl-Shift-{key/complete/low}>' : '<Shift-Tab>'
+    '<Ctrl-{key/return/upp}>'           : '<Return>',
+    '<{key/Enter}>'                     : '<Return>',
+    '<Shift-{key/Enter}>'               : '<Return>',
+    '<Shift-{key/Return}>'              : '<Return>',
+    '<Ctrl-{key/Enter}>'                : '<Ctrl-Return>',
+    '<Ctrl-{key/tabulation/low}>'       : '<Tab>',
+    '<Ctrl-Shift-{key/tabulation/low}>' : '<Shift-Tab>'
 }
 
 
@@ -54,8 +54,8 @@ config.bind('<Ctrl-{key/next/upp}>'   ,                      'command-history-ne
 config.bind('<Ctrl-{key/previous/upp}>',                     'command-history-prev',                 mode='command')
 config.bind('<{key/Down}>',                                  'completion-item-focus --history next', mode='command')
 config.bind('<{key/Up}>',                                    'completion-item-focus --history prev', mode='command')
-config.bind('<{key/Tab}>',                                   'completion-item-focus next',           mode='command')
-config.bind('<Shift-{key/Tab}>',                             'completion-item-focus prev',           mode='command')
+config.bind('<{key/complete/Tab}>',                          'completion-item-focus next',           mode='command')
+config.bind('<Shift-{key/complete/Tab}>',                    'completion-item-focus prev',           mode='command')
 
 # hint mode
 config.bind('<{key/Escape}>',             'leave-mode',  mode='hint')
@@ -81,8 +81,8 @@ config.bind('<Ctrl-{key/command_delete_start/upp}>',         'rl-unix-line-disca
 config.bind('<Ctrl-{key/yank/upp}>',                         'rl-yank',                 mode='command')
 config.bind('<{key/Down}>',                                  'prompt-item-focus next',  mode='prompt')
 config.bind('<{key/Up}>',                                    'prompt-item-focus prev',  mode='prompt')
-config.bind('<{key/Tab}>',                                   'prompt-item-focus next',  mode='prompt')
-config.bind('<Shift-{key/Tab}>',                             'prompt-item-focus prev',  mode='prompt')
+config.bind('<{key/complete/Tab}>',                          'prompt-item-focus next',  mode='prompt')
+config.bind('<Shift-{key/complete/Tab}>',                    'prompt-item-focus prev',  mode='prompt')
 
 # register mode
 config.bind('<{key/Escape}>',             'leave-mode', mode='register')

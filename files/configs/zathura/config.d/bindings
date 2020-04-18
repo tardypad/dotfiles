@@ -5,7 +5,7 @@ map {key/Escape}                   abort
 map {key/command}                  focus_inputbar :
 map {key/open}                     focus_inputbar ':open '
 map {key/reload}                   reload
-map {key/Tab}                      toggle_index
+map {key/tabulation/Tab}           toggle_index
 map {key/left}                     scroll left
 map {key/down}                     scroll down
 map {key/up}                       scroll up
@@ -46,7 +46,7 @@ map [fullscreen] {key/Escape}                   abort
 map [fullscreen] {key/command}                  focus_inputbar :
 map [fullscreen] {key/open}                     focus_inputbar ':open '
 map [fullscreen] {key/reload}                   reload
-map [fullscreen] {key/Tab}                      toggle_index
+map [fullscreen] {key/tabulation/Tab}           toggle_index
 map [fullscreen] {key/left}                     scroll left
 map [fullscreen] {key/down}                     scroll down
 map [fullscreen] {key/up}                       scroll up
@@ -89,7 +89,7 @@ map [index] {key/left/upp}               navigate_index collapse-all
 map [index] {key/right/upp}              navigate_index expand-all
 map [index] <C-{key/return/low}>         navigate_index select
 map [index] {key/Return}                 navigate_index select
-map [index] {key/Tab}                    toggle_index
+map [index] {key/tabulation/Tab}         toggle_index
 map [index] <C-{key/interrupt/low}>      toggle_index
 map [index] {key/Escape}                 toggle_index
 map [index] {key/quit}                   toggle_index

@@ -28,7 +28,7 @@ bindsym $mod+Ctrl+{key/Escape} exec time-tracker stop
 bindsym $mod+{key/g} exec screenshot
 
 # toggle bar status mode
-bindsym $mod+{key/Tab} exec i3blocks-mode toggle
+bindsym $mod+{key/tabulation/Tab} exec i3blocks-mode toggle
 
 # run quick command
 bindsym $mod+{key/Return} exec sway-quick-command
