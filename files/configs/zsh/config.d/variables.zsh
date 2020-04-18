@@ -90,7 +90,6 @@ FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},ctrl-{key/command_start/low}:beginning-of-
 FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},{key/left}:backward-char"
 FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},{key/right}:forward-char"
 FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},ctrl-{key/command_delete_backward_char/low}:backward-delete-char,{key/bspace}:backward-delete-char"
-FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},{key/del}:delete-char"
 FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},ctrl-{key/command_delete_backward_word/low}:backward-kill-word"
 FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},ctrl-{key/command_delete_start/low}:unix-line-discard"
 FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},ctrl-{key/command_end/low}:end-of-line"
