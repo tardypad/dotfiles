@@ -4,19 +4,19 @@ c.bindings.default = {}
 # maps some keys to other keys
 c.bindings.key_mappings = {
     '<Ctrl-{key/return/upp}>'           : '<Return>',
-    '<{key/Enter}>'                     : '<Return>',
-    '<Shift-{key/Enter}>'               : '<Return>',
-    '<Shift-{key/Return}>'              : '<Return>',
-    '<Ctrl-{key/Enter}>'                : '<Ctrl-Return>',
+    '<{key/enter/Enter}>'               : '<Return>',
+    '<Shift-{key/enter/Enter}>'         : '<Return>',
+    '<Shift-{key/return/Return}>'       : '<Return>',
+    '<Ctrl-{key/enter/Enter}>'          : '<Ctrl-Return>',
     '<Ctrl-{key/tabulation/low}>'       : '<Tab>',
     '<Ctrl-Shift-{key/tabulation/low}>' : '<Shift-Tab>'
 }
 
 
 # caret mode
-config.bind('<{key/Escape}>',                    'leave-mode',                mode='caret')
+config.bind('<{key/escape/Escape}>',             'leave-mode',                mode='caret')
 config.bind('<Ctrl-{key/interrupt/upp}>',        'leave-mode',                mode='caret')
-config.bind('<{key/Return}>',                    'yank selection',            mode='caret')
+config.bind('<{key/return/Return}>',             'yank selection',            mode='caret')
 config.bind('{key/yank}',                        'yank selection',            mode='caret')
 config.bind('{key/select}',                      'toggle-selection',          mode='caret')
 config.bind('{key/selection_other_end}',         'reverse-selection',         mode='caret')
@@ -41,9 +41,9 @@ config.bind('{key/paragraph_previous}',          'move-to-end-of-prev-block', mo
 config.bind('{key/paragrap_next}',               'move-to-end-of-next-block', mode='caret')
 
 # command mode
-config.bind('<{key/Escape}>',                                'leave-mode',                           mode='command')
+config.bind('<{key/escape/Escape}>',                         'leave-mode',                           mode='command')
 config.bind('<Ctrl-{key/interrupt/upp}>',                    'leave-mode',                           mode='command')
-config.bind('<{key/Return}>',                                'command-accept',                       mode='command')
+config.bind('<{key/return/Return}>',                         'command-accept',                       mode='command')
 config.bind('<Ctrl-{key/command_start/upp}>',                'rl-beginning-of-line',                 mode='command')
 config.bind('<Ctrl-{key/command_end/upp}>',                  'rl-end-of-line',                       mode='command')
 config.bind('<Ctrl-{key/command_delete_backward_char/upp}>', 'rl-backward-delete-char',              mode='command')
@@ -52,46 +52,46 @@ config.bind('<Ctrl-{key/command_delete_start/upp}>',         'rl-unix-line-disca
 config.bind('<Ctrl-{key/yank/upp}>',                         'rl-yank',                              mode='command')
 config.bind('<Ctrl-{key/next/upp}>'   ,                      'command-history-next',                 mode='command')
 config.bind('<Ctrl-{key/previous/upp}>',                     'command-history-prev',                 mode='command')
-config.bind('<{key/Down}>',                                  'completion-item-focus --history next', mode='command')
-config.bind('<{key/Up}>',                                    'completion-item-focus --history prev', mode='command')
+config.bind('<{key/down/Down}>',                             'completion-item-focus --history next', mode='command')
+config.bind('<{key/up/Up}>',                                 'completion-item-focus --history prev', mode='command')
 config.bind('<{key/complete/Tab}>',                          'completion-item-focus next',           mode='command')
 config.bind('<Shift-{key/complete/Tab}>',                    'completion-item-focus prev',           mode='command')
 
 # hint mode
-config.bind('<{key/Escape}>',             'leave-mode',  mode='hint')
+config.bind('<{key/escape/Escape}>',      'leave-mode',  mode='hint')
 config.bind('<Ctrl-{key/interrupt/upp}>', 'leave-mode',  mode='hint')
-config.bind('<{key/Return}>',             'follow-hint', mode='hint')
+config.bind('<{key/return/Return}>',      'follow-hint', mode='hint')
 
 # insert mode
-config.bind('<{key/Escape}>',             'leave-mode', mode='insert')
+config.bind('<{key/escape/Escape}>',      'leave-mode', mode='insert')
 config.bind('<Ctrl-{key/interrupt/upp}>', 'leave-mode', mode='insert')
 
 # passthrough mode
-config.bind('<Ctrl-{key/Escape}>', 'leave-mode', mode='passthrough')
+config.bind('<Ctrl-{key/escape/Escape}>', 'leave-mode', mode='passthrough')
 
 # prompt mode
-config.bind('<{key/Escape}>',                                'leave-mode',              mode='prompt')
+config.bind('<{key/escape/Escape}>',                         'leave-mode',              mode='prompt')
 config.bind('<Ctrl-{key/interrupt/upp}>',                    'leave-mode',              mode='prompt')
-config.bind('<{key/Return}>',                                'prompt-accept',           mode='prompt')
+config.bind('<{key/return/Return}>',                         'prompt-accept',           mode='prompt')
 config.bind('<Ctrl-{key/command_start/upp}>',                'rl-beginning-of-line',    mode='command')
 config.bind('<Ctrl-{key/command_end/upp}>',                  'rl-end-of-line',          mode='command')
 config.bind('<Ctrl-{key/command_delete_backward_char/upp}>', 'rl-backward-delete-char', mode='command')
 config.bind('<Ctrl-{key/command_delete_backward_word/upp}>', 'rl-backward-kill-word',   mode='command')
 config.bind('<Ctrl-{key/command_delete_start/upp}>',         'rl-unix-line-discard',    mode='command')
 config.bind('<Ctrl-{key/yank/upp}>',                         'rl-yank',                 mode='command')
-config.bind('<{key/Down}>',                                  'prompt-item-focus next',  mode='prompt')
-config.bind('<{key/Up}>',                                    'prompt-item-focus prev',  mode='prompt')
+config.bind('<{key/down/Down}>',                             'prompt-item-focus next',  mode='prompt')
+config.bind('<{key/up/Up}>',                                 'prompt-item-focus prev',  mode='prompt')
 config.bind('<{key/complete/Tab}>',                          'prompt-item-focus next',  mode='prompt')
 config.bind('<Shift-{key/complete/Tab}>',                    'prompt-item-focus prev',  mode='prompt')
 
 # register mode
-config.bind('<{key/Escape}>',             'leave-mode', mode='register')
+config.bind('<{key/escape/Escape}>',      'leave-mode', mode='register')
 config.bind('<Ctrl-{key/interrupt/upp}>', 'leave-mode', mode='register')
 
 # yesno mode
-config.bind('<{key/Escape}>',             'leave-mode',        mode='yesno')
+config.bind('<{key/escape/Escape}>',      'leave-mode',        mode='yesno')
 config.bind('<Ctrl-{key/interrupt/upp}>', 'leave-mode',        mode='yesno')
-config.bind('<{key/Return}>',             'prompt-accept',     mode='yesno')
+config.bind('<{key/return/Return}>',      'prompt-accept',     mode='yesno')
 config.bind('{key/y}',                    'prompt-accept yes', mode='yesno')
 config.bind('{key/n}',                    'prompt-accept no',  mode='yesno')
 
@@ -99,17 +99,17 @@ config.bind('{key/n}',                    'prompt-accept no',  mode='yesno')
 # normal mode
 
 # mode switching
-config.bind('{key/insert}',        'enter-mode insert',      mode='normal')
-config.bind("{key/mark_jump}",     'enter-mode jump_mark',   mode='normal')
-config.bind('{key/mark_set}',      'enter-mode set_mark',    mode='normal')
-config.bind('<Ctrl-{key/Escape}>', 'enter-mode passthrough', mode='normal')
-config.bind('{key/select}',        'enter-mode caret',       mode='normal')
+config.bind('{key/insert}',               'enter-mode insert',      mode='normal')
+config.bind("{key/mark_jump}",            'enter-mode jump_mark',   mode='normal')
+config.bind('{key/mark_set}',             'enter-mode set_mark',    mode='normal')
+config.bind('<Ctrl-{key/escape/Escape}>', 'enter-mode passthrough', mode='normal')
+config.bind('{key/select}',               'enter-mode caret',       mode='normal')
 
 # general
 config.bind('<Ctrl-{key/quit/upp}>',               'quit',                                                                     mode='normal')
-config.bind('<{key/Escape}>',                      'clear-keychain ;; stop ;; search ;; clear-messages ;; fullscreen --leave', mode='normal')
-config.bind('<{key/Return}>',                      'search',                                                                   mode='normal')
-config.bind('<{key/Space}>',                       'nop',                                                                      mode='normal')
+config.bind('<{key/escape/Escape}>',               'clear-keychain ;; stop ;; search ;; clear-messages ;; fullscreen --leave', mode='normal')
+config.bind('<{key/return/Return}>',               'search',                                                                   mode='normal')
+config.bind('<{key/space/Space}>',                 'nop',                                                                      mode='normal')
 config.bind('<Alt-Shift-{key/reload_config/upp}>', 'message-info "reloading config" ;; later 100 config-source',               mode='normal')
 config.bind('{key/command}',                       'set-cmd-text :',                                                           mode='normal')
 config.bind('{key/repeat}',                        'repeat-command',                                                           mode='normal')

@@ -1,7 +1,7 @@
 # normal mode
 map {key/quit}                     quit
 map <C-{key/interrupt/low}>        abort
-map {key/Escape}                   abort
+map {key/escape/Escape}            abort
 map {key/command}                  focus_inputbar :
 map {key/open}                     focus_inputbar ':open '
 map {key/reload}                   reload
@@ -42,7 +42,7 @@ map <C-{key/p}>                    toggle_presentation
 # (mostly duplicated from normal mode...)
 map [fullscreen] {key/quit}                     quit
 map [fullscreen] <C-{key/interrupt/low}>        abort
-map [fullscreen] {key/Escape}                   abort
+map [fullscreen] {key/escape/Escape}            abort
 map [fullscreen] {key/command}                  focus_inputbar :
 map [fullscreen] {key/open}                     focus_inputbar ':open '
 map [fullscreen] {key/reload}                   reload
@@ -88,19 +88,19 @@ map [index] {key/right/low}              navigate_index expand
 map [index] {key/left/upp}               navigate_index collapse-all
 map [index] {key/right/upp}              navigate_index expand-all
 map [index] <C-{key/return/low}>         navigate_index select
-map [index] {key/Return}                 navigate_index select
+map [index] {key/return/Return}          navigate_index select
 map [index] {key/tabulation/Tab}         toggle_index
 map [index] <C-{key/interrupt/low}>      toggle_index
-map [index] {key/Escape}                 toggle_index
+map [index] {key/escape/Escape}          toggle_index
 map [index] {key/quit}                   toggle_index
 
 # presentation mode
 map [presentation] {key/up}                     navigate previous
 map [presentation] {key/down}                   navigate next
-map [presentation] {key/Space}                  navigate next
+map [presentation] {key/space/Space}            navigate next
 map [presentation] {key/goto_top}{key/goto_top} goto top
 map [presentation] {key/goto_bottom}            goto bottom
 map [presentation] <C-{key/interrupt/low}>      toggle_presentation
-map [presentation] {key/Escape}                 toggle_presentation
+map [presentation] {key/escape/Escape}          toggle_presentation
 map [presentation] <C-{key/p}>                  toggle_presentation
 map [presentation] {key/quit}                   toggle_presentation

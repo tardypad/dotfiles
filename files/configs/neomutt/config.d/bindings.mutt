@@ -1,12 +1,12 @@
 # general
-bind index,pager   \C{key/quit/low}    quit
-bind index         {key/quit}          quit
-bind generic,pager {key/quit}          exit
-bind generic,pager <{key/Esc}>{key/?}> help
-bind generic,pager {key/command}       enter-command
-bind generic       <{key/Return}>      select-entry
-bind index,pager   {key/$}             sync-mailbox
-bind index         <{key/Return}>      display-message
+bind index,pager   \C{key/quit/low}           quit
+bind index         {key/quit}                 quit
+bind generic,pager {key/quit}                 exit
+bind generic,pager <{key/escape/Esc}>{key/?}> help
+bind generic,pager {key/command}              enter-command
+bind generic       <{key/return/Return}>      select-entry
+bind index,pager   {key/$}                    sync-mailbox
+bind index         <{key/return/Return}>      display-message
 
 # mail
 bind index,pager {key/m}    mail
@@ -44,32 +44,32 @@ bind generic,index,pager {key/search_repeat}         search-next
 bind generic,index,pager {key/search_repeat_reverse} search-opposite
 
 # tagging
-bind generic {key/tag/low}                   tag-entry
-bind index   {key/tag/upp}{key/p}            tag-pattern
-bind index   {key/tag/upp}{key/t}            tag-thread
-bind index   <{key/Esc}>{key/tag/upp}{key/p} untag-pattern
-bind generic \{key/;}                        tag-prefix
+bind generic {key/tag/low}                          tag-entry
+bind index   {key/tag/upp}{key/p}                   tag-pattern
+bind index   {key/tag/upp}{key/t}                   tag-thread
+bind index   <{key/escape/Esc}>{key/tag/upp}{key/p} untag-pattern
+bind generic \{key/;}                               tag-prefix
 
 # browser
 bind browser {key/v} view-file
 
 # deletion
-bind index,pager {key/delete/low}                   delete-message
-bind index       {key/delete/upp}{key/p}            delete-pattern
-bind index,pager {key/delete/upp}{key/t}            delete-thread
-bind index,pager <{key/Esc}>{key/delete}            undelete-message
-bind index       <{key/Esc}>{key/delete/upp}{key/p} undelete-pattern
-bind index,pager <{key/Esc}>{key/delete/upp}{key/t} undelete-thread
+bind index,pager {key/delete/low}                          delete-message
+bind index       {key/delete/upp}{key/p}                   delete-pattern
+bind index,pager {key/delete/upp}{key/t}                   delete-thread
+bind index,pager <{key/escape/Esc}>{key/delete}            undelete-message
+bind index       <{key/escape/Esc}>{key/delete/upp}{key/p} undelete-pattern
+bind index,pager <{key/escape/Esc}>{key/delete/upp}{key/t} undelete-thread
 
 # purge deleted messages from Spam folder on sync
 folder-hook .       "macro index,pager {key/$} <sync-mailbox> 'sync mailbox'"
 folder-hook .*/Spam "macro index,pager {key/$} <tag-pattern>~D<enter><tag-prefix><purge-message><sync-mailbox> 'purge deleted messages and sync mailbox'"
 
 # attachments
-bind index,pager {key/v}        view-attachments
-bind attach      {key/v}        view-mailcap
-bind attach      <{key/Return}> view-attach
-macro attach     {key/save}     <save-entry><bol>~/Downloads/<eol>
+bind index,pager {key/v}               view-attachments
+bind attach      {key/v}               view-mailcap
+bind attach      <{key/return/Return}> view-attach
+macro attach     {key/save}            <save-entry><bol>~/Downloads/<eol>
 
 # threads
 bind index {key/z}{key/a} collapse-thread
@@ -85,10 +85,10 @@ bind editor \C{key/previous/low}                     history-up
 bind editor \C{key/command_delete_all/low}           kill-line
 bind editor \C{key/command_delete_backward_word/low} kill-word
 bind editor <{key/complete/Tab}>                     complete
-bind editor <{key/BackSpace}>                        backspace
+bind editor <{key/backspace/BackSpace}>              backspace
 
 # Show documentation
-macro generic,pager <{key/Esc}>{key/h} "<shell-escape>less /usr/share/doc/neomutt/manual.txt<Enter>" "Show documentation"
+macro generic,pager <{key/escape/Esc}>{key/h} "<shell-escape>less /usr/share/doc/neomutt/manual.txt<Enter>" "Show documentation"
 
 # change account
 macro index,pager <{key/F1}> "<change-folder>imaps://$my_gmail_email@imap.gmail.com<Enter>"   "Gmail"
@@ -101,12 +101,12 @@ bind index,pager \C{key/next/low}     sidebar-next
 bind index,pager \C{key/open/low}     sidebar-open
 
 # compose message
-bind compose {key/edit}{key/f} edit-from
-bind compose {key/edit}{key/t} edit-to
-bind compose {key/edit}{key/c} edit-cc
-bind compose {key/edit}{key/s} edit-subject
-bind compose {key/edit}{key/m} edit-message
-bind compose <{key/Return}>    view-attach
-bind compose {key/y}           send-message
-bind compose {key/a}           attach-file
-bind compose {key/d}           detach-file
+bind compose {key/edit}{key/f}     edit-from
+bind compose {key/edit}{key/t}     edit-to
+bind compose {key/edit}{key/c}     edit-cc
+bind compose {key/edit}{key/s}     edit-subject
+bind compose {key/edit}{key/m}     edit-message
+bind compose <{key/return/Return}> view-attach
+bind compose {key/y}               send-message
+bind compose {key/a}               attach-file
+bind compose {key/d}               detach-file

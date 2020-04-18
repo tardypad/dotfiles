@@ -30,6 +30,7 @@ The placeholders have the following structures:
 - "{key/ALIAS/FORMAT}" where FORMAT defines the output format
 - "{key/ALIAS/KEY}" where KEY is not a FORMAT
 - "{key/KEY}" where KEY is not an ALIAS.
+- "{key/NAME/KEY}" where NAME is not an ALIAS.
 
 When KEY is present, the placeholder gets directly substituted by this
 hardcoded value.
@@ -37,3 +38,7 @@ hardcoded value.
 FORMAT is one of:
 - "low" (lowercase)
 - "upp" (uppercase)
+
+NAME is mainly used for keys that can only be mentioned by name such as
+"space", "backspace",... Since their name is inconsistent across tools, we
+group them that way.

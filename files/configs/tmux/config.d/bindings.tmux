@@ -8,7 +8,7 @@ unbind -T copy-mode-vi -a
 ## general
 
 # prefix
-bind C-{key/Space} send-prefix
+bind C-{key/space/Space} send-prefix
 
 # reload configuration
 bind M-{key/reload_config} source-file ~/.tmux.conf \; \
@@ -29,8 +29,8 @@ bind M-{key/clear}   clear-history \; \
                      display-message "Pane history cleared"
 
 # copy/paste
-bind {key/Space} copy-mode
-bind {key/Enter} paste-buffer
+bind {key/space/Space} copy-mode
+bind {key/enter/Enter} paste-buffer
 
 
 ## sessions management (Ctrl)
@@ -140,8 +140,8 @@ bind -T root M-{key/up/low}        run "tmux-select-pane-vim k"
 bind -T root M-{key/right/low}     run "tmux-select-pane-vim l"
 
 # respawn
-bind   {key/BSpace} respawn-pane
-bind M-{key/BSpace} respawn-pane -k
+bind   {key/backspace/BSpace} respawn-pane
+bind M-{key/backspace/BSpace} respawn-pane -k
 
 # move mode
 bind         {key/move/upp}      switch-client -T MOVE
@@ -180,8 +180,8 @@ bind -T RESIZE {key/right/upp}  switch-client -T RESIZE \; resize-pane -R 3
 ## root key space
 
 # no distraction modes
-bind -T root   M-{key/Space} run "tmux-toggle-no-distraction window"
-bind -T root M-C-{key/Space} run "tmux-toggle-no-distraction pane"
+bind -T root   M-{key/space/Space} run "tmux-toggle-no-distraction window"
+bind -T root M-C-{key/space/Space} run "tmux-toggle-no-distraction pane"
 
 # extract menus
 
@@ -208,13 +208,13 @@ bind -T copy-mode-vi C-{key/interrupt/low} send-keys -X cancel
 bind -T copy-mode-vi   {key/quit/low}      send-keys -X cancel
 
 # selection
-bind -T copy-mode-vi   {key/select}      send-keys -X begin-selection
-bind -T copy-mode-vi   {key/select_line} send-keys -X select-line
-bind -T copy-mode-vi C-{key/select/low}  send-keys -X rectangle-toggle
-bind -T copy-mode-vi   {key/Escape}      send-keys -X clear-selection
+bind -T copy-mode-vi   {key/select}        send-keys -X begin-selection
+bind -T copy-mode-vi   {key/select_line}   send-keys -X select-line
+bind -T copy-mode-vi C-{key/select/low}    send-keys -X rectangle-toggle
+bind -T copy-mode-vi   {key/escape/Escape} send-keys -X clear-selection
 
 # selection actions
-bind -T copy-mode-vi {key/Enter} send-keys -X copy-pipe-and-cancel "tmux paste-buffer"
+bind -T copy-mode-vi {key/enter/Enter} send-keys -X copy-pipe-and-cancel "tmux paste-buffer"
 %if #{DISPLAY}
 bind -T copy-mode-vi C-{key/search/low} send-keys -X copy-pipe-and-cancel "xargs -I {} tmux run-shell 'xdg-open https://www.google.com/search?q=\"{}\" > /dev/null'"
 bind -T copy-mode-vi C-{key/open/low}   send-keys -X copy-pipe-and-cancel "xargs -I {} tmux run-shell 'xdg-open \"{}\" > /dev/null'"

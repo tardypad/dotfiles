@@ -7,22 +7,22 @@ bindsym $mod+Ctrl+{key/quit/low} exit
 bindsym $mod+Alt+Shift+{key/reload_config/low} reload
 
 # general command input
-bindsym $mod+{key/colon} exec sway-command-input
+bindsym $mod+{key/command/colon} exec sway-command-input
 
 # lock the screen
-bindsym $mod+{key/Backspace} exec swaylock
+bindsym $mod+{key/backspace/Backspace} exec swaylock
 
 # focus first window with urgent flag
 bindsym $mod+{key/u} [urgent="first"] focus
 
 # do not disturb toggle
-bindsym $mod+{key/Escape} exec do-not-disturb toggle
+bindsym $mod+{key/escape/Escape} exec do-not-disturb toggle
 
 # toggle Pomodoro session
-bindsym $mod+Shift+{key/Escape} exec pomodoro toggle
+bindsym $mod+Shift+{key/escape/Escape} exec pomodoro toggle
 
 # stop time tracker
-bindsym $mod+Ctrl+{key/Escape} exec time-tracker stop
+bindsym $mod+Ctrl+{key/escape/Escape} exec time-tracker stop
 
 # select region and grab screenshot
 bindsym $mod+{key/g} exec screenshot
@@ -31,7 +31,7 @@ bindsym $mod+{key/g} exec screenshot
 bindsym $mod+{key/tabulation/Tab} exec i3blocks-mode toggle
 
 # run quick command
-bindsym $mod+{key/Return} exec sway-quick-command
+bindsym $mod+{key/return/Return} exec sway-quick-command
 
 
 ## notifications
@@ -43,8 +43,8 @@ bindsym $mod+Ctrl+Shift+{key/kill/low} exec makoctl dismiss --all
 ## launchers
 
 mode "-- Launchers --" {
-    bindsym {key/Space}     mode "default", exec sway-menu -r -- -p 'Run'
-    bindsym {key/Backspace} mode "default", exec sway-menu-system
+    bindsym {key/space/Space}         mode "default", exec sway-menu -r -- -p 'Run'
+    bindsym {key/backspace/Backspace} mode "default", exec sway-menu-system
 
     bindsym {key/j} mode "default", exec sway-launcher sway-launch-tmux-env projects "--margin '1,2,0,2' --prompt 'open project '"
     bindsym {key/o} mode "default", exec sway-launcher copy-otp                      "--margin '1,2,0,2' --prompt 'copy otp '"
@@ -59,10 +59,10 @@ mode "-- Launchers --" {
     bindsym {key/m} mode "default", exec {app/mail_client}
     bindsym {key/w} mode "default", exec {app/web_browser}
 
-    bindsym {key/Return} mode "default"
-    bindsym {key/Escape} mode "default"
+    bindsym {key/return/Return} mode "default"
+    bindsym {key/escape/Escape} mode "default"
 }
-bindsym $mod+{key/Space} mode "-- Launchers --"
+bindsym $mod+{key/space/Space} mode "-- Launchers --"
 
 
 ## floating
@@ -121,8 +121,8 @@ mode "-- move --" {
     bindsym {key/9}            exec sway-move-workspace-index 9
     bindsym {key/0}            exec sway-move-workspace-index 0
 
-    bindsym {key/Return} mode "default"
-    bindsym {key/Escape} mode "default"
+    bindsym {key/return/Return} mode "default"
+    bindsym {key/escape/Escape} mode "default"
 }
 bindsym $mod+{key/move/low} mode "-- move --"
 
@@ -132,8 +132,8 @@ mode "-- layout --" {
     bindsym {key/2} layout splitv
     bindsym {key/3} layout tabbed
 
-    bindsym {key/Return} mode "default"
-    bindsym {key/Escape} mode "default"
+    bindsym {key/return/Return} mode "default"
+    bindsym {key/escape/Escape} mode "default"
 }
 bindsym $mod+{key/layout/low} mode "-- layout --"
 
@@ -178,8 +178,8 @@ mode "-- MOVE --" {
     bindsym {key/previous/low}  move container to workspace prev_on_output, workspace prev_on_output
     bindsym {key/left/low}      move container to workspace prev_on_output, workspace prev_on_output
 
-    bindsym {key/Return} mode "default"
-    bindsym {key/Escape} mode "default"
+    bindsym {key/return/Return} mode "default"
+    bindsym {key/escape/Escape} mode "default"
 }
 bindsym $mod+Shift+{key/move/low} mode "-- MOVE --"
 
@@ -190,8 +190,8 @@ mode "-- RESIZE --" {
     bindsym Shift+{key/down/low}  resize shrink height 10 px or 10 ppt
     bindsym Shift+{key/right/low} resize grow width 10 px or 10 ppt
 
-    bindsym {key/Return} mode "default"
-    bindsym {key/Escape} mode "default"
+    bindsym {key/return/Return} mode "default"
+    bindsym {key/escape/Escape} mode "default"
 }
 bindsym $mod+Shift+{key/resize/low} mode "-- RESIZE --"
 

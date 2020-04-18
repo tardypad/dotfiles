@@ -1,13 +1,13 @@
 "" general
 
-let mapleader = "\<{key/Space}>"
+let mapleader = "\<{key/space/Space}>"
 
 " binding to reload config
 nnoremap {key/reload_config/low} :source $MYVIMRC<CR>
 
 " Disable space moves cursor in non editing mode
-noremap  <{key/Space}> <nop>
-vnoremap <{key/Space}> <nop>
+noremap  <{key/space/Space}> <nop>
+vnoremap <{key/space/Space}> <nop>
 
 " disable usage of Enter as Return in command mode
 cnoremap <C-{key/enter/upp}> <nop>
@@ -100,7 +100,7 @@ nnoremap {key/session}{key/open} :SessionOpen<space>
 "" search management
 
 " clear last search highlighting
-nnoremap <silent> <{key/CR}> :noh<CR><Esc>
+nnoremap <silent> <{key/return/CR}> :noh<CR><Esc>
 
 " Place a marker and search
 nmap <Leader>{key/search_forward} mA:Ack<Space>
@@ -124,20 +124,20 @@ nnoremap <silent> {key/file} :execute ':Ntree' getcwd()<CR>
 inoremap <expr><C-{key/g}> neocomplete#undo_completion()
 inoremap <expr><C-{key/l}> neocomplete#complete_common_string()
 
-inoremap <silent> <{key/CR}> <C-r>=<SID>my_cr_function()<CR>
+inoremap <silent> <{key/return/CR}> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
   return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
 endfunction
 
 inoremap <expr><{key/complete/TAB}>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
-inoremap <expr><C-{key/h}> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><{key/BS}>  neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-{key/h}>          neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><{key/backspace/BS}> neocomplete#smart_close_popup()."\<C-h>"
 
 
 " Goyo
 
-nnoremap <silent> <Leader><{key/Space}> :Goyo<CR>
+nnoremap <silent> <Leader><{key/space/Space}> :Goyo<CR>
 
 
 " ALE

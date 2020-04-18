@@ -51,7 +51,7 @@
 \e{key/search_repeat}         repeat-search-all
 \e{key/search_repeat_reverse} reverse-search-all
 {key/&}                       filter
-{key/\n}                      undo-hilite
+{key/return/\n}               undo-hilite
 
 # files
 ^{key/next}     next-file
@@ -68,9 +68,9 @@
 
 #line-edit
 
-{key/\kr}                               right
+{key/right/\kr}                         right
 \e{key/right}                           right
-{key/\kl}                               left
+{key/left/\kl}                          left
 \e{key/left}                            left
 ^{key/command_start/upp}                home
 ^{key/command_end/upp}                  end
@@ -84,9 +84,9 @@
 \e{key/delete/low}                      word-delete
 \e{key/delete/upp}                      word-delete
 ^{key/command_delete_backward_word/upp} word-backspace
-{key/\ku}                               up
+{key/up/\ku}                            up
 ^{key/previous/upp}                     up
-{key/\kd}                               down
+{key/down/\kd}                          down
 ^{key/next/upp}                         down
 {key/complete/\t}                       forw-complete
 

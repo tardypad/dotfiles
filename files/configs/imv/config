@@ -22,10 +22,10 @@ suppress_default_binds = true
 <Shift+{key/P}>        = exec echo $imv_current_file; close
 
 # Navigation
-<{key/Left}>                  = prev
+<{key/left/Left}>             = prev
 <Shift+{key/left/upp}>        = prev
 <Ctrl+{key/previous/low}>     = prev
-<{key/Right}>                 = next
+<{key/right/Right}>           = next
 <Shift+{key/right/upp}>       = next
 <Ctrl+{key/next/low}>         = next
 {key/goto_top}{key/goto_top}  = goto 1

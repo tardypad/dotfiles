@@ -167,7 +167,7 @@ And similarly for the other directories.
 See [keys](config/keys) configuration file.
 
 `{key/a}` gets substituted by "a".
-Similarly `{key/Space}` get substituted by "Space".
+Similarly `{key/space}` get substituted by "space".
 
 Consistency is enforced by the use of aliases. For example
 `{key/previous/upp}` is replaced by the uppercase version of the key chosen for

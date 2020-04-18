@@ -25,6 +25,7 @@ mkdir -p build
       done
 
   # other non aliased keys
+  echo 's|{key/[^/}]*/\([^}]*\)}|\1|g'
   echo 's|{key/\([^}]*\)}|\1|g'
 } > "${SCRIPT_FILE}"
 
