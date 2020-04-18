@@ -3,14 +3,14 @@ c.bindings.default = {}
 
 # maps some keys to other keys
 c.bindings.key_mappings = {
-    '<Ctrl-{key/return/upp}>'         : '<{key/Return}>',
-    '<{key/Enter}>'                   : '<{key/Return}>',
-    '<Shift-{key/Enter}>'             : '<{key/Return}>',
-    '<Shift-{key/Return}>'            : '<{key/Return}>',
-    '<Ctrl-{key/Enter}>'              : '<Ctrl-{key/Return}>',
-    '<Ctrl-{key/[}>'                  : '<{key/Escape}>',
-    '<Ctrl-{key/complete/low}>'       : '<{key/Tab}>',
-    '<Ctrl-Shift-{key/complete/low}>' : '<Shift-{key/Tab}>'
+    '<Ctrl-{key/return/upp}>'         : '<Return>',
+    '<{key/Enter}>'                   : '<Return>',
+    '<Shift-{key/Enter}>'             : '<Return>',
+    '<Shift-{key/Return}>'            : '<Return>',
+    '<Ctrl-{key/Enter}>'              : '<Ctrl-Return>',
+    '<Ctrl-{key/[}>'                  : '<Escape>',
+    '<Ctrl-{key/complete/low}>'       : '<Tab>',
+    '<Ctrl-Shift-{key/complete/low}>' : '<Shift-Tab>'
 }
 
 
