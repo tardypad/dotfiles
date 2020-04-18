@@ -25,9 +25,9 @@ bindkey -M viins   '^{key/next}'     down-history
 bindkey -M vicmd   '^{key/next}'     down-history
 
 # disable usage of Enter as Return
-bindkey -M viins   '^{key/newline}' self-insert
-bindkey -M vicmd   '^{key/newline}' self-insert
-bindkey -M isearch '^{key/newline}' self-insert
+bindkey -M viins   '^{key/enter}' self-insert
+bindkey -M vicmd   '^{key/enter}' self-insert
+bindkey -M isearch '^{key/enter}' self-insert
 
 # kill buffer
 bindkey -M viins   '^{key/command_delete_all}' kill-buffer

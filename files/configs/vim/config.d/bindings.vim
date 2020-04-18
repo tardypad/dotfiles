@@ -10,7 +10,7 @@ noremap  <{key/Space}> <nop>
 vnoremap <{key/Space}> <nop>
 
 " disable usage of Enter as Return in command mode
-cnoremap <C-{key/newline/upp}> <nop>
+cnoremap <C-{key/enter/upp}> <nop>
 
 " remove ex mode binding
 nmap {key/Q} <nop>

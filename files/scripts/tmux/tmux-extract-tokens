@@ -37,7 +37,7 @@ ITEM=$(
     | sort -u \
     | fzf-tmux -d "${SPLIT_HEIGHT}" -- \
         --prompt "${TOKEN_TYPE}> " \
-        --expect={key/enter},ctrl-{key/open/low},ctrl-{key/search/low},ctrl-{key/yank/low} \
+        --expect={key/enter/enter},ctrl-{key/open/low},ctrl-{key/search/low},ctrl-{key/yank/low} \
 )
 
 [ -n "${ITEM}" ] || exit 0
@@ -46,7 +46,7 @@ KEY=$( echo "${ITEM}" | head -n 1 )
 TEXT=$( echo "${ITEM}" | tail -n +2 )
 
 case "${KEY}" in
-  {key/enter})
+  {key/enter/enter})
     tmux set-buffer -- "${TEXT}"
     tmux paste-buffer
     ;;

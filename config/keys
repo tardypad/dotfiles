@@ -1,6 +1,6 @@
 complete  i
 interrupt c
-newline   j
+enter     j
 return    m
 suspend   z
 

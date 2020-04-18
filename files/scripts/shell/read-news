@@ -66,7 +66,7 @@ read_feed() {
           --header "${FEED_HEADER}" \
           --preview "printf '%s\n%s\n\n' {1} {5}; echo {4} | ${VIEW_SCRIPT} -dump" \
           --preview-window 'down:60%' \
-          --bind "{key/enter}:execute(echo {4} | ${VIEW_SCRIPT})" \
+          --bind "{key/enter/enter}:execute(echo {4} | ${VIEW_SCRIPT})" \
           --bind "ctrl-{key/open/low}:execute-silent(xdg-open {3} &)" \
           --bind "change:ignore" \
           --bind "{key/goto_top}:top" \
