@@ -1,18 +1,18 @@
 # use vi mode line editing
 bindkey -v
 
-# Use Alt-. to insert last word of previous command
+# insert last word of previous command
 bindkey -M viins '\e{key/.}' insert-last-word
 
-# Tab expansion on the current word up to the cursor
+# expansion on the current word up to the cursor
 bindkey -M viins '^{key/complete/upp}' expand-or-complete-prefix
 
-# menu navigation with Tab and Shift-Tab
+# menu navigation
 zmodload zsh/complist
 bindkey -M menuselect '^{key/complete/upp}' menu-complete
 bindkey -M menuselect '{key/[Z}'          reverse-menu-complete
 
-# exit menu selection with Escape
+# exit menu selection
 bindkey -M menuselect '{key/}' send-break
 
 # history navigation
@@ -24,7 +24,7 @@ bindkey -M vicmd   '^{key/previous}' up-history
 bindkey -M viins   '^{key/next}'     down-history
 bindkey -M vicmd   '^{key/next}'     down-history
 
-# disable usage of Ctrl-J as Enter
+# disable usage of Enter as Return
 bindkey -M viins   '^{key/newline}' self-insert
 bindkey -M vicmd   '^{key/newline}' self-insert
 bindkey -M isearch '^{key/newline}' self-insert

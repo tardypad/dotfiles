@@ -1,6 +1,5 @@
 "" general
 
-" Use space as leader
 let mapleader = "\<{key/Space}>"
 
 " binding to reload config
@@ -10,7 +9,7 @@ nnoremap {key/reload_config/low} :source $MYVIMRC<CR>
 noremap  <{key/Space}> <nop>
 vnoremap <{key/Space}> <nop>
 
-" disable usage of Ctrl-J as Enter in command mode
+" disable usage of Enter as Return in command mode
 cnoremap <C-{key/newline/upp}> <nop>
 
 " remove ex mode binding
@@ -100,7 +99,7 @@ nnoremap {key/session}{key/open} :SessionOpen<space>
 
 "" search management
 
-" clear last search highlighting with Enter
+" clear last search highlighting
 nnoremap <silent> <{key/CR}> :noh<CR><Esc>
 
 " Place a marker and search
@@ -116,7 +115,7 @@ nmap <Leader>{key/search_forward_current} mA:Ack "<C-r>=expand("<cword>")<cr>"
 nnoremap <silent> <Leader>{key/edit}{key/file}   :FZF<CR>
 nnoremap <silent> <Leader>{key/edit}{key/buffer} :Buffers<CR>
 
-" Alt+f to open file picker at current working directory
+" open file picker at current working directory
 nnoremap <silent> {key/file} :execute ':Ntree' getcwd()<CR>
 
 
@@ -125,16 +124,13 @@ nnoremap <silent> {key/file} :execute ':Ntree' getcwd()<CR>
 inoremap <expr><C-{key/g}> neocomplete#undo_completion()
 inoremap <expr><C-{key/l}> neocomplete#complete_common_string()
 
-" <CR>: close popup and save indent.
 inoremap <silent> <{key/CR}> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
   return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
 endfunction
 
-" <TAB>: completion.
 inoremap <expr><{key/TAB}>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
-" <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-{key/h}> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><{key/BS}>  neocomplete#smart_close_popup()."\<C-h>"
 
