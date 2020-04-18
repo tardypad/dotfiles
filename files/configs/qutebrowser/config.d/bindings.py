@@ -236,9 +236,9 @@ config.bind('{key/tab}{key/move}{key/right}',    'tab-move +',  mode='normal')
 config.bind('{key/tab}{key/move}{key/next}',     'tab-move +',  mode='normal')
 
 # zooming
-config.bind('<Ctrl-{key/-}>',       'zoom-out', mode='normal')
-config.bind('<Ctrl-Shift-{key/+}>', 'zoom-in',  mode='normal')
-config.bind('<Ctrl-{key/=}>',       'zoom',     mode='normal')
+config.bind('<Ctrl-{key/zoom_out}>',      'zoom-out', mode='normal')
+config.bind('<Ctrl-Shift-{key/zoom_in}>', 'zoom-in',  mode='normal')
+config.bind('<Ctrl-{key/zoom_reset}>',    'zoom',     mode='normal')
 
 # qute:// links
 config.bind('{key/Q}{key/bookmark/low}', 'open --tab qute://bookmarks#bookmarks',  mode='normal')

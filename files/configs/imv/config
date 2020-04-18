@@ -39,9 +39,9 @@ suppress_default_binds = true
 {key/right} = pan -50 0
 
 # Zooming
-<Ctrl+Shift+{key/plus}> = zoom 5
-<Ctrl+{key/minus}>      = zoom -5
-<Ctrl+{key/equal}>      = zoom actual
+<Ctrl+Shift+{key/zoom_in/plus}> = zoom 5
+<Ctrl+{key/zoom_out/minus}>     = zoom -5
+<Ctrl+{key/zoom_reset/equal}>   = zoom actual
 
 # Scaling
 {key/s}{key/c} = scaling crop

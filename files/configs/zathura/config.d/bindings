@@ -29,9 +29,9 @@ map {key/search_backward}          focus_inputbar ?
 map {key/search_repeat}            search forward
 map {key/search_repeat_reverse}    search backward
 map {key/f}                        follow
-map <C-{key/-}>                    zoom out
-map <C-{key/+}>                    zoom in
-map <C-{key/=}>                    zoom specific
+map <C-{key/zoom_out}>             zoom out
+map <C-{key/zoom_in}>              zoom in
+map <C-{key/zoom_reset}>           zoom specific
 map {key/zoom}{key/f}              adjust_window best-fit
 map {key/zoom}{key/w}              adjust_window width
 map {key/d}                        toggle_page_mode
@@ -70,9 +70,9 @@ map [fullscreen] {key/search_backward}          focus_inputbar ?
 map [fullscreen] {key/search_repeat}            search forward
 map [fullscreen] {key/search_repeat_reverse}    search backward
 map [fullscreen] {key/f}                        follow
-map [fullscreen] <C-{key/-}>                    zoom out
-map [fullscreen] <C-{key/+}>                    zoom in
-map [fullscreen] <C-{key/=}>                    zoom specific
+map [fullscreen] <C-{key/zoom_out}>             zoom out
+map [fullscreen] <C-{key/zoom_in}>              zoom in
+map [fullscreen] <C-{key/zoom_reset}>           zoom specific
 map [fullscreen] {key/zoom}{key/f}              adjust_window best-fit
 map [fullscreen] {key/zoom}{key/w}              adjust_window width
 map [fullscreen] {key/d}                        toggle_page_mode

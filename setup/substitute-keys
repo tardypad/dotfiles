@@ -21,6 +21,7 @@ mkdir -p build
         echo "s|{key/${ALIAS}}|${KEY}|g"
         echo "s|{key/${ALIAS}/low}|${KEY_LOW}|g"
         echo "s|{key/${ALIAS}/upp}|${KEY_UPP}|g"
+        echo "s|{key/${ALIAS}/\([^}]*\)}|\1|g"
       done
 
   # other non aliased keys

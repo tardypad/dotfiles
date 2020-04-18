@@ -40,6 +40,10 @@ previous  p
 split_horizontal s
 split_vertical   v
 
+zoom_in    -
+zoom_out   +
+zoom_reset =
+
 bookmark b
 buffer   b
 download d

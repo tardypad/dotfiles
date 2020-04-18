@@ -27,9 +27,12 @@ The bindings are currently focused only on a single output usage.
 
 The placeholders have the following structures:
 - "{key/ALIAS}" where ALIAS is used to identify the key binding
-- "{key/ALIAS/FORMAT}" where FORMAT force the output format
+- "{key/ALIAS/FORMAT}" where FORMAT defines the output format
+- "{key/ALIAS/KEY}" where KEY is not a FORMAT
 - "{key/KEY}" where KEY is not an ALIAS.
-  This gets directly substituted by the hardcoded "KEY".
+
+When KEY is present, the placeholder gets directly substituted by this
+hardcoded value.
 
 FORMAT is one of:
 - "low" (lowercase)
