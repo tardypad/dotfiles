@@ -78,7 +78,7 @@ bind index {key/z}{key/A} collapse-all
 # editor menu
 bind editor \C{key/command_start/low}                bol
 bind editor \C{key/command_end/low}                  eol
-bind editor \C{key/command_delete_backward_char/low} backspace
+bind editor \C{key/backspace/low}                    backspace
 bind editor \C{key/k}                                kill-eol
 bind editor \C{key/next/low}                         history-down
 bind editor \C{key/previous/low}                     history-up

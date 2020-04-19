@@ -1,6 +1,7 @@
 interrupt  c
 suspend    z
 
+backspace  h
 enter      j
 return     m
 tabulation i
@@ -105,7 +106,6 @@ search_forward_current *
 
 command_start                b
 command_end                  e
-command_delete_backward_char h
 command_delete_backward_word w
 command_delete_all           d
 command_delete_start         u
