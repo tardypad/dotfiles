@@ -63,7 +63,6 @@ vim-configs:
 
 	setup/install-vim-plugin surround          "$(DESTDIR)" git https://github.com/tpope/vim-surround                 5970688
 	setup/install-vim-plugin ale               "$(DESTDIR)" git https://github.com/w0rp/ale                           v2.3.1
-	setup/install-vim-plugin neocomplete       "$(DESTDIR)" git https://github.com/shougo/neocomplete.vim             d3b4d28
 	setup/install-vim-plugin nerdcommenter     "$(DESTDIR)" git https://github.com/scrooloose/nerdcommenter           2.5.2
 	setup/install-vim-plugin vdebug            "$(DESTDIR)" git https://github.com/vim-vdebug/vdebug                  v2.0.0
 	setup/install-vim-plugin fzf               "$(DESTDIR)" git https://github.com/junegunn/fzf.vim                   b31512e

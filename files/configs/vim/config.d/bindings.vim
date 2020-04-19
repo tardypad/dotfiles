@@ -119,22 +119,6 @@ nnoremap <silent> <Leader>{key/edit}{key/buffer} :Buffers<CR>
 nnoremap <silent> {key/file} :execute ':Ntree' getcwd()<CR>
 
 
-"" completion management
-
-inoremap <expr><C-{key/g}> neocomplete#undo_completion()
-inoremap <expr><C-{key/l}> neocomplete#complete_common_string()
-
-inoremap <silent> <{key/return/CR}> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-endfunction
-
-inoremap <expr><{key/complete/TAB}>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-inoremap <expr><C-{key/h}>          neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><{key/backspace/BS}> neocomplete#smart_close_popup()."\<C-h>"
-
-
 " Goyo
 
 nnoremap <silent> <Leader><{key/space/Space}> :Goyo<CR>
