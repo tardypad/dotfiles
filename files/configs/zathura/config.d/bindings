@@ -10,7 +10,7 @@ map {key/left}                     scroll left
 map {key/down}                     scroll down
 map {key/up}                       scroll up
 map {key/right}                    scroll right
-map <C-{key/scroll_page_down/low>  scroll full-down
+map <C-{key/scroll_page_down/low}> scroll full-down
 map <C-{key/scroll_page_up/low}>   scroll full-up
 map <C-{key/scroll_down/low}>      scroll half-down
 map <C-{key/scroll_up/low}>        scroll half-up
@@ -51,7 +51,7 @@ map [fullscreen] {key/left}                     scroll left
 map [fullscreen] {key/down}                     scroll down
 map [fullscreen] {key/up}                       scroll up
 map [fullscreen] {key/right}                    scroll right
-map [fullscreen] <C-{key/scroll_page_down/low>  scroll full-down
+map [fullscreen] <C-{key/scroll_page_down/low}> scroll full-down
 map [fullscreen] <C-{key/scroll_page_up/low}>   scroll full-up
 map [fullscreen] <C-{key/scroll_down/low}>      scroll half-down
 map [fullscreen] <C-{key/scroll_up/low}>        scroll half-up
