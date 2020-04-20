@@ -75,7 +75,7 @@ read_feed() {
           --bind "ctrl-{key/scroll_up/low}:half-page-up" \
           --bind "ctrl-{key/scroll_down/low}:half-page-down" \
           --bind "ctrl-{key/scroll_page_up/low}:page-up" \
-          --bind "ctrl-{key/scroll_page_down/low}f:page-down"
+          --bind "ctrl-{key/scroll_page_down/low}:page-down"
 
     return 0
 }
