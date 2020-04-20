@@ -7,6 +7,7 @@ esac
 case "${1##*.}" in
   html) exec {app/web_browser} "$1" ;;
   pdf) exec {app/document_viewer} "$1" ;;
+  jpg|jpeg|png|gif|svg) exec {app/image_viewer} "$1" ;;
 esac
 
 exec /usr/bin/xdg-open "$@"
