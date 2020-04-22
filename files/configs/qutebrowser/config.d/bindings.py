@@ -4,10 +4,7 @@ c.bindings.default = {}
 # maps some keys to other keys
 c.bindings.key_mappings = {
     '<Ctrl-{key/return/upp}>'           : '<Return>',
-    '<{key/enter/Enter}>'               : '<Return>',
-    '<Shift-{key/enter/Enter}>'         : '<Return>',
     '<Shift-{key/return/Return}>'       : '<Return>',
-    '<Ctrl-{key/enter/Enter}>'          : '<Ctrl-Return>',
     '<Ctrl-{key/tabulation/low}>'       : '<Tab>',
     '<Ctrl-Shift-{key/tabulation/low}>' : '<Shift-Tab>'
 }

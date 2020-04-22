@@ -12,7 +12,7 @@ read-news [-t _period_] [_feed_]
 
 Open interface to display all news from each feed.
 Diverse actions are then available on the selected news:
-- open full news in text browser (_{key/enter/enter}_)
+- open full news in text browser (_{key/return/return}_)
 - open full news in external browser (_ctrl-{key/open/low}_)
 
 # OPTIONS

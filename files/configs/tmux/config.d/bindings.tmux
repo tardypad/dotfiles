@@ -29,8 +29,8 @@ bind M-{key/clear}   clear-history \; \
                      display-message "Pane history cleared"
 
 # copy/paste
-bind {key/space/Space} copy-mode
-bind {key/enter/Enter} paste-buffer
+bind {key/space/Space}  copy-mode
+bind {key/return/Enter} paste-buffer
 
 
 ## sessions management (Ctrl)
@@ -214,7 +214,7 @@ bind -T copy-mode-vi C-{key/select/low}    send-keys -X rectangle-toggle
 bind -T copy-mode-vi   {key/escape/Escape} send-keys -X clear-selection
 
 # selection actions
-bind -T copy-mode-vi {key/enter/Enter} send-keys -X copy-pipe-and-cancel "tmux paste-buffer"
+bind -T copy-mode-vi {key/return/Enter} send-keys -X copy-pipe-and-cancel "tmux paste-buffer"
 %if #{DISPLAY}
 bind -T copy-mode-vi C-{key/search/low} send-keys -X copy-pipe-and-cancel "xargs -I {} tmux run-shell 'xdg-open https://www.google.com/search?q=\"{}\" > /dev/null'"
 bind -T copy-mode-vi C-{key/open/low}   send-keys -X copy-pipe-and-cancel "xargs -I {} tmux run-shell 'xdg-open \"{}\" > /dev/null'"
