@@ -55,6 +55,7 @@ parse_command_line() {
   fi
 }
 
+# shellcheck disable=SC2120
 exit_error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   printf "Try '%s -h' for more information.\n" "${COMMAND}"

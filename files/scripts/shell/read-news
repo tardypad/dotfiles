@@ -43,6 +43,7 @@ read_feed() {
   FEED_PATH="$1"
 
   FEED_HEADER="$(
+    # shellcheck disable=SC1083
     printf \
       "$( tput bold )$( tput setaf {color/base0A/number} )%s\n " \
       "${FEED_PATH##*/}"

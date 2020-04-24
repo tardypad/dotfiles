@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# shellcheck disable=SC1083
+
 case "${1%%:*}" in
   http|https) exec {app/web_browser} "$1" ;;
 esac

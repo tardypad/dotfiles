@@ -50,7 +50,7 @@ end_time() {
   # which leads to issue with "08" and "09"
   # so we need to remove them
   TIME_MIN=$((
-    ${CUR_HOURS#0} * 60 + ${CUR_MINUTES#0} + ${DURATION_MIN}
+    ${CUR_HOURS#0} * 60 + ${CUR_MINUTES#0} + DURATION_MIN
   ))
 
   TIME_H=$(( TIME_MIN / 60 ))
@@ -72,6 +72,7 @@ dnd_enable() {
     STATUS_TEXT="${STATUS_TEXT} working on ${WORK}"
   fi
 
+  # shellcheck disable=SC2029
   ssh surg bin/set-status busy "${STATUS_TEXT}" 2> /dev/null &
 
   # function return value from file creation

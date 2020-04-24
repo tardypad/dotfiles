@@ -21,6 +21,7 @@ exit_error() {
 } >&2
 
 plot_data() {
+  # shellcheck disable=SC2086
   awk '
     BEGIN { OFS="," }
     /^[0-9.]+$/ { print NR,$1; next; }

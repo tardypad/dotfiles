@@ -20,12 +20,14 @@ parse_command_line() {
   MENU_OPTIONS="${MENU_OPTIONS} $*"
 }
 
+# shellcheck disable=SC2120
 exit_error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   exit 1
 } >&2
 
 display_menu() {
+  # shellcheck disable=SC2086
   "${MENU_COMMAND}" \
     -i -l 10 \
     --fn 'Source Sans Pro 14' \

@@ -73,12 +73,14 @@ exit_error() {
 } >&2
 
 reauthor() {
+  # shellcheck disable=SC2016
   AUTHOR='
     if [ "${ALL}" = "true" ] || [ "${GIT_AUTHOR_EMAIL}" = "${OLD_EMAIL}" ]; then
       [ -z "${CORRECT_EMAIL+x}" ] || export GIT_AUTHOR_EMAIL="${CORRECT_EMAIL}"
       [ -z "${CORRECT_NAME+x}" ] || export GIT_AUTHOR_NAME="${CORRECT_NAME}"
     fi
   '
+  # shellcheck disable=SC2016
   COMMITTER='
     if [ "${ALL}" = "true" ] || [ "${GIT_COMMITTER_EMAIL}" = "${OLD_EMAIL}" ]; then
       [ -z "${CORRECT_EMAIL+x}" ] || export GIT_COMMITTER_EMAIL="${CORRECT_EMAIL}"

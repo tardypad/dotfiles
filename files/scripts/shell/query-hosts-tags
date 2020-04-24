@@ -75,6 +75,7 @@ query_tags() {
 }
 
 query_hosts() {
+  # shellcheck disable=SC2016
   AWK_SCRIPT='function any_tag_field_match_string(string)
               {
                 for (i=2; i<=NF; i++)
@@ -104,6 +105,7 @@ process_file() {
   # environment=test
   # purpose=backend
 
+  # shellcheck disable=SC2086
   sed \
     -e 's/^\([^ ][^:]*\):.*$/\n\1/' \
     -e 's/^  //' \
@@ -118,4 +120,5 @@ init_variables
 parse_command_line "$@"
 validate_command_line
 
+# shellcheck disable=SC2086
 "query_${QUERY_TYPE}" ${QUERY_ARGUMENTS}

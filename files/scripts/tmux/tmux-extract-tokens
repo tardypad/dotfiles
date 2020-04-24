@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# shellcheck disable=SC1083
+
 TARGET="$1"
 TOKEN_TYPE="$2"
 

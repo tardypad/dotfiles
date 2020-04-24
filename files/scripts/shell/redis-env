@@ -43,6 +43,7 @@ exit_error() {
 } >&2
 
 run_redis() {
+  # shellcheck disable=SC2046 disable=SC2086
   if [ -z "${QUERY}" ]; then
     redis-cli $( cat "${ENV_PATH}" ) ${REDIS_OPTIONS}
   else
