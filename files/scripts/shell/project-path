@@ -3,6 +3,10 @@
 init_variables() {
   COMMAND=${0##*/}
 
+  PROJECTS_DOC_DIR="${PROJECTS_DOC_DIR:-$HOME/Projects/docs}"
+  PROJECTS_LOG_DIR="${PROJECTS_LOG_DIR:-$HOME/Projects/logs}"
+  PROJECTS_REPO_DIR="${PROJECTS_REPO_DIR:-$HOME/Projects/repos}"
+
   TYPE=
   PROJECT=
 }

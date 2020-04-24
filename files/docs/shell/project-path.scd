@@ -33,13 +33,16 @@ If none specified, the general path for _type_ is displayed
 # ENVIRONMENT VARIABLES
 
 _PROJECTS_DOC_DIR_
-	Path to base directory of projects documentation
+	Path to base directory of projects documentation++
+If unset, defaults to $HOME/Projects/docs
 
 _PROJECTS_LOG_DIR_
-	Path to base directory of projects log files
+	Path to base directory of projects log files++
+If unset, defaults to $HOME/Projects/logs
 
 _PROJECTS_REPO_DIR_
-	Path to base directory of projects repositories
+	Path to base directory of projects repositories++
+If unset, defaults to $HOME/Projects/repos
 
 # FILES
 

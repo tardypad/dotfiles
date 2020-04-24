@@ -20,7 +20,7 @@ ALERT_SESSION_NAME=$(
     | cut -f 2- -d ' '
 )
 ALERT_WINDOW_NAME=$(
-  tmux list-windows -t "${SESSION_ID}" -F '#{window_id} #{window_name}' \
+  tmux list-windows -t "${ALERT_SESSION_ID}" -F '#{window_id} #{window_name}' \
     | grep "^${ALERT_WINDOW_ID} " \
     | cut -f 2- -d ' '
 )

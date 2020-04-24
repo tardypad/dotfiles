@@ -1,6 +1,8 @@
 #!/bin/sh
 
 init_variables() {
+  COMMAND=${0##*/}
+
   CHANNELS_URL='https://api.somafm.com/channels.json'
   CACHE_CHANNELS_FILE="${XDG_CACHE_HOME:-$HOME/.cache}/somafm_channels.json"
 
