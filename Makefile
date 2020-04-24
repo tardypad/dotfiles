@@ -61,5 +61,8 @@ include files/scripts/tmux/Makefile
 
 include files/Makefile
 
+check:
+	find files/scripts -type f ! -name Makefile -exec shellcheck {} \;
+
 clean:
 	rm -rf build

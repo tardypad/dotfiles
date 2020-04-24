@@ -65,6 +65,7 @@ Some targets additionally require extra tools:
 - `curl` to download files
 - `scdoc` to build man pages
 - `git` to clone plugins
+- `shellcheck` to check scripts
 - some of the packages used must be installed themselves to setup some files,
   reload a service, clear the cache,...:
   * fontconfig
