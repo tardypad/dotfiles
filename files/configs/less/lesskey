@@ -80,7 +80,6 @@
 \e{key/word_space_next_start}           word-right
 \e{key/word_next_end}                   word-right
 \e{key/word_space_next_end}             word-right
-\e{key/kill}                            delete
 \e{key/delete/low}                      word-delete
 \e{key/delete/upp}                      word-delete
 ^{key/command_delete_backward_word/upp} word-backspace

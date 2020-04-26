@@ -37,7 +37,7 @@ bind {key/return/Enter} paste-buffer
 
 bind C-{key/create/low} new-session -c "${HOME}"
 bind C-{key/rename/low} command-prompt "rename-session '%%'"
-bind C-{key/kill/low}   confirm-before -p 'kill-session "#{session_name}"? (y/n)' kill-session
+bind C-{key/close/low}  confirm-before -p 'kill-session "#{session_name}"? (y/n)' kill-session
 
 # select
 %if #{TMUX_ENV}
@@ -66,7 +66,7 @@ bind C-{key/0}             switch-client -t $9
 
 bind {key/create/low} new-window -c "${HOME}"
 bind {key/rename/low} command-prompt "rename-window '%%'"
-bind {key/kill/low}   confirm-before -p 'kill-window "#{window_name}"? (y/n)' kill-window
+bind {key/close/low}  confirm-before -p 'kill-window "#{window_name}"? (y/n)' kill-window
 
 # select
 bind {key/window/low}    choose-tree -Z -w -F '#{?pane_format,#{pane_current_command},#{?window_format,#{window_name},}}' -f "#{!=:0,#{session_attached}}" -O index
@@ -120,7 +120,7 @@ bind -T layout {key/5}          switch-client -T layout \; select-layout tiled
 ## panes management (uppercase)
 
 bind {key/create/upp} split-window -h -c '#{pane_current_path}'
-bind {key/kill/upp}   if '[ #{window_panes} -ne 1 ]' kill-pane 'confirm-before -p "kill-window \"#{window_name}\"? (y/n)" kill-window'
+bind {key/close/upp}  if '[ #{window_panes} -ne 1 ]' kill-pane 'confirm-before -p "kill-window \"#{window_name}\"? (y/n)" kill-window'
 bind {key/zoom/upp}   resize-pane -Z
 bind {key/G}          display-panes
 

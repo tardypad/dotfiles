@@ -7,13 +7,13 @@ return     m
 tabulation i
 
 clear         l
+close         x
 command       :
 complete      i
 create        c
 delete        d
 edit          e
 insert        i
-kill          x
 layout        y
 move          m
 open          o

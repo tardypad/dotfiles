@@ -25,7 +25,7 @@ nnoremap <silent> <Leader>{key/buffer}{key/alternate} :b#<CR>
 nnoremap <silent> <Leader>{key/buffer}{key/previous}  :bprevious<CR>
 nnoremap <silent> <Leader>{key/buffer}{key/next}      :bnext<CR>
 nnoremap <silent> <Leader>{key/buffer}{key/create}    :vnew<CR>
-nnoremap <silent> <Leader>{key/buffer}{key/kill}      :bdelete<CR>
+nnoremap <silent> <Leader>{key/buffer}{key/close}     :bdelete<CR>
 nnoremap          <Leader>{key/buffer}{key/rename}    :write<Space>
 
 
@@ -41,10 +41,10 @@ nnoremap <silent> {key/right}     :TmuxNavigateRight<cr>
 nnoremap <silent> {key/alternate} :TmuxNavigatePrevious<cr>
 
 " delete the current buffer and close the current window
-nnoremap <silent> <Leader>{key/quit/low} :Sayonara<CR>
+nnoremap <silent> <Leader>{key/close/low} :Sayonara<CR>
 
 " delete the current buffer and preserve the current window
-nnoremap <silent> <Leader>{key/quit/upp} :Sayonara!<CR>
+nnoremap <silent> <Leader>{key/close/upp} :Sayonara!<CR>
 
 " Toggle window zoom
 nnoremap <silent> <C-{key/window/upp}>{key/zoom/upp} :WindowZoomToggle<CR>
@@ -53,7 +53,7 @@ nnoremap <silent> <C-{key/window/upp}>{key/zoom/upp} :WindowZoomToggle<CR>
 "" tabs management
 
 nnoremap          <Leader>{key/tab}{key/create} :tabnew<CR>
-nnoremap <silent> <Leader>{key/tab}{key/kill}   :tabclose<CR>
+nnoremap <silent> <Leader>{key/tab}{key/close}  :tabclose<CR>
 nnoremap          <Leader>{key/tab}{key/rename} :TabooRename<Space>
 
 " select
@@ -92,9 +92,9 @@ nnoremap <silent> <Leader>{key/tab}{key/move}{key/next}     :tabmove +<CR>
 
 "" sessions management
 
-nnoremap {key/session}{key/save} :SessionSave <C-R>=GetCurrentSessionName()<CR>
-nnoremap {key/session}{key/kill} :SessionDelete <C-R>=GetCurrentSessionName()<CR>
-nnoremap {key/session}{key/open} :SessionOpen<space>
+nnoremap {key/session}{key/save}   :SessionSave <C-R>=GetCurrentSessionName()<CR>
+nnoremap {key/session}{key/delete} :SessionDelete <C-R>=GetCurrentSessionName()<CR>
+nnoremap {key/session}{key/open}   :SessionOpen<space>
 
 
 "" search management
@@ -133,14 +133,14 @@ nnoremap <silent> <Leader>{key/l}{key/t}        :ALEToggleBuffer<CR>
 
 "" tagbar
 
-nnoremap <silent> <Leader>{key/tag}{key/tag}  :TagbarOpen j<CR>
-nnoremap <silent> <Leader>{key/tag}{key/quit} :TagbarClose<CR>
+nnoremap <silent> <Leader>{key/tag}{key/tag}   :TagbarOpen j<CR>
+nnoremap <silent> <Leader>{key/tag}{key/close} :TagbarClose<CR>
 
 
 "" undotree
 
-nnoremap <silent> <Leader>{key/undo}{key/undo} :UndotreeShow<CR>
-nnoremap <silent> <Leader>{key/undo}{key/quit} :UndotreeHide<CR>
+nnoremap <silent> <Leader>{key/undo}{key/undo}  :UndotreeShow<CR>
+nnoremap <silent> <Leader>{key/undo}{key/close} :UndotreeHide<CR>
 
 
 "" snippets

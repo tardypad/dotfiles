@@ -1,7 +1,7 @@
 # general
 bind index,pager   \C{key/quit/low}          quit
-bind index         {key/quit}                quit
-bind generic,pager {key/quit}                exit
+bind index,pager   {key/quit}                quit
+bind generic,pager {key/close}               exit
 bind generic,pager <{key/escape/Esc}>{key/?} help
 bind generic,pager {key/command}             enter-command
 bind generic       <{key/return/Return}>     select-entry

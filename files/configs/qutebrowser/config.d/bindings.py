@@ -147,10 +147,10 @@ config.bind('{key/macro_record}', 'record-macro', mode='normal')
 config.bind('{key/macro_run}',    'run-macro',    mode='normal')
 
 # downloads
-config.bind('{key/download}{key/a}',    'download-cancel', mode='normal')
-config.bind('{key/download}{key/c}',    'download-clear',  mode='normal')
-config.bind('{key/download}{key/open}', 'download-open',   mode='normal')
-config.bind('{key/download}{key/kill}', 'download-delete', mode='normal')
+config.bind('{key/download}{key/a}',      'download-cancel', mode='normal')
+config.bind('{key/download}{key/close}',  'download-clear',  mode='normal')
+config.bind('{key/download}{key/open}',   'download-open',   mode='normal')
+config.bind('{key/download}{key/delete}', 'download-delete', mode='normal')
 
 # yanking
 config.bind('{key/yank}{key/yank}', 'yank url',        mode='normal')
@@ -161,17 +161,17 @@ config.bind('{key/yank}{key/t}',    'yank title',      mode='normal')
 
 # bookmarks
 config.bind('{key/bookmark/low}{key/create}', 'set-cmd-text --space :bookmark-add {url}', mode='normal')
-config.bind('{key/bookmark/low}{key/kill}',   'set-cmd-text --space :bookmark-del',       mode='normal')
+config.bind('{key/bookmark/low}{key/delete}', 'set-cmd-text --space :bookmark-del',       mode='normal')
 config.bind('{key/bookmark/low}{key/open}',   'set-cmd-text --space :bookmark-load',      mode='normal')
 
 # quickmarks
 config.bind('{key/bookmark/upp}{key/create}', 'set-cmd-text --space :quickmark-add {url}', mode='normal')
-config.bind('{key/bookmark/upp}{key/kill}',   'set-cmd-text --space :quickmark-del',       mode='normal')
+config.bind('{key/bookmark/upp}{key/delete}', 'set-cmd-text --space :quickmark-del',       mode='normal')
 config.bind('{key/bookmark/upp}{key/open}',   'set-cmd-text --space :quickmark-load',      mode='normal')
 
 # tabs management
 config.bind('{key/tab}{key/create}',       'open --tab about:blank ;; set-cmd-text --space :open', mode='normal')
-config.bind('{key/tab}{key/kill}',         'tab-close',                                            mode='normal')
+config.bind('{key/tab}{key/close}',        'tab-close',                                            mode='normal')
 config.bind('{key/tab}{key/bookmark/low}', 'set-cmd-text --space :bookmark-load --tab',            mode='normal')
 config.bind('{key/tab}{key/bookmark/upp}', 'set-cmd-text --space :quickmark-load --tab',           mode='normal')
 config.bind('{key/tab}{key/left/upp}',     'back --tab',                                           mode='normal')
@@ -182,7 +182,7 @@ config.bind('{key/tab}{key/f}',            'hint all tab-fg',                   
 
 # windows management
 config.bind('{key/window}{key/create}',       'open --window about:blank',                     mode='normal')
-config.bind('{key/window}{key/kill}',         'close',                                         mode='normal')
+config.bind('{key/window}{key/close}',        'close',                                         mode='normal')
 config.bind('{key/window}{key/bookmark/low}', 'set-cmd-text --space :bookmark-load --window',  mode='normal')
 config.bind('{key/window}{key/bookmark/upp}', 'set-cmd-text --space :quickmark-load --window', mode='normal')
 config.bind('{key/window}{key/left/upp}',     'back --window',                                 mode='normal')
@@ -193,9 +193,9 @@ config.bind('{key/window}{key/f}',            'hint all window',                
 
 
 # sessions management
-config.bind('{key/session}{key/save}', 'set-cmd-text --space :session-save',   mode='normal')
-config.bind('{key/session}{key/kill}', 'set-cmd-text --space :session-delete', mode='normal')
-config.bind('{key/session}{key/open}', 'set-cmd-text --space :session-load',   mode='normal')
+config.bind('{key/session}{key/save}',   'set-cmd-text --space :session-save',   mode='normal')
+config.bind('{key/session}{key/delete}', 'set-cmd-text --space :session-delete', mode='normal')
+config.bind('{key/session}{key/open}',   'set-cmd-text --space :session-load',   mode='normal')
 
 # tabs navigation
 config.bind('{key/g}{key/tab/low}',     'tab-focus',              mode='normal')

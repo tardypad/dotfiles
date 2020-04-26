@@ -18,8 +18,8 @@ suppress_default_binds = true
 {key/zoom}   = fullscreen
 {key/reload} = reset
 
-<Shift+{key/kill/upp}> = close
-<Shift+{key/P}>        = exec echo $imv_current_file; close
+<Shift+{key/close/upp}> = close
+<Shift+{key/P}>         = exec echo $imv_current_file; close
 
 # Navigation
 <{key/left/Left}>             = prev

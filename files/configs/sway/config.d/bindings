@@ -36,8 +36,8 @@ bindsym $mod+{key/return/Return} exec sway-quick-command
 
 ## notifications
 
-bindsym $mod+Ctrl+{key/kill/low}       exec makoctl dismiss
-bindsym $mod+Ctrl+Shift+{key/kill/low} exec makoctl dismiss --all
+bindsym $mod+Ctrl+{key/close/low}       exec makoctl dismiss
+bindsym $mod+Ctrl+Shift+{key/close/low} exec makoctl dismiss --all
 
 
 ## launchers
@@ -141,7 +141,7 @@ bindsym $mod+{key/layout/low} mode "-- layout --"
 ## windows management (uppercase)
 
 bindsym $mod+Shift+{key/create/low} exec {app/terminal_emulator}
-bindsym $mod+Shift+{key/kill/low}   kill
+bindsym $mod+Shift+{key/close/low}  kill
 bindsym $mod+Shift+{key/zoom/low}   fullscreen
 
 # select
