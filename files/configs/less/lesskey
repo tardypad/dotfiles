@@ -83,6 +83,7 @@
 \e{key/delete/low}                      word-delete
 \e{key/delete/upp}                      word-delete
 ^{key/command_delete_backward_word/upp} word-backspace
+^{key/command_delete_all/upp}           kill-line
 {key/up/\ku}                            up
 ^{key/previous/upp}                     up
 {key/down/\kd}                          down

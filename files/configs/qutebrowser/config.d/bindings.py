@@ -46,6 +46,7 @@ config.bind('<Ctrl-{key/command_end/upp}>',                  'rl-end-of-line',  
 config.bind('<Ctrl-{key/backspace/upp}>',                    'rl-backward-delete-char',              mode='command')
 config.bind('<Ctrl-{key/command_delete_backward_word/upp}>', 'rl-backward-kill-word',                mode='command')
 config.bind('<Ctrl-{key/command_delete_start/upp}>',         'rl-unix-line-discard',                 mode='command')
+config.bind('<Ctrl-{key/command_delete_all/upp}>',           'rl-beginning-of-line ;; rl-kill-line', mode='command')
 config.bind('<Ctrl-{key/yank/upp}>',                         'rl-yank',                              mode='command')
 config.bind('<Ctrl-{key/next/upp}>'   ,                      'command-history-next',                 mode='command')
 config.bind('<Ctrl-{key/previous/upp}>',                     'command-history-prev',                 mode='command')

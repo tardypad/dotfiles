@@ -12,6 +12,9 @@ vnoremap <{key/space/Space}> <nop>
 " disable usage of Enter as Return in command mode
 cnoremap <C-{key/enter/upp}> <nop>
 
+" delete whole line in command mode
+cnoremap <C-{key/command_delete_all/upp}> <C-E><C-U>
+
 " remove ex mode binding
 nmap {key/Q} <nop>
 
