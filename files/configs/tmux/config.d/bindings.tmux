@@ -7,9 +7,6 @@ unbind -T copy-mode-vi -a
 
 ## general
 
-# prefix
-bind C-{key/space/Space} send-prefix
-
 # reload configuration
 bind M-{key/reload_config} source-file {dir/config}/tmux/tmux.conf \; \
                            display-message "Configuration reloaded"
