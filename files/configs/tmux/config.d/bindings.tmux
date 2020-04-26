@@ -11,7 +11,7 @@ unbind -T copy-mode-vi -a
 bind C-{key/space/Space} send-prefix
 
 # reload configuration
-bind M-{key/reload_config} source-file ~/.tmux.conf \; \
+bind M-{key/reload_config} source-file {dir/config}/tmux/tmux.conf \; \
                            display-message "Configuration reloaded"
 
 # detach client
