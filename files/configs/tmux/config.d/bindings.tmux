@@ -15,7 +15,7 @@ bind -N 'detach client'   {key/quit/low} detach-client
 bind -N 'detach client' C-{key/quit/low} detach-client
 
 bind -N 'run command'                  {key/command} command-prompt
-bind -N 'list keys'                    {key/?}       list-keys
+bind -N 'list keys'                  M-{key/?}       list-keys -a -N
 bind -N 'show messages'              M-{key/m}       show-messages
 bind -N 'toggle activity monitoring' M-{key/a}       run "tmux-toggle-monitor-activity '#{socket_path}' '#{session_id}' '#{window_id}'"
 bind -N 'toggle silence monitoring'  M-{key/s}       run "tmux-toggle-monitor-silence '#{socket_path}' '#{session_id}' '#{window_id}'"
@@ -87,30 +87,32 @@ bind -N 'split window vertically'   {key/split_vertical/low}   split-window -h -
 bind -N 'split window horizontally' {key/split_horizontal/low} split-window -v -c '#{pane_current_path}'
 
 # move mode
-bind         -N 'enter window move mode'           {key/move/low}      switch-client -T move
-bind -T move -N 'swap window with alternate one'   {key/alternate/low} switch-client -T move \; swap-window -d -t ':{last}'
-bind -T move -N 'move window to next position'     {key/next/low}      switch-client -T move \; swap-window -d -t ':{next}'
-bind -T move -N 'move window to next position'     {key/right/low}     switch-client -T move \; swap-window -d -t ':{next}'
-bind -T move -N 'move window to previous position' {key/previous/low}  switch-client -T move \; swap-window -d -t ':{previous}'
-bind -T move -N 'move window to previous position' {key/left/low}      switch-client -T move \; swap-window -d -t ':{previous}'
-bind -T move -N 'move window to index 1'           {key/1}             switch-client -T move \; run "tmux-move-window-index 1"
-bind -T move -N 'move window to index 2'           {key/2}             switch-client -T move \; run "tmux-move-window-index 2"
-bind -T move -N 'move window to index 3'           {key/3}             switch-client -T move \; run "tmux-move-window-index 3"
-bind -T move -N 'move window to index 4'           {key/4}             switch-client -T move \; run "tmux-move-window-index 4"
-bind -T move -N 'move window to index 5'           {key/5}             switch-client -T move \; run "tmux-move-window-index 5"
-bind -T move -N 'move window to index 6'           {key/6}             switch-client -T move \; run "tmux-move-window-index 6"
-bind -T move -N 'move window to index 7'           {key/7}             switch-client -T move \; run "tmux-move-window-index 7"
-bind -T move -N 'move window to index 8'           {key/8}             switch-client -T move \; run "tmux-move-window-index 8"
-bind -T move -N 'move window to index 9'           {key/9}             switch-client -T move \; run "tmux-move-window-index 9"
-bind -T move -N 'move window to index 10'          {key/0}             switch-client -T move \; run "tmux-move-window-index 10"
+bind         -N 'enter window move mode'             {key/move/low}      switch-client -T move
+bind -T move -N 'list keys'                        M-{key/?}             list-keys -T move -a -N
+bind -T move -N 'swap window with alternate one'     {key/alternate/low} switch-client -T move \; swap-window -d -t ':{last}'
+bind -T move -N 'move window to next position'       {key/next/low}      switch-client -T move \; swap-window -d -t ':{next}'
+bind -T move -N 'move window to next position'       {key/right/low}     switch-client -T move \; swap-window -d -t ':{next}'
+bind -T move -N 'move window to previous position'   {key/previous/low}  switch-client -T move \; swap-window -d -t ':{previous}'
+bind -T move -N 'move window to previous position'   {key/left/low}      switch-client -T move \; swap-window -d -t ':{previous}'
+bind -T move -N 'move window to index 1'             {key/1}             switch-client -T move \; run "tmux-move-window-index 1"
+bind -T move -N 'move window to index 2'             {key/2}             switch-client -T move \; run "tmux-move-window-index 2"
+bind -T move -N 'move window to index 3'             {key/3}             switch-client -T move \; run "tmux-move-window-index 3"
+bind -T move -N 'move window to index 4'             {key/4}             switch-client -T move \; run "tmux-move-window-index 4"
+bind -T move -N 'move window to index 5'             {key/5}             switch-client -T move \; run "tmux-move-window-index 5"
+bind -T move -N 'move window to index 6'             {key/6}             switch-client -T move \; run "tmux-move-window-index 6"
+bind -T move -N 'move window to index 7'             {key/7}             switch-client -T move \; run "tmux-move-window-index 7"
+bind -T move -N 'move window to index 8'             {key/8}             switch-client -T move \; run "tmux-move-window-index 8"
+bind -T move -N 'move window to index 9'             {key/9}             switch-client -T move \; run "tmux-move-window-index 9"
+bind -T move -N 'move window to index 10'            {key/0}             switch-client -T move \; run "tmux-move-window-index 10"
 
 # layout mode
-bind           -N 'enter window layout mode'   {key/layout/low} switch-client -T layout
-bind -T layout -N 'use even horizontal layout' {key/1}          switch-client -T layout \; select-layout even-horizontal
-bind -T layout -N 'use main vertical layout'   {key/2}          switch-client -T layout \; select-layout main-vertical
-bind -T layout -N 'use even vertical layout'   {key/3}          switch-client -T layout \; select-layout even-vertical
-bind -T layout -N 'use main horizontal layout' {key/4}          switch-client -T layout \; select-layout main-horizontal
-bind -T layout -N 'use tiled layout'           {key/5}          switch-client -T layout \; select-layout tiled
+bind           -N 'enter window layout mode'     {key/layout/low} switch-client -T layout
+bind -T layout -N 'list keys'                  M-{key/?}          list-keys -T layout -a -N
+bind -T layout -N 'use even horizontal layout'   {key/1}          switch-client -T layout \; select-layout even-horizontal
+bind -T layout -N 'use main vertical layout'     {key/2}          switch-client -T layout \; select-layout main-vertical
+bind -T layout -N 'use even vertical layout'     {key/3}          switch-client -T layout \; select-layout even-vertical
+bind -T layout -N 'use main horizontal layout'   {key/4}          switch-client -T layout \; select-layout main-horizontal
+bind -T layout -N 'use tiled layout'             {key/5}          switch-client -T layout \; select-layout tiled
 
 
 ## panes management (uppercase)
@@ -140,37 +142,39 @@ bind -N 'respawn pane'            {key/backspace/BSpace} respawn-pane
 bind -N 'respawn pane (forced)' M-{key/backspace/BSpace} respawn-pane -k
 
 # move mode
-bind         -N 'enter pane move mode'           {key/move/upp}      switch-client -T MOVE
-bind -T MOVE -N 'move pane to new window'        {key/create/low}    switch-client -T MOVE \; break-pane
-bind -T MOVE -N 'move pane to alternate window'  {key/alternate/low} switch-client -T MOVE \; move-pane -h -t ':{last}'
-bind -T MOVE -N 'move pane to next window'       {key/next/low}      switch-client -T MOVE \; move-pane -h -t ':{next}'
-bind -T MOVE -N 'move pane to next window'       {key/right/low}     switch-client -T MOVE \; move-pane -h -t ':{next}'
-bind -T MOVE -N 'move pane to previous window'   {key/previous/low}  switch-client -T MOVE \; move-pane -h -t ':{previous}'
-bind -T MOVE -N 'move pane to previous window'   {key/left/low}      switch-client -T MOVE \; move-pane -h -t ':{previous}'
-bind -T MOVE -N 'swap pane with alternate one'   {key/alternate/upp} switch-client -T MOVE \; swap-pane -d -t ':.{last}'
-bind -T MOVE -N 'move pane to next position'     {key/next/upp}      switch-client -T MOVE \; swap-pane -d -t ':.{next}'
-bind -T MOVE -N 'move pane to previous position' {key/previous/upp}  switch-client -T MOVE \; swap-pane -d -t ':.{previous}'
-bind -T MOVE -N 'move pane left'                 {key/left/upp}      switch-client -T MOVE \; swap-pane -d -t ':.{left-of}'
-bind -T MOVE -N 'move pane down'                 {key/down/upp}      switch-client -T MOVE \; swap-pane -d -t ':.{down-of}'
-bind -T MOVE -N 'move pane up'                   {key/up/upp}        switch-client -T MOVE \; swap-pane -d -t ':.{up-of}'
-bind -T MOVE -N 'move pane right'                {key/right/upp}     switch-client -T MOVE \; swap-pane -d -t ':.{right-of}'
-bind -T MOVE -N 'move pane to window 1'          {key/1}             switch-client -T MOVE \; run "tmux-move-pane-window-index 1"
-bind -T MOVE -N 'move pane to window 2'          {key/2}             switch-client -T MOVE \; run "tmux-move-pane-window-index 2"
-bind -T MOVE -N 'move pane to window 3'          {key/3}             switch-client -T MOVE \; run "tmux-move-pane-window-index 3"
-bind -T MOVE -N 'move pane to window 4'          {key/4}             switch-client -T MOVE \; run "tmux-move-pane-window-index 4"
-bind -T MOVE -N 'move pane to window 5'          {key/5}             switch-client -T MOVE \; run "tmux-move-pane-window-index 5"
-bind -T MOVE -N 'move pane to window 6'          {key/6}             switch-client -T MOVE \; run "tmux-move-pane-window-index 6"
-bind -T MOVE -N 'move pane to window 7'          {key/7}             switch-client -T MOVE \; run "tmux-move-pane-window-index 7"
-bind -T MOVE -N 'move pane to window 8'          {key/8}             switch-client -T MOVE \; run "tmux-move-pane-window-index 8"
-bind -T MOVE -N 'move pane to window 9'          {key/9}             switch-client -T MOVE \; run "tmux-move-pane-window-index 9"
-bind -T MOVE -N 'move pane to window 10'         {key/0}             switch-client -T MOVE \; run "tmux-move-pane-window-index 10"
+bind         -N 'enter pane move mode'             {key/move/upp}      switch-client -T MOVE
+bind -T MOVE -N 'list keys'                      M-{key/?}             list-keys -T MOVE -a -N
+bind -T MOVE -N 'move pane to new window'          {key/create/low}    switch-client -T MOVE \; break-pane
+bind -T MOVE -N 'move pane to alternate window'    {key/alternate/low} switch-client -T MOVE \; move-pane -h -t ':{last}'
+bind -T MOVE -N 'move pane to next window'         {key/next/low}      switch-client -T MOVE \; move-pane -h -t ':{next}'
+bind -T MOVE -N 'move pane to next window'         {key/right/low}     switch-client -T MOVE \; move-pane -h -t ':{next}'
+bind -T MOVE -N 'move pane to previous window'     {key/previous/low}  switch-client -T MOVE \; move-pane -h -t ':{previous}'
+bind -T MOVE -N 'move pane to previous window'     {key/left/low}      switch-client -T MOVE \; move-pane -h -t ':{previous}'
+bind -T MOVE -N 'swap pane with alternate one'     {key/alternate/upp} switch-client -T MOVE \; swap-pane -d -t ':.{last}'
+bind -T MOVE -N 'move pane to next position'       {key/next/upp}      switch-client -T MOVE \; swap-pane -d -t ':.{next}'
+bind -T MOVE -N 'move pane to previous position'   {key/previous/upp}  switch-client -T MOVE \; swap-pane -d -t ':.{previous}'
+bind -T MOVE -N 'move pane left'                   {key/left/upp}      switch-client -T MOVE \; swap-pane -d -t ':.{left-of}'
+bind -T MOVE -N 'move pane down'                   {key/down/upp}      switch-client -T MOVE \; swap-pane -d -t ':.{down-of}'
+bind -T MOVE -N 'move pane up'                     {key/up/upp}        switch-client -T MOVE \; swap-pane -d -t ':.{up-of}'
+bind -T MOVE -N 'move pane right'                  {key/right/upp}     switch-client -T MOVE \; swap-pane -d -t ':.{right-of}'
+bind -T MOVE -N 'move pane to window 1'            {key/1}             switch-client -T MOVE \; run "tmux-move-pane-window-index 1"
+bind -T MOVE -N 'move pane to window 2'            {key/2}             switch-client -T MOVE \; run "tmux-move-pane-window-index 2"
+bind -T MOVE -N 'move pane to window 3'            {key/3}             switch-client -T MOVE \; run "tmux-move-pane-window-index 3"
+bind -T MOVE -N 'move pane to window 4'            {key/4}             switch-client -T MOVE \; run "tmux-move-pane-window-index 4"
+bind -T MOVE -N 'move pane to window 5'            {key/5}             switch-client -T MOVE \; run "tmux-move-pane-window-index 5"
+bind -T MOVE -N 'move pane to window 6'            {key/6}             switch-client -T MOVE \; run "tmux-move-pane-window-index 6"
+bind -T MOVE -N 'move pane to window 7'            {key/7}             switch-client -T MOVE \; run "tmux-move-pane-window-index 7"
+bind -T MOVE -N 'move pane to window 8'            {key/8}             switch-client -T MOVE \; run "tmux-move-pane-window-index 8"
+bind -T MOVE -N 'move pane to window 9'            {key/9}             switch-client -T MOVE \; run "tmux-move-pane-window-index 9"
+bind -T MOVE -N 'move pane to window 10'           {key/0}             switch-client -T MOVE \; run "tmux-move-pane-window-index 10"
 
 # resize mode
-bind           -N 'enter pane resize mode' {key/resize/upp} switch-client -T RESIZE
-bind -T RESIZE -N 'resize pane left'       {key/left/upp}   switch-client -T RESIZE \; resize-pane -L 3
-bind -T RESIZE -N 'resize pane down'       {key/down/upp}   switch-client -T RESIZE \; resize-pane -D 3
-bind -T RESIZE -N 'resize pane up'         {key/up/upp}     switch-client -T RESIZE \; resize-pane -U 3
-bind -T RESIZE -N 'resize pane right'      {key/right/upp}  switch-client -T RESIZE \; resize-pane -R 3
+bind           -N 'enter pane resize mode'   {key/resize/upp} switch-client -T RESIZE
+bind -T RESIZE -N 'list keys'              M-{key/?}          list-keys -T RESIZE -a -N
+bind -T RESIZE -N 'resize pane left'         {key/left/upp}   switch-client -T RESIZE \; resize-pane -L 3
+bind -T RESIZE -N 'resize pane down'         {key/down/upp}   switch-client -T RESIZE \; resize-pane -D 3
+bind -T RESIZE -N 'resize pane up'           {key/up/upp}     switch-client -T RESIZE \; resize-pane -U 3
+bind -T RESIZE -N 'resize pane right'        {key/right/upp}  switch-client -T RESIZE \; resize-pane -R 3
 
 
 ## root key space
@@ -200,8 +204,9 @@ bind -T root -N 'extract token from pane' C-S-{key/tabulation/Tab} display-menu 
 
 ## copy mode
 
-bind -T copy-mode-vi -N 'cancel' C-{key/interrupt/low} send-keys -X cancel
-bind -T copy-mode-vi -N 'cancel'   {key/quit/low}      send-keys -X cancel
+bind -T copy-mode-vi -N 'cancel'    C-{key/interrupt/low} send-keys -X cancel
+bind -T copy-mode-vi -N 'cancel'      {key/quit/low}      send-keys -X cancel
+bind -T copy-mode-vi -N 'list keys' M-{key/?}             list-keys -T copy-mode-vi -a -N
 
 # selection
 bind -T copy-mode-vi -N 'select'             {key/select}        send-keys -X begin-selection
