@@ -1,7 +1,6 @@
 # remove all default bindings
 unbind -T prefix -a
 unbind -T root -a
-unbind -T copy-mode -a
 unbind -T copy-mode-vi -a
 
 
