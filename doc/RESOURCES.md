@@ -17,9 +17,6 @@
   - [git-tips](https://github.com/git-tips/tips)
   - [git-extras](https://github.com/tj/git-extras)
 
-## i3blocks
-  - [Anachron i3blocks](https://github.com/Anachron/i3blocks)
-
 ## tmux
   - [Gregory Pakosz config](https://github.com/gpakosz/.tmux)
   - [tmuxcheatsheet plugins list](https://tmuxcheatsheet.com/tmux-plugins-tools/)

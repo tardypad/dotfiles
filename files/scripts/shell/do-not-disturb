@@ -118,5 +118,3 @@ parse_command_line "$@"
 validate_command_line
 
 "dnd_$( echo "${ACTION}" | tr '-' '_' )"
-
-pkill -x -RTMIN+3 i3blocks

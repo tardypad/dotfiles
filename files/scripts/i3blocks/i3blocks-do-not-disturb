@@ -1,7 +1,0 @@
-#!/bin/sh
-
-if [ "$( do-not-disturb status )" = 'enabled' ]; then
-  echo "<span foreground='#{color/notice/hex}'></span>"
-else
-  echo "<span foreground='#{color/base0C/hex}'></span>"
-fi

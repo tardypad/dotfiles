@@ -20,7 +20,6 @@ include files/configs/git/Makefile
 include files/configs/gnupg/Makefile
 include files/configs/htop/Makefile
 include files/configs/httpie/Makefile
-include files/configs/i3blocks/Makefile
 include files/configs/imv/Makefile
 include files/configs/less/Makefile
 include files/configs/libqalculate/Makefile
@@ -49,13 +48,11 @@ include files/data/keywords/Makefile
 include files/data/sounds/Makefile
 
 include files/docs/git/Makefile
-include files/docs/i3blocks/Makefile
 include files/docs/shell/Makefile
 include files/docs/sway/Makefile
 include files/docs/tmux/Makefile
 
 include files/scripts/git/Makefile
-include files/scripts/i3blocks/Makefile
 include files/scripts/shell/Makefile
 include files/scripts/sway/Makefile
 include files/scripts/tmux/Makefile

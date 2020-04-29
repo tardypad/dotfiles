@@ -57,6 +57,5 @@ _$XDG_RUNTIME_DIR/do_not_disturb_
 # DEPENDENCIES
 
 - curl
-- pkill
 - ssh
 - weechat-fifo

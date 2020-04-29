@@ -19,7 +19,6 @@ shell-docs:
 	$(setup_file)/docs/shell/extract-tokens.scd           | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/extract-tokens.1$(MAN_SUFFIX)
 	$(setup_file)/docs/shell/http-env.scd                 | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/http-env.1$(MAN_SUFFIX)
 	$(setup_file)/docs/shell/http-stats.scd               | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/http-stats.1$(MAN_SUFFIX)
-	$(setup_file)/docs/shell/i3blocks-mode.scd            | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/i3blocks-mode.1$(MAN_SUFFIX)
 	$(setup_file)/docs/shell/influx-env.scd               | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/influx-env.1$(MAN_SUFFIX)
 	$(setup_file)/docs/shell/line-by-line.scd             | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/line-by-line.1$(MAN_SUFFIX)
 	$(setup_file)/docs/shell/loop.scd                     | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/loop.1$(MAN_SUFFIX)
