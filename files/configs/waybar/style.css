@@ -1,0 +1,71 @@
+* {
+  font-family: sans-serif;
+  font-size: 18px;
+  border: none;
+  border-radius: 0;
+}
+
+window#waybar {
+  background-color: #{color/background/hex};
+  color: #{color/foreground/hex};
+}
+
+#workspaces button,
+#mode,
+#mpd,
+#pulseaudio,
+#network,
+#battery,
+#clock {
+  padding: 2px 6px;
+}
+
+#workspaces button {
+  color: #{color/foreground/hex};
+  transition: none;
+}
+
+/* disable the default effects */
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background: #{color/background/hex};
+}
+
+#workspaces button.focused {
+  background-color: #{color/base09/hex};
+  color: #{color/base00/hex};
+}
+
+#workspaces button.urgent {
+  color: #{color/notice/hex};
+}
+
+#mode {
+  color: #{color/notice/hex}
+}
+
+#mpd,
+#pulseaudio,
+#network,
+#battery {
+  /* icons only (almost) */
+  color: #{color/base09/hex};
+}
+
+#pulseaudio.muted {
+  color: #{color/notice/hex};
+}
+
+#network.linked,
+#network.disconnected {
+  color: #{color/warning/hex};
+}
+
+#battery.critical:not(.charging) {
+  color: #{color/alert/hex};
+}
+
+#battery.warning:not(.charging) {
+  color: #{color/warning/hex};
+}

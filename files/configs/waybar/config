@@ -1,0 +1,73 @@
+{
+    "modules-left": [
+      "sway/workspaces",
+      "sway/mode"
+    ],
+    "modules-right": [
+      "mpd",
+      "pulseaudio",
+      "network",
+      "battery",
+      "clock"
+    ],
+
+    "sway/workspaces": {
+      "format": "{value}",
+      "disable-scroll": true
+    },
+
+    "sway/mode": {
+      "tooltip": false
+    },
+
+    "mpd": {
+      "format": "{stateIcon}",
+      "format-stopped": "",
+      "format-disconnected": "",
+      "state-icons": {
+        "paused": "",
+        "playing": ""
+      },
+      "tooltip": false
+    },
+
+    "pulseaudio": {
+      "format": "{icon}",
+      "format-muted": " ",
+      "format-bluetooth": "{icon}",
+      "format-bluetooth-muted": "",
+      "format-icons": {
+        "default": [ "", "", "" ]
+      },
+      "tooltip": false
+    },
+
+    "network": {
+      "format-wifi": "",
+      "format-ethernet": "",
+      "format-linked": " (No IP)",
+      "format-disconnected": " Disconnected",
+      "tooltip": false
+    },
+
+    "battery": {
+      "states": {
+        "warning": 20,
+        "critical": 10
+      },
+      "format": "{icon}",
+      "format-charging": " {capacity}%",
+      "format-plugged": "",
+      "format-warning": "{icon} {capacity}%",
+      "format-critical": "{icon} {capacity}%",
+      "format-icons": [ "", "", "", "", "" ],
+      "tooltip": false
+    },
+
+    "clock": {
+      "interval": 10,
+      "format": "{:%a %e %b %H:%M}",
+      "tooltip": false
+    }
+
+}
