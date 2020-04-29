@@ -22,6 +22,10 @@ set $background #{color/background/hex}
 set $foreground #{color/foreground/hex}
 set $notice     #{color/notice/hex}
 
+bar {
+    swaybar_command waybar
+}
+
 # include all config files
 include config.d/*
 
