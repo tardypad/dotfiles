@@ -29,7 +29,7 @@
 
     "mpd": {
       "format": "{stateIcon}",
-      "format-stopped": "",
+      "format-stopped": "",
       "format-disconnected": "",
       "state-icons": {
         "paused": "",
