@@ -4,7 +4,8 @@
       "sway/mode"
     ],
     "modules-center": [
-      "custom/time-tracker"
+      "custom/time-tracker",
+      "custom/pomodoro"
     ],
     "modules-right": [
       "mpd",
@@ -99,6 +100,15 @@
       "exec-if": "[ -n \"$( time-tracker status 2> /dev/null )\" ]",
       "interval": 10,
       "signal": 3,
+      "tooltip": false
+    },
+
+    "custom/pomodoro": {
+      "exec": "pomodoro status",
+      "exec-if": "[ -n \"$( pomodoro status 2> /dev/null )\" ]",
+      "format": "( {} )",
+      "interval": 10,
+      "signal": 4,
       "tooltip": false
     }
 

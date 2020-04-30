@@ -51,3 +51,4 @@ _$XDG_RUNTIME_DIR/pomodoro_
 # DEPENDENCIES
 
 - notify-end-pomodoro
+- pkill

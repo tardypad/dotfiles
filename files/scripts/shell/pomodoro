@@ -109,3 +109,5 @@ parse_command_line "$@"
 validate_command_line
 
 "session_${ACTION}"
+
+pkill -x -RTMIN+4 waybar

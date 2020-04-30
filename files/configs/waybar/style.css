@@ -10,6 +10,7 @@ window#waybar {
   color: #{color/foreground/hex};
 }
 
+#custom-pomodoro,
 #custom-time-tracker,
 #custom-chat,
 #custom-do-not-disturb,
@@ -86,6 +87,7 @@ window#waybar {
   color: #{color/notice/hex};
 }
 
+#custom-pomodoro,
 #custom-time-tracker {
   color: #{color/base09/hex};
 }
