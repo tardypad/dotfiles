@@ -1,0 +1,10 @@
+#!/bin/sh
+# commands used:
+# - do-not-disturb
+
+if [ "$( do-not-disturb status )" = 'enabled' ]; then
+  echo '{ "text": "Do not disturb", "class": "enabled", "percentage": 100 }'
+else
+  echo '{ "text": "Available", "class": "disabled", "percentage": 0 }'
+fi
+

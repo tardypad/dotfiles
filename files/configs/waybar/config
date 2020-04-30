@@ -8,6 +8,7 @@
       "pulseaudio",
       "network",
       "battery",
+      "custom/do-not-disturb",
       "clock"
     ],
 
@@ -67,6 +68,16 @@
     "clock": {
       "interval": 10,
       "format": "{:%a %e %b %H:%M}",
+      "tooltip": false
+    },
+
+    "custom/do-not-disturb": {
+      "exec": "waybar-do-not-disturb",
+      "return-type": "json",
+      "format": "{icon}",
+      "format-icons": [ "", "" ],
+      "interval": 10,
+      "signal": 2,
       "tooltip": false
     }
 

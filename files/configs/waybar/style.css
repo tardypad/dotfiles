@@ -9,7 +9,7 @@ window#waybar {
   background-color: #{color/background/hex};
   color: #{color/foreground/hex};
 }
-
+#custom-do-not-disturb,
 #workspaces button,
 #mode,
 #mpd,
@@ -68,4 +68,12 @@ window#waybar {
 
 #battery.warning:not(.charging) {
   color: #{color/warning/hex};
+}
+
+#custom-do-not-disturb.enabled {
+  color: #{color/notice/hex};
+}
+
+#custom-do-not-disturb.disabled {
+  color: #{color/base0C/hex};
 }

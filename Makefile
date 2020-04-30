@@ -56,6 +56,7 @@ include files/scripts/git/Makefile
 include files/scripts/shell/Makefile
 include files/scripts/sway/Makefile
 include files/scripts/tmux/Makefile
+include files/scripts/waybar/Makefile
 
 include files/Makefile
 
