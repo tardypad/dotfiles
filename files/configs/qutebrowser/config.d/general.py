@@ -23,6 +23,9 @@ c.tabs.background = True
 # hide tabs tooltips
 c.tabs.tooltips = False
 
+# disable search wrapping
+c.search.wrap = False
+
 # only show history items in "open" completion
 c.completion.open_categories = [ "history" ]
 
