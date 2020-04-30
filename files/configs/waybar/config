@@ -3,6 +3,9 @@
       "sway/workspaces",
       "sway/mode"
     ],
+    "modules-center": [
+      "custom/time-tracker"
+    ],
     "modules-right": [
       "mpd",
       "custom/chat",
@@ -88,6 +91,14 @@
       "return-type": "json",
       "format": "",
       "interval": 10,
+      "tooltip": false
+    },
+
+    "custom/time-tracker": {
+      "exec": "time-tracker status | cut -f1",
+      "exec-if": "[ -n \"$( time-tracker status 2> /dev/null )\" ]",
+      "interval": 10,
+      "signal": 3,
       "tooltip": false
     }
 

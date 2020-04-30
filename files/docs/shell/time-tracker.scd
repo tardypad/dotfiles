@@ -89,3 +89,4 @@ _$XDG_RUNTIME_DIR/time_tracker_
 # DEPENDENCIES
 
 - column
+- pkill

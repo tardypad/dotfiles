@@ -195,3 +195,5 @@ validate_command_line
 
 mkdir -p "${LOGGING_DIR}"
 "tracking_${ACTION}"
+
+pkill -x -RTMIN+3 waybar
