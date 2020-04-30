@@ -1,0 +1,17 @@
+#!/bin/sh
+
+COUNT_FILE_PATH="${XDG_RUNTIME_DIR:-/tmp}/chat_count"
+
+if [ ! -f "${COUNT_FILE_PATH}" ]; then
+  echo '{ "text": "No message" }'
+  exit
+fi
+
+COUNT=$( cat "${COUNT_FILE_PATH}" )
+
+if [ "${COUNT}" -gt 0 ]; then
+  echo "{ \"text\": \"${COUNT} messages\", \"class\": \"count\" }"
+  exit
+fi
+
+echo '{ "text": "No message" }'

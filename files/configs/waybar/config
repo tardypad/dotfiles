@@ -5,6 +5,7 @@
     ],
     "modules-right": [
       "mpd",
+      "custom/chat",
       "pulseaudio",
       "network",
       "battery",
@@ -78,6 +79,15 @@
       "format-icons": [ "", "" ],
       "interval": 10,
       "signal": 2,
+      "tooltip": false
+    },
+
+    "custom/chat": {
+      "exec": "waybar-chat",
+      "exec-if": "pidof weechat",
+      "return-type": "json",
+      "format": "",
+      "interval": 10,
       "tooltip": false
     }
 

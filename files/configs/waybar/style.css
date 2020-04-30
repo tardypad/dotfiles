@@ -9,6 +9,8 @@ window#waybar {
   background-color: #{color/background/hex};
   color: #{color/foreground/hex};
 }
+
+#custom-chat,
 #custom-do-not-disturb,
 #workspaces button,
 #mode,
@@ -45,6 +47,7 @@ window#waybar {
   color: #{color/notice/hex}
 }
 
+#custom-chat,
 #mpd,
 #pulseaudio,
 #network,
@@ -76,4 +79,8 @@ window#waybar {
 
 #custom-do-not-disturb.disabled {
   color: #{color/base0C/hex};
+}
+
+#custom-chat.count {
+  color: #{color/notice/hex};
 }
