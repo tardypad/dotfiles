@@ -75,8 +75,8 @@ dnd_enable() {
   # shellcheck disable=SC2029
   ssh surg bin/set-status busy "${STATUS_TEXT}" 2> /dev/null &
 
-  # function return value from file creation
-  touch "${FILE_PATH}"
+  touch "${FILE_PATH}" \
+    && update_waybar
 }
 
 dnd_disable() {
@@ -84,8 +84,12 @@ dnd_disable() {
 
   ssh surg bin/set-status available 2> /dev/null &
 
-  # function return value from file deletion
-  rm -f "${FILE_PATH}"
+  rm -f "${FILE_PATH}" \
+    && update_waybar
+}
+
+update_waybar() {
+  pkill -x -RTMIN+2 waybar
 }
 
 dnd_status() {
@@ -118,5 +122,3 @@ parse_command_line "$@"
 validate_command_line
 
 "dnd_$( echo "${ACTION}" | tr '-' '_' )"
-
-pkill -x -RTMIN+2 waybar

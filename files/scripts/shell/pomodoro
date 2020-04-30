@@ -49,7 +49,8 @@ session_start() {
   {
     echo "${CURRENT_TIME}"
     echo "${DURATION_MIN}"
-  } > "${FILE_PATH}"
+  } > "${FILE_PATH}" \
+    && update_waybar
 
   ( sleep $(( DURATION_MIN * 60 )) && session_end "${CURRENT_TIME}" )&
 }
@@ -76,7 +77,8 @@ session_cancel() {
     return 1
   fi
 
-  rm -f "${FILE_PATH}"
+  rm -f "${FILE_PATH}" \
+    && update_waybar
 }
 
 session_toggle() {
@@ -97,7 +99,12 @@ session_end() {
   if [ "${SESSION_START_TIME}" = "${CURRENT_START_TIME}" ]; then
     rm -rf "${FILE_PATH}"
     notify-end-pomodoro
+    update_waybar
   fi
+}
+
+update_waybar() {
+  pkill -x -RTMIN+4 waybar
 }
 
 is_session_started() {
@@ -109,5 +116,3 @@ parse_command_line "$@"
 validate_command_line
 
 "session_${ACTION}"
-
-pkill -x -RTMIN+4 waybar
