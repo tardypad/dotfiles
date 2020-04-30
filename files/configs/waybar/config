@@ -11,6 +11,7 @@
       "mpd",
       "custom/chat",
       "pulseaudio",
+      "custom/bluetooth",
       "network",
       "battery",
       "custom/do-not-disturb",
@@ -109,6 +110,12 @@
       "format": "( {} )",
       "interval": 10,
       "signal": 4,
+      "tooltip": false
+    },
+
+    "custom/bluetooth": {
+      "exec": "waybar-bluetooth",
+      "interval": 10,
       "tooltip": false
     }
 

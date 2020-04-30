@@ -10,6 +10,7 @@ window#waybar {
   color: #{color/foreground/hex};
 }
 
+#custom-bluetooth,
 #custom-pomodoro,
 #custom-time-tracker,
 #custom-chat,
@@ -49,6 +50,7 @@ window#waybar {
   color: #{color/notice/hex}
 }
 
+#custom-bluetooth,
 #custom-chat,
 #mpd,
 #pulseaudio,

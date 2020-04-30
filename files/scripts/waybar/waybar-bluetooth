@@ -1,0 +1,19 @@
+#!/bin/sh
+# commands used:
+# - bluetoothctl
+
+CONNECTED_DEVICES=$(
+  bluetoothctl paired-devices \
+    | cut -d' ' -f2 \
+    | xargs -I{} bluetoothctl info {} \
+    | sed -n -e 's/.*Alias: \(.*\)/\1/p' -e 's/.*Connected: \(.*\)/\1/p' \
+    | paste - - \
+    | sed -n 's/\(.*\)\tyes$/\1/p' \
+    | paste -sd,
+)
+
+if [ -z "${CONNECTED_DEVICES}" ]; then
+  exit 0
+fi
+
+echo ''
