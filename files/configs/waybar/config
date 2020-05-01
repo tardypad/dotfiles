@@ -10,7 +10,8 @@
     "modules-right": [
       "mpd",
       "custom/chat",
-      "pulseaudio",
+      "pulseaudio#capture",
+      "pulseaudio#playback",
       "custom/bluetooth",
       "network",
       "battery",
@@ -38,7 +39,14 @@
       "tooltip": false
     },
 
-    "pulseaudio": {
+    "pulseaudio#capture": {
+      "format": "{format_source}",
+      "format-source": "",
+      "format-source-muted": "",
+      "tooltip": false
+    },
+
+    "pulseaudio#playback": {
       "format": "{icon}",
       "format-muted": " ",
       "format-bluetooth": "{icon}",

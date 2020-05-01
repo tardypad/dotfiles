@@ -64,6 +64,10 @@ window#waybar {
   color: #{color/notice/hex};
 }
 
+#pulseaudio.capture {
+  color: #{color/notice/hex};
+}
+
 #network.linked,
 #network.disconnected {
   color: #{color/warning/hex};
