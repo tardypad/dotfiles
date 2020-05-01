@@ -10,6 +10,7 @@ window#waybar {
   color: #{color/foreground/hex};
 }
 
+#custom-webcam,
 #custom-bluetooth,
 #custom-pomodoro,
 #custom-time-tracker,
@@ -65,6 +66,10 @@ window#waybar {
 }
 
 #pulseaudio.capture {
+  color: #{color/notice/hex};
+}
+
+#custom-webcam {
   color: #{color/notice/hex};
 }
 

@@ -11,6 +11,7 @@
       "mpd",
       "custom/chat",
       "pulseaudio#capture",
+      "custom/webcam",
       "pulseaudio#playback",
       "custom/bluetooth",
       "network",
@@ -36,6 +37,13 @@
         "paused": "",
         "playing": ""
       },
+      "tooltip": false
+    },
+
+    "custom/webcam": {
+      "exec": "echo ''",
+      "exec-if": "fuser /dev/video0",
+      "interval": 10,
       "tooltip": false
     },
 
