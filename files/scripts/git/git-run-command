@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# "heavily inspired" by Gary Bernhardt's dotfiles script
-# https://github.com/garybernhardt/dotfiles/blob/master/bin/run-command-on-git-revisions
-
 init_variables() {
   COMMAND=${0##*/}
 

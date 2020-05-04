@@ -33,3 +33,8 @@ None
 
 - column
 - curl
+
+# ACKNOWLEDGEMENTS
+
+Heavily inspired by Masaki Ishiyama httpstat bash version
+https://github.com/b4b4r07/httpstat/blob/master/httpstat.sh

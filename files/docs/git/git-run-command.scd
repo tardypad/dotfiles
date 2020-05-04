@@ -39,3 +39,8 @@ None
 # DEPENDENCIES
 
 - git
+
+# ACKNOWLEDGEMENTS
+
+Heavily inspired by Gary Bernhardt's dotfiles script
+https://github.com/garybernhardt/dotfiles/blob/master/bin/run-command-on-git-revisions
