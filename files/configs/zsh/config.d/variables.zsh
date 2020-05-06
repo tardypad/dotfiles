@@ -37,6 +37,16 @@ GREP_COLORS="${GREP_COLORS}:bn={color/base0A/fg}"
 GREP_COLORS="${GREP_COLORS}:se={color/base08/fg}"
 export GREP_COLORS
 
+# change jq output colors
+JQ_COLORS='0;{color/base0C/fg}'
+JQ_COLORS="${JQ_COLORS}:0;{color/base0B/fg}"
+JQ_COLORS="${JQ_COLORS}:0;{color/base0B/fg}"
+JQ_COLORS="${JQ_COLORS}:0;{color/base0B/fg}"
+JQ_COLORS="${JQ_COLORS}:0;{color/base0B/fg}"
+JQ_COLORS="${JQ_COLORS}:0;{color/base0C/fg}"
+JQ_COLORS="${JQ_COLORS}:0;{color/base0C/fg}"
+export JQ_COLORS
+
 # decrease key timeout to 100ms
 export KEYTIMEOUT=10
 
