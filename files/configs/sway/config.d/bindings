@@ -40,7 +40,7 @@ bindsym $mod+Ctrl+Shift+{key/close/low} exec makoctl dismiss --all
 ## launchers
 
 mode "-- Launchers --" {
-    bindsym {key/space/Space}         mode "default", exec sway-menu -r -- -p 'Run'
+    bindsym {key/space/Space}         mode "default", exec bemenu-run -p 'Run'
     bindsym {key/backspace/Backspace} mode "default", exec sway-menu-system
 
     bindsym {key/j} mode "default", exec sway-launcher sway-launch-tmux-env projects "--margin '1,2,0,2' --prompt 'open project '"

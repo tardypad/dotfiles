@@ -117,6 +117,21 @@ export FZF_DEFAULT_OPTS
 # only ignore build folder
 export FZF_DEFAULT_COMMAND='ag --no-color -g "" --follow --skip-vcs-ignores --ignore "build/"'
 
+# bemenu default options
+BEMENU_OPTS='-i -l 10'
+BEMENU_OPTS="${BEMENU_OPTS} --fn 'Source Sans Pro 14'"
+BEMENU_OPTS="${BEMENU_OPTS} --tb '#{color/base09/hex}'"
+BEMENU_OPTS="${BEMENU_OPTS} --tf '#{color/base00/hex}'"
+BEMENU_OPTS="${BEMENU_OPTS} --fb '#{color/base09/hex}'"
+BEMENU_OPTS="${BEMENU_OPTS} --ff '#{color/base00/hex}'"
+BEMENU_OPTS="${BEMENU_OPTS} --nb '#{color/popup_background/hex}'"
+BEMENU_OPTS="${BEMENU_OPTS} --nf '#{color/popup_foreground/hex}'"
+BEMENU_OPTS="${BEMENU_OPTS} --hb '#{color/current_item/hex}'"
+BEMENU_OPTS="${BEMENU_OPTS} --hf '#{color/base00/hex}'"
+BEMENU_OPTS="${BEMENU_OPTS} --sb '#{color/selected_item/hex}'"
+BEMENU_OPTS="${BEMENU_OPTS} --sf '#{color/base00/hex}'"
+export BEMENU_OPTS
+
 # update SWAYSOCK variable on reload
 eval $( tmux show-environment -s SWAYSOCK 2> /dev/null )
 

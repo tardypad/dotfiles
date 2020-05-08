@@ -8,7 +8,7 @@ ACTION=$(
     echo 'Shut down';
     echo 'Reboot';
   } \
-    | sway-menu -- -p 'Execute'
+    | bemenu -p 'Execute'
 )
 
 case "${ACTION}" in

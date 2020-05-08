@@ -9,7 +9,6 @@ sway-docs:
 	$(setup_file)/docs/sway/sway-focus-window-title.scd        | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/sway-focus-window-title.1$(MAN_SUFFIX)
 	$(setup_file)/docs/sway/sway-launch-tmux-env.scd           | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/sway-launch-tmux-env.1$(MAN_SUFFIX)
 	$(setup_file)/docs/sway/sway-launcher.scd                  | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/sway-launcher.1$(MAN_SUFFIX)
-	$(setup_file)/docs/sway/sway-menu.scd                      | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/sway-menu.1$(MAN_SUFFIX)
 	$(setup_file)/docs/sway/sway-menu-system.scd               | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/sway-menu-system.1$(MAN_SUFFIX)
 	$(setup_file)/docs/sway/sway-move-window-new-workspace.scd | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/sway-move-window-new-workspace.1$(MAN_SUFFIX)
 	$(setup_file)/docs/sway/sway-move-workspace-direction.scd  | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/sway-move-workspace-direction.1$(MAN_SUFFIX)
