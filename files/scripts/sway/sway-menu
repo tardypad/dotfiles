@@ -31,9 +31,9 @@ display_menu() {
   "${MENU_COMMAND}" \
     -i -l 10 \
     --fn 'Source Sans Pro 14' \
-    --tb '#{color/base08/hex}' \
+    --tb '#{color/base09/hex}' \
     --tf '#{color/base00/hex}' \
-    --fb '#{color/base08/hex}' \
+    --fb '#{color/base09/hex}' \
     --ff '#{color/base00/hex}' \
     --nb '#{color/popup_background/hex}' \
     --nf '#{color/popup_foreground/hex}' \
