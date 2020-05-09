@@ -1,0 +1,32 @@
+#!/bin/sh
+
+ENV="$1"
+
+SESSION=$(
+  {
+    echo New;
+    find "${XDG_DATA_HOME:-$HOME/.local/share}/env/tmux/${ENV}" \
+      -type f -name '*.sh' -exec basename {} .sh \; \
+      | sort
+  } \
+  | bemenu -p "Open ${ENV}"
+)
+
+[ -n "${SESSION}" ] || exit
+
+[ "${SESSION}" = 'New' ] && SESSION=
+
+TITLE="${ENV} environment"
+
+# create env in background
+# will do nothing if already exists
+tmux-env -b "${ENV}" "${SESSION}"
+
+sway-focus-window-title "${TITLE}" && exit
+
+sway-create-workspace "${ENV}"
+
+swaymsg -q exec \
+  "alacritty \
+   -t \"${TITLE}\" \
+   -e tmux-env ${ENV} ${SESSION}"

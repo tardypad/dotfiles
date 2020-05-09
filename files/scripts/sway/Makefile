@@ -3,11 +3,9 @@ all: sway-scripts
 sway-scripts:
 	mkdir -p $(DESTDIR)$(BIN_DIR)
 
-	$(setup_file)/scripts/sway/sway-app-tmux-env              > $(DESTDIR)$(BIN_DIR)/sway-app-tmux-env
 	$(setup_file)/scripts/sway/sway-command-input             > $(DESTDIR)$(BIN_DIR)/sway-command-input
 	$(setup_file)/scripts/sway/sway-create-workspace          > $(DESTDIR)$(BIN_DIR)/sway-create-workspace
 	$(setup_file)/scripts/sway/sway-focus-window-title        > $(DESTDIR)$(BIN_DIR)/sway-focus-window-title
-	$(setup_file)/scripts/sway/sway-launch-tmux-env           > $(DESTDIR)$(BIN_DIR)/sway-launch-tmux-env
 	$(setup_file)/scripts/sway/sway-launcher                  > $(DESTDIR)$(BIN_DIR)/sway-launcher
 	$(setup_file)/scripts/sway/sway-menu-system               > $(DESTDIR)$(BIN_DIR)/sway-menu-system
 	$(setup_file)/scripts/sway/sway-move-window-new-workspace > $(DESTDIR)$(BIN_DIR)/sway-move-window-new-workspace
@@ -18,11 +16,9 @@ sway-scripts:
 	$(setup_file)/scripts/sway/sway-renumber-workspaces       > $(DESTDIR)$(BIN_DIR)/sway-renumber-workspaces
 	$(setup_file)/scripts/sway/sway-subscribe-events-run      > $(DESTDIR)$(BIN_DIR)/sway-subscribe-events-run
 
-	chmod +x $(DESTDIR)$(BIN_DIR)/sway-app-tmux-env
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-command-input
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-create-workspace
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-focus-window-title
-	chmod +x $(DESTDIR)$(BIN_DIR)/sway-launch-tmux-env
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-launcher
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-menu-system
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-move-window-new-workspace

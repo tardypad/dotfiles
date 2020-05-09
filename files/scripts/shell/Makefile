@@ -20,6 +20,7 @@ shell-scripts:
 	$(setup_file)/scripts/shell/http-env                     > $(DESTDIR)$(BIN_DIR)/http-env
 	$(setup_file)/scripts/shell/http-stats                   > $(DESTDIR)$(BIN_DIR)/http-stats
 	$(setup_file)/scripts/shell/influx-env                   > $(DESTDIR)$(BIN_DIR)/influx-env
+	$(setup_file)/scripts/shell/launch-tmux-env              > $(DESTDIR)$(BIN_DIR)/launch-tmux-env
 	$(setup_file)/scripts/shell/line-by-line                 > $(DESTDIR)$(BIN_DIR)/line-by-line
 	$(setup_file)/scripts/shell/loop                         > $(DESTDIR)$(BIN_DIR)/loop
 	$(setup_file)/scripts/shell/mysql-env                    > $(DESTDIR)$(BIN_DIR)/mysql-env
@@ -60,6 +61,7 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/http-env
 	chmod +x $(DESTDIR)$(BIN_DIR)/http-stats
 	chmod +x $(DESTDIR)$(BIN_DIR)/influx-env
+	chmod +x $(DESTDIR)$(BIN_DIR)/launch-tmux-env
 	chmod +x $(DESTDIR)$(BIN_DIR)/line-by-line
 	chmod +x $(DESTDIR)$(BIN_DIR)/loop
 	chmod +x $(DESTDIR)$(BIN_DIR)/mysql-env

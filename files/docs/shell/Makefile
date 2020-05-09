@@ -20,6 +20,7 @@ shell-docs:
 	$(setup_file)/docs/shell/http-env.scd                 | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/http-env.1$(MAN_SUFFIX)
 	$(setup_file)/docs/shell/http-stats.scd               | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/http-stats.1$(MAN_SUFFIX)
 	$(setup_file)/docs/shell/influx-env.scd               | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/influx-env.1$(MAN_SUFFIX)
+	$(setup_file)/docs/shell/launch-tmux-env.scd          | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/launch-tmux-env.1$(MAN_SUFFIX)
 	$(setup_file)/docs/shell/line-by-line.scd             | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/line-by-line.1$(MAN_SUFFIX)
 	$(setup_file)/docs/shell/loop.scd                     | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/loop.1$(MAN_SUFFIX)
 	$(setup_file)/docs/shell/mysql-env.scd                | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/mysql-env.1$(MAN_SUFFIX)

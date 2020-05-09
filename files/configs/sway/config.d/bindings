@@ -43,7 +43,7 @@ mode "-- Launchers --" {
     bindsym {key/space/Space}         mode "default", exec bemenu-run -p 'Run'
     bindsym {key/backspace/Backspace} mode "default", exec sway-menu-system
 
-    bindsym {key/j} mode "default", exec sway-launcher sway-launch-tmux-env projects "--margin '1,2,0,2' --prompt 'open project '"
+    bindsym {key/j} mode "default", exec launch-tmux-env projects
     bindsym {key/o} mode "default", exec copy-otp
     bindsym {key/p} mode "default", exec copy-password
     bindsym {key/s} mode "default", exec play-somafm
