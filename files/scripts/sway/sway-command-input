@@ -28,10 +28,7 @@ exit_error() {
 
 run() {
   USER_INPUT=$(
-    echo '' | bemenu -p "${PROMPT}" \
-      --fn 'Source Sans Pro 14' \
-      --tb '#{color/base09/hex}' --tf '#{color/base00/hex}' \
-      --fb '#{color/base09/hex}' --ff '#{color/base00/hex}'
+    echo '' | bemenu -l 0 -p "${PROMPT}"
   )
 
   # shellcheck disable=SC2181
