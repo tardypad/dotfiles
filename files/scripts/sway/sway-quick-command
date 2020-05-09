@@ -1,8 +1,15 @@
 #!/bin/sh
 
+COMMAND="$1"
+
 TITLE='sway_quick_command'
 
 sway-focus-window-title "${TITLE}" && exit
 
-swaymsg -q fullscreen disable, \
-  exec "alacritty -t \"${TITLE}\""
+if [ -n "${COMMAND}" ]; then
+  swaymsg -q fullscreen disable, \
+    exec "alacritty -t \"${TITLE}\" -e \"${COMMAND}\""
+else
+  swaymsg -q fullscreen disable, \
+    exec "alacritty -t \"${TITLE}\""
+fi
