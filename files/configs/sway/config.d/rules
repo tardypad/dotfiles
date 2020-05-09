@@ -2,10 +2,6 @@
 for_window [title="sway_monitor"] floating enable, \
                                   resize set width 60 ppt height 70 ppt
 
-# display launcher as floating window
-for_window [title="sway_launcher"] floating enable, \
-                                   resize set width 30 ppt height 30 ppt
-
 # display quick command as floating window
 for_window [title="sway_quick_command"] floating enable, \
                                         resize set width 40 ppt height 40 ppt
