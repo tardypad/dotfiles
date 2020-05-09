@@ -6,7 +6,7 @@ copy-password - Interactive selection to copy a password
 
 # SYNOPSIS
 
-copy-password [_fzf_options_...]
+copy-password
 
 # DESCRIPTION
 
@@ -18,8 +18,7 @@ None
 
 # OPERANDS
 
-_fzf_option_
-	*fzf* option
+None
 
 # ENVIRONMENT VARIABLES
 
@@ -34,5 +33,5 @@ _$PASSWORD_STORE_DIR_
 
 # DEPENDENCIES
 
-- fzf
+- bemenu
 - pass
