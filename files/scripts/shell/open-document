@@ -1,0 +1,12 @@
+#!/bin/sh
+
+DOC_PATH=$(
+  find "${HOME}" \
+    -type f -name '*.pdf' \
+    | sort \
+    | bemenu -p 'Open document'
+)
+
+[ -n "${DOC_PATH}" ] || exit
+
+zathura "${DOC_PATH}"
