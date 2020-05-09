@@ -37,9 +37,9 @@ bindsym $mod+Ctrl+{key/close/low}       exec makoctl dismiss
 bindsym $mod+Ctrl+Shift+{key/close/low} exec makoctl dismiss --all
 
 
-## launchers
+## Commands
 
-mode "-- Launchers --" {
+mode "-- Commands --" {
     bindsym {key/space/Space}         mode "default", exec bemenu-run -p 'Run'
     bindsym {key/backspace/Backspace} mode "default", exec sway-menu-system
 
@@ -59,7 +59,7 @@ mode "-- Launchers --" {
     bindsym {key/return/Return} mode "default"
     bindsym {key/escape/Escape} mode "default"
 }
-bindsym $mod+{key/space/Space} mode "-- Launchers --"
+bindsym $mod+{key/space/Space} mode "-- Commands --"
 
 
 ## floating
