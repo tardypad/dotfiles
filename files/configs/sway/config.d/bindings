@@ -43,17 +43,16 @@ mode "-- Commands --" {
     bindsym {key/space/Space}         mode "default", exec bemenu-run -p 'Run'
     bindsym {key/backspace/Backspace} mode "default", exec sway-menu-system
 
+    bindsym {key/c} mode "default", exec {app/chat_client}
     bindsym {key/d} mode "default", exec open-document
+    bindsym {key/e} mode "default", exec {app/terminal_emulator}
+    bindsym {key/h} mode "default", exec {app/system_monitor}
     bindsym {key/j} mode "default", exec launch-tmux-env projects
+    bindsym {key/m} mode "default", exec {app/mail_client}
     bindsym {key/o} mode "default", exec copy-otp
     bindsym {key/p} mode "default", exec copy-password
     bindsym {key/s} mode "default", exec play-somafm
     bindsym {key/t} mode "default", exec sway-quick-command start-task
-
-    bindsym {key/c} mode "default", exec {app/chat_client}
-    bindsym {key/e} mode "default", exec {app/terminal_emulator}
-    bindsym {key/h} mode "default", exec {app/system_monitor}
-    bindsym {key/m} mode "default", exec {app/mail_client}
     bindsym {key/w} mode "default", exec {app/web_browser}
 
     bindsym {key/return/Return} mode "default"
