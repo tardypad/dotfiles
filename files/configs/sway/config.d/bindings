@@ -46,7 +46,7 @@ mode "-- Launchers --" {
     bindsym {key/j} mode "default", exec sway-launcher sway-launch-tmux-env projects "--margin '1,2,0,2' --prompt 'open project '"
     bindsym {key/o} mode "default", exec copy-otp
     bindsym {key/p} mode "default", exec copy-password
-    bindsym {key/s} mode "default", exec sway-launcher play-somafm                   "--margin '1,2,0,2' --prompt 'play SomaFM channel '"
+    bindsym {key/s} mode "default", exec play-somafm
     bindsym {key/t} mode "default", exec sway-launcher start-task                    "--margin '1,2,0,2' --prompt 'start task '"
 
     bindsym {key/c} mode "default", exec {app/chat_client}

@@ -1,23 +1,21 @@
 #!/bin/sh
 
-# Fetch channels before the start of the fzf interface to have its informative
-# messages displayed properly beforehand
 CHANNELS=$( somafm channels )
 
-CHANNEL_ID=$(
-    echo "${CHANNELS}" \
-    | sort -k 2 \
-    | fzf --reverse \
-          --no-multi \
-          --info hidden \
-          --header "$( printf '\n' )" \
-          -d '\t' \
-          --with-nth 2 \
-          "$@" \
-    | cut -f 1
+CHANNEL_NAME=$(
+  echo "${CHANNELS}" \
+    | cut -f2 \
+    | bemenu -p 'Play SomaFM channel'
 )
 
-[ -n "${CHANNEL_ID}" ] || exit
+[ -n "${CHANNEL_NAME}" ] || exit
+
+CHANNEL_ID=$(
+  echo "${CHANNELS}" \
+    | cut -f1,2 \
+    | grep "${CHANNEL_NAME}" \
+    | cut -f1
+)
 
 CHANNEL_URL=$( somafm direct_url "${CHANNEL_ID}" )
 

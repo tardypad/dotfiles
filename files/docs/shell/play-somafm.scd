@@ -6,7 +6,7 @@ play-somafm - Interactive selection to play a SomaFM channel
 
 # SYNOPSIS
 
-play-somafm [_fzf_options_...]
+play-somafm
 
 # DESCRIPTION
 
@@ -18,8 +18,7 @@ None
 
 # OPERANDS
 
-_fzf_option_
-	*fzf* option
+None
 
 # ENVIRONMENT VARIABLES
 
@@ -31,6 +30,6 @@ None
 
 # DEPENDENCIES
 
-- fzf
+- bemenu
 - mpc
 - somafm
