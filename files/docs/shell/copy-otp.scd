@@ -6,7 +6,7 @@ copy-otp - Interactive selection to copy an OTP
 
 # SYNOPSIS
 
-copy-otp [_fzf_options_...]
+copy-otp
 
 # DESCRIPTION
 
@@ -18,8 +18,7 @@ None
 
 # OPERANDS
 
-_fzf_option_
-	*fzf* option
+None
 
 # ENVIRONMENT VARIABLES
 
@@ -31,6 +30,6 @@ None
 
 # DEPENDENCIES
 
-- fzf
+- bemenu
 - wl-copy
 - ykman

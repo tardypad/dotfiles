@@ -3,16 +3,11 @@
 NAME=$(
   ykman oath list 2> /dev/null \
     | sort \
-    | fzf --reverse \
-          --no-multi \
-          --info hidden \
-          --header "$( printf '\n' )" \
-          "$@"
+    | bemenu -p 'Copy OTP'
 )
 
 [ -n "${NAME}" ] || exit
 
 ykman oath code -s "${NAME}" \
-  | nohup \
-      wl-copy -n \
+  | wl-copy -n \
       > /dev/null 2>&1
