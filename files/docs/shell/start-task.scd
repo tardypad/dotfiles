@@ -6,7 +6,7 @@ start-task - Interactive start of a task
 
 # SYNOPSIS
 
-start-task [_fzf_options_...]
+start-task
 
 # DESCRIPTION
 
@@ -21,8 +21,7 @@ None
 
 # OPERANDS
 
-_fzf_option_
-	*fzf* option
+None
 
 # ENVIRONMENT VARIABLES
 

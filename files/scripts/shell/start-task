@@ -7,7 +7,7 @@ TASK_ID=$(
           --info hidden \
           --header "$( printf '\n' )" \
           --print-query \
-          "$@" \
+          --prompt 'start task ' \
     | tail -n1
 )
 
