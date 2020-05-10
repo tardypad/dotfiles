@@ -9,4 +9,4 @@ DOC_PATH=$(
 
 [ -n "${DOC_PATH}" ] || exit
 
-zathura "${DOC_PATH}"
+xdg-open "${DOC_PATH}"

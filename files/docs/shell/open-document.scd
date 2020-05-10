@@ -31,4 +31,4 @@ None
 # DEPENDENCIES
 
 - bemenu
-- zathura
+- xdg-open
