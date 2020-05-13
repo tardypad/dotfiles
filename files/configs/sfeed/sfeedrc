@@ -1,6 +1,6 @@
 feeds() {
   feed 'Le Monde.fr'                          'https://www.lemonde.fr/rss/une.xml'
-  feed 'Reflets.info'                         'http://feeds.feedburner.com/refletsinfo?format=xml'
+  feed 'Reflets.info'                         'https://reflets.info/feeds/public'
   feed 'DutchNews.nl'                         'https://www.dutchnews.nl/feed/?news'
   feed 'Arch Linux news'                      'https://www.archlinux.org/feeds/news/'
   feed 'Hacker News'                          'https://news.ycombinator.com/rss'
@@ -21,9 +21,8 @@ feeds() {
   feed 'Junegunn Choi'                        'https://junegunn.kr/atom.xml'
   feed 'Mary Poppendieck'                     'http://www.leanessays.com/feeds/posts/default'
   feed 'Gary Bernhardt (Twitter)'             'http://twitrss.me/twitter_user_to_rss/?user=garybernhardt'
-  feed 'Evan Czaplicki (Twitter)'             'http://twitrss.me/twitter_user_to_rss/?user=czaplic'
+  feed 'Evan Czaplicki (Twitter)'             'http://twitrss.me/twitter_user_to_rss/?user=evancz'
   feed 'Drew DeVault (Mastodon)'              'https://cmpwn.com/users/sir.rss'
-  feed 'Bonjour Tristesse (YouTube)'          'https://www.youtube.com/feeds/videos.xml?channel_id=UCAFQjCZo5okIPkHUQlBZM-g'
   feed 'Last Week Tonight (YouTube)'          'https://www.youtube.com/feeds/videos.xml?channel_id=UC3XTzVzaHQEd30rQbuvCtTQ'
   feed 'Living Big in a Tiny House (YouTube)' 'https://www.youtube.com/feeds/videos.xml?channel_id=UCoNTMWgGuXtGPLv9UeJZwBw'
 }
