@@ -40,6 +40,7 @@ shell-docs:
 	$(setup_file)/docs/shell/ssh-tags.scd                 | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/ssh-tags.1$(MAN_SUFFIX)
 	$(setup_file)/docs/shell/start-task.scd               | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/start-task.1$(MAN_SUFFIX)
 	$(setup_file)/docs/shell/status.scd                   | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/status.1$(MAN_SUFFIX)
+	$(setup_file)/docs/shell/system-menu.scd              | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/system-menu.1$(MAN_SUFFIX)
 	$(setup_file)/docs/shell/time-tracker.scd             | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/time-tracker.1$(MAN_SUFFIX)
 	$(setup_file)/docs/shell/tmux-env.scd                 | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/tmux-env.1$(MAN_SUFFIX)
 	$(setup_file)/docs/shell/weechat-fifo.scd             | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/weechat-fifo.1$(MAN_SUFFIX)

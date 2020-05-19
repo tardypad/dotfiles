@@ -1,12 +1,12 @@
-sway-menu-system(1)
+system-menu(1)
 
 # NAME
 
-sway-menu-system - Display menu to run system actions
+system-menu - Display menu to run system actions
 
 # SYNOPSIS
 
-sway-menu-system
+system-menu
 
 # DESCRIPTION
 
