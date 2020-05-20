@@ -112,6 +112,8 @@ process_file() {
     -e 's/: /=/' \
     ${HOSTS_TAGS_FILES} \
     | awk \
+      'BEGIN { FS="\n"; OFS="\n"; RS=""; ORS="\n\n" } !visited[$1]++' \
+    | awk \
       "BEGIN { FS=\"\n\"; RS=\"\" } ${AWK_SCRIPT}" \
     | sort
 }
