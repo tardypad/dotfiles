@@ -53,6 +53,7 @@ vim-configs:
 	$(setup_file)/configs/vim/plugin/manage_sessions.vim        > $(DESTDIR)$(HOME)/.vim/plugin/manage_sessions.vim
 	$(setup_file)/configs/vim/plugin/remove_trailing_spaces.vim > $(DESTDIR)$(HOME)/.vim/plugin/remove_trailing_spaces.vim
 	$(setup_file)/configs/vim/plugin/scroll_search.vim          > $(DESTDIR)$(HOME)/.vim/plugin/scroll_search.vim
+	$(setup_file)/configs/vim/plugin/tab_key.vim                > $(DESTDIR)$(HOME)/.vim/plugin/tab_key.vim
 	$(setup_file)/configs/vim/plugin/zoom_window.vim            > $(DESTDIR)$(HOME)/.vim/plugin/zoom_window.vim
 	$(setup_file)/configs/vim/snips/all.snippets                > $(DESTDIR)$(HOME)/.vim/snips/all.snippets
 	$(setup_file)/configs/vim/snips/php.snippets                > $(DESTDIR)$(HOME)/.vim/snips/php.snippets
