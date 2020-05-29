@@ -113,3 +113,6 @@ set statusline+=\ %l:%v                                              " line and 
 let g:netrw_liststyle = 0  " simple list
 let g:netrw_banner = 0     " hide banner
 let g:netrw_fastbrowse = 0 " don't reuse directory listing
+
+" alias to change current working directory to the current file one
+command Cdf cd %:p:h
