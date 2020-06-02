@@ -74,6 +74,8 @@ c.colors.completion.scrollbar.fg                = colors['popup_foreground']
 
 c.colors.contextmenu.menu.bg                    = colors['popup_background']
 c.colors.contextmenu.menu.fg                    = colors['popup_foreground']
+c.colors.contextmenu.disabled.bg                = colors['popup_background']
+c.colors.contextmenu.disabled.fg                = colors['base03']
 c.colors.contextmenu.selected.bg                = colors['current_item']
 c.colors.contextmenu.selected.fg                = colors['base00']
 

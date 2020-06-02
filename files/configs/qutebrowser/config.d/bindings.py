@@ -16,6 +16,7 @@ config.bind('<Ctrl-{key/interrupt/upp}>',        'leave-mode',                mo
 config.bind('<{key/return/Return}>',             'yank selection',            mode='caret')
 config.bind('{key/yank}',                        'yank selection',            mode='caret')
 config.bind('{key/select}',                      'toggle-selection',          mode='caret')
+config.bind('{key/select_line}',                 'toggle-selection --line',   mode='caret')
 config.bind('{key/selection_other_end}',         'reverse-selection',         mode='caret')
 config.bind('<Ctrl-{key/scroll_page_up/upp}>',   'scroll-page 0 -1',          mode='caret')
 config.bind('<Ctrl-{key/scroll_page_down/upp}>', 'scroll-page 0 1',           mode='caret')
@@ -102,6 +103,7 @@ config.bind("{key/mark_jump}",            'enter-mode jump_mark',   mode='normal
 config.bind('{key/mark_set}',             'enter-mode set_mark',    mode='normal')
 config.bind('<Ctrl-{key/escape/Escape}>', 'enter-mode passthrough', mode='normal')
 config.bind('{key/select}',               'enter-mode caret',       mode='normal')
+config.bind('{key/select_line}',          'enter-mode caret',       mode='normal')
 
 # general
 config.bind('<Ctrl-{key/quit/upp}>',               'quit',                                                                     mode='normal')
