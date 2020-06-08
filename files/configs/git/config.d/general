@@ -45,6 +45,8 @@
     issueUrl = https://www.github.com/{repo_path}/issues/{issue_id}
 [init]
     templatedir = {dir/config}/git/template
+[pull]
+    rebase = true
 [push]
     default = upstream
 [log]
