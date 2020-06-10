@@ -30,6 +30,6 @@ None
 
 # DEPENDENCIES
 
-- convert
 - grim
+- magick
 - slurp

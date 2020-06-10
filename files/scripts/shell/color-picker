@@ -5,5 +5,5 @@ PIXEL_REGION=$( slurp -p 2> /dev/null )
 [ -z "${PIXEL_REGION}" ] && exit 1
 
 grim -g "${PIXEL_REGION}" -t ppm - \
-  | convert - -format '%[pixel:p{0,0}]' txt:- \
+  | magick - -format '%[pixel:p{0,0}]' txt:- \
   | sed -n 's/0,0.* \(#[^ ]*\) .*rgb(\(.*\))/\1\n\2/p'
