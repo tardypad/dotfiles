@@ -136,14 +136,14 @@ nnoremap <silent> <Leader>{key/l}{key/t}        :ALEToggleBuffer<CR>
 
 "" tagbar
 
-nnoremap <silent> <Leader>{key/tag}{key/tag}   :TagbarOpen j<CR>
-nnoremap <silent> <Leader>{key/tag}{key/close} :TagbarClose<CR>
+nnoremap <silent> <Leader>{key/tag}{key/tag}  :TagbarOpen j<CR>
+nnoremap <silent> <Leader>{key/tag}{key/quit} :TagbarClose<CR>
 
 
 "" undotree
 
-nnoremap <silent> <Leader>{key/undo}{key/undo}  :UndotreeShow<CR>
-nnoremap <silent> <Leader>{key/undo}{key/close} :UndotreeHide<CR>
+nnoremap <silent> <Leader>{key/undo}{key/undo} :UndotreeShow<CR>
+nnoremap <silent> <Leader>{key/undo}{key/quit} :UndotreeHide<CR>
 
 
 "" snippets
