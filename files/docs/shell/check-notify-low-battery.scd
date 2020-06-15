@@ -1,4 +1,4 @@
-check-notify-low-battery(1)
+check-notify-low-battery(1perso)
 
 # NAME
 

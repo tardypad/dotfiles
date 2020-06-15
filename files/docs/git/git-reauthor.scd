@@ -1,4 +1,4 @@
-git-reauthor(1)
+git-reauthor(1perso)
 
 # NAME
 

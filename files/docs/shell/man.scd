@@ -1,4 +1,4 @@
-man(1)
+man(1perso)
 
 # NAME
 

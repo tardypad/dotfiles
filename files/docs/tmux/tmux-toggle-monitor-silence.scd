@@ -1,4 +1,4 @@
-tmux-toggle-monitor-silence(1)
+tmux-toggle-monitor-silence(1perso)
 
 # NAME
 

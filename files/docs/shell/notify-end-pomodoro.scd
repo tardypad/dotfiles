@@ -1,4 +1,4 @@
-notify-end-pomodoro(1)
+notify-end-pomodoro(1perso)
 
 # NAME
 

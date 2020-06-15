@@ -1,4 +1,4 @@
-documentation(1)
+documentation(1perso)
 
 # NAME
 

@@ -1,4 +1,4 @@
-color-picker(1)
+color-picker(1perso)
 
 # NAME
 

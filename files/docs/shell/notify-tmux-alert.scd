@@ -1,4 +1,4 @@
-notify-tmux-alert(1)
+notify-tmux-alert(1perso)
 
 # NAME
 

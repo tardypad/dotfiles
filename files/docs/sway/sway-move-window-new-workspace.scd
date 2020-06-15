@@ -1,4 +1,4 @@
-sway-move-window-new-workspace(1)
+sway-move-window-new-workspace(1perso)
 
 # NAME
 

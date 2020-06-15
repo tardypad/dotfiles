@@ -1,4 +1,4 @@
-http-stats(1)
+http-stats(1perso)
 
 # NAME
 

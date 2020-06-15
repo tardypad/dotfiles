@@ -11,8 +11,6 @@
 ## Cleaning
 
 ## Bugs
-  - man pages should be marked with section "(1perso)"
-    however this is currently not allowed by scdoc
 
 ## Testing
 

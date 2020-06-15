@@ -1,4 +1,4 @@
-git-stamp(1)
+git-stamp(1perso)
 
 # NAME
 

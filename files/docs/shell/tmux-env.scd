@@ -1,4 +1,4 @@
-tmux-env(1)
+tmux-env(1perso)
 
 # NAME
 

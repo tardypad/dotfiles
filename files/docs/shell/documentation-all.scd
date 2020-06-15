@@ -1,4 +1,4 @@
-documentation-all(1)
+documentation-all(1perso)
 
 # NAME
 

@@ -1,4 +1,4 @@
-tmux-extract-tokens(1)
+tmux-extract-tokens(1perso)
 
 # NAME
 
@@ -30,7 +30,7 @@ _window_
 	Extract token from all panes of the current window
 
 _type_
-	Type of token to extract, see *extract-tokens*(1)
+	Type of token to extract, see *extract-tokens*(1perso)
 
 # ENVIRONMENT VARIABLES
 

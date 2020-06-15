@@ -1,4 +1,4 @@
-system-menu(1)
+system-menu(1perso)
 
 # NAME
 

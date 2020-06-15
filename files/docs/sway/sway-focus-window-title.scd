@@ -1,4 +1,4 @@
-sway-focus-window-title(1)
+sway-focus-window-title(1perso)
 
 # NAME
 

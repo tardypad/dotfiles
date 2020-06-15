@@ -1,4 +1,4 @@
-tmux-toggle-monitor-activity(1)
+tmux-toggle-monitor-activity(1perso)
 
 # NAME
 

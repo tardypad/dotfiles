@@ -1,4 +1,4 @@
-sway-quick-command(1)
+sway-quick-command(1perso)
 
 # NAME
 

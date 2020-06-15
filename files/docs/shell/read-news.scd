@@ -1,4 +1,4 @@
-read-news(1)
+read-news(1perso)
 
 # NAME
 

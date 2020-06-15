@@ -1,4 +1,4 @@
-git-init-todo(1)
+git-init-todo(1perso)
 
 # NAME
 
