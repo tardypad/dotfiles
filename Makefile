@@ -3,8 +3,6 @@
 
 THEME = light
 
-MAN_SUFFIX = perso
-
 BIN_DIR    = $(HOME)/.local/bin
 CACHE_DIR  = $(HOME)/.cache
 CONFIG_DIR = $(HOME)/.config
