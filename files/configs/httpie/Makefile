@@ -1,6 +1,6 @@
 all: httpie-configs
 
 httpie-configs:
-	mkdir -p $(DESTDIR)$(HOME)/.httpie
+	mkdir -p $(DESTDIR)$(CONFIG_DIR)/httpie
 
-	$(setup_file)/configs/httpie/config.json > $(DESTDIR)$(HOME)/.httpie/config.json
+	$(setup_file)/configs/httpie/config.json > $(DESTDIR)$(CONFIG_DIR)/httpie/config.json
