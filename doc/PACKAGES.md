@@ -39,6 +39,7 @@ Note that it is not an exact match as extra patches might be added by the distro
 | mpd                    | music server                         | [GitHub](https://github.com/MusicPlayerDaemon/MPD)                                     |                                                                        | [0.21.24](https://github.com/MusicPlayerDaemon/MPD/releases/tag/v0.21.24)                                                   |
 | mpv                    | media player                         | [GitHub](https://github.com/mpv-player/mpv)                                            |                                                                        | [1:0.32.0](https://github.com/mpv-player/mpv/releases/tag/v0.32.0)                                                          |
 | neomutt                | mail client                          | [GitHub](https://github.com/neomutt/neomutt)                                           |                                                                        | [20200626](https://github.com/neomutt/neomutt/releases/tag/20200626)                                                        |
+| networkmanager         | network manager                      | [freedesktop.org](https://cgit.freedesktop.org/NetworkManager/NetworkManager)          |                                                                        | [1.24.2](https://cgit.freedesktop.org/NetworkManager/NetworkManager/tag/?h=1.24.2)                                          |
 | openssh                | SSH client                           | [GitHub](https://github.com/openssh/openssh-portable)                                  |                                                                        | [8.3p1](https://github.com/openssh/openssh-portable/releases/tag/V_8_3_P1)                                                  |
 | otf-font-awesome       | icons font                           | [GitHub](https://github.com/FortAwesome/Font-Awesome)                                  |                                                                        | [5.13.1](https://github.com/FortAwesome/Font-Awesome/releases/tag/5.13.1)                                                   |
 | pass                   | password manager                     | [zx2c4.com](https://git.zx2c4.com/password-store/)                                     |                                                                        | [1.7.3](https://git.zx2c4.com/password-store/tag/?h=1.7.3)                                                                  |
@@ -68,7 +69,7 @@ Note that it is not an exact match as extra patches might be added by the distro
 
 Some of the packages don't have their own dotfiles config for diversion reasons:
 - no support for any configuration (e.g., the silver searcher)
-- configuration is only system wide (e.g., bluez-utils)
+- configuration is only system wide (e.g., networkmanager)
 - none is needed, use defaults (e.g., curl)
 - config is part of another package (e.g., fzf, variables part of shell config)
 
