@@ -24,7 +24,6 @@ translate-shell: translate-shell-configs
 universal-ctags: universal-ctags-configs
 vim: vim-configs
 w3m: w3m-configs
-waybar: waybar-configs waybar-scripts
 weechat: weechat-configs
 zathura: zathura-configs
 zsh: zsh-configs shell-docs shell-scripts

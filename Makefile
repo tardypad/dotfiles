@@ -36,7 +36,6 @@ include files/configs/translate-shell/Makefile
 include files/configs/universal-ctags/Makefile
 include files/configs/vim/Makefile
 include files/configs/w3m/Makefile
-include files/configs/waybar/Makefile
 include files/configs/weechat/Makefile
 include files/configs/zathura/Makefile
 include files/configs/zsh/Makefile
@@ -57,7 +56,6 @@ include files/scripts/i3blocks/Makefile
 include files/scripts/shell/Makefile
 include files/scripts/sway/Makefile
 include files/scripts/tmux/Makefile
-include files/scripts/waybar/Makefile
 
 include files/Makefile
 
