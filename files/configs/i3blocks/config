@@ -17,6 +17,9 @@ signal=4
 [volume]
 signal=2
 
+[microphone]
+signal=7
+
 [webcam]
 
 [bluetooth]
