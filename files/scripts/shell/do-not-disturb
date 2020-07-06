@@ -76,7 +76,7 @@ dnd_enable() {
   ssh surg bin/set-status busy "${STATUS_TEXT}" 2> /dev/null &
 
   touch "${FILE_PATH}" \
-    && update_waybar
+    && update_i3blocks
 }
 
 dnd_disable() {
@@ -85,11 +85,11 @@ dnd_disable() {
   ssh surg bin/set-status available 2> /dev/null &
 
   rm -f "${FILE_PATH}" \
-    && update_waybar
+    && update_i3blocks
 }
 
-update_waybar() {
-  pkill -x -RTMIN+2 waybar
+update_i3blocks() {
+  pkill -x -RTMIN+3 i3blocks
 }
 
 dnd_status() {
@@ -122,5 +122,3 @@ parse_command_line "$@"
 validate_command_line
 
 "dnd_$( echo "${ACTION}" | tr '-' '_' )"
-
-pkill -x -RTMIN+3 i3blocks

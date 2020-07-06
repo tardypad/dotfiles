@@ -102,7 +102,7 @@ tracking_start() {
   printf '%s\t%s\t%s' \
     "${CURRENT_TIME}" "${TASK_ID}" "${TASK_DESC}" \
     > "${CURRENT_FILE_PATH}" \
-    && update_waybar
+    && update_i3blocks
 }
 
 tracking_status() {
@@ -132,7 +132,7 @@ tracking_stop() {
     >> "${LOGGING_DIR}/${CURRENT_DAY}"
 
   rm -rf "${CURRENT_FILE_PATH}" \
-    && update_waybar
+    && update_i3blocks
 }
 
 is_tracking_started() {
@@ -191,8 +191,8 @@ tracking_show()
     | eval "${FORMAT_CMD}"
 }
 
-update_waybar() {
-  pkill -x -RTMIN+3 waybar
+update_i3blocks() {
+  pkill -x -RTMIN+6 i3blocks
 }
 
 init_variables
@@ -201,5 +201,3 @@ validate_command_line
 
 mkdir -p "${LOGGING_DIR}"
 "tracking_${ACTION}"
-
-pkill -x -RTMIN+6 i3blocks
