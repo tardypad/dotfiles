@@ -20,6 +20,7 @@
 
 ## i3blocks
   - [Anachron i3blocks](https://github.com/Anachron/i3blocks)
+  - [Vivien Didelot contrib](https://github.com/vivien/i3blocks-contrib)
 
 ## tmux
   - [Gregory Pakosz config](https://github.com/gpakosz/.tmux)
