@@ -13,3 +13,4 @@ i3blocks-docs:
 	$(setup_file)/docs/i3blocks/i3blocks-power.scd          | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/i3blocks-power.1perso
 	$(setup_file)/docs/i3blocks/i3blocks-time-tracker.scd   | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/i3blocks-time-tracker.1perso
 	$(setup_file)/docs/i3blocks/i3blocks-volume.scd         | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/i3blocks-volume.1perso
+	$(setup_file)/docs/i3blocks/i3blocks-webcam.scd         | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/i3blocks-webcam.1perso

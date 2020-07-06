@@ -13,6 +13,7 @@ i3blocks-scripts:
 	$(setup_file)/scripts/i3blocks/i3blocks-power          > $(DESTDIR)$(BIN_DIR)/i3blocks-power
 	$(setup_file)/scripts/i3blocks/i3blocks-time-tracker   > $(DESTDIR)$(BIN_DIR)/i3blocks-time-tracker
 	$(setup_file)/scripts/i3blocks/i3blocks-volume         > $(DESTDIR)$(BIN_DIR)/i3blocks-volume
+	$(setup_file)/scripts/i3blocks/i3blocks-webcam         > $(DESTDIR)$(BIN_DIR)/i3blocks-webcam
 
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-bluetooth
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-chat
@@ -24,3 +25,4 @@ i3blocks-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-power
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-time-tracker
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-volume
+	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-webcam
