@@ -1,0 +1,23 @@
+#!/bin/sh
+
+MODE="$( i3blocks-mode )"
+
+CONNECTED_DEVICES=$(
+  bluetoothctl paired-devices \
+    | cut -d' ' -f2 \
+    | xargs -I{} bluetoothctl info {} \
+    | sed -n -e 's/.*Alias: \(.*\)/\1/p' -e 's/.*Connected: \(.*\)/\1/p' \
+    | paste - - \
+    | sed -n 's/\(.*\)\tyes$/\1/p' \
+    | paste -sd,
+)
+
+if [ -z "${CONNECTED_DEVICES}" ]; then
+  exit 0
+fi
+
+if [ "${MODE}" = 'full' ]; then
+  echo "<span foreground='#{color/base09/hex}'></span> ${CONNECTED_DEVICES}"
+else
+  echo "<span foreground='#{color/base09/hex}'></span>"
+fi

@@ -27,6 +27,9 @@ bindsym $mod+Ctrl+{key/escape/Escape} exec time-tracker stop
 # select region and grab screenshot
 bindsym $mod+{key/g} exec screenshot
 
+# toggle bar status mode
+bindsym $mod+{key/tabulation/Tab} exec i3blocks-mode toggle
+
 # run quick command
 bindsym $mod+{key/return/Return} exec sway-quick-command
 
@@ -195,9 +198,12 @@ bindsym $mod+Shift+{key/resize/low} mode "-- RESIZE --"
 ## XF86 keys
 
 # Volume keys
-bindsym --locked {key/XF86AudioRaiseVolume} exec amixer -q set Master unmute 5%+
-bindsym --locked {key/XF86AudioLowerVolume} exec amixer -q set Master unmute 5%-
-bindsym --locked {key/XF86AudioMute}        exec amixer -q set Master toggle
+bindsym --locked {key/XF86AudioRaiseVolume} exec amixer -q set Master unmute 5%+ \
+                                                 && pkill -x -RTMIN+2 i3blocks
+bindsym --locked {key/XF86AudioLowerVolume} exec amixer -q set Master unmute 5%- \
+                                                 && pkill -x -RTMIN+2 i3blocks
+bindsym --locked {key/XF86AudioMute}        exec amixer -q set Master toggle \
+                                                 && pkill -x -RTMIN+2 i3blocks
 
 # Microphone key
 bindsym --locked {key/XF86AudioMicMute} exec amixer -q set Capture toggle
@@ -207,6 +213,9 @@ bindsym --locked {key/XF86MonBrightnessUp}   exec light -A 10
 bindsym --locked {key/XF86MonBrightnessDown} exec light -U 10
 
 # Media keys
-bindsym --locked {key/XF86AudioPlay} exec mpc toggle
-bindsym --locked {key/XF86AudioNext} exec mpc next
-bindsym --locked {key/XF86AudioPrev} exec mpc prev
+bindsym --locked {key/XF86AudioPlay} exec mpc toggle \
+                                          && pkill -x -RTMIN+4 i3blocks
+bindsym --locked {key/XF86AudioNext} exec mpc next \
+                                          && pkill -x -RTMIN+4 i3blocks
+bindsym --locked {key/XF86AudioPrev} exec mpc prev \
+                                          && pkill -x -RTMIN+4 i3blocks

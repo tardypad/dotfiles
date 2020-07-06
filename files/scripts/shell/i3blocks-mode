@@ -1,0 +1,68 @@
+#!/bin/sh
+
+init_variables() {
+  COMMAND=${0##*/}
+
+  FULL_FILE_PATH="${XDG_RUNTIME_DIR:-/tmp}/i3blocks_mode_full"
+  SIGNAL_MAX=10
+
+  ACTION='show'
+}
+
+parse_command_line() {
+  [ -z "$1" ] || ACTION="$1"
+}
+
+validate_command_line() {
+  if [ "${ACTION}" != 'light' ] \
+     && [ "${ACTION}" != 'full' ] \
+     && [ "${ACTION}" != 'toggle' ] \
+     && [ "${ACTION}" != 'show' ]; then
+    exit_error "Invalid action '${ACTION}'"
+  fi
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+refresh_display() {
+  # send all update signals to the bar status
+  # to refresh all items display
+  for i in $( seq 1 "${SIGNAL_MAX}" ); do
+    pkill -x -RTMIN+"$i" i3blocks
+  done
+}
+
+bar_status_light() {
+  rm "${FULL_FILE_PATH}" -f
+  refresh_display
+}
+
+bar_status_full() {
+  touch "${FULL_FILE_PATH}"
+  refresh_display
+}
+
+bar_status_toggle() {
+  if [ "$( bar_status_show )" = 'light' ]; then
+    bar_status_full
+  else
+    bar_status_light
+  fi
+}
+
+bar_status_show() {
+  if [ -f "${FULL_FILE_PATH}" ]; then
+    echo 'full'
+  else
+    echo 'light'
+  fi
+}
+
+init_variables
+parse_command_line "$@"
+validate_command_line
+
+"bar_status_${ACTION}"

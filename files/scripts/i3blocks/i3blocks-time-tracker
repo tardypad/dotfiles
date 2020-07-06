@@ -1,0 +1,9 @@
+#!/bin/sh
+
+TRACKING_STATUS=$( time-tracker status 2> /dev/null )
+
+[ -n "${TRACKING_STATUS}" ] || exit 0
+
+TASK_ID=$( echo "${TRACKING_STATUS}" | cut -f1 )
+
+echo "<span foreground='#{color/notice/hex}'>  ${TASK_ID}</span>"

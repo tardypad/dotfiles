@@ -201,3 +201,5 @@ validate_command_line
 
 mkdir -p "${LOGGING_DIR}"
 "tracking_${ACTION}"
+
+pkill -x -RTMIN+6 i3blocks

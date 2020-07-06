@@ -1,0 +1,41 @@
+#!/bin/sh
+
+MODE="$( i3blocks-mode )"
+
+MUSIC_INFO=$(
+  mpc status -f '[[%artist% / ]%title%]|[%file%]' 2> /dev/null
+)
+
+# only display something if the MPD is on
+# and the songs queue is not empty
+if [ -z "${MUSIC_INFO}" ] \
+   || [ "$( mpc playlist | wc -l )" -eq 0 ]; then
+  exit 0
+fi
+
+if echo "${MUSIC_INFO}" | grep -q '^\[playing\]'; then
+  MUSIC_ICON=''
+  MUSIC_TEXT=$(
+    echo "${MUSIC_INFO}" \
+      | head -n 1 \
+      | cut -c -50
+  )
+elif echo "${MUSIC_INFO}" | grep -q '^\[paused\]'; then
+  MUSIC_ICON=''
+  MUSIC_TEXT='Paused'
+else
+  MUSIC_ICON=''
+  MUSIC_TEXT='Stopped'
+fi
+
+# escape some characters for HTML display
+MUSIC_TEXT=$(
+  echo "${MUSIC_TEXT}" \
+    | sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/>/\&gt;/g'
+)
+
+if [ "${MODE}" = 'full' ]; then
+  echo "<span foreground='#{color/base09/hex}'>${MUSIC_ICON}</span> <span style='italic'>${MUSIC_TEXT}</span>"
+else
+  echo "<span foreground='#{color/base09/hex}'>${MUSIC_ICON}</span>"
+fi
