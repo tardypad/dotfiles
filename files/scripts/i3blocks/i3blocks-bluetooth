@@ -2,6 +2,8 @@
 
 MODE="$( i3blocks-mode )"
 
+COLOR='#{color/base09/hex}'
+
 CONNECTED_DEVICES=$(
   bluetoothctl paired-devices \
     | cut -d' ' -f2 \
@@ -17,7 +19,9 @@ if [ -z "${CONNECTED_DEVICES}" ]; then
 fi
 
 if [ "${MODE}" = 'full' ]; then
-  echo "<span foreground='#{color/base09/hex}'></span> ${CONNECTED_DEVICES}"
+  TEXT="  ${CONNECTED_DEVICES}"
 else
-  echo "<span foreground='#{color/base09/hex}'></span>"
+  TEXT=''
 fi
+
+printf '%s\n\n%s\n' "${TEXT}" "${COLOR}"

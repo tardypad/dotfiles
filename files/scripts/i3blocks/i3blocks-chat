@@ -4,6 +4,8 @@ COUNT_FILE_PATH="${XDG_RUNTIME_DIR:-/tmp}/chat_count"
 
 MODE="$( i3blocks-mode )"
 
+COLOR='#{color/base09/hex}'
+
 # don't show anything if weechat is not running
 pidof weechat > /dev/null || exit 0
 
@@ -11,24 +13,28 @@ pidof weechat > /dev/null || exit 0
 # just to let us know at least that weechat is running
 if [ ! -f "${COUNT_FILE_PATH}" ]; then
   if [ "${MODE}" = 'full' ]; then
-    echo "<span foreground='#{color/base09/hex}'></span> 0"
+    TEXT='  0'
   else
-    echo "<span foreground='#{color/base09/hex}'></span>"
+    TEXT=''
   fi
 fi
 
 COUNT=$( cat "${COUNT_FILE_PATH}" )
 
 if [ "${COUNT}" -gt 0 ]; then
+  COLOR='#{color/notice/hex}'
+
   if [ "${MODE}" = 'full' ]; then
-    echo "<span foreground='#{color/notice/hex}'> ${COUNT}</span>"
+    TEXT="  ${COUNT}"
   else
-    echo "<span foreground='#{color/notice/hex}'></span>"
+    TEXT=''
   fi
 else
   if [ "${MODE}" = 'full' ]; then
-    echo "<span foreground='#{color/base09/hex}'></span> 0"
+    TEXT='  0'
   else
-    echo "<span foreground='#{color/base09/hex}'></span>"
+    TEXT=''
   fi
 fi
+
+printf '%s\n\n%s\n' "${TEXT}" "${COLOR}"

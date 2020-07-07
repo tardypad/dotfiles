@@ -1,5 +1,10 @@
 #!/bin/sh
 
-if fuser /dev/video0 > /dev/null 2>&1; then
-  echo "<span foreground='#{color/notice/hex}'></span>"
+if ! fuser /dev/video0 > /dev/null 2>&1; then
+  exit 0
 fi
+
+COLOR='#{color/notice/hex}'
+TEXT=''
+
+printf '%s\n\n%s\n' "${TEXT}" "${COLOR}"

@@ -2,6 +2,8 @@
 
 MODE="$( i3blocks-mode )"
 
+COLOR='#{color/base09/hex}'
+
 MUSIC_INFO=$(
   mpc status -f '[[%artist% / ]%title%]|[%file%]' 2> /dev/null
 )
@@ -35,7 +37,9 @@ MUSIC_TEXT=$(
 )
 
 if [ "${MODE}" = 'full' ]; then
-  echo "<span foreground='#{color/base09/hex}'>${MUSIC_ICON}</span> <span style='italic'>${MUSIC_TEXT}</span>"
+  TEXT="${MUSIC_ICON}  ${MUSIC_TEXT}"
 else
-  echo "<span foreground='#{color/base09/hex}'>${MUSIC_ICON}</span>"
+  TEXT="${MUSIC_ICON}"
 fi
+
+printf '%s\n\n%s\n' "${TEXT}" "${COLOR}"

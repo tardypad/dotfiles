@@ -2,6 +2,8 @@
 
 MODE="$( i3blocks-mode )"
 
+COLOR='#{color/base09/hex}'
+
 BATTERY_STATUS=$( battery-status )
 
 ADAPTER_STATUS=$(
@@ -32,30 +34,27 @@ fi
 if [ "${ADAPTER_STATUS}" = 'on' ]; then
   if [ "${IS_ANY_BATTERY_CHARGING}" = 'yes' ]; then
     if [ "${MODE}" = 'full' ]; then
-      echo "<span foreground='#{color/base09/hex}'> ${BATTERY_ICON}</span> ${TOTAL_ENERGY_PERCENT}%"
+      TEXT=" ${BATTERY_ICON}  ${TOTAL_ENERGY_PERCENT}%"
     else
-      echo "<span foreground='#{color/base09/hex}'> ${BATTERY_ICON}</span>"
+      TEXT=" ${BATTERY_ICON}"
     fi
   else
     if [ "${MODE}" = 'full' ]; then
-      echo "<span foreground='#{color/base09/hex}'></span> AC"
+      TEXT='  AC'
     else
-      echo "<span foreground='#{color/base09/hex}'></span>"
+      TEXT=''
     fi
   fi
 else
   if [ "${TOTAL_ENERGY_PERCENT}" -lt 10 ]; then
-    if [ "${MODE}" = 'full' ]; then
-      echo "<span foreground='#{color/alert/hex}'>${BATTERY_ICON} ${TOTAL_ENERGY_PERCENT}%</span>"
-    else
-      echo "<span foreground='#{color/alert/hex}'>${BATTERY_ICON}</span>"
-    fi
-    exit 33
+    COLOR='#{color/alert/hex}'
+  fi
+
+  if [ "${MODE}" = 'full' ]; then
+    TEXT="${BATTERY_ICON}  ${TOTAL_ENERGY_PERCENT}%"
   else
-    if [ "${MODE}" = 'full' ]; then
-      echo "<span foreground='#{color/base09/hex}'>${BATTERY_ICON}</span> ${TOTAL_ENERGY_PERCENT}%"
-    else
-      echo "<span foreground='#{color/base09/hex}'>${BATTERY_ICON}</span>"
-    fi
+    TEXT="${BATTERY_ICON}"
   fi
 fi
+
+printf '%s\n\n%s\n' "${TEXT}" "${COLOR}"

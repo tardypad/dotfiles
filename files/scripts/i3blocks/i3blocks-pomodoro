@@ -1,7 +1,11 @@
 #!/bin/sh
 
+COLOR='#{color/base09/hex}'
+
 SESSION_STATUS=$( pomodoro status 2> /dev/null )
 
 [ -n "${SESSION_STATUS}" ] || exit 0
 
-echo "<span foreground='#{color/base09/hex}'>( ${SESSION_STATUS} )</span>"
+TEXT="( ${SESSION_STATUS} )"
+
+printf '%s\n\n%s\n' "${TEXT}" "${COLOR}"

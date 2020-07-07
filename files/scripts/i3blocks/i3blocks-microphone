@@ -2,6 +2,8 @@
 
 MODE="$( i3blocks-mode )"
 
+COLOR='#{color/notice/hex}'
+
 VOLUME_INFO=$(
   amixer get Capture \
     | sed -n '/\[[0-9]\{1,3\}%\] \[.*\]/p' \
@@ -18,7 +20,9 @@ VOLUME_PERCENT=$(
 )
 
 if [ "${MODE}" = 'full' ]; then
-  echo "<span foreground='#{color/notice/hex}'></span> ${VOLUME_PERCENT}%"
+  TEXT="  ${VOLUME_PERCENT}%"
 else
-  echo "<span foreground='#{color/notice/hex}'></span>"
+  TEXT=''
 fi
+
+printf '%s\n\n%s\n' "${TEXT}" "${COLOR}"

@@ -2,6 +2,8 @@
 
 MODE="$( i3blocks-mode )"
 
+COLOR='#{color/base09/hex}'
+
 NETWORK_INFO=$(
   nmcli -f type,state,connection device status \
     | tr -s ' '
@@ -30,20 +32,24 @@ WIFI_CONNECTION=$(
 # NetworkManager automatically favors wired connections over wireless
 if [ "${IS_ETHERNET_CONNECTED}" = 'true' ]; then
   if [ "${MODE}" = 'full' ]; then
-    echo "<span foreground='#{color/base09/hex}'></span> Wired"
+    TEXT='  Wired'
   else
-    echo "<span foreground='#{color/base09/hex}'></span>"
+    TEXT=''
   fi
 elif [ "${IS_WIFI_CONNECTED}" = 'true' ]; then
   if [ "${MODE}" = 'full' ]; then
-    echo "<span foreground='#{color/base09/hex}'></span> ${WIFI_CONNECTION}"
+    TEXT="  ${WIFI_CONNECTION}"
   else
-    echo "<span foreground='#{color/base09/hex}'></span>"
+    TEXT=''
   fi
 else
+  COLOR='#{color/warning/hex}'
+
   if [ "${MODE}" = 'full' ]; then
-    echo "<span foreground='#{color/warning/hex}'> Disconnected</span>"
+    TEXT='  Disconnected'
   else
-    echo "<span foreground='#{color/warning/hex}'></span>"
+    TEXT=''
   fi
 fi
+
+printf '%s\n\n%s\n' "${TEXT}" "${COLOR}"
