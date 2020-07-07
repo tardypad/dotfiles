@@ -2,8 +2,6 @@
 
 MODE="$( i3blocks-mode )"
 
-COLOR='#{color/base09/hex}'
-
 MUSIC_INFO=$(
   mpc status -f '[[%artist% / ]%title%]|[%file%]' 2> /dev/null
 )

@@ -2,8 +2,6 @@
 
 MODE="$( i3blocks-mode )"
 
-COLOR='#{color/base09/hex}'
-
 VOLUME_INFO=$(
   amixer get Master \
     | sed -n '/\[[0-9]\{1,3\}%\] \[.*\]/p' \

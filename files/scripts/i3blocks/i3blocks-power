@@ -2,8 +2,6 @@
 
 MODE="$( i3blocks-mode )"
 
-COLOR='#{color/base09/hex}'
-
 BATTERY_STATUS=$( battery-status )
 
 ADAPTER_STATUS=$(

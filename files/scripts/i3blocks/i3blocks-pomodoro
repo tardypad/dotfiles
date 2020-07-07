@@ -1,7 +1,5 @@
 #!/bin/sh
 
-COLOR='#{color/base09/hex}'
-
 SESSION_STATUS=$( pomodoro status 2> /dev/null )
 
 [ -n "${SESSION_STATUS}" ] || exit 0

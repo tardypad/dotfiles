@@ -1,7 +1,5 @@
 #!/bin/sh
 
-COLOR='#{color/base09/hex}'
-
 TRACKING_STATUS=$( time-tracker status 2> /dev/null )
 
 [ -n "${TRACKING_STATUS}" ] || exit 0

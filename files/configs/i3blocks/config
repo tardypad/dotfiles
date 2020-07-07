@@ -5,6 +5,8 @@ signal=1
 separator=false
 separator_block_width=20
 
+COLOR=#{color/base09/hex}
+
 [time-tracker]
 signal=6
 

@@ -2,8 +2,6 @@
 
 MODE="$( i3blocks-mode )"
 
-COLOR='#{color/base09/hex}'
-
 NETWORK_INFO=$(
   nmcli -f type,state,connection device status \
     | tr -s ' '

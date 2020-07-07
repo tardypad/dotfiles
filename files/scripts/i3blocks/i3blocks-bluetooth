@@ -2,8 +2,6 @@
 
 MODE="$( i3blocks-mode )"
 
-COLOR='#{color/base09/hex}'
-
 CONNECTED_DEVICES=$(
   bluetoothctl paired-devices \
     | cut -d' ' -f2 \
