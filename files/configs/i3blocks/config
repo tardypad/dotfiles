@@ -3,11 +3,18 @@ markup=pango
 interval=10
 signal=1
 
+separator=false
+separator_block_width=20
+
 [time-tracker]
 signal=6
 
 [pomodoro]
 signal=5
+
+[separator]
+full_text=​
+separator_block_width=100
 
 [music]
 signal=4
