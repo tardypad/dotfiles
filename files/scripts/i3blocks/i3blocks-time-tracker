@@ -6,4 +6,4 @@ TRACKING_STATUS=$( time-tracker status 2> /dev/null )
 
 TASK_ID=$( echo "${TRACKING_STATUS}" | cut -f1 )
 
-echo "<span foreground='#{color/notice/hex}'>  ${TASK_ID}</span>"
+echo "<span foreground='#{color/base09/hex}'>${TASK_ID}</span>"
