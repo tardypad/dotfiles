@@ -21,13 +21,13 @@ signal=4
 
 [chat]
 
-[volume]
-signal=2
-
 [microphone]
 signal=7
 
 [webcam]
+
+[volume]
+signal=2
 
 [bluetooth]
 
