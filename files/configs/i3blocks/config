@@ -40,3 +40,4 @@ signal=2
 signal=3
 
 [datetime]
+command=date +"%a %e %b %H:%M"

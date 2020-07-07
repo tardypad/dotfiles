@@ -5,7 +5,6 @@ i3blocks-docs:
 
 	$(setup_file)/docs/i3blocks/i3blocks-bluetooth.scd      | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/i3blocks-bluetooth.1perso
 	$(setup_file)/docs/i3blocks/i3blocks-chat.scd           | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/i3blocks-chat.1perso
-	$(setup_file)/docs/i3blocks/i3blocks-datetime.scd       | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/i3blocks-datetime.1perso
 	$(setup_file)/docs/i3blocks/i3blocks-do-not-disturb.scd | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/i3blocks-do-not-disturb.1perso
 	$(setup_file)/docs/i3blocks/i3blocks-microphone.scd     | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/i3blocks-microphone.1perso
 	$(setup_file)/docs/i3blocks/i3blocks-music.scd          | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/i3blocks-music.1perso
