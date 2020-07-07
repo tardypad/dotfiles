@@ -20,7 +20,8 @@ bar {
         binding_mode $background $background $notice
     }
 
-    # status part
     status_command i3blocks
     separator_symbol ' '
+
+    tray_output none
 }
