@@ -14,6 +14,7 @@ signal=6
 signal=5
 
 [separator]
+command=
 full_text=​
 separator_block_width=100
 
