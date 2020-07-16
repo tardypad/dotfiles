@@ -36,6 +36,9 @@ alias lbl='line-by-line'
 # smart cut on spaces
 alias scut="tr -s ' ' '\t' | cut"
 
+# trim spaces
+alias trim="sed -e 's/^ *//' -e 's/ *$//'"
+
 # clean the tmux pane before running a command
 alias clean='clear && tmux clear-history &&'
 
