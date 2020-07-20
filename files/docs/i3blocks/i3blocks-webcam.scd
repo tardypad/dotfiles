@@ -1,4 +1,4 @@
-i3blocks-webcam(1)
+i3blocks-webcam(1perso)
 
 # NAME
 

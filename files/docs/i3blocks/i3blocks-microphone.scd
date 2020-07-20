@@ -1,4 +1,4 @@
-i3blocks-microphone(1)
+i3blocks-microphone(1perso)
 
 # NAME
 

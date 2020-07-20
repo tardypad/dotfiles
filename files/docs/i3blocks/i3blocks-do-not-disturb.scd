@@ -1,4 +1,4 @@
-i3blocks-do-not-disturb(1)
+i3blocks-do-not-disturb(1perso)
 
 # NAME
 

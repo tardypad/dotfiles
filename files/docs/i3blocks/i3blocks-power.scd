@@ -1,4 +1,4 @@
-i3blocks-power(1)
+i3blocks-power(1perso)
 
 # NAME
 

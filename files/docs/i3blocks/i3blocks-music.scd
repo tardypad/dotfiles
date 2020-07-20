@@ -1,4 +1,4 @@
-i3blocks-music(1)
+i3blocks-music(1perso)
 
 # NAME
 

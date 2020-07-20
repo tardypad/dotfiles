@@ -1,4 +1,4 @@
-i3blocks-network(1)
+i3blocks-network(1perso)
 
 # NAME
 

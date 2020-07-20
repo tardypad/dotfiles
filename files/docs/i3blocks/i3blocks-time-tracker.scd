@@ -1,4 +1,4 @@
-i3blocks-time-tracker(1)
+i3blocks-time-tracker(1perso)
 
 # NAME
 

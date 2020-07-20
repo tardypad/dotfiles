@@ -1,4 +1,4 @@
-i3blocks-bluetooth(1)
+i3blocks-bluetooth(1perso)
 
 # NAME
 

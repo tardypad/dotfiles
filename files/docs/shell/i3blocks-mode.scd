@@ -1,4 +1,4 @@
-i3blocks-mode(1)
+i3blocks-mode(1perso)
 
 # NAME
 

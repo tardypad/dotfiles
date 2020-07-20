@@ -1,4 +1,4 @@
-i3blocks-chat(1)
+i3blocks-chat(1perso)
 
 # NAME
 

@@ -1,4 +1,4 @@
-i3blocks-volume(1)
+i3blocks-volume(1perso)
 
 # NAME
 

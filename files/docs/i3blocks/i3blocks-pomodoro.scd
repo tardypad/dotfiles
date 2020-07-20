@@ -1,4 +1,4 @@
-i3blocks-pomodoro(1)
+i3blocks-pomodoro(1perso)
 
 # NAME
 
