@@ -6,6 +6,7 @@ i3blocks-scripts:
 	$(setup_file)/scripts/i3blocks/i3blocks-bluetooth      > $(DESTDIR)$(BIN_DIR)/i3blocks-bluetooth
 	$(setup_file)/scripts/i3blocks/i3blocks-chat           > $(DESTDIR)$(BIN_DIR)/i3blocks-chat
 	$(setup_file)/scripts/i3blocks/i3blocks-do-not-disturb > $(DESTDIR)$(BIN_DIR)/i3blocks-do-not-disturb
+	$(setup_file)/scripts/i3blocks/i3blocks-idle-inhibitor > $(DESTDIR)$(BIN_DIR)/i3blocks-idle-inhibitor
 	$(setup_file)/scripts/i3blocks/i3blocks-microphone     > $(DESTDIR)$(BIN_DIR)/i3blocks-microphone
 	$(setup_file)/scripts/i3blocks/i3blocks-music          > $(DESTDIR)$(BIN_DIR)/i3blocks-music
 	$(setup_file)/scripts/i3blocks/i3blocks-network        > $(DESTDIR)$(BIN_DIR)/i3blocks-network
@@ -18,6 +19,7 @@ i3blocks-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-bluetooth
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-chat
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-do-not-disturb
+	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-idle-inhibitor
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-microphone
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-music
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-network

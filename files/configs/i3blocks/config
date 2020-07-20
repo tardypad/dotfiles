@@ -37,6 +37,8 @@ signal=2
 
 [power]
 
+[idle-inhibitor]
+
 [do-not-disturb]
 signal=3
 

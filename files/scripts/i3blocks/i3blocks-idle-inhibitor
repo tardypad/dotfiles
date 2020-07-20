@@ -1,0 +1,15 @@
+#!/bin/sh
+
+IDLE_INHIBITED_VIEWS=$(
+  swaymsg -t get_tree |
+    jq 'recurse(.floating_nodes[]?,.nodes[]?) | select(.inhibit_idle == true)'
+)
+
+if [ -z "${IDLE_INHIBITED_VIEWS}" ]; then
+  exit 0
+fi
+
+COLOR='#{color/notice/hex}'
+TEXT=''
+
+printf '%s\n\n%s\n' "${TEXT}" "${COLOR}"
