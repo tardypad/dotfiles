@@ -8,5 +8,17 @@
       && [ "${CHANGE}" != 'urgent' ]; then
       sway-renumber-workspaces
     fi
+
+    if [ "${CHANGE}" = 'focus' ] \
+      || [ "${CHANGE}" = 'move' ]; then
+      pkill -x -RTMIN+8 i3blocks
+    fi
+  done
+}&
+
+{
+  swaymsg -t subscribe -m '[ "window" ]' |
+  while read -r EVENT; do
+    pkill -x -RTMIN+8 i3blocks
   done
 }&

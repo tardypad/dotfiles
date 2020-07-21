@@ -31,5 +31,6 @@ None
 # DEPENDENCIES
 
 - jq
+- pkill
 - sway-renumber-workspaces
 = swaymsg
