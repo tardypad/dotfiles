@@ -1,0 +1,16 @@
+#!/bin/sh
+
+WINDOW_PROPERTY="$1"
+
+CURRENT_WINDOW_INHIBIT_IDLE=$(
+  swaymsg -t get_tree \
+    | jq -r 'recurse(.floating_nodes[]?,.nodes[]?)
+             | select(.focused == true)
+             | .inhibit_idle'
+)
+
+if [ "${CURRENT_WINDOW_INHIBIT_IDLE}" = 'false' ]; then
+  swaymsg -q inhibit_idle "${WINDOW_PROPERTY}"
+else
+  swaymsg -q inhibit_idle none
+fi

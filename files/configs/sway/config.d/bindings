@@ -33,6 +33,10 @@ bindsym $mod+{key/tabulation/Tab} exec i3blocks-mode toggle
 # run quick command
 bindsym $mod+{key/return/Return} exec sway-quick-command
 
+# toggle idle inhibitor on current window
+bindsym $mod+{key/i} exec sway-toggle-window-idle-inhibitor focus \
+                          && pkill -x -RTMIN+8 i3blocks
+
 
 ## notifications
 
