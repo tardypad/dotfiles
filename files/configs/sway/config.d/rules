@@ -5,7 +5,3 @@ for_window [title="sway_monitor"] floating enable, \
 # display quick command as floating window
 for_window [title="sway_quick_command"] floating enable, \
                                         resize set width 40 ppt height 40 ppt
-
-# inhibit idle when some windows are fullscreen (mainly for video watching)
-for_window [class="qutebrowser"] inhibit_idle fullscreen
-for_window [app_id="mpv"] inhibit_idle fullscreen
