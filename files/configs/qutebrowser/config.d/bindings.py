@@ -249,3 +249,6 @@ config.bind('{key/Q}{key/h}'           , 'open --tab qute://history',           
 
 # Javascript temporary toggling  on current domain
 config.bind('<Ctrl-{key/J}>', 'config-cycle --print --temp --pattern={url:host} content.javascript.enabled ;; reload', mode='normal')
+
+# Toggle no distraction mode
+config.bind('<Alt-{key/space/Space}>', 'fullscreen ;; config-cycle --temp statusbar.show never always ;; config-cycle --temp tabs.show never always', mode='normal')
