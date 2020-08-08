@@ -42,6 +42,7 @@ EXEC           1;{color/base0C/fg}                   # executable
 .tex    {color/base0B/fg}
 .txt    {color/base0B/fg}
 .vim    {color/base0B/fg}
+.xhtml  {color/base0B/fg}
 .xml    {color/base0B/fg}
 .zsh    {color/base0B/fg}
 
