@@ -17,7 +17,7 @@ TAB in input are replaced by newlines.
 # OPTIONS
 
 *-o*
-	Display only one line at a time in the whole screen
+	Display only one line at a time (overwrites previous line output)
 
 # OPERANDS
 

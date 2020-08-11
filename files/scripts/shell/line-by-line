@@ -25,7 +25,7 @@ exit_error() {
 
 print_line_by_line() {
   if [ "${ONLY_ONE}" = 'true' ]; then
-    clear
+    tput sc
   fi
 
   while read -r LINE; do
@@ -33,7 +33,7 @@ print_line_by_line() {
     read -r < /dev/tty
 
     if [ "${ONLY_ONE}" = 'true' ]; then
-      tput cup 0 0
+      tput rc
       tput ed
     fi
   done
