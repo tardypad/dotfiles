@@ -109,7 +109,7 @@ nnoremap <silent> <{key/return/CR}> :noh<CR><Esc>
 nmap <Leader>{key/search_forward} mA:Ack<Space>
 
 " Place a marker and search current word
-nmap <Leader>{key/search_forward_current} mA:Ack "<C-r>=expand("<cword>")<cr>"
+nmap <Leader>{key/search_forward_current} mA:Ack "<C-r>=expand("<cword>")<CR>"<CR>
 
 
 "" files/buffers selection
