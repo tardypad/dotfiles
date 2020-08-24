@@ -12,7 +12,7 @@ feeds() {
   feed 'Codrops'                              'http://feeds.feedburner.com/tympanus?format=xml'
   feed 'Cory Doctorow'                        'https://pluralistic.net/feed/'
   feed 'Golang'                               'https://blog.golang.org/feed.atom'
-  feed 'Drew DeVault'                         'https://drewdevault.com/feed.xml'
+  feed 'Drew DeVault'                         'https://drewdevault.com/blog/index.xml'
   feed 'Simon Ser'                            'https://emersion.fr/blog/rss.xml'
   feed 'Nikita Prokopov'                      'https://tonsky.me/blog/atom.xml'
   feed 'Martin Fowler'                        'https://martinfowler.com/feed.atom'
