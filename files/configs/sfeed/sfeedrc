@@ -10,6 +10,7 @@ feeds() {
   feed 'TED Talks'                            'http://feeds.feedburner.com/tedtalks_video'
   feed 'Smashing Magazine'                    'https://www.smashingmagazine.com/feed/'
   feed 'Codrops'                              'http://feeds.feedburner.com/tympanus?format=xml'
+  feed 'Cory Doctorow'                        'https://pluralistic.net/feed/'
   feed 'Golang'                               'https://blog.golang.org/feed.atom'
   feed 'Drew DeVault'                         'https://drewdevault.com/feed.xml'
   feed 'Simon Ser'                            'https://emersion.fr/blog/rss.xml'
