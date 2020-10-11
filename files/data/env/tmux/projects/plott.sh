@@ -3,7 +3,7 @@
 SOCKET="$1"
 SESSION_NAME="$2"
 
-TPLOT_PATH=$( project-path repo tplot )
+PLOTT_PATH=$( project-path repo plott )
 FZF_PATH=$( project-path repo fzf )
 JP_PATH=$( project-path repo jp )
 TTYPLOT_PATH=$( project-path repo ttyplot )
@@ -11,12 +11,12 @@ TTYPLOT_PATH=$( project-path repo ttyplot )
 tmux -L "${SOCKET}" \
   new-session -d \
   -s "${SESSION_NAME}" \
-  -n 'tplot' \
-  -c "${TPLOT_PATH}"
+  -n 'plott' \
+  -c "${PLOTT_PATH}"
 
 tmux -L "${SOCKET}" \
   split-window -dh \
-  -c "${TPLOT_PATH}" \
+  -c "${PLOTT_PATH}" \
   "vim \
     -c 'TabooRename TODO' \
     -c 'tabnew' \
@@ -54,4 +54,4 @@ tmux -L "${SOCKET}" \
 
 tmux -L "${SOCKET}" \
   select-window \
-  -t ':tplot'
+  -t ':plott'

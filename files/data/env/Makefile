@@ -6,6 +6,6 @@ env:
 	cp files/data/env/tmux/projects/arch_system.sh   $(DESTDIR)$(DATA_DIR)/env/tmux/projects/arch_system.sh
 	cp files/data/env/tmux/projects/dotfiles.sh      $(DESTDIR)$(DATA_DIR)/env/tmux/projects/dotfiles.sh
 	cp files/data/env/tmux/projects/tardypad_me.sh   $(DESTDIR)$(DATA_DIR)/env/tmux/projects/tardypad_me.sh
-	cp files/data/env/tmux/projects/tplot.sh         $(DESTDIR)$(DATA_DIR)/env/tmux/projects/tplot.sh
+	cp files/data/env/tmux/projects/plott.sh         $(DESTDIR)$(DATA_DIR)/env/tmux/projects/plott.sh
 
 	chmod +x $(DESTDIR)$(DATA_DIR)/env/tmux/projects/*
