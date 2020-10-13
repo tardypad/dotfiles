@@ -30,6 +30,7 @@ EXEC           1;{color/base0C/fg}                   # executable
 .html   {color/base0B/fg}
 .java   {color/base0B/fg}
 .js     {color/base0B/fg}
+.json   {color/base0B/fg}
 .man    {color/base0B/fg}
 .md     {color/base0B/fg}
 .mkd    {color/base0B/fg}
@@ -44,6 +45,7 @@ EXEC           1;{color/base0C/fg}                   # executable
 .vim    {color/base0B/fg}
 .xhtml  {color/base0B/fg}
 .xml    {color/base0B/fg}
+.yml    {color/base0B/fg}
 .zsh    {color/base0B/fg}
 
 # Books
@@ -59,6 +61,7 @@ EXEC           1;{color/base0C/fg}                   # executable
 .bmp  {color/base0B/fg}
 .eps  {color/base0B/fg}
 .gif  {color/base0B/fg}
+.ico  {color/base0B/fg}
 .jpeg {color/base0B/fg}
 .jpg  {color/base0B/fg}
 .png  {color/base0B/fg}
