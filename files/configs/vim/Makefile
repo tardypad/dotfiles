@@ -62,32 +62,32 @@ vim-configs:
 	$(setup_file)/configs/vim/snips/zsh.snippets                > $(DESTDIR)$(HOME)/.vim/snips/zsh.snippets
 	$(setup_file)/configs/vim/spell/en.utf-8.add                > $(DESTDIR)$(HOME)/.vim/spell/en.utf-8.add
 
-	setup/install-vim-plugin surround          "$(DESTDIR)" git https://github.com/tpope/vim-surround                 5970688
-	setup/install-vim-plugin ale               "$(DESTDIR)" git https://github.com/w0rp/ale                           v2.3.1
+	setup/install-vim-plugin surround          "$(DESTDIR)" git https://github.com/tpope/vim-surround                 f51a26d
+	setup/install-vim-plugin ale               "$(DESTDIR)" git https://github.com/w0rp/ale                           v3.0.0
 	setup/install-vim-plugin nerdcommenter     "$(DESTDIR)" git https://github.com/scrooloose/nerdcommenter           2.5.2
 	setup/install-vim-plugin vdebug            "$(DESTDIR)" git https://github.com/vim-vdebug/vdebug                  v2.0.0
-	setup/install-vim-plugin fzf               "$(DESTDIR)" git https://github.com/junegunn/fzf.vim                   b31512e
-	setup/install-vim-plugin tagbar            "$(DESTDIR)" git https://github.com/majutsushi/tagbar                  387bbad
-	setup/install-vim-plugin gutentags         "$(DESTDIR)" git https://github.com/ludovicchabant/vim-gutentags       93616e4
-	setup/install-vim-plugin ultisnips         "$(DESTDIR)" git https://github.com/sirver/ultisnips                   6fdc364
+	setup/install-vim-plugin fzf               "$(DESTDIR)" git https://github.com/junegunn/fzf.vim                   0fe8e19
+	setup/install-vim-plugin tagbar            "$(DESTDIR)" git https://github.com/majutsushi/tagbar                  55f3513
+	setup/install-vim-plugin gutentags         "$(DESTDIR)" git https://github.com/ludovicchabant/vim-gutentags       50705e8
+	setup/install-vim-plugin ultisnips         "$(DESTDIR)" git https://github.com/sirver/ultisnips                   3.2
 	setup/install-vim-plugin sayonara          "$(DESTDIR)" git https://github.com/mhinz/vim-sayonara                 357135c
-	setup/install-vim-plugin tmux-focus-events "$(DESTDIR)" git https://github.com/tmux-plugins/vim-tmux-focus-events e555efe
-	setup/install-vim-plugin tmux-navigator    "$(DESTDIR)" git https://github.com/christoomey/vim-tmux-navigator     4e1a877
-	setup/install-vim-plugin tmux-clipboard    "$(DESTDIR)" git https://github.com/roxma/vim-tmux-clipboard           d69964a
-	setup/install-vim-plugin goyo              "$(DESTDIR)" git https://github.com/junegunn/goyo.vim                  6b6ed27
+	setup/install-vim-plugin tmux-focus-events "$(DESTDIR)" git https://github.com/tmux-plugins/vim-tmux-focus-events a568192
+	setup/install-vim-plugin tmux-navigator    "$(DESTDIR)" git https://github.com/christoomey/vim-tmux-navigator     6c0b5d2
+	setup/install-vim-plugin tmux-clipboard    "$(DESTDIR)" git https://github.com/roxma/vim-tmux-clipboard           4718774
+	setup/install-vim-plugin goyo              "$(DESTDIR)" git https://github.com/junegunn/goyo.vim                  a865dec
 	setup/install-vim-plugin ack               "$(DESTDIR)" git https://github.com/mileszs/ack.vim                    36e40f9
-	setup/install-vim-plugin undotree          "$(DESTDIR)" git https://github.com/mbbill/undotree                    db0223f
-	setup/install-vim-plugin redact-pass       "$(DESTDIR)" git https://sanctum.geek.nz/code/vim-redact-pass.git      v2.0.0
-	setup/install-vim-plugin taboo             "$(DESTDIR)" git https://github.com/gcmt/taboo.vim                     1367baf
+	setup/install-vim-plugin undotree          "$(DESTDIR)" git https://github.com/mbbill/undotree                    rel_6.1
+	setup/install-vim-plugin redact-pass       "$(DESTDIR)" git https://sanctum.geek.nz/code/vim-redact-pass.git      v2.2.1
+	setup/install-vim-plugin taboo             "$(DESTDIR)" git https://github.com/gcmt/taboo.vim                     caf9481
 	setup/install-vim-plugin sway              "$(DESTDIR)" git https://github.com/aouelete/sway-vim-syntax           0aa0626
-	setup/install-vim-plugin yaml              "$(DESTDIR)" git https://github.com/stephpy/vim-yaml                   0da1975
+	setup/install-vim-plugin yaml              "$(DESTDIR)" git https://github.com/stephpy/vim-yaml                   8fc9136
 	setup/install-vim-plugin saltstack         "$(DESTDIR)" git https://github.com/saltstack/salt-vim                 6ca9e35
-	setup/install-vim-plugin jinja2            "$(DESTDIR)" git https://github.com/glench/vim-jinja2-syntax           ff113ba
+	setup/install-vim-plugin jinja2            "$(DESTDIR)" git https://github.com/glench/vim-jinja2-syntax           c967c2b
 	setup/install-vim-plugin apiblueprint      "$(DESTDIR)" git https://github.com/kylef/apiblueprint.vim             776b986
-	setup/install-vim-plugin qml               "$(DESTDIR)" git https://github.com/peterhoeg/vim-qml                  8af43da
-	setup/install-vim-plugin elm               "$(DESTDIR)" git https://github.com/elmcast/elm-vim                    d22c0ba
-	setup/install-vim-plugin go                "$(DESTDIR)" git https://github.com/fatih/vim-go                       v1.21
-	setup/install-vim-plugin php               "$(DESTDIR)" git https://github.com/stanangeloff/php.vim               7671a5a
+	setup/install-vim-plugin qml               "$(DESTDIR)" git https://github.com/peterhoeg/vim-qml                  1d2c1fc
+	setup/install-vim-plugin elm               "$(DESTDIR)" git https://github.com/zaptic/elm-vim                     0.19.1.0
+	setup/install-vim-plugin go                "$(DESTDIR)" git https://github.com/fatih/vim-go                       v1.24
+	setup/install-vim-plugin php               "$(DESTDIR)" git https://github.com/stanangeloff/php.vim               930aec5
 	setup/install-vim-plugin icinga2           "$(DESTDIR)" file https://raw.githubusercontent.com/Icinga/icinga2/3cb2c1d1435f19bc5e46fa8f8518645f62549dde/tools/syntax/vim/syntax/icinga2.vim syntax/icinga2.vim
 
     # generate spell file
