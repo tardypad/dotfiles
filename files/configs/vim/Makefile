@@ -75,7 +75,6 @@ vim-configs:
 	setup/install-vim-plugin tmux-navigator    "$(DESTDIR)" git https://github.com/christoomey/vim-tmux-navigator     6c0b5d2
 	setup/install-vim-plugin tmux-clipboard    "$(DESTDIR)" git https://github.com/roxma/vim-tmux-clipboard           4718774
 	setup/install-vim-plugin goyo              "$(DESTDIR)" git https://github.com/junegunn/goyo.vim                  a865dec
-	setup/install-vim-plugin ack               "$(DESTDIR)" git https://github.com/mileszs/ack.vim                    36e40f9
 	setup/install-vim-plugin undotree          "$(DESTDIR)" git https://github.com/mbbill/undotree                    rel_6.1
 	setup/install-vim-plugin redact-pass       "$(DESTDIR)" git https://sanctum.geek.nz/code/vim-redact-pass.git      v2.2.1
 	setup/install-vim-plugin taboo             "$(DESTDIR)" git https://github.com/gcmt/taboo.vim                     caf9481
