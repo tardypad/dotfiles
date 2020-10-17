@@ -49,6 +49,7 @@ vim-configs:
 	$(setup_file)/configs/vim/plugin/align.vim                  > $(DESTDIR)$(HOME)/.vim/plugin/align.vim
 	$(setup_file)/configs/vim/plugin/alternate_tab.vim          > $(DESTDIR)$(HOME)/.vim/plugin/alternate_tab.vim
 	$(setup_file)/configs/vim/plugin/highlight_long_lines.vim   > $(DESTDIR)$(HOME)/.vim/plugin/highlight_long_lines.vim
+	$(setup_file)/configs/vim/plugin/insert_snippet.vim         > $(DESTDIR)$(HOME)/.vim/plugin/insert_snippet.vim
 	$(setup_file)/configs/vim/plugin/linter_counts.vim          > $(DESTDIR)$(HOME)/.vim/plugin/linter_counts.vim
 	$(setup_file)/configs/vim/plugin/manage_sessions.vim        > $(DESTDIR)$(HOME)/.vim/plugin/manage_sessions.vim
 	$(setup_file)/configs/vim/plugin/open_buffer.vim            > $(DESTDIR)$(HOME)/.vim/plugin/open_buffer.vim
