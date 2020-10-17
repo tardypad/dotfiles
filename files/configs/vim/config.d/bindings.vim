@@ -115,7 +115,7 @@ nmap <Leader>{key/search_forward_current} mA:Ag <C-r>=expand("<cword>")<CR><CR>
 "" files/buffers selection
 
 " fzf edit binding
-nnoremap <silent> <Leader>{key/edit}{key/file}   :FZF<CR>
+nnoremap <silent> <Leader>{key/edit}{key/file}   :Files<CR>
 nnoremap <silent> <Leader>{key/edit}{key/buffer} :Buffers<CR>
 
 " open file picker at current working directory

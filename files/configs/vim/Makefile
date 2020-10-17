@@ -52,6 +52,7 @@ vim-configs:
 	$(setup_file)/configs/vim/plugin/linter_counts.vim          > $(DESTDIR)$(HOME)/.vim/plugin/linter_counts.vim
 	$(setup_file)/configs/vim/plugin/manage_sessions.vim        > $(DESTDIR)$(HOME)/.vim/plugin/manage_sessions.vim
 	$(setup_file)/configs/vim/plugin/open_buffer.vim            > $(DESTDIR)$(HOME)/.vim/plugin/open_buffer.vim
+	$(setup_file)/configs/vim/plugin/open_file.vim              > $(DESTDIR)$(HOME)/.vim/plugin/open_file.vim
 	$(setup_file)/configs/vim/plugin/remove_trailing_spaces.vim > $(DESTDIR)$(HOME)/.vim/plugin/remove_trailing_spaces.vim
 	$(setup_file)/configs/vim/plugin/scroll_search.vim          > $(DESTDIR)$(HOME)/.vim/plugin/scroll_search.vim
 	$(setup_file)/configs/vim/plugin/tab_key.vim                > $(DESTDIR)$(HOME)/.vim/plugin/tab_key.vim
