@@ -106,10 +106,10 @@ nnoremap {key/session}{key/open}   :SessionOpen<space>
 nnoremap <silent> <{key/return/CR}> :noh<CR><Esc>
 
 " Place a marker and search
-nmap <Leader>{key/search_forward} mA:Ag<Space>
+nmap <Leader>{key/search_forward} mA:SearchCWD<Space>
 
 " Place a marker and search current word
-nmap <Leader>{key/search_forward_current} mA:Ag <C-r>=expand("<cword>")<CR><CR>
+nmap <Leader>{key/search_forward_current} mA:SearchCWD <C-r>=expand("<cword>")<CR><CR>
 
 
 "" files/buffers selection
