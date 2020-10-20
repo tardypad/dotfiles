@@ -32,10 +32,12 @@ function s:Run(word)
   let actions = join(keys(get(g:, 'fzf_action', s:default_actions)), ',')
 
   return fzf#run(fzf#wrap(s:history_file, {
-  \ 'source': 'ag --no-group --nocolor --column -- ' . a:word,
+  \ 'source': 'ag --no-group --color --color-path=0 --color-match=1 --case-sensitive --column -- ' . a:word,
   \ 'sink*': function('s:OpenFile'),
   \ 'options': [ '-m', '-d', ':', '--with-nth', '1,4..', '--prompt', s:prompt,
-  \              '--expect', actions ]
+  \              '--ansi', '--expect', actions,
+  \              '--preview', 'awk -v line={2} "{ if (NR == line) { printf(\"\x1b[{color/base01/bg}%s\x1b[m\n\", \$0); } else printf(\"%s\n\", \$0); }" {1}',
+  \              '--preview-window', '+{2}-/2' ]
   \}))
 endfunction
 
