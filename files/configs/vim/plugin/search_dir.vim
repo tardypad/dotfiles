@@ -34,7 +34,7 @@ function s:Run(word)
   return fzf#run(fzf#wrap(s:history_file, {
   \ 'source': 'ag --no-group --nocolor --column -- ' . a:word,
   \ 'sink*': function('s:OpenFile'),
-  \ 'options': [ '-m', '-d', ':', '--with-nth', '1,4', '--prompt', s:prompt,
+  \ 'options': [ '-m', '-d', ':', '--with-nth', '1,4..', '--prompt', s:prompt,
   \              '--expect', actions ]
   \}))
 endfunction
