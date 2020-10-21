@@ -116,7 +116,6 @@ config.bind('{key/repeat}',                        'repeat-command',            
 config.bind('{key/open}',                          'set-cmd-text --space :open',                                               mode='normal')
 config.bind('{key/reload/low}',                    'reload',                                                                   mode='normal')
 config.bind('{key/reload/upp}',                    'reload --force',                                                           mode='normal')
-config.bind('{key/undo}',                          'undo',                                                                     mode='normal')
 config.bind('{key/zoom/upp}',                      'fullscreen',                                                               mode='normal')
 config.bind('{key/f}',                             'hint all current',                                                         mode='normal')
 config.bind('<Ctrl-{key/S}>',                      'view-source',                                                              mode='normal')
@@ -136,8 +135,12 @@ config.bind('{key/up/low}',                      'scroll up',          mode='nor
 config.bind('{key/right/low}',                   'scroll right',       mode='normal')
 
 # history navigation
-config.bind('{key/left/upp}',  'back',    mode='normal')
-config.bind('{key/right/upp}', 'forward', mode='normal')
+config.bind('{key/left/upp}',        'back',                          mode='normal')
+config.bind('{key/right/upp}',       'forward',                       mode='normal')
+config.bind('{key/undo}',            'undo',                          mode='normal')
+config.bind('<Alt-{key/left/upp}>',  'set-cmd-text --space :back',    mode='normal')
+config.bind('<Alt-{key/right/upp}>', 'set-cmd-text --space :forward', mode='normal')
+config.bind('<Alt-{key/undo/upp}>',  'set-cmd-text --space :undo',    mode='normal')
 
 # search
 config.bind('{key/search_forward}',        'set-cmd-text /', mode='normal')
@@ -173,26 +176,31 @@ config.bind('{key/bookmark/upp}{key/delete}', 'set-cmd-text --space :quickmark-d
 config.bind('{key/bookmark/upp}{key/open}',   'set-cmd-text --space :quickmark-load',      mode='normal')
 
 # tabs management
-config.bind('{key/tab}{key/create}',       'open --tab about:blank ;; set-cmd-text --space :open', mode='normal')
-config.bind('{key/tab}{key/close}',        'tab-close',                                            mode='normal')
-config.bind('{key/tab}{key/bookmark/low}', 'set-cmd-text --space :bookmark-load --tab',            mode='normal')
-config.bind('{key/tab}{key/bookmark/upp}', 'set-cmd-text --space :quickmark-load --tab',           mode='normal')
-config.bind('{key/tab}{key/left/upp}',     'back --tab',                                           mode='normal')
-config.bind('{key/tab}{key/right/upp}',    'forward --tab',                                        mode='normal')
-config.bind('{key/tab}{key/open}',         'set-cmd-text --space :open --tab',                     mode='normal')
-config.bind('{key/tab}{key/window}',       'tab-give',                                             mode='normal')
-config.bind('{key/tab}{key/f}',            'hint all tab-fg',                                      mode='normal')
+config.bind('{key/tab}{key/create}',          'open --tab about:blank ;; set-cmd-text --space :open', mode='normal')
+config.bind('{key/tab}{key/close}',           'tab-close',                                            mode='normal')
+config.bind('{key/tab}{key/bookmark/low}',    'set-cmd-text --space :bookmark-load --tab',            mode='normal')
+config.bind('{key/tab}{key/bookmark/upp}',    'set-cmd-text --space :quickmark-load --tab',           mode='normal')
+config.bind('{key/tab}{key/left/upp}',        'back --tab',                                           mode='normal')
+config.bind('{key/tab}{key/right/upp}',       'forward --tab',                                        mode='normal')
+config.bind('{key/tab}<Alt-{key/left/upp}>',  'set-cmd-text --space :back --tab',                     mode='normal')
+config.bind('{key/tab}<Alt-{key/right/upp}>', 'set-cmd-text --space :forward --tab',                  mode='normal')
+config.bind('{key/tab}{key/open}',            'set-cmd-text --space :open --tab',                     mode='normal')
+config.bind('{key/tab}{key/window}',          'tab-give',                                             mode='normal')
+config.bind('{key/tab}{key/f}',               'hint all tab-fg',                                      mode='normal')
 
 # windows management
-config.bind('{key/window}{key/create}',       'open --window about:blank',                     mode='normal')
-config.bind('{key/window}{key/close}',        'close',                                         mode='normal')
-config.bind('{key/window}{key/bookmark/low}', 'set-cmd-text --space :bookmark-load --window',  mode='normal')
-config.bind('{key/window}{key/bookmark/upp}', 'set-cmd-text --space :quickmark-load --window', mode='normal')
-config.bind('{key/window}{key/left/upp}',     'back --window',                                 mode='normal')
-config.bind('{key/window}{key/right/upp}',    'forward --window',                              mode='normal')
-config.bind('{key/window}{key/open}',         'set-cmd-text --space :open --window',           mode='normal')
-config.bind('{key/window}{key/p}',            'open --private about:blank',                    mode='normal')
-config.bind('{key/window}{key/f}',            'hint all window',                               mode='normal')
+config.bind('{key/window}{key/create}',          'open --window about:blank',                     mode='normal')
+config.bind('{key/window}{key/close}',           'close',                                         mode='normal')
+config.bind('{key/window}{key/bookmark/low}',    'set-cmd-text --space :bookmark-load --window',  mode='normal')
+config.bind('{key/window}{key/bookmark/upp}',    'set-cmd-text --space :quickmark-load --window', mode='normal')
+config.bind('{key/window}{key/left/upp}',        'back --window',                                 mode='normal')
+config.bind('{key/window}{key/right/upp}',       'forward --window',                              mode='normal')
+config.bind('{key/window}<Alt-{key/left/upp}>',  'set-cmd-text --space :back --window',           mode='normal')
+config.bind('{key/window}<Alt-{key/right/upp}>', 'set-cmd-text --space :forward --window',        mode='normal')
+config.bind('{key/window}{key/open}',            'set-cmd-text --space :open --window',           mode='normal')
+config.bind('{key/window}{key/p}',               'open --private about:blank',                    mode='normal')
+config.bind('{key/window}{key/f}',               'hint all window',                               mode='normal')
+config.bind('{key/window}{key/undo}',            'undo --window',                                 mode='normal')
 
 
 # sessions management
