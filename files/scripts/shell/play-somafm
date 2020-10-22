@@ -5,6 +5,7 @@ CHANNELS=$( somafm channels )
 CHANNEL_NAME=$(
   echo "${CHANNELS}" \
     | cut -f2 \
+    | sort \
     | bemenu -p 'Play SomaFM channel'
 )
 
