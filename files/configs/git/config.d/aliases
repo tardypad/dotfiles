@@ -38,19 +38,17 @@
     commit-description = "! \
         f() { \
           git log -1 $( git argument $1 ) --pretty=%b \
-          | grep -vE 'Issue|Reviewed at|^$'; \
+          | grep -vE \"$(git config --get-regexp 'trailer.*.key' | cut -d ' ' -f2- | tr '\n' '|')^$\"; \
         }; f"
     commit-issue-id = "! \
         f() { \
-          git log -1 $( git argument $1 ) --pretty=%b \
-          | sed -n 's/Issue \\(.*\\)/\\1/p' \
-          | tail -n 1; \
+          git log -1 $( git argument $1 ) \
+            --pretty=\"%(trailers:key=$(git config trailer.issue.key),valueonly)\"; \
         }; f"
     commit-review-id = "! \
         f() { \
-          git log -1 $( git argument $1 ) --pretty=%b \
-          | sed -n 's%Reviewed at .*/r/\\([0-9]*\\)/%\\1%p' \
-          | tail -n 1; \
+          git log -1 $( git argument $1 ) \
+            --pretty=\"%(trailers:key=$(git config trailer.review.key),valueonly)\"; \
         }; f"
     commit-subject = "! \
         f() { \
@@ -82,7 +80,12 @@
           git log --color --oneline -n 10 \"$@\" \
             | nl -v0 -w2 -s' '; \
         }; f"
-    issue = stamp -r Issue
+    issue = "! \
+        f() { \
+          git commit --amend -o \
+            -m \"$( git log -1 --pretty=%B | git interpret-trailers --trailer issue=$1)\"; \
+          git log -1 --pretty=full; \
+        }; f"
     log1 = log --oneline
     mg = merge
     mga = merge --abort

@@ -43,6 +43,15 @@
     repoUrl = https://www.github.com/{repo_path}
     commitUrl = https://www.github.com/{repo_path}/commit/{commit_id}
     issueUrl = https://www.github.com/{repo_path}/issues/{issue_id}
+[trailer]
+	separators = ":#"
+	where = after
+	ifexists = addIfDifferent
+[trailer "issue"]
+	key = "Issue #"
+[trailer "review"]
+	key = Reviewed-at
+	ifexists = replace
 [init]
     templatedir = {dir/config}/git/template
 [pull]
