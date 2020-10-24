@@ -45,7 +45,6 @@ zsh-configs:
 	$(setup_file)/configs/zsh/completions/git/_git-reauthor                                          > $(DESTDIR)$(HOME)/.zsh/completions/git/_git-reauthor
 	$(setup_file)/configs/zsh/completions/git/_git-run-command                                       > $(DESTDIR)$(HOME)/.zsh/completions/git/_git-run-command
 	$(setup_file)/configs/zsh/completions/git/_git-sed                                               > $(DESTDIR)$(HOME)/.zsh/completions/git/_git-sed
-	$(setup_file)/configs/zsh/completions/git/_git-stamp                                             > $(DESTDIR)$(HOME)/.zsh/completions/git/_git-stamp
 	$(setup_file)/configs/zsh/completions/git/_git-url                                               > $(DESTDIR)$(HOME)/.zsh/completions/git/_git-url
 	$(setup_file)/configs/zsh/functions/goto-project                                                 > $(DESTDIR)$(HOME)/.zsh/functions/goto-project
 	$(setup_file)/configs/zsh/functions/time-tracker-sum                                             > $(DESTDIR)$(HOME)/.zsh/functions/time-tracker-sum
