@@ -84,8 +84,8 @@
     issue = "! \
         f() { \
           git commit --amend -o \
-            -m \"$( git log -1 --pretty=%B | git interpret-trailers --trailer issue=$1)\"; \
-          git log -1 --pretty=full; \
+            -m \"$( git log -1 --pretty=%B | git interpret-trailers --trailer issue=$1)\" > /dev/null; \
+          git log -1 --pretty=%B; \
         }; f"
     log1 = log --oneline
     mg = merge
