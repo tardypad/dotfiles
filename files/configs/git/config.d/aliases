@@ -81,12 +81,6 @@
           git log --color --oneline -n 10 \"$@\" \
             | nl -v0 -w2 -s' '; \
         }; f"
-    issue = "! \
-        f() { \
-          git commit --amend -o \
-            -m \"$( git log -1 --pretty=%B | git interpret-trailers --trailer issue=$1)\" > /dev/null; \
-          git log -1 --pretty=%B; \
-        }; f"
     log1 = log --oneline
     mg = merge
     mga = merge --abort
@@ -126,6 +120,14 @@
     sh = "! f() { git show $( git argument $1 ); }; f"
     sh0 = "! f() { git show -U0 $( git argument $1 ); }; f"
     st = status -s -b
+    stamp = "! \
+        f() { \
+          git commit --amend -o \
+            -m \"$( git log -1 --pretty=%B | git interpret-trailers --trailer $1=$2)\" > /dev/null; \
+          git log -1 --pretty=%B; \
+        }; f"
+    sti = stamp issue
+    str = stamp review
     tag-list = "! \
         git tag --sort=creatordate --color \
         --format \"%(color:$(git config color.tag-list.refname))%(refname:short)%(color:reset) | %(taggerdate:iso) | %(taggeremail) | %(subject)\" \
