@@ -17,9 +17,8 @@ alias dw='cd "${XDG_DOWNLOAD_DIR:-$HOME/Downloads}"'
 alias nt='cd "${XDG_NOTES_DIR:-$HOME/Notes}"'
 
 # bluetooth connections
-alias connect-headphones='bluetoothctl connect CC:98:8B:21:4D:63'
-alias connect-phone='bluetoothctl connect 38:78:62:6E:DB:61'
-alias connect-speakers='bluetoothctl connect 00:09:B0:B8:AF:EA'
+alias btc='bluetoothctl connect'
+alias btd='bluetoothctl disconnect'
 
 alias pj='goto-project repo'
 alias PJ='goto-project main'
