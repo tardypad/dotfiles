@@ -16,7 +16,7 @@ folder-hook "$my_work_email" source "{dir/config}/neomutt/config.d/accounts/work
 folder-hook "$my_migadu_email" source "{dir/config}/neomutt/config.d/accounts/migadu.mutt"
 
 # switch to default account
-source "{dir/config}/neomutt/config.d/accounts/gmail.mutt"
+source "{dir/config}/neomutt/config.d/accounts/migadu.mutt"
 
 # define some files and folders location
 set header_cache = "{dir/cache}/neomutt/headers"
