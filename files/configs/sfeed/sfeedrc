@@ -21,6 +21,7 @@ feeds() {
   feed 'Junegunn Choi'                        'https://junegunn.kr/atom.xml'
   feed 'Mary Poppendieck'                     'http://www.leanessays.com/feeds/posts/default'
   feed 'Rachel by the bay'                    'https://rachelbythebay.com/w/atom.xml'
+  feed 'Martin Tournoij'                      'https://www.arp242.net/feed.xml'
   feed 'Gary Bernhardt (Twitter)'             'https://nitter.net/garybernhardt/rss'
   feed 'Evan Czaplicki (Twitter)'             'https://nitter.net/evancz/rss'
   feed 'Drew DeVault (Mastodon)'              'https://cmpwn.com/users/sir.rss'
