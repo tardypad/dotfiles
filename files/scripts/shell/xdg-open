@@ -6,7 +6,7 @@ case "${1%%:*}" in
   http|https) exec {app/web_browser} "$1" ;;
 esac
 
-case "${1##*.}" in
+case "$( echo "${1##*.}" | tr '[:upper:]' '[:lower:]')" in
   html) exec {app/web_browser} "$1" ;;
   cbr|cbz|epub|pdf) exec {app/document_viewer} "$1" ;;
   jpg|jpeg|png|gif|svg) exec {app/image_viewer} "$1" ;;
