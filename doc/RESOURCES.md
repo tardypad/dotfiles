@@ -13,6 +13,7 @@
   - [Maxim Baz dotfiles](https://github.com/maximbaz/dotfiles)
   - [John Kerl scripts](https://github.com/johnkerl/scripts)
   - [dhohdan structured text tools](https://github.com/dbohdan/structured-text-tools)
+  - [neeasade color spaces notes](https://notes.neeasade.net/color-spaces.html)
 
 ## git
   - [git-tips](https://github.com/git-tips/tips)
