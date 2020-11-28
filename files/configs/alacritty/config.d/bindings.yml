@@ -1,0 +1,31 @@
+key_bindings:
+  - { key: {key/clear/upp},            mods: Control|Shift, action: ClearHistory     }
+  - { key: {key/quit/upp},             mods: Control|Shift, action: Quit             }
+  - { key: {key/zoom/upp},             mods: Control|Shift, action: ToggleFullscreen }
+
+  - { key: {key/zoom_reset/Equals},    mods: Control,       action: ResetFontSize    }
+  - { key: {key/zoom_in/Plus},         mods: Control|Shift, action: IncreaseFontSize }
+  - { key: {key/zoom_out/Minus},       mods: Control,       action: DecreaseFontSize }
+
+  - { key: {key/V},                    mods: Control|Shift, action: Paste            }
+  - { key: {key/C},                    mods: Control|Shift, action: Copy             }
+
+  - { key: {key/goto_bottom/upp},      mods: Control|Shift, action: ScrollToBottom   }
+  - { key: {key/scroll_page_up/upp},   mods: Control|Shift, action: ScrollPageUp     }
+  - { key: {key/scroll_page_down/upp}, mods: Control|Shift, action: ScrollPageDown   }
+  - { key: {key/scroll_line_up/upp},   mods: Control|Shift, action: ScrollLineUp     }
+  - { key: {key/scroll_line_down/upp}, mods: Control|Shift, action: ScrollLineDown   }
+
+  - { key: {key/0/Key0},               mods: Control,       chars: "\x1b[27;5;48~"   }
+  - { key: {key/1/Key1},               mods: Control,       chars: "\x1b[27;5;49~"   }
+  - { key: {key/2/Key2},               mods: Control,       chars: "\x1b[27;5;50~"   }
+  - { key: {key/3/Key3},               mods: Control,       chars: "\x1b[27;5;51~"   }
+  - { key: {key/4/Key4},               mods: Control,       chars: "\x1b[27;5;52~"   }
+  - { key: {key/5/Key5},               mods: Control,       chars: "\x1b[27;5;53~"   }
+  - { key: {key/6/Key6},               mods: Control,       chars: "\x1b[27;5;54~"   }
+  - { key: {key/7/Key7},               mods: Control,       chars: "\x1b[27;5;55~"   }
+  - { key: {key/8/Key8},               mods: Control,       chars: "\x1b[27;5;56~"   }
+  - { key: {key/9/Key9},               mods: Control,       chars: "\x1b[27;5;57~"   }
+  - { key: {key/return/Return},        mods: Control,       chars: "\x1b[27;5;13~"   }
+  - { key: {key/tabulation/Tab},       mods: Control,       chars: "\x1b[27;5;9~"    }
+  - { key: {key/tabulation/Tab},       mods: Control|Shift, chars: "\x1b[27;6;9~"    }

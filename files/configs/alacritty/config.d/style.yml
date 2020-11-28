@@ -1,0 +1,35 @@
+window:
+  padding:
+    x: 2
+    y: 2
+
+font:
+  size: 14.0
+
+draw_bold_text_with_bright_colors: false
+
+colors:
+  primary:
+    background: '0x{color/background/hex}'
+    foreground: '0x{color/foreground/hex}'
+  selection:
+    text:       '0x{color/background/hex}'
+    background: '0x{color/foreground/hex}'
+  normal:
+    black:   '0x{color/black/hex}'
+    red:     '0x{color/red/hex}'
+    green:   '0x{color/green/hex}'
+    yellow:  '0x{color/yellow/hex}'
+    blue:    '0x{color/blue/hex}'
+    magenta: '0x{color/magenta/hex}'
+    cyan:    '0x{color/cyan/hex}'
+    white:   '0x{color/white/hex}'
+  bright:
+    black:   '0x{color/brblack/hex}'
+    red:     '0x{color/brred/hex}'
+    green:   '0x{color/brgreen/hex}'
+    yellow:  '0x{color/bryellow/hex}'
+    blue:    '0x{color/brblue/hex}'
+    magenta: '0x{color/brmagenta/hex}'
+    cyan:    '0x{color/brcyan/hex}'
+    white:   '0x{color/brwhite/hex}'

@@ -1,0 +1,9 @@
+live_config_reload: false
+
+mouse:
+  hide_when_typing: true
+  url:
+    modifiers: Control
+
+selection:
+  semantic_escape_chars: "/-,│`|:\"' ()[]{}<>"
