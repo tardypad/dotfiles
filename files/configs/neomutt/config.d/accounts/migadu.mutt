@@ -22,7 +22,10 @@ mailboxes "+INBOX" \
           "+INBOX/Dev" \
           "+INBOX/Dev/Daily Comics" \
           "+INBOX/Finance" \
+          "+INBOX/Foot" \
           "+INBOX/Gaming" \
+          "+INBOX/Housing" \
+          "+INBOX/Job" \
           "+INBOX/Med" \
           "+INBOX/Shopping" \
           "+Archive" \
