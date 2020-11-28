@@ -50,8 +50,8 @@ key_bindings:
   - { key: {key/zoom/upp},             mods: Control|Shift, action: ToggleFullscreen }
 
   - { key: {key/zoom_reset/Equals},    mods: Control,       action: ResetFontSize    }
-  - { key: {key/zoom_in/Add},          mods: Control|Shift, action: IncreaseFontSize }
-  - { key: {key/zoom_out/Subtract},    mods: Control,       action: DecreaseFontSize }
+  - { key: {key/zoom_in/Plus},         mods: Control|Shift, action: IncreaseFontSize }
+  - { key: {key/zoom_out/Minus},       mods: Control,       action: DecreaseFontSize }
 
   - { key: {key/V},                    mods: Control|Shift, action: Paste            }
   - { key: {key/C},                    mods: Control|Shift, action: Copy             }
