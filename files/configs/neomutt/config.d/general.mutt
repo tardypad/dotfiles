@@ -1,10 +1,10 @@
 # define credentials variables for each account
-set my_gmail_email     = "` pass perso/mail/gmail 2> /dev/null | sed -n 's/email: \\(.*\\)/\\1/p' `"
-set my_gmail_password  = "` pass perso/mail/gmail 2> /dev/null | head -n 1 `"
-set my_work_email      = "` pass perso/mail/work 2> /dev/null | sed -n 's/email: \\(.*\\)/\\1/p' `"
-set my_work_password   = "` pass perso/mail/work 2> /dev/null | head -n 1 `"
-set my_migadu_email    = "` pass perso/mail/migadu 2> /dev/null | sed -n 's/email: \\(.*\\)/\\1/p' `"
-set my_migadu_password = "` pass perso/mail/migadu 2> /dev/null | head -n 1 `"
+set my_gmail_email     = "` pass perso/mail/gmail_laptop 2> /dev/null | sed -n 's/email: \\(.*\\)/\\1/p' `"
+set my_gmail_password  = "` pass perso/mail/gmail_laptop 2> /dev/null | head -n 1 `"
+set my_work_email      = "` pass perso/mail/work_laptop 2> /dev/null | sed -n 's/email: \\(.*\\)/\\1/p' `"
+set my_work_password   = "` pass perso/mail/work_laptop 2> /dev/null | head -n 1 `"
+set my_migadu_email    = "` pass perso/mail/migadu_laptop 2> /dev/null | sed -n 's/email: \\(.*\\)/\\1/p' `"
+set my_migadu_password = "` pass perso/mail/migadu_laptop 2> /dev/null | head -n 1 `"
 
 # set config per account
 account-hook "$my_gmail_email" "set imap_user=$my_gmail_email imap_pass=$my_gmail_password"
