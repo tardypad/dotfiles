@@ -214,8 +214,8 @@ bindsym --locked {key/XF86AudioMicMute} exec amixer -q set Capture toggle \
                                              && pkill -x -RTMIN+7 i3blocks
 
 # Backlight keys
-bindsym --locked {key/XF86MonBrightnessUp}   exec light -A 10
-bindsym --locked {key/XF86MonBrightnessDown} exec light -U 10
+bindsym --locked {key/XF86MonBrightnessUp}   exec light -A 5
+bindsym --locked {key/XF86MonBrightnessDown} exec light -U 5
 
 # Media keys
 bindsym --locked {key/XF86AudioPlay} exec mpc toggle \
