@@ -2,6 +2,7 @@ alacritty: alacritty-configs
 aria2: aria2-configs
 coreutils: coreutils-configs
 fontconfig: fontconfig-configs
+gammastep: gammastep-configs
 git: git-configs git-docs git-scripts
 gnupg: gnupg-configs
 htop: htop-configs

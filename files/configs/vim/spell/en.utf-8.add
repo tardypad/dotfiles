@@ -1,5 +1,6 @@
 dotfiles
 GitHub
+GitLab
 alacritty
 aria2
 coreutils
@@ -73,3 +74,4 @@ curl
 bemenu
 imv
 magick
+gammastep

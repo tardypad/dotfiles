@@ -14,6 +14,7 @@ include files/configs/alacritty/Makefile
 include files/configs/aria2/Makefile
 include files/configs/coreutils/Makefile
 include files/configs/fontconfig/Makefile
+include files/configs/gammastep/Makefile
 include files/configs/git/Makefile
 include files/configs/gnupg/Makefile
 include files/configs/htop/Makefile
