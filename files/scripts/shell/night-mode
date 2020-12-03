@@ -1,0 +1,62 @@
+#!/bin/sh
+
+init_variables() {
+  COMMAND=${0##*/}
+
+  TEMPERATURE=3500
+
+  ACTION='status'
+}
+
+parse_command_line() {
+  [ -z "$1" ] || ACTION="$1"
+}
+
+validate_command_line() {
+  if [ "${ACTION}" != 'enable' ] \
+     && [ "${ACTION}" != 'disable' ] \
+     && [ "${ACTION}" != 'toggle' ] \
+     && [ "${ACTION}" != 'status' ]; then
+    exit_error "Invalid action '${ACTION}'"
+  fi
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+night_enable() {
+  is_night_enabled && return 0
+  gammastep -P -O "${TEMPERATURE}" &
+}
+
+night_status() {
+  if is_night_enabled; then
+    echo 'enabled'
+  else
+    echo 'disabled'
+  fi
+}
+
+night_disable() {
+  pkill -x gammastep
+}
+
+night_toggle() {
+  if is_night_enabled; then
+    night_disable
+  else
+    night_enable
+  fi
+}
+
+is_night_enabled() {
+  pidof gammastep > /dev/null
+}
+
+init_variables
+parse_command_line "$@"
+validate_command_line
+
+"night_${ACTION}"

@@ -25,6 +25,7 @@ shell-scripts:
 	$(setup_file)/scripts/shell/line-by-line                 > $(DESTDIR)$(BIN_DIR)/line-by-line
 	$(setup_file)/scripts/shell/loop                         > $(DESTDIR)$(BIN_DIR)/loop
 	$(setup_file)/scripts/shell/mysql-env                    > $(DESTDIR)$(BIN_DIR)/mysql-env
+	$(setup_file)/scripts/shell/night-mode                   > $(DESTDIR)$(BIN_DIR)/night-mode
 	$(setup_file)/scripts/shell/notify                       > $(DESTDIR)$(BIN_DIR)/notify
 	$(setup_file)/scripts/shell/notify-end-pomodoro          > $(DESTDIR)$(BIN_DIR)/notify-end-pomodoro
 	$(setup_file)/scripts/shell/notify-tmux-alert            > $(DESTDIR)$(BIN_DIR)/notify-tmux-alert
@@ -69,6 +70,7 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/line-by-line
 	chmod +x $(DESTDIR)$(BIN_DIR)/loop
 	chmod +x $(DESTDIR)$(BIN_DIR)/mysql-env
+	chmod +x $(DESTDIR)$(BIN_DIR)/night-mode
 	chmod +x $(DESTDIR)$(BIN_DIR)/notify
 	chmod +x $(DESTDIR)$(BIN_DIR)/notify-end-pomodoro
 	chmod +x $(DESTDIR)$(BIN_DIR)/notify-tmux-alert

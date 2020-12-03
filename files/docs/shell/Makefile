@@ -25,6 +25,7 @@ shell-docs:
 	$(setup_file)/docs/shell/line-by-line.scd             | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/line-by-line.1perso
 	$(setup_file)/docs/shell/loop.scd                     | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/loop.1perso
 	$(setup_file)/docs/shell/mysql-env.scd                | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/mysql-env.1perso
+	$(setup_file)/docs/shell/night-mode.scd               | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/night-mode.1perso
 	$(setup_file)/docs/shell/notify-end-pomodoro.scd      | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/notify-end-pomodoro.1perso
 	$(setup_file)/docs/shell/notify-tmux-alert.scd        | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/notify-tmux-alert.1perso
 	$(setup_file)/docs/shell/notify.scd                   | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/notify.1perso
