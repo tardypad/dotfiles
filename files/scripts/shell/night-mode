@@ -29,6 +29,7 @@ exit_error() {
 night_enable() {
   is_night_enabled && return 0
   gammastep -P -O "${TEMPERATURE}" &
+  update_i3blocks
 }
 
 night_status() {
@@ -41,6 +42,7 @@ night_status() {
 
 night_disable() {
   pkill -x gammastep
+  update_i3blocks
 }
 
 night_toggle() {
@@ -49,6 +51,10 @@ night_toggle() {
   else
     night_enable
   fi
+}
+
+update_i3blocks() {
+  pkill -x -RTMIN+9 i3blocks
 }
 
 is_night_enabled() {

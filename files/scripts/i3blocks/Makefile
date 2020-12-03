@@ -10,6 +10,7 @@ i3blocks-scripts:
 	$(setup_file)/scripts/i3blocks/i3blocks-microphone     > $(DESTDIR)$(BIN_DIR)/i3blocks-microphone
 	$(setup_file)/scripts/i3blocks/i3blocks-music          > $(DESTDIR)$(BIN_DIR)/i3blocks-music
 	$(setup_file)/scripts/i3blocks/i3blocks-network        > $(DESTDIR)$(BIN_DIR)/i3blocks-network
+	$(setup_file)/scripts/i3blocks/i3blocks-night-mode     > $(DESTDIR)$(BIN_DIR)/i3blocks-night-mode
 	$(setup_file)/scripts/i3blocks/i3blocks-pomodoro       > $(DESTDIR)$(BIN_DIR)/i3blocks-pomodoro
 	$(setup_file)/scripts/i3blocks/i3blocks-power          > $(DESTDIR)$(BIN_DIR)/i3blocks-power
 	$(setup_file)/scripts/i3blocks/i3blocks-time-tracker   > $(DESTDIR)$(BIN_DIR)/i3blocks-time-tracker
@@ -23,6 +24,7 @@ i3blocks-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-microphone
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-music
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-network
+	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-night-mode
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-pomodoro
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-power
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-time-tracker

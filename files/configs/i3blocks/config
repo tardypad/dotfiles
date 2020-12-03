@@ -40,6 +40,9 @@ signal=2
 [idle-inhibitor]
 signal=8
 
+[night-mode]
+signal=9
+
 [do-not-disturb]
 signal=3
 

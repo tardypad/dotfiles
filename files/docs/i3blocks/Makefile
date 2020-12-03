@@ -10,6 +10,7 @@ i3blocks-docs:
 	$(setup_file)/docs/i3blocks/i3blocks-microphone.scd     | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/i3blocks-microphone.1perso
 	$(setup_file)/docs/i3blocks/i3blocks-music.scd          | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/i3blocks-music.1perso
 	$(setup_file)/docs/i3blocks/i3blocks-network.scd        | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/i3blocks-network.1perso
+	$(setup_file)/docs/i3blocks/i3blocks-night-mode.scd     | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/i3blocks-night-mode.1perso
 	$(setup_file)/docs/i3blocks/i3blocks-pomodoro.scd       | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/i3blocks-pomodoro.1perso
 	$(setup_file)/docs/i3blocks/i3blocks-power.scd          | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/i3blocks-power.1perso
 	$(setup_file)/docs/i3blocks/i3blocks-time-tracker.scd   | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/i3blocks-time-tracker.1perso
