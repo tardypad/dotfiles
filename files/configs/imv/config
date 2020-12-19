@@ -52,6 +52,14 @@ suppress_default_binds = true
 {key/s}{key/n} = scaling none
 {key/s}{key/s} = scaling shrink
 
+# Rotating
+{key/t}{key/right} = rotate by 90
+{key/t}{key/left} = rotate by -90
+
+# Flipping
+{key/f}{key/h} = flip horizontal
+{key/f}{key/v} = flip vertical
+
 # Gif playback
 <{key/period}> = next_frame
 <{key/space}>  = toggle_playing
