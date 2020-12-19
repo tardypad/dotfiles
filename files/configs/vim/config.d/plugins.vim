@@ -51,20 +51,6 @@ let g:gutentags_project_root_finder = 'getcwd'
 let g:gutentags_ctags_tagfile = '.tags'
 
 
-"" php
-
-function! PhpSyntaxOverride()
-  hi! def link phpDocTags  phpDefine
-  hi! def link phpDocParam phpType
-  hi! def link phpDocIdentifier phpIdentifier
-endfunction
-
-augroup phpSyntaxOverride
-  autocmd!
-  autocmd FileType php call PhpSyntaxOverride()
-augroup END
-
-
 "" sayonara
 
 " we don't want to delete the buffer

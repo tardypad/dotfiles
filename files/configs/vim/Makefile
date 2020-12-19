@@ -60,8 +60,6 @@ vim-configs:
 	$(setup_file)/configs/vim/plugin/tab_key.vim                > $(DESTDIR)$(HOME)/.vim/plugin/tab_key.vim
 	$(setup_file)/configs/vim/plugin/zoom_window.vim            > $(DESTDIR)$(HOME)/.vim/plugin/zoom_window.vim
 	$(setup_file)/configs/vim/snips/all.snippets                > $(DESTDIR)$(HOME)/.vim/snips/all.snippets
-	$(setup_file)/configs/vim/snips/php.snippets                > $(DESTDIR)$(HOME)/.vim/snips/php.snippets
-	$(setup_file)/configs/vim/snips/php_phpunit.snippets        > $(DESTDIR)$(HOME)/.vim/snips/php_phpunit.snippets
 	$(setup_file)/configs/vim/snips/sh.snippets                 > $(DESTDIR)$(HOME)/.vim/snips/sh.snippets
 	$(setup_file)/configs/vim/snips/zsh.snippets                > $(DESTDIR)$(HOME)/.vim/snips/zsh.snippets
 	$(setup_file)/configs/vim/spell/en.utf-8.add                > $(DESTDIR)$(HOME)/.vim/spell/en.utf-8.add
@@ -83,14 +81,9 @@ vim-configs:
 	setup/install-vim-plugin taboo             "$(DESTDIR)" git https://github.com/gcmt/taboo.vim                     caf9481
 	setup/install-vim-plugin sway              "$(DESTDIR)" git https://github.com/aouelete/sway-vim-syntax           0aa0626
 	setup/install-vim-plugin yaml              "$(DESTDIR)" git https://github.com/stephpy/vim-yaml                   8fc9136
-	setup/install-vim-plugin saltstack         "$(DESTDIR)" git https://github.com/saltstack/salt-vim                 6ca9e35
-	setup/install-vim-plugin jinja2            "$(DESTDIR)" git https://github.com/glench/vim-jinja2-syntax           c967c2b
-	setup/install-vim-plugin apiblueprint      "$(DESTDIR)" git https://github.com/kylef/apiblueprint.vim             776b986
 	setup/install-vim-plugin qml               "$(DESTDIR)" git https://github.com/peterhoeg/vim-qml                  1d2c1fc
 	setup/install-vim-plugin elm               "$(DESTDIR)" git https://github.com/zaptic/elm-vim                     0.19.1.0
 	setup/install-vim-plugin go                "$(DESTDIR)" git https://github.com/fatih/vim-go                       v1.24
-	setup/install-vim-plugin php               "$(DESTDIR)" git https://github.com/stanangeloff/php.vim               930aec5
-	setup/install-vim-plugin icinga2           "$(DESTDIR)" file https://raw.githubusercontent.com/Icinga/icinga2/3cb2c1d1435f19bc5e46fa8f8518645f62549dde/tools/syntax/vim/syntax/icinga2.vim syntax/icinga2.vim
 
     # generate spell file
 	if [ -z $(DESTDIR) ] ; then \
