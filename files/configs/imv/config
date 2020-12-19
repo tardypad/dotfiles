@@ -29,7 +29,7 @@ suppress_default_binds = true
 <Shift+{key/right/upp}>       = next
 <Ctrl+{key/next/low}>         = next
 {key/goto_top}{key/goto_top}  = goto 1
-<Shift+{key/goto_bottom/upp}> = goto 0
+<Shift+{key/goto_bottom/upp}> = goto -1
 
 # Panning
 {key/c}     = center
