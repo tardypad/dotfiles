@@ -1,0 +1,9 @@
+[Unit]
+Description=Notify break time
+
+[Timer]
+OnBootSec=20min
+OnUnitActiveSec=20min
+
+[Install]
+WantedBy=timers.target
