@@ -37,6 +37,7 @@ c.content.geolocation   = False
 # and only whitelist some regularly used patterns
 # which are trusted or don't work well without it
 c.content.javascript.enabled = False
+config.set('content.javascript.enabled', True, 'file:///*')
 config.set('content.javascript.enabled', True, '*.local')
 config.set('content.javascript.enabled', True, '*.youtube.com')
 config.set('content.javascript.enabled', True, '*.migadu.com')
