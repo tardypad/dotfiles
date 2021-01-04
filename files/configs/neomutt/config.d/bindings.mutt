@@ -92,8 +92,7 @@ macro generic,pager <{key/escape/Esc}>{key/h} "<shell-escape>less /usr/share/doc
 
 # change account
 macro index,pager <{key/F1}> "<change-folder>imaps://$my_migadu_email@imap.migadu.com<Enter>" "Migadu"
-macro index,pager <{key/F2}> "<change-folder>imaps://$my_work_email@imap.gmail.com<Enter>"    "Work"
-macro index,pager <{key/F3}> "<change-folder>imaps://$my_gmail_email@imap.gmail.com<Enter>"   "Gmail"
+macro index,pager <{key/F2}> "<change-folder>imaps://$my_gmail_email@imap.gmail.com<Enter>"   "Gmail"
 
 # sidebar navigation
 bind index,pager \C{key/previous/low} sidebar-prev

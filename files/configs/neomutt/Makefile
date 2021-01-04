@@ -18,6 +18,4 @@ neomutt-configs:
 	$(setup_file)/configs/neomutt/config.d/style.mutt           > $(DESTDIR)$(CONFIG_DIR)/neomutt/config.d/style.mutt
 	$(setup_file)/configs/neomutt/config.d/accounts/gmail.mutt  > $(DESTDIR)$(CONFIG_DIR)/neomutt/config.d/accounts/gmail.mutt
 	$(setup_file)/configs/neomutt/config.d/accounts/migadu.mutt > $(DESTDIR)$(CONFIG_DIR)/neomutt/config.d/accounts/migadu.mutt
-	$(setup_file)/configs/neomutt/config.d/accounts/work.mutt   > $(DESTDIR)$(CONFIG_DIR)/neomutt/config.d/accounts/work.mutt
 	$(setup_file)/configs/neomutt/config.d/signatures/simple    > $(DESTDIR)$(CONFIG_DIR)/neomutt/config.d/signatures/simple
-	$(setup_file)/configs/neomutt/config.d/signatures/work      > $(DESTDIR)$(CONFIG_DIR)/neomutt/config.d/signatures/work
