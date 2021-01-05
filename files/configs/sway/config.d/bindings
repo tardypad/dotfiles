@@ -43,8 +43,8 @@ bindsym $mod+{key/t} exec night-mode toggle
 
 ## notifications
 
-bindsym $mod+Ctrl+{key/close/low}       exec makoctl dismiss
-bindsym $mod+Ctrl+Shift+{key/close/low} exec makoctl dismiss --all
+bindsym --locked $mod+Ctrl+{key/close/low}       exec makoctl dismiss
+bindsym --locked $mod+Ctrl+Shift+{key/close/low} exec makoctl dismiss --all
 
 
 ## Commands
