@@ -70,7 +70,9 @@ read_feed() {
           --bind "{key/return/return}:execute(echo {4} | ${VIEW_SCRIPT})" \
           --bind "ctrl-{key/open/low}:execute-silent(xdg-open {3} &)" \
           --bind "change:ignore" \
+          --bind "space:toggle-search" \
           --bind "{key/goto_top}:first" \
+          --bind "{key/goto_bottom}:last" \
           --bind "{key/up}:up" \
           --bind "{key/down}:down" \
           --bind "ctrl-{key/scroll_up/low}:half-page-up" \
