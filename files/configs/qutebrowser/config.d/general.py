@@ -40,6 +40,7 @@ c.content.javascript.enabled = False
 config.set('content.javascript.enabled', True, 'file:///*')
 config.set('content.javascript.enabled', True, '*.local')
 config.set('content.javascript.enabled', True, '*.youtube.com')
+config.set('content.javascript.enabled', True, '*.ovh.com')
 config.set('content.javascript.enabled', True, '*.migadu.com')
 config.set('content.javascript.enabled', True, '*.gandi.net')
 config.set('content.javascript.enabled', True, 'online-go.com')
