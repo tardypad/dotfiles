@@ -57,7 +57,7 @@ read_feed() {
       }
     }" "${FEED_PATH}" \
     | fzf -d '\t' \
-          --phony \
+          --disabled \
           --exit-0 \
           --tac \
           --layout reverse \
@@ -70,7 +70,7 @@ read_feed() {
           --bind "{key/return/return}:execute(echo {4} | ${VIEW_SCRIPT})" \
           --bind "ctrl-{key/open/low}:execute-silent(xdg-open {3} &)" \
           --bind "change:ignore" \
-          --bind "{key/goto_top}:top" \
+          --bind "{key/goto_top}:first" \
           --bind "{key/up}:up" \
           --bind "{key/down}:down" \
           --bind "ctrl-{key/scroll_up/low}:half-page-up" \
