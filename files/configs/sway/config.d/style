@@ -11,7 +11,7 @@ smart_gaps on
 smart_borders on
 
 # title bar font
-font Source Sans Pro, Font Awesome 5 Free 14
+font Source Sans Pro, Font Awesome 5 Free 12
 
 # windows decorations colors
 # title border / title background / title text / indicator / view border
