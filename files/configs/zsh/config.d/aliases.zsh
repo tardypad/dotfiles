@@ -74,7 +74,7 @@ alias passwdgen='echo $( < /dev/urandom tr -d -C "[:graph:]" | dd bs=1 count=30 
 alias myip='https api.ipify.org'
 
 # simple linters
-alias json-lint='python -m json.tool'
+alias json-lint='jq'
 alias xml-lint='xmllint --format -'
 
 # allow usage of * in queries without need for escaping
