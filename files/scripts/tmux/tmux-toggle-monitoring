@@ -1,0 +1,35 @@
+#!/bin/sh
+
+EVENT="$1"
+SOCKET_PATH="$2"
+SESSION_ID="$3"
+WINDOW_ID="$4"
+
+SILENCE_THRESHOLD=10
+
+STATUS=
+ON='on'
+OFF='off'
+
+if [ "${EVENT}" = 'silence' ]; then
+  ON="${SILENCE_THRESHOLD}"
+  OFF='0'
+fi
+
+if tmux show-window-options | grep -q "monitor-${EVENT} ${ON}"; then
+  tmux set-window-option "monitor-${EVENT}" "${OFF}"
+  STATUS='disabled'
+else
+  tmux set-window-option "monitor-${EVENT}" "${ON}"
+  STATUS='enabled'
+
+  if [ -n "${DISPLAY}" ]; then
+    WINDOW_MARK=_tmux_alert
+    WINDOW_MARK="${WINDOW_MARK}_${SOCKET_PATH##*/}"
+    WINDOW_MARK="${WINDOW_MARK}_${SESSION_ID#$}"
+    WINDOW_MARK="${WINDOW_MARK}_${WINDOW_ID#@}"
+    swaymsg -q "mark --add ${WINDOW_MARK}"
+  fi
+fi
+
+tmux display-message "Monitoring ${EVENT}: ${STATUS}"
