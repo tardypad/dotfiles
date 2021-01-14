@@ -24,7 +24,7 @@ export GPG_TTY="$(tty)"
 # default less options
 # defining them in the #env part of lesskey
 # seems to break even more stuff around...
-export LESS='-inRS'
+export LESS='-inQRS'
 
 # change grep output colors
 GREP_COLORS='ms=1;{color/search_match/fg}'

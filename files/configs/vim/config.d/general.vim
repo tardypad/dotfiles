@@ -19,9 +19,10 @@ set sidescroll=10         " horizontal scroll of columns
 set cursorline            " highlight the current line
 set scrolloff=3           " Display at least 3 lines around you cursor
 
-" no beep
-set novisualbell          " Prevent Vim from beeping
-set noerrorbells          " Prevent Vim from beeping
+" no bell
+set noerrorbells
+set visualbell
+set t_vb=
 
 " backspace behaves as expected
 set backspace=indent,eol,start

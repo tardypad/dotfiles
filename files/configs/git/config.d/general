@@ -63,4 +63,4 @@
 [core]
     # LESS default options apparently break the display
     # so we redefine needed options here
-    pager = /usr/share/git/diff-highlight/diff-highlight | less -inFRSX -x4
+    pager = /usr/share/git/diff-highlight/diff-highlight | less -inFQRSX -x4

@@ -7,6 +7,9 @@ setopt no_flow_control
 # enable extended globbing features
 setopt extended_glob
 
+# no bell
+unsetopt beep
+
 # use run-help utility
 unalias run-help 2> /dev/null
 autoload -Uz run-help
