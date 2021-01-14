@@ -19,7 +19,8 @@ bind -N 'list keys'                  M-{key/?}       list-keys -a -N
 bind -N 'show messages'              M-{key/m}       show-messages
 bind -N 'toggle activity monitoring' M-{key/a}       run "tmux-toggle-monitor-activity '#{socket_path}' '#{session_id}' '#{window_id}'"
 bind -N 'toggle silence monitoring'  M-{key/s}       run "tmux-toggle-monitor-silence '#{socket_path}' '#{session_id}' '#{window_id}'"
-bind -N 'choose buffer'              M-{key/buffer}  choose-buffer -Z -F '#{buffer_sample}' -O time
+bind -N 'toggle bell monitoring'     M-{key/b}       run "tmux-toggle-monitor-bell '#{socket_path}' '#{session_id}' '#{window_id}'"
+bind -N 'choose buffer'              M-{key/c}       choose-buffer -Z -F '#{buffer_sample}' -O time
 bind -N 'documentation'              M-{key/d}       split-window -h -f -l 80 "printf 'documentation\n\n'; documentation-all || sleep 2"
 bind -N 'clear pane history'         M-{key/clear}   clear-history \; \
                                                      display-message "Pane history cleared"

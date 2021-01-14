@@ -9,5 +9,6 @@ tmux-docs:
 	$(setup_file)/docs/tmux/tmux-notify-alert.scd            | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/tmux-notify-alert.1perso
 	$(setup_file)/docs/tmux/tmux-select-pane-vim.scd         | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/tmux-select-pane-vim.1perso
 	$(setup_file)/docs/tmux/tmux-toggle-monitor-activity.scd | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/tmux-toggle-monitor-activity.1perso
+	$(setup_file)/docs/tmux/tmux-toggle-monitor-bell.scd     | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/tmux-toggle-monitor-bell.1perso
 	$(setup_file)/docs/tmux/tmux-toggle-monitor-silence.scd  | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/tmux-toggle-monitor-silence.1perso
 	$(setup_file)/docs/tmux/tmux-toggle-no-distraction.scd   | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/tmux-toggle-no-distraction.1perso

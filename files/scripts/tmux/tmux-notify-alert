@@ -12,6 +12,9 @@ tmux \
     monitor-activity off \; \
   set-window-option \
     -t "${ALERT_SESSION_ID}:${ALERT_WINDOW_ID}" \
+    monitor-bell off \; \
+  set-window-option \
+    -t "${ALERT_SESSION_ID}:${ALERT_WINDOW_ID}" \
     monitor-silence 0
 
 ALERT_SESSION_NAME=$(
