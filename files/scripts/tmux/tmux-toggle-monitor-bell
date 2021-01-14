@@ -22,4 +22,4 @@ else
   fi
 fi
 
-tmux display-message "Monitoring for window \"#{window_name}\": bell ${STATUS}"
+tmux display-message "Monitoring bell: ${STATUS}"
