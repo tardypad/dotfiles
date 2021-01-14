@@ -1,0 +1,62 @@
+#!/bin/sh
+
+init_variables() {
+  COMMAND=${0##*/}
+
+  ACTION=
+  URL=
+}
+
+parse_command_line() {
+  ACTION="$1"
+  URL="$2"
+}
+
+validate_command_line() {
+  if [ -z "${ACTION}" ]; then
+    exit_error "missing action"
+  fi
+
+  if [ "${ACTION}" != 'encode' ] \
+     && [ "${ACTION}" != 'decode' ]; then
+    exit_error "invalid action '${ACTION}'"
+  fi
+
+  if [ -z "${URL}" ]; then
+    exit_error "missing URL"
+  fi
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+url_encode() {
+  OLD_IFS="${IFS}"
+
+  IFS="
+"
+
+  for c in $( printf '%s' "$1" | sed 's/./&\n/g' )
+  do
+    case "$c" in
+      [a-zA-Z0-9.~_-]) printf '%s' "$c" ;;
+      *) printf '%%%02X' "'$c" ;;
+    esac
+  done
+  printf '\n'
+
+  IFS="${OLD_IFS}"
+}
+
+url_decode() {
+  # shellcheck disable=SC2059
+  printf "$( printf '%s' "$1" | sed 's/%/\\x/g' )\n"
+}
+
+init_variables
+parse_command_line "$@"
+validate_command_line
+
+"url_${ACTION}" "${URL}"

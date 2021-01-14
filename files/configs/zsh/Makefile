@@ -38,6 +38,7 @@ zsh-configs:
 	$(setup_file)/configs/zsh/completions/_time-tracker                                              > $(DESTDIR)$(HOME)/.zsh/completions/_time-tracker
 	$(setup_file)/configs/zsh/completions/_time-tracker-sum                                          > $(DESTDIR)$(HOME)/.zsh/completions/_time-tracker-sum
 	$(setup_file)/configs/zsh/completions/_tmux-env                                                  > $(DESTDIR)$(HOME)/.zsh/completions/_tmux-env
+	$(setup_file)/configs/zsh/completions/_url                                                       > $(DESTDIR)$(HOME)/.zsh/completions/_url
 	$(setup_file)/configs/zsh/completions/git/_git-argument                                          > $(DESTDIR)$(HOME)/.zsh/completions/git/_git-argument
 	$(setup_file)/configs/zsh/completions/git/_git-hist                                              > $(DESTDIR)$(HOME)/.zsh/completions/git/_git-hist
 	$(setup_file)/configs/zsh/completions/git/_git-mgrbma                                            > $(DESTDIR)$(HOME)/.zsh/completions/git/_git-mgrbma

@@ -1,0 +1,13 @@
+#compdef url
+
+_actions() {
+  local actions=(
+    encode
+    decode
+  )
+
+  compadd "$@" $actions
+}
+
+_arguments \
+  '1:action:_actions'
