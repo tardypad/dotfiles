@@ -16,17 +16,3 @@ i3blocks-scripts:
 	$(setup_file)/scripts/i3blocks/i3blocks-time-tracker   > $(DESTDIR)$(BIN_DIR)/i3blocks-time-tracker
 	$(setup_file)/scripts/i3blocks/i3blocks-volume         > $(DESTDIR)$(BIN_DIR)/i3blocks-volume
 	$(setup_file)/scripts/i3blocks/i3blocks-webcam         > $(DESTDIR)$(BIN_DIR)/i3blocks-webcam
-
-	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-bluetooth
-	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-chat
-	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-do-not-disturb
-	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-idle-inhibitor
-	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-microphone
-	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-music
-	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-network
-	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-night-mode
-	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-pomodoro
-	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-power
-	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-time-tracker
-	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-volume
-	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-webcam
