@@ -10,6 +10,7 @@ DATA_DIR   = $(HOME)/.local/share
 
 setup_file = { setup/substitute-colors $(THEME) | setup/substitute-dirs | setup/substitute-apps | setup/substitute-keys; } < files
 
+include files/configs/aerc/Makefile
 include files/configs/alacritty/Makefile
 include files/configs/aria2/Makefile
 include files/configs/coreutils/Makefile

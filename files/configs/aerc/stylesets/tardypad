@@ -1,0 +1,39 @@
+*.default = true
+
+*.selected.bg = #{color/current_item/hex}
+*.selected.fg = #{color/base00/hex}
+
+error.fg   = #{color/error/hex}
+warning.fg = #{color/warning/hex}
+success.fg = #{color/base0C/hex}
+
+title.bold  = true
+header.bold = true
+
+border.bg  = default
+spinner.fg = #{color/base03/hex}
+
+statusline_default.bg = #{color/status_line_background/hex}
+statusline_default.fg = #{color/status_line_foreground/hex}
+statusline_error.bg   = #{color/error/hex}
+statusline_error.fg   = #{color/base00/hex}
+statusline_success.bg = #{color/base0C/hex}
+statusline_success.fg = #{color/base00/hex}
+
+tab.bg          = #{color/status_line_background/hex}
+tab.fg          = #{color/status_line_foreground/hex}
+tab.selected.bg = #{color/base03/hex}
+tab.selected.fg = #{color/base0A/hex}
+
+completion_default.bg          = #{color/popup_background/hex}
+completion_default.fg          = #{color/popup_foreground/hex}
+completion_default.selected.bg = #{color/current_item/hex}
+completion_default.selected.fg = #{color/base00/hex}
+completion_pill.bg             = #{color/popup_foreground/hex}
+completion_gutter.bg           = #{color/popup_background/hex}
+
+msglist_unread.bold = true
+msglist_unread.fg   = #{color/unread_item/hex}
+msglist_deleted.fg  = #{color/delete/hex}
+msglist_marked.bg   = #{color/selected_item/hex}
+msglist_marked.fg   = #{color/base00/hex}

@@ -1,3 +1,4 @@
+aerc: aerc-configs
 alacritty: alacritty-configs
 aria2: aria2-configs
 coreutils: coreutils-configs
