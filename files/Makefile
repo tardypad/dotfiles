@@ -14,7 +14,6 @@ less: less-configs
 libqalculate: libqalculate-configs
 mako: mako-configs
 mpd: mpd-configs
-neomutt: neomutt-configs
 openssh: openssh-configs
 qutebrowser: qutebrowser-configs
 sfeed: sfeed-configs

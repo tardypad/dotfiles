@@ -1,7 +1,7 @@
 chat_client       alacritty -e tmux new-session -A -s chat "WEECHAT_PASSPHRASE=$(pass perso/weechat) weechat"
 document_viewer   zathura
 image_viewer      imv
-mail_client       alacritty -e tmux new-session -A -s mail "neomutt"
+mail_client       alacritty -e tmux new-session -A -s mail "aerc"
 system_monitor    alacritty -t sway_monitor -e tmux new-session -A -s monitor "htop"
 terminal_emulator alacritty -e tmux new-session
 web_browser       qutebrowser -l warning

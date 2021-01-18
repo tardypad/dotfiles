@@ -26,7 +26,6 @@ include files/configs/less/Makefile
 include files/configs/libqalculate/Makefile
 include files/configs/mako/Makefile
 include files/configs/mpd/Makefile
-include files/configs/neomutt/Makefile
 include files/configs/openssh/Makefile
 include files/configs/qutebrowser/Makefile
 include files/configs/sfeed/Makefile
