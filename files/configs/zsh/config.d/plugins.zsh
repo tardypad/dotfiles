@@ -59,5 +59,5 @@ ZSH_HIGHLIGHT_STYLES[redis_env:keywords]='bold'
 
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg={color/base0C/number},fg={color/base00/number}'
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg={color/base0F/number},fg={color/base00/number}'
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg={color/success/number},fg={color/base00/number}'
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg={color/error/number},fg={color/base00/number}'

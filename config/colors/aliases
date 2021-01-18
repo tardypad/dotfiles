@@ -13,6 +13,7 @@
 | warning                    | base0E |
 | notice                     | base0D |
 | info                       | base0A |
+| success                    | base0C |
 | search_match               | base07 |
 | current_item               | base0B |
 | selected_item              | base07 |

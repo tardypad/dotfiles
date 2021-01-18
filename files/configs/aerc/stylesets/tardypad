@@ -5,7 +5,7 @@
 
 error.fg   = #{color/error/hex}
 warning.fg = #{color/warning/hex}
-success.fg = #{color/base0C/hex}
+success.fg = #{color/success/hex}
 
 title.bold  = true
 header.bold = true
@@ -17,7 +17,7 @@ statusline_default.bg = #{color/status_line_background/hex}
 statusline_default.fg = #{color/status_line_foreground/hex}
 statusline_error.bg   = #{color/error/hex}
 statusline_error.fg   = #{color/base00/hex}
-statusline_success.bg = #{color/base0C/hex}
+statusline_success.bg = #{color/success/hex}
 statusline_success.fg = #{color/base00/hex}
 
 tab.bg          = #{color/status_line_background/hex}

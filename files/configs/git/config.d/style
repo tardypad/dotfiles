@@ -51,7 +51,7 @@
 [color "remote"]
     hint = {color/base03/number} italic
     warning = {color/warning/number}
-    success = {color/base0C/number}
+    success = {color/success/number}
     error = {color/error/number}
 [color "status"]
     header = normal

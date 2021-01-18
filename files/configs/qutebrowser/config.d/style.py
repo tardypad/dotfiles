@@ -136,7 +136,7 @@ c.colors.statusbar.url.error.fg                 = colors['error']
 c.colors.statusbar.url.fg                       = colors['base05']
 c.colors.statusbar.url.hover.fg                 = colors['base0B']
 c.colors.statusbar.url.success.http.fg          = colors['base05']
-c.colors.statusbar.url.success.https.fg         = colors['base0C']
+c.colors.statusbar.url.success.https.fg         = colors['success']
 c.colors.statusbar.url.warn.fg                  = colors['warning']
 
 c.colors.tabs.bar.bg                            = colors['background']
