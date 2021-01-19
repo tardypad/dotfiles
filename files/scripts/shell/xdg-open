@@ -7,7 +7,7 @@ case "${1%%:*}" in
 esac
 
 case "$( echo "${1##*.}" | tr '[:upper:]' '[:lower:]')" in
-  html) exec {app/web_browser} "$1" ;;
+  htm|html) exec {app/web_browser} "$1" ;;
   cbr|cbz|epub|pdf) exec {app/document_viewer} "$1" ;;
   jpg|jpeg|jfif|png|gif|svg) exec {app/image_viewer} "$1" ;;
 esac
