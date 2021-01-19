@@ -9,7 +9,7 @@ esac
 case "$( echo "${1##*.}" | tr '[:upper:]' '[:lower:]')" in
   html) exec {app/web_browser} "$1" ;;
   cbr|cbz|epub|pdf) exec {app/document_viewer} "$1" ;;
-  jpg|jpeg|png|gif|svg) exec {app/image_viewer} "$1" ;;
+  jpg|jpeg|jfif|png|gif|svg) exec {app/image_viewer} "$1" ;;
 esac
 
 exec /usr/bin/xdg-open "$@"
