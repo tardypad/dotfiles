@@ -36,7 +36,6 @@ vim-configs:
 	$(setup_file)/configs/vim/ftdetect/nginx.vim                > $(DESTDIR)$(HOME)/.vim/ftdetect/nginx.vim
 	$(setup_file)/configs/vim/ftdetect/sh.vim                   > $(DESTDIR)$(HOME)/.vim/ftdetect/sh.vim
 	$(setup_file)/configs/vim/ftdetect/sshconfig.vim            > $(DESTDIR)$(HOME)/.vim/ftdetect/sshconfig.vim
-	$(setup_file)/configs/vim/ftdetect/sway.vim                 > $(DESTDIR)$(HOME)/.vim/ftdetect/sway.vim
 	$(setup_file)/configs/vim/ftdetect/tmux.vim                 > $(DESTDIR)$(HOME)/.vim/ftdetect/tmux.vim
 	$(setup_file)/configs/vim/ftdetect/xml.vim                  > $(DESTDIR)$(HOME)/.vim/ftdetect/xml.vim
 	$(setup_file)/configs/vim/ftdetect/zsh.vim                  > $(DESTDIR)$(HOME)/.vim/ftdetect/zsh.vim
@@ -78,7 +77,6 @@ vim-configs:
 	setup/install-vim-plugin undotree          "$(DESTDIR)" git https://github.com/mbbill/undotree                    rel_6.1
 	setup/install-vim-plugin redact-pass       "$(DESTDIR)" git https://sanctum.geek.nz/code/vim-redact-pass.git      v2.2.1
 	setup/install-vim-plugin taboo             "$(DESTDIR)" git https://github.com/gcmt/taboo.vim                     caf9481
-	setup/install-vim-plugin sway              "$(DESTDIR)" git https://github.com/aouelete/sway-vim-syntax           0aa0626
 	setup/install-vim-plugin yaml              "$(DESTDIR)" git https://github.com/stephpy/vim-yaml                   8fc9136
 	setup/install-vim-plugin qml               "$(DESTDIR)" git https://github.com/peterhoeg/vim-qml                  1d2c1fc
 	setup/install-vim-plugin elm               "$(DESTDIR)" git https://github.com/zaptic/elm-vim                     0.19.1.0
