@@ -40,6 +40,9 @@ alias lbl='line-by-line'
 # smart cut on spaces
 alias scut="tr -s ' ' '\t' | cut"
 
+# DOS to Unix newlines
+alias dos2unix="tr -d '\r'"
+
 # trim spaces
 alias trim="sed -e 's/^ *//' -e 's/ *$//'"
 
