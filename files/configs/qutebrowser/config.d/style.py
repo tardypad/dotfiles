@@ -48,6 +48,7 @@ colors = {
     'warning'                : '#{color/warning/hex}',
     'notice'                 : '#{color/notice/hex}',
     'info'                   : '#{color/info/hex}',
+    'success'                : '#{color/success/hex}',
     'background'             : '#{color/background/hex}',
     'foreground'             : '#{color/foreground/hex}',
     'popup_background'       : '#{color/popup_background/hex}',
