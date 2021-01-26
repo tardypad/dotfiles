@@ -2,6 +2,7 @@
 
 DOC_PATH=$(
   find "${HOME}" \
+    ! -path "${HOME}/\.*" \
     -type f -name '*.pdf' \
     | sort \
     | bemenu -p 'Open document'
