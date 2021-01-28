@@ -45,3 +45,4 @@ _$XDG_RUNTIME_DIR/i3blocks_mode_full_
 # DEPENDENCIES
 
 - pkill
+- seq

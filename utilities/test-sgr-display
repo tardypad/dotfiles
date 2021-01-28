@@ -1,4 +1,6 @@
 #!/bin/sh
+# commands used:
+# - seq
 
 # https://gist.github.com/XVilka/8346728
 # https://en.wikipedia.org/wiki/ANSI_escape_code

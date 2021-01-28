@@ -1,3 +1,6 @@
+# commands used:
+# - seq
+
 local type="$1" style_key_prefix="$2"
 
 [ -n "${type}" ] || return
