@@ -47,3 +47,7 @@ config.set('content.javascript.enabled', True, 'online-go.com')
 
 # prefer webpage to follow overall color scheme
 c.colors.webpage.prefers_color_scheme_dark = ( '{color/theme}' == 'dark' )
+
+# downloads
+c.downloads.location.prompt = False
+c.downloads.remove_finished = 3000
