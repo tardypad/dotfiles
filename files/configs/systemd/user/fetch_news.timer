@@ -1,9 +1,0 @@
-[Unit]
-Description=Fetch news
-
-[Timer]
-OnStartupSec=10m
-OnUnitActiveSec=3h
-
-[Install]
-WantedBy=timers.target

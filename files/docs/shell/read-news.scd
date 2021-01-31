@@ -38,7 +38,9 @@ _$HOME/.sfeed/feeds_
 # DEPENDENCIES
 
 - awk with strftime function #FIXME: This script is not POSIX compliant
+- date with '%s' format #FIXME: This script is not POSIX compliant
 - fzf
 - sfeed_update
+- stat
 - w3m
 - xdg-open

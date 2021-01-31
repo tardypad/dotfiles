@@ -39,6 +39,22 @@ exit_error() {
   exit 1
 } >&2
 
+should_update() {
+  [ -d "${FEEDS_PATH}" ] || return 0
+
+  FEED_LAST_MODIFIED=$(
+    find "${FEEDS_PATH}" -type f \
+      ! -path "${FEEDS_PATH}/old/*" \
+      -exec stat -c '%Y' {} \; \
+    | sort \
+    | tail -n 1
+  )
+  CURRENT_TIME=$( date +%s )
+
+  # update if last update is more than 4H ago
+  [ $(( CURRENT_TIME - FEED_LAST_MODIFIED )) -gt 14400 ]
+}
+
 read_feed() {
   FEED_PATH="$1"
 
@@ -94,6 +110,11 @@ read_all_feeds() {
 init_variables
 parse_command_line "$@"
 validate_command_line
+
+should_update && {
+  echo 'Fetching news...'
+  sfeed_update
+}
 
 if [ -n "${FEED}" ]; then
   read_feed "${FEEDS_PATH}/${FEED}"
