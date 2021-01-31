@@ -2,7 +2,7 @@
 Description=Update qutebrowser adblock list
 
 [Timer]
-OnBootSec=4h
+OnStartupSec=4h
 
 [Install]
 WantedBy=timers.target

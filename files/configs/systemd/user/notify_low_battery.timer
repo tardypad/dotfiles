@@ -2,7 +2,7 @@
 Description=Notify about low battery
 
 [Timer]
-OnBootSec=1min
+OnStartupSec=1min
 OnUnitActiveSec=1min
 
 [Install]

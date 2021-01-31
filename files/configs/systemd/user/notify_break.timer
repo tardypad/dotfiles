@@ -2,7 +2,7 @@
 Description=Notify break time
 
 [Timer]
-OnBootSec=20min
+OnStartupSec=20min
 OnUnitActiveSec=20min
 
 [Install]

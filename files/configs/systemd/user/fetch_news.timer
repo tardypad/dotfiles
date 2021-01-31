@@ -2,7 +2,7 @@
 Description=Fetch news
 
 [Timer]
-OnBootSec=10m
+OnStartupSec=10m
 OnUnitActiveSec=3h
 
 [Install]
