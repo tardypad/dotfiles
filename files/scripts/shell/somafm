@@ -39,14 +39,11 @@ exit_error() {
 should_build_cache() {
   [ -f "${CACHE_CHANNELS_FILE}" ] || return 0
 
-  CACHE_LAST_MODIFIED=$(
-    stat -c '%y' "${CACHE_CHANNELS_FILE}" \
-      | cut -f 1 -d ' ' \
-      | tr -d -
-  )
+  CACHE_LAST_MODIFIED=$( stat -c '%Y' "${CACHE_CHANNELS_FILE}" )
+  CURRENT_TIME=$( date +%s )
 
-  # keep cache for one day
-  [ "${CACHE_LAST_MODIFIED}" -lt "$( date +%Y%m%d )" ]
+  # keep cache for one week
+  [ $(( CURRENT_TIME - CACHE_LAST_MODIFIED )) -gt 604800 ]
 }
 
 build_cache() {

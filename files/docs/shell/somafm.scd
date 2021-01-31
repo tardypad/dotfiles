@@ -48,5 +48,6 @@ _$XDG_CACHE_HOME/somafm_channels.json_
 # DEPENDENCIES
 
 - curl
+- date with '%s' format #FIXME: This script is not POSIX compliant
 - jq
 - stat
