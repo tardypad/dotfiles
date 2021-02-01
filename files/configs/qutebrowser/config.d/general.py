@@ -21,8 +21,8 @@ c.tabs.tooltips = False
 # disable search wrapping
 c.search.wrap = False
 
-# only show history items in "open" completion
-c.completion.open_categories = [ "history" ]
+# only show history items and filesystem in "open" completion
+c.completion.open_categories = [ "history", "filesystem" ]
 
 # Disable some websites requests, don't even ask for it
 c.content.notifications = False
