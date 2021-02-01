@@ -12,9 +12,6 @@ c.url.searchengines = {
     "wiki": "https://wiki.archlinux.org/index.php?search={}"
 }
 
-# open new tabs from middle/ctrl click in the background
-c.tabs.background = True
-
 # hide tabs tooltips
 c.tabs.tooltips = False
 
