@@ -78,7 +78,6 @@ vim-configs:
 	setup/install-vim-plugin redact-pass       "$(DESTDIR)" git https://sanctum.geek.nz/code/vim-redact-pass.git      v2.2.1
 	setup/install-vim-plugin taboo             "$(DESTDIR)" git https://github.com/gcmt/taboo.vim                     caf9481
 	setup/install-vim-plugin yaml              "$(DESTDIR)" git https://github.com/stephpy/vim-yaml                   8fc9136
-	setup/install-vim-plugin qml               "$(DESTDIR)" git https://github.com/peterhoeg/vim-qml                  1d2c1fc
 	setup/install-vim-plugin elm               "$(DESTDIR)" git https://github.com/zaptic/elm-vim                     0.19.1.0
 	setup/install-vim-plugin go                "$(DESTDIR)" git https://github.com/fatih/vim-go                       v1.24
 
