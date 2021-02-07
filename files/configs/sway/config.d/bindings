@@ -38,7 +38,7 @@ bindsym $mod+{key/i} exec sway-toggle-window-idle-inhibitor visible \
                           && pkill -x -RTMIN+8 i3blocks
 
 # toggle night mode
-bindsym $mod+{key/t} exec night-mode toggle
+bindsym --locked $mod+{key/t} exec night-mode toggle
 
 
 ## notifications
