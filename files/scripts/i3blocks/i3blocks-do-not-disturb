@@ -1,4 +1,6 @@
 #!/bin/sh
+# commands used:
+# - do-not-disturb
 
 if [ "$( do-not-disturb status )" = 'enabled' ]; then
   COLOR='#{color/notice/hex}'

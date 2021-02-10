@@ -1,4 +1,6 @@
 #!/bin/sh
+# commands used:
+# - swaymsg
 
 IDLE_INHIBITED_VIEWS=$(
   swaymsg -t get_tree |

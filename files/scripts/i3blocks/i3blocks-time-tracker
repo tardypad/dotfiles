@@ -1,4 +1,6 @@
 #!/bin/sh
+# commands used:
+# - time-tracker
 
 TRACKING_STATUS=$( time-tracker status 2> /dev/null )
 

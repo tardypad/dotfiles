@@ -1,4 +1,6 @@
 #!/bin/sh
+# commands used:
+# - presentation
 
 [ "$( presentation status )" = 'enabled' ] || exit 0
 

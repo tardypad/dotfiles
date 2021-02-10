@@ -48,7 +48,6 @@ include files/data/keywords/Makefile
 include files/data/sounds/Makefile
 
 include files/docs/git/Makefile
-include files/docs/i3blocks/Makefile
 include files/docs/shell/Makefile
 include files/docs/sway/Makefile
 include files/docs/tmux/Makefile

@@ -1,4 +1,6 @@
 #!/bin/sh
+# commands used:
+# - night-mode
 
 [ "$( night-mode status )" = 'disabled' ] && exit 0
 
