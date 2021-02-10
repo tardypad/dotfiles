@@ -49,3 +49,50 @@ shell-scripts:
 	$(setup_file)/scripts/shell/url                          > $(DESTDIR)$(BIN_DIR)/url
 	$(setup_file)/scripts/shell/weechat-fifo                 > $(DESTDIR)$(BIN_DIR)/weechat-fifo
 	$(setup_file)/scripts/shell/xdg-open                     > $(DESTDIR)$(BIN_DIR)/xdg-open
+
+	chmod +x $(DESTDIR)$(BIN_DIR)/backup-bookmarks
+	chmod +x $(DESTDIR)$(BIN_DIR)/backup-notes
+	chmod +x $(DESTDIR)$(BIN_DIR)/backup-time-tracker-logs
+	chmod +x $(DESTDIR)$(BIN_DIR)/battery-status
+	chmod +x $(DESTDIR)$(BIN_DIR)/calculate
+	chmod +x $(DESTDIR)$(BIN_DIR)/check-notify-low-battery
+	chmod +x $(DESTDIR)$(BIN_DIR)/color-picker
+	chmod +x $(DESTDIR)$(BIN_DIR)/copy-otp
+	chmod +x $(DESTDIR)$(BIN_DIR)/copy-password
+	chmod +x $(DESTDIR)$(BIN_DIR)/man
+	chmod +x $(DESTDIR)$(BIN_DIR)/do-not-disturb
+	chmod +x $(DESTDIR)$(BIN_DIR)/documentation
+	chmod +x $(DESTDIR)$(BIN_DIR)/documentation-all
+	chmod +x $(DESTDIR)$(BIN_DIR)/extract-tokens
+	chmod +x $(DESTDIR)$(BIN_DIR)/http-env
+	chmod +x $(DESTDIR)$(BIN_DIR)/http-stats
+	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-mode
+	chmod +x $(DESTDIR)$(BIN_DIR)/influx-env
+	chmod +x $(DESTDIR)$(BIN_DIR)/launch-tmux-env
+	chmod +x $(DESTDIR)$(BIN_DIR)/line-by-line
+	chmod +x $(DESTDIR)$(BIN_DIR)/loop
+	chmod +x $(DESTDIR)$(BIN_DIR)/mysql-env
+	chmod +x $(DESTDIR)$(BIN_DIR)/night-mode
+	chmod +x $(DESTDIR)$(BIN_DIR)/notify
+	chmod +x $(DESTDIR)$(BIN_DIR)/notify-break
+	chmod +x $(DESTDIR)$(BIN_DIR)/notify-end-pomodoro
+	chmod +x $(DESTDIR)$(BIN_DIR)/notify-tmux-alert
+	chmod +x $(DESTDIR)$(BIN_DIR)/open-document
+	chmod +x $(DESTDIR)$(BIN_DIR)/play-somafm
+	chmod +x $(DESTDIR)$(BIN_DIR)/plot
+	chmod +x $(DESTDIR)$(BIN_DIR)/pomodoro
+	chmod +x $(DESTDIR)$(BIN_DIR)/project-path
+	chmod +x $(DESTDIR)$(BIN_DIR)/query-hosts-tags
+	chmod +x $(DESTDIR)$(BIN_DIR)/read-news
+	chmod +x $(DESTDIR)$(BIN_DIR)/redis-env
+	chmod +x $(DESTDIR)$(BIN_DIR)/screenshot
+	chmod +x $(DESTDIR)$(BIN_DIR)/somafm
+	chmod +x $(DESTDIR)$(BIN_DIR)/ssh-tags
+	chmod +x $(DESTDIR)$(BIN_DIR)/start-task
+	chmod +x $(DESTDIR)$(BIN_DIR)/status
+	chmod +x $(DESTDIR)$(BIN_DIR)/system-menu
+	chmod +x $(DESTDIR)$(BIN_DIR)/time-tracker
+	chmod +x $(DESTDIR)$(BIN_DIR)/tmux-env
+	chmod +x $(DESTDIR)$(BIN_DIR)/url
+	chmod +x $(DESTDIR)$(BIN_DIR)/weechat-fifo
+	chmod +x $(DESTDIR)$(BIN_DIR)/xdg-open

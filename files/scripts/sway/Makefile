@@ -14,3 +14,15 @@ sway-scripts:
 	$(setup_file)/scripts/sway/sway-renumber-workspaces          > $(DESTDIR)$(BIN_DIR)/sway-renumber-workspaces
 	$(setup_file)/scripts/sway/sway-subscribe-events-run         > $(DESTDIR)$(BIN_DIR)/sway-subscribe-events-run
 	$(setup_file)/scripts/sway/sway-toggle-window-idle-inhibitor > $(DESTDIR)$(BIN_DIR)/sway-toggle-window-idle-inhibitor
+
+	chmod +x $(DESTDIR)$(BIN_DIR)/sway-command-input
+	chmod +x $(DESTDIR)$(BIN_DIR)/sway-create-workspace
+	chmod +x $(DESTDIR)$(BIN_DIR)/sway-focus-window-title
+	chmod +x $(DESTDIR)$(BIN_DIR)/sway-move-window-new-workspace
+	chmod +x $(DESTDIR)$(BIN_DIR)/sway-move-workspace-direction
+	chmod +x $(DESTDIR)$(BIN_DIR)/sway-move-workspace-index
+	chmod +x $(DESTDIR)$(BIN_DIR)/sway-quick-command
+	chmod +x $(DESTDIR)$(BIN_DIR)/sway-rename-workspace
+	chmod +x $(DESTDIR)$(BIN_DIR)/sway-renumber-workspaces
+	chmod +x $(DESTDIR)$(BIN_DIR)/sway-subscribe-events-run
+	chmod +x $(DESTDIR)$(BIN_DIR)/sway-toggle-window-idle-inhibitor
