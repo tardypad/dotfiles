@@ -1,0 +1,8 @@
+#!/bin/sh
+
+[ "$( presentation status )" = 'enabled' ] || exit 0
+
+COLOR='#{color/notice/hex}'
+TEXT=''
+
+printf '%s\n\n%s\n' "${TEXT}" "${COLOR}"

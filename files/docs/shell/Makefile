@@ -34,6 +34,7 @@ shell-docs:
 	$(setup_file)/docs/shell/play-somafm.scd              | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/play-somafm.1perso
 	$(setup_file)/docs/shell/plot.scd                     | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/plot.1perso
 	$(setup_file)/docs/shell/pomodoro.scd                 | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/pomodoro.1perso
+	$(setup_file)/docs/shell/presentation.scd             | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/presentation.1perso
 	$(setup_file)/docs/shell/project-path.scd             | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/project-path.1perso
 	$(setup_file)/docs/shell/query-hosts-tags.scd         | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/query-hosts-tags.1perso
 	$(setup_file)/docs/shell/read-news.scd                | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/read-news.1perso

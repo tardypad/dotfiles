@@ -34,6 +34,7 @@ shell-scripts:
 	$(setup_file)/scripts/shell/play-somafm                  > $(DESTDIR)$(BIN_DIR)/play-somafm
 	$(setup_file)/scripts/shell/plot                         > $(DESTDIR)$(BIN_DIR)/plot
 	$(setup_file)/scripts/shell/pomodoro                     > $(DESTDIR)$(BIN_DIR)/pomodoro
+	$(setup_file)/scripts/shell/presentation                 > $(DESTDIR)$(BIN_DIR)/presentation
 	$(setup_file)/scripts/shell/project-path                 > $(DESTDIR)$(BIN_DIR)/project-path
 	$(setup_file)/scripts/shell/query-hosts-tags             > $(DESTDIR)$(BIN_DIR)/query-hosts-tags
 	$(setup_file)/scripts/shell/read-news                    > $(DESTDIR)$(BIN_DIR)/read-news
@@ -81,6 +82,7 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/play-somafm
 	chmod +x $(DESTDIR)$(BIN_DIR)/plot
 	chmod +x $(DESTDIR)$(BIN_DIR)/pomodoro
+	chmod +x $(DESTDIR)$(BIN_DIR)/presentation
 	chmod +x $(DESTDIR)$(BIN_DIR)/project-path
 	chmod +x $(DESTDIR)$(BIN_DIR)/query-hosts-tags
 	chmod +x $(DESTDIR)$(BIN_DIR)/read-news

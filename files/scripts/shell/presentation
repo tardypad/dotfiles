@@ -1,0 +1,67 @@
+#!/bin/sh
+
+init_variables() {
+  COMMAND=${0##*/}
+
+  FILE_PATH="${XDG_RUNTIME_DIR:-/tmp}/presentation"
+
+  ACTION='status'
+}
+
+parse_command_line() {
+  [ -z "$1" ] || ACTION="$1"
+}
+
+validate_command_line() {
+  if [ "${ACTION}" != 'enable' ] \
+     && [ "${ACTION}" != 'disable' ] \
+     && [ "${ACTION}" != 'toggle' ] \
+     && [ "${ACTION}" != 'status' ]; then
+    exit_error "Invalid action '${ACTION}'"
+  fi
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+pres_enable() {
+  touch "${FILE_PATH}" \
+    && update_i3blocks
+}
+
+pres_disable() {
+  rm -f "${FILE_PATH}" \
+    && update_i3blocks
+}
+
+update_i3blocks() {
+  pkill -x -RTMIN+10 i3blocks
+}
+
+pres_status() {
+  if is_pres_enabled; then
+    echo 'enabled'
+  else
+    echo 'disabled'
+  fi
+}
+
+pres_toggle() {
+  if is_pres_enabled; then
+    pres_disable
+  else
+    pres_enable
+  fi
+}
+
+is_pres_enabled() {
+  [ -f "${FILE_PATH}" ]
+}
+
+init_variables
+parse_command_line "$@"
+validate_command_line
+
+"pres_${ACTION}"

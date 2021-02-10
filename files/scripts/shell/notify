@@ -86,4 +86,6 @@ init_variables
 parse_command_line "$@"
 validate_command_line
 
+[ "$( presentation status )" = 'disabled' ] || exit 0
+
 send_notification

@@ -46,3 +46,4 @@ _$XDG_RUNTIME_DIR/notification_\*_
 # DEPENDENCIES
 
 - gdbus
+- presentation

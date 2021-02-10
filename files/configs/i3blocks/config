@@ -23,6 +23,9 @@ signal=4
 
 [chat]
 
+[presentation]
+signal=10
+
 [microphone]
 signal=7
 
