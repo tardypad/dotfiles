@@ -1,16 +1,16 @@
-presentation(1perso)
+presentation-mode(1perso)
 
 # NAME
 
-presentation - Manage "presentation" mode
+presentation-mode - Manage presentation mode
 
 # SYNOPSIS
 
-presentation [ *status* | *enable* | *disable* | *toggle* ]
+presentation-mode [ *status* | *enable* | *disable* | *toggle* ]
 
 # DESCRIPTION
 
-Manage "presentation" mode.
+Manage presentation mode.
 
 # OPTIONS
 
@@ -19,17 +19,17 @@ None
 # OPERANDS
 
 *status*
-	Display whether the "presentation" mode is "enabled" or "disabled"++
+	Display whether the presentation mode is "enabled" or "disabled"++
 This is the default action if none is specified
 
 *disable*
-	Disable "presentation" mode
+	Disable presentation mode
 
 *enable*
-	Enable "presentation" mode
+	Enable presentation mode
 
 *toggle*
-	Toggle "presentation" mode
+	Toggle presentation mode
 
 # ENVIRONMENT VARIABLES
 
@@ -39,7 +39,7 @@ If unset, defaults to /tmp
 
 # FILES
 
-_$XDG_RUNTIME_DIR/presentation_
+_$XDG_RUNTIME_DIR/presentation_mode_
 	File used as a flag to store the status of the mode
 
 # DEPENDENCIES

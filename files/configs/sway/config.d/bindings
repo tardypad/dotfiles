@@ -41,7 +41,7 @@ bindsym $mod+{key/i} exec sway-toggle-window-idle-inhibitor visible \
 bindsym --locked $mod+{key/t} exec night-mode toggle
 
 # toggle presentation mode
-bindsym $mod+Ctrl+{key/p} exec presentation toggle
+bindsym $mod+Ctrl+{key/p} exec presentation-mode toggle
 
 
 ## notifications

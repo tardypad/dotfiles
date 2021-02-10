@@ -3,7 +3,7 @@
 init_variables() {
   COMMAND=${0##*/}
 
-  FILE_PATH="${XDG_RUNTIME_DIR:-/tmp}/presentation"
+  FILE_PATH="${XDG_RUNTIME_DIR:-/tmp}/presentation_mode"
 
   ACTION='status'
 }
