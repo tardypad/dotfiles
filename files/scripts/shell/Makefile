@@ -4,6 +4,7 @@ shell-scripts:
 	mkdir -p $(DESTDIR)$(BIN_DIR)
 
 	$(setup_file)/scripts/shell/backup-bookmarks             > $(DESTDIR)$(BIN_DIR)/backup-bookmarks
+	$(setup_file)/scripts/shell/backup-contacts              > $(DESTDIR)$(BIN_DIR)/backup-contacts
 	$(setup_file)/scripts/shell/backup-notes                 > $(DESTDIR)$(BIN_DIR)/backup-notes
 	$(setup_file)/scripts/shell/backup-time-tracker-logs     > $(DESTDIR)$(BIN_DIR)/backup-time-tracker-logs
 	$(setup_file)/scripts/shell/battery-status               > $(DESTDIR)$(BIN_DIR)/battery-status
@@ -52,6 +53,7 @@ shell-scripts:
 	$(setup_file)/scripts/shell/xdg-open                     > $(DESTDIR)$(BIN_DIR)/xdg-open
 
 	chmod +x $(DESTDIR)$(BIN_DIR)/backup-bookmarks
+	chmod +x $(DESTDIR)$(BIN_DIR)/backup-contacts
 	chmod +x $(DESTDIR)$(BIN_DIR)/backup-notes
 	chmod +x $(DESTDIR)$(BIN_DIR)/backup-time-tracker-logs
 	chmod +x $(DESTDIR)$(BIN_DIR)/battery-status

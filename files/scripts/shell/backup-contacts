@@ -1,0 +1,8 @@
+#!/bin/sh
+
+LOCAL_CONTACTS_FOLDER="${XDG_CONTACTS_DIR:-$HOME/Contacts}"
+REMOTE_CONTACTS_FOLDER="backup/$( uname -n )/contacts"
+
+rsync -azb --delete --exclude=".*" \
+  "${LOCAL_CONTACTS_FOLDER}/" \
+  surg:"${REMOTE_CONTACTS_FOLDER}"

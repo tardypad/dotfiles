@@ -1,0 +1,13 @@
+[Unit]
+Description=Backup contacts
+
+[Path]
+PathChanged=%h/Contacts/companies
+PathChanged=%h/Contacts/family
+PathChanged=%h/Contacts/foot
+PathChanged=%h/Contacts/general
+PathChanged=%h/Contacts/school
+PathChanged=%h/Contacts/work
+
+[Install]
+WantedBy=paths.target
