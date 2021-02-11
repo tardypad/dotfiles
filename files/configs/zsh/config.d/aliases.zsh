@@ -43,6 +43,9 @@ alias scut="tr -s ' ' '\t' | cut"
 # DOS to Unix newlines
 alias dos2unix="tr -d '\r'"
 
+# Remove accents
+alias unaccent="iconv -f UTF-8 -t ASCII//TRANSLIT"
+
 # trim spaces
 alias trim="sed -e 's/^ *//' -e 's/ *$//'"
 
