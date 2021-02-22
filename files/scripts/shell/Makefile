@@ -33,7 +33,6 @@ shell-scripts:
 	$(setup_file)/scripts/shell/notify-tmux-alert            > $(DESTDIR)$(BIN_DIR)/notify-tmux-alert
 	$(setup_file)/scripts/shell/open-document                > $(DESTDIR)$(BIN_DIR)/open-document
 	$(setup_file)/scripts/shell/play-somafm                  > $(DESTDIR)$(BIN_DIR)/play-somafm
-	$(setup_file)/scripts/shell/plot                         > $(DESTDIR)$(BIN_DIR)/plot
 	$(setup_file)/scripts/shell/pomodoro                     > $(DESTDIR)$(BIN_DIR)/pomodoro
 	$(setup_file)/scripts/shell/presentation-mode            > $(DESTDIR)$(BIN_DIR)/presentation-mode
 	$(setup_file)/scripts/shell/project-path                 > $(DESTDIR)$(BIN_DIR)/project-path
@@ -82,7 +81,6 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/notify-tmux-alert
 	chmod +x $(DESTDIR)$(BIN_DIR)/open-document
 	chmod +x $(DESTDIR)$(BIN_DIR)/play-somafm
-	chmod +x $(DESTDIR)$(BIN_DIR)/plot
 	chmod +x $(DESTDIR)$(BIN_DIR)/pomodoro
 	chmod +x $(DESTDIR)$(BIN_DIR)/presentation-mode
 	chmod +x $(DESTDIR)$(BIN_DIR)/project-path
