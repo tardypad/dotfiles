@@ -30,6 +30,13 @@ alias min='calculate minimum'
 alias mean='calculate mean'
 alias sum='calculate sum'
 
+alias b102='base 10 2'
+alias b210='base 2 10'
+alias b1016='base 10 16'
+alias b1610='base 16 10'
+alias b162='base 16 2'
+alias b216='base 2 16'
+
 alias rn='read-news'
 alias tt='time-tracker'
 alias tts='time-tracker-sum'
