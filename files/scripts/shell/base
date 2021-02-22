@@ -1,0 +1,48 @@
+#!/bin/sh
+
+init_variables() {
+  COMMAND=${0##*/}
+
+  BASE_IN=
+  BASE_OUT=
+}
+
+parse_command_line() {
+  BASE_IN="$1"
+  BASE_OUT="$2"
+}
+
+validate_command_line() {
+  if [ -z "${BASE_IN}" ]; then
+    exit_error "missing input base"
+  fi
+
+  if [ -z "${BASE_OUT}" ]; then
+    exit_error "missing output base"
+  fi
+
+  case "${BASE_IN}" in
+    *[!0-9]*) exit_error 'input base must be an integer' ;;
+  esac
+
+  case "${BASE_OUT}" in
+    *[!0-9]*) exit_error 'output base must be an integer' ;;
+  esac
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+convert() {
+  while read -r NUMBER; do
+    echo "obase=${BASE_OUT};ibase=${BASE_IN};${NUMBER}" | bc
+  done
+}
+
+init_variables
+parse_command_line "$@"
+validate_command_line
+
+convert

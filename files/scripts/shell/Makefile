@@ -7,6 +7,7 @@ shell-scripts:
 	$(setup_file)/scripts/shell/backup-contacts              > $(DESTDIR)$(BIN_DIR)/backup-contacts
 	$(setup_file)/scripts/shell/backup-notes                 > $(DESTDIR)$(BIN_DIR)/backup-notes
 	$(setup_file)/scripts/shell/backup-time-tracker-logs     > $(DESTDIR)$(BIN_DIR)/backup-time-tracker-logs
+	$(setup_file)/scripts/shell/base                         > $(DESTDIR)$(BIN_DIR)/base
 	$(setup_file)/scripts/shell/battery-status               > $(DESTDIR)$(BIN_DIR)/battery-status
 	$(setup_file)/scripts/shell/calculate                    > $(DESTDIR)$(BIN_DIR)/calculate
 	$(setup_file)/scripts/shell/check-notify-low-battery     > $(DESTDIR)$(BIN_DIR)/check-notify-low-battery
@@ -55,6 +56,7 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/backup-contacts
 	chmod +x $(DESTDIR)$(BIN_DIR)/backup-notes
 	chmod +x $(DESTDIR)$(BIN_DIR)/backup-time-tracker-logs
+	chmod +x $(DESTDIR)$(BIN_DIR)/base
 	chmod +x $(DESTDIR)$(BIN_DIR)/battery-status
 	chmod +x $(DESTDIR)$(BIN_DIR)/calculate
 	chmod +x $(DESTDIR)$(BIN_DIR)/check-notify-low-battery

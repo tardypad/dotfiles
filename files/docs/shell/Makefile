@@ -7,6 +7,7 @@ shell-docs:
 	$(setup_file)/docs/shell/backup-contacts.scd          | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/backup-contacts.1perso
 	$(setup_file)/docs/shell/backup-notes.scd             | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/backup-notes.1perso
 	$(setup_file)/docs/shell/backup-time-tracker-logs.scd | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/backup-time-tracker-logs.1perso
+	$(setup_file)/docs/shell/base.scd                     | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/base.1perso
 	$(setup_file)/docs/shell/battery-status.scd           | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/battery-status.1perso
 	$(setup_file)/docs/shell/calculate.scd                | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/calculate.1perso
 	$(setup_file)/docs/shell/check-notify-low-battery.scd | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/check-notify-low-battery.1perso
