@@ -5,6 +5,7 @@
 case "${1%%:*}" in
   http|https) exec {app/web_browser} "$1" ;;
   gemini) exec {app/gemini_browser} "$1" ;;
+  mailto) exec {app/mail_composer} "$1" ;;
 esac
 
 case "$( echo "${1##*.}" | tr '[:upper:]' '[:lower:]')" in

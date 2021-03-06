@@ -2,6 +2,7 @@ chat_client       alacritty -e tmux new-session -A -s chat "WEECHAT_PASSPHRASE=$
 document_viewer   zathura
 image_viewer      imv
 mail_client       alacritty -e tmux new-session -A -s mail "aerc"
+mail_composer     alacritty -e aerc
 system_monitor    alacritty -t sway_monitor -e tmux new-session -A -s monitor "htop"
 terminal_emulator alacritty -e tmux new-session
 text_editor       alacritty -e vim
