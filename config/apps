@@ -6,3 +6,4 @@ system_monitor    alacritty -t sway_monitor -e tmux new-session -A -s monitor "h
 terminal_emulator alacritty -e tmux new-session
 text_editor       alacritty -e vim
 web_browser       qutebrowser -l warning
+gemini_browser    alacritty -e amfora
