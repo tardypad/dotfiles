@@ -1,0 +1,99 @@
+[a-general]
+
+left_margin = 0.1
+max_width   = 120
+scrollbar   = "never"
+
+
+[keybindings]
+
+bind_quit   = [ "{key/quit}", "Ctrl-{key/quit/upp}" ]
+bind_help   = "{key/?}"
+bind_home   = "Ctrl-{key/H}"
+bind_bottom = [ "{key/command}", "{key/space/Space}" ]
+bind_reload = "{key/reload}"
+bind_save   = "{key/save}"
+bind_edit   = "{key/edit}"
+
+bind_back    = "{key/left/upp}"
+bind_forward = "{key/right/upp}"
+
+bind_pgup   = [ "Ctrl-{key/scroll_page_up/upp}", "Ctrl-{key/scroll_up/upp}" ]
+bind_pgdn   = [ "Ctrl-{key/scroll_page_down/upp}", "Ctrl-{key/scroll_down/upp}" ]
+
+bind_new_tab   = "Ctrl-{key/tab/upp}"
+bind_close_tab = "Ctrl-{key/close/upp}"
+bind_next_tab  = "Ctrl-{key/next/upp}"
+bind_prev_tab  = "Ctrl-{key/previous/upp}"
+
+bind_bookmarks    = "{key/bookmark}"
+bind_add_bookmark = "{key/bookmark/upp}"
+bind_sub          = "{key/f}"
+bind_add_sub      = "{key/F}"
+
+bind_link1 = "{key/1}"
+bind_link2 = "{key/2}"
+bind_link3 = "{key/3}"
+bind_link4 = "{key/4}"
+bind_link5 = "{key/5}"
+bind_link6 = "{key/6}"
+bind_link7 = "{key/7}"
+bind_link8 = "{key/8}"
+bind_link9 = "{key/9}"
+bind_link0 = "{key/0}"
+
+
+[theme]
+
+bg              = "#{color/background/hex}"
+bottombar_bg    = "#{color/status_line_background/hex}"
+bottombar_text  = "#{color/status_line_foreground/hex}"
+bottombar_label = "#{color/status_line_foreground/hex}"
+tab_divider     = "#{color/background/hex}"
+tab_num         = "#{color/base03/hex}"
+scrollbar       = "#{color/popup_foreground/hex}"
+
+hdg_1             = "#{color/base0A/hex}"
+hdg_2             = "#{color/base09/hex}"
+hdg_3             = "#{color/base08/hex}"
+amfora_link       = "#{color/base0B/hex}"
+foreign_link      = "#{color/base03/hex}"
+link_number       = "#{color/base07/hex}"
+regular_text      = "#{color/foreground/hex}"
+quote_text        = "#{color/base07/hex}"
+preformatted_text = "#{color/base07/hex}"
+list_text         = "#{color/foreground/hex}"
+
+btn_bg    = "#{color/background/hex}"
+btn_text  = "#{color/foreground/hex}"
+
+input_modal_bg         = "#{color/popup_background/hex}"
+input_modal_text       = "#{color/popup_foreground/hex}"
+input_modal_field_bg   = "#{color/background/hex}"
+input_modal_field_text = "#{color/foreground/hex}"
+
+info_modal_bg   = "#{color/info/hex}"
+info_modal_text = "#{color/base00/hex}"
+
+error_modal_bg   = "#{color/error/hex}"
+error_modal_text = "#{color/base00/hex}"
+
+yesno_modal_bg   = "#{color/popup_background/hex}"
+yesno_modal_text = "#{color/popup_foreground/hex}"
+
+tofu_modal_bg   = "#{color/popup_background/hex}"
+tofu_modal_text = "#{color/popup_foreground/hex}"
+
+subscription_modal_bg   = "#{color/popup_background/hex}"
+subscription_modal_text = "#{color/popup_foreground/hex}"
+
+dl_choice_modal_bg   = "#{color/popup_background/hex}"
+dl_choice_modal_text = "#{color/popup_foreground/hex}"
+dl_modal_bg          = "#{color/background/hex}"
+dl_modal_text        = "#{color/foreground/hex}"
+
+bkmk_modal_bg         = "#{color/popup_background/hex}"
+bkmk_modal_text       = "#{color/popup_foreground/hex}"
+bkmk_modal_label      = "#{color/popup_foreground/hex}"
+bkmk_modal_field_bg   = "#{color/background/hex}"
+bkmk_modal_field_text = "#{color/foreground/hex}"
