@@ -20,6 +20,9 @@ else
   export TERM=xterm-256color
 fi
 
+# Needed to use true colors in some applications
+COLORTERM='truecolor'
+
 # Add custom man pages location to man path
 export MANPATH="${XDG_DATA_HOME:-$HOME/.local/share}/man:/usr/share/man"
 
