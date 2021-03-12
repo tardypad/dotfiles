@@ -1,4 +1,4 @@
-chat_client       alacritty -e tmux new-session -A -s chat "WEECHAT_PASSPHRASE=$(pass perso/weechat) weechat"
+chat_client       alacritty -e tmux new-session -A -s chat weechat
 document_viewer   zathura
 image_viewer      imv
 mail_client       alacritty -e tmux new-session -A -s mail "aerc"
