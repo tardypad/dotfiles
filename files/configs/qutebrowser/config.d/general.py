@@ -38,7 +38,7 @@ config.set('content.javascript.enabled', True, '*.gandi.net')
 config.set('content.javascript.enabled', True, 'online-go.com')
 
 # prefer webpage to follow overall color scheme
-c.colors.webpage.prefers_color_scheme_dark = ( '{color/theme}' == 'dark' )
+c.colors.webpage.preferred_color_scheme = '{color/theme}'
 
 # downloads
 c.downloads.location.prompt = False
