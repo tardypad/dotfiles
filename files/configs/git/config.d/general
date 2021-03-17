@@ -53,6 +53,7 @@
 	key = Reviewed-at
 	ifexists = replace
 [init]
+    defaultBranch = master
     templatedir = {dir/config}/git/template
 [pull]
     rebase = true
