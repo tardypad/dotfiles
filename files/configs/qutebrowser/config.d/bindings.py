@@ -260,3 +260,6 @@ config.bind('<Ctrl-{key/J}>', 'config-cycle --print --temp --pattern={url:host} 
 
 # Toggle no distraction mode
 config.bind('<Alt-{key/space/Space}>', 'fullscreen ;; config-cycle --temp statusbar.show never always ;; config-cycle --temp tabs.show never always', mode='normal')
+
+# Toggle presentation mode
+config.bind('<Alt-Ctrl-{key/p}>', 'config-cycle --temp statusbar.show never always ;; config-cycle --temp tabs.show never always', mode='normal')
