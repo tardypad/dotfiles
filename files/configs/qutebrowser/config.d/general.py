@@ -15,6 +15,9 @@ c.url.searchengines = {
 # hide tabs tooltips
 c.tabs.tooltips = False
 
+# disable changing tabs with mouse wheel
+c.tabs.mousewheel_switching = False
+
 # disable search wrapping
 c.search.wrap = False
 
