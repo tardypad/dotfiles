@@ -23,19 +23,33 @@ exit_error() {
   exit 1
 } >&2
 
-print_line_by_line() {
-  if [ "${ONLY_ONE}" = 'true' ]; then
-    clear
-  fi
+print_text_center() {
+  TEXT_WIDTH="$( echo "${TEXT}" | awk 'length > maxl { maxl = length } END { print maxl }' )"
+  TEXT_HEIGHT="$( echo "${TEXT}" | awk 'END { print NR }' )"
 
+  COL=$(( ( $( tput cols ) - TEXT_WIDTH ) / 2 ))
+  ROW=$(( ( $( tput lines ) - TEXT_HEIGHT ) / 2 ))
+
+  tput cup 0 0
+  tput ed
+  tput cup "${ROW}" 0
+
+  SPACER="$( printf "%${COL}s" ' ' )"
+
+  printf '%s' "$TEXT" | sed "s/^/${SPACER}/"
+}
+
+print_line_by_line() {
   while read -r LINE; do
-    printf '%s' "${LINE}" | sed 's/\t/\n/g'
-    read -r < /dev/tty
+    TEXT="$( printf '%s' "${LINE}" | sed 's/\t/\n/g' )"
 
     if [ "${ONLY_ONE}" = 'true' ]; then
-      tput cup 0 0
-      tput ed
+      print_text_center
+    else
+      printf '%s' "${TEXT}"
     fi
+
+    read -r < /dev/tty
   done
 }
 
