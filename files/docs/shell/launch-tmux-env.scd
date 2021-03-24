@@ -38,6 +38,5 @@ _$XDG_DATA_HOME/env/tmux/\*.sh_
 - alacritty
 - bemenu
 - sway-create-workspace
-- sway-focus-window-title
 - swaymsg
 - tmux-env

@@ -22,7 +22,7 @@ TITLE="${ENV} environment"
 # will do nothing if already exists
 tmux-env -b "${ENV}" "${SESSION}"
 
-sway-focus-window-title "${TITLE}" && exit
+swaymsg -q "[title=\"${TITLE}\"]" focus && exit
 
 sway-create-workspace "${ENV}"
 

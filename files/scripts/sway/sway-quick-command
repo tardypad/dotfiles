@@ -4,7 +4,7 @@ COMMAND="$1"
 
 TITLE='sway_quick_command'
 
-sway-focus-window-title "${TITLE}" && exit
+swaymsg -q "[title=\"${TITLE}\"]" focus && exit
 
 if [ -n "${COMMAND}" ]; then
   swaymsg -q fullscreen disable, \
