@@ -20,6 +20,10 @@ bar {
         binding_mode $background $background $notice
     }
 
+    # disable changing workspaces with mouse wheel
+    bindsym button4 nop
+    bindsym button5 nop
+
     status_command i3blocks
     separator_symbol ' '
 
