@@ -7,3 +7,7 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
 input "1:1:AT_Translated_Set_2_keyboard" {
     xkb_options caps:escape
 }
+
+# Needed to make use of ydotool in bindings
+# otherwise a "mod+x exec ydotool key n" binding would somehow trigger "mod+n" binding...
+seat * keyboard_grouping none

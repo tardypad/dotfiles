@@ -43,6 +43,12 @@ bindsym --locked $mod+{key/t} exec night-mode toggle
 # toggle presentation mode
 bindsym $mod+Ctrl+{key/p} exec presentation-mode toggle
 
+# Press enter in the presentation window
+bindsym $mod+{key/bracketright} exec "swaymsg -q -- mark --add presentation_main \
+                                && swaymsg -q '[title=\"sway_presentation\"]' focus \
+                                && ydotool sleep 100 , key enter 2> /dev/null \
+                                && swaymsg -q '[con_mark=\"presentation_main\"]' focus"
+
 
 ## notifications
 
@@ -67,6 +73,8 @@ mode "-- Commands --" {
     bindsym {key/s} mode "default", exec play-somafm
     bindsym {key/t} mode "default", exec sway-quick-command start-task
     bindsym {key/w} mode "default", exec {app/web_browser}
+
+    bindsym Ctrl+{key/p} mode "default", exec {app/presentation}
 
     bindsym {key/return/Return} mode "default"
     bindsym {key/escape/Escape} mode "default"

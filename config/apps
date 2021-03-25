@@ -8,3 +8,4 @@ terminal_emulator alacritty -e tmux new-session
 text_editor       alacritty -e vim
 web_browser       qutebrowser -l warning
 gemini_browser    alacritty -e amfora
+presentation      alacritty -t=sway_presentation -o "colors.primary.background='#{color/base01/hex}'" -o "colors.primary.foreground='#{color/base05/hex}'" -o font.size=48
