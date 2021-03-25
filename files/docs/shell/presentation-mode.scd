@@ -12,6 +12,8 @@ presentation-mode [ *status* | *enable* | *disable* | *toggle* ]
 
 Manage presentation mode.
 
+It hides sway bar when enabled.
+
 # OPTIONS
 
 None
@@ -45,3 +47,4 @@ _$XDG_RUNTIME_DIR/presentation_mode_
 # DEPENDENCIES
 
 - pkill
+- swaymsg

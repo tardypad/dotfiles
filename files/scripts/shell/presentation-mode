@@ -27,11 +27,15 @@ exit_error() {
 } >&2
 
 pres_enable() {
+  swaymsg -q bar mode invisible
+
   touch "${FILE_PATH}" \
     && update_i3blocks
 }
 
 pres_disable() {
+  swaymsg -q bar mode dock
+
   rm -f "${FILE_PATH}" \
     && update_i3blocks
 }
