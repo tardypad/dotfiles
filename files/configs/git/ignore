@@ -1,6 +1,7 @@
 # tools
 .tags*
 .notags
+.aliases
 
 # system
 .directory

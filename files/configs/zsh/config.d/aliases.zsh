@@ -20,6 +20,9 @@ alias nt='cd "${XDG_NOTES_DIR:-$HOME/Notes}"'
 alias btc='bluetoothctl connect'
 alias btd='bluetoothctl disconnect'
 
+# source directory aliases
+alias .a='cat .aliases 2> /dev/null && . ./.aliases'
+
 alias pj='goto-project repo'
 alias PJ='goto-project main'
 alias logs='goto-project logs'
