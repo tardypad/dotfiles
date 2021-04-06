@@ -36,9 +36,10 @@ exit_error() {
 } >&2
 
 convert() {
-  while read -r NUMBER; do
-    echo "obase=${BASE_OUT};ibase=${BASE_IN};${NUMBER}" | bc
-  done
+  tr '[:lower:]' '[:upper:]' \
+  | while read -r NUMBER; do
+      echo "obase=${BASE_OUT};ibase=${BASE_IN};${NUMBER}" | bc
+    done
 }
 
 init_variables
