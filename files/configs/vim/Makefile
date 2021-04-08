@@ -62,6 +62,14 @@ vim-configs:
 	$(setup_file)/configs/vim/snips/zsh.snippets                > $(DESTDIR)$(HOME)/.vim/snips/zsh.snippets
 	$(setup_file)/configs/vim/spell/en.utf-8.add                > $(DESTDIR)$(HOME)/.vim/spell/en.utf-8.add
 
+	# generate spell file
+	if [ -z $(DESTDIR) ] ; then \
+		vim --clean -c "mkspell! $(HOME)/.vim/spell/en.utf-8.add.spl $(HOME)/.vim/spell/en.utf-8.add" +qall \
+		> /dev/null 2>&1; \
+	fi
+
+
+vim-external-plugins:
 	setup/install-vim-plugin surround          "$(DESTDIR)" git https://github.com/tpope/vim-surround                 f51a26d
 	setup/install-vim-plugin ale               "$(DESTDIR)" git https://github.com/w0rp/ale                           v3.0.0
 	setup/install-vim-plugin nerdcommenter     "$(DESTDIR)" git https://github.com/scrooloose/nerdcommenter           2.5.2
@@ -80,12 +88,6 @@ vim-configs:
 	setup/install-vim-plugin yaml              "$(DESTDIR)" git https://github.com/stephpy/vim-yaml                   8fc9136
 	setup/install-vim-plugin elm               "$(DESTDIR)" git https://github.com/zaptic/elm-vim                     0.19.1.0
 	setup/install-vim-plugin go                "$(DESTDIR)" git https://github.com/fatih/vim-go                       v1.24
-
-    # generate spell file
-	if [ -z $(DESTDIR) ] ; then \
-		vim --clean -c "mkspell! $(HOME)/.vim/spell/en.utf-8.add.spl $(HOME)/.vim/spell/en.utf-8.add" +qall \
-		> /dev/null 2>&1; \
-	fi
 
 	# generate help tags
 	if [ -z $(DESTDIR) ] ; then \

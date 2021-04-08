@@ -24,17 +24,21 @@ weechat-configs:
 	$(setup_file)/configs/weechat/plugins/export_important_buffers_count.py > $(DESTDIR)$(HOME)/.weechat/python/export_important_buffers_count.py
 	$(setup_file)/configs/weechat/plugins/go_fzf_tmux.py                    > $(DESTDIR)$(HOME)/.weechat/python/go_fzf_tmux.py
 
-    # install plugins
+	# autoload plugins
+	mkdir -p $(DESTDIR)$(HOME)/.weechat/python/autoload
+	ln -fs ../edit_vim_tmux.py                  $(DESTDIR)$(HOME)/.weechat/python/autoload/edit_vim_tmux.py
+	ln -fs ../export_important_buffers_count.py $(DESTDIR)$(HOME)/.weechat/python/autoload/export_important_buffers_count.py
+	ln -fs ../go_fzf_tmux.py                    $(DESTDIR)$(HOME)/.weechat/python/autoload/go_fzf_tmux.py
+
+
+weechat-external-plugins:
 	mkdir -p $(DESTDIR)$(HOME)/.weechat/python
 	curl -sL https://raw.githubusercontent.com/rawdigits/wee-slack/v2.6.0/wee_slack.py \
 		-o $(DESTDIR)$(HOME)/.weechat/python/wee_slack.py
 	curl -sL https://raw.githubusercontent.com/GermainZ/weechat-vimode/95661a27f92dc3f3286cf1539ab112a81ad15639/vimode.py \
 		-o $(DESTDIR)$(HOME)/.weechat/python/vimode.py
 
-    # autoload plugins
+	# autoload plugins
 	mkdir -p $(DESTDIR)$(HOME)/.weechat/python/autoload
-	ln -fs ../edit_vim_tmux.py                  $(DESTDIR)$(HOME)/.weechat/python/autoload/edit_vim_tmux.py
-	ln -fs ../export_important_buffers_count.py $(DESTDIR)$(HOME)/.weechat/python/autoload/export_important_buffers_count.py
-	ln -fs ../go_fzf_tmux.py                    $(DESTDIR)$(HOME)/.weechat/python/autoload/go_fzf_tmux.py
-	ln -fs ../vimode.py                         $(DESTDIR)$(HOME)/.weechat/python/autoload/vimode.py
-	ln -fs ../wee_slack.py                      $(DESTDIR)$(HOME)/.weechat/python/autoload/wee_slack.py
+	ln -fs ../vimode.py    $(DESTDIR)$(HOME)/.weechat/python/autoload/vimode.py
+	ln -fs ../wee_slack.py $(DESTDIR)$(HOME)/.weechat/python/autoload/wee_slack.py

@@ -25,8 +25,8 @@ systemd: systemd-configs
 tmux: tmux-configs tmux-docs tmux-scripts
 translate-shell: translate-shell-configs
 universal-ctags: universal-ctags-configs
-vim: vim-configs
+vim: vim-configs vim-external-plugins
 w3m: w3m-configs
-weechat: weechat-configs
+weechat: weechat-configs weechat-external-plugins
 zathura: zathura-configs
 zsh: zsh-configs shell-docs shell-scripts
