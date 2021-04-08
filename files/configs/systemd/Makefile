@@ -20,7 +20,7 @@ systemd-configs:
 	$(setup_file)/configs/systemd/user/qutebrowser_update_adblock.service > $(DESTDIR)$(CONFIG_DIR)/systemd/user/qutebrowser_update_adblock.service
 	$(setup_file)/configs/systemd/user/qutebrowser_update_adblock.timer   > $(DESTDIR)$(CONFIG_DIR)/systemd/user/qutebrowser_update_adblock.timer
 
-    # enable paths, timers and services
+	# enable paths, timers and services
 	ln -sf ../backup_bookmarks.path              $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants/backup_bookmarks.path
 	ln -sf ../backup_contacts.path               $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants/backup_contacts.path
 	ln -sf ../backup_notes.path                  $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants/backup_notes.path
@@ -31,7 +31,7 @@ systemd-configs:
 	ln -sf /usr/lib/systemd/user/mpd.service     $(DESTDIR)$(CONFIG_DIR)/systemd/user/default.target.wants/mpd.service
 	ln -sf /usr/lib/systemd/user/ydotool.service $(DESTDIR)$(CONFIG_DIR)/systemd/user/default.target.wants/ydotool.service
 
-    # reload daemon
+	# reload daemon
 	if [ -z $(DESTDIR) ] ; then \
 		systemctl --user daemon-reload; \
 	fi

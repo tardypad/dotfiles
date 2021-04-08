@@ -1,13 +1,13 @@
 all: vim-configs
 
 vim-configs:
-    # create necessary runtime directories
+	# create necessary runtime directories
 	mkdir -p $(DESTDIR)$(HOME)/.vim/backup
 	mkdir -p $(DESTDIR)$(HOME)/.vim/sessions
 	mkdir -p $(DESTDIR)$(HOME)/.vim/swap
 	mkdir -p $(DESTDIR)$(HOME)/.vim/undo
 
-    # backup locally added new spelling words
+	# backup locally added new spelling words
 	if [ -z $(DESTDIR) ] ; then \
 		if ! diff files/configs/vim/spell/en.utf-8.add $(DESTDIR)$(HOME)/.vim/spell/en.utf-8.add > /dev/null 2>&1; then \
 			cp $(DESTDIR)$(HOME)/.vim/spell/en.utf-8.add vim_spell_en.bkp; \

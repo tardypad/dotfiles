@@ -60,7 +60,7 @@ zsh-configs:
 	$(setup_file)/configs/zsh/functions/highlighters/_zsh_highlight_highlighter_redis_env_paint      > $(DESTDIR)$(HOME)/.zsh/functions/_zsh_highlight_highlighter_redis_env_paint
 	$(setup_file)/configs/zsh/functions/highlighters/_zsh_highlight_highlighter_redis_env_predicate  > $(DESTDIR)$(HOME)/.zsh/functions/_zsh_highlight_highlighter_redis_env_predicate
 
-    # same git completions
+	# same git completions
 	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-bwc
 	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-bwi
 	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-bwr
@@ -77,5 +77,5 @@ zsh-configs:
 	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-urlr
 	ln -sf _git-url      $(DESTDIR)$(HOME)/.zsh/completions/git/_git-browse
 
-    # clear completion cache
+	# clear completion cache
 	rm -f $(DESTDIR)$(HOME)/.zcompdump
