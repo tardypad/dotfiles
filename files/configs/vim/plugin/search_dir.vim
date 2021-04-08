@@ -37,7 +37,7 @@ function s:Run(word)
   \ 'options': [ '-m', '-d', ':', '--with-nth', '1,4..', '--prompt', s:prompt,
   \              '--ansi', '--expect', actions,
   \              '--preview', 'awk -v line={2} "{ if (NR == line) { printf(\"\x1b[{color/base01/bg}%s\x1b[m\n\", \$0); } else printf(\"%s\n\", \$0); }" {1}',
-  \              '--preview-window', '+{2}-/2' ]
+  \              '--preview-window', '+{2}-/2:border-left' ]
   \}))
 endfunction
 
