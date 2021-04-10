@@ -2,12 +2,12 @@
 
 local env_dir_path="${XDG_DATA_HOME:-$HOME/.local/share}/env/tmux/"
 
-_targets() {
-  local targets=( $(
+_envs() {
+  local envs=( $(
     ls "${env_dir_path}"
   ) )
 
-  compadd "$@" $targets
+  compadd "$@" $envs
 }
 
 _sessions() {
@@ -16,5 +16,5 @@ _sessions() {
 
 _arguments \
   '-b[launch in background, no attach]' \
-  '1:target:_targets' \
+  '1:env:_envs' \
   '*::sessions:_sessions'

@@ -6,14 +6,14 @@ init_variables() {
   ENV_DIR_PATH="${XDG_DATA_HOME:-$HOME/.local/share}/env/influx"
 
   INFLUX_OPTIONS=
-  PROJECT=
+  ENV_ID=
   QUERY=
 
   ENV_PATH=
 }
 
 parse_command_line() {
-  PROJECT="$1"
+  ENV_ID="$1"
   shift 2> /dev/null
 
   while [ "$#" -gt 0 ] && [ "$1" != '--' ]; do
@@ -26,14 +26,14 @@ parse_command_line() {
 }
 
 validate_command_line() {
-  if [ -z "${PROJECT}" ]; then
-    exit_error 'missing project'
+  if [ -z "${ENV_ID}" ]; then
+    exit_error 'missing environment identifier'
   fi
 
-  ENV_PATH="${ENV_DIR_PATH}/${PROJECT}"
+  ENV_PATH="${ENV_DIR_PATH}/${ENV_ID}"
 
   if [ ! -f "${ENV_PATH}" ]; then
-    exit_error 'invalid project'
+    exit_error 'invalid environment'
   fi
 }
 

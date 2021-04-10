@@ -1,17 +1,7 @@
 #compdef http-env
 
-local env_dir_path="${XDG_DATA_HOME:-$HOME/.local/share}/env/http"
-
-_projects() {
-  local folders=( $(
-    ls "${env_dir_path}"
-  ) )
-
-  compadd "$@" $folders
-}
-
 _envs() {
-  _path_files -W "${env_dir_path}/$words[CURRENT-1]"
+  _path_files -W "${XDG_DATA_HOME:-$HOME/.local/share}/env/http/"
 }
 
 _methods() {
@@ -37,8 +27,7 @@ _keywords() {
 }
 
 _arguments \
-  '1:project:_projects' \
-  '2:env:_envs' \
-  '3:method:_methods' \
-  '4:path:()' \
+  '1:env:_envs' \
+  '2:method:_methods' \
+  '3:path:()' \
   '*:items:_keywords'

@@ -2,15 +2,15 @@ mysql-env(1perso)
 
 # NAME
 
-mysql-env - Start MySQL or run a query within a project environment
+mysql-env - Start MySQL or run a query within an environment
 
 # SYNOPSIS
 
-mysql-env _project_ [_query_] [-- _option_...]
+mysql-env _id_ [_query_] [-- _option_...]
 
 # DESCRIPTION
 
-Start MySQL or run a query within a project environment
+Start MySQL or run a query within an environment
 
 # OPTIONS
 
@@ -18,8 +18,8 @@ None
 
 # OPERANDS
 
-_project_
-	Project used
+_env_
+	Environment identifier
 
 _query_
 	Query to run

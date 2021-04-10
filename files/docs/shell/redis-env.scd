@@ -2,15 +2,15 @@ redis-env(1perso)
 
 # NAME
 
-redis-env - Start Redis or run a query within a project environment
+redis-env - Start Redis or run a query within an environment
 
 # SYNOPSIS
 
-redis-env _project_ [_query_] [-- _option_...]
+redis-env _env_ [_query_] [-- _option_...]
 
 # DESCRIPTION
 
-Start Redis or run a query within a project environment
+Start Redis or run a query within an environment
 
 # OPTIONS
 
@@ -18,8 +18,8 @@ None
 
 # OPERANDS
 
-_project_
-	Project used
+_env_
+	Environment identifier
 
 _query_
 	Query to run

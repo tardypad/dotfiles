@@ -7,7 +7,7 @@ init_variables() {
 
   BACKGROUND=false
 
-  TARGET=
+  ENV_ID=
   SESSION=
 }
 
@@ -21,7 +21,7 @@ parse_command_line() {
 
   shift $(( OPTIND - 1 ))
 
-  TARGET="$1"
+  ENV_ID="$1"
   SESSION="$2"
 }
 
@@ -30,17 +30,17 @@ validate_command_line() {
     exit_error "nested tmux env is not allowed"
   fi
 
-  if [ -z "${TARGET}" ]; then
-    exit_error 'missing target'
+  if [ -z "${ENV_ID}" ]; then
+    exit_error 'missing environment identifier'
   fi
 
-  if [ ! -d "${ENV_DIR_PATH}/${TARGET}" ]; then
-    exit_error "invalid target ${TARGET}"
+  if [ ! -d "${ENV_DIR_PATH}/${ENV_ID}" ]; then
+    exit_error "invalid environment ${ENV_ID}"
   fi
 
   if [ -n "${SESSION}" ] \
-     && [ ! -f "${ENV_DIR_PATH}/${TARGET}/${SESSION}.sh" ]; then
-    exit_error "invalid target's session ${SESSION}"
+     && [ ! -f "${ENV_DIR_PATH}/${ENV_ID}/${SESSION}.sh" ]; then
+    exit_error "invalid environment's session ${SESSION}"
   fi
 }
 
@@ -50,27 +50,27 @@ exit_error() {
 } >&2
 
 is_session_present() {
-  tmux -L "${TARGET}" list-sessions -F '#{session_name}' 2> /dev/null \
+  tmux -L "${ENV_ID}" list-sessions -F '#{session_name}' 2> /dev/null \
     | grep -q "^${SESSION}$"
 }
 
-start_target_tmux_env() {
+start_tmux_env() {
   if [ -n "${SESSION}" ]; then
     if ! is_session_present; then
-      SCRIPT_PATH="${ENV_DIR_PATH}/${TARGET}/${SESSION}.sh"
-      TMUX_ENV=yes "${SCRIPT_PATH}" "${TARGET}" "${SESSION}"
+      SCRIPT_PATH="${ENV_DIR_PATH}/${ENV_ID}/${SESSION}.sh"
+      TMUX_ENV=yes "${SCRIPT_PATH}" "${ENV_ID}" "${SESSION}"
     fi
   else
     SESSION='new'
     if ! is_session_present; then
-      TMUX_ENV=yes tmux -L "${TARGET}" new-session -d -s "${SESSION}"
+      TMUX_ENV=yes tmux -L "${ENV_ID}" new-session -d -s "${SESSION}"
     fi
   fi
 
   if [ "${BACKGROUND}" = 'false' ]; then
-    tmux -L "${TARGET}" attach-session -t "${SESSION}" > /dev/null 2>&1
+    tmux -L "${ENV_ID}" attach-session -t "${SESSION}" > /dev/null 2>&1
   else
-    tmux -L "${TARGET}" switch-client -t "${SESSION}" > /dev/null 2>&1
+    tmux -L "${ENV_ID}" switch-client -t "${SESSION}" > /dev/null 2>&1
   fi
 }
 
@@ -78,4 +78,4 @@ init_variables
 parse_command_line "$@"
 validate_command_line
 
-start_target_tmux_env
+start_tmux_env

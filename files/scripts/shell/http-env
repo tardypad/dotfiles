@@ -6,8 +6,7 @@ init_variables() {
   ENV_DIR_PATH="${XDG_DATA_HOME:-$HOME/.local/share}/env/http"
 
   HTTP_OPTIONS=
-  PROJECT=
-  ENVIRONMENT=
+  ENV_ID=
   REQUEST_METHOD=
   REQUEST_PATH=
   REQUEST_ITEMS=
@@ -16,11 +15,10 @@ init_variables() {
 }
 
 parse_command_line() {
-  PROJECT="$1"
-  ENVIRONMENT="$2"
-  REQUEST_METHOD="$3"
-  REQUEST_PATH="$4"
-  shift 4 2> /dev/null
+  ENV_ID="$1"
+  REQUEST_METHOD="$2"
+  REQUEST_PATH="$3"
+  shift 3 2> /dev/null
 
   while [ "$#" -gt 0 ] && [ "$1" != '--' ]; do
     REQUEST_ITEMS="${REQUEST_ITEMS} '$1'"
@@ -32,12 +30,8 @@ parse_command_line() {
 }
 
 validate_command_line() {
-  if [ -z "${PROJECT}" ]; then
-    exit_error 'missing project'
-  fi
-
-  if [ -z "${ENVIRONMENT}" ]; then
-    exit_error 'missing environment'
+  if [ -z "${ENV_ID}" ]; then
+    exit_error 'missing environment identifier'
   fi
 
   if [ -z "${REQUEST_METHOD}" ]; then
@@ -48,10 +42,10 @@ validate_command_line() {
     exit_error 'missing request path'
   fi
 
-  ENV_PATH="${ENV_DIR_PATH}/${PROJECT}/${ENVIRONMENT}"
+  ENV_PATH="${ENV_DIR_PATH}/${ENV_ID}"
 
   if [ ! -f "${ENV_PATH}" ]; then
-    exit_error 'invalid project/environment'
+    exit_error 'invalid environment'
   fi
 }
 

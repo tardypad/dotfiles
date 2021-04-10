@@ -6,7 +6,7 @@ tmux-env - Start tmux environment session
 
 # SYNOPSIS
 
-tmux-env [-b] _target_ [_session_]
+tmux-env [-b] _env_ [_session_]
 
 # DESCRIPTION
 
@@ -19,11 +19,11 @@ Start a session of a tmux environment
 
 # OPERANDS
 
-_target_
-	Environment target
+_env_
+	Environment identifier
 
 _session_
-	_target_' session to start++
+	_env_' session to start++
 If none specified, a new empty one is created
 
 # ENVIRONMENT VARIABLES
