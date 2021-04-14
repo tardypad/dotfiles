@@ -13,8 +13,6 @@ systemd-configs:
 	$(setup_file)/configs/systemd/user/backup_notes.service               > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_notes.service
 	$(setup_file)/configs/systemd/user/backup_time_tracker_logs.path      > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_time_tracker_logs.path
 	$(setup_file)/configs/systemd/user/backup_time_tracker_logs.service   > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_time_tracker_logs.service
-	$(setup_file)/configs/systemd/user/notify_break.service               > $(DESTDIR)$(CONFIG_DIR)/systemd/user/notify_break.service
-	$(setup_file)/configs/systemd/user/notify_break.timer                 > $(DESTDIR)$(CONFIG_DIR)/systemd/user/notify_break.timer
 	$(setup_file)/configs/systemd/user/notify_low_battery.service         > $(DESTDIR)$(CONFIG_DIR)/systemd/user/notify_low_battery.service
 	$(setup_file)/configs/systemd/user/notify_low_battery.timer           > $(DESTDIR)$(CONFIG_DIR)/systemd/user/notify_low_battery.timer
 	$(setup_file)/configs/systemd/user/qutebrowser_update_adblock.service > $(DESTDIR)$(CONFIG_DIR)/systemd/user/qutebrowser_update_adblock.service
@@ -25,7 +23,6 @@ systemd-configs:
 	ln -sf ../backup_contacts.path               $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants/backup_contacts.path
 	ln -sf ../backup_notes.path                  $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants/backup_notes.path
 	ln -sf ../backup_time_tracker_logs.path      $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants/backup_time_tracker_logs.path
-	ln -sf ../notify_break.timer                 $(DESTDIR)$(CONFIG_DIR)/systemd/user/timers.target.wants/notify_break.timer
 	ln -sf ../notify_low_battery.timer           $(DESTDIR)$(CONFIG_DIR)/systemd/user/timers.target.wants/notify_low_battery.timer
 	ln -sf ../qutebrowser_update_adblock.timer   $(DESTDIR)$(CONFIG_DIR)/systemd/user/timers.target.wants/qutebrowser_update_adblock.timer
 	ln -sf /usr/lib/systemd/user/mpd.service     $(DESTDIR)$(CONFIG_DIR)/systemd/user/default.target.wants/mpd.service

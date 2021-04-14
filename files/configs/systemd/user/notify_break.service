@@ -1,6 +1,0 @@
-[Unit]
-Description=Notify break time
-
-[Service]
-Type=oneshot
-ExecStart={dir/bin}/notify-break
