@@ -18,6 +18,9 @@ printf 'Task: %s\n' "${TASK_ID}"
 printf 'Description: '
 read -r TASK_DESC
 
+printf 'Log at its end [y/N]: '
+read -r LOG
+
 while true; do
   printf 'Pomodoro duration (min): '
   read -r POMODORO_DURATION
@@ -35,7 +38,11 @@ done
 printf 'Do not disturb [Y/n]: '
 read -r DO_NOT_DISTURB
 
-task start "${TASK_ID}" "${TASK_DESC}"
+if [ "${LOG}" = 'Y' ] || [ "${LOG}" = 'y' ]; then
+  task start "${TASK_ID}" "${TASK_DESC}"
+else
+  task -n start "${TASK_ID}" "${TASK_DESC}"
+fi
 
 if [ -n "${POMODORO_DURATION}" ]; then
   nohup \
