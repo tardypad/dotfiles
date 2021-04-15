@@ -98,9 +98,21 @@ session_end() {
   # only end session if no newer one was created
   if [ "${SESSION_START_TIME}" = "${CURRENT_START_TIME}" ]; then
     rm -rf "${FILE_PATH}"
-    notify-end-pomodoro
+    notify_end_pomodoro
     update_i3blocks
   fi
+}
+
+notify_end_pomodoro() {
+  notify \
+    -t 5 \
+    -c 'notice' \
+    'Pomodoro end' \
+    'Take a break'
+
+  aplay \
+    "${XDG_DATA_HOME:-$HOME/.local/share}/sounds/end_pomodoro.wav" \
+    2> /dev/null
 }
 
 update_i3blocks() {

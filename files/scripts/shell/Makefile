@@ -29,7 +29,6 @@ shell-scripts:
 	$(setup_file)/scripts/shell/mysql-env                    > $(DESTDIR)$(BIN_DIR)/mysql-env
 	$(setup_file)/scripts/shell/night-mode                   > $(DESTDIR)$(BIN_DIR)/night-mode
 	$(setup_file)/scripts/shell/notify                       > $(DESTDIR)$(BIN_DIR)/notify
-	$(setup_file)/scripts/shell/notify-end-pomodoro          > $(DESTDIR)$(BIN_DIR)/notify-end-pomodoro
 	$(setup_file)/scripts/shell/notify-tmux-alert            > $(DESTDIR)$(BIN_DIR)/notify-tmux-alert
 	$(setup_file)/scripts/shell/open-document                > $(DESTDIR)$(BIN_DIR)/open-document
 	$(setup_file)/scripts/shell/play-somafm                  > $(DESTDIR)$(BIN_DIR)/play-somafm
@@ -77,7 +76,6 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/mysql-env
 	chmod +x $(DESTDIR)$(BIN_DIR)/night-mode
 	chmod +x $(DESTDIR)$(BIN_DIR)/notify
-	chmod +x $(DESTDIR)$(BIN_DIR)/notify-end-pomodoro
 	chmod +x $(DESTDIR)$(BIN_DIR)/notify-tmux-alert
 	chmod +x $(DESTDIR)$(BIN_DIR)/open-document
 	chmod +x $(DESTDIR)$(BIN_DIR)/play-somafm
