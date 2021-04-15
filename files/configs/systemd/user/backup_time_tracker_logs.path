@@ -1,8 +1,0 @@
-[Unit]
-Description=Backup time tracker logs
-
-[Path]
-PathChanged={dir/data}/time_tracker
-
-[Install]
-WantedBy=paths.target

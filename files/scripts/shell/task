@@ -3,8 +3,8 @@
 init_variables() {
   COMMAND=${0##*/}
 
-  CURRENT_FILE_PATH="${XDG_RUNTIME_DIR:-/tmp}/time_tracker"
-  LOGGING_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/time_tracker"
+  CURRENT_FILE_PATH="${XDG_RUNTIME_DIR:-/tmp}/task"
+  LOGGING_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/task"
 
   ACTION='status'
   TASK_ID=
@@ -92,9 +92,9 @@ current_time_min() {
   ))
 }
 
-tracking_start() {
-  if is_tracking_started; then
-    tracking_stop
+task_start() {
+  if is_task_started; then
+    task_stop
   fi
 
   CURRENT_TIME=$( current_time_min )
@@ -105,18 +105,18 @@ tracking_start() {
     && update_i3blocks
 }
 
-tracking_status() {
-  if ! is_tracking_started; then
-    echo 'No current tracking' >&2
+task_status() {
+  if ! is_task_started; then
+    echo 'No current task' >&2
     return 1
   fi
 
   cut -f 2- "${CURRENT_FILE_PATH}"
 }
 
-tracking_stop() {
-  if ! is_tracking_started; then
-    echo 'No current tracking' >&2
+task_stop() {
+  if ! is_task_started; then
+    echo 'No current task' >&2
     return 1
   fi
 
@@ -135,17 +135,17 @@ tracking_stop() {
     && update_i3blocks
 }
 
-is_tracking_started() {
+is_task_started() {
   [ -f "${CURRENT_FILE_PATH}" ]
 }
 
-tracking_ids()
+task_ids()
 {
   find "${LOGGING_DIR}" -type f -exec cut -f1 {} \; \
     | sort -u
 }
 
-tracking_add()
+task_add()
 {
   CURRENT_DAY=$( date +%Y-%m-%d )
 
@@ -154,12 +154,12 @@ tracking_add()
     >> "${LOGGING_DIR}/${CURRENT_DAY}"
 }
 
-tracking_edit()
+task_edit()
 {
   "${EDITOR:-vi}" "${LOGGING_DIR}/${LOGGING_DAY}"
 }
 
-tracking_show()
+task_show()
 {
   if [ ! -f "${LOGGING_DIR}/${LOGGING_DAY}" ]; then
     return
@@ -200,4 +200,4 @@ parse_command_line "$@"
 validate_command_line
 
 mkdir -p "${LOGGING_DIR}"
-"tracking_${ACTION}"
+"task_${ACTION}"

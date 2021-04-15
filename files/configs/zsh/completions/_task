@@ -1,6 +1,6 @@
-#compdef time-tracker
+#compdef task
 
-local logging_dir="${XDG_DATA_HOME:-$HOME/.local/share}/time_tracker"
+local logging_dir="${XDG_DATA_HOME:-$HOME/.local/share}/task"
 
 _actions() {
   local actions=(
@@ -17,7 +17,7 @@ _actions() {
 }
 
 _ids() {
-  local ids=( "${(@f)$( time-tracker ids )}" )
+  local ids=( "${(@f)$( task ids )}" )
   compadd "$@" $ids
 }
 

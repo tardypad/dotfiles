@@ -1,0 +1,8 @@
+#!/bin/sh
+
+LOCAL_TASK_LOGS_FOLDER="${XDG_DATA_HOME:-$HOME/.local/share}/task"
+REMOTE_TASK_LOGS_FOLDER="backup/$( uname -n )/task"
+
+rsync -azb --delete --exclude=".*" \
+  "${LOCAL_TASK_LOGS_FOLDER}/" \
+  surg:"${REMOTE_TASK_LOGS_FOLDER}"

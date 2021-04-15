@@ -1,0 +1,11 @@
+#!/bin/sh
+# commands used:
+# - task
+
+TASK_STATUS=$( task status 2> /dev/null )
+
+[ -n "${TASK_STATUS}" ] || exit 0
+
+TEXT=$( echo "${TASK_STATUS}" | cut -f1 )
+
+printf '%s\n\n%s\n' "${TEXT}" "${COLOR}"

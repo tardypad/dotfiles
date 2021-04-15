@@ -1,0 +1,8 @@
+[Unit]
+Description=Backup task logs
+
+[Path]
+PathChanged={dir/data}/task
+
+[Install]
+WantedBy=paths.target

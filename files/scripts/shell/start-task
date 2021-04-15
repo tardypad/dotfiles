@@ -1,7 +1,7 @@
 #!/bin/sh
 
 TASK_ID=$(
-  time-tracker ids \
+  task ids \
     | fzf --reverse \
           --no-multi \
           --info hidden \
@@ -35,7 +35,7 @@ done
 printf 'Do not disturb [Y/n]: '
 read -r DO_NOT_DISTURB
 
-time-tracker start "${TASK_ID}" "${TASK_DESC}"
+task start "${TASK_ID}" "${TASK_DESC}"
 
 if [ -n "${POMODORO_DURATION}" ]; then
   nohup \

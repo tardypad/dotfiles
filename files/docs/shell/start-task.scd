@@ -11,7 +11,7 @@ start-task
 # DESCRIPTION
 
 Open interface to start a task:
-- start time tracker
+- start task
 - start a pomodoro session (optional)
 - enable "Do not disturb" mode (optional)
 
@@ -36,4 +36,4 @@ None
 - do-not-disturb
 - fzf
 - pomodoro
-- time-tracker
+- task

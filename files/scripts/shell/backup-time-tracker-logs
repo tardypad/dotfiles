@@ -1,8 +1,0 @@
-#!/bin/sh
-
-LOCAL_TIME_TRACKER_LOGS_FOLDER="${XDG_DATA_HOME:-$HOME/.local/share}/time_tracker"
-REMOTE_TIME_TRACKER_LOGS_FOLDER="backup/$( uname -n )/time_tracker"
-
-rsync -azb --delete --exclude=".*" \
-  "${LOCAL_TIME_TRACKER_LOGS_FOLDER}/" \
-  surg:"${REMOTE_TIME_TRACKER_LOGS_FOLDER}"

@@ -1,16 +1,16 @@
-backup-time-tracker-logs(1perso)
+backup-task-logs(1perso)
 
 # NAME
 
-backup-time-tracker-logs - Backup time tracker logs to remote server
+backup-task-logs - Backup task logs to remote server
 
 # SYNOPSIS
 
-backup-time-tracker-logs
+backup-task-logs
 
 # DESCRIPTION
 
-Backup time tracker logs to remote server
+Backup task logs to remote server
 
 # OPTIONS
 
@@ -28,8 +28,8 @@ If unset, defaults to $HOME/.local/share
 
 # FILES
 
-_$XDG_DATA_HOME/time_tracker_
-	Directory containing time tracker logs
+_$XDG_DATA_HOME/task_
+	Directory containing task logs
 
 # DEPENDENCIES
 

@@ -6,7 +6,7 @@ shell-scripts:
 	$(setup_file)/scripts/shell/backup-bookmarks             > $(DESTDIR)$(BIN_DIR)/backup-bookmarks
 	$(setup_file)/scripts/shell/backup-contacts              > $(DESTDIR)$(BIN_DIR)/backup-contacts
 	$(setup_file)/scripts/shell/backup-notes                 > $(DESTDIR)$(BIN_DIR)/backup-notes
-	$(setup_file)/scripts/shell/backup-time-tracker-logs     > $(DESTDIR)$(BIN_DIR)/backup-time-tracker-logs
+	$(setup_file)/scripts/shell/backup-task-logs             > $(DESTDIR)$(BIN_DIR)/backup-task-logs
 	$(setup_file)/scripts/shell/base                         > $(DESTDIR)$(BIN_DIR)/base
 	$(setup_file)/scripts/shell/battery-status               > $(DESTDIR)$(BIN_DIR)/battery-status
 	$(setup_file)/scripts/shell/calculate                    > $(DESTDIR)$(BIN_DIR)/calculate
@@ -45,7 +45,7 @@ shell-scripts:
 	$(setup_file)/scripts/shell/start-task                   > $(DESTDIR)$(BIN_DIR)/start-task
 	$(setup_file)/scripts/shell/status                       > $(DESTDIR)$(BIN_DIR)/status
 	$(setup_file)/scripts/shell/system-menu                  > $(DESTDIR)$(BIN_DIR)/system-menu
-	$(setup_file)/scripts/shell/time-tracker                 > $(DESTDIR)$(BIN_DIR)/time-tracker
+	$(setup_file)/scripts/shell/task                         > $(DESTDIR)$(BIN_DIR)/task
 	$(setup_file)/scripts/shell/tmux-env                     > $(DESTDIR)$(BIN_DIR)/tmux-env
 	$(setup_file)/scripts/shell/url                          > $(DESTDIR)$(BIN_DIR)/url
 	$(setup_file)/scripts/shell/weechat-fifo                 > $(DESTDIR)$(BIN_DIR)/weechat-fifo
@@ -54,7 +54,7 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/backup-bookmarks
 	chmod +x $(DESTDIR)$(BIN_DIR)/backup-contacts
 	chmod +x $(DESTDIR)$(BIN_DIR)/backup-notes
-	chmod +x $(DESTDIR)$(BIN_DIR)/backup-time-tracker-logs
+	chmod +x $(DESTDIR)$(BIN_DIR)/backup-task-logs
 	chmod +x $(DESTDIR)$(BIN_DIR)/base
 	chmod +x $(DESTDIR)$(BIN_DIR)/battery-status
 	chmod +x $(DESTDIR)$(BIN_DIR)/calculate
@@ -93,7 +93,7 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/start-task
 	chmod +x $(DESTDIR)$(BIN_DIR)/status
 	chmod +x $(DESTDIR)$(BIN_DIR)/system-menu
-	chmod +x $(DESTDIR)$(BIN_DIR)/time-tracker
+	chmod +x $(DESTDIR)$(BIN_DIR)/task
 	chmod +x $(DESTDIR)$(BIN_DIR)/tmux-env
 	chmod +x $(DESTDIR)$(BIN_DIR)/url
 	chmod +x $(DESTDIR)$(BIN_DIR)/weechat-fifo

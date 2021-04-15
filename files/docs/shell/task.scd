@@ -1,20 +1,20 @@
-time-tracker(1perso)
+task(1perso)
 
 # NAME
 
-time-tracker - Track tasks duration
+task - Track tasks duration
 
 # SYNOPSIS
 
-time-tracker *start* _id_ [ _description_ ]
+task *start* _id_ [ _description_ ]
 
-time-tracker *add* _id_ _duration_ [ _description_ ]
+task *add* _id_ _duration_ [ _description_ ]
 
-time-tracker [ *ids* | *status* | *stop* ]
+task [ *ids* | *status* | *stop* ]
 
-time-tracker *edit* [ _day_ ]
+task *edit* [ _day_ ]
 
-time-tracker [-gt] *show* [ _day_ ]
+task [-gt] *show* [ _day_ ]
 
 # DESCRIPTION
 
@@ -80,10 +80,10 @@ If unset, defaults to /tmp
 
 # FILES
 
-_$XDG_DATA_HOME/time_tracker_
-	Directory containing time tracker logs
+_$XDG_DATA_HOME/task_
+	Directory containing task logs
 
-_$XDG_RUNTIME_DIR/time_tracker_
+_$XDG_RUNTIME_DIR/task_
 	Contains information about the current task being tracked
 
 # DEPENDENCIES

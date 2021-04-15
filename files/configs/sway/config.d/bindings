@@ -21,8 +21,8 @@ bindsym $mod+{key/escape/Escape} exec do-not-disturb toggle
 # toggle Pomodoro session
 bindsym $mod+Shift+{key/escape/Escape} exec pomodoro toggle
 
-# stop time tracker
-bindsym $mod+Ctrl+{key/escape/Escape} exec time-tracker stop
+# stop task
+bindsym $mod+Ctrl+{key/escape/Escape} exec task stop
 
 # select region and grab screenshot
 bindsym $mod+{key/g} exec screenshot

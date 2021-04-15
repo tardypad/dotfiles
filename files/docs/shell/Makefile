@@ -6,7 +6,7 @@ shell-docs:
 	$(setup_file)/docs/shell/backup-bookmarks.scd         | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/backup-bookmarks.1perso
 	$(setup_file)/docs/shell/backup-contacts.scd          | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/backup-contacts.1perso
 	$(setup_file)/docs/shell/backup-notes.scd             | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/backup-notes.1perso
-	$(setup_file)/docs/shell/backup-time-tracker-logs.scd | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/backup-time-tracker-logs.1perso
+	$(setup_file)/docs/shell/backup-task-logs.scd         | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/backup-task-logs.1perso
 	$(setup_file)/docs/shell/base.scd                     | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/base.1perso
 	$(setup_file)/docs/shell/battery-status.scd           | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/battery-status.1perso
 	$(setup_file)/docs/shell/calculate.scd                | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/calculate.1perso
@@ -45,7 +45,7 @@ shell-docs:
 	$(setup_file)/docs/shell/start-task.scd               | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/start-task.1perso
 	$(setup_file)/docs/shell/status.scd                   | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/status.1perso
 	$(setup_file)/docs/shell/system-menu.scd              | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/system-menu.1perso
-	$(setup_file)/docs/shell/time-tracker.scd             | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/time-tracker.1perso
+	$(setup_file)/docs/shell/task.scd                     | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/task.1perso
 	$(setup_file)/docs/shell/tmux-env.scd                 | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/tmux-env.1perso
 	$(setup_file)/docs/shell/url.scd                      | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/url.1perso
 	$(setup_file)/docs/shell/weechat-fifo.scd             | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/weechat-fifo.1perso

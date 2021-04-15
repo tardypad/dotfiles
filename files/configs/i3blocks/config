@@ -7,7 +7,7 @@ separator_block_width=20
 
 COLOR=#{color/base09/hex}
 
-[time-tracker]
+[task]
 signal=6
 
 [pomodoro]
