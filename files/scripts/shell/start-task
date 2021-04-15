@@ -35,7 +35,7 @@ while true; do
   break
 done
 
-printf 'Do not disturb [Y/n]: '
+printf 'Do not disturb [y/N]: '
 read -r DO_NOT_DISTURB
 
 if [ "${LOG}" = 'Y' ] || [ "${LOG}" = 'y' ]; then
@@ -50,9 +50,7 @@ if [ -n "${POMODORO_DURATION}" ]; then
     > /dev/null 2>&1
 fi
 
-if [ -z "${DO_NOT_DISTURB}" ] \
-   || [ "${DO_NOT_DISTURB}" = 'Y' ] \
-   || [ "${DO_NOT_DISTURB}" = 'y' ]; then
+if [ "${DO_NOT_DISTURB}" = 'Y' ] || [ "${DO_NOT_DISTURB}" = 'y' ]; then
   nohup \
     do-not-disturb -d "${POMODORO_DURATION}" -w "${TASK_ID}" enable \
     > /dev/null 2>&1
