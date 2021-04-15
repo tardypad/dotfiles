@@ -13,12 +13,14 @@ init_variables() {
   LOGGING_DAY=$( date +%Y-%m-%d )
   GROUPED_DISPLAY=false
   TAB_SEPARATED=false
+  LOG=true
 }
 
 parse_command_line() {
-  while getopts gt OPT; do
+  while getopts gnt OPT; do
     case "${OPT}" in
       g) GROUPED_DISPLAY=true ;;
+      n) LOG=false ;;
       t) TAB_SEPARATED=true ;;
       ?) exit_error ;;
     esac
@@ -97,7 +99,11 @@ task_start() {
     task_stop
   fi
 
-  CURRENT_TIME=$( current_time_min )
+  if [ "${LOG}" = 'true' ]; then
+    CURRENT_TIME=$( current_time_min )
+  else
+    CURRENT_TIME='X'
+  fi
 
   printf '%s\t%s\t%s' \
     "${CURRENT_TIME}" "${TASK_ID}" "${TASK_DESC}" \
@@ -120,16 +126,19 @@ task_stop() {
     return 1
   fi
 
-  CURRENT_DAY=$( date +%Y-%m-%d )
   START_TIME=$( cut -f 1 "${CURRENT_FILE_PATH}" )
-  CURRENT_TIME=$( current_time_min )
-  CURRENT_DURATION=$(( CURRENT_TIME - START_TIME ))
-  CURRENT_ID=$( cut -f 2 "${CURRENT_FILE_PATH}" )
-  CURRENT_DESC=$( cut -f 3 "${CURRENT_FILE_PATH}" )
 
-  printf '%s\t%s\t%s\n' \
-    "${CURRENT_ID}" "${CURRENT_DURATION}"  "${CURRENT_DESC}" \
-    >> "${LOGGING_DIR}/${CURRENT_DAY}"
+  if [ "${START_TIME}" != 'X' ]; then
+    CURRENT_DAY=$( date +%Y-%m-%d )
+    CURRENT_TIME=$( current_time_min )
+    CURRENT_DURATION=$(( CURRENT_TIME - START_TIME ))
+    CURRENT_ID=$( cut -f 2 "${CURRENT_FILE_PATH}" )
+    CURRENT_DESC=$( cut -f 3 "${CURRENT_FILE_PATH}" )
+
+    printf '%s\t%s\t%s\n' \
+      "${CURRENT_ID}" "${CURRENT_DURATION}"  "${CURRENT_DESC}" \
+      >> "${LOGGING_DIR}/${CURRENT_DAY}"
+  fi
 
   rm -rf "${CURRENT_FILE_PATH}" \
     && update_i3blocks
