@@ -2,7 +2,7 @@
 Description=Backup task logs
 
 [Path]
-PathChanged={dir/data}/task
+PathChanged={dir/data}/tasks
 
 [Install]
 WantedBy=paths.target

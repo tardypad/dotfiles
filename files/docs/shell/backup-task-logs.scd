@@ -28,7 +28,7 @@ If unset, defaults to $HOME/.local/share
 
 # FILES
 
-_$XDG_DATA_HOME/task_
+_$XDG_DATA_HOME/tasks_
 	Directory containing task logs
 
 # DEPENDENCIES

@@ -4,7 +4,7 @@ init_variables() {
   COMMAND=${0##*/}
 
   CURRENT_FILE_PATH="${XDG_RUNTIME_DIR:-/tmp}/task"
-  LOGGING_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/task"
+  LOGGING_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/tasks"
 
   ACTION='show'
   TASK_ID=

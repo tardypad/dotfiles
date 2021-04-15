@@ -80,7 +80,7 @@ If unset, defaults to /tmp
 
 # FILES
 
-_$XDG_DATA_HOME/task_
+_$XDG_DATA_HOME/tasks_
 	Directory containing task logs
 
 _$XDG_RUNTIME_DIR/task_
