@@ -2,23 +2,23 @@ task(1perso)
 
 # NAME
 
-task - Track tasks duration
+task - Manage the current task
 
 # SYNOPSIS
 
 task *start* _id_ [ _description_ ]
 
-task *add* _id_ _duration_ [ _description_ ]
+task *log* _id_ _duration_ [ _description_ ]
 
-task [ *ids* | *status* | *stop* ]
+task [ *ids* | *show* | *stop* ]
 
-task *edit* [ _day_ ]
+task *review* [ _day_ ]
 
-task [-gt] *show* [ _day_ ]
+task [-gt] *overview* [ _day_ ]
 
 # DESCRIPTION
 
-Manager tasks duration tracking
+Track and log the current task with its duration
 
 # OPTIONS
 
@@ -30,27 +30,27 @@ Manager tasks duration tracking
 
 # OPERANDS
 
-*add*
+*log*
 	Manually log a task
 
-*edit*
+*review*
 	Open editor to manually edit the logging of a day
 
-*show*
-	Display the logging a day
+*overview*
+	Display the logging of a day
 
 *ids*
 	List all existing task identifiers
 
 *start*
-	Start session
+	Start a task
 
-*status*
-	Display current task if session active++
+*show*
+	Display current task if any++
 This is the default action if none is specified
 
 *stop*
-	End session
+	End current task
 
 _id_
 	Task identifier

@@ -4,12 +4,12 @@ local logging_dir="${XDG_DATA_HOME:-$HOME/.local/share}/task"
 
 _actions() {
   local actions=(
-    add
-    edit
     ids
+    log
+    overview
+    review
     show
     start
-    status
     stop
   )
 
@@ -27,10 +27,10 @@ _days() {
 
 _operands() {
   if [ $words[CURRENT-1] = 'start' ] \
-    || [ $words[CURRENT-1] = 'add' ]; then
+    || [ $words[CURRENT-1] = 'log' ]; then
     _ids
-  elif [ $words[CURRENT-1] = 'edit' ] \
-    || [ $words[CURRENT-1] = 'show' ]; then
+  elif [ $words[CURRENT-1] = 'review' ] \
+    || [ $words[CURRENT-1] = 'overview' ]; then
     _days
   fi
 }

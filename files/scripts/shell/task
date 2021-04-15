@@ -6,7 +6,7 @@ init_variables() {
   CURRENT_FILE_PATH="${XDG_RUNTIME_DIR:-/tmp}/task"
   LOGGING_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/task"
 
-  ACTION='status'
+  ACTION='show'
   TASK_ID=
   TASK_DESC=
   TASK_DURATION=
@@ -31,11 +31,11 @@ parse_command_line() {
   if [ "${ACTION}" = 'start' ]; then
     TASK_ID="$2"
     TASK_DESC="$3"
-  elif [ "${ACTION}" = 'add' ]; then
+  elif [ "${ACTION}" = 'log' ]; then
     TASK_ID="$2"
     TASK_DURATION="$3"
     TASK_DESC="$4"
-  elif [ "${ACTION}" = 'edit' ] || [ "${ACTION}" = 'show' ]; then
+  elif [ "${ACTION}" = 'review' ] || [ "${ACTION}" = 'overview' ]; then
     [ -z "$2" ] || LOGGING_DAY="$2"
   fi
 }
@@ -43,10 +43,10 @@ parse_command_line() {
 validate_command_line() {
   if [ "${ACTION}" != 'start' ] \
      && [ "${ACTION}" != 'stop' ] \
-     && [ "${ACTION}" != 'status' ] \
-     && [ "${ACTION}" != 'add' ] \
-     && [ "${ACTION}" != 'edit' ] \
      && [ "${ACTION}" != 'show' ] \
+     && [ "${ACTION}" != 'log' ] \
+     && [ "${ACTION}" != 'review' ] \
+     && [ "${ACTION}" != 'overview' ] \
      && [ "${ACTION}" != 'ids' ]; then
     exit_error "Invalid action '${ACTION}'"
   fi
@@ -55,7 +55,7 @@ validate_command_line() {
       exit_error 'Missing task identifier'
   fi
 
-  if [ "${ACTION}" = 'add' ]; then
+  if [ "${ACTION}" = 'log' ]; then
     if [ -z "${TASK_ID}" ]; then
       exit_error 'Missing task identifier'
     fi
@@ -68,7 +68,7 @@ validate_command_line() {
     esac
   fi
 
-  if [ "${ACTION}" = 'edit' ] || [ "${ACTION}" = 'show' ]; then
+  if [ "${ACTION}" = 'review' ] || [ "${ACTION}" = 'overview' ]; then
     case "${LOGGING_DAY}" in
       [0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]) ;;
       *) exit_error 'Invalid day format' ;;
@@ -105,7 +105,7 @@ task_start() {
     && update_i3blocks
 }
 
-task_status() {
+task_show() {
   if ! is_task_started; then
     echo 'No current task' >&2
     return 1
@@ -145,7 +145,7 @@ task_ids()
     | sort -u
 }
 
-task_add()
+task_log()
 {
   CURRENT_DAY=$( date +%Y-%m-%d )
 
@@ -154,12 +154,12 @@ task_add()
     >> "${LOGGING_DIR}/${CURRENT_DAY}"
 }
 
-task_edit()
+task_review()
 {
   "${EDITOR:-vi}" "${LOGGING_DIR}/${LOGGING_DAY}"
 }
 
-task_show()
+task_overview()
 {
   if [ ! -f "${LOGGING_DIR}/${LOGGING_DAY}" ]; then
     return
