@@ -28,7 +28,6 @@ shell-docs:
 	$(setup_file)/docs/shell/loop.scd                     | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/loop.1perso
 	$(setup_file)/docs/shell/mysql-env.scd                | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/mysql-env.1perso
 	$(setup_file)/docs/shell/night-mode.scd               | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/night-mode.1perso
-	$(setup_file)/docs/shell/notify-tmux-alert.scd        | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/notify-tmux-alert.1perso
 	$(setup_file)/docs/shell/notify.scd                   | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/notify.1perso
 	$(setup_file)/docs/shell/open-document.scd            | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/open-document.1perso
 	$(setup_file)/docs/shell/play-somafm.scd              | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/play-somafm.1perso

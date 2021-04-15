@@ -35,11 +35,20 @@ MESSAGE="${MESSAGE} window \"${ALERT_WINDOW_NAME}\""
 tmux display-message "${MESSAGE}"
 
 if [ -n "${DISPLAY}" ]; then
-  notify-tmux-alert \
-    "${ALERT_TYPE}" \
-    "${ALERT_SOCKET_PATH##*/}" \
-    "${ALERT_SESSION_ID#$}" \
-    "${ALERT_SESSION_NAME}" \
-    "${ALERT_WINDOW_ID#@}" \
-    "${ALERT_WINDOW_NAME}"
+  MESSAGE="socket: ${ALERT_SOCKET_PATH##*/}\n"
+  MESSAGE="${MESSAGE}session: ${ALERT_SESSION_NAME}\n"
+  MESSAGE="${MESSAGE}window: ${ALERT_WINDOW_NAME}"
+
+  MARK=_tmux_alert
+  MARK="${MARK}_${ALERT_SOCKET_PATH##*/}"
+  MARK="${MARK}_${ALERT_SESSION_ID#$}"
+  MARK="${MARK}_${ALERT_WINDOW_ID#@}"
+
+  notify \
+    -c 'notice' \
+    -i "${MARK}" \
+    "tmux ${ALERT_TYPE} detected" \
+    "${MESSAGE}"
+
+  swaymsg -q "[con_mark=\"${MARK}\"]" urgent enable
 fi
