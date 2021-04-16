@@ -14,7 +14,6 @@ do-not-disturb [-d _duration_] [-w _work_] ( *enable* | *toggle* )
 
 Manage "Do not disturb" mode. It updates mode on various places:
 - locally on system
-- in Slack chat
 - on remote server
 
 # OPTIONS
@@ -59,4 +58,3 @@ _$XDG_RUNTIME_DIR/do_not_disturb_
 - curl
 - pkill
 - ssh
-- weechat-fifo

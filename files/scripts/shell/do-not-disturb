@@ -59,8 +59,6 @@ end_time() {
 }
 
 dnd_enable() {
-  echo '/slack away' | weechat-fifo 2> /dev/null &
-
   STATUS_TEXT=
 
   if [ -n "${DURATION_MIN}" ]; then
@@ -80,8 +78,6 @@ dnd_enable() {
 }
 
 dnd_disable() {
-  echo '/slack back' | weechat-fifo 2> /dev/null &
-
   ssh surg bin/set-status available 2> /dev/null &
 
   rm -f "${FILE_PATH}" \
