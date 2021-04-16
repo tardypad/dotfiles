@@ -1,8 +1,0 @@
-#!/bin/sh
-
-LOCAL_NOTES_FOLDER="${XDG_NOTES_DIR:-$HOME/Notes}"
-REMOTE_NOTES_FOLDER="backup/$( uname -n )/notes"
-
-rsync -azb --delete --exclude=".*" \
-  "${LOCAL_NOTES_FOLDER}/" \
-  surg:"${REMOTE_NOTES_FOLDER}"

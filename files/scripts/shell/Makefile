@@ -3,10 +3,7 @@ all: shell-scripts
 shell-scripts:
 	mkdir -p $(DESTDIR)$(BIN_DIR)
 
-	$(setup_file)/scripts/shell/backup-bookmarks             > $(DESTDIR)$(BIN_DIR)/backup-bookmarks
-	$(setup_file)/scripts/shell/backup-contacts              > $(DESTDIR)$(BIN_DIR)/backup-contacts
-	$(setup_file)/scripts/shell/backup-notes                 > $(DESTDIR)$(BIN_DIR)/backup-notes
-	$(setup_file)/scripts/shell/backup-task-logs             > $(DESTDIR)$(BIN_DIR)/backup-task-logs
+	$(setup_file)/scripts/shell/backup                       > $(DESTDIR)$(BIN_DIR)/backup
 	$(setup_file)/scripts/shell/base                         > $(DESTDIR)$(BIN_DIR)/base
 	$(setup_file)/scripts/shell/battery-status               > $(DESTDIR)$(BIN_DIR)/battery-status
 	$(setup_file)/scripts/shell/calculate                    > $(DESTDIR)$(BIN_DIR)/calculate
@@ -49,10 +46,7 @@ shell-scripts:
 	$(setup_file)/scripts/shell/weechat-fifo                 > $(DESTDIR)$(BIN_DIR)/weechat-fifo
 	$(setup_file)/scripts/shell/xdg-open                     > $(DESTDIR)$(BIN_DIR)/xdg-open
 
-	chmod +x $(DESTDIR)$(BIN_DIR)/backup-bookmarks
-	chmod +x $(DESTDIR)$(BIN_DIR)/backup-contacts
-	chmod +x $(DESTDIR)$(BIN_DIR)/backup-notes
-	chmod +x $(DESTDIR)$(BIN_DIR)/backup-task-logs
+	chmod +x $(DESTDIR)$(BIN_DIR)/backup
 	chmod +x $(DESTDIR)$(BIN_DIR)/base
 	chmod +x $(DESTDIR)$(BIN_DIR)/battery-status
 	chmod +x $(DESTDIR)$(BIN_DIR)/calculate

@@ -1,0 +1,76 @@
+#!/bin/sh
+
+init_variables() {
+  COMMAND=${0##*/}
+
+  REMOTE_HOST='surg'
+  REMOTE_BASE_DIR="backup/$( uname -n )"
+
+  REMOTE_BOOKMARKS_DIR="${REMOTE_BASE_DIR}/bookmarks"
+  REMOTE_TASK_LOGS_DIR="${REMOTE_BASE_DIR}/tasks"
+  REMOTE_NOTES_DIR="${REMOTE_BASE_DIR}/notes"
+  REMOTE_CONTACTS_DIR="${REMOTE_BASE_DIR}/contacts"
+
+  LOCAL_BROWSER_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/qutebrowser"
+  LOCAL_TASK_LOGS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/tasks"
+  LOCAL_NOTES_DIR="${XDG_NOTES_DIR:-$HOME/Notes}"
+  LOCAL_CONTACTS_DIR="${XDG_CONTACTS_DIR:-$HOME/Contacts}"
+
+  TYPE=
+}
+
+parse_command_line() {
+  TYPE="$1"
+}
+
+validate_command_line() {
+  if [ -z "${TYPE}" ]; then
+    exit_error 'missing type'
+  fi
+
+  if [ "${TYPE}" != 'bookmarks' ] \
+     && [ "${TYPE}" != 'contacts' ] \
+     && [ "${TYPE}" != 'notes' ] \
+     && [ "${TYPE}" != 'task_logs' ]; then
+    exit_error "Invalid type '${TYPE}'"
+  fi
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+backup_bookmarks() {
+  rsync -azb \
+    "${LOCAL_BROWSER_DIR}/bookmarks/urls" \
+    "${REMOTE_HOST}:${REMOTE_BOOKMARKS_DIR}/urls"
+
+  rsync -azb \
+    "${LOCAL_BROWSER_DIR}/quickmarks" \
+    "${REMOTE_HOST}:${REMOTE_BOOKMARKS_DIR}/quickmarks"
+}
+
+backup_contacts() {
+  rsync -azb --delete --exclude=".*" \
+    "${LOCAL_CONTACTS_DIR}/" \
+    "${REMOTE_HOST}:${REMOTE_CONTACTS_DIR}"
+}
+
+backup_notes() {
+  rsync -azb --delete --exclude=".*" \
+    "${LOCAL_NOTES_DIR}/" \
+    "${REMOTE_HOST}:${REMOTE_NOTES_DIR}"
+}
+
+backup_task_logs() {
+  rsync -azb --delete --exclude=".*" \
+    "${LOCAL_TASK_LOGS_DIR}/" \
+    "${REMOTE_HOST}:${REMOTE_TASK_LOGS_DIR}"
+}
+
+init_variables
+parse_command_line "$@"
+validate_command_line
+
+"backup_${TYPE}"

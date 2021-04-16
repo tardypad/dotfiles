@@ -3,4 +3,4 @@ Description=Backup task logs
 
 [Service]
 Environment=SSH_AUTH_SOCK=%t/gnupg/S.gpg-agent.ssh
-ExecStart={dir/bin}/backup-task-logs
+ExecStart={dir/bin}/backup task_logs
