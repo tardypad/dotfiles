@@ -25,8 +25,8 @@ c.search.wrap = False
 c.completion.open_categories = [ "history", "filesystem" ]
 
 # Disable some websites requests, don't even ask for it
-c.content.notifications = False
-c.content.geolocation   = False
+c.content.notifications.enabled = False
+c.content.geolocation           = False
 
 # disable Javascript everywhere by default
 # and only whitelist some regularly used patterns
