@@ -28,7 +28,12 @@ exit_error() {
 build_cache() {
   find "${HOME}" \
     ! -path "${HOME}/\.*" \
-    -type f -name '*.pdf' \
+    -type f \( \
+       -name '*.pdf'  \
+    -o -name '*.docx' \
+    -o -name '*.pptx' \
+    -o -name '*.xlsx' \
+    \) \
     | sort \
     > "${CACHE_DOCS_PATH}"
 }

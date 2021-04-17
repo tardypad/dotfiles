@@ -15,7 +15,11 @@ Open interface to select a document and open it.
 The document are searched within the home folder.
 Hidden root folders are excluded from the search.
 
-A document is defined as having a "pdf" extension.
+A document is defined as having any of the following extensions:
+- docx
+- pdf
+- pptx
+- xslx
 
 # OPTIONS
 
