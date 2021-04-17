@@ -87,7 +87,7 @@ alias reload='source "${HOME}/.zshrc"'
 alias passwdgen='echo $( < /dev/urandom tr -d -C "[:graph:]" | dd bs=1 count=30 2> /dev/null )'
 
 # retrieve my public IP
-alias myip='https api.ipify.org'
+alias myip='curl -s https://api.ipify.org && printf "\n"'
 
 # simple linters
 alias json-lint='jq'
