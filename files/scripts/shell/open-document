@@ -1,11 +1,50 @@
 #!/bin/sh
 
-DOC_PATH=$(
+init_variables() {
+  COMMAND=${0##*/}
+
+  CACHE_DOCS_PATH="${XDG_CACHE_HOME:-$HOME/.cache}/documents"
+
+  BUILD_CACHE_ONLY=false
+}
+
+parse_command_line() {
+  while getopts c OPT; do
+    case "${OPT}" in
+      c) BUILD_CACHE_ONLY=true ;;
+      ?) exit_error ;;
+    esac
+  done
+
+  shift $(( OPTIND - 1 ))
+}
+
+# shellcheck disable=SC2120
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+build_cache() {
   find "${HOME}" \
     ! -path "${HOME}/\.*" \
     -type f -name '*.pdf' \
     | sort \
-    | bemenu -p 'Open document'
+    > "${CACHE_DOCS_PATH}"
+}
+
+init_variables
+parse_command_line "$@"
+
+if [ "${BUILD_CACHE_ONLY}" = 'true' ]; then
+  build_cache
+  exit
+fi
+
+[ -f "${CACHE_DOCS_PATH}" ] || build_cache
+
+DOC_PATH=$(
+  bemenu -p 'Open document' < "${CACHE_DOCS_PATH}"
 )
 
 [ -n "${DOC_PATH}" ] || exit

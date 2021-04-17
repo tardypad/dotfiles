@@ -1,0 +1,8 @@
+[Unit]
+Description=Build documents list cache
+
+[Timer]
+OnStartupSec=1h
+
+[Install]
+WantedBy=timers.target

@@ -19,7 +19,8 @@ A document is defined as having a "pdf" extension.
 
 # OPTIONS
 
-None
+*-c*
+	only build the cache for the list of documents
 
 # OPERANDS
 
@@ -27,11 +28,14 @@ None
 
 # ENVIRONMENT VARIABLES
 
-None
+_XDG_CACHE_HOME_
+	Path to user-specific base directory to store cached data++
+If unset, defaults to $HOME/.cache
 
 # FILES
 
-None
+_$XDG_CACHE_HOME/documents_
+	File used as cache for the list of documents
 
 # DEPENDENCIES
 

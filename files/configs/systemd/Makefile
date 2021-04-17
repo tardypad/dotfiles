@@ -15,6 +15,8 @@ systemd-configs:
 	$(setup_file)/configs/systemd/user/backup_task_logs.service           > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_task_logs.service
 	$(setup_file)/configs/systemd/user/documentation_build_cache.service  > $(DESTDIR)$(CONFIG_DIR)/systemd/user/documentation_build_cache.service
 	$(setup_file)/configs/systemd/user/documentation_build_cache.timer    > $(DESTDIR)$(CONFIG_DIR)/systemd/user/documentation_build_cache.timer
+	$(setup_file)/configs/systemd/user/documents_build_cache.service      > $(DESTDIR)$(CONFIG_DIR)/systemd/user/documents_build_cache.service
+	$(setup_file)/configs/systemd/user/documents_build_cache.timer        > $(DESTDIR)$(CONFIG_DIR)/systemd/user/documents_build_cache.timer
 	$(setup_file)/configs/systemd/user/notify_low_battery.service         > $(DESTDIR)$(CONFIG_DIR)/systemd/user/notify_low_battery.service
 	$(setup_file)/configs/systemd/user/notify_low_battery.timer           > $(DESTDIR)$(CONFIG_DIR)/systemd/user/notify_low_battery.timer
 	$(setup_file)/configs/systemd/user/qutebrowser_update_adblock.service > $(DESTDIR)$(CONFIG_DIR)/systemd/user/qutebrowser_update_adblock.service
@@ -26,6 +28,7 @@ systemd-configs:
 	ln -sf ../backup_notes.path                  $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants/backup_notes.path
 	ln -sf ../backup_task_logs.path              $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants/backup_task_logs.path
 	ln -sf ../documentation_build_cache.timer    $(DESTDIR)$(CONFIG_DIR)/systemd/user/timers.target.wants/documentation_build_cache.timer
+	ln -sf ../documents_build_cache.timer        $(DESTDIR)$(CONFIG_DIR)/systemd/user/timers.target.wants/documents_build_cache.timer
 	ln -sf ../notify_low_battery.timer           $(DESTDIR)$(CONFIG_DIR)/systemd/user/timers.target.wants/notify_low_battery.timer
 	ln -sf ../qutebrowser_update_adblock.timer   $(DESTDIR)$(CONFIG_DIR)/systemd/user/timers.target.wants/qutebrowser_update_adblock.timer
 	ln -sf /usr/lib/systemd/user/mpd.service     $(DESTDIR)$(CONFIG_DIR)/systemd/user/default.target.wants/mpd.service

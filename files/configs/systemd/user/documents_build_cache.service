@@ -1,0 +1,6 @@
+[Unit]
+Description=Build documents list cache
+
+[Service]
+Type=oneshot
+ExecStart={dir/bin}/open-document -c
