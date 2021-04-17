@@ -1,35 +1,39 @@
 #!/bin/sh
 
-CACHE_TOPICS_PATH="${XDG_CACHE_HOME:-$HOME/.cache}/documentation_topics"
-ZSH_VERSION=$( zsh --version | cut -d ' ' -f 2 )
-ZSH_HELPDIR="/usr/share/zsh/${ZSH_VERSION}/help"
-MAN_PATH="${MANPATH:-/usr/share/man}"
+init_variables() {
+  COMMAND=${0##*/}
 
-should_build_cache() {
-  [ -f "${CACHE_TOPICS_PATH}" ] || return 0
+  CACHE_TOPICS_PATH="${XDG_CACHE_HOME:-$HOME/.cache}/documentation_topics"
+  ZSH_VERSION=$( zsh --version | cut -d ' ' -f 2 )
+  ZSH_HELPDIR="/usr/share/zsh/${ZSH_VERSION}/help"
+  MAN_PATH="${MANPATH:-/usr/share/man}"
 
-  CACHE_LAST_MODIFIED=$(
-    stat -c '%Y' "${CACHE_TOPICS_PATH}"
-  )
-
-  FOLDERS_LAST_MODIFIED=$(
-    {
-      printf '%s' "${PATH}" | tr ':' '\n';
-      echo "${ZSH_HELPDIR}";
-      printf '%s' "${MAN_PATH}" | tr ':' '\n' | xargs -I{} find -L {} -type d;
-    } \
-    | xargs -I {} -- stat -c '%Y' {}  2> /dev/null \
-    | sort \
-    | tail -n 1
-  )
-
-  [ "${CACHE_LAST_MODIFIED}" -lt "${FOLDERS_LAST_MODIFIED}" ]
+  BUILD_CACHE_ONLY=false
 }
+
+parse_command_line() {
+  while getopts c OPT; do
+    case "${OPT}" in
+      c) BUILD_CACHE_ONLY=true ;;
+      ?) exit_error ;;
+    esac
+  done
+
+  shift $(( OPTIND - 1 ))
+}
+
+# shellcheck disable=SC2120
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
 
 build_cache() {
   mkdir -p "$( dirname "${CACHE_TOPICS_PATH}" )"
 
-  echo "Building list of topics..." >&2
+  if [ "${BUILD_CACHE_ONLY}" = 'false' ]; then
+    echo "Building list of topics..." >&2
+  fi
 
   PATH_COMMANDS=$(
     printf '%s' "${PATH}" \
@@ -60,7 +64,15 @@ build_cache() {
   > "${CACHE_TOPICS_PATH}"
 }
 
-should_build_cache && build_cache
+init_variables
+parse_command_line "$@"
+
+if [ "${BUILD_CACHE_ONLY}" = 'true' ]; then
+  build_cache
+  exit
+fi
+
+[ -f "${CACHE_TOPICS_PATH}" ] || build_cache
 
 SELECTED_TOPIC=$(
   fzf --layout=reverse \

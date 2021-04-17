@@ -1,0 +1,8 @@
+[Unit]
+Description=Build documentation topics list cache
+
+[Timer]
+OnStartupSec=1h
+
+[Install]
+WantedBy=timers.target

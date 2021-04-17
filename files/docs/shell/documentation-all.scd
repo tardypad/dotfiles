@@ -14,7 +14,8 @@ Open interface to select topic to display documentation of.
 
 # OPTIONS
 
-None
+*-c*
+	only build the cache for the list of topics
 
 # OPERANDS
 
@@ -45,5 +46,4 @@ _$XDG_CACHE_HOME/documentation_topics_
 
 - fzf
 - documentation
-- stat
 - zsh

@@ -1,0 +1,6 @@
+[Unit]
+Description=Build documentation topics list cache
+
+[Service]
+Type=oneshot
+ExecStart={dir/bin}/documentation-all -c
