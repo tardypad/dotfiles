@@ -79,7 +79,5 @@ set-option -w -g window-status-current-format \
 #{?pane_in_mode,],}\
 #{?window_zoomed_flag,~~,}'
 
-set-option -w -g main-pane-width 80
-set-option -w -g main-pane-height 40
-set-option -w -g other-pane-width 60
-set-option -w -g other-pane-height 15
+set-option -w -g main-pane-width 70%
+set-option -w -g main-pane-height 70%
