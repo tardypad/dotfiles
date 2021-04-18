@@ -243,6 +243,8 @@ bind -T copy-mode-vi -N 'go to bottom line'                      {key/line_botto
 bind -T copy-mode-vi -N 'go to start of line'                    {key/line_start}                send-keys -X start-of-line
 bind -T copy-mode-vi -N 'go to first character of line'          {key/line_first_char}           send-keys -X back-to-indentation
 bind -T copy-mode-vi -N 'go to end of line'                      '{key/line_end}'                send-keys -X end-of-line
+bind -T copy-mode-vi -N 'set mark'                               {key/mark_set}                  send-keys -X set-mark
+bind -T copy-mode-vi -N 'jump to mark'                           "{key/mark_jump}"               send-keys -X jump-to-mark
 bind -T copy-mode-vi -N 'go to start of previous word'           {key/word_previous_start}       send-keys -X previous-word
 bind -T copy-mode-vi -N 'go to start of previous word (space)'   {key/word_space_previous_start} send-keys -X previous-space
 bind -T copy-mode-vi -N 'go to end of next word'                 {key/word_next_end}             send-keys -X next-word-end

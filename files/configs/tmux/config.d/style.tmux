@@ -81,3 +81,5 @@ set-option -w -g window-status-current-format \
 
 set-option -w -g main-pane-width 70%
 set-option -w -g main-pane-height 70%
+
+set-option -w -g copy-mode-mark-style "bg=#{color/base01/hex}"
