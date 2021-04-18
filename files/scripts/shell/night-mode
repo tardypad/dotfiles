@@ -3,7 +3,7 @@
 init_variables() {
   COMMAND=${0##*/}
 
-  TEMPERATURE=3500
+  TEMPERATURE=2500
 
   ACTION='status'
 }
