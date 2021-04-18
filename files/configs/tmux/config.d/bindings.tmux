@@ -16,7 +16,6 @@ bind -N 'detach client' C-{key/quit/low} detach-client
 
 bind -N 'run command'                  {key/command} command-prompt
 bind -N 'list keys'                  M-{key/?}       list-keys -a -N
-bind -N 'show messages'              M-{key/m}       show-messages
 bind -N 'toggle activity monitoring' M-{key/a}       run "tmux-toggle-monitoring activity '#{socket_path}' '#{session_id}' '#{window_id}'"
 bind -N 'toggle silence monitoring'  M-{key/s}       run "tmux-toggle-monitoring silence '#{socket_path}' '#{session_id}' '#{window_id}'"
 bind -N 'toggle bell monitoring'     M-{key/b}       run "tmux-toggle-monitoring bell '#{socket_path}' '#{session_id}' '#{window_id}'"
