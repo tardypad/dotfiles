@@ -1,3 +1,6 @@
+# ring bell
+alias bell="printf '\a'"
+
 # Prompt before overwrite/removal
 alias mv='mv -i'
 alias cp='cp -i'
