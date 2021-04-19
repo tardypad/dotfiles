@@ -216,12 +216,10 @@ bind -T copy-mode-vi -N 'cancel selection'   {key/escape/Escape} send-keys -X cl
 
 # selection actions
 bind -T copy-mode-vi -N 'paste selection' {key/return/Enter} send-keys -X copy-pipe-and-cancel "tmux paste-buffer"
+bind -T copy-mode-vi -N 'copy selection'  {key/yank/low}     send-keys -X copy-selection-and-cancel
 %if #{DISPLAY}
 bind -T copy-mode-vi -N 'search selection' C-{key/search/low} send-keys -X copy-pipe-and-cancel "xargs -I {} tmux run-shell 'xdg-open https://www.google.com/search?q=\"{}\" > /dev/null'"
 bind -T copy-mode-vi -N 'open selection'   C-{key/open/low}   send-keys -X copy-pipe-and-cancel "xargs -I {} tmux run-shell 'xdg-open \"{}\" > /dev/null'"
-bind -T copy-mode-vi -N 'copy selection'     {key/yank/low}   send-keys -X copy-pipe-and-cancel "xargs -I {} wl-copy {}"
-%else
-bind -T copy-mode-vi -N 'copy selection' {key/yank/low}   send-keys -X copy-selection-and-cancel
 %endif
 
 # navigation

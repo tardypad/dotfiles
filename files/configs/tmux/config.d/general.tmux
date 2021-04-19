@@ -11,6 +11,9 @@ set-option -w -g automatic-rename on
 set-option -w -g automatic-rename-format '#{pane_current_command}'
 %endif
 
+# store OSC 52 content as buffer and to terminal clipboard
+set-option -g set-clipboard on
+
 # use session name as terminal window title
 set-option -g set-titles on
 set-option -g set-titles-string '#{session_name} / #{window_name}'

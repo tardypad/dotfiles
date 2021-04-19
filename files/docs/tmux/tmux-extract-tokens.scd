@@ -12,10 +12,10 @@ tmux-extract-tokens ( _pane_ | _window_ ) _type_
 
 Open interface to allow the selection of a token from the current tmux pane or window.
 Diverse actions are then available on the selected item:
-- copy in tmux buffer and paste in tmux pane (_{key/return/return}_)
-- open in browser (_ctrl-{key/open/low}_)
-- search in browser (_ctrl-{key/search/low}_)
-- copy in system clipboard (_ctrl-{key/yank/low}_)
+- copy and paste in tmux pane (_{key/return/return}_)
+- copy and open in browser (_ctrl-{key/open/low}_)
+- copy and search in browser (_ctrl-{key/search/low}_)
+- copy only (_ctrl-{key/yank/low}_)
 
 # OPTIONS
 
@@ -45,5 +45,4 @@ None
 - extract-tokens
 - fzf-tmux
 - tmux
-- wl-copy
 - xdg-open

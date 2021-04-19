@@ -49,17 +49,19 @@ TEXT=$( echo "${ITEM}" | tail -n +2 )
 
 case "${KEY}" in
   {key/return/return})
-    tmux set-buffer -- "${TEXT}"
+    tmux set-buffer -w -- "${TEXT}"
     tmux paste-buffer
     ;;
   ctrl-{key/open/low})
+    tmux set-buffer -w -- "${TEXT}"
     xdg-open "${TEXT}" > /dev/null
     ;;
   ctrl-{key/search/low})
+    tmux set-buffer -w -- "${TEXT}"
     xdg-open "https://www.google.com/search?q=${TEXT}" > /dev/null
     ;;
   ctrl-{key/yank/low})
-    wl-copy "${TEXT}" > /dev/null
+    tmux set-buffer -w -- "${TEXT}"
     ;;
 esac
 

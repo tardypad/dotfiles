@@ -12,6 +12,11 @@ let g:ale_sign_style_error = 'x'
 let g:ale_sign_style_warning = '!'
 
 
+" oscyank
+
+autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | OSCYankReg " | endif
+
+
 "" vdebug
 let g:vdebug_options = {
 \   'server': 'localhost',

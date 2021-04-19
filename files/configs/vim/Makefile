@@ -80,7 +80,7 @@ vim-external-plugins:
 	setup/install-vim-plugin sayonara          "$(DESTDIR)" git https://github.com/mhinz/vim-sayonara                 357135c
 	setup/install-vim-plugin tmux-focus-events "$(DESTDIR)" git https://github.com/tmux-plugins/vim-tmux-focus-events a568192
 	setup/install-vim-plugin tmux-navigator    "$(DESTDIR)" git https://github.com/christoomey/vim-tmux-navigator     6c0b5d2
-	setup/install-vim-plugin tmux-clipboard    "$(DESTDIR)" git https://github.com/roxma/vim-tmux-clipboard           4718774
+	setup/install-vim-plugin oscyank           "$(DESTDIR)" git https://github.com/ojroques/vim-oscyank               5b48c13
 	setup/install-vim-plugin goyo              "$(DESTDIR)" git https://github.com/junegunn/goyo.vim                  a865dec
 	setup/install-vim-plugin undotree          "$(DESTDIR)" git https://github.com/mbbill/undotree                    rel_6.1
 	setup/install-vim-plugin redact-pass       "$(DESTDIR)" git https://sanctum.geek.nz/code/vim-redact-pass.git      v2.2.1
