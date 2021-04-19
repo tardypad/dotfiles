@@ -6,7 +6,8 @@ TASK=$( task show 2> /dev/null )
 
 [ -n "${TASK}" ] || exit 0
 
-COLOR='#{color/info/hex}'
+COLOR_FG='#{color/base00/hex}'
+COLOR_BG='#{color/info/hex}'
 TEXT=$( echo "${TASK}" | cut -f1 )
 
-printf '%s\n\n%s\n' "${TEXT}" "${COLOR}"
+printf '%s\n\n%s\n%s\n' "  ${TEXT}  " "${COLOR_FG}" "${COLOR_BG}"
