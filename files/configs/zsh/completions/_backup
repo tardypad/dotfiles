@@ -1,0 +1,34 @@
+#compdef backup
+
+_targets() {
+  local targets=(
+    hdd
+    server
+  )
+
+  compadd "$@" $targets
+}
+
+_items() {
+  if [ $words[CURRENT-1] = 'hdd' ]; then
+    local items=(
+      bookmarks
+      books
+      contacts
+      notes
+    )
+  elif [ $words[CURRENT-1] = 'server' ]; then
+    local items=(
+      bookmarks
+      books
+      contacts
+      notes
+    )
+  fi
+
+  compadd "$@" $items
+}
+
+_arguments \
+  '1:target:_targets' \
+  '2:item:_items'
