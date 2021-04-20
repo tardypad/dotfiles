@@ -3,36 +3,69 @@
 init_variables() {
   COMMAND=${0##*/}
 
-  REMOTE_HOST='surg'
-  REMOTE_BASE_DIR="backup/$( uname -n )"
-
-  REMOTE_BOOKMARKS_DIR="${REMOTE_BASE_DIR}/bookmarks"
-  REMOTE_TASK_LOGS_DIR="${REMOTE_BASE_DIR}/tasks"
-  REMOTE_NOTES_DIR="${REMOTE_BASE_DIR}/notes"
-  REMOTE_CONTACTS_DIR="${REMOTE_BASE_DIR}/contacts"
-
   LOCAL_BROWSER_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/qutebrowser"
-  LOCAL_TASK_LOGS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/tasks"
-  LOCAL_NOTES_DIR="${XDG_NOTES_DIR:-$HOME/Notes}"
+  LOCAL_BOOKS_DIR="${XDG_BOOKS_DIR:-$HOME/Books}"
   LOCAL_CONTACTS_DIR="${XDG_CONTACTS_DIR:-$HOME/Contacts}"
+  LOCAL_NOTES_DIR="${XDG_NOTES_DIR:-$HOME/Notes}"
+  LOCAL_TASK_LOGS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/tasks"
 
-  TYPE=
+  HDD_BASE_DIR='/mnt/data'
+  HDD_BACKUP_DIR="${HDD_BASE_DIR}/Backup"
+
+  HDD_BOOKMARKS_DIR="${HDD_BASE_DIR}/Bookmarks"
+  HDD_BOOKS_DIR="${HDD_BASE_DIR}/Books"
+  HDD_CONTACTS_DIR="${HDD_BASE_DIR}/Contacts"
+  HDD_NOTES_DIR="${HDD_BASE_DIR}/Notes"
+
+  SERVER_HOST='surg'
+  SERVER_BASE_DIR="backup/$( uname -n )"
+
+  SERVER_BOOKMARKS_DIR="${SERVER_BASE_DIR}/bookmarks"
+  SERVER_CONTACTS_DIR="${SERVER_BASE_DIR}/contacts"
+  SERVER_NOTES_DIR="${SERVER_BASE_DIR}/notes"
+  SERVER_TASK_LOGS_DIR="${SERVER_BASE_DIR}/tasks"
+
+  TARGET=
+  ITEM=
 }
 
 parse_command_line() {
-  TYPE="$1"
+  TARGET="$1"
+  ITEM="$2"
 }
 
 validate_command_line() {
-  if [ -z "${TYPE}" ]; then
-    exit_error 'missing type'
+  if [ -z "${TARGET}" ]; then
+    exit_error 'missing target'
   fi
 
-  if [ "${TYPE}" != 'bookmarks' ] \
-     && [ "${TYPE}" != 'contacts' ] \
-     && [ "${TYPE}" != 'notes' ] \
-     && [ "${TYPE}" != 'task_logs' ]; then
-    exit_error "Invalid type '${TYPE}'"
+  if [ "${TARGET}" != 'hdd' ] \
+     && [ "${TARGET}" != 'server' ]; then
+    exit_error "Invalid target '${TARGET}'"
+  fi
+
+  if [ -z "${ITEM}" ]; then
+    exit_error 'missing item'
+  fi
+
+  if [ "${ITEM}" != 'bookmarks' ] \
+     && [ "${ITEM}" != 'books' ] \
+     && [ "${ITEM}" != 'contacts' ] \
+     && [ "${ITEM}" != 'notes' ] \
+     && [ "${ITEM}" != 'task_logs' ]; then
+    exit_error "Invalid item '${ITEM}'"
+  fi
+
+  if [ "${TARGET}" = 'hdd' ]; then
+    if [ "${ITEM}" = 'task_logs' ]; then
+      exit_error "Cannot backup ${ITEM} on ${TARGET}"
+    fi
+  fi
+
+  if [ "${TARGET}" = 'server' ]; then
+    if [ "${ITEM}" = 'books' ]; then
+      exit_error "Cannot backup ${ITEM} on ${TARGET}"
+    fi
   fi
 }
 
@@ -41,36 +74,72 @@ exit_error() {
   exit 1
 } >&2
 
-backup_bookmarks() {
+backup_hdd_bookmarks() {
+  rsync -az --delete \
+    --backup-dir="${HDD_BACKUP_DIR}/Bookmarks" \
+    "${LOCAL_BROWSER_DIR}/bookmarks/urls" \
+    "${HDD_BOOKMARKS_DIR}/urls"
+
+  rsync -az --delete \
+    "${LOCAL_BROWSER_DIR}/quickmarks" \
+    "${HDD_BOOKMARKS_DIR}/quickmarks"
+}
+
+backup_hdd_books() {
+  rsync -az --delete \
+    --backup-dir="${HDD_BACKUP_DIR}/Books" \
+    "${LOCAL_BOOKS_DIR}/" \
+    "${HDD_BOOKS_DIR}"
+}
+
+backup_hdd_contacts() {
+  rsync -az --delete --exclude=".*" \
+    --backup-dir="${HDD_BACKUP_DIR}/Contacts" \
+    "${LOCAL_CONTACTS_DIR}/" \
+    "${HDD_CONTACTS_DIR}"
+}
+
+backup_hdd_notes() {
+  rsync -az --delete --exclude=".*" \
+    --backup-dir="${HDD_BACKUP_DIR}/Notes" \
+    "${LOCAL_NOTES_DIR}/" \
+    "${HDD_NOTES_DIR}"
+}
+
+backup_server_bookmarks() {
   rsync -azb \
     "${LOCAL_BROWSER_DIR}/bookmarks/urls" \
-    "${REMOTE_HOST}:${REMOTE_BOOKMARKS_DIR}/urls"
+    "${SERVER_HOST}:${SERVER_BOOKMARKS_DIR}/urls"
 
   rsync -azb \
     "${LOCAL_BROWSER_DIR}/quickmarks" \
-    "${REMOTE_HOST}:${REMOTE_BOOKMARKS_DIR}/quickmarks"
+    "${SERVER_HOST}:${SERVER_BOOKMARKS_DIR}/quickmarks"
 }
 
-backup_contacts() {
+backup_server_contacts() {
   rsync -azb --delete --exclude=".*" \
     "${LOCAL_CONTACTS_DIR}/" \
-    "${REMOTE_HOST}:${REMOTE_CONTACTS_DIR}"
+    "${SERVER_HOST}:${SERVER_CONTACTS_DIR}"
 }
 
-backup_notes() {
+backup_server_notes() {
   rsync -azb --delete --exclude=".*" \
     "${LOCAL_NOTES_DIR}/" \
-    "${REMOTE_HOST}:${REMOTE_NOTES_DIR}"
+    "${SERVER_HOST}:${SERVER_NOTES_DIR}"
 }
 
-backup_task_logs() {
+backup_server_task_logs() {
   rsync -azb --delete --exclude=".*" \
     "${LOCAL_TASK_LOGS_DIR}/" \
-    "${REMOTE_HOST}:${REMOTE_TASK_LOGS_DIR}"
+    "${SERVER_HOST}:${SERVER_TASK_LOGS_DIR}"
 }
 
 init_variables
 parse_command_line "$@"
 validate_command_line
 
-"backup_${TYPE}"
+if [ "${TARGET}" = 'hdd' ] && [ ! -f "${HDD_BASE_DIR}/.hdd" ]; then
+  exit_error "HDD is not connected"
+fi
+
+"backup_${TARGET}_${ITEM}"

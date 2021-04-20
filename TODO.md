@@ -22,6 +22,5 @@
       files format, files naming conventions,...
 
 ## New Features
-  - create scripts for backup to hard drive or USB stick
 
 ## Research
