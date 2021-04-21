@@ -25,7 +25,7 @@ set $notice     #{color/notice/hex}
 # include all config files
 include config.d/*
 
-exec systemctl --user import-environment DISPLAY SWAYSOCK
+exec systemctl --user import-environment DISPLAY SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
 # start notification daemon
 exec mako

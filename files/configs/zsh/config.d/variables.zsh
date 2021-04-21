@@ -10,9 +10,6 @@ export XDG_DESKTOP_DIR="${HOME}/Desktop"
 export XDG_DOWNLOAD_DIR="${HOME}/Downloads"
 export XDG_NOTES_DIR="${HOME}/Notes"
 
-# define desktop environment
-export XDG_CURRENT_DESKTOP=sway
-
 # Make vim the default editor everywhere
 export EDITOR=vim
 
