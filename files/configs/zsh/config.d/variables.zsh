@@ -23,11 +23,6 @@ export PAGER=less
 # update gpg tty for pinentry use
 export GPG_TTY="$(tty)"
 
-# default less options
-# defining them in the #env part of lesskey
-# seems to break even more stuff around...
-export LESS='-inQRS'
-
 # change grep output colors
 GREP_COLORS='ms=1;{color/search_match/fg}'
 GREP_COLORS="${GREP_COLORS}:mc=1;{color/search_match/fg}"

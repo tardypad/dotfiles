@@ -92,3 +92,6 @@
 
 # next line prevents less from defining default line-edit keybindings
 #stop
+
+#env
+LESS = -inQRS
