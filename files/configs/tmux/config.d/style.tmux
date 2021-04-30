@@ -1,6 +1,6 @@
 set-option -g message-command-style "bg=#{color/base09/hex},fg=#{color/base00/hex},bold"
 set-option -g message-style "bg=#{color/base09/hex},fg=#{color/base00/hex}"
-set-option -g mode-style "bg=#{color/notice/hex},fg=#{color/base00/hex}"
+set-option -g mode-style "bg=#{color/base03/hex},fg=#{color/base00/hex}"
 
 set-option -g display-panes-colour "#{color/base09/hex}"
 set-option -g display-panes-active-colour "#{color/base0A/hex}"
