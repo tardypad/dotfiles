@@ -94,4 +94,4 @@
 #stop
 
 #env
-LESS = -inQRS
+LESS = -inQRS --incsearch
