@@ -6,4 +6,4 @@ PIXEL_REGION=$( slurp -p 2> /dev/null )
 
 grim -g "${PIXEL_REGION}" -t ppm - \
   | magick - -format '%[pixel:p{0,0}]' txt:- \
-  | sed -n 's/0,0.* \(#[^ ]*\) .*rgb(\(.*\))/\1\n\2/p'
+  | sed -n 's/0,0.* (\([^ ]*\)) *\(#[^ ]*\) .*/\2\n\1/p'
