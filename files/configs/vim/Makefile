@@ -1,4 +1,4 @@
-all: vim-configs
+all: vim-configs vim-external-plugins
 
 vim-configs:
 	# create necessary runtime directories

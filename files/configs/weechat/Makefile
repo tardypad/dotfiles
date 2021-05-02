@@ -1,4 +1,4 @@
-all: weechat-configs
+all: weechat-configs weechat-external-plugins
 
 weechat-configs:
 	mkdir -p $(DESTDIR)$(HOME)/.weechat/python
