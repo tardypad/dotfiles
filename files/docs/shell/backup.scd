@@ -32,6 +32,7 @@ valid items:
 	- contacts
 	- notes
 	- task_logs
+	- videos
 
 # TARGET ITEMS
 
@@ -54,6 +55,8 @@ Valid items per target
 :- \*
 |  task_logs
 : 
+:- \*
+|  videos
 :- \*
 
 # ENVIRONMENT VARIABLES
@@ -78,6 +81,10 @@ _XDG_NOTES_DIR_
 	Path to user-specific notes directory++
 If unset, defaults to $HOME/Notes
 
+_XDG_VIDEOS_DIR_
+	Path to user-specific videos directory++
+If unset, defaults to $HOME/Videos
+
 # FILES
 
 _$XDG_BOOKS_DIR_
@@ -97,6 +104,9 @@ _$XDG_DATA_HOME/tasks_
 
 _$XDG_NOTES_DIR_
 	Directory containing the notes
+
+_$XDG_VIDEOS_DIR_
+	Directory containing the videos
 
 # DEPENDENCIES
 

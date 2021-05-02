@@ -9,6 +9,7 @@ export XDG_CONTACTS_DIR="${HOME}/Contacts"
 export XDG_DESKTOP_DIR="${HOME}/Desktop"
 export XDG_DOWNLOAD_DIR="${HOME}/Downloads"
 export XDG_NOTES_DIR="${HOME}/Notes"
+export XDG_VIDEOS_DIR="${HOME}/Videos"
 
 # Make vim the default editor everywhere
 export EDITOR=vim

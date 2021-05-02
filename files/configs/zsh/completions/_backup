@@ -16,6 +16,7 @@ _items() {
       books
       contacts
       notes
+      videos
     )
   elif [ $words[CURRENT-1] = 'server' ]; then
     local items=(
