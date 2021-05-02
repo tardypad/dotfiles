@@ -5,6 +5,7 @@ c.auto_save.session = True
 c.url.searchengines = {
     "DEFAULT": "https://duckduckgo.com/?q={}",
     "gg": "https://www.google.com/search?q={}",
+    "map": "https://www.google.com/maps/search/{}",
     "yt": "https://www.youtube.com/results?search_query={}",
     "wp": "https://en.wikipedia.org/wiki/Special:Search/{}",
     "pkg": "https://www.archlinux.org/packages/?q={}",
