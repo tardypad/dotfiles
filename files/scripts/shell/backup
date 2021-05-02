@@ -78,12 +78,12 @@ exit_error() {
 } >&2
 
 backup_hdd_bookmarks() {
-  rsync -az --delete \
+  rsync -az \
     --backup-dir="${HDD_BACKUP_DIR}/Bookmarks" \
     "${LOCAL_BROWSER_DIR}/bookmarks/urls" \
     "${HDD_BOOKMARKS_DIR}/urls"
 
-  rsync -az --delete \
+  rsync -az \
     "${LOCAL_BROWSER_DIR}/quickmarks" \
     "${HDD_BOOKMARKS_DIR}/quickmarks"
 }
