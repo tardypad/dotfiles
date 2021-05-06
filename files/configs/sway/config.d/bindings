@@ -226,6 +226,8 @@ bindsym --locked {key/XF86AudioMute}        exec amixer -q set Master toggle \
 # Microphone key
 bindsym --locked {key/XF86AudioMicMute} exec amixer -q set Capture toggle \
                                              && pkill -x -RTMIN+7 i3blocks
+bindsym --locked $mod+{key/F4}          exec amixer -q set Capture toggle \
+                                             && pkill -x -RTMIN+7 i3blocks
 
 # Backlight keys
 bindsym --locked {key/XF86MonBrightnessUp}   exec light -A 5
