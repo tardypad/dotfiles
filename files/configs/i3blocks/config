@@ -38,6 +38,8 @@ signal=2
 
 [network]
 
+[vpn]
+
 [power]
 
 [idle-inhibitor]

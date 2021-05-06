@@ -16,6 +16,7 @@ i3blocks-scripts:
 	$(setup_file)/scripts/i3blocks/i3blocks-presentation-mode > $(DESTDIR)$(BIN_DIR)/i3blocks-presentation-mode
 	$(setup_file)/scripts/i3blocks/i3blocks-task              > $(DESTDIR)$(BIN_DIR)/i3blocks-task
 	$(setup_file)/scripts/i3blocks/i3blocks-volume            > $(DESTDIR)$(BIN_DIR)/i3blocks-volume
+	$(setup_file)/scripts/i3blocks/i3blocks-vpn               > $(DESTDIR)$(BIN_DIR)/i3blocks-vpn
 	$(setup_file)/scripts/i3blocks/i3blocks-webcam            > $(DESTDIR)$(BIN_DIR)/i3blocks-webcam
 
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-bluetooth
@@ -31,4 +32,5 @@ i3blocks-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-presentation-mode
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-task
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-volume
+	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-vpn
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-webcam

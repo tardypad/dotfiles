@@ -1,0 +1,11 @@
+#!/bin/sh
+# commands used:
+# - pidof
+
+if ! pidof openconnect > /dev/null; then
+  exit 0
+fi
+
+TEXT=''
+
+printf '%s\n\n%s\n' "${TEXT}" "${COLOR}"
