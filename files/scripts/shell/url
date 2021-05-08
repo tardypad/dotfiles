@@ -4,12 +4,10 @@ init_variables() {
   COMMAND=${0##*/}
 
   ACTION=
-  URL=
 }
 
 parse_command_line() {
   ACTION="$1"
-  URL="$2"
 }
 
 validate_command_line() {
@@ -20,10 +18,6 @@ validate_command_line() {
   if [ "${ACTION}" != 'encode' ] \
      && [ "${ACTION}" != 'decode' ]; then
     exit_error "invalid action '${ACTION}'"
-  fi
-
-  if [ -z "${URL}" ]; then
-    exit_error "missing URL"
   fi
 }
 
@@ -37,26 +31,29 @@ url_encode() {
 
   IFS="
 "
-
-  for c in $( printf '%s' "$1" | sed 's/./&\n/g' )
-  do
-    case "$c" in
-      [a-zA-Z0-9.~_-]) printf '%s' "$c" ;;
-      *) printf '%%%02X' "'$c" ;;
-    esac
+  while read -r URL; do
+    echo "${URL}" \
+      | sed 's/./&\n/g' \
+      | sed '$d' \
+      | while read -r c; do
+          case "$c" in
+            [a-zA-Z0-9.~_-]) printf '%s' "$c" ;;
+            *) printf '%%%02X' "'$c" ;;
+          esac
+        done
+    printf '\n'
   done
-  printf '\n'
 
   IFS="${OLD_IFS}"
 }
 
 url_decode() {
   # shellcheck disable=SC2059
-  printf "$( printf '%s' "$1" | sed 's/%/\\x/g' )\n"
+  printf "$( sed 's/%/\\x/g' )\n"
 }
 
 init_variables
 parse_command_line "$@"
 validate_command_line
 
-"url_${ACTION}" "${URL}"
+"url_${ACTION}"

@@ -6,11 +6,11 @@ url - Encode or decode an URL
 
 # SYNOPSIS
 
-url ( *encode* | *decode* ) _url_
+url ( *encode* | *decode* ) < urls
 
 # DESCRIPTION
 
-Encode or decode an URL using percent-encoding
+Encode or decode URLs from standard input using percent-encoding
 
 # OPTIONS
 
@@ -23,9 +23,6 @@ None
 
 *decode*
 	Performs decoding
-
-_url_
-	URL to encode or decode
 
 # ENVIRONMENT VARIABLES
 
