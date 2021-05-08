@@ -6,7 +6,7 @@ extract-tokens - Extract tokens from input
 
 # SYNOPSIS
 
-extract-tokens _type_
+extract-tokens _type_ < text
 
 # DESCRIPTION
 

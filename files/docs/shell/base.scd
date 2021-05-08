@@ -6,11 +6,11 @@ base - Convert numbers between different bases
 
 # SYNOPSIS
 
-base _base_in_ _base_out_
+base _base_in_ _base_out_ < numbers
 
 # DESCRIPTION
 
-Convert all numbers from stdin to a different base
+Convert all numbers from standard input to a different base
 
 # OPTIONS
 

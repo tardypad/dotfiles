@@ -6,7 +6,7 @@ weechat-fifo - Remote control of weechat via FIFO pipe
 
 # SYNOPSIS
 
-weechat-fifo [_buffer_]
+weechat-fifo [_buffer_] < data
 
 # DESCRIPTION
 
