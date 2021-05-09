@@ -4,8 +4,6 @@ _types() {
   local types=(
     main
     repo
-    docs
-    logs
   )
 
   compadd "$@" $types
@@ -21,16 +19,6 @@ _projects() {
     repo)
       compadd $(
         find "${PROJECTS_REPO_DIR}"/*/* \
-            -type d -prune -exec basename {} \;
-      ) ;;
-    docs)
-      compadd $(
-        find "${PROJECTS_DOC_DIR}"/* \
-            -type d -prune -exec basename {} \;
-      ) ;;
-    logs)
-      compadd $(
-        find "${PROJECTS_LOG_DIR}"/* \
             -type d -prune -exec basename {} \;
       ) ;;
   esac

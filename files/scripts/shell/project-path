@@ -3,8 +3,6 @@
 init_variables() {
   COMMAND=${0##*/}
 
-  PROJECTS_DOC_DIR="${PROJECTS_DOC_DIR:-$HOME/Projects/docs}"
-  PROJECTS_LOG_DIR="${PROJECTS_LOG_DIR:-$HOME/Projects/logs}"
   PROJECTS_REPO_DIR="${PROJECTS_REPO_DIR:-$HOME/Projects/repos}"
 
   TYPE=
@@ -22,9 +20,7 @@ validate_command_line() {
   fi
 
   if [ "${TYPE}" != 'main' ] \
-     && [ "${TYPE}" != 'repo' ] \
-     && [ "${TYPE}" != 'docs' ] \
-     && [ "${TYPE}" != 'logs' ]; then
+     && [ "${TYPE}" != 'repo' ]; then
     exit_error "Invalid type '${TYPE}'"
   fi
 }
@@ -44,14 +40,6 @@ get_project_path() {
       find "${PROJECTS_REPO_DIR}"/*/* \
         -type d -prune -name "${PROJECT}"
       ;;
-    docs)
-      find "${PROJECTS_DOC_DIR}"/* \
-        -type d -prune -name "${PROJECT}"
-      ;;
-    logs)
-      find "${PROJECTS_LOG_DIR}"/* \
-        -type d -prune -name "${PROJECT}"
-      ;;
   esac
 }
 
@@ -59,8 +47,6 @@ get_type_path() {
   case "${TYPE}" in
     main) echo "${PROJECTS_REPO_DIR}" ;;
     repo) echo "${PROJECTS_REPO_DIR}" ;;
-    docs) echo "${PROJECTS_DOC_DIR}" ;;
-    logs) echo "${PROJECTS_LOG_DIR}" ;;
   esac
 }
 

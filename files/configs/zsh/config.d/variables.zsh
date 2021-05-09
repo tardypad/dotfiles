@@ -1,7 +1,5 @@
 # define project paths
 export PROJECTS_REPO_DIR="${HOME}/Projects"
-export PROJECTS_DOC_DIR="${HOME}/Documents/Projects"
-export PROJECTS_LOG_DIR="/var/log/projects"
 
 # define common paths
 export XDG_BOOKS_DIR="${HOME}/Books"
