@@ -13,7 +13,7 @@ bindsym $mod+{key/command/colon} exec sway-command-input
 bindsym $mod+{key/backspace/Backspace} exec swaylock
 
 # suspend
-bindsym $mod+Ctrl+{key/backspace/Backspace} exec systemctl suspend
+bindsym --locked $mod+Ctrl+{key/backspace/Backspace} exec systemctl suspend
 
 # focus first window with urgent flag
 bindsym $mod+{key/u} [urgent="first"] focus
