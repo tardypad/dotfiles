@@ -1,12 +1,10 @@
-# define project paths
-export PROJECTS_REPO_DIR="${HOME}/Projects"
-
 # define common paths
 export XDG_BOOKS_DIR="${HOME}/Books"
 export XDG_CONTACTS_DIR="${HOME}/Contacts"
 export XDG_DESKTOP_DIR="${HOME}/Desktop"
 export XDG_DOWNLOAD_DIR="${HOME}/Downloads"
 export XDG_NOTES_DIR="${HOME}/Notes"
+export XDG_PROJECTS_DIR="${HOME}/Projects"
 export XDG_VIDEOS_DIR="${HOME}/Videos"
 
 # Make vim the default editor everywhere

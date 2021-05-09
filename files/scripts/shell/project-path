@@ -3,7 +3,7 @@
 init_variables() {
   COMMAND=${0##*/}
 
-  PROJECTS_REPO_DIR="${PROJECTS_REPO_DIR:-$HOME/Projects/repos}"
+  PROJECTS_DIR="${XDG_PROJECTS_DIR:-$HOME/Projects}"
 
   TYPE=
   PROJECT=
@@ -33,11 +33,11 @@ exit_error() {
 get_project_path() {
   case "${TYPE}" in
     main)
-      find "${PROJECTS_REPO_DIR}"/* \
+      find "${PROJECTS_DIR}"/* \
         -type d -prune -name "${PROJECT}"
       ;;
     repo)
-      find "${PROJECTS_REPO_DIR}"/*/* \
+      find "${PROJECTS_DIR}"/*/* \
         -type d -prune -name "${PROJECT}"
       ;;
   esac
@@ -45,8 +45,8 @@ get_project_path() {
 
 get_type_path() {
   case "${TYPE}" in
-    main) echo "${PROJECTS_REPO_DIR}" ;;
-    repo) echo "${PROJECTS_REPO_DIR}" ;;
+    main) echo "${PROJECTS_DIR}" ;;
+    repo) echo "${PROJECTS_DIR}" ;;
   esac
 }
 

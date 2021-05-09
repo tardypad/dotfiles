@@ -1,5 +1,7 @@
 #compdef project-path
 
+local projects_dir="${XDG_PROJECTS_DIR:-$HOME/Projects}"
+
 _types() {
   local types=(
     main
@@ -13,12 +15,12 @@ _projects() {
   case $words[2] in
     main)
       compadd $(
-        find "${PROJECTS_REPO_DIR}"/* \
+        find "${projects_dir}"/* \
             -type d -prune -exec basename {} \;
       ) ;;
     repo)
       compadd $(
-        find "${PROJECTS_REPO_DIR}"/*/* \
+        find "${projects_dir}"/*/* \
             -type d -prune -exec basename {} \;
       ) ;;
   esac

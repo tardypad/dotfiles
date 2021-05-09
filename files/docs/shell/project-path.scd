@@ -30,14 +30,14 @@ If none specified, the general path for _type_ is displayed
 
 # ENVIRONMENT VARIABLES
 
-_PROJECTS_REPO_DIR_
+_XDG_PROJECTS_DIR_
 	Path to base directory of projects repositories++
-If unset, defaults to $HOME/Projects/repos
+If unset, defaults to $HOME/Projects
 
 # FILES
 
-_$PROJECTS_REPO_DIR_
-	Base directory for projects repositories
+_$XDG_PROJECTS_DIR_
+	Base directory for projects
 
 # DEPENDENCIES
 
