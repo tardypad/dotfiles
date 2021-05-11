@@ -15,11 +15,7 @@ set-option -g status-right-style "fg=#{color/base09/hex}"
 
 set-option -g status-left-length 40
 set-option -g status-left " #{session_name} "
-%if #{DISPLAY}
 set-option -g status-right ''
-%else
-set-option -g status-right '  %a %e %b %Y %H:%M'
-%endif
 
 set-option -g status-format[0] \
 "#[align=left range=left #{status-left-style}]\
