@@ -255,6 +255,9 @@ config.bind('{key/Q}{key/c}'           , 'open --tab qute://help/commands.html',
 config.bind('{key/Q}{key/s}'           , 'open --tab qute://help/settings.html',   mode='normal')
 config.bind('{key/Q}{key/h}'           , 'open --tab qute://history',              mode='normal')
 
+# dev tools
+config.bind('<Ctrl-{key/tabulation/Tab}>', 'devtools window', mode='normal')
+
 # Javascript temporary toggling  on current domain
 config.bind('<Ctrl-{key/J}>', 'config-cycle --print --temp --pattern={url:host} content.javascript.enabled ;; reload', mode='normal')
 
