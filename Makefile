@@ -8,6 +8,8 @@ CACHE_DIR  = $(HOME)/.cache
 CONFIG_DIR = $(HOME)/.config
 DATA_DIR   = $(HOME)/.local/share
 
+-include .env
+
 setup_file = { setup/substitute-apps | setup/substitute-colors $(THEME) | setup/substitute-dirs | setup/substitute-keys; } < files
 
 include files/configs/aerc/Makefile
