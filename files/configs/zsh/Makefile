@@ -26,6 +26,7 @@ zsh-configs:
 	$(setup_file)/configs/zsh/completions/_influx-env                                                > $(DESTDIR)$(HOME)/.zsh/completions/_influx-env
 	$(setup_file)/configs/zsh/completions/_line-by-line                                              > $(DESTDIR)$(HOME)/.zsh/completions/_line-by-line
 	$(setup_file)/configs/zsh/completions/_loop                                                      > $(DESTDIR)$(HOME)/.zsh/completions/_loop
+	$(setup_file)/configs/zsh/completions/_mount-device                                              > $(DESTDIR)$(HOME)/.zsh/completions/_mount-device
 	$(setup_file)/configs/zsh/completions/_mysql-env                                                 > $(DESTDIR)$(HOME)/.zsh/completions/_mysql-env
 	$(setup_file)/configs/zsh/completions/_notify                                                    > $(DESTDIR)$(HOME)/.zsh/completions/_notify
 	$(setup_file)/configs/zsh/completions/_pomodoro                                                  > $(DESTDIR)$(HOME)/.zsh/completions/_pomodoro

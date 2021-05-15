@@ -1,0 +1,17 @@
+#compdef mount-device
+
+_ids() {
+  local ids=(
+    lacie_data
+    lacie_secret
+    lacie_share
+    tdk_data
+    tdk_secret
+  )
+
+  compadd "$@" $ids
+}
+
+_arguments \
+  '-u[unmount]' \
+  '1:id:_ids'

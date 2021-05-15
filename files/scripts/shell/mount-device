@@ -1,0 +1,92 @@
+#!/bin/sh
+
+init_variables() {
+  COMMAND=${0##*/}
+
+  LACIE_DATA_UUID='74ad1023-7c4c-4767-93ea-d3c3f3b61391'
+  LACIE_SECRET_UUID='4002349b-b89c-43fe-8b2f-a53422b604e0'
+  LACIE_SHARE_UUID='B66F-3C89'
+  TDK_DATA_UUID='e087a822-7b11-42eb-9b6d-e2ec13724073'
+  TDK_SECRET_UUID='0bd24e2d-cb0a-4c5b-accd-e428de86c1f0'
+
+  DEVICE_ID=
+  UNMOUNT=false
+}
+
+parse_command_line() {
+  while getopts u OPT; do
+    case "${OPT}" in
+      u) UNMOUNT=true ;;
+      ?) exit_error ;;
+    esac
+  done
+
+  shift $(( OPTIND - 1 ))
+
+  DEVICE_ID="$1"
+}
+
+validate_command_line() {
+  if [ -z "${DEVICE_ID}" ]; then
+    exit_error 'missing operand'
+  fi
+
+  if [ "${DEVICE_ID}" != 'lacie_data' ] \
+     && [ "${DEVICE_ID}" != 'lacie_secret' ] \
+     && [ "${DEVICE_ID}" != 'lacie_share' ] \
+     && [ "${DEVICE_ID}" != 'tdk_data' ] \
+     && [ "${DEVICE_ID}" != 'tdk_secret' ]; then
+    exit_error "Invalid device id '${DEVICE_ID}'"
+  fi
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+mount_simple() {
+  sudo mkdir -p "/mnt/$2" \
+  && sudo mount "/dev/disk/by-uuid/$1" "/mnt/$2" \
+  && printf 'mounted in /mnt/%s\n' "$2"
+}
+
+mount_crypt() {
+  sudo cryptsetup open "/dev/disk/by-uuid/$1" "$2" \
+  && sudo mkdir -p "/mnt/$2" \
+  && sudo mount "/dev/mapper/$2" "/mnt/$2" \
+  && printf 'mounted in /mnt/%s\n' "$2"
+}
+
+unmount_simple() {
+  sudo umount "/mnt/$1" \
+  && printf 'unmounted /mnt/%s\n' "$1"
+}
+
+unmount_crypt() {
+  sudo umount "/mnt/$1" \
+  && sudo cryptsetup close "$1" \
+  && printf 'unmounted /mnt/%s\n' "$1"
+}
+
+mount_device_lacie_data()   { mount_crypt  "${LACIE_DATA_UUID}"   lacie_data   ; }
+mount_device_lacie_secret() { mount_crypt  "${LACIE_SECRET_UUID}" lacie_secret ; }
+mount_device_lacie_share()  { mount_simple "${LACIE_SHARE_UUID}"  lacie_share  ; }
+mount_device_tdk_data()     { mount_simple "${TDK_DATA_UUID}"     tdk_data     ; }
+mount_device_tdk_secret()   { mount_crypt  "${TDK_SECRET_UUID}"   tdk_secret   ; }
+
+unmount_device_lacie_data()   { unmount_crypt  lacie_data   ; }
+unmount_device_lacie_secret() { unmount_crypt  lacie_secret ; }
+unmount_device_lacie_share()  { unmount_simple lacie_share  ; }
+unmount_device_tdk_data()     { unmount_simple tdk_data     ; }
+unmount_device_tdk_secret()   { unmount_crypt  tdk_secret   ; }
+
+init_variables
+parse_command_line "$@"
+validate_command_line
+
+if [ "${UNMOUNT}" = 'false' ]; then
+  mount_device_"${DEVICE_ID}"
+else
+  unmount_device_"${DEVICE_ID}"
+fi

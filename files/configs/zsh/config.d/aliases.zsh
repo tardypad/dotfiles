@@ -49,6 +49,7 @@ alias tks='task-sum'
 alias dnd='do-not-disturb'
 alias pmd='pomodoro'
 alias lbl='line-by-line'
+alias mnt='mount-device'
 
 # smart cut on spaces
 alias scut="tr -s ' ' '\t' | cut"

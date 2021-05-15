@@ -23,6 +23,7 @@ shell-scripts:
 	$(setup_file)/scripts/shell/launch-tmux-env              > $(DESTDIR)$(BIN_DIR)/launch-tmux-env
 	$(setup_file)/scripts/shell/line-by-line                 > $(DESTDIR)$(BIN_DIR)/line-by-line
 	$(setup_file)/scripts/shell/loop                         > $(DESTDIR)$(BIN_DIR)/loop
+	$(setup_file)/scripts/shell/mount-device                 > $(DESTDIR)$(BIN_DIR)/mount-device
 	$(setup_file)/scripts/shell/mysql-env                    > $(DESTDIR)$(BIN_DIR)/mysql-env
 	$(setup_file)/scripts/shell/night-mode                   > $(DESTDIR)$(BIN_DIR)/night-mode
 	$(setup_file)/scripts/shell/notify                       > $(DESTDIR)$(BIN_DIR)/notify
@@ -66,6 +67,7 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/launch-tmux-env
 	chmod +x $(DESTDIR)$(BIN_DIR)/line-by-line
 	chmod +x $(DESTDIR)$(BIN_DIR)/loop
+	chmod +x $(DESTDIR)$(BIN_DIR)/mount-device
 	chmod +x $(DESTDIR)$(BIN_DIR)/mysql-env
 	chmod +x $(DESTDIR)$(BIN_DIR)/night-mode
 	chmod +x $(DESTDIR)$(BIN_DIR)/notify
