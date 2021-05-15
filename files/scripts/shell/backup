@@ -10,7 +10,7 @@ init_variables() {
   LOCAL_TASK_LOGS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/tasks"
   LOCAL_VIDEOS_DIR="${XDG_VIDEOS_DIR:-$HOME/Videos}"
 
-  HDD_BASE_DIR='/mnt/data'
+  HDD_BASE_DIR='/mnt/lacie_data'
   HDD_BACKUP_DIR="${HDD_BASE_DIR}/Backup"
 
   HDD_BOOKMARKS_DIR="${HDD_BASE_DIR}/Bookmarks"
