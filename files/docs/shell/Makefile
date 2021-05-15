@@ -11,7 +11,6 @@ shell-docs:
 	$(setup_file)/docs/shell/color-picker.scd             | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/color-picker.1perso
 	$(setup_file)/docs/shell/copy-otp.scd                 | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/copy-otp.1perso
 	$(setup_file)/docs/shell/copy-password.scd            | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/copy-password.1perso
-	$(setup_file)/docs/shell/man.scd                      | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/man.1perso
 	$(setup_file)/docs/shell/do-not-disturb.scd           | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/do-not-disturb.1perso
 	$(setup_file)/docs/shell/documentation-all.scd        | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/documentation-all.1perso
 	$(setup_file)/docs/shell/documentation.scd            | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/documentation.1perso
@@ -23,6 +22,7 @@ shell-docs:
 	$(setup_file)/docs/shell/launch-tmux-env.scd          | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/launch-tmux-env.1perso
 	$(setup_file)/docs/shell/line-by-line.scd             | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/line-by-line.1perso
 	$(setup_file)/docs/shell/loop.scd                     | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/loop.1perso
+	$(setup_file)/docs/shell/man.scd                      | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/man.1perso
 	$(setup_file)/docs/shell/mount-device.scd             | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/mount-device.1perso
 	$(setup_file)/docs/shell/mysql-env.scd                | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/mysql-env.1perso
 	$(setup_file)/docs/shell/night-mode.scd               | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/night-mode.1perso

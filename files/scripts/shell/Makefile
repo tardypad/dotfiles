@@ -11,7 +11,6 @@ shell-scripts:
 	$(setup_file)/scripts/shell/color-picker                 > $(DESTDIR)$(BIN_DIR)/color-picker
 	$(setup_file)/scripts/shell/copy-otp                     > $(DESTDIR)$(BIN_DIR)/copy-otp
 	$(setup_file)/scripts/shell/copy-password                > $(DESTDIR)$(BIN_DIR)/copy-password
-	$(setup_file)/scripts/shell/man                          > $(DESTDIR)$(BIN_DIR)/man
 	$(setup_file)/scripts/shell/do-not-disturb               > $(DESTDIR)$(BIN_DIR)/do-not-disturb
 	$(setup_file)/scripts/shell/documentation                > $(DESTDIR)$(BIN_DIR)/documentation
 	$(setup_file)/scripts/shell/documentation-all            > $(DESTDIR)$(BIN_DIR)/documentation-all
@@ -23,6 +22,7 @@ shell-scripts:
 	$(setup_file)/scripts/shell/launch-tmux-env              > $(DESTDIR)$(BIN_DIR)/launch-tmux-env
 	$(setup_file)/scripts/shell/line-by-line                 > $(DESTDIR)$(BIN_DIR)/line-by-line
 	$(setup_file)/scripts/shell/loop                         > $(DESTDIR)$(BIN_DIR)/loop
+	$(setup_file)/scripts/shell/man                          > $(DESTDIR)$(BIN_DIR)/man
 	$(setup_file)/scripts/shell/mount-device                 > $(DESTDIR)$(BIN_DIR)/mount-device
 	$(setup_file)/scripts/shell/mysql-env                    > $(DESTDIR)$(BIN_DIR)/mysql-env
 	$(setup_file)/scripts/shell/night-mode                   > $(DESTDIR)$(BIN_DIR)/night-mode
@@ -55,7 +55,6 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/color-picker
 	chmod +x $(DESTDIR)$(BIN_DIR)/copy-otp
 	chmod +x $(DESTDIR)$(BIN_DIR)/copy-password
-	chmod +x $(DESTDIR)$(BIN_DIR)/man
 	chmod +x $(DESTDIR)$(BIN_DIR)/do-not-disturb
 	chmod +x $(DESTDIR)$(BIN_DIR)/documentation
 	chmod +x $(DESTDIR)$(BIN_DIR)/documentation-all
@@ -67,6 +66,7 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/launch-tmux-env
 	chmod +x $(DESTDIR)$(BIN_DIR)/line-by-line
 	chmod +x $(DESTDIR)$(BIN_DIR)/loop
+	chmod +x $(DESTDIR)$(BIN_DIR)/man
 	chmod +x $(DESTDIR)$(BIN_DIR)/mount-device
 	chmod +x $(DESTDIR)$(BIN_DIR)/mysql-env
 	chmod +x $(DESTDIR)$(BIN_DIR)/night-mode
