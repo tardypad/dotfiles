@@ -53,8 +53,6 @@ docs_version() {
 pacman_version() {
   PACKAGE="$1"
 
-  [ "${PACKAGE}" = 'gron' ] && PACKAGE='gron-bin'
-
   PACMAN_INFO=$(
     pacman -Qi "${PACKAGE}" 2> /dev/null
   )
