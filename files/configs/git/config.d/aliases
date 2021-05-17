@@ -129,7 +129,7 @@
     sti = stamp issue
     str = stamp review
     tag-list = "! \
-        git tag --sort=creatordate --color \
+        git tag --color \
         --format \"%(color:$(git config color.tag-list.refname))%(refname:short)%(color:reset) | %(taggerdate:iso) | %(taggeremail) | %(subject)\" \
         | column -t -s '|'"
     urlc = "! f() { git url -t commit -c $( git argument $1 ); }; f"

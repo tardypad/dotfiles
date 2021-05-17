@@ -63,3 +63,5 @@
     decorate = false
 [core]
     pager = /usr/share/git/diff-highlight/diff-highlight | less -FX -x4
+[tag]
+    sort = version:refname
