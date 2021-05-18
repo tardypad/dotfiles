@@ -1,13 +1,13 @@
 #!/bin/sh
 
 NAME=$(
-  ykman oath list 2> /dev/null \
+  ykman oath accounts list 2> /dev/null \
     | sort \
     | bemenu -p 'Copy OTP'
 )
 
 [ -n "${NAME}" ] || exit
 
-ykman oath code -s "${NAME}" \
+ykman oath accounts code -s "${NAME}" \
   | wl-copy -n \
       > /dev/null 2>&1
