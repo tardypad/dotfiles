@@ -1,6 +1,6 @@
 #compdef task
 
-local logging_dir="${XDG_DATA_HOME:-$HOME/.local/share}/task"
+local logging_dir="${XDG_DATA_HOME:-$HOME/.local/share}/tasks"
 
 _actions() {
   local actions=(
