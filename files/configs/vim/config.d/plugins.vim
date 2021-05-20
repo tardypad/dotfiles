@@ -47,6 +47,11 @@ let g:fzf_layout = { 'down': '20' }
 let g:fzf_history_dir = '{dir/data}/fzf-history'
 
 
+"" goyo
+
+let g:goyo_width = '70%'
+
+
 "" gutentags
 
 " use current working directory as project root
