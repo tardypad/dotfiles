@@ -64,6 +64,7 @@ config.bind('<{key/return/Return}>',      'hint-follow', mode='hint')
 # insert mode
 config.bind('<{key/escape/Escape}>',      'mode-leave', mode='insert')
 config.bind('<Ctrl-{key/interrupt/upp}>', 'mode-leave', mode='insert')
+config.bind('<Ctrl-{key/edit/upp}>',      'edit-text', mode='insert')
 
 # passthrough mode
 config.bind('<Ctrl-{key/escape/Escape}>', 'mode-leave', mode='passthrough')

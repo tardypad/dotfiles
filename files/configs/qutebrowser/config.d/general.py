@@ -48,3 +48,6 @@ c.colors.webpage.preferred_color_scheme = '{color/theme}'
 # downloads
 c.downloads.location.prompt = False
 c.downloads.remove_finished = 3000
+
+# external edit
+c.editor.command = [ "sway-quick-command", "vim", "{file}" ]
