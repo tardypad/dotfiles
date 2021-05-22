@@ -1,6 +1,6 @@
 #!/bin/sh
 
-COMMAND="$1"
+COMMAND="$*"
 
 TITLE='sway_quick_command'
 
@@ -8,7 +8,7 @@ swaymsg -q "[title=\"${TITLE}\"]" focus && exit
 
 if [ -n "${COMMAND}" ]; then
   swaymsg -q fullscreen disable, \
-    exec "alacritty -t \"${TITLE}\" -e \"${COMMAND}\""
+    exec "alacritty -t \"${TITLE}\" -e ${COMMAND}"
 else
   swaymsg -q fullscreen disable, \
     exec "alacritty -t \"${TITLE}\""
