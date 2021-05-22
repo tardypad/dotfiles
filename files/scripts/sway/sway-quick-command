@@ -6,10 +6,12 @@ TITLE='sway_quick_command'
 
 swaymsg -q "[title=\"${TITLE}\"]" focus && exit
 
+swaymsg -q fullscreen disable
+
 if [ -n "${COMMAND}" ]; then
-  swaymsg -q fullscreen disable, \
-    exec "alacritty -t \"${TITLE}\" -e ${COMMAND}"
+  #shellcheck disable=SC2086
+  alacritty -t "${TITLE}" -e ${COMMAND}
 else
-  swaymsg -q fullscreen disable, \
-    exec "alacritty -t \"${TITLE}\""
+  alacritty -t "${TITLE}"
 fi
+
