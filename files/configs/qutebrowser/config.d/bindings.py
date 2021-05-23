@@ -256,6 +256,10 @@ config.bind('{key/Q}{key/c}'           , 'open --tab qute://help/commands.html',
 config.bind('{key/Q}{key/s}'           , 'open --tab qute://help/settings.html',   mode='normal')
 config.bind('{key/Q}{key/h}'           , 'open --tab qute://history',              mode='normal')
 
+# open page in other browsers
+config.bind('<Ctrl-{key/open/upp}>{key/c}', 'spawn --detach chromium {url}', mode='normal')
+config.bind('<Ctrl-{key/open/upp}>{key/f}', 'spawn --detach firefox {url}', mode='normal')
+
 # dev tools
 config.bind('<Ctrl-{key/tabulation/Tab}>', 'devtools window', mode='normal')
 
