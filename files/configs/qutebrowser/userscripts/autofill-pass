@@ -1,0 +1,52 @@
+#!/bin/sh
+# commands used:
+# - pass
+
+# Autofill username and password for known websites.
+# Rely on focus being on username field and the password field being
+# accessible via a Tab press.
+
+URLS_FILE="${PASSWORD_STORE_DIR:-$HOME/.password-store}/urls"
+
+exit_error() {
+  echo "message-error 'autofill-pass: $1'" >> "${QUTE_FIFO}"
+  exit 0
+}
+
+exit_warning() {
+  echo "message-warning 'autofill-pass: $1'" >> "${QUTE_FIFO}"
+  exit 0
+}
+
+if [ ! -f "${URLS_FILE}" ]; then
+  exit_error 'Missing urls file'
+fi
+
+DOMAIN="$( echo "${QUTE_URL}" | awk -F/ '{print $3}' )"
+PASS_ID="$( grep "^${DOMAIN}	" "${URLS_FILE}" | cut -f2 )"
+
+if [ -z "${PASS_ID}" ]; then
+  exit_warning "No existing credentials for ${DOMAIN}"
+fi
+
+SECRETS="$( pass "${PASS_ID}" )"
+
+if [ -z "${SECRETS}" ]; then
+  exit_error "Invalid pass identifier ${PASS_ID} for ${DOMAIN}"
+fi
+
+USERNAME="$( echo "${SECRETS}" | sed -n 's/^username: \(.*\)/\1/p' )"
+
+if [ -z "${USERNAME}" ]; then
+  USERNAME="$( echo "${SECRETS}" | sed -n 's/^email: \(.*\)/\1/p' )"
+fi
+
+PASSWORD="$( echo "${SECRETS}" | sed 1q )"
+
+# escape all characters sent via fake-key command
+{
+  echo 'mode-enter insert'
+  echo "fake-key $( echo "${USERNAME}" | sed 's/./\\&/g' )"
+  echo 'fake-key <Tab>'
+  echo "fake-key $( echo "${PASSWORD}" | sed 's/./\\&/g' )"
+} >> "${QUTE_FIFO}"

@@ -62,9 +62,10 @@ config.bind('<Ctrl-{key/interrupt/upp}>', 'mode-leave',  mode='hint')
 config.bind('<{key/return/Return}>',      'hint-follow', mode='hint')
 
 # insert mode
-config.bind('<{key/escape/Escape}>',      'mode-leave', mode='insert')
-config.bind('<Ctrl-{key/interrupt/upp}>', 'mode-leave', mode='insert')
-config.bind('<Ctrl-{key/edit/upp}>',      'edit-text', mode='insert')
+config.bind('<{key/escape/Escape}>',      'mode-leave',                       mode='insert')
+config.bind('<Ctrl-{key/interrupt/upp}>', 'mode-leave',                       mode='insert')
+config.bind('<Ctrl-{key/edit/upp}>',      'edit-text',                        mode='insert')
+config.bind('<Ctrl-Shift-{key/P}>',       'spawn --userscript autofill-pass', mode='insert')
 
 # passthrough mode
 config.bind('<Ctrl-{key/escape/Escape}>', 'mode-leave', mode='passthrough')
@@ -120,6 +121,7 @@ config.bind('{key/reload/upp}',                    'reload --force',            
 config.bind('{key/zoom/upp}',                      'fullscreen',                                                               mode='normal')
 config.bind('{key/f}',                             'hint all current',                                                         mode='normal')
 config.bind('<Ctrl-{key/S}>',                      'view-source',                                                              mode='normal')
+config.bind('<Ctrl-Shift-{key/P}>',                'spawn --userscript autofill-pass',                                         mode='normal')
 
 # visual navigation
 config.bind('<Ctrl-{key/scroll_page_up/upp}>',   'scroll-page 0 -1',   mode='normal')
