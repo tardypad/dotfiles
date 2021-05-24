@@ -1,15 +1,23 @@
 #!/bin/sh
 
 EVENT="$1"
-SOCKET_PATH="$2"
-SESSION_ID="$3"
-WINDOW_ID="$4"
+DURATION="$2"
+SOCKET_PATH="$3"
+SESSION_ID="$4"
+WINDOW_ID="$5"
 
 SILENCE_THRESHOLD=10
 
 STATUS=
 ON='on'
 OFF='off'
+
+MONITORING_ID='tmux_alert_'
+MONITORING_ID="${MONITORING_ID}_${SOCKET_PATH##*/}"
+MONITORING_ID="${MONITORING_ID}_${SESSION_ID#$}"
+MONITORING_ID="${MONITORING_ID}_${WINDOW_ID#@}"
+
+MONITORING_FILE="${XDG_RUNTIME_DIR:-/tmp}/${MONITORING_ID}"
 
 if [ "${EVENT}" = 'silence' ]; then
   ON="${SILENCE_THRESHOLD}"
@@ -18,18 +26,14 @@ fi
 
 if tmux show-window-options | grep -q "monitor-${EVENT} ${ON}"; then
   tmux set-window-option "monitor-${EVENT}" "${OFF}"
-  STATUS='disabled'
+  rm -f "${MONITORING_FILE}"
+  tmux display-message "Monitoring ${EVENT}: disabled"
 else
   tmux set-window-option "monitor-${EVENT}" "${ON}"
-  STATUS='enabled'
+  echo "${DURATION}" > "${MONITORING_FILE}"
+  tmux display-message "Monitoring ${EVENT} (${DURATION}): enabled"
 
   if [ -n "${DISPLAY}" ]; then
-    WINDOW_MARK=_tmux_alert
-    WINDOW_MARK="${WINDOW_MARK}_${SOCKET_PATH##*/}"
-    WINDOW_MARK="${WINDOW_MARK}_${SESSION_ID#$}"
-    WINDOW_MARK="${WINDOW_MARK}_${WINDOW_ID#@}"
-    swaymsg -q "mark --add ${WINDOW_MARK}"
+    swaymsg -q "mark --add ${MONITORING_ID}"
   fi
 fi
-
-tmux display-message "Monitoring ${EVENT}: ${STATUS}"

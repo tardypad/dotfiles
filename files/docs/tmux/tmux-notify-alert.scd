@@ -34,11 +34,14 @@ _window_id_
 
 # ENVIRONMENT VARIABLES
 
-None
+_XDG_RUNTIME_DIR_
+	Path to user-specific base directory to store runtime files++
+If unset, defaults to /tmp
 
 # FILES
 
-None
+_$XDG_RUNTIME_DIR/tmux_alert\_{window global id}_
+	File used to store the duration of the monitoring for the window
 
 # DEPENDENCIES
 

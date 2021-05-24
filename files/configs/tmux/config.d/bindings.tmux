@@ -14,15 +14,19 @@ bind -N 'reload config' M-{key/reload_config} source-file {dir/config}/tmux/tmux
 bind -N 'detach client'   {key/quit/low} detach-client
 bind -N 'detach client' C-{key/quit/low} detach-client
 
-bind -N 'run command'                  {key/command} command-prompt
-bind -N 'list keys'                  M-{key/?}       list-keys -a -N
-bind -N 'toggle activity monitoring' M-{key/a}       run "tmux-toggle-monitoring activity '#{socket_path}' '#{session_id}' '#{window_id}'"
-bind -N 'toggle silence monitoring'  M-{key/s}       run "tmux-toggle-monitoring silence '#{socket_path}' '#{session_id}' '#{window_id}'"
-bind -N 'toggle bell monitoring'     M-{key/b}       run "tmux-toggle-monitoring bell '#{socket_path}' '#{session_id}' '#{window_id}'"
-bind -N 'choose buffer'              M-{key/yank}    choose-buffer -Z -F '#{buffer_sample}' -O time
-bind -N 'documentation'              M-{key/d}       split-window -h -f -l 80 "printf 'documentation\n\n'; documentation-all || sleep 2"
-bind -N 'clear pane history'         M-{key/clear}   clear-history \; \
-                                                     display-message "Pane history cleared"
+bind -N 'run command'          {key/command} command-prompt
+bind -N 'list keys'          M-{key/?}       list-keys -a -N
+bind -N 'choose buffer'      M-{key/yank}    choose-buffer -Z -F '#{buffer_sample}' -O time
+bind -N 'documentation'      M-{key/d}       split-window -h -f -l 80 "printf 'documentation\n\n'; documentation-all || sleep 2"
+bind -N 'clear pane history' M-{key/clear}   clear-history \; \
+                                             display-message "Pane history cleared"
+
+bind -N 'toggle activity monitoring (single)'     M-{key/a} run "tmux-toggle-monitoring activity single '#{socket_path}' '#{session_id}' '#{window_id}'"
+bind -N 'toggle activity monitoring (continuous)' M-{key/A} run "tmux-toggle-monitoring activity continuous '#{socket_path}' '#{session_id}' '#{window_id}'"
+bind -N 'toggle silence monitoring (single)'      M-{key/s} run "tmux-toggle-monitoring silence single '#{socket_path}' '#{session_id}' '#{window_id}'"
+bind -N 'toggle silence monitoring (continuous)'  M-{key/S} run "tmux-toggle-monitoring silence continuous '#{socket_path}' '#{session_id}' '#{window_id}'"
+bind -N 'toggle bell monitoring (single)'         M-{key/b} run "tmux-toggle-monitoring bell single '#{socket_path}' '#{session_id}' '#{window_id}'"
+bind -N 'toggle bell monitoring (continuous)'     M-{key/B} run "tmux-toggle-monitoring bell continuous '#{socket_path}' '#{session_id}' '#{window_id}'"
 
 # copy/paste
 bind -N 'enter copy mode' {key/space/Space}  copy-mode
