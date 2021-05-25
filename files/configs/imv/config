@@ -3,7 +3,7 @@
 background = {color/background/hex}
 
 overlay = false
-overlay_font = 'Source Code Pro:16'
+overlay_font = 'Source Code Pro:13'
 overlay_text = "[$imv_current_index/$imv_file_count] $imv_current_file"
 overlay_text_color = {color/popup_foreground/hex}
 overlay_background_color = {color/popup_background/hex}

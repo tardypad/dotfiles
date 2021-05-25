@@ -1,7 +1,7 @@
 # show command line and status line
 set guioptions 'cs'
 
-set font 'Source Code Pro 12'
+set font 'Source Code Pro 10'
 
 set highlight-transparency 0.4
 

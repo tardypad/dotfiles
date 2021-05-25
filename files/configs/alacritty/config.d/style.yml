@@ -4,7 +4,7 @@ window:
     y: 2
 
 font:
-  size: 11.0
+  size: 9.5
 
 draw_bold_text_with_bright_colors: false
 
