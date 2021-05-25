@@ -16,6 +16,7 @@ validate_command_line() {
   fi
 
   if [ "${TOKEN_TYPE}" != 'hash' ] \
+     && [ "${TOKEN_TYPE}" != 'ip' ] \
      && [ "${TOKEN_TYPE}" != 'line' ] \
      && [ "${TOKEN_TYPE}" != 'path' ] \
      && [ "${TOKEN_TYPE}" != 'url' ] \
@@ -32,6 +33,10 @@ exit_error() {
 
 grep_hash() {
   grep -E -o '[[:digit:]a-fA-F][-[:digit:]a-fA-F]{5,}'
+}
+
+grep_ip() {
+  grep -E -o '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}(:[0-9]{1,5})?(/\S+)*'
 }
 
 grep_line() {

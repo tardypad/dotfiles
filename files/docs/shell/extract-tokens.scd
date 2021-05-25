@@ -21,7 +21,8 @@ None
 _type_
 	Type of token to extract++
 valid types:
-	- hash:  hexadecimal hash
+	- hash: hexadecimal hash
+	- ip: IPv4
 	- line: full line
 	- path: file path
 	- url: URL

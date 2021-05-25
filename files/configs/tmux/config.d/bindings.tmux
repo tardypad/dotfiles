@@ -186,7 +186,8 @@ bind -T root -N 'toggle no distraction (pane focus)'   M-C-{key/space/Space} run
 # extract menus
 
 bind -T root -N 'extract token from window' C-{key/tabulation/Tab} display-menu -x W -y S -T 'Extract' \
-'hash' {key/h} 'run -b "tmux-extract-tokens window hash"' \
+'hash' {key/h} 'run -b "tmux-extract-tokens window hash"'  \
+'ip'   {key/i} 'run -b "tmux-extract-tokens window ip"'    \
 'line' {key/l} 'run -b "tmux-extract-tokens window line"'  \
 'path' {key/p} 'run -b "tmux-extract-tokens window path"'  \
 'url'  {key/u} 'run -b "tmux-extract-tokens window url"'   \
@@ -194,7 +195,8 @@ bind -T root -N 'extract token from window' C-{key/tabulation/Tab} display-menu 
 'WORD' {key/W} 'run -b "tmux-extract-tokens window WORD"'
 
 bind -T root -N 'extract token from pane' C-S-{key/tabulation/Tab} display-menu -x P -y P -T 'Extract' \
-'hash' {key/h} 'run -b "tmux-extract-tokens pane hash"' \
+'hash' {key/h} 'run -b "tmux-extract-tokens pane hash"'  \
+'ip'   {key/h} 'run -b "tmux-extract-tokens pane ip"'    \
 'line' {key/l} 'run -b "tmux-extract-tokens pane line"'  \
 'path' {key/p} 'run -b "tmux-extract-tokens pane path"'  \
 'url'  {key/u} 'run -b "tmux-extract-tokens pane url"'   \
