@@ -7,6 +7,9 @@ syntax enable
 " color scheme
 colorscheme tardypad
 
+" decrease timeout for keycodes
+set timeoutlen=1000 ttimeoutlen=10
+
 " show keys typed in status line
 set showcmd
 
