@@ -102,18 +102,18 @@ function! s:highlight(group, base_fg, base_bg, attr)
 endfunction
 
 " misc
-call s:highlight("ColorColumn",  ""      ,     "base01", "")
-call s:highlight("Conceal",      "base0A",     "",       "")
-call s:highlight("Directory",    "base09",     "",       "bold")
-call s:highlight("EndOfBuffer",  "background", "",       "")
-call s:highlight("MatchParen",   "base0B",     "base03", "bold")
-call s:highlight("NonText",      "foreground", "base02", "")
-call s:highlight("Normal",       "foreground", "",       "")
-call s:highlight("SignColumn",   "base02",     "",       "")
-call s:highlight("SpecialKey",   "base02",     "",       "bold")
-call s:highlight("Terminal",     "foreground", "",       "")
-call s:highlight("Title",        "base09",     "",       "bold")
-call s:highlight("Visual",       "base00",     "base03", "")
+call s:highlight("ColorColumn",  ""      ,     "base01",     "")
+call s:highlight("Conceal",      "base0A",     "",           "")
+call s:highlight("Directory",    "base09",     "",           "bold")
+call s:highlight("EndOfBuffer",  "background", "",           "")
+call s:highlight("MatchParen",   "base0B",     "base03",     "bold")
+call s:highlight("NonText",      "foreground", "base02",     "")
+call s:highlight("Normal",       "foreground", "",           "")
+call s:highlight("SignColumn",   "base02",     "",           "")
+call s:highlight("SpecialKey",   "base02",     "",           "bold")
+call s:highlight("Terminal",     "foreground", "background", "")
+call s:highlight("Title",        "base09",     "",           "bold")
+call s:highlight("Visual",       "base00",     "base03",     "")
 
 " line number
 call s:highlight("CursorLineNr", "base04", "",       "")
@@ -207,6 +207,26 @@ highlight! link Tag              Special
 highlight! link Delimiter        Special
 highlight! link SpecialComment   Special
 highlight! link Debug            Special
+
+" terminal
+let g:terminal_ansi_colors = [
+    \ '#{color/black/hex}',
+    \ '#{color/red/hex}',
+    \ '#{color/green/hex}',
+    \ '#{color/yellow/hex}',
+    \ '#{color/blue/hex}',
+    \ '#{color/magenta/hex}',
+    \ '#{color/cyan/hex}',
+    \ '#{color/white/hex}',
+    \ '#{color/brblack/hex}',
+    \ '#{color/brred/hex}',
+    \ '#{color/brgreen/hex}',
+    \ '#{color/bryellow/hex}',
+    \ '#{color/brblue/hex}',
+    \ '#{color/brmagenta/hex}',
+    \ '#{color/brcyan/hex}',
+    \ '#{color/brwhite/hex}',
+  \ ]
 
 " Custom highlights
 call s:highlight("StatusLineLinterError",   "base00", "error",   "bold")
