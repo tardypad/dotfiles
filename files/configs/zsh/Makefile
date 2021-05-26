@@ -32,7 +32,6 @@ zsh-configs:
 	$(setup_file)/configs/zsh/completions/_pomodoro                                                  > $(DESTDIR)$(HOME)/.zsh/completions/_pomodoro
 	$(setup_file)/configs/zsh/completions/_project-path                                              > $(DESTDIR)$(HOME)/.zsh/completions/_project-path
 	$(setup_file)/configs/zsh/completions/_query-hosts-tags                                          > $(DESTDIR)$(HOME)/.zsh/completions/_query-hosts-tags
-	$(setup_file)/configs/zsh/completions/_rbt                                                       > $(DESTDIR)$(HOME)/.zsh/completions/_rbt
 	$(setup_file)/configs/zsh/completions/_read-news                                                 > $(DESTDIR)$(HOME)/.zsh/completions/_read-news
 	$(setup_file)/configs/zsh/completions/_redis-env                                                 > $(DESTDIR)$(HOME)/.zsh/completions/_redis-env
 	$(setup_file)/configs/zsh/completions/_somafm                                                    > $(DESTDIR)$(HOME)/.zsh/completions/_somafm
