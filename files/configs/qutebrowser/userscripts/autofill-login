@@ -9,12 +9,12 @@
 DOMAINS_PASS_ID_FILE="${PASSWORD_STORE_DIR:-$HOME/.password-store}/domains_pass_id"
 
 exit_error() {
-  echo "message-error 'autofill-pass: $1'" >> "${QUTE_FIFO}"
+  echo "message-error 'autofill-login: $1'" >> "${QUTE_FIFO}"
   exit 0
 }
 
 exit_warning() {
-  echo "message-warning 'autofill-pass: $1'" >> "${QUTE_FIFO}"
+  echo "message-warning 'autofill-login: $1'" >> "${QUTE_FIFO}"
   exit 0
 }
 
