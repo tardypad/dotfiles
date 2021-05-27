@@ -6,7 +6,7 @@
 # Rely on focus being on username field and the password field being
 # accessible via a Tab press.
 
-URLS_FILE="${PASSWORD_STORE_DIR:-$HOME/.password-store}/urls"
+DOMAINS_PASS_ID_FILE="${PASSWORD_STORE_DIR:-$HOME/.password-store}/domains_pass_id"
 
 exit_error() {
   echo "message-error 'autofill-pass: $1'" >> "${QUTE_FIFO}"
@@ -18,12 +18,12 @@ exit_warning() {
   exit 0
 }
 
-if [ ! -f "${URLS_FILE}" ]; then
-  exit_error 'Missing urls file'
+if [ ! -f "${DOMAINS_PASS_ID_FILE}" ]; then
+  exit_error 'Missing domains pass id file'
 fi
 
 DOMAIN="$( echo "${QUTE_URL}" | awk -F/ '{print $3}' )"
-PASS_ID="$( grep "^${DOMAIN}	" "${URLS_FILE}" | cut -f2 )"
+PASS_ID="$( grep "^${DOMAIN}	" "${DOMAINS_PASS_ID_FILE}" | cut -f2 )"
 
 if [ -z "${PASS_ID}" ]; then
   exit_warning "No existing credentials for ${DOMAIN}"
