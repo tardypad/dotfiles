@@ -21,8 +21,8 @@ c.fonts.web.family.fixed          = "Source Code Pro"
 c.fonts.web.family.sans_serif     = "Source Sans Pro"
 c.fonts.web.family.serif          = "Source Serif Pro"
 c.fonts.web.family.standard       = "Source Sans Pro"
-c.fonts.web.size.default          = 13
-c.fonts.web.size.default_fixed    = 10
+c.fonts.web.size.default          = 15
+c.fonts.web.size.default_fixed    = 12
 c.fonts.web.size.minimum          = 0
 c.fonts.web.size.minimum_logical  = 6
 
