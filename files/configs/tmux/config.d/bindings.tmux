@@ -40,7 +40,7 @@ bind -N 'rename session' C-{key/rename/low} command-prompt "rename-session '%%'"
 bind -N 'close session'  C-{key/close/low}  confirm-before -p 'kill-session "#{session_name}"? (y/n)' kill-session
 
 # select
-bind -N 'select session to switch to' C-{key/session/low}   choose-tree -Z -s -w -F '#{?pane_format,#{pane_current_command},#{?window_format,#{window_name},}}' -O index
+bind -N 'select session to switch to' C-{key/session/low}   choose-tree -Z -N -s -w -F '#{?pane_format,#{pane_current_command},#{?window_format,#{window_name},}}' -O index
 bind -N 'switch to alternate session' C-{key/alternate/low} switch-client -l
 bind -N 'switch to next session'      C-{key/next/low}      switch-client -n
 bind -N 'switch to next session'      C-{key/down/low}      switch-client -n
@@ -65,7 +65,7 @@ bind -N 'rename window' {key/rename/low} command-prompt "rename-window '%%'"
 bind -N 'close window'  {key/close/low}  confirm-before -p 'kill-window "#{window_name}"? (y/n)' kill-window
 
 # select
-bind -N 'select window to switch to' {key/window/low}    choose-tree -Z -w -F '#{?pane_format,#{pane_current_command},#{?window_format,#{window_name},}}' -f "#{!=:0,#{session_attached}}" -O index
+bind -N 'select window to switch to' {key/window/low}    choose-tree -Z -N -w -F '#{?pane_format,#{pane_current_command},#{?window_format,#{window_name},}}' -f "#{!=:0,#{session_attached}}" -O index
 bind -N 'switch to alternate window' {key/alternate/low} select-window -t ':{last}'
 bind -N 'switch to next window'      {key/next/low}      select-window -t ':{next}'
 bind -N 'switch to next window'      {key/right/low}     select-window -t ':{next}'
