@@ -9,5 +9,7 @@ qutebrowser-configs:
 	$(setup_file)/configs/qutebrowser/config.d/general.py            > $(DESTDIR)$(CONFIG_DIR)/qutebrowser/config.d/general.py
 	$(setup_file)/configs/qutebrowser/config.d/style.py              > $(DESTDIR)$(CONFIG_DIR)/qutebrowser/config.d/style.py
 	$(setup_file)/configs/qutebrowser/userscripts/autofill-login     > $(DESTDIR)$(CONFIG_DIR)/qutebrowser/userscripts/autofill-login
+	$(setup_file)/configs/qutebrowser/userscripts/autofill-otp       > $(DESTDIR)$(CONFIG_DIR)/qutebrowser/userscripts/autofill-otp
 
 	chmod +x $(DESTDIR)$(CONFIG_DIR)/qutebrowser/userscripts/autofill-login
+	chmod +x $(DESTDIR)$(CONFIG_DIR)/qutebrowser/userscripts/autofill-otp

@@ -65,6 +65,7 @@ config.bind('<{key/return/Return}>',      'hint-follow', mode='hint')
 config.bind('<{key/escape/Escape}>',      'mode-leave',                        mode='insert')
 config.bind('<Ctrl-{key/interrupt/upp}>', 'mode-leave',                        mode='insert')
 config.bind('<Ctrl-{key/edit/upp}>',      'edit-text',                         mode='insert')
+config.bind('<Ctrl-Shift-{key/O}>',       'spawn --userscript autofill-otp',   mode='insert')
 config.bind('<Ctrl-Shift-{key/P}>',       'spawn --userscript autofill-login', mode='insert')
 
 # passthrough mode
@@ -121,6 +122,7 @@ config.bind('{key/reload/upp}',                    'reload --force',            
 config.bind('{key/zoom/upp}',                      'fullscreen',                                                               mode='normal')
 config.bind('{key/f}',                             'hint all current',                                                         mode='normal')
 config.bind('<Ctrl-{key/S}>',                      'view-source',                                                              mode='normal')
+config.bind('<Ctrl-Shift-{key/O}>',                'spawn --userscript autofill-otp',                                          mode='normal')
 config.bind('<Ctrl-Shift-{key/P}>',                'spawn --userscript autofill-login',                                        mode='normal')
 
 # visual navigation
