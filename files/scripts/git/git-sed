@@ -12,7 +12,7 @@ init_variables() {
 
 parse_command_line() {
   SCRIPT="$1"
-  shift
+  shift 2> /dev/null
   PATHS="$*"
 }
 

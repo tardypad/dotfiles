@@ -25,11 +25,9 @@ init_variables() {
 }
 
 parse_command_line() {
-  if [ -n "$1" ]; then
-    QUERY_TYPE="$1"
-    shift
-    QUERY_ARGUMENTS=$*
-  fi
+  QUERY_TYPE="$1"
+  shift 2> /dev/null
+  QUERY_ARGUMENTS=$*
 }
 
 validate_command_line() {
