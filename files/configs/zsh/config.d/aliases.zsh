@@ -15,6 +15,7 @@ alias diff='diff --color=auto --palette="rs=0:hd=1:ad={color/add/fg}:de={color/d
 alias lh='ls -lh'
 
 # quick jump to often used folders
+alias dc='cd "${XDG_DOCUMENTS_DIR:-$HOME/Documents}"'
 alias dk='cd "${XDG_DESKTOP_DIR:-$HOME/Desktop}"'
 alias dw='cd "${XDG_DOWNLOAD_DIR:-$HOME/Downloads}"'
 alias nt='cd "${XDG_NOTES_DIR:-$HOME/Notes}"'
