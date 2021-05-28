@@ -28,8 +28,6 @@ alias .a='cat .aliases 2> /dev/null && . ./.aliases'
 
 alias pj='goto-project repo'
 alias PJ='goto-project main'
-alias logs='goto-project logs'
-alias docs='goto-project docs'
 
 alias max='calculate maximum'
 alias min='calculate minimum'
