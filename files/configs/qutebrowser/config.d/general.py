@@ -19,6 +19,9 @@ c.tabs.tooltips = False
 # disable changing tabs with mouse wheel
 c.tabs.mousewheel_switching = False
 
+# display blank page when closing the last remaining tab
+c.tabs.last_close = "blank"
+
 # disable search wrapping
 c.search.wrap = False
 
