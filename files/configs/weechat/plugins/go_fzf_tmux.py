@@ -28,7 +28,7 @@ def get_buffers():
     infolist = weechat.infolist_get('buffer', '', '')
     if infolist:
         while weechat.infolist_next(infolist):
-            name = weechat.infolist_string(infolist, 'name')
+            name = weechat.infolist_string(infolist, 'short_name')
             buffers.append(name)
         weechat.infolist_free(infolist)
     return buffers
