@@ -33,7 +33,7 @@ weechat-configs:
 
 weechat-external-plugins:
 	mkdir -p $(DESTDIR)$(HOME)/.weechat/python
-	curl -sL https://raw.githubusercontent.com/GermainZ/weechat-vimode/95661a27f92dc3f3286cf1539ab112a81ad15639/vimode.py \
+	curl -sL https://raw.githubusercontent.com/GermainZ/weechat-vimode/897a33b9fb28c98c4e0a1c292d13536dd57f85c7/vimode.py \
 		-o $(DESTDIR)$(HOME)/.weechat/python/vimode.py
 
 	# autoload plugins
