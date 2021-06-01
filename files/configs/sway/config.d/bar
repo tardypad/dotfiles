@@ -1,7 +1,7 @@
 bar {
     position top
     height 25
-    font Source Sans Pro, Font Awesome 5 Free 11
+    font Source Sans Pro, Font Awesome 5 Free Solid 11
     binding_mode_indicator yes
 
     colors {
