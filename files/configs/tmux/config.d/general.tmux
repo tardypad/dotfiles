@@ -104,3 +104,7 @@ set-option -g silence-action any
 set-hook -g alert-activity "run \"tmux-notify-alert activity '#{socket_path}' '#{session_id}' #{window_id}\""
 set-hook -g alert-bell "run \"tmux-notify-alert bell '#{socket_path}' '#{session_id}' #{window_id}\""
 set-hook -g alert-silence "run \"tmux-notify-alert silence '#{socket_path}' '#{session_id}' #{window_id}\""
+
+# when detaching the chat session we want to switch to the core.weechat buffer
+# this way we keep receiving highlight notifications that otherwise would have been silenced
+set-hook -g client-detached "run \"[ '#{session_name}' = 'chat' ] && echo '/buffer core.weechat' | weechat-fifo\""
