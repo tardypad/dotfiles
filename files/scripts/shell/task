@@ -150,7 +150,9 @@ is_task_started() {
 
 task_ids()
 {
-  find "${LOGGING_DIR}" -type f -exec cut -f1 {} \; \
+  find "${LOGGING_DIR}" -type f \
+    ! -name '.tags' \
+    -exec cut -f1 {} \; \
     | sort -u
 }
 
