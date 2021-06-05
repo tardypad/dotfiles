@@ -26,7 +26,7 @@
 
 | Name                            | Purpose                                      | Source                                                                                            | Version                                                                                                                |
 |---------------------------------|----------------------------------------------|---------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
-| vimode                          | vim-like mode and keybindings                | [GitHub](https://github.com/GermainZ/weechat-vimode)                                              | [95661a2](https://github.com/GermainZ/weechat-vimode/commit/95661a27f92dc3f3286cf1539ab112a81ad15639)                  |
+| weechat-vimode                  | vim-like mode and keybindings                | [GitHub](https://github.com/GermainZ/weechat-vimode)                                              | [r202.897a33b](https://github.com/GermainZ/weechat-vimode/commit/95661a27f92dc3f3286cf1539ab112a81ad15639)             |
 
 
 ## zsh

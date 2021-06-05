@@ -27,6 +27,6 @@ translate-shell: translate-shell-configs
 ctags: ctags-configs
 vim: vim-configs vim-external-plugins
 w3m: w3m-configs
-weechat: weechat-configs weechat-external-plugins
+weechat: weechat-configs
 zathura: zathura-configs
 zsh: zsh-configs shell-docs shell-scripts

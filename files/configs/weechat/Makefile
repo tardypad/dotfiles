@@ -1,4 +1,4 @@
-all: weechat-configs weechat-external-plugins
+all: weechat-configs
 
 weechat-configs:
 	mkdir -p $(DESTDIR)$(HOME)/.weechat/python
@@ -36,12 +36,5 @@ weechat-configs:
 	ln -fs ../export_important_buffers_count.py $(DESTDIR)$(HOME)/.weechat/python/autoload/export_important_buffers_count.py
 	ln -fs ../go_fzf_tmux.py                    $(DESTDIR)$(HOME)/.weechat/python/autoload/go_fzf_tmux.py
 
-
-weechat-external-plugins:
-	mkdir -p $(DESTDIR)$(HOME)/.weechat/python
-	curl -sL https://raw.githubusercontent.com/GermainZ/weechat-vimode/897a33b9fb28c98c4e0a1c292d13536dd57f85c7/vimode.py \
-		-o $(DESTDIR)$(HOME)/.weechat/python/vimode.py
-
-	# autoload plugins
-	mkdir -p $(DESTDIR)$(HOME)/.weechat/python/autoload
-	ln -fs ../vimode.py    $(DESTDIR)$(HOME)/.weechat/python/autoload/vimode.py
+	# autoload external plugins
+	ln -fs /usr/lib/weechat/python/vimode.py $(DESTDIR)$(HOME)/.weechat/python/autoload/vimode.py
