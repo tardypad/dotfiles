@@ -17,7 +17,6 @@
 | vim-undotree                    | undo history visualizer                      | [GitHub](https://github.com/mbbill/undotree)                                                      | [6.1](https://github.com/mbbill/undotree/releases/tag/rel_6.1)                                                         |
 | taboo.vim                       | tab utilities                                | [GitHub](https://github.com/gcmt/taboo.vim)                                                       | [caf9481](https://github.com/gcmt/taboo.vim/commit/caf948187694d3f1374913d36f947b3f9fa1c22f)                           |
 | vim-yaml                        | a faster YAML                                | [GitHub](https://github.com/stephpy/vim-yaml)                                                     | [8fc9136](https://github.com/stephpy/vim-yaml/commit/8fc9136a9c3f64b3e65bb6170391f9daf2c23056)                         |
-| elm-vim                         | Elm language                                 | [GitHub](https://github.com/Zaptic/elm-vim)                                                       | [0.19.1.0](https://github.com/Zaptic/elm-vim/releases/tag/0.19.1.0)                                                    |
 | vim-go                          | Go language                                  | [GitHub](https://github.com/fatih/vim-go)                                                         | [1.24](https://github.com/fatih/vim-go/releases/tag/v1.24)                                                             |
 
 

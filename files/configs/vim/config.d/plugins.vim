@@ -17,13 +17,6 @@ let g:ale_sign_style_warning = '!'
 autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | OSCYankReg " | endif
 
 
-"" elm
-
-let g:elm_format_autosave = 1
-let g:elm_setup_keybindings = 0
-let g:elm_syntastic_show_warnings = 1
-
-
 "" fzf
 
 " internal bindings
