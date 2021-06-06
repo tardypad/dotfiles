@@ -106,7 +106,7 @@ alias qalc='noglob qalc'
 alias flush-logs="find . -type f -name '*.log' -exec /bin/sh -c \"printf '' > '{}'\" \;"
 
 # Silver searcher default options
-alias ag='ag --color-match="1;{color/search_match/fg}" --color-path="{color/base09/fg}" --color-line-number="{color/base0A/fg}" --case-sensitive --hidden --ignore .git --follow'
+alias ag='ag --color-match="1;{color/search_match/fg}" --color-path="{color/base09/fg}" --color-line-number="{color/base0A/fg}" --case-sensitive --skip-vcs-ignores --hidden --ignore .git --follow'
 
 # tests
 alias test-micro='arecord -f cd -d 3 /tmp/test-micro.wav && aplay /tmp/test-micro.wav && rm -f /tmp/test-micro.wav'

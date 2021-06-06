@@ -32,7 +32,7 @@ function s:Run(word)
   let actions = join(keys(get(g:, 'fzf_action', s:default_actions)), ',')
 
   return fzf#run(fzf#wrap(s:history_file, {
-  \ 'source': 'ag --no-group --color --color-path=0 --color-match=1 --case-sensitive --column --hidden --ignore .git -- ' . a:word,
+  \ 'source': 'ag --no-group --color --color-path=0 --color-match=1 --case-sensitive --column --skip-vcs-ignores --hidden --ignore .git -- ' . a:word,
   \ 'sink*': function('s:OpenFile'),
   \ 'options': [ '-m', '-d', ':', '--with-nth', '1,4..', '--prompt', s:prompt,
   \              '--ansi', '--expect', actions,
