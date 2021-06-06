@@ -72,7 +72,6 @@ vim-configs:
 vim-external-plugins:
 	setup/install-vim-plugin vdebug            "$(DESTDIR)" git https://github.com/vim-vdebug/vdebug                  v2.0.0
 	setup/install-vim-plugin sayonara          "$(DESTDIR)" git https://github.com/mhinz/vim-sayonara                 357135c
-	setup/install-vim-plugin tmux-navigator    "$(DESTDIR)" git https://github.com/christoomey/vim-tmux-navigator     6c0b5d2
 	setup/install-vim-plugin oscyank           "$(DESTDIR)" git https://github.com/ojroques/vim-oscyank               5b48c13
 	setup/install-vim-plugin goyo              "$(DESTDIR)" git https://github.com/junegunn/goyo.vim                  a865dec
 	setup/install-vim-plugin undotree          "$(DESTDIR)" git https://github.com/mbbill/undotree                    rel_6.1
