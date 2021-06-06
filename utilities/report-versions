@@ -78,11 +78,6 @@ report_item() {
   while read -r ITEM; do
     VERSION_INSTALLED=$( pacman_version "${ITEM}" )
 
-    # ignore plugins not managed by packages manager
-    if [ "${TYPE}" = 'PLUGINS' ] && [ "${VERSION_INSTALLED}" = 'unknown' ]; then
-      continue
-    fi
-
     VERSION_DOCS=$( docs_version "${ITEM}" )
 
     if [ "${ONLY_DIFF}" -eq 1 ] \
