@@ -70,7 +70,6 @@ vim-configs:
 
 
 vim-external-plugins:
-	setup/install-vim-plugin surround          "$(DESTDIR)" git https://github.com/tpope/vim-surround                 f51a26d
 	setup/install-vim-plugin ale               "$(DESTDIR)" git https://github.com/w0rp/ale                           v3.0.0
 	setup/install-vim-plugin nerdcommenter     "$(DESTDIR)" git https://github.com/scrooloose/nerdcommenter           2.5.2
 	setup/install-vim-plugin vdebug            "$(DESTDIR)" git https://github.com/vim-vdebug/vdebug                  v2.0.0
