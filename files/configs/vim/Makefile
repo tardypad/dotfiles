@@ -71,7 +71,6 @@ vim-configs:
 
 vim-external-plugins:
 	setup/install-vim-plugin vdebug            "$(DESTDIR)" git https://github.com/vim-vdebug/vdebug                  v2.0.0
-	setup/install-vim-plugin tagbar            "$(DESTDIR)" git https://github.com/majutsushi/tagbar                  55f3513
 	setup/install-vim-plugin gutentags         "$(DESTDIR)" git https://github.com/ludovicchabant/vim-gutentags       50705e8
 	setup/install-vim-plugin ultisnips         "$(DESTDIR)" git https://github.com/sirver/ultisnips                   3.2
 	setup/install-vim-plugin sayonara          "$(DESTDIR)" git https://github.com/mhinz/vim-sayonara                 357135c
