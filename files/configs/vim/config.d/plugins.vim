@@ -17,15 +17,6 @@ let g:ale_sign_style_warning = '!'
 autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | OSCYankReg " | endif
 
 
-"" vdebug
-let g:vdebug_options = {
-\   'server': 'localhost',
-\   'port': '9001',
-\   'break_on_open': '0',
-\   'watch_window_style': 'compact'
-\   }
-
-
 "" elm
 
 let g:elm_format_autosave = 1

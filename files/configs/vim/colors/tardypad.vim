@@ -255,12 +255,6 @@ highlight! link ALEVirtualTextInfo         ALEInfo
 highlight! link ALEVirtualTextStyleError   ALEVirtualTextError
 highlight! link ALEVirtualTextStyleWarning ALEVirtualTextWarning
 
-" vdebug plugin
-call s:highlight("DbgCurrentLine", "notice", "", "")
-call s:highlight("DbgCurrentSign", "base00", "notice", "")
-call s:highlight("DbgBreakptLine", "base06", "", "")
-call s:highlight("DbgBreakptSign", "base00", "base06", "")
-
 " Tagbar plugin
 call s:highlight("TagbarFoldIcon",            "base0A", "", "")
 call s:highlight("TagbarScope",               "base0C", "", "")
