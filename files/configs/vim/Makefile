@@ -1,4 +1,4 @@
-all: vim-configs vim-external-plugins
+all: vim-configs
 
 vim-configs:
 	# create necessary runtime directories
@@ -65,14 +65,5 @@ vim-configs:
 	# generate spell file
 	if [ -z $(DESTDIR) ] ; then \
 		vim --clean -c "mkspell! $(HOME)/.vim/spell/en.utf-8.add.spl $(HOME)/.vim/spell/en.utf-8.add" +qall \
-		> /dev/null 2>&1; \
-	fi
-
-
-vim-external-plugins:
-
-	# generate help tags
-	if [ -z $(DESTDIR) ] ; then \
-		vim --clean -c 'helptags ALL' +qall \
 		> /dev/null 2>&1; \
 	fi
