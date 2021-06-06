@@ -70,7 +70,6 @@ vim-configs:
 
 
 vim-external-plugins:
-	setup/install-vim-plugin sayonara          "$(DESTDIR)" git https://github.com/mhinz/vim-sayonara                 357135c
 	setup/install-vim-plugin oscyank           "$(DESTDIR)" git https://github.com/ojroques/vim-oscyank               5b48c13
 	setup/install-vim-plugin taboo             "$(DESTDIR)" git https://github.com/gcmt/taboo.vim                     caf9481
 
