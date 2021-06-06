@@ -73,7 +73,6 @@ vim-external-plugins:
 	setup/install-vim-plugin vdebug            "$(DESTDIR)" git https://github.com/vim-vdebug/vdebug                  v2.0.0
 	setup/install-vim-plugin sayonara          "$(DESTDIR)" git https://github.com/mhinz/vim-sayonara                 357135c
 	setup/install-vim-plugin oscyank           "$(DESTDIR)" git https://github.com/ojroques/vim-oscyank               5b48c13
-	setup/install-vim-plugin goyo              "$(DESTDIR)" git https://github.com/junegunn/goyo.vim                  a865dec
 	setup/install-vim-plugin undotree          "$(DESTDIR)" git https://github.com/mbbill/undotree                    rel_6.1
 	setup/install-vim-plugin taboo             "$(DESTDIR)" git https://github.com/gcmt/taboo.vim                     caf9481
 	setup/install-vim-plugin yaml              "$(DESTDIR)" git https://github.com/stephpy/vim-yaml                   8fc9136
