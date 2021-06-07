@@ -171,14 +171,18 @@ config.bind('{key/yank}{key/s}',    'yank selection',  mode='normal')
 config.bind('{key/yank}{key/t}',    'yank title',      mode='normal')
 
 # bookmarks
-config.bind('{key/bookmark/low}{key/create}', 'set-cmd-text --space :bookmark-add {url}', mode='normal')
-config.bind('{key/bookmark/low}{key/delete}', 'set-cmd-text --space :bookmark-del',       mode='normal')
-config.bind('{key/bookmark/low}{key/open}',   'set-cmd-text --space :bookmark-load',      mode='normal')
+config.bind('{key/bookmark/low}{key/create}',           'set-cmd-text --space :bookmark-add {url}',     mode='normal')
+config.bind('{key/bookmark/low}{key/delete}',           'set-cmd-text --space :bookmark-del',           mode='normal')
+config.bind('{key/bookmark/low}{key/open}',             'set-cmd-text --space :bookmark-load',          mode='normal')
+config.bind('{key/bookmark/low}{key/tab}{key/open}',    'set-cmd-text --space :bookmark-load --tab',    mode='normal')
+config.bind('{key/bookmark/low}{key/window}{key/open}', 'set-cmd-text --space :bookmark-load --window', mode='normal')
 
 # quickmarks
-config.bind('{key/bookmark/upp}{key/create}', 'set-cmd-text --space :quickmark-add {url}', mode='normal')
-config.bind('{key/bookmark/upp}{key/delete}', 'set-cmd-text --space :quickmark-del',       mode='normal')
-config.bind('{key/bookmark/upp}{key/open}',   'set-cmd-text --space :quickmark-load',      mode='normal')
+config.bind('{key/bookmark/upp}{key/create}',           'set-cmd-text --space :quickmark-add {url}',     mode='normal')
+config.bind('{key/bookmark/upp}{key/delete}',           'set-cmd-text --space :quickmark-del',           mode='normal')
+config.bind('{key/bookmark/upp}{key/open}',             'set-cmd-text --space :quickmark-load',          mode='normal')
+config.bind('{key/bookmark/upp}{key/tab}{key/open}',    'set-cmd-text --space :quickmark-load --tab',    mode='normal')
+config.bind('{key/bookmark/upp}{key/window}{key/open}', 'set-cmd-text --space :quickmark-load --window', mode='normal')
 
 # tabs management
 config.bind('{key/tab}{key/create}',          'open --tab about:blank ;; set-cmd-text --space :open', mode='normal')
