@@ -18,6 +18,7 @@ mako: mako-configs
 mpd: mpd-configs
 openssh: openssh-configs
 qutebrowser: qutebrowser-configs
+ripgrep: ripgrep-configs
 sfeed: sfeed-configs
 sway: sway-configs sway-docs sway-scripts
 swaylock: swaylock-configs

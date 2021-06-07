@@ -1,0 +1,17 @@
+--colors
+match:style:bold
+--colors
+match:fg:{color/search_match/number}
+--colors
+path:fg:{color/base09/number}
+--colors
+line:fg:{color/base0A/number}
+--colors
+column:fg:{color/base0A/number}
+
+--smart-case
+--hidden
+--follow
+--no-ignore-vcs
+--glob
+!.git

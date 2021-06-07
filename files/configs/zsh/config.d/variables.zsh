@@ -42,6 +42,9 @@ JQ_COLORS="${JQ_COLORS}:0;{color/base0C/fg}"
 JQ_COLORS="${JQ_COLORS}:0;{color/base0C/fg}"
 export JQ_COLORS
 
+# define ripgrep config path
+export RIPGREP_CONFIG_PATH='{dir/config}/ripgrep/config'
+
 # decrease key timeout to 100ms
 export KEYTIMEOUT=10
 
