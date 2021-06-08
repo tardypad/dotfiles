@@ -56,7 +56,6 @@ Note that it is not an exact match as extra patches might be added by the distro
 | swayidle               | idle management daemon               | [GitHub](https://github.com/swaywm/swayidle)                                           | [1.6](https://github.com/swaywm/swayidle/releases/tag/1.6)                                                                                  |
 | swaylock               | screen locker                        | [GitHub](https://github.com/swaywm/swaylock)                                           | [1.5](https://github.com/swaywm/swaylock/releases/tag/1.5)                                                                                  |
 | systemd                | system and service manager           | [GitHub](https://github.com/systemd/systemd)                                           | [248.3](https://github.com/systemd/systemd-stable/releases/tag/v248.3)                                                                      |
-| the_silver_searcher    | code search                          | [GitHub](https://github.com/ggreer/the_silver_searcher)                                | [2.2.0](https://github.com/ggreer/the_silver_searcher/releases/tag/2.2.0)                                                                   |
 | tmux                   | terminal multiplexer                 | [GitHub](https://github.com/tmux/tmux)                                                 | [3.2](https://github.com/tmux/tmux/releases/tag/3.2)                                                                                        |
 | translate-shell        | translator                           | [GitHub](https://github.com/soimort/translate-shell)                                   | [0.9.6.11](https://github.com/soimort/translate-shell/releases/tag/v0.9.6.11)                                                               |
 | vim                    | text editor                          | [GitHub](https://github.com/vim/vim)                                                   | [8.2.2891](https://github.com/vim/vim/releases/tag/v8.2.2891)                                                                               |
@@ -70,7 +69,6 @@ Note that it is not an exact match as extra patches might be added by the distro
 | zsh                    | shell                                | [GitHub](https://github.com/zsh-users/zsh)                                             | [5.8](https://github.com/zsh-users/zsh/releases/tag/zsh-5.8)                                                                                |
 
 Some of the packages don't have their own dotfiles config for diversion reasons:
-- no support for any configuration (e.g., the silver searcher)
 - configuration is only system wide (e.g., networkmanager)
 - none is needed, use defaults (e.g., curl)
 - config is part of another package (e.g., fzf, variables part of shell config)
