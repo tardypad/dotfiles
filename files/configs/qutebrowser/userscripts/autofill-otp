@@ -35,6 +35,6 @@ if [ -z "${OTP_CODE}" ]; then
 fi
 
 {
+  echo "insert-text -- ${OTP_CODE}"
   echo 'mode-enter insert'
-  echo "fake-key ${OTP_CODE}"
 } >> "${QUTE_FIFO}"

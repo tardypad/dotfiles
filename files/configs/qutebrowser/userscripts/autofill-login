@@ -45,8 +45,10 @@ PASSWORD="$( echo "${SECRETS}" | sed 1q )"
 
 # escape all characters sent via fake-key command
 {
-  echo 'mode-enter insert'
-  echo "fake-key $( echo "${USERNAME}" | sed 's/./\\&/g' )"
+  echo "insert-text -- ${USERNAME}"
+  sleep 0.1
   echo 'fake-key <Tab>'
-  echo "fake-key $( echo "${PASSWORD}" | sed 's/./\\&/g' )"
+  sleep 0.1
+  echo "insert-text -- ${PASSWORD}"
+  echo 'mode-enter insert'
 } >> "${QUTE_FIFO}"
