@@ -114,8 +114,7 @@ FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS},change:first"
 export FZF_DEFAULT_OPTS
 
 # fzf default find command
-# only ignore build folder
-export FZF_DEFAULT_COMMAND='ag --no-color -g "" --follow --skip-vcs-ignores --hidden --ignore .git'
+export FZF_DEFAULT_COMMAND='rg --files'
 
 # bemenu default options
 BEMENU_OPTS='-i -l 10'
