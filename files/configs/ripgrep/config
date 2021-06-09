@@ -15,3 +15,5 @@ column:fg:{color/base0A/number}
 --no-ignore-vcs
 --glob
 !.git
+--glob
+!.tags*
