@@ -10,9 +10,7 @@ line:fg:{color/base0A/number}
 column:fg:{color/base0A/number}
 
 --smart-case
---hidden
 --follow
---no-ignore-vcs
 --glob
 !.git
 --glob
