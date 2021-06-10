@@ -2,6 +2,7 @@
 .tags*
 .notags
 .aliases
+.ignore
 
 # system
 .directory
