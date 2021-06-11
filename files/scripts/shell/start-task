@@ -43,7 +43,7 @@ read -r DO_NOT_DISTURB
 if [ "${LOG}" = 'Y' ] || [ "${LOG}" = 'y' ]; then
   task start "${TASK_ID}" "${TASK_DESC}"
 else
-  task -n start "${TASK_ID}" "${TASK_DESC}"
+  task -q start "${TASK_ID}" "${TASK_DESC}"
 fi
 
 if [ -n "${POMODORO_DURATION}" ]; then

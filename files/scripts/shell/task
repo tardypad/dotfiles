@@ -17,10 +17,10 @@ init_variables() {
 }
 
 parse_command_line() {
-  while getopts gnt OPT; do
+  while getopts gqt OPT; do
     case "${OPT}" in
       g) GROUPED_DISPLAY=true ;;
-      n) LOG=false ;;
+      q) LOG=false ;;
       t) TAB_SEPARATED=true ;;
       ?) exit_error ;;
     esac
