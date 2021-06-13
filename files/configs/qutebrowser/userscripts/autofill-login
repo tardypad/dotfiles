@@ -6,7 +6,7 @@
 # Rely on focus being on username field and the password field being
 # accessible via a Tab press.
 
-DOMAINS_PASS_ID_FILE="${PASSWORD_STORE_DIR:-$HOME/.password-store}/domains_pass_id"
+URLS_PASS_ID_FILE="${PASSWORD_STORE_DIR:-$HOME/.password-store}/urls_pass_id"
 
 exit_error() {
   echo "message-error 'autofill-login: $1'" >> "${QUTE_FIFO}"
@@ -18,21 +18,34 @@ exit_warning() {
   exit 0
 }
 
-if [ ! -f "${DOMAINS_PASS_ID_FILE}" ]; then
-  exit_error 'Missing domains pass id file'
+if [ ! -f "${URLS_PASS_ID_FILE}" ]; then
+  exit_error 'Missing urls pass id file'
 fi
 
-DOMAIN="$( echo "${QUTE_URL}" | awk -F/ '{print $3}' )"
-PASS_ID="$( grep "^${DOMAIN}	" "${DOMAINS_PASS_ID_FILE}" | cut -f2 )"
+# remove protocol from URL
+URL="$( echo "${QUTE_URL}" | cut -d/ -f3- )"
+
+PASS_ID=
+
+# get first matching pass id
+# shellcheck disable=SC2254
+while read -r LINE; do
+  case "${URL}" in
+    $( echo "${LINE}" | cut -f1 ))
+      PASS_ID="$( echo "${LINE}" | cut -f2 )"
+      break
+      ;;
+  esac
+done < "${URLS_PASS_ID_FILE}"
 
 if [ -z "${PASS_ID}" ]; then
-  exit_warning "No existing credentials for ${DOMAIN}"
+  exit_warning "No existing credentials for ${QUTE_URL}"
 fi
 
 SECRETS="$( pass "${PASS_ID}" )"
 
 if [ -z "${SECRETS}" ]; then
-  exit_error "Invalid pass identifier ${PASS_ID} for ${DOMAIN}"
+  exit_error "Invalid pass identifier ${PASS_ID} for ${QUTE_URL}"
 fi
 
 USERNAME="$( echo "${SECRETS}" | sed -n 's/^username: \(.*\)/\1/p' )"
