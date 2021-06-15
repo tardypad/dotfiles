@@ -37,6 +37,7 @@ _operands() {
 
 _arguments \
   '-g[display logs grouped by identifier]' \
+  '-n[show identifiers with their name]' \
   '-q[do not log the task at its end]' \
   '-t[display logs with values separated by tab]' \
   '1:action:_actions' \

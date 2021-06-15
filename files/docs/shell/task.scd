@@ -6,11 +6,13 @@ task - Manage the current task
 
 # SYNOPSIS
 
-task [-q] *start* _id_ [ _description_ ]
+task [-q] *start* _id_ [ _name_ ] [ _description_ ]
 
-task *log* _id_ _duration_ [ _description_ ]
+task *log* _id_ _duration_ [ _name_ ] [ _description_ ]
 
-task [ *ids* | *show* | *stop* ]
+task [-n] *ids*
+
+task [ *show* | *stop* ]
 
 task *review* [ _day_ ]
 
@@ -24,6 +26,9 @@ Track and log the current task with its duration
 
 *-g*
 	Display logs grouped by identifier with durations summed
+
+*-n*
+	Show identifiers with their name
 
 *-q*
 	Do not log the task at its end (quiet)
@@ -57,6 +62,9 @@ This is the default action if none is specified
 
 _id_
 	Task identifier
+
+_name_
+	Task name
 
 _description_
 	Task description

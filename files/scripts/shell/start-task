@@ -1,7 +1,7 @@
 #!/bin/sh
 
-TASK_ID=$(
-  task ids \
+TASK=$(
+  task -n ids \
     | fzf --reverse \
           --no-multi \
           --info hidden \
@@ -11,9 +11,19 @@ TASK_ID=$(
     | tail -n1
 )
 
-[ -n "${TASK_ID}" ] || exit
+[ -n "${TASK}" ] || exit
 
-printf 'Task: %s\n' "${TASK_ID}"
+TASK_ID="$( echo "${TASK}" | cut -d' ' -f1 )"
+TASK_NAME="$( echo "${TASK}" | sed 's/[^ ]* *\(.*\)/\1/' )"
+
+printf 'Id: %s\n' "${TASK_ID}"
+
+if [ -n "${TASK_NAME}" ]; then
+  printf 'Name: %s\n' "${TASK_NAME}"
+else
+  printf 'Name: '
+  read -r TASK_NAME
+fi
 
 printf 'Description: '
 read -r TASK_DESC
@@ -41,9 +51,9 @@ printf 'Do not disturb [y/N]: '
 read -r DO_NOT_DISTURB
 
 if [ "${LOG}" = 'Y' ] || [ "${LOG}" = 'y' ]; then
-  task start "${TASK_ID}" "${TASK_DESC}"
+  task start "${TASK_ID}" "${TASK_NAME}" "${TASK_DESC}"
 else
-  task -q start "${TASK_ID}" "${TASK_DESC}"
+  task -q start "${TASK_ID}" "${TASK_NAME}" "${TASK_DESC}"
 fi
 
 if [ -n "${POMODORO_DURATION}" ]; then
@@ -54,6 +64,6 @@ fi
 
 if [ "${DO_NOT_DISTURB}" = 'Y' ] || [ "${DO_NOT_DISTURB}" = 'y' ]; then
   nohup \
-    do-not-disturb -d "${POMODORO_DURATION}" -w "${TASK_ID}" enable \
+    do-not-disturb -d "${POMODORO_DURATION}" -w "${TASK_ID} ${TASK_NAME}" enable \
     > /dev/null 2>&1
 fi

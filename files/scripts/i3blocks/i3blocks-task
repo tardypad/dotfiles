@@ -6,8 +6,16 @@ TASK=$( task show 2> /dev/null )
 
 [ -n "${TASK}" ] || exit 0
 
+TASK_ID="$( echo "${TASK}" | cut -f1 )"
+TASK_NAME="$( echo "${TASK}" | cut -f2 )"
+
+if [ -n "${TASK_NAME}" ]; then
+  TEXT="${TASK_NAME}"
+else
+  TEXT="${TASK_ID}"
+fi
+
 COLOR_FG='#{color/base00/hex}'
 COLOR_BG='#{color/info/hex}'
-TEXT=$( echo "${TASK}" | cut -f1 )
 
 printf '%s\n\n%s\n%s\n' "  ${TEXT}  " "${COLOR_FG}" "${COLOR_BG}"

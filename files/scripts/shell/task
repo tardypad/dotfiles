@@ -8,18 +8,21 @@ init_variables() {
 
   ACTION='show'
   TASK_ID=
+  TASK_NAME=
   TASK_DESC=
   TASK_DURATION=
   LOGGING_DAY=$( date +%Y-%m-%d )
   GROUPED_DISPLAY=false
   TAB_SEPARATED=false
   LOG=true
+  ID_WITH_NAME=false
 }
 
 parse_command_line() {
-  while getopts gqt OPT; do
+  while getopts gnqt OPT; do
     case "${OPT}" in
       g) GROUPED_DISPLAY=true ;;
+      n) ID_WITH_NAME=true ;;
       q) LOG=false ;;
       t) TAB_SEPARATED=true ;;
       ?) exit_error ;;
@@ -32,11 +35,13 @@ parse_command_line() {
 
   if [ "${ACTION}" = 'start' ]; then
     TASK_ID="$2"
-    TASK_DESC="$3"
+    TASK_NAME="$3"
+    TASK_DESC="$4"
   elif [ "${ACTION}" = 'log' ]; then
     TASK_ID="$2"
     TASK_DURATION="$3"
-    TASK_DESC="$4"
+    TASK_NAME="$4"
+    TASK_DESC="$5"
   elif [ "${ACTION}" = 'review' ] || [ "${ACTION}" = 'overview' ]; then
     [ -z "$2" ] || LOGGING_DAY="$2"
   fi
@@ -54,7 +59,7 @@ validate_command_line() {
   fi
 
   if [ "${ACTION}" = 'start' ] && [ -z "${TASK_ID}" ]; then
-      exit_error 'Missing task identifier'
+    exit_error 'Missing task identifier'
   fi
 
   if [ "${ACTION}" = 'log' ]; then
@@ -105,8 +110,8 @@ task_start() {
     CURRENT_TIME='X'
   fi
 
-  printf '%s\t%s\t%s' \
-    "${CURRENT_TIME}" "${TASK_ID}" "${TASK_DESC}" \
+  printf '%s\t%s\t%s\t%s' \
+    "${CURRENT_TIME}" "${TASK_ID}" "${TASK_NAME}" "${TASK_DESC}" \
     > "${CURRENT_FILE_PATH}" \
     && update_i3blocks
 }
@@ -133,10 +138,11 @@ task_stop() {
     CURRENT_TIME=$( current_time_min )
     CURRENT_DURATION=$(( CURRENT_TIME - START_TIME ))
     CURRENT_ID=$( cut -f 2 "${CURRENT_FILE_PATH}" )
-    CURRENT_DESC=$( cut -f 3 "${CURRENT_FILE_PATH}" )
+    CURRENT_NAME=$( cut -f 3 "${CURRENT_FILE_PATH}" )
+    CURRENT_DESC=$( cut -f 4 "${CURRENT_FILE_PATH}" )
 
-    printf '%s\t%s\t%s\n' \
-      "${CURRENT_ID}" "${CURRENT_DURATION}"  "${CURRENT_DESC}" \
+    printf '%s\t%s\t%s\t%s\n' \
+      "${CURRENT_ID}" "${CURRENT_NAME}" "${CURRENT_DURATION}"  "${CURRENT_DESC}" \
       >> "${LOGGING_DIR}/${CURRENT_DAY}"
   fi
 
@@ -150,9 +156,15 @@ is_task_started() {
 
 task_ids()
 {
+  RANGE='1'
+  if [ "${ID_WITH_NAME}" = 'true' ]; then
+    RANGE='1-2'
+  fi
+
   find "${LOGGING_DIR}" -type f \
     ! -name '.tags' \
-    -exec cut -f1 {} \; \
+    -exec cut -f"${RANGE}" {} \; \
+    | tr '\t' ' ' \
     | sort -u
 }
 
@@ -160,8 +172,8 @@ task_log()
 {
   CURRENT_DAY=$( date +%Y-%m-%d )
 
-  printf '%s\t%s\t%s\n' \
-    "${TASK_ID}" "${TASK_DURATION}" "${TASK_DESC}" \
+  printf '%s\t%s\t%s\t%s\n' \
+    "${TASK_ID}" "${TASK_NAME}" "${TASK_DURATION}" "${TASK_DESC}" \
     >> "${LOGGING_DIR}/${CURRENT_DAY}"
 }
 

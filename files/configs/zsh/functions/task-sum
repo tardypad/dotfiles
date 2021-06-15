@@ -10,7 +10,7 @@ local total
 
 total=$(
   task -t overview "$day" \
-    | cut -f 2 \
+    | cut -f 3 \
     | sum
 )
 
