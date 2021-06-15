@@ -44,6 +44,7 @@ alias b216='base 2 16'
 
 alias rn='read-news'
 alias tk='task'
+alias tkl='task-log'
 alias tks='task-sum'
 alias dnd='do-not-disturb'
 alias pmd='pomodoro'

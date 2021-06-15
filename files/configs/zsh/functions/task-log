@@ -1,0 +1,51 @@
+# commands used:
+# - fzf
+# - task
+
+# select a task and log it for the current day
+
+TASK=$(
+  task -n ids \
+    | fzf --reverse \
+          --no-multi \
+          --info hidden \
+          --header "$( printf '\n' )" \
+          --print-query \
+          --prompt 'log task ' \
+    | tail -n1
+)
+
+[ -n "${TASK}" ] || return
+
+ID="$( echo "${TASK}" | cut -d' ' -f1 )"
+NAME="$( echo "${TASK}" | sed 's/[^ ]* *\(.*\)/\1/' )"
+
+printf 'Id: %s\n' "${ID}"
+
+if [ -n "${NAME}" ]; then
+  printf 'Name: %s\n' "${NAME}"
+else
+  printf 'Name: '
+  read -r NAME
+fi
+
+printf 'Description: '
+read -r DESC
+
+while true; do
+  printf 'Duration (min): '
+  read -r DURATION
+
+  case "${DURATION}" in
+    *[!0-9]*)
+      echo 'duration must be an integer' >&2
+      continue
+      ;;
+  esac
+
+  break
+done
+
+[ -n "${DURATION}" ] || return
+
+task log "${ID}" "${DURATION}" "${NAME}" "${DESC}"
