@@ -30,10 +30,14 @@ let g:fzf_action = {
 " same height as in terminal usage
 let g:fzf_layout = { 'down': '20' }
 
-" hide status line of terminal buffer
-autocmd! FileType fzf
-autocmd  FileType fzf set laststatus=0 noshowmode noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+augroup fzf
+  autocmd!
+  " clean appearance of terminal buffer
+  autocmd FileType fzf set laststatus=0 noshowmode noruler norelativenumber nolist
+        \| autocmd BufUnload <buffer> set laststatus=2 showmode ruler
+  " directly go to insert mode when re-entering the terminal buffer
+  autocmd BufEnter * if &filetype == 'fzf' | silent! normal i | endif
+augroup END
 
 " enable history
 let g:fzf_history_dir = '{dir/data}/fzf-history'

@@ -43,6 +43,12 @@ nnoremap <silent> {key/up}        :TmuxNavigateUp<cr>
 nnoremap <silent> {key/right}     :TmuxNavigateRight<cr>
 nnoremap <silent> {key/alternate} :TmuxNavigatePrevious<cr>
 
+tnoremap <silent> {key/left}      <c-\><c-n>:TmuxNavigateLeft<cr>
+tnoremap <silent> {key/down}      <c-\><c-n>:TmuxNavigateDown<cr>
+tnoremap <silent> {key/up}        <c-\><c-n>:TmuxNavigateUp<cr>
+tnoremap <silent> {key/right}     <c-\><c-n>:TmuxNavigateRight<cr>
+tnoremap <silent> {key/alternate} <c-\><c-n>:TmuxNavigatePrevious<cr>
+
 " delete the current buffer and close the current window
 nnoremap <silent> <Leader>{key/close/low} :Sayonara<CR>
 
