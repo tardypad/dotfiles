@@ -3,7 +3,7 @@
 init_variables() {
   COMMAND=${0##*/}
 
-  FIFO_FILE="${HOME}/.weechat/weechat_fifo"
+  FIFO_FILE="${XDG_RUNTIME_DIR:-/tmp}/weechat/weechat_fifo"
 
   BUFFER=
 }

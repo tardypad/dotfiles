@@ -12,7 +12,7 @@ import os.path
 import shlex
 import subprocess
 
-MESSAGE_FILE_PATH = os.path.expanduser('~/.weechat/message.txt')
+MESSAGE_FILE_PATH = os.environ.get('XDG_RUNTIME_DIR') + '/weechat/message'
 
 try:
     import weechat

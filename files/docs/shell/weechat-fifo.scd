@@ -25,11 +25,13 @@ Default: current one
 
 # ENVIRONMENT VARIABLES
 
-None
+_XDG_RUNTIME_DIR_
+	Path to user-specific base directory to store runtime files++
+If unset, defaults to /tmp
 
 # FILES
 
-_$HOME/.weechat/weechat_fifo_
+_$XDG_RUNTIME_DIR/weechat/weechat_fifo_
 	Weechat FIFO pipe
 
 # DEPENDENCIES
