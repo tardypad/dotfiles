@@ -15,7 +15,6 @@ weechat-configs:
 	$(setup_file)/configs/weechat/config.d/python.conf                      > $(DESTDIR)$(HOME)/.weechat/python.conf
 	$(setup_file)/configs/weechat/config.d/relay.conf                       > $(DESTDIR)$(HOME)/.weechat/relay.conf
 	$(setup_file)/configs/weechat/config.d/script.conf                      > $(DESTDIR)$(HOME)/.weechat/script.conf
-	$(setup_file)/configs/weechat/config.d/spell.conf                       > $(DESTDIR)$(HOME)/.weechat/spell.conf
 	$(setup_file)/configs/weechat/config.d/trigger.conf                     > $(DESTDIR)$(HOME)/.weechat/trigger.conf
 	$(setup_file)/configs/weechat/config.d/weechat.conf                     > $(DESTDIR)$(HOME)/.weechat/weechat.conf
 	$(setup_file)/configs/weechat/config.d/xfer.conf                        > $(DESTDIR)$(HOME)/.weechat/xfer.conf
