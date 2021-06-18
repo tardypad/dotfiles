@@ -4,6 +4,10 @@ c.auto_save.session = True
 # only show logs starting from warning level
 c.logging.level.console = 'warning'
 
+# blank start and default pages
+c.url.start_pages = 'about:blank'
+c.url.default_page = 'about:blank'
+
 # search engines
 c.url.searchengines = {
     "DEFAULT": "https://duckduckgo.com/?q={}",
