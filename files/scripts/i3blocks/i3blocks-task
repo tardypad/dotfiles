@@ -1,6 +1,9 @@
 #!/bin/sh
 # commands used:
+# - i3blocks-mode
 # - task
+
+MODE="$( i3blocks-mode )"
 
 TASK=$( task show 2> /dev/null )
 
@@ -9,7 +12,7 @@ TASK=$( task show 2> /dev/null )
 TASK_ID="$( echo "${TASK}" | cut -f1 )"
 TASK_NAME="$( echo "${TASK}" | cut -f2 )"
 
-if [ -n "${TASK_NAME}" ]; then
+if [ "${MODE}" = 'full' ] && [ -n "${TASK_NAME}" ]; then
   TEXT="${TASK_NAME}"
 else
   TEXT="${TASK_ID}"
