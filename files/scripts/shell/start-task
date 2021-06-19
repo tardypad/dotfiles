@@ -25,14 +25,17 @@ else
   read -r TASK_NAME
 fi
 
-printf 'Description: '
-read -r TASK_DESC
-
 printf '\n'
-
 printf 'Log [y/N]: '
 read -r LOG
 
+TASK_DESC=
+if [ "${LOG}" = 'Y' ] || [ "${LOG}" = 'y' ]; then
+    printf 'Description: '
+    read -r TASK_DESC
+fi
+
+printf '\n'
 while true; do
   printf 'Pomodoro duration (min): '
   read -r POMODORO_DURATION
@@ -47,6 +50,7 @@ while true; do
   break
 done
 
+printf '\n'
 printf 'Do not disturb [y/N]: '
 read -r DO_NOT_DISTURB
 
