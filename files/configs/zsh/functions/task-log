@@ -1,6 +1,7 @@
 # commands used:
 # - fzf
 # - task
+# - time-tracker
 
 # select a task and log it for the current day
 
@@ -10,23 +11,19 @@ TASK=$(
           --no-multi \
           --info hidden \
           --header "$( printf '\n' )" \
-          --print-query \
           --prompt 'log task ' \
     | tail -n1
 )
 
 [ -n "${TASK}" ] || return
 
-ID="$( echo "${TASK}" | cut -d' ' -f1 )"
-NAME="$( echo "${TASK}" | sed 's/[^ ]* *\(.*\)/\1/' )"
+ID="$( echo "${TASK}" | cut -f1 )"
+NAME="$( echo "${TASK}" | cut -f2 )"
 
 printf 'Id: %s\n' "${ID}"
 
 if [ -n "${NAME}" ]; then
   printf 'Name: %s\n' "${NAME}"
-else
-  printf 'Name: '
-  read -r NAME
 fi
 
 printf 'Description: '
@@ -48,4 +45,4 @@ done
 
 [ -n "${DURATION}" ] || return
 
-task log "${ID}" "${DURATION}" "${NAME}" "${DESC}"
+time-tracker log "${ID}" "${DURATION}" "${DESC}"
