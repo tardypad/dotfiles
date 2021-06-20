@@ -7,7 +7,7 @@ init_variables() {
   LOCAL_BOOKS_DIR="${XDG_BOOKS_DIR:-$HOME/Books}"
   LOCAL_CONTACTS_DIR="${XDG_CONTACTS_DIR:-$HOME/Contacts}"
   LOCAL_NOTES_DIR="${XDG_NOTES_DIR:-$HOME/Notes}"
-  LOCAL_TASK_LOGS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/tasks"
+  LOCAL_TIME_TRACKER_LOGS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/time-tracker/logs"
   LOCAL_VIDEOS_DIR="${XDG_VIDEOS_DIR:-$HOME/Videos}"
 
   HDD_BASE_DIR='/mnt/lacie_data'
@@ -25,7 +25,7 @@ init_variables() {
   SERVER_BOOKMARKS_DIR="${SERVER_BASE_DIR}/bookmarks"
   SERVER_CONTACTS_DIR="${SERVER_BASE_DIR}/contacts"
   SERVER_NOTES_DIR="${SERVER_BASE_DIR}/notes"
-  SERVER_TASK_LOGS_DIR="${SERVER_BASE_DIR}/tasks"
+  SERVER_TIME_TRACKER_LOGS_DIR="${SERVER_BASE_DIR}/time_tracker_logs"
 
   TARGET=
   ITEM=
@@ -54,13 +54,13 @@ validate_command_line() {
      && [ "${ITEM}" != 'books' ] \
      && [ "${ITEM}" != 'contacts' ] \
      && [ "${ITEM}" != 'notes' ] \
-     && [ "${ITEM}" != 'task_logs' ] \
+     && [ "${ITEM}" != 'time_tracker_logs' ] \
      && [ "${ITEM}" != 'videos' ]; then
     exit_error "Invalid item '${ITEM}'"
   fi
 
   if [ "${TARGET}" = 'hdd' ]; then
-    if [ "${ITEM}" = 'task_logs' ]; then
+    if [ "${ITEM}" = 'time_tracker_logs' ]; then
       exit_error "Cannot backup ${ITEM} on ${TARGET}"
     fi
   fi
@@ -137,10 +137,10 @@ backup_server_notes() {
     "${SERVER_HOST}:${SERVER_NOTES_DIR}"
 }
 
-backup_server_task_logs() {
+backup_server_time_tracker_logs() {
   rsync -azb --delete --exclude=".*" \
-    "${LOCAL_TASK_LOGS_DIR}/" \
-    "${SERVER_HOST}:${SERVER_TASK_LOGS_DIR}"
+    "${LOCAL_TIME_TRACKER_LOGS_DIR}/" \
+    "${SERVER_HOST}:${SERVER_TIME_TRACKER_LOGS_DIR}"
 }
 
 init_variables

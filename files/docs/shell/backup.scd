@@ -31,7 +31,7 @@ valid items:
 	- books
 	- contacts
 	- notes
-	- task_logs
+	- time_tracker_logs
 	- videos
 
 # TARGET ITEMS
@@ -53,7 +53,7 @@ Valid items per target
 |  notes
 :- \*
 :- \*
-|  task_logs
+|  time_tracker_logs
 : 
 :- \*
 |  videos
@@ -99,8 +99,8 @@ _$XDG_CONFIG_HOME/qutebrowser/quickmarks_
 _$XDG_CONTACTS_DIR_
 	Directory containing the contacts
 
-_$XDG_DATA_HOME/tasks_
-	Directory containing task logs
+_$XDG_DATA_HOME/time-tracker/logs_
+	Directory containing time tracker logs
 
 _$XDG_NOTES_DIR_
 	Directory containing the notes
