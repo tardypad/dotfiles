@@ -1,16 +1,16 @@
 # commands used:
 # - sum
-# - task
+# - time-tracker
 
-# display sum of task hours reported for a day
+# display sum of tracked hours reported for a day
 
 local day="$1"
 
 local total
 
 total=$(
-  task -t overview "$day" \
-    | cut -f 3 \
+  time-tracker -t overview "$day" \
+    | cut -f 2 \
     | sum
 )
 
