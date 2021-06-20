@@ -84,12 +84,16 @@ task_show() {
   fi
 
   TASK_ID="$( cat "${CURRENT_FILE_PATH}" )"
-  TASK_NAME="$(
-    sed -n "s/^${TASK_ID}	\(.*\)/\1/p" "${TASKS_DIR}"/* 2> /dev/null \
-      | sed 1q
-  )"
 
-  printf '%s\t%s\n' "${TASK_ID}" "${TASK_NAME}"
+  if [ "${ID_WITH_NAME}" = 'true' ]; then
+    TASK_NAME="$(
+      sed -n "s/^${TASK_ID}	\(.*\)/\1/p" "${TASKS_DIR}"/* 2> /dev/null \
+        | sed 1q
+    )"
+    printf '%s\t%s\n' "${TASK_ID}" "${TASK_NAME}"
+  else
+    printf '%s\n' "${TASK_ID}"
+  fi
 }
 
 task_drop() {

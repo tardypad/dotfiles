@@ -12,7 +12,9 @@ task [-n] *ids*
 
 task [-l] *pick* _id_ [ _description_ ]
 
-task [ *show* | *drop* ]
+task [-n] *show*
+
+task *drop*
 
 # DESCRIPTION
 
