@@ -24,8 +24,8 @@ bindsym $mod+{key/escape/Escape} exec do-not-disturb toggle
 # toggle Pomodoro session
 bindsym $mod+Shift+{key/escape/Escape} exec pomodoro toggle
 
-# stop task
-bindsym $mod+Ctrl+{key/escape/Escape} exec task stop
+# drop current task
+bindsym $mod+Ctrl+{key/escape/Escape} exec task drop
 
 # select region and grab screenshot
 bindsym $mod+{key/g} exec screenshot
@@ -74,7 +74,7 @@ mode "-- Commands --" {
     bindsym {key/o} mode "default", exec copy-otp
     bindsym {key/p} mode "default", exec copy-password
     bindsym {key/s} mode "default", exec play-somafm
-    bindsym {key/t} mode "default", exec sway-quick-command start-task
+    bindsym {key/t} mode "default", exec sway-quick-command pick-task
     bindsym {key/w} mode "default", exec {app/web_browser}
 
     bindsym Ctrl+{key/p} mode "default", exec {app/presentation}
