@@ -6,23 +6,19 @@ TASK=$(
           --no-multi \
           --info hidden \
           --header "$( printf '\n' )" \
-          --print-query \
-          --prompt 'start task ' \
+          --prompt 'pick task ' \
     | tail -n1
 )
 
 [ -n "${TASK}" ] || exit
 
-TASK_ID="$( echo "${TASK}" | cut -d' ' -f1 )"
-TASK_NAME="$( echo "${TASK}" | sed 's/[^ ]* *\(.*\)/\1/' )"
+TASK_ID="$( echo "${TASK}" | cut -f1 )"
+TASK_NAME="$( echo "${TASK}" | cut -f2 )"
 
 printf 'Id: %s\n' "${TASK_ID}"
 
 if [ -n "${TASK_NAME}" ]; then
   printf 'Name: %s\n' "${TASK_NAME}"
-else
-  printf 'Name: '
-  read -r TASK_NAME
 fi
 
 printf '\n'
@@ -55,9 +51,9 @@ printf 'Do not disturb [y/N]: '
 read -r DO_NOT_DISTURB
 
 if [ "${LOG}" = 'Y' ] || [ "${LOG}" = 'y' ]; then
-  task start "${TASK_ID}" "${TASK_NAME}" "${TASK_DESC}"
+  task -l pick "${TASK_ID}" "${TASK_DESC}"
 else
-  task -q start "${TASK_ID}" "${TASK_NAME}" "${TASK_DESC}"
+  task pick "${TASK_ID}" "${TASK_DESC}"
 fi
 
 if [ -n "${POMODORO_DURATION}" ]; then
@@ -68,6 +64,6 @@ fi
 
 if [ "${DO_NOT_DISTURB}" = 'Y' ] || [ "${DO_NOT_DISTURB}" = 'y' ]; then
   nohup \
-    do-not-disturb -d "${POMODORO_DURATION}" -w "${TASK_ID} ${TASK_NAME}" enable \
+    do-not-disturb -d "${POMODORO_DURATION}" -w "${TASK_ID}" enable \
     > /dev/null 2>&1
 fi

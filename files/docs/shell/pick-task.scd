@@ -1,16 +1,16 @@
-start-task(1perso)
+pick-task(1perso)
 
 # NAME
 
-start-task - Interactive start of a task
+pick-task - Interactive pick of a task
 
 # SYNOPSIS
 
-start-task
+pick-task
 
 # DESCRIPTION
 
-Open interface to start a task:
+Open interface to pick a task:
 - choose whether to log it or not at the end
 - start a pomodoro session (optional)
 - enable "Do not disturb" mode (optional)

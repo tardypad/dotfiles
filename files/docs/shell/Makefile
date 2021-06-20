@@ -28,6 +28,7 @@ shell-docs:
 	$(setup_file)/docs/shell/night-mode.scd               | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/night-mode.1perso
 	$(setup_file)/docs/shell/notify.scd                   | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/notify.1perso
 	$(setup_file)/docs/shell/open-document.scd            | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/open-document.1perso
+	$(setup_file)/docs/shell/pick-task.scd                | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/pick-task.1perso
 	$(setup_file)/docs/shell/play-somafm.scd              | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/play-somafm.1perso
 	$(setup_file)/docs/shell/pomodoro.scd                 | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/pomodoro.1perso
 	$(setup_file)/docs/shell/presentation-mode.scd        | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/presentation-mode.1perso
@@ -38,7 +39,6 @@ shell-docs:
 	$(setup_file)/docs/shell/screenshot.scd               | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/screenshot.1perso
 	$(setup_file)/docs/shell/somafm.scd                   | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/somafm.1perso
 	$(setup_file)/docs/shell/ssh-tags.scd                 | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/ssh-tags.1perso
-	$(setup_file)/docs/shell/start-task.scd               | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/start-task.1perso
 	$(setup_file)/docs/shell/status.scd                   | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/status.1perso
 	$(setup_file)/docs/shell/system-menu.scd              | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/system-menu.1perso
 	$(setup_file)/docs/shell/task.scd                     | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/task.1perso

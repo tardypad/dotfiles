@@ -28,6 +28,7 @@ shell-scripts:
 	$(setup_file)/scripts/shell/night-mode                   > $(DESTDIR)$(BIN_DIR)/night-mode
 	$(setup_file)/scripts/shell/notify                       > $(DESTDIR)$(BIN_DIR)/notify
 	$(setup_file)/scripts/shell/open-document                > $(DESTDIR)$(BIN_DIR)/open-document
+	$(setup_file)/scripts/shell/pick-task                    > $(DESTDIR)$(BIN_DIR)/pick-task
 	$(setup_file)/scripts/shell/play-somafm                  > $(DESTDIR)$(BIN_DIR)/play-somafm
 	$(setup_file)/scripts/shell/pomodoro                     > $(DESTDIR)$(BIN_DIR)/pomodoro
 	$(setup_file)/scripts/shell/presentation-mode            > $(DESTDIR)$(BIN_DIR)/presentation-mode
@@ -38,7 +39,6 @@ shell-scripts:
 	$(setup_file)/scripts/shell/screenshot                   > $(DESTDIR)$(BIN_DIR)/screenshot
 	$(setup_file)/scripts/shell/somafm                       > $(DESTDIR)$(BIN_DIR)/somafm
 	$(setup_file)/scripts/shell/ssh-tags                     > $(DESTDIR)$(BIN_DIR)/ssh-tags
-	$(setup_file)/scripts/shell/start-task                   > $(DESTDIR)$(BIN_DIR)/start-task
 	$(setup_file)/scripts/shell/status                       > $(DESTDIR)$(BIN_DIR)/status
 	$(setup_file)/scripts/shell/system-menu                  > $(DESTDIR)$(BIN_DIR)/system-menu
 	$(setup_file)/scripts/shell/task                         > $(DESTDIR)$(BIN_DIR)/task
@@ -73,6 +73,7 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/night-mode
 	chmod +x $(DESTDIR)$(BIN_DIR)/notify
 	chmod +x $(DESTDIR)$(BIN_DIR)/open-document
+	chmod +x $(DESTDIR)$(BIN_DIR)/pick-task
 	chmod +x $(DESTDIR)$(BIN_DIR)/play-somafm
 	chmod +x $(DESTDIR)$(BIN_DIR)/pomodoro
 	chmod +x $(DESTDIR)$(BIN_DIR)/presentation-mode
@@ -83,7 +84,6 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/screenshot
 	chmod +x $(DESTDIR)$(BIN_DIR)/somafm
 	chmod +x $(DESTDIR)$(BIN_DIR)/ssh-tags
-	chmod +x $(DESTDIR)$(BIN_DIR)/start-task
 	chmod +x $(DESTDIR)$(BIN_DIR)/status
 	chmod +x $(DESTDIR)$(BIN_DIR)/system-menu
 	chmod +x $(DESTDIR)$(BIN_DIR)/task
