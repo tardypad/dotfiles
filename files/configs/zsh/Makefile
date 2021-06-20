@@ -37,6 +37,7 @@ zsh-configs:
 	$(setup_file)/configs/zsh/completions/_somafm                                                    > $(DESTDIR)$(HOME)/.zsh/completions/_somafm
 	$(setup_file)/configs/zsh/completions/_ssh-tags                                                  > $(DESTDIR)$(HOME)/.zsh/completions/_ssh-tags
 	$(setup_file)/configs/zsh/completions/_task                                                      > $(DESTDIR)$(HOME)/.zsh/completions/_task
+	$(setup_file)/configs/zsh/completions/_task-log                                                  > $(DESTDIR)$(HOME)/.zsh/completions/_task-log
 	$(setup_file)/configs/zsh/completions/_time-tracker                                              > $(DESTDIR)$(HOME)/.zsh/completions/_time-tracker
 	$(setup_file)/configs/zsh/completions/_time-tracker-sum                                          > $(DESTDIR)$(HOME)/.zsh/completions/_time-tracker-sum
 	$(setup_file)/configs/zsh/completions/_tmux-env                                                  > $(DESTDIR)$(HOME)/.zsh/completions/_tmux-env

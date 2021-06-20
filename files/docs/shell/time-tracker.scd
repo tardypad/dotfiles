@@ -10,17 +10,20 @@ time-tracker *start* _id_ [ _description_ ]
 
 time-tracker [ *show* | *stop* ]
 
-time-tracker *log* _id_ _duration_ [ _description_ ]
+time-tracker [-d _day_] *log* _id_ _duration_ [ _description_ ]
 
-time-tracker [-gt] *overview* [ _day_ ]
+time-tracker [-gt] [-d _day_] *overview*
 
-time-tracker *edit* [ _day_ ]
+time-tracker [-d _day_] *edit*
 
 # DESCRIPTION
 
 Track and log the time spent on a task
 
 # OPTIONS
+
+*-d* _day_
+	Logging day to use for the action
 
 *-g*
 	Display logs grouped by identifier with durations summed

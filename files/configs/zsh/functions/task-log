@@ -5,6 +5,10 @@
 
 # select a task and log it for the current day
 
+local day="$1"
+
+[ -n "${day}" ] || day="$( date +%Y-%m-%d )"
+
 TASK=$(
   task -n ids \
     | fzf --reverse \
@@ -45,4 +49,4 @@ done
 
 [ -n "${DURATION}" ] || return
 
-time-tracker log "${ID}" "${DURATION}" "${DESC}"
+time-tracker -d "${day}" log "${ID}" "${DURATION}" "${DESC}"

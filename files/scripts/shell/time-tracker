@@ -16,8 +16,9 @@ init_variables() {
 }
 
 parse_command_line() {
-  while getopts gt OPT; do
+  while getopts d:gt OPT; do
     case "${OPT}" in
+      d) LOGGING_DAY="${OPTARG}" ;;
       g) GROUPED_DISPLAY=true ;;
       t) TAB_SEPARATED=true ;;
       ?) exit_error ;;
@@ -35,8 +36,6 @@ parse_command_line() {
     TASK_ID="$2"
     TASK_DURATION="$3"
     TASK_DESC="$4"
-  elif [ "${ACTION}" = 'edit' ] || [ "${ACTION}" = 'overview' ]; then
-    [ -z "$2" ] || LOGGING_DAY="$2"
   fi
 }
 
@@ -139,11 +138,9 @@ is_tracking_task() {
 
 time_tracker_log()
 {
-  CURRENT_DAY=$( date +%Y-%m-%d )
-
   printf '%s\t%s\t%s\n' \
     "${TASK_ID}" "${TASK_DURATION}" "${TASK_DESC}" \
-    >> "${LOGGING_DIR}/${CURRENT_DAY}"
+    >> "${LOGGING_DIR}/${LOGGING_DAY}"
 }
 
 time_tracker_edit()
