@@ -38,6 +38,7 @@ zsh-configs:
 	$(setup_file)/configs/zsh/completions/_ssh-tags                                                  > $(DESTDIR)$(HOME)/.zsh/completions/_ssh-tags
 	$(setup_file)/configs/zsh/completions/_task                                                      > $(DESTDIR)$(HOME)/.zsh/completions/_task
 	$(setup_file)/configs/zsh/completions/_task-sum                                                  > $(DESTDIR)$(HOME)/.zsh/completions/_task-sum
+	$(setup_file)/configs/zsh/completions/_time-tracker                                              > $(DESTDIR)$(HOME)/.zsh/completions/_time-tracker
 	$(setup_file)/configs/zsh/completions/_tmux-env                                                  > $(DESTDIR)$(HOME)/.zsh/completions/_tmux-env
 	$(setup_file)/configs/zsh/completions/_url                                                       > $(DESTDIR)$(HOME)/.zsh/completions/_url
 	$(setup_file)/configs/zsh/completions/git/_git-argument                                          > $(DESTDIR)$(HOME)/.zsh/completions/git/_git-argument

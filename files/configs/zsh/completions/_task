@@ -1,16 +1,12 @@
 #compdef task
 
-local logging_dir="${XDG_DATA_HOME:-$HOME/.local/share}/tasks"
-
 _actions() {
   local actions=(
+    create
+    drop
     ids
-    log
-    overview
-    review
+    pick
     show
-    start
-    stop
   )
 
   compadd "$@" $actions
@@ -21,24 +17,14 @@ _ids() {
   compadd "$@" $ids
 }
 
-_days() {
-  _path_files -W "${logging_dir}"
-}
-
 _operands() {
-  if [ $words[CURRENT-1] = 'start' ] \
-    || [ $words[CURRENT-1] = 'log' ]; then
+  if [ $words[CURRENT-1] = 'pick' ]; then
     _ids
-  elif [ $words[CURRENT-1] = 'review' ] \
-    || [ $words[CURRENT-1] = 'overview' ]; then
-    _days
   fi
 }
 
 _arguments \
-  '-g[display logs grouped by identifier]' \
   '-n[show identifiers with their name]' \
-  '-q[do not log the task at its end]' \
-  '-t[display logs with values separated by tab]' \
+  '-l[track and log the time spent on the task]' \
   '1:action:_actions' \
   '2:operand:_operands'

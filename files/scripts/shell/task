@@ -4,27 +4,21 @@ init_variables() {
   COMMAND=${0##*/}
 
   CURRENT_FILE_PATH="${XDG_RUNTIME_DIR:-/tmp}/task"
-  LOGGING_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/tasks"
+  TASKS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/tasks"
 
   ACTION='show'
   TASK_ID=
   TASK_NAME=
   TASK_DESC=
-  TASK_DURATION=
-  LOGGING_DAY=$( date +%Y-%m-%d )
-  GROUPED_DISPLAY=false
-  TAB_SEPARATED=false
-  LOG=true
+  LOG=false
   ID_WITH_NAME=false
 }
 
 parse_command_line() {
-  while getopts gnqt OPT; do
+  while getopts nl OPT; do
     case "${OPT}" in
-      g) GROUPED_DISPLAY=true ;;
       n) ID_WITH_NAME=true ;;
-      q) LOG=false ;;
-      t) TAB_SEPARATED=true ;;
+      l) LOG=true ;;
       ?) exit_error ;;
     esac
   done
@@ -33,53 +27,30 @@ parse_command_line() {
 
   [ -z "$1" ] || ACTION="$1"
 
-  if [ "${ACTION}" = 'start' ]; then
+  if [ "${ACTION}" = 'create' ]; then
     TASK_ID="$2"
     TASK_NAME="$3"
-    TASK_DESC="$4"
-  elif [ "${ACTION}" = 'log' ]; then
+  elif [ "${ACTION}" = 'pick' ]; then
     TASK_ID="$2"
-    TASK_DURATION="$3"
-    TASK_NAME="$4"
-    TASK_DESC="$5"
-  elif [ "${ACTION}" = 'review' ] || [ "${ACTION}" = 'overview' ]; then
-    [ -z "$2" ] || LOGGING_DAY="$2"
+    TASK_DESC="$3"
   fi
 }
 
 validate_command_line() {
-  if [ "${ACTION}" != 'start' ] \
-     && [ "${ACTION}" != 'stop' ] \
+  if [ "${ACTION}" != 'create' ] \
+     && [ "${ACTION}" != 'ids' ] \
+     && [ "${ACTION}" != 'pick' ] \
      && [ "${ACTION}" != 'show' ] \
-     && [ "${ACTION}" != 'log' ] \
-     && [ "${ACTION}" != 'review' ] \
-     && [ "${ACTION}" != 'overview' ] \
-     && [ "${ACTION}" != 'ids' ]; then
+     && [ "${ACTION}" != 'drop' ]; then
     exit_error "Invalid action '${ACTION}'"
   fi
 
-  if [ "${ACTION}" = 'start' ] && [ -z "${TASK_ID}" ]; then
+  if [ "${ACTION}" = 'create' ] && [ -z "${TASK_ID}" ]; then
     exit_error 'Missing task identifier'
   fi
 
-  if [ "${ACTION}" = 'log' ]; then
-    if [ -z "${TASK_ID}" ]; then
-      exit_error 'Missing task identifier'
-    fi
-    if [ -z "${TASK_DURATION}" ]; then
-      exit_error 'Missing task duration'
-    fi
-
-    case "${TASK_DURATION}" in
-      *[!0-9]*) exit_error 'task duration must be an integer' ;;
-    esac
-  fi
-
-  if [ "${ACTION}" = 'review' ] || [ "${ACTION}" = 'overview' ]; then
-    case "${LOGGING_DAY}" in
-      [0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]) ;;
-      *) exit_error 'Invalid day format' ;;
-    esac
+  if [ "${ACTION}" = 'pick' ] && [ -z "${TASK_ID}" ]; then
+    exit_error 'Missing task identifier'
   fi
 }
 
@@ -88,69 +59,52 @@ exit_error() {
   exit 1
 } >&2
 
-current_time_min() {
-  CUR_HOURS=$( date +%H )
-  CUR_MINUTES=$( date +%M )
-  # values with leading 0 are interpreted as octals
-  # which leads to issue with "08" and "09"
-  # so we need to remove them
-  echo $((
-    ${CUR_HOURS#0} * 60 + ${CUR_MINUTES#0}
-  ))
+task_create() {
+  printf '%s\t%s\n' "${TASK_ID}" "${TASK_NAME}" \
+    >> "${TASKS_DIR}"/local
 }
 
-task_start() {
-  if is_task_started; then
-    task_stop
+task_pick() {
+  if has_current_task; then
+    task_drop
   fi
 
   if [ "${LOG}" = 'true' ]; then
-    CURRENT_TIME=$( current_time_min )
-  else
-    CURRENT_TIME='X'
+    time-tracker start "${TASK_ID}" "${TASK_DESC}"
   fi
 
-  printf '%s\t%s\t%s\t%s' \
-    "${CURRENT_TIME}" "${TASK_ID}" "${TASK_NAME}" "${TASK_DESC}" \
-    > "${CURRENT_FILE_PATH}" \
+  printf '%s' "${TASK_ID}" > "${CURRENT_FILE_PATH}" \
     && update_i3blocks
 }
 
 task_show() {
-  if ! is_task_started; then
+  if ! has_current_task; then
     echo 'No current task' >&2
     return 1
   fi
 
-  cut -f 2- "${CURRENT_FILE_PATH}"
+  TASK_ID="$( cat "${CURRENT_FILE_PATH}" )"
+  TASK_NAME="$(
+    sed -n "s/^${TASK_ID}	\(.*\)/\1/p" "${TASKS_DIR}"/* 2> /dev/null \
+      | sed 1q
+  )"
+
+  printf '%s\t%s\n' "${TASK_ID}" "${TASK_NAME}"
 }
 
-task_stop() {
-  if ! is_task_started; then
+task_drop() {
+  if ! has_current_task; then
     echo 'No current task' >&2
     return 1
   fi
 
-  START_TIME=$( cut -f 1 "${CURRENT_FILE_PATH}" )
-
-  if [ "${START_TIME}" != 'X' ]; then
-    CURRENT_DAY=$( date +%Y-%m-%d )
-    CURRENT_TIME=$( current_time_min )
-    CURRENT_DURATION=$(( CURRENT_TIME - START_TIME ))
-    CURRENT_ID=$( cut -f 2 "${CURRENT_FILE_PATH}" )
-    CURRENT_NAME=$( cut -f 3 "${CURRENT_FILE_PATH}" )
-    CURRENT_DESC=$( cut -f 4 "${CURRENT_FILE_PATH}" )
-
-    printf '%s\t%s\t%s\t%s\n' \
-      "${CURRENT_ID}" "${CURRENT_NAME}" "${CURRENT_DURATION}"  "${CURRENT_DESC}" \
-      >> "${LOGGING_DIR}/${CURRENT_DAY}"
-  fi
+  time-tracker stop 2> /dev/null
 
   rm -rf "${CURRENT_FILE_PATH}" \
     && update_i3blocks
 }
 
-is_task_started() {
+has_current_task() {
   [ -f "${CURRENT_FILE_PATH}" ]
 }
 
@@ -161,57 +115,8 @@ task_ids()
     RANGE='1-2'
   fi
 
-  find "${LOGGING_DIR}" -type f \
-    ! -name '.tags' \
-    -exec cut -f"${RANGE}" {} \; \
-    | tr '\t' ' ' \
+  cut -f"${RANGE}" "${TASKS_DIR}"/* 2> /dev/null \
     | sort -u
-}
-
-task_log()
-{
-  CURRENT_DAY=$( date +%Y-%m-%d )
-
-  printf '%s\t%s\t%s\t%s\n' \
-    "${TASK_ID}" "${TASK_NAME}" "${TASK_DURATION}" "${TASK_DESC}" \
-    >> "${LOGGING_DIR}/${CURRENT_DAY}"
-}
-
-task_review()
-{
-  "${EDITOR:-vi}" "${LOGGING_DIR}/${LOGGING_DAY}"
-}
-
-task_overview()
-{
-  if [ ! -f "${LOGGING_DIR}/${LOGGING_DAY}" ]; then
-    return
-  fi
-
-  if [ "${TAB_SEPARATED}" = 'false' ]; then
-    FORMAT_CMD='column -s "	" -t'
-  else
-    FORMAT_CMD='cat'
-  fi
-
-  if [ "${GROUPED_DISPLAY}" = 'false' ]; then
-    eval "${FORMAT_CMD}" "${LOGGING_DIR}/${LOGGING_DAY}"
-    return
-  fi
-
-  awk -v FS='\t' -v OFS='\t' \
-    '{
-      sum[$1] += $2;
-      if ($3 && desc[$1] !~ $3", ")
-        desc[$1] = desc[$1] $3", "
-     }
-    END {
-      for (id in sum)
-      print id, sum[id], desc[id]
-    }' \
-    "${LOGGING_DIR}/${LOGGING_DAY}" \
-    | sed 's/, $//' \
-    | eval "${FORMAT_CMD}"
 }
 
 update_i3blocks() {
@@ -222,5 +127,5 @@ init_variables
 parse_command_line "$@"
 validate_command_line
 
-mkdir -p "${LOGGING_DIR}"
+mkdir -p "${TASKS_DIR}"
 "task_${ACTION}"

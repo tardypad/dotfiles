@@ -1,0 +1,33 @@
+#compdef time-tracker
+
+local logging_dir="${XDG_DATA_HOME:-$HOME/.local/share}/time-tracker/logs"
+
+_actions() {
+  local actions=(
+    edit
+    log
+    overview
+    show
+    start
+    stop
+  )
+
+  compadd "$@" $actions
+}
+
+_days() {
+  _path_files -W "${logging_dir}"
+}
+
+_operands() {
+  if [ $words[CURRENT-1] = 'overview' ] \
+    || [ $words[CURRENT-1] = 'edit' ]; then
+    _days
+  fi
+}
+
+_arguments \
+  '-g[display logs grouped by identifier]' \
+  '-t[display logs with values separated by tab]' \
+  '1:action:_actions' \
+  '2:operand:_operands'

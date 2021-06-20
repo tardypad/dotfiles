@@ -1,0 +1,191 @@
+#!/bin/sh
+
+init_variables() {
+  COMMAND=${0##*/}
+
+  CURRENT_FILE_PATH="${XDG_RUNTIME_DIR:-/tmp}/time-tracker"
+  LOGGING_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/time-tracker/logs"
+
+  ACTION='show'
+  TASK_ID=
+  TASK_DESC=
+  TASK_DURATION=
+  LOGGING_DAY=$( date +%Y-%m-%d )
+  GROUPED_DISPLAY=false
+  TAB_SEPARATED=false
+}
+
+parse_command_line() {
+  while getopts gt OPT; do
+    case "${OPT}" in
+      g) GROUPED_DISPLAY=true ;;
+      t) TAB_SEPARATED=true ;;
+      ?) exit_error ;;
+    esac
+  done
+
+  shift $(( OPTIND - 1 ))
+
+  [ -z "$1" ] || ACTION="$1"
+
+  if [ "${ACTION}" = 'start' ]; then
+    TASK_ID="$2"
+    TASK_DESC="$3"
+  elif [ "${ACTION}" = 'log' ]; then
+    TASK_ID="$2"
+    TASK_DURATION="$3"
+    TASK_DESC="$4"
+  elif [ "${ACTION}" = 'edit' ] || [ "${ACTION}" = 'overview' ]; then
+    [ -z "$2" ] || LOGGING_DAY="$2"
+  fi
+}
+
+validate_command_line() {
+  if [ "${ACTION}" != 'start' ] \
+     && [ "${ACTION}" != 'show' ] \
+     && [ "${ACTION}" != 'stop' ] \
+     && [ "${ACTION}" != 'log' ] \
+     && [ "${ACTION}" != 'overview' ] \
+     && [ "${ACTION}" != 'edit' ]; then
+    exit_error "Invalid action '${ACTION}'"
+  fi
+
+  if [ "${ACTION}" = 'start' ] && [ -z "${TASK_ID}" ]; then
+    exit_error 'Missing task identifier'
+  fi
+
+  if [ "${ACTION}" = 'log' ]; then
+    if [ -z "${TASK_ID}" ]; then
+      exit_error 'Missing task identifier'
+    fi
+    if [ -z "${TASK_DURATION}" ]; then
+      exit_error 'Missing task duration'
+    fi
+
+    case "${TASK_DURATION}" in
+      *[!0-9]*) exit_error 'task duration must be an integer' ;;
+    esac
+  fi
+
+  if [ "${ACTION}" = 'edit' ] || [ "${ACTION}" = 'overview' ]; then
+    case "${LOGGING_DAY}" in
+      [0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]) ;;
+      *) exit_error 'Invalid day format' ;;
+    esac
+  fi
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+current_time_min() {
+  CUR_HOURS=$( date +%H )
+  CUR_MINUTES=$( date +%M )
+  # values with leading 0 are interpreted as octals
+  # which leads to issue with "08" and "09"
+  # so we need to remove them
+  echo $((
+    ${CUR_HOURS#0} * 60 + ${CUR_MINUTES#0}
+  ))
+}
+
+time_tracker_start() {
+  if is_tracking_task; then
+    time_tracker_stop
+  fi
+
+  CURRENT_TIME=$( current_time_min )
+
+  printf '%s\t%s\t%s' \
+    "${CURRENT_TIME}" "${TASK_ID}" "${TASK_DESC}" \
+    > "${CURRENT_FILE_PATH}"
+}
+
+time_tracker_show() {
+  if ! is_tracking_task; then
+    echo 'No current task being tracked' >&2
+    return 1
+  fi
+
+  cut -f 2- "${CURRENT_FILE_PATH}"
+}
+
+time_tracker_stop() {
+  if ! is_tracking_task; then
+    echo 'No current task being tracked' >&2
+    return 1
+  fi
+
+  START_TIME=$( cut -f 1 "${CURRENT_FILE_PATH}" )
+
+  CURRENT_DAY=$( date +%Y-%m-%d )
+  CURRENT_TIME=$( current_time_min )
+  CURRENT_DURATION=$(( CURRENT_TIME - START_TIME ))
+  CURRENT_ID=$( cut -f 2 "${CURRENT_FILE_PATH}" )
+  CURRENT_DESC=$( cut -f 3 "${CURRENT_FILE_PATH}" )
+
+  printf '%s\t%s\t%s\n' \
+    "${CURRENT_ID}" "${CURRENT_DURATION}" "${CURRENT_DESC}" \
+    >> "${LOGGING_DIR}/${CURRENT_DAY}"
+
+  rm -rf "${CURRENT_FILE_PATH}"
+}
+
+is_tracking_task() {
+  [ -f "${CURRENT_FILE_PATH}" ]
+}
+
+time_tracker_log()
+{
+  CURRENT_DAY=$( date +%Y-%m-%d )
+
+  printf '%s\t%s\t%s\n' \
+    "${TASK_ID}" "${TASK_DURATION}" "${TASK_DESC}" \
+    >> "${LOGGING_DIR}/${CURRENT_DAY}"
+}
+
+time_tracker_edit()
+{
+  "${EDITOR:-vi}" "${LOGGING_DIR}/${LOGGING_DAY}"
+}
+
+time_tracker_overview()
+{
+  if [ ! -f "${LOGGING_DIR}/${LOGGING_DAY}" ]; then
+    return
+  fi
+
+  if [ "${TAB_SEPARATED}" = 'false' ]; then
+    FORMAT_CMD='column -s "	" -t'
+  else
+    FORMAT_CMD='cat'
+  fi
+
+  if [ "${GROUPED_DISPLAY}" = 'false' ]; then
+    eval "${FORMAT_CMD}" "${LOGGING_DIR}/${LOGGING_DAY}"
+    return
+  fi
+
+  awk -v FS='\t' -v OFS='\t' \
+    '{
+      sum[$1] += $2;
+      if ($3 && desc[$1] !~ $3", ")
+        desc[$1] = desc[$1] $3", "
+     }
+    END {
+      for (id in sum)
+      print id, sum[id], desc[id]
+    }' \
+    "${LOGGING_DIR}/${LOGGING_DAY}" \
+    | sed 's/, $//' \
+    | eval "${FORMAT_CMD}"
+}
+
+init_variables
+parse_command_line "$@"
+validate_command_line
+
+mkdir -p "${LOGGING_DIR}"
+"time_tracker_${ACTION}"

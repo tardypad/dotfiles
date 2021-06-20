@@ -6,59 +6,43 @@ task - Manage the current task
 
 # SYNOPSIS
 
-task [-q] *start* _id_ [ _name_ ] [ _description_ ]
-
-task *log* _id_ _duration_ [ _name_ ] [ _description_ ]
+task *create* _id_ [ _name_ ]
 
 task [-n] *ids*
 
-task [ *show* | *stop* ]
+task [-l] *pick* _id_ [ _description_ ]
 
-task *review* [ _day_ ]
-
-task [-gt] *overview* [ _day_ ]
+task [ *show* | *drop* ]
 
 # DESCRIPTION
 
-Track and log the current task with its duration
+Manage the current task to focus on.
 
 # OPTIONS
-
-*-g*
-	Display logs grouped by identifier with durations summed
 
 *-n*
 	Show identifiers with their name
 
-*-q*
-	Do not log the task at its end (quiet)
-
-*-t*
-	Display logs with values separated by tab
+*-l*
+	Track and log the time spent on the task
 
 # OPERANDS
 
-*log*
-	Manually log a task
-
-*review*
-	Open editor to manually edit the logging of a day
-
-*overview*
-	Display the logging of a day
+*create*
+	Create a new task
 
 *ids*
 	List all existing task identifiers
 
-*start*
-	Start a task
+*pick*
+	Pick a task as the current one
 
 *show*
 	Display current task if any++
 This is the default action if none is specified
 
-*stop*
-	End current task
+*drop*
+	Drop the current task
 
 _id_
 	Task identifier
@@ -69,17 +53,7 @@ _name_
 _description_
 	Task description
 
-_duration_
-	Task duration in minutes
-
-_day_
-	Logging day in YYYY-MM-DD format
-
 # ENVIRONMENT VARIABLES
-
-_EDITOR_
-	Determine the application to be invoked to edit files++
-If unset, defaults to vi
 
 _XDG_DATA_HOME_
 	Path to user-specific base directory to store data files++
@@ -92,12 +66,12 @@ If unset, defaults to /tmp
 # FILES
 
 _$XDG_DATA_HOME/tasks_
-	Directory containing task logs
+	Directory containing all the tasks
 
 _$XDG_RUNTIME_DIR/task_
-	Contains information about the current task being tracked
+	Contains information about the current task
 
 # DEPENDENCIES
 
-- column
 - pkill
+- time-tracker
