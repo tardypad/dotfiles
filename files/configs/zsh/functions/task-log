@@ -9,7 +9,9 @@ local day="$1"
 
 [ -n "${day}" ] || day="$( date +%Y-%m-%d )"
 
-TASK=$(
+local task id name desc duration
+
+task=$(
   task -n ids \
     | fzf --reverse \
           --no-multi \
@@ -19,25 +21,25 @@ TASK=$(
     | tail -n1
 )
 
-[ -n "${TASK}" ] || return
+[ -n "${task}" ] || return
 
-ID="$( echo "${TASK}" | cut -f1 )"
-NAME="$( echo "${TASK}" | cut -f2 )"
+id="$( echo "${task}" | cut -f1 )"
+name="$( echo "${task}" | cut -f2 )"
 
-printf 'Id: %s\n' "${ID}"
+printf 'Id: %s\n' "${id}"
 
-if [ -n "${NAME}" ]; then
-  printf 'Name: %s\n' "${NAME}"
+if [ -n "${name}" ]; then
+  printf 'Name: %s\n' "${name}"
 fi
 
 printf 'Description: '
-read -r DESC
+read -r desc
 
 while true; do
   printf 'Duration (min): '
-  read -r DURATION
+  read -r duration
 
-  case "${DURATION}" in
+  case "${duration}" in
     *[!0-9]*)
       echo 'duration must be an integer' >&2
       continue
@@ -47,6 +49,6 @@ while true; do
   break
 done
 
-[ -n "${DURATION}" ] || return
+[ -n "${duration}" ] || return
 
-time-tracker -d "${day}" log "${ID}" "${DURATION}" "${DESC}"
+time-tracker -d "${day}" log "${id}" "${duration}" "${desc}"
