@@ -65,6 +65,13 @@ pacman_version() {
   fi
 
   if [ -z "${PACMAN_INFO}" ]; then
+    # try with -bin suffix if package couldn't be found
+    PACMAN_INFO=$(
+      pacman -Qi "${PACKAGE}-bin" 2> /dev/null
+    )
+  fi
+
+  if [ -z "${PACMAN_INFO}" ]; then
     echo 'unknown'
     return
   fi
