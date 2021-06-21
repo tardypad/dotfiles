@@ -6,10 +6,12 @@
 
 local day="$1"
 
+[ -n "${day}" ] || day="$( date +%Y-%m-%d )"
+
 local total
 
 total=$(
-  time-tracker -t overview "$day" \
+  time-tracker -t -d "$day" overview \
     | cut -f 2 \
     | sum
 )
