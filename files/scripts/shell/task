@@ -9,7 +9,7 @@ init_variables() {
   ACTION='show'
   TASK_ID=
   TASK_NAME=
-  TASK_DESC=
+  TASK_COMMENT=
   LOG=false
   ID_WITH_NAME=false
 }
@@ -32,7 +32,7 @@ parse_command_line() {
     TASK_NAME="$3"
   elif [ "${ACTION}" = 'pick' ]; then
     TASK_ID="$2"
-    TASK_DESC="$3"
+    TASK_COMMENT="$3"
   fi
 }
 
@@ -70,7 +70,7 @@ task_pick() {
   fi
 
   if [ "${LOG}" = 'true' ]; then
-    time-tracker start "${TASK_ID}" "${TASK_DESC}"
+    time-tracker start "${TASK_ID}" "${TASK_COMMENT}"
   fi
 
   printf '%s' "${TASK_ID}" > "${CURRENT_FILE_PATH}" \

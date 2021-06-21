@@ -8,7 +8,7 @@ init_variables() {
 
   ACTION='show'
   TASK_ID=
-  TASK_DESC=
+  TASK_COMMENT=
   TASK_DURATION=
   LOGGING_DAY=$( date +%Y-%m-%d )
   GROUPED_DISPLAY=false
@@ -31,11 +31,11 @@ parse_command_line() {
 
   if [ "${ACTION}" = 'start' ]; then
     TASK_ID="$2"
-    TASK_DESC="$3"
+    TASK_COMMENT="$3"
   elif [ "${ACTION}" = 'log' ]; then
     TASK_ID="$2"
     TASK_DURATION="$3"
-    TASK_DESC="$4"
+    TASK_COMMENT="$4"
   fi
 }
 
@@ -98,7 +98,7 @@ time_tracker_start() {
   CURRENT_TIME=$( current_time_min )
 
   printf '%s\t%s\t%s' \
-    "${CURRENT_TIME}" "${TASK_ID}" "${TASK_DESC}" \
+    "${CURRENT_TIME}" "${TASK_ID}" "${TASK_COMMENT}" \
     > "${CURRENT_FILE_PATH}"
 }
 
@@ -123,10 +123,10 @@ time_tracker_stop() {
   CURRENT_TIME=$( current_time_min )
   CURRENT_DURATION=$(( CURRENT_TIME - START_TIME ))
   CURRENT_ID=$( cut -f 2 "${CURRENT_FILE_PATH}" )
-  CURRENT_DESC=$( cut -f 3 "${CURRENT_FILE_PATH}" )
+  CURRENT_COMMENT=$( cut -f 3 "${CURRENT_FILE_PATH}" )
 
   printf '%s\t%s\t%s\n' \
-    "${CURRENT_ID}" "${CURRENT_DURATION}" "${CURRENT_DESC}" \
+    "${CURRENT_ID}" "${CURRENT_DURATION}" "${CURRENT_COMMENT}" \
     >> "${LOGGING_DIR}/${CURRENT_DAY}"
 
   rm -rf "${CURRENT_FILE_PATH}"
@@ -139,7 +139,7 @@ is_tracking_task() {
 time_tracker_log()
 {
   printf '%s\t%s\t%s\n' \
-    "${TASK_ID}" "${TASK_DURATION}" "${TASK_DESC}" \
+    "${TASK_ID}" "${TASK_DURATION}" "${TASK_COMMENT}" \
     >> "${LOGGING_DIR}/${LOGGING_DAY}"
 }
 
@@ -168,12 +168,12 @@ time_tracker_overview()
   awk -v FS='\t' -v OFS='\t' \
     '{
       sum[$1] += $2;
-      if ($3 && desc[$1] !~ $3", ")
-        desc[$1] = desc[$1] $3", "
+      if ($3 && comment[$1] !~ $3", ")
+        comment[$1] = comment[$1] $3", "
      }
     END {
       for (id in sum)
-      print id, sum[id], desc[id]
+      print id, sum[id], comment[id]
     }' \
     "${LOGGING_DIR}/${LOGGING_DAY}" \
     | sed 's/, $//' \

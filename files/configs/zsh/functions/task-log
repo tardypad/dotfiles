@@ -9,7 +9,7 @@ local day="$1"
 
 [ -n "${day}" ] || day="$( date +%Y-%m-%d )"
 
-local task id name desc duration
+local task id name comment duration
 
 task=$(
   task -n ids \
@@ -32,8 +32,8 @@ if [ -n "${name}" ]; then
   printf 'Name: %s\n' "${name}"
 fi
 
-printf 'Description: '
-read -r desc
+printf 'Comment: '
+read -r comment
 
 while true; do
   printf 'Duration (min): '
@@ -51,4 +51,4 @@ done
 
 [ -n "${duration}" ] || return
 
-time-tracker -d "${day}" log "${id}" "${duration}" "${desc}"
+time-tracker -d "${day}" log "${id}" "${duration}" "${comment}"

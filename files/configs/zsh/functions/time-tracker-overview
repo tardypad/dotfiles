@@ -9,7 +9,7 @@ local day="$1"
 
 [ -n "${day}" ] || day="$( date +%Y-%m-%d )"
 
-local line tasks task_id duration desc
+local line tasks task_id duration comment
 
 tasks="$( task -n ids )"
 
@@ -17,7 +17,7 @@ time-tracker -d "${day}" -t overview \
   | while read -r line; do
       task_id="$( echo "${line}" | cut -f1 )"
       duration="$( echo "${line}" | cut -f2 )"
-      desc="$( echo "${line}" | cut -f3 )"
+      comment="$( echo "${line}" | cut -f3 )"
 
       task_name="$(
         echo "${tasks}" \
@@ -26,6 +26,6 @@ time-tracker -d "${day}" -t overview \
       )"
 
       printf '%s\t%s\t%s\t%s\n' \
-        "${task_id}" "${duration}" "${desc}" "${task_name}"
+        "${task_id}" "${duration}" "${comment}" "${task_name}"
     done \
   | column -s '	' -t

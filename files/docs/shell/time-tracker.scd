@@ -6,11 +6,11 @@ time-tracker - Track and log time spent on a task
 
 # SYNOPSIS
 
-time-tracker *start* _id_ [ _description_ ]
+time-tracker *start* _id_ [ _comment_ ]
 
 time-tracker [ *show* | *stop* ]
 
-time-tracker [-d _day_] *log* _id_ _duration_ [ _description_ ]
+time-tracker [-d _day_] *log* _id_ _duration_ [ _comment_ ]
 
 time-tracker [-gt] [-d _day_] *overview*
 
@@ -55,8 +55,8 @@ This is the default action if none is specified
 _id_
 	Task identifier
 
-_description_
-	Task description
+_comment_
+	Task comment
 
 _duration_
 	Task duration in minutes

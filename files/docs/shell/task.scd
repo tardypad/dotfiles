@@ -10,7 +10,7 @@ task *create* _id_ [ _name_ ]
 
 task [-n] *ids*
 
-task [-l] *pick* _id_ [ _description_ ]
+task [-l] *pick* _id_ [ _comment_ ]
 
 task [-n] *show*
 
@@ -52,8 +52,8 @@ _id_
 _name_
 	Task name
 
-_description_
-	Task description
+_comment_
+	Task comment
 
 # ENVIRONMENT VARIABLES
 

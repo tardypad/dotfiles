@@ -40,10 +40,10 @@ printf '\n'
 printf 'Log [y/N]: '
 read -r LOG
 
-TASK_DESC=
+TASK_COMMENT=
 if [ "${LOG}" = 'Y' ] || [ "${LOG}" = 'y' ]; then
-    printf 'Description: '
-    read -r TASK_DESC
+    printf 'Comment: '
+    read -r TASK_COMMENT
 fi
 
 printf '\n'
@@ -51,9 +51,9 @@ printf 'Do not disturb [y/N]: '
 read -r DO_NOT_DISTURB
 
 if [ "${LOG}" = 'Y' ] || [ "${LOG}" = 'y' ]; then
-  task -l pick "${TASK_ID}" "${TASK_DESC}"
+  task -l pick "${TASK_ID}" "${TASK_COMMENT}"
 else
-  task pick "${TASK_ID}" "${TASK_DESC}"
+  task pick "${TASK_ID}" "${TASK_COMMENT}"
 fi
 
 if [ -n "${POMODORO_DURATION}" ]; then
