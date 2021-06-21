@@ -2,7 +2,8 @@
 Description=Build documentation topics list cache
 
 [Timer]
-OnStartupSec=1h
+OnCalendar=daily
+Persistent=true
 
 [Install]
 WantedBy=timers.target
