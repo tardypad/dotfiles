@@ -1,0 +1,31 @@
+# commands used:
+# - column
+# - task
+# - time-tracker
+
+# add task name in time-tracker overview display
+
+local day="$1"
+
+[ -n "${day}" ] || day="$( date +%Y-%m-%d )"
+
+local line tasks task_id duration desc
+
+tasks="$( task -n ids )"
+
+time-tracker -d "${day}" -t overview \
+  | while read -r line; do
+      task_id="$( echo "${line}" | cut -f1 )"
+      duration="$( echo "${line}" | cut -f2 )"
+      desc="$( echo "${line}" | cut -f3 )"
+
+      task_name="$(
+        echo "${tasks}" \
+          | sed -n "s/^${task_id}	\(.*\)/\1/p" \
+          | sed 1q
+      )"
+
+      printf '%s\t%s\t%s\t%s\n' \
+        "${task_id}" "${duration}" "${desc}" "${task_name}"
+    done \
+  | column -s '	' -t

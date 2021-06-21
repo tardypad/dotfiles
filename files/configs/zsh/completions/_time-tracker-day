@@ -1,4 +1,4 @@
-#compdef time-tracker-sum task-log
+#compdef time-tracker-overview time-tracker-sum task-log
 
 local logging_dir="${XDG_DATA_HOME:-$HOME/.local/share}/time-tracker/logs"
 
