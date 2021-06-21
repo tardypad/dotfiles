@@ -12,7 +12,7 @@ systemd-configs:
 	$(setup_file)/configs/systemd/user/backup_notes.path                  > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_notes.path
 	$(setup_file)/configs/systemd/user/backup_notes.service               > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_notes.service
 	$(setup_file)/configs/systemd/user/backup_time_tracker_logs.path      > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_time_tracker_logs.path
-	$(setup_file)/configs/systemd/user/backup_time_tracker.service        > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_time_tracker_logs.service
+	$(setup_file)/configs/systemd/user/backup_time_tracker_logs.service   > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_time_tracker_logs.service
 	$(setup_file)/configs/systemd/user/documentation_build_cache.service  > $(DESTDIR)$(CONFIG_DIR)/systemd/user/documentation_build_cache.service
 	$(setup_file)/configs/systemd/user/documentation_build_cache.timer    > $(DESTDIR)$(CONFIG_DIR)/systemd/user/documentation_build_cache.timer
 	$(setup_file)/configs/systemd/user/documents_build_cache.service      > $(DESTDIR)$(CONFIG_DIR)/systemd/user/documents_build_cache.service
