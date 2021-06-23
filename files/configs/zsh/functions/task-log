@@ -32,9 +32,6 @@ if [ -n "${name}" ]; then
   printf 'Name: %s\n' "${name}"
 fi
 
-printf 'Comment: '
-read -r comment
-
 while true; do
   printf 'Duration (min): '
   read -r duration
@@ -50,5 +47,8 @@ while true; do
 done
 
 [ -n "${duration}" ] || return
+
+printf 'Comment: '
+read -r comment
 
 time-tracker -d "${day}" log "${id}" "${duration}" "${comment}"
