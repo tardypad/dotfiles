@@ -17,8 +17,7 @@ task=$(
           --no-multi \
           --info hidden \
           --header "$( printf '\n' )" \
-          --prompt 'log task ' \
-    | tail -n1
+          --prompt 'log task '
 )
 
 [ -n "${task}" ] || return

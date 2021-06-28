@@ -6,8 +6,7 @@ TASK=$(
           --no-multi \
           --info hidden \
           --header "$( printf '\n' )" \
-          --prompt 'pick task ' \
-    | tail -n1
+          --prompt 'pick task '
 )
 
 [ -n "${TASK}" ] || exit
