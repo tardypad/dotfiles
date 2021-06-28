@@ -38,7 +38,7 @@ parse_command_line() {
 
 validate_command_line() {
   if [ "${ACTION}" != 'create' ] \
-     && [ "${ACTION}" != 'ids' ] \
+     && [ "${ACTION}" != 'list' ] \
      && [ "${ACTION}" != 'pick' ] \
      && [ "${ACTION}" != 'show' ] \
      && [ "${ACTION}" != 'drop' ]; then
@@ -112,7 +112,7 @@ has_current_task() {
   [ -f "${CURRENT_FILE_PATH}" ]
 }
 
-task_ids()
+task_list()
 {
   RANGE='1'
   if [ "${ID_WITH_NAME}" = 'true' ]; then

@@ -11,7 +11,7 @@ local day="$1"
 
 local line tasks task_id duration comment
 
-tasks="$( task -n ids )"
+tasks="$( task -n list )"
 
 time-tracker -d "${day}" -t overview \
   | while read -r line; do

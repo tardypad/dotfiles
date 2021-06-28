@@ -8,7 +8,7 @@ task - Manage the current task
 
 task *create* _id_ [ _name_ ]
 
-task [-n] *ids*
+task [-n] *list*
 
 task [-l] *pick* _id_ [ _comment_ ]
 
@@ -33,7 +33,7 @@ Manage the current task to focus on.
 *create*
 	Create a new task
 
-*ids*
+*list*
 	List all existing task identifiers
 
 *pick*

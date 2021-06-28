@@ -4,7 +4,7 @@ _actions() {
   local actions=(
     create
     drop
-    ids
+    list
     pick
     show
   )
@@ -13,7 +13,7 @@ _actions() {
 }
 
 _ids() {
-  local ids=( "${(@f)$( task ids )}" )
+  local ids=( "${(@f)$( task list )}" )
   compadd "$@" $ids
 }
 
