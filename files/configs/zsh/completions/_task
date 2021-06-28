@@ -13,7 +13,7 @@ _actions() {
 }
 
 _ids() {
-  local ids=( "${(@f)$( task list )}" )
+  local ids=( "${(@f)$( task list | cut -f1 )}" )
   compadd "$@" $ids
 }
 
@@ -24,7 +24,6 @@ _operands() {
 }
 
 _arguments \
-  '-n[show identifiers with their name]' \
   '-l[track and log the time spent on the task]' \
   '1:action:_actions' \
   '2:operand:_operands'

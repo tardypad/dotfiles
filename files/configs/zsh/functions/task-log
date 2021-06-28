@@ -12,7 +12,7 @@ local day="$1"
 local task id name comment duration
 
 task=$(
-  task -n list \
+  task list \
     | fzf --reverse \
           --no-multi \
           --info hidden \

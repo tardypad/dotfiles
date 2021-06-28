@@ -1,7 +1,7 @@
 #!/bin/sh
 
 TASK=$(
-  task -n list \
+  task list \
     | fzf --reverse \
           --no-multi \
           --info hidden \

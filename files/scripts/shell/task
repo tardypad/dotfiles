@@ -11,13 +11,11 @@ init_variables() {
   TASK_NAME=
   TASK_COMMENT=
   LOG=false
-  ID_WITH_NAME=false
 }
 
 parse_command_line() {
-  while getopts nl OPT; do
+  while getopts l OPT; do
     case "${OPT}" in
-      n) ID_WITH_NAME=true ;;
       l) LOG=true ;;
       ?) exit_error ;;
     esac
@@ -85,15 +83,12 @@ task_show() {
 
   TASK_ID="$( cat "${CURRENT_FILE_PATH}" )"
 
-  if [ "${ID_WITH_NAME}" = 'true' ]; then
-    TASK_NAME="$(
-      sed -n "s/^${TASK_ID}	\(.*\)/\1/p" "${TASKS_DIR}"/* 2> /dev/null \
-        | sed 1q
-    )"
-    printf '%s\t%s\n' "${TASK_ID}" "${TASK_NAME}"
-  else
-    printf '%s\n' "${TASK_ID}"
-  fi
+  TASK_NAME="$(
+    sed -n "s/^${TASK_ID}	\(.*\)/\1/p" "${TASKS_DIR}"/* 2> /dev/null \
+      | sed 1q
+  )"
+
+  printf '%s\t%s\n' "${TASK_ID}" "${TASK_NAME}"
 }
 
 task_drop() {
@@ -114,13 +109,7 @@ has_current_task() {
 
 task_list()
 {
-  RANGE='1'
-  if [ "${ID_WITH_NAME}" = 'true' ]; then
-    RANGE='1-2'
-  fi
-
-  cut -f"${RANGE}" "${TASKS_DIR}"/* 2> /dev/null \
-    | sort -u
+  sort -u "${TASKS_DIR}"/* 2> /dev/null
 }
 
 update_i3blocks() {

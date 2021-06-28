@@ -8,11 +8,11 @@ task - Manage the current task
 
 task *create* _id_ [ _name_ ]
 
-task [-n] *list*
+task *list*
 
 task [-l] *pick* _id_ [ _comment_ ]
 
-task [-n] *show*
+task *show*
 
 task *drop*
 
@@ -21,9 +21,6 @@ task *drop*
 Manage the current task to focus on.
 
 # OPTIONS
-
-*-n*
-	Show identifiers with their name
 
 *-l*
 	Track and log the time spent on the task

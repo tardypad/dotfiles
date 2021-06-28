@@ -5,7 +5,7 @@
 
 MODE="$( i3blocks-mode )"
 
-TASK=$( task -n show 2> /dev/null )
+TASK=$( task show 2> /dev/null )
 
 [ -n "${TASK}" ] || exit 0
 
