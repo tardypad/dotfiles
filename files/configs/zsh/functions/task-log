@@ -47,7 +47,15 @@ done
 
 [ -n "${duration}" ] || return
 
-printf 'Comment: '
-read -r comment
+case "${name}" in
+  *\[alias\])
+    comment="$( echo "${name}" | sed 's/\(.*\) \[alias\]/\1/' )"
+    ;;
+esac
+
+if [ -z "${comment}" ]; then
+  printf 'Comment: '
+  read -r comment
+fi
 
 time-tracker -d "${day}" log "${id}" "${duration}" "${comment}"
