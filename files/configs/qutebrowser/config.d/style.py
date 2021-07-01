@@ -114,6 +114,7 @@ c.colors.prompts.bg                             = colors['base02']
 c.colors.prompts.border                         = "1px solid " + colors['base05']
 c.colors.prompts.fg                             = colors['base04']
 c.colors.prompts.selected.bg                    = colors['current_item']
+c.colors.prompts.selected.fg                    = colors['base00']
 
 c.colors.statusbar.caret.bg                     = colors['background']
 c.colors.statusbar.caret.fg                     = colors['notice']
