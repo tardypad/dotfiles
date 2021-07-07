@@ -30,8 +30,8 @@
     bwi = "! f() { git browse -t issue -c $( git argument $1 ); }; f"
     bwr = "! f() { git browse -t review -c $( git argument $1 ); }; f"
     cb = checkout -b
-    ci = commit
-    cia = commit -a
+    ci = "! f() { EDITOR=\"vim -c 'startinsert!'\" git commit \"$@\"; }; f"
+    cia = ci -a
     cl = clone
     co = checkout
     coma = checkout master

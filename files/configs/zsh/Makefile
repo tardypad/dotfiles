@@ -42,6 +42,7 @@ zsh-configs:
 	$(setup_file)/configs/zsh/completions/_tmux-env                                                  > $(DESTDIR)$(HOME)/.zsh/completions/_tmux-env
 	$(setup_file)/configs/zsh/completions/_url                                                       > $(DESTDIR)$(HOME)/.zsh/completions/_url
 	$(setup_file)/configs/zsh/completions/git/_git-argument                                          > $(DESTDIR)$(HOME)/.zsh/completions/git/_git-argument
+	$(setup_file)/configs/zsh/completions/git/_git-ci                                                > $(DESTDIR)$(HOME)/.zsh/completions/git/_git-ci
 	$(setup_file)/configs/zsh/completions/git/_git-hist                                              > $(DESTDIR)$(HOME)/.zsh/completions/git/_git-hist
 	$(setup_file)/configs/zsh/completions/git/_git-mgrbma                                            > $(DESTDIR)$(HOME)/.zsh/completions/git/_git-mgrbma
 	$(setup_file)/configs/zsh/completions/git/_git-push-current-branch                               > $(DESTDIR)$(HOME)/.zsh/completions/git/_git-push-current-branch
