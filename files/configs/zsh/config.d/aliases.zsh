@@ -29,6 +29,8 @@ alias .a='cat .aliases 2> /dev/null && . ./.aliases'
 
 alias todo='${EDITOR} "${XDG_NOTES_DIR:-$HOME/Notes}/todo.md"'
 
+alias g='git'
+
 alias pj='goto-project repo'
 alias PJ='goto-project main'
 
