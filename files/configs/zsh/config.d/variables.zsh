@@ -8,6 +8,10 @@ export XDG_NOTES_DIR="${HOME}/Notes"
 export XDG_PROJECTS_DIR="${HOME}/Projects"
 export XDG_VIDEOS_DIR="${HOME}/Videos"
 
+# defaults but less needs to have it set to use it..
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_DATA_HOME="${HOME}/.local/share"
+
 # Make vim the default editor everywhere
 export EDITOR=vim
 
