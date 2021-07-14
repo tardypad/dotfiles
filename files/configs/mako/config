@@ -35,3 +35,6 @@ format=<span foreground='#{color/error/hex}' weight='bold'> %s</span>\n%b
 [category="alert"]
 border-color=#{color/alert/hex}
 format=<span foreground='#{color/alert/hex}' weight='bold'> %s</span>\n%b
+
+[mode=presentation]
+invisible=1

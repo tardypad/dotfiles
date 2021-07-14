@@ -28,6 +28,7 @@ exit_error() {
 
 pres_enable() {
   swaymsg -q bar mode invisible
+  makoctl set-mode presentation
 
   touch "${FILE_PATH}" \
     && update_i3blocks
@@ -35,6 +36,7 @@ pres_enable() {
 
 pres_disable() {
   swaymsg -q bar mode dock
+  makoctl set-mode default
 
   rm -f "${FILE_PATH}" \
     && update_i3blocks

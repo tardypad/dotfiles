@@ -46,5 +46,6 @@ _$XDG_RUNTIME_DIR/presentation_mode_
 
 # DEPENDENCIES
 
+- makoctl
 - pkill
 - swaymsg
