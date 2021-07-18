@@ -34,7 +34,7 @@ function s:OpenFile(lines)
     execute cmd
     execute 'edit ' . parts[1]
     execute parts[2]
-    execute 'normal!' . parts[3] . '|'
+    execute 'normal! 0' . parts[3] . 'lh'
   endfor
 endfunction
 
