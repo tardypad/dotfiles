@@ -41,6 +41,8 @@ endfunction
 function s:Run(word)
   let actions = join(keys(get(g:, 'fzf_action', s:default_actions)), ',')
 
+  let @/ = a:word
+
   return fzf#run(fzf#wrap(s:history_file, {
   \ 'source':  s:default_command . ' -- ' . a:word,
   \ 'sink*': function('s:OpenFile'),
