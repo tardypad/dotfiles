@@ -31,6 +31,9 @@ alias todo='${EDITOR} "${XDG_NOTES_DIR:-$HOME/Notes}/todo.md"'
 
 alias g='git'
 
+alias st='ssh-tags'
+alias qht='query-hosts-tags'
+
 alias pj='goto-project repo'
 alias PJ='goto-project main'
 
