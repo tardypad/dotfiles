@@ -1,7 +1,7 @@
 #compdef query-hosts-tags
 
 local hosts_tags_files=(
-  "${XDG_CACHE_HOME:-$HOME/.cache}"/hosts_tags*.yaml
+  "${XDG_DATA_HOME:-$HOME/.local/share}"/hosts_tags*.yaml
 )
 
 # exit completion if no file present

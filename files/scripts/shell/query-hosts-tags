@@ -17,7 +17,7 @@ init_variables() {
   #
   # there is no restriction on the tags key
   # hosts don't have to have all the same tags
-  HOSTS_TAGS_FILES="${XDG_CACHE_HOME:-$HOME/.cache}/hosts_tags*.yaml"
+  HOSTS_TAGS_FILES="${XDG_DATA_HOME:-$HOME/.local/share}/hosts_tags*.yaml"
 
   AWK_SCRIPT=
   QUERY_TYPE=hosts

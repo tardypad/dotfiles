@@ -37,13 +37,13 @@ _tag_=_value_
 
 # ENVIRONMENT VARIABLES
 
-_XDG_CACHE_HOME_
-	Path to user-specific base directory to store cached data++
-If unset, defaults to $HOME/.cache
+_XDG_DATA_HOME_
+	Path to user-specific base directory to store data files++
+If unset, defaults to $HOME/.local/share
 
 # FILES
 
-_$XDG_CACHE_HOME/hosts_tags_\*.yaml_
+_$XDG_DATA_HOME/hosts_tags_\*.yaml_
 	Hosts tags files
 
 # DEPENDENCIES
