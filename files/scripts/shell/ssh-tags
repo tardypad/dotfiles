@@ -18,7 +18,7 @@ SELECTED_HOST=$(
       --height=10 \
       --layout=reverse \
       --preview="query-hosts-tags tags {} | grep -vE '${IGNORE_TAGS}'" \
-      --preview-window='right:70%:border-left'
+      --preview-window='right:60%:border-left'
 )
 
 [ -n "${SELECTED_HOST}" ] || exit
