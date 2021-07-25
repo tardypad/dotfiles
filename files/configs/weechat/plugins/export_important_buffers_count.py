@@ -48,9 +48,17 @@ def update_buffers_count(data, signal, signal_data):
     return weechat.WEECHAT_RC_OK
 
 
+def shutdown_cb():
+    result = os.remove(COUNT_FILE_PATH)
+
+    if not result:
+        return weechat.WEECHAT_RC_ERROR
+    return weechat.WEECHAT_RC_OK
+
+
 def export_important_buffers_count_main():
     if not weechat.register(SCRIPT_NAME, SCRIPT_AUTHOR, SCRIPT_VERSION,
-                            SCRIPT_LICENSE, SCRIPT_DESC, '', ''):
+                            SCRIPT_LICENSE, SCRIPT_DESC, 'shutdown_cb', ''):
         return
     weechat.hook_signal('hotlist_changed', 'update_buffers_count', '')
 
