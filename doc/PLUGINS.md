@@ -24,6 +24,7 @@
 | Name                            | Purpose                                      | Source                                                                                            | Version                                                                                                                |
 |---------------------------------|----------------------------------------------|---------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
 | weechat-vimode                  | vim-like mode and keybindings                | [GitHub](https://github.com/GermainZ/weechat-vimode)                                              | [r202.897a33b](https://github.com/GermainZ/weechat-vimode/commit/95661a27f92dc3f3286cf1539ab112a81ad15639)             |
+| weechat-wee-most-git            | Mattermost integration                       | [Sourcehut](https://git.sr.ht/~tardypad/wee-most)                                                 | [r298.4da0f4c](https://git.sr.ht/~tardypad/wee-most/commit/4da0f4cd8d4871515945e09b880eecd04f468060)                   |
 
 
 ## zsh
