@@ -44,6 +44,7 @@ c.content.geolocation           = False
 # which are trusted or don't work well without it
 c.content.javascript.enabled = False
 config.set('content.javascript.enabled', True, 'localhost')
+config.set('content.javascript.enabled', True, '127.0.0.1')
 config.set('content.javascript.enabled', True, 'file:///*')
 config.set('content.javascript.enabled', True, '*.local')
 config.set('content.javascript.enabled', True, '*.youtube.com')
