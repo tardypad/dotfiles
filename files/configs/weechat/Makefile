@@ -38,4 +38,4 @@ weechat-configs:
 
 	# autoload external plugins
 	ln -fs /usr/lib/weechat/python/vimode.py $(DESTDIR)$(DATA_DIR)/weechat/python/autoload/vimode.py
-	ln -fs /usr/lib/weechat/python/wee-most.py $(DESTDIR)$(DATA_DIR)/weechat/python/autoload/wee-most.py
+	ln -fs /usr/lib/weechat/python/wee_most.py $(DESTDIR)$(DATA_DIR)/weechat/python/autoload/wee_most.py
