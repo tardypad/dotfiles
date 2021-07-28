@@ -17,7 +17,8 @@ c.url.searchengines = {
     "wp": "https://en.wikipedia.org/wiki/Special:Search/{}",
     "pkg": "https://www.archlinux.org/packages/?q={}",
     "aur": "https://aur.archlinux.org/packages/?K={}",
-    "wiki": "https://wiki.archlinux.org/index.php?search={}"
+    "wiki": "https://wiki.archlinux.org/index.php?search={}",
+    "gus": "https://genius.com/search?q={}"
 }
 
 # hide tabs tooltips
