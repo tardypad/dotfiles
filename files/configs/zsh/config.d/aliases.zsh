@@ -72,6 +72,9 @@ alias unaccent="iconv -f UTF-8 -t ASCII//TRANSLIT"
 # trim spaces
 alias trim="sed -e 's/^ *//' -e 's/ *$//'"
 
+# remove color sequences
+alias nocolor="sed 's/\x1b\[[0-9;]*m//g'"
+
 # clean the tmux pane before running a command
 alias clean='clear && tmux clear-history &&'
 
