@@ -6,6 +6,7 @@ shell-scripts:
 	$(setup_file)/scripts/shell/backup                       > $(DESTDIR)$(BIN_DIR)/backup
 	$(setup_file)/scripts/shell/base                         > $(DESTDIR)$(BIN_DIR)/base
 	$(setup_file)/scripts/shell/battery-status               > $(DESTDIR)$(BIN_DIR)/battery-status
+	$(setup_file)/scripts/shell/bluetooth                    > $(DESTDIR)$(BIN_DIR)/bluetooth
 	$(setup_file)/scripts/shell/calculate                    > $(DESTDIR)$(BIN_DIR)/calculate
 	$(setup_file)/scripts/shell/check-notify-low-battery     > $(DESTDIR)$(BIN_DIR)/check-notify-low-battery
 	$(setup_file)/scripts/shell/color-picker                 > $(DESTDIR)$(BIN_DIR)/color-picker
@@ -51,6 +52,7 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/backup
 	chmod +x $(DESTDIR)$(BIN_DIR)/base
 	chmod +x $(DESTDIR)$(BIN_DIR)/battery-status
+	chmod +x $(DESTDIR)$(BIN_DIR)/bluetooth
 	chmod +x $(DESTDIR)$(BIN_DIR)/calculate
 	chmod +x $(DESTDIR)$(BIN_DIR)/check-notify-low-battery
 	chmod +x $(DESTDIR)$(BIN_DIR)/color-picker

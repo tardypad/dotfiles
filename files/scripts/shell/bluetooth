@@ -1,0 +1,76 @@
+#!/bin/sh
+
+init_variables() {
+  COMMAND=${0##*/}
+
+  ACTION=
+  DEVICE_ALIAS=
+  FILE=
+}
+
+parse_command_line() {
+  ACTION="$1"
+  DEVICE_ALIAS="$2"
+
+  if [ "${ACTION}" = 'send' ]; then
+    FILE="$3"
+  fi
+}
+
+validate_command_line() {
+  if [ "${ACTION}" != 'connect' ] \
+     && [ "${ACTION}" != 'disconnect' ] \
+     && [ "${ACTION}" != 'receive' ] \
+     && [ "${ACTION}" != 'send' ]; then
+    exit_error "Invalid action '${ACTION}'"
+  fi
+
+  if [ "${ACTION}" = 'connect' ] || [ "${ACTION}" = 'send' ]; then
+    if [ -z "${DEVICE_ALIAS}" ]; then
+      exit_error "Missing device alias"
+    fi
+  fi
+
+  if [ "${ACTION}" = 'send' ]; then
+    if [ -z "${FILE}" ]; then
+      exit_error "Missing file argument"
+    fi
+  fi
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+device_mac() {
+  bluetoothctl paired-devices \
+    | grep "$1$" \
+    | cut -d' ' -f2
+}
+
+bluetooth_connect() {
+  bluetoothctl connect "$( device_mac "${DEVICE_ALIAS}" )"
+}
+
+bluetooth_disconnect() {
+  if [ -n "${DEVICE_ALIAS}" ]; then
+    bluetoothctl disconnect "$( device_mac "${DEVICE_ALIAS}" )"
+  else
+    bluetoothctl disconnect
+  fi
+}
+
+bluetooth_receive() {
+  bt-obex -y -s "${XDG_DOWNLOAD_DIR:-$HOME/Downloads}" 2> /dev/null
+}
+
+bluetooth_send() {
+  bt-obex -p "$( device_mac "${DEVICE_ALIAS}" )" "${FILE}" 2> /dev/null
+}
+
+init_variables
+parse_command_line "$@"
+validate_command_line
+
+"bluetooth_${ACTION}"

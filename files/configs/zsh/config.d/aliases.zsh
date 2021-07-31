@@ -20,9 +20,11 @@ alias dk='cd "${XDG_DESKTOP_DIR:-$HOME/Desktop}"'
 alias dw='cd "${XDG_DOWNLOAD_DIR:-$HOME/Downloads}"'
 alias nt='cd "${XDG_NOTES_DIR:-$HOME/Notes}"'
 
-# bluetooth connections
-alias btc='bluetoothctl connect'
-alias btd='bluetoothctl disconnect'
+# bluetooth
+alias btc='bluetooth connect'
+alias btd='bluetooth disconnect'
+alias btr='bluetooth receive'
+alias bts='bluetooth send'
 
 # source directory aliases
 alias .a='cat .aliases 2> /dev/null && . ./.aliases'

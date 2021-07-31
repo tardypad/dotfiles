@@ -1,0 +1,31 @@
+#compdef bluetooth
+
+_actions() {
+  local actions=(
+    connect
+    disconnect
+    receive
+    send
+  )
+
+  compadd "$@" $actions
+}
+
+_device_aliases() {
+  if [ $words[CURRENT-1] != 'receive' ]; then
+    local device_aliases=( "${(@f)$( bluetoothctl paired-devices | cut -d' ' -f3 )}" )
+    compadd "$@" $device_aliases
+  fi
+}
+
+_send_files() {
+  if [ $words[CURRENT-2] = 'send' ]; then
+    _path_files
+  fi
+}
+
+
+_arguments \
+  '1:action:_actions' \
+  '2:device_alias:_device_aliases' \
+  '3:file:_send_files'
