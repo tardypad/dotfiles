@@ -19,13 +19,6 @@ _days() {
   _path_files -W "${logging_dir}"
 }
 
-_operands() {
-  if [ $words[CURRENT-1] = 'overview' ] \
-    || [ $words[CURRENT-1] = 'edit' ]; then
-    _days
-  fi
-}
-
 _arguments \
   '-d[logging day]:day:_days' \
   '-g[display logs grouped by identifier]' \
