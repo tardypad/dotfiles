@@ -16,6 +16,7 @@
               fi ;; \
           esac \
         }; h"
+    bc = switch -c
     bl = blame --color-by-age --color-lines
     br = branch
     brd = branch -D
@@ -29,12 +30,10 @@
     bwc = "! f() { git browse -t commit -c $( git argument $1 ); }; f"
     bwi = "! f() { git browse -t issue -c $( git argument $1 ); }; f"
     bwr = "! f() { git browse -t review -c $( git argument $1 ); }; f"
-    cb = checkout -b
     ci = "! f() { EDITOR=\"vim -c 'startinsert!'\" git commit \"$@\"; }; f"
     cia = ci -a
     cl = clone
     co = checkout
-    com = checkout master
     commit-description = "! \
         f() { \
           git log -1 $( git argument $1 ) --pretty=%b \
@@ -109,6 +108,7 @@
     reset-upstream = reset --hard @{upstream}
     reword = commit --amend -o
     root = rev-parse --show-toplevel
+    rs = restore
     rv = revert
     rva = revert --abort
     rvc = revert --continue
@@ -119,6 +119,7 @@
     sas = stash show
     sh = "! f() { git show $( git argument $1 ); }; f"
     sh0 = "! f() { git show -U0 $( git argument $1 ); }; f"
+    sm = switch master
     st = status -s -b
     stamp = "! \
         f() { \
@@ -127,6 +128,7 @@
         }; f"
     sti = stamp issue
     str = stamp review
+    sw = switch
     tag-list = "! \
         git tag --color \
         --format \"%(color:$(git config color.tag-list.refname))%(refname:short)%(color:reset) | %(taggerdate:iso) | %(taggeremail) | %(subject)\" \
