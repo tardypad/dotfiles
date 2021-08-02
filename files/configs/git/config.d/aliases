@@ -34,7 +34,7 @@
     cia = ci -a
     cl = clone
     co = checkout
-    coma = checkout master
+    com = checkout master
     commit-description = "! \
         f() { \
           git log -1 $( git argument $1 ) --pretty=%b \
@@ -85,7 +85,7 @@
     mg = merge
     mga = merge --abort
     mgc = merge --continue
-    mgrbma = "!f(){ git co $1 && git rbma && git coma && git mg -; }; f"
+    mgrbm = "!f(){ git co $1 && git rbm && git com && git mg -; }; f"
     pcb = push-current-branch
     pl = pull
     push-current-branch = "! \
@@ -101,7 +101,7 @@
     rba = rebase --abort
     rbc = rebase --continue
     rbi = "! f() { git rebase -i $( git argument $1 ); }; f"
-    rbma = rebase -i master
+    rbm = rebase -i master
     recent = "! \
         git for-each-ref --count=5 --sort=-committerdate --color \
         --format \"%(HEAD) %(color:$(git config color.recent.refname))%(refname:short)%(color:reset) | %(color:$(git config color.recent.committerdate))%(committerdate:human)%(color:reset) | %(subject)\" refs/heads \
