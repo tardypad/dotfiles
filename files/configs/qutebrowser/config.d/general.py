@@ -40,6 +40,14 @@ c.completion.open_categories = [ "history", "filesystem" ]
 c.content.notifications.enabled = False
 c.content.geolocation           = False
 
+# Enable audio and micro on some websites
+config.set('content.media.audio_capture', True, 'whereby.com')
+config.set('content.media.video_capture', True, 'whereby.com')
+config.set('content.media.audio_capture', True, 'zoom.us')
+config.set('content.media.video_capture', True, 'zoom.us')
+config.set('content.media.audio_capture', True, '*.zoom.us')
+config.set('content.media.video_capture', True, '*.zoom.us')
+
 # disable Javascript everywhere by default
 # and only whitelist some regularly used patterns
 # which are trusted or don't work well without it
@@ -51,6 +59,9 @@ config.set('content.javascript.enabled', True, '*.local')
 config.set('content.javascript.enabled', True, '*.youtube.com')
 config.set('content.javascript.enabled', True, 'www.google.com/maps*')
 config.set('content.javascript.enabled', True, 'genius.com')
+config.set('content.javascript.enabled', True, 'whereby.com')
+config.set('content.javascript.enabled', True, 'zoom.us')
+config.set('content.javascript.enabled', True, '*.zoom.us')
 config.set('content.javascript.enabled', True, '*.ovh.com')
 config.set('content.javascript.enabled', True, '*.migadu.com')
 config.set('content.javascript.enabled', True, '*.gandi.net')
