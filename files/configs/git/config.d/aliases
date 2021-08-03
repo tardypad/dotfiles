@@ -84,6 +84,7 @@
     mg = merge
     mga = merge --abort
     mgc = merge --continue
+    mgm = merge master
     mgrbm = "!f(){ git co $1 && git rbm && git com && git mg -; }; f"
     pcb = push-current-branch
     pl = pull
