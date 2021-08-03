@@ -87,6 +87,8 @@
     mgm = merge master
     mgrbm = "!f(){ git co $1 && git rbm && git com && git mg -; }; f"
     pcb = push-current-branch
+    ph = push
+    phf = push -f
     pl = pull
     push-current-branch = "! \
         f() { \
