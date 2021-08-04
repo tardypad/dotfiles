@@ -219,27 +219,27 @@ bindsym $mod+Shift+{key/resize/low} mode "-- RESIZE --"
 ## XF86 keys
 
 # Volume keys
-bindsym --locked {key/XF86AudioRaiseVolume} exec amixer -q set Master unmute 5%+ \
-                                                 && pkill -x -RTMIN+2 i3blocks
-bindsym --locked {key/XF86AudioLowerVolume} exec amixer -q set Master unmute 5%- \
-                                                 && pkill -x -RTMIN+2 i3blocks
-bindsym --locked {key/XF86AudioMute}        exec amixer -q set Master toggle \
-                                                 && pkill -x -RTMIN+2 i3blocks
+bindsym --locked {key/XF86AudioMute}        exec amixer -q set Master toggle && pkill -x -RTMIN+2 i3blocks
+bindsym --locked $mod+{key/F1}              exec amixer -q set Master toggle && pkill -x -RTMIN+2 i3blocks
+bindsym --locked {key/XF86AudioLowerVolume} exec amixer -q set Master unmute 5%-  && pkill -x -RTMIN+2 i3blocks
+bindsym --locked $mod+{key/F2}              exec amixer -q set Master unmute 5%-  && pkill -x -RTMIN+2 i3blocks
+bindsym --locked {key/XF86AudioRaiseVolume} exec amixer -q set Master unmute 5%+ && pkill -x -RTMIN+2 i3blocks
+bindsym --locked $mod+{key/F3}              exec amixer -q set Master unmute 5%+ && pkill -x -RTMIN+2 i3blocks
 
 # Microphone key
-bindsym --locked {key/XF86AudioMicMute} exec amixer -q set Capture toggle \
-                                             && pkill -x -RTMIN+7 i3blocks
-bindsym --locked $mod+{key/F4}          exec amixer -q set Capture toggle \
-                                             && pkill -x -RTMIN+7 i3blocks
+bindsym --locked {key/XF86AudioMicMute} exec amixer -q set Capture toggle && pkill -x -RTMIN+7 i3blocks
+bindsym --locked $mod+{key/F4}          exec amixer -q set Capture toggle && pkill -x -RTMIN+7 i3blocks
 
 # Backlight keys
-bindsym --locked {key/XF86MonBrightnessUp}   exec light -A 5
 bindsym --locked {key/XF86MonBrightnessDown} exec light -U 5
+bindsym --locked $mod+{key/F5}               exec light -U 5
+bindsym --locked {key/XF86MonBrightnessUp}   exec light -A 5
+bindsym --locked $mod+{key/F6}               exec light -A 5
 
 # Media keys
-bindsym --locked {key/XF86AudioPlay} exec mpc toggle \
-                                          && pkill -x -RTMIN+4 i3blocks
-bindsym --locked {key/XF86AudioNext} exec mpc next \
-                                          && pkill -x -RTMIN+4 i3blocks
-bindsym --locked {key/XF86AudioPrev} exec mpc prev \
-                                          && pkill -x -RTMIN+4 i3blocks
+bindsym --locked {key/XF86AudioPrev} exec mpc prev && pkill -x -RTMIN+4 i3blocks
+bindsym --locked $mod+{key/F7}       exec mpc prev && pkill -x -RTMIN+4 i3blocks
+bindsym --locked {key/XF86AudioPlay} exec mpc toggle && pkill -x -RTMIN+4 i3blocks
+bindsym --locked $mod+{key/F8}       exec mpc toggle && pkill -x -RTMIN+4 i3blocks
+bindsym --locked {key/XF86AudioNext} exec mpc next && pkill -x -RTMIN+4 i3blocks
+bindsym --locked $mod+{key/F9}       exec mpc next && pkill -x -RTMIN+4 i3blocks
