@@ -43,10 +43,13 @@ c.content.geolocation           = False
 # Enable audio and micro on some websites
 config.set('content.media.audio_capture', True, 'whereby.com')
 config.set('content.media.video_capture', True, 'whereby.com')
+config.set('content.media.audio_video_capture', True, 'whereby.com')
 config.set('content.media.audio_capture', True, 'zoom.us')
 config.set('content.media.video_capture', True, 'zoom.us')
+config.set('content.media.audio_video_capture', True, 'zoom.us')
 config.set('content.media.audio_capture', True, '*.zoom.us')
 config.set('content.media.video_capture', True, '*.zoom.us')
+config.set('content.media.audio_video_capture', True, '*.zoom.us')
 
 # disable Javascript everywhere by default
 # and only whitelist some regularly used patterns
