@@ -70,6 +70,7 @@
         }; f"
     df = diff
     df0 = diff -U0
+    dfa = diff HEAD
     dfc = diff --cached
     dfc0 = diff --cached -U0
     fe = fetch --all
