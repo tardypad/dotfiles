@@ -30,6 +30,9 @@ c.tabs.mousewheel_switching = False
 # display blank page when closing the last remaining tab
 c.tabs.last_close = "blank"
 
+# keep mode when switching tab
+c.tabs.mode_on_change = "persist"
+
 # disable search wrapping
 c.search.wrap = False
 
