@@ -77,6 +77,9 @@ set backupdir^=~/.vim/backup//
 set undodir^=~/.vim/undo//
 set viminfo+=n~/.vim/viminfo
 
+" keep the same file inode when writing
+set backupcopy=yes
+
 " define special characters highlight display
 set listchars=extends:>,tab:>\ ,trail:·
 set list
