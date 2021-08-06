@@ -68,10 +68,11 @@ set-option -w -g window-status-bell-style 'fg=#{color/notice/hex}'
 set-option -w -g window-status-separator ' '
 set-option -w -g window-status-format ' #{window_index}:#{window_name} '
 set-option -w -g window-status-current-format \
-'#{?pane_in_mode,#[bg=#{color/notice/hex}#,fg=#{color/base00/hex}],}\
+'#{?#{||:#{pane_in_mode},#{pane_synchronized}},#[bg=#{color/notice/hex}#,fg=#{color/base00/hex}],}\
 #{?window_zoomed_flag,~~,}\
 #{?pane_in_mode,[,}\
 #{E:window-status-format}\
+#{?pane_synchronized,$ ,}\
 #{?pane_in_mode,],}\
 #{?window_zoomed_flag,~~,}'
 
