@@ -135,6 +135,10 @@ BEMENU_OPTS="${BEMENU_OPTS} --sb '#{color/selected_item/hex}'"
 BEMENU_OPTS="${BEMENU_OPTS} --sf '#{color/base00/hex}'"
 export BEMENU_OPTS
 
+# remove color overwritten in tmux-xpanes
+export TMUX_XPANES_PANE_BORDER_FORMAT=' #{pane_title} '
+export TMUX_XPANES_PANE_DEAD_MESSAGE='\nPane is dead: Press [Enter] to exit...'
+
 # update SWAYSOCK variable on reload
 eval $( tmux show-environment -s SWAYSOCK 2> /dev/null )
 
