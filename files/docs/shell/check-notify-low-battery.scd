@@ -33,6 +33,6 @@ _$XDG_DATA_HOME/sounds/low_battery.wav_
 
 # DEPENDENCIES
 
-- aplay
 - battery-status
 - notify
+- paplay

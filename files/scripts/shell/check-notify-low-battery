@@ -24,6 +24,6 @@ notify \
   'Low battery' \
   'Battery level is getting low'
 
-aplay \
+paplay \
   "${XDG_DATA_HOME:-$HOME/.local/share}/sounds/low_battery.wav" \
   2> /dev/null

@@ -110,7 +110,7 @@ notify_end_pomodoro() {
     'Pomodoro end' \
     'Take a break'
 
-  aplay \
+  paplay \
     "${XDG_DATA_HOME:-$HOME/.local/share}/sounds/end_pomodoro.wav" \
     2> /dev/null
 }
