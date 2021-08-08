@@ -17,6 +17,7 @@ libqalculate: libqalculate-configs
 mako: mako-configs
 mpd: mpd-configs
 openssh: openssh-configs
+pulsemixer: pulsemixer-configs
 qutebrowser: qutebrowser-configs
 ripgrep: ripgrep-configs
 sfeed: sfeed-configs

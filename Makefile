@@ -31,6 +31,7 @@ include files/configs/libqalculate/Makefile
 include files/configs/mako/Makefile
 include files/configs/mpd/Makefile
 include files/configs/openssh/Makefile
+include files/configs/pulsemixer/Makefile
 include files/configs/qutebrowser/Makefile
 include files/configs/ripgrep/Makefile
 include files/configs/sfeed/Makefile
