@@ -53,6 +53,7 @@ mako
 swaylock
 libxml2
 libnotify
+libpulse
 bluez
 otf
 contrib
