@@ -239,9 +239,9 @@ bindsym --locked {key/XF86MonBrightnessUp}   exec light -A 5
 bindsym --locked $mod+{key/F6}               exec light -A 5
 
 # Media keys
-bindsym --locked {key/XF86AudioPrev} exec mpc prev && pkill -x -RTMIN+4 i3blocks
-bindsym --locked $mod+{key/F7}       exec mpc prev && pkill -x -RTMIN+4 i3blocks
-bindsym --locked {key/XF86AudioPlay} exec mpc toggle && pkill -x -RTMIN+4 i3blocks
-bindsym --locked $mod+{key/F8}       exec mpc toggle && pkill -x -RTMIN+4 i3blocks
-bindsym --locked {key/XF86AudioNext} exec mpc next && pkill -x -RTMIN+4 i3blocks
-bindsym --locked $mod+{key/F9}       exec mpc next && pkill -x -RTMIN+4 i3blocks
+bindsym --locked {key/XF86AudioPrev} exec mpc -q prev && pkill -x -RTMIN+4 i3blocks
+bindsym --locked $mod+{key/F7}       exec mpc -q prev && pkill -x -RTMIN+4 i3blocks
+bindsym --locked {key/XF86AudioPlay} exec mpc -q toggle && pkill -x -RTMIN+4 i3blocks
+bindsym --locked $mod+{key/F8}       exec mpc -q toggle && pkill -x -RTMIN+4 i3blocks
+bindsym --locked {key/XF86AudioNext} exec mpc -q next && pkill -x -RTMIN+4 i3blocks
+bindsym --locked $mod+{key/F9}       exec mpc -q next && pkill -x -RTMIN+4 i3blocks
