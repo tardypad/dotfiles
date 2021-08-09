@@ -31,12 +31,6 @@ else
   MUSIC_TEXT='Stopped'
 fi
 
-# escape some characters for HTML display
-MUSIC_TEXT=$(
-  echo "${MUSIC_TEXT}" \
-    | sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/>/\&gt;/g'
-)
-
 if [ "${MODE}" = 'full' ]; then
   TEXT="${MUSIC_ICON}  ${MUSIC_TEXT}"
 else
