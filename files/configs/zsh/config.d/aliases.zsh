@@ -61,6 +61,7 @@ alias dnd='do-not-disturb'
 alias pmd='pomodoro'
 alias lbl='line-by-line'
 alias mnt='mount-device'
+alias pmx='pulsemixer'
 
 # smart cut on spaces
 alias scut="tr -s ' ' '\t' | cut"
