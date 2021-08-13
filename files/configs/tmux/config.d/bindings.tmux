@@ -65,7 +65,6 @@ bind -N 'rename window' {key/rename/low} command-prompt "rename-window '%%'"
 bind -N 'close window'  {key/close/low}  confirm-before -p 'kill-window "#{window_name}"? (y/n)' kill-window
 
 # select
-bind -N 'select window to switch to' {key/window/low}    choose-tree -Z -N -w -F '#{?pane_format,#{pane_current_command},#{?window_format,#{window_name},}}' -f "#{!=:0,#{session_attached}}" -O index
 bind -N 'switch to alternate window' {key/alternate/low} select-window -t ':{last}'
 bind -N 'switch to next window'      {key/next/low}      select-window -t ':{next}'
 bind -N 'switch to next window'      {key/right/low}     select-window -t ':{next}'
