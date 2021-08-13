@@ -40,7 +40,7 @@ bind -N 'rename session' C-{key/rename/low} command-prompt "rename-session '%%'"
 bind -N 'close session'  C-{key/close/low}  confirm-before -p 'kill-session "#{session_name}"? (y/n)' kill-session
 
 # select
-bind -N 'select session to switch to' C-{key/session/low}   choose-tree -Z -N -s -w -F '#{?pane_format,#{pane_current_command},#{?window_format,#{window_name},}}' -O index
+bind -N 'select session to switch to' C-{key/session/low}   run -C 'display-menu -x 0 -y S -T "Switch session" #{S:#{session_name} "" "switch-client -t #{session_id}" }'
 bind -N 'switch to alternate session' C-{key/alternate/low} switch-client -l
 bind -N 'switch to next session'      C-{key/next/low}      switch-client -n
 bind -N 'switch to next session'      C-{key/down/low}      switch-client -n
