@@ -1,0 +1,85 @@
+#!/bin/sh
+
+init_variables() {
+  COMMAND=${0##*/}
+
+  TMP_FILE="${XDG_RUNTIME_DIR:-/tmp}/git-sed"
+  trap 'rm -f "${TMP_FILE}"' EXIT
+
+  VERSION_TARGET='3' # patch
+  EXTRA_OPTIONS=
+}
+
+parse_command_line() {
+  # need to use options not used in git-tag to prevent conflicts
+  while getopts 123 OPT; do
+    case "${OPT}" in
+      1) VERSION_TARGET='1' ;; # major
+      2) VERSION_TARGET='2' ;; # minor
+      3) VERSION_TARGET='3' ;; # patch
+      ?) exit_error ;;
+    esac
+  done
+
+  shift $(( OPTIND - 1 ))
+
+  EXTRA_OPTIONS="$*"
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+get_next_tag() {
+  case "$1" in
+    [0-9]*.[0-9]*.[0-9]*) ;;
+    *) exit_error "Last tag $1 is not in semver simple format" ;;
+  esac
+
+  MAJOR="$( echo "$1" | cut -d. -f1 )"
+  MINOR="$( echo "$1" | cut -d. -f2 )"
+  PATCH="$( echo "$1" | cut -d. -f3 )"
+
+  case "${VERSION_TARGET}" in
+    1)
+      MAJOR=$(( MAJOR + 1 ))
+      MINOR=0
+      PATCH=0
+      ;;
+    2)
+      MINOR=$(( MINOR + 1 ))
+      PATCH=0
+      ;;
+    3)
+      PATCH=$(( PATCH + 1 ))
+      ;;
+  esac
+
+  printf '%s.%s.%s' "${MAJOR}" "${MINOR}" "${PATCH}"
+}
+
+semantic_tag() {
+  PROJECT_NAME="$( basename "$( pwd )" )"
+  LAST_TAG="$( git describe --abbrev=0 )"
+  NEXT_TAG="$( get_next_tag "${LAST_TAG}" )"
+
+  {
+    printf '%s %s\n\n' "${PROJECT_NAME}" "${NEXT_TAG}"
+    git shortlog --no-merges "${LAST_TAG}..HEAD"
+  } > "${TMP_FILE}"
+
+  # shellcheck disable=SC2086
+  git tag -a "${NEXT_TAG}" -F "${TMP_FILE}" ${EXTRA_OPTIONS}
+
+  git tag -l "${NEXT_TAG}" --format '%(contents)'
+}
+
+init_variables
+parse_command_line "$@"
+
+if [ "$( git branch --show-current )" != 'master' ]; then
+  exit_error "Tag should be done on the master branch"
+fi
+
+semantic_tag

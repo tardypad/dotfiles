@@ -121,6 +121,7 @@
     sapo = stash pop
     sapu = stash push
     sas = stash show
+    semtag = semantic-tag
     sh = "! f() { git show $( git argument $1 ); }; f"
     sh0 = "! f() { git show -U0 $( git argument $1 ); }; f"
     sm = switch master

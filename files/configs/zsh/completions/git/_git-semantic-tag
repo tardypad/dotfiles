@@ -1,0 +1,5 @@
+#compdef git-semantic-tag
+#description create a tag using semantic versioning
+
+_arguments \
+  '*:option:_git-tag'
