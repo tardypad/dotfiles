@@ -23,6 +23,7 @@ feeds() {
   feed 'Martin Tournoij'                      'https://www.arp242.net/feed.xml'
   feed 'Mr. Money Mustache'                   'http://feeds.feedburner.com/MrMoneyMustache?format=xml'
   feed 'RoyalSloth'                           'https://blog.royalsloth.eu/posts/index.xml'
+  feed 'Jan Schaumann'                        'https://www.netmeister.org/blog/rss.xml'
   feed 'Reddit command line'                  'https://www.reddit.com/r/commandline/.rss'
   feed 'Reddit golang'                        'https://www.reddit.com/r/golang/.rss'
   feed 'Reddit programming'                   'https://www.reddit.com/r/programming/.rss'
