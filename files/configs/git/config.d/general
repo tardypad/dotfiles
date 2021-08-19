@@ -1,6 +1,6 @@
 [user]
     name = Damien Tardy-Panis
-    email = damien@tardypad.me
+    email = damien.dev@tardypad.me
 [sendemail]
     identity = tardypad
     annotate = yes
@@ -8,7 +8,7 @@
 [sendemail "tardypad"]
     smtpserver = smtp.migadu.com
     smtpuser = damien@tardypad.me
-    from = Damien Tardy-Panis <damien@tardypad.me>
+    from = Damien Tardy-Panis <damien.dev@tardypad.me>
     smtpencryption = tls
     smtpserverport = 587
 [credential "smtp://damien%40tardypad.me@smtp.migadu.com%3a587"]

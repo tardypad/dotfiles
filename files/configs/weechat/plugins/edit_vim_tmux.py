@@ -1,5 +1,5 @@
 SCRIPT_NAME    = 'edit_vim_tmux'
-SCRIPT_AUTHOR  = 'Damien Tardy-Panis <damien@tardypad.me>'
+SCRIPT_AUTHOR  = 'Damien Tardy-Panis <damien.dev@tardypad.me>'
 SCRIPT_VERSION = '0.1.0'
 SCRIPT_LICENSE = 'MIT'
 SCRIPT_DESC    = 'Compose message in vim within a tmux pane'
