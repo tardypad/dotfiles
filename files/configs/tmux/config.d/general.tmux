@@ -108,3 +108,7 @@ set-hook -g alert-silence "run \"tmux-notify-alert silence '#{socket_path}' '#{s
 # when detaching the chat session we want to switch to the core.weechat buffer
 # this way we keep receiving highlight notifications that otherwise would have been silenced
 set-hook -g client-detached "run \"[ '#{session_name}' = 'chat' ] && echo '/buffer core.weechat' | weechat-fifo\""
+
+# aliases
+set-option -g command-alias[1] sync='set synchronize-panes on'
+set-option -g command-alias[2] nosync='set synchronize-panes off'
