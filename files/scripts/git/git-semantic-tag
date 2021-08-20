@@ -3,7 +3,7 @@
 init_variables() {
   COMMAND=${0##*/}
 
-  TMP_FILE="${XDG_RUNTIME_DIR:-/tmp}/git-sed"
+  TMP_FILE="$( mktemp )"
   trap 'rm -f "${TMP_FILE}"' EXIT
 
   VERSION_TARGET='3' # patch
