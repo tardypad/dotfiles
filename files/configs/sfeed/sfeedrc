@@ -9,7 +9,7 @@ feeds() {
   feed 'Destroy All Software Screencasts'     'https://www.destroyallsoftware.com/screencasts/feed'
   feed 'TED Talks'                            'http://feeds.feedburner.com/tedtalks_video'
   feed 'Cory Doctorow'                        'https://pluralistic.net/feed/'
-  feed 'Golang'                               'https://blog.golang.org/feed.atom'
+  feed 'Golang'                               'https://go.dev/blog/feed.atom'
   feed 'Drew DeVault'                         'https://drewdevault.com/blog/index.xml'
   feed 'Simon Ser'                            'https://emersion.fr/blog/rss.xml'
   feed 'Nikita Prokopov'                      'https://tonsky.me/blog/atom.xml'
