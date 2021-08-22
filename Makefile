@@ -36,6 +36,7 @@ include files/configs/qutebrowser/Makefile
 include files/configs/ripgrep/Makefile
 include files/configs/sfeed/Makefile
 include files/configs/sway/Makefile
+include files/configs/swayidle/Makefile
 include files/configs/swaylock/Makefile
 include files/configs/systemd/Makefile
 include files/configs/tmux/Makefile

@@ -31,11 +31,7 @@ exec systemctl --user import-environment DISPLAY SWAYSOCK WAYLAND_DISPLAY XDG_CU
 exec mako
 
 # idle management
-exec swayidle -w \
-   timeout 300 'swaylock -f' \
-   timeout 900 'swaymsg -q "output * dpms off"' \
-        resume 'swaymsg -q "output * dpms on"' \
-  before-sleep 'swaylock -f'
+exec swayidle -w
 
 # focus workspace 1 on main output
 workspace 1

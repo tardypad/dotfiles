@@ -22,6 +22,7 @@ qutebrowser: qutebrowser-configs
 ripgrep: ripgrep-configs
 sfeed: sfeed-configs
 sway: sway-configs sway-docs sway-scripts
+swayidle: swayidle-configs
 swaylock: swaylock-configs
 systemd: systemd-configs
 tmux: tmux-configs tmux-docs tmux-scripts
