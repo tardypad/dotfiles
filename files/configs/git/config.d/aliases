@@ -90,6 +90,7 @@
     pcb = push-current-branch
     ph = push
     phf = push -f
+    pht = push --tags
     pl = pull
     push-current-branch = "! \
         f() { \
