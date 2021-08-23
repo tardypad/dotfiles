@@ -116,7 +116,7 @@ notify_end_pomodoro() {
 }
 
 update_i3blocks() {
-  pkill -x -RTMIN+5 i3blocks
+  pkill -x -RTMIN+6 i3blocks
 }
 
 is_session_started() {

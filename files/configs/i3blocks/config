@@ -11,7 +11,7 @@ COLOR=#{color/base09/hex}
 signal=6
 
 [pomodoro]
-signal=5
+signal=6
 
 [separator]
 command=
