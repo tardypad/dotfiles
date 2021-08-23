@@ -51,6 +51,7 @@ device_mac() {
 
 bluetooth_connect() {
   bluetoothctl connect "$( device_mac "${DEVICE_ALIAS}" )"
+  update_i3blocks
 }
 
 bluetooth_disconnect() {
@@ -59,6 +60,8 @@ bluetooth_disconnect() {
   else
     bluetoothctl disconnect
   fi
+
+  update_i3blocks
 }
 
 bluetooth_receive() {
@@ -67,6 +70,10 @@ bluetooth_receive() {
 
 bluetooth_send() {
   bt-obex -p "$( device_mac "${DEVICE_ALIAS}" )" "${FILE}" 2> /dev/null
+}
+
+update_i3blocks() {
+  pkill -x -RTMIN+5 i3blocks
 }
 
 init_variables

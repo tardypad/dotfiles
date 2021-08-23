@@ -35,6 +35,7 @@ signal=7
 signal=2
 
 [bluetooth]
+signal=5
 
 [network]
 

@@ -57,3 +57,4 @@ _$XDG_DOWNLOAD_DIR_
 
 - bluetoothctl
 - bt-obex
+- pkill
