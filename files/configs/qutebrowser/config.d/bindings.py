@@ -270,6 +270,7 @@ config.bind('<Ctrl-{key/open/upp}>{key/f}', 'spawn --detach firefox {url}', mode
 
 # dev tools
 config.bind('<Ctrl-{key/tabulation/Tab}>', 'devtools window', mode='normal')
+config.bind('<Ctrl-{key/tabulation/Tab}>', 'devtools window', mode='insert')
 
 # Javascript temporary toggling  on current domain
 config.bind('<Ctrl-{key/J}>', 'config-cycle --print --temp --pattern={url:host} content.javascript.enabled ;; reload', mode='normal')
