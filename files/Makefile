@@ -3,6 +3,7 @@ alacritty: alacritty-configs
 amfora: amfora-configs
 aria2: aria2-configs
 coreutils: coreutils-configs
+ctags: ctags-configs
 fontconfig: fontconfig-configs
 gammastep: gammastep-configs
 git: git-configs git-docs git-scripts
@@ -27,7 +28,6 @@ swaylock: swaylock-configs
 systemd: systemd-configs
 tmux: tmux-configs tmux-docs tmux-scripts
 translate-shell: translate-shell-configs
-ctags: ctags-configs
 vim: vim-configs
 w3m: w3m-configs
 weechat: weechat-configs
