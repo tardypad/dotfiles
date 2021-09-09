@@ -23,6 +23,9 @@
   - [Anachron i3blocks](https://github.com/Anachron/i3blocks)
   - [Vivien Didelot contrib](https://github.com/vivien/i3blocks-contrib)
 
+## remind
+  - [Tim Chase blog post](https://blog.thechases.com/posts/remind/)
+
 ## tmux
   - [Gregory Pakosz config](https://github.com/gpakosz/.tmux)
   - [tmuxcheatsheet plugins list](https://tmuxcheatsheet.com/tmux-plugins-tools/)

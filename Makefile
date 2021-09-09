@@ -34,6 +34,7 @@ include files/configs/mpd/Makefile
 include files/configs/openssh/Makefile
 include files/configs/pulsemixer/Makefile
 include files/configs/qutebrowser/Makefile
+include files/configs/remind/Makefile
 include files/configs/ripgrep/Makefile
 include files/configs/sfeed/Makefile
 include files/configs/sway/Makefile

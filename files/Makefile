@@ -20,6 +20,7 @@ mpd: mpd-configs
 openssh: openssh-configs
 pulsemixer: pulsemixer-configs
 qutebrowser: qutebrowser-configs
+remind: remind-configs
 ripgrep: ripgrep-configs
 sfeed: sfeed-configs
 sway: sway-configs sway-docs sway-scripts
