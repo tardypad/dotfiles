@@ -6,7 +6,7 @@ notify - Send a notification
 
 # SYNOPSIS
 
-notify [-c _category_] [-i _id_] [-t _time_] _summary_ [_body_]
+notify [-c _category_] [-i _id_] [-s _sound_] [-t _time_] _summary_ [_body_]
 
 # DESCRIPTION
 
@@ -20,6 +20,9 @@ Send a system notification
 *-i* _id_
 	Notification identifier++
 replace similar notification if any
+
+*-s* _sound_
+	Play sound file
 
 *-t* _time_
 	timeout in seconds
@@ -46,3 +49,4 @@ _$XDG_RUNTIME_DIR/notification_\*_
 # DEPENDENCIES
 
 - gdbus
+- paplay
