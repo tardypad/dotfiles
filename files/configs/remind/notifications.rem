@@ -1,0 +1,2 @@
+# prevent late activities on night before working days
+REM Sun Mon Tue Wed Thu AT 21:45 MSG Time to unwind
