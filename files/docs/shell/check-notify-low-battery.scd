@@ -28,7 +28,7 @@ If unset, defaults to $HOME/.local/share
 
 # FILES
 
-_$XDG_DATA_HOME/sounds/low_battery.wav_
+_$XDG_DATA_HOME/sounds/low_battery.ogg_
 	Notification sound to play
 
 # DEPENDENCIES

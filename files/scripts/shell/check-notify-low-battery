@@ -21,6 +21,6 @@ TOTAL_ENERGY_PERCENT=$(
 notify \
   -c 'alert' \
   -i 'low_battery' \
-  -s "${XDG_DATA_HOME:-$HOME/.local/share}/sounds/low_battery.wav" \
+  -s "${XDG_DATA_HOME:-$HOME/.local/share}/sounds/low_battery.ogg" \
   'Low battery' \
   'Battery level is getting low'

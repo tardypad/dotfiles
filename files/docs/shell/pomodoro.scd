@@ -51,7 +51,7 @@ If unset, defaults to /tmp
 
 # FILES
 
-_$XDG_DATA_HOME/sounds/end_pomodoro.wav_
+_$XDG_DATA_HOME/sounds/end_pomodoro.ogg_
 	Notification sound to play
 
 _$XDG_RUNTIME_DIR/pomodoro_
