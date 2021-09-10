@@ -10,32 +10,22 @@ MODE="$( i3blocks-mode )"
 # don't show anything if weechat is not running
 pidof weechat > /dev/null || exit 0
 
-# show 0 notification if there is no file
-# just to let us know at least that weechat is running
 if [ ! -f "${COUNT_FILE_PATH}" ]; then
-  if [ "${MODE}" = 'full' ]; then
-    TEXT='  0'
-  else
-    TEXT=''
-  fi
+  # show 0 notification if there is no file
+  # just to let us know at least that weechat is running
+  COUNT=0
+else
+  COUNT=$( cat "${COUNT_FILE_PATH}" )
 fi
-
-COUNT=$( cat "${COUNT_FILE_PATH}" )
 
 if [ "${COUNT}" -gt 0 ]; then
   COLOR='#{color/notice/hex}'
+fi
 
-  if [ "${MODE}" = 'full' ]; then
-    TEXT="  ${COUNT}"
-  else
-    TEXT=''
-  fi
+if [ "${MODE}" = 'full' ]; then
+  TEXT="  ${COUNT}"
 else
-  if [ "${MODE}" = 'full' ]; then
-    TEXT='  0'
-  else
-    TEXT=''
-  fi
+  TEXT=''
 fi
 
 printf '%s\n\n%s\n' "${TEXT}" "${COLOR}"
