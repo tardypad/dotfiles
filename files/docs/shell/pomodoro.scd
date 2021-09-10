@@ -60,5 +60,4 @@ _$XDG_RUNTIME_DIR/pomodoro_
 # DEPENDENCIES
 
 - notify
-- paplay
 - pkill

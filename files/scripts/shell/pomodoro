@@ -107,12 +107,9 @@ notify_end_pomodoro() {
   notify \
     -t 5 \
     -c 'notice' \
+    -s "${XDG_DATA_HOME:-$HOME/.local/share}/sounds/end_pomodoro.wav" \
     'Pomodoro end' \
     'Take a break'
-
-  paplay \
-    "${XDG_DATA_HOME:-$HOME/.local/share}/sounds/end_pomodoro.wav" \
-    2> /dev/null
 }
 
 update_i3blocks() {

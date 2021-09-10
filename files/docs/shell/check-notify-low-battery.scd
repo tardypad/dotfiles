@@ -35,4 +35,3 @@ _$XDG_DATA_HOME/sounds/low_battery.wav_
 
 - battery-status
 - notify
-- paplay
