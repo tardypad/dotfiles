@@ -8,7 +8,6 @@ WINDOW_ID="$5"
 
 SILENCE_THRESHOLD=10
 
-STATUS=
 ON='on'
 OFF='off'
 
