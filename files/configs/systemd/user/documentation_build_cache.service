@@ -4,3 +4,4 @@ Description=Build documentation topics list cache
 [Service]
 Type=oneshot
 ExecStart={dir/bin}/documentation-all -c
+Environment=MANPATH={dir/data}/man:/usr/share/man
