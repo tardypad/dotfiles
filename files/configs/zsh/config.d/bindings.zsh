@@ -48,6 +48,13 @@ bindkey -M viins   '^{key/g}' replace-run-status
 bindkey -M vicmd   '^{key/g}' replace-run-status
 bindkey -M isearch '^{key/g}' replace-run-status
 
+# bring background job to foreground (inverse to Ctrl-Z suspend)
+replace-run-fg() replace-run-command fg
+zle -N replace-run-fg
+bindkey -M viins   '\e{key/suspend}' replace-run-fg
+bindkey -M vicmd   '\e{key/suspend}' replace-run-fg
+bindkey -M isearch '\e{key/suspend}' replace-run-fg
+
 
 # Enable surround text-objects (quotes, brackets)
 
