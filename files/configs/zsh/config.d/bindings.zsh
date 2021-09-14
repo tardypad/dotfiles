@@ -34,6 +34,18 @@ bindkey -M viins   '^{key/command_delete_all}' kill-buffer
 bindkey -M vicmd   '^{key/command_delete_all}' kill-buffer
 bindkey -M isearch '^{key/command_delete_all}' kill-buffer
 
+# run command with sudo
+run-with-sudo() {
+  if [[ $BUFFER != "sudo "* ]]; then
+    BUFFER="sudo $BUFFER"
+    zle accept-line
+  fi
+}
+zle -N run-with-sudo
+bindkey -M viins   '^{key/x}{key/s}' run-with-sudo
+bindkey -M vicmd   '^{key/x}{key/s}' run-with-sudo
+bindkey -M isearch '^{key/x}{key/s}' run-with-sudo
+
 
 replace-run-command() {
   BUFFER="$1"
