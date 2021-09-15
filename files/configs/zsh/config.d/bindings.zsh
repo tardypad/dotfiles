@@ -47,6 +47,26 @@ bindkey -M vicmd   '^{key/x}{key/s}' run-with-sudo
 bindkey -M isearch '^{key/x}{key/s}' run-with-sudo
 
 
+# append a command after a pipe and run
+append-run-pipe-command() {
+  BUFFER="$BUFFER | $1"
+  zle accept-line
+}
+zle -N append-run-pipe-command
+
+append-run-pipe-count() append-run-pipe-command "wc -l"
+zle -N append-run-pipe-count
+bindkey -M viins   '^{key/x}{key/w}' append-run-pipe-count
+bindkey -M vicmd   '^{key/x}{key/w}' append-run-pipe-count
+bindkey -M isearch '^{key/x}{key/w}' append-run-pipe-count
+
+append-run-pipe-pager() append-run-pipe-command "$PAGER"
+zle -N append-run-pipe-pager
+bindkey -M viins   '^{key/x}{key/p}' append-run-pipe-pager
+bindkey -M vicmd   '^{key/x}{key/p}' append-run-pipe-pager
+bindkey -M isearch '^{key/x}{key/p}' append-run-pipe-pager
+
+
 replace-run-command() {
   BUFFER="$1"
   zle accept-line
