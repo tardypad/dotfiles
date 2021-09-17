@@ -9,14 +9,14 @@ zsh-configs:
 	$(setup_file)/configs/zsh/zprofile                                                               > $(DESTDIR)$(HOME)/.zprofile
 	$(setup_file)/configs/zsh/zshenv                                                                 > $(DESTDIR)$(HOME)/.zshenv
 	$(setup_file)/configs/zsh/zshrc                                                                  > $(DESTDIR)$(HOME)/.zshrc
-	$(setup_file)/configs/zsh/config.d/aliases.zsh                                                   > $(DESTDIR)$(HOME)/.zsh/config.d/aliases.zsh
-	$(setup_file)/configs/zsh/config.d/bindings.zsh                                                  > $(DESTDIR)$(HOME)/.zsh/config.d/bindings.zsh
-	$(setup_file)/configs/zsh/config.d/completion.zsh                                                > $(DESTDIR)$(HOME)/.zsh/config.d/completion.zsh
-	$(setup_file)/configs/zsh/config.d/general.zsh                                                   > $(DESTDIR)$(HOME)/.zsh/config.d/general.zsh
-	$(setup_file)/configs/zsh/config.d/history.zsh                                                   > $(DESTDIR)$(HOME)/.zsh/config.d/history.zsh
-	$(setup_file)/configs/zsh/config.d/plugins.zsh                                                   > $(DESTDIR)$(HOME)/.zsh/config.d/plugins.zsh
-	$(setup_file)/configs/zsh/config.d/prompt.zsh                                                    > $(DESTDIR)$(HOME)/.zsh/config.d/prompt.zsh
-	$(setup_file)/configs/zsh/config.d/variables.zsh                                                 > $(DESTDIR)$(HOME)/.zsh/config.d/variables.zsh
+	$(setup_file)/configs/zsh/config.d/10-general.zsh                                                > $(DESTDIR)$(HOME)/.zsh/config.d/10-general.zsh
+	$(setup_file)/configs/zsh/config.d/11-history.zsh                                                > $(DESTDIR)$(HOME)/.zsh/config.d/11-history.zsh
+	$(setup_file)/configs/zsh/config.d/12-prompt.zsh                                                 > $(DESTDIR)$(HOME)/.zsh/config.d/12-prompt.zsh
+	$(setup_file)/configs/zsh/config.d/20-completion.zsh                                             > $(DESTDIR)$(HOME)/.zsh/config.d/20-completion.zsh
+	$(setup_file)/configs/zsh/config.d/30-bindings.zsh                                               > $(DESTDIR)$(HOME)/.zsh/config.d/30-bindings.zsh
+	$(setup_file)/configs/zsh/config.d/40-aliases.zsh                                                > $(DESTDIR)$(HOME)/.zsh/config.d/40-aliases.zsh
+	$(setup_file)/configs/zsh/config.d/41-variables.zsh                                              > $(DESTDIR)$(HOME)/.zsh/config.d/41-variables.zsh
+	$(setup_file)/configs/zsh/config.d/90-plugins.zsh                                                > $(DESTDIR)$(HOME)/.zsh/config.d/90-plugins.zsh
 	$(setup_file)/configs/zsh/completions/_backup                                                    > $(DESTDIR)$(HOME)/.zsh/completions/_backup
 	$(setup_file)/configs/zsh/completions/_bluetooth                                                 > $(DESTDIR)$(HOME)/.zsh/completions/_bluetooth
 	$(setup_file)/configs/zsh/completions/_do-not-disturb                                            > $(DESTDIR)$(HOME)/.zsh/completions/_do-not-disturb
