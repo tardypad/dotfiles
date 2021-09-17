@@ -56,9 +56,9 @@ zle -N append-run-pipe-command
 
 append-run-pipe-count() append-run-pipe-command "wc -l"
 zle -N append-run-pipe-count
-bindkey -M viins   '^{key/x}{key/w}' append-run-pipe-count
-bindkey -M vicmd   '^{key/x}{key/w}' append-run-pipe-count
-bindkey -M isearch '^{key/x}{key/w}' append-run-pipe-count
+bindkey -M viins   '^{key/x}{key/c}' append-run-pipe-count
+bindkey -M vicmd   '^{key/x}{key/c}' append-run-pipe-count
+bindkey -M isearch '^{key/x}{key/c}' append-run-pipe-count
 
 append-run-pipe-pager() append-run-pipe-command "$PAGER"
 zle -N append-run-pipe-pager
