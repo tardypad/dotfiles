@@ -124,11 +124,16 @@ call s:highlight("Cursor",       "background", "foreground", "")
 call s:highlight("CursorColumn", "",           "base01", "")
 call s:highlight("CursorLine",   "",           "base01", "")
 
+if &diff
+  " make foreground text visible on the cursor line in diff mode
+  call s:highlight("CursorLine", "foreground", "base01", "")
+endif
+
 " diff
-call s:highlight("DiffAdd",      "add",    "base01", "")
-call s:highlight("DiffChange",   "base0A", "base01", "")
-call s:highlight("DiffDelete",   "delete", "base01", "")
-call s:highlight("DiffText",     "base09", "base01", "")
+call s:highlight("DiffAdd",      "base00", "add",    "")
+call s:highlight("DiffChange",   "base00", "base08", "")
+call s:highlight("DiffDelete",   "base00", "delete", "")
+call s:highlight("DiffText",     "base00", "base08", "bold")
 
 " folds
 call s:highlight("FoldColumn",   "base03", "",       "")

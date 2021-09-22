@@ -1,8 +1,10 @@
 " cancel the compatibility with Vi
 set nocompatible
 
-" activate syntax coloring
-syntax enable
+" activate syntax coloring except in diff mode
+if !&diff
+  syntax enable
+endif
 
 " color scheme
 colorscheme tardypad
