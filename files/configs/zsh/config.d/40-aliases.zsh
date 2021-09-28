@@ -81,8 +81,8 @@ alias nocolor="sed 's/\x1b\[[0-9;]*m//g'"
 # clean the tmux pane before running a command
 alias clean='clear && tmux clear-history &&'
 
-# display calendar for full year with week number and Monday as week start
-alias calendar='cal --monday --week --year'
+# display calendar with 3 month spanning the date with week starting on monday
+alias cal='cal --monday -3'
 
 # disable status output on completion of some commands
 alias mpc='mpc -q'
