@@ -40,6 +40,7 @@ shell-scripts:
 	$(setup_file)/scripts/shell/screenshot                   > $(DESTDIR)$(BIN_DIR)/screenshot
 	$(setup_file)/scripts/shell/somafm                       > $(DESTDIR)$(BIN_DIR)/somafm
 	$(setup_file)/scripts/shell/ssh-tags                     > $(DESTDIR)$(BIN_DIR)/ssh-tags
+	$(setup_file)/scripts/shell/startup                      > $(DESTDIR)$(BIN_DIR)/startup
 	$(setup_file)/scripts/shell/status                       > $(DESTDIR)$(BIN_DIR)/status
 	$(setup_file)/scripts/shell/system-menu                  > $(DESTDIR)$(BIN_DIR)/system-menu
 	$(setup_file)/scripts/shell/task                         > $(DESTDIR)$(BIN_DIR)/task

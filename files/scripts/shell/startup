@@ -1,0 +1,14 @@
+#!/bin/sh
+
+swaymsg -q rename workspace to '1:projects'
+tmux-env -b projects arch_system
+tmux-env -b projects dotfiles
+swaymsg -q exec "alacritty  -t \"projects environment\" -e tmux -L projects attach-session -t arch_system"
+
+swaymsg -q workspace '2:web'
+swaymsg -q exec {app/web_browser}
+
+swaymsg -q workspace '1:projects'
+
+sleep 0.1
+sway-quick-command "${PAGER}" "${XDG_NOTES_DIR:-$HOME/Notes}/todo.md"

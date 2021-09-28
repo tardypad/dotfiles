@@ -1,5 +1,8 @@
 ## general
 
+# startup
+bindsym $mod+Ctrl+Alt+{key/space/Space} exec startup
+
 # exit sway
 bindsym $mod+Ctrl+{key/quit/low} exit
 
