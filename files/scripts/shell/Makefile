@@ -87,6 +87,7 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/screenshot
 	chmod +x $(DESTDIR)$(BIN_DIR)/somafm
 	chmod +x $(DESTDIR)$(BIN_DIR)/ssh-tags
+	chmod +x $(DESTDIR)$(BIN_DIR)/startup
 	chmod +x $(DESTDIR)$(BIN_DIR)/status
 	chmod +x $(DESTDIR)$(BIN_DIR)/system-menu
 	chmod +x $(DESTDIR)$(BIN_DIR)/task
