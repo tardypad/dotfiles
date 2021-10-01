@@ -1,0 +1,46 @@
+#!/bin/sh
+
+init_variables() {
+  COMMAND=${0##*/}
+
+  PERIOD='today'
+}
+
+parse_command_line() {
+  [ -z "$1" ] || PERIOD="$1"
+}
+
+validate_command_line() {
+  if [ "${PERIOD}" != 'today' ] \
+     && [ "${PERIOD}" != 'week' ] \
+     && [ "${PERIOD}" != 'month' ]; then
+    exit_error "Invalid period '${PERIOD}'"
+  fi
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+schedule_today() {
+  rem -s -b1 \
+    | grep "$( date +%Y/%m/%d )" \
+    | cut -d' ' -f6- \
+    | sed -e 's/\(.*\) (.*)$/\1/' -e 's/ /\t/' \
+    | column -t -s '	'
+}
+
+schedule_week() {
+  rem -cu+1
+}
+
+schedule_month() {
+  rem -cu1
+}
+
+init_variables
+parse_command_line "$@"
+validate_command_line
+
+"schedule_${PERIOD}"

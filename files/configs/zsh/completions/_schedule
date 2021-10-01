@@ -1,0 +1,14 @@
+#compdef schedule
+
+_periods() {
+  local periods=(
+    today
+    week
+    month
+  )
+
+  compadd "$@" $periods
+}
+
+_arguments \
+  '1:period:_periods'
