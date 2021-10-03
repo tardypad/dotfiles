@@ -7,18 +7,22 @@ MODE="$( i3blocks-mode )"
 
 TASK=$( task show 2> /dev/null )
 
-[ -n "${TASK}" ] || exit 0
+if [ -n "${TASK}" ]; then
+  TASK_ID="$( echo "${TASK}" | cut -f1 )"
+  TASK_NAME="$( echo "${TASK}" | cut -f2 )"
 
-TASK_ID="$( echo "${TASK}" | cut -f1 )"
-TASK_NAME="$( echo "${TASK}" | cut -f2 )"
+  if [ "${MODE}" = 'full' ] && [ -n "${TASK_NAME}" ]; then
+    TEXT="${TASK_NAME}"
+  else
+    TEXT="${TASK_ID}"
+  fi
 
-if [ "${MODE}" = 'full' ] && [ -n "${TASK_NAME}" ]; then
-  TEXT="${TASK_NAME}"
+  COLOR_FG='#{color/base00/hex}'
+  COLOR_BG='#{color/info/hex}'
 else
-  TEXT="${TASK_ID}"
+  TEXT='no task'
+  COLOR_FG='#{color/base00/hex}'
+  COLOR_BG='#{color/warning/hex}'
 fi
-
-COLOR_FG='#{color/base00/hex}'
-COLOR_BG='#{color/info/hex}'
 
 printf '%s\n\n%s\n%s\n' "  ${TEXT}  " "${COLOR_FG}" "${COLOR_BG}"

@@ -4,8 +4,11 @@
 
 SESSION_STATUS=$( pomodoro status 2> /dev/null )
 
-[ -n "${SESSION_STATUS}" ] || exit 0
-
-TEXT="( ${SESSION_STATUS} )"
+if [ -n "${SESSION_STATUS}" ]; then
+  TEXT="( ${SESSION_STATUS} )"
+else
+  TEXT='(no timer)'
+  COLOR='#{color/warning/hex}'
+fi
 
 printf '%s\n\n%s\n' "${TEXT}" "${COLOR}"
