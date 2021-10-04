@@ -35,6 +35,8 @@ _$XDG_NOTES_DIR/todo.md_
 
 - {app/web_browser}
 - alacritty
+- mktemp
+- schedule
 - sway-quick-command
 - swaymsg
 - tmux
