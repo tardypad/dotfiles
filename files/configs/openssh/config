@@ -1,5 +1,5 @@
 Host *
-    PubkeyAcceptedKeyTypes=+ssh-dss
+    PubkeyAcceptedAlgorithms +ssh-rsa
     HashKnownHosts no
     EscapeChar {key/%}
     ForwardAgent no
