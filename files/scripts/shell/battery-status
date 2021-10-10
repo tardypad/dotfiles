@@ -7,25 +7,30 @@ ADAPTER_STATUS=$(
 )
 
 IS_ANY_BATTERY_CHARGING='no'
-TOTAL_ENERGY_NOW=0
-TOTAL_ENERGY_FULL=0
+TOTAL_CAPACITY_NOW=0
+TOTAL_CAPACITY_FULL=0
 
 for bat in /sys/class/power_supply/BAT*; do
-  TOTAL_ENERGY_NOW=$(( TOTAL_ENERGY_NOW + $( cat "${bat}/energy_now" ) ))
-  TOTAL_ENERGY_FULL=$(( TOTAL_ENERGY_FULL + $( cat "${bat}/energy_full" ) ))
+  if [ -f "${bat}/energy_now" ]; then
+    TOTAL_CAPACITY_NOW=$(( TOTAL_CAPACITY_NOW + $( cat "${bat}/energy_now" ) ))
+    TOTAL_CAPACITY_FULL=$(( TOTAL_CAPACITY_FULL + $( cat "${bat}/energy_full" ) ))
+  else
+    TOTAL_CAPACITY_NOW=$(( TOTAL_CAPACITY_NOW + $( cat "${bat}/charge_now" ) ))
+    TOTAL_CAPACITY_FULL=$(( TOTAL_CAPACITY_FULL + $( cat "${bat}/charge_full" ) ))
+  fi
 
   if [ "$( cat "${bat}/status" )" = 'Charging' ]; then
     IS_ANY_BATTERY_CHARGING='yes'
   fi
 done
 
-TOTAL_ENERGY_PERCENT=$(
+TOTAL_CAPACITY_PERCENT=$(
   printf %.0f "$(
-    echo "( ${TOTAL_ENERGY_NOW} / ${TOTAL_ENERGY_FULL} ) * 100" \
+    echo "( ${TOTAL_CAPACITY_NOW} / ${TOTAL_CAPACITY_FULL} ) * 100" \
       | bc -l
   )"
 )
 
 printf 'Adapter: %s\n' "${ADAPTER_STATUS}"
 printf 'Charging: %s\n' "${IS_ANY_BATTERY_CHARGING}"
-printf 'Charge: %s%%\n' "${TOTAL_ENERGY_PERCENT}"
+printf 'Charge: %s%%\n' "${TOTAL_CAPACITY_PERCENT}"

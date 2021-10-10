@@ -12,6 +12,9 @@ battery-status
 
 Print general status info about the battery
 
+We assume all the batteries present report the same type of capacity,
+either charge or energy (no mix)
+
 # OPTIONS
 
 None
@@ -26,14 +29,9 @@ None
 
 # FILES
 
-_/sys/class/power_supply/AC/online_
-	File storing the adapter status
-
-_/sys/class/power_supply/BAT\*/energy_now_
-	Files storing the current battery level
-
-_/sys/class/power_supply/BAT\*/energy_full_
-	Files storing the full battery level
+_/sys/class/power_supply/AC/\*_++
+_/sys/class/power_supply/BAT\*/\*_
+	Power supply files
 
 # DEPENDENCIES
 
