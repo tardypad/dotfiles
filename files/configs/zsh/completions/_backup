@@ -21,9 +21,9 @@ _items() {
   elif [ $words[CURRENT-1] = 'server' ]; then
     local items=(
       bookmarks
-      books
       contacts
       notes
+      time_tracker_logs
     )
   fi
 
