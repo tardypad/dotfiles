@@ -27,18 +27,28 @@ init_variables() {
   SERVER_NOTES_DIR="${SERVER_BASE_DIR}/notes"
   SERVER_TIME_TRACKER_LOGS_DIR="${SERVER_BASE_DIR}/time_tracker_logs"
 
-  TARGET=
+  SOURCE='laptop'
+  TARGET='hdd'
   ITEM=
 }
 
 parse_command_line() {
-  TARGET="$1"
-  ITEM="$2"
+  while getopts s:t: OPT; do
+    case "${OPT}" in
+      s) SOURCE="${OPTARG}" ;;
+      t) TARGET="${OPTARG}" ;;
+      ?) exit_error ;;
+    esac
+  done
+
+  shift $(( OPTIND - 1 ))
+
+  ITEM="$1"
 }
 
 validate_command_line() {
-  if [ -z "${TARGET}" ]; then
-    exit_error 'missing target'
+  if [ "${SOURCE}" != 'laptop' ]; then
+    exit_error "Invalid source '${SOURCE}'"
   fi
 
   if [ "${TARGET}" != 'hdd' ] \
@@ -59,15 +69,17 @@ validate_command_line() {
     exit_error "Invalid item '${ITEM}'"
   fi
 
-  if [ "${TARGET}" = 'hdd' ]; then
-    if [ "${ITEM}" = 'time_tracker_logs' ]; then
-      exit_error "Cannot backup ${ITEM} on ${TARGET}"
+  if [ "${SOURCE}" = 'laptop' ]; then
+    if [ "${TARGET}" = 'hdd' ]; then
+      if [ "${ITEM}" = 'time_tracker_logs' ]; then
+        exit_error "Cannot backup ${ITEM} from ${SOURCE} to ${TARGET}"
+      fi
     fi
-  fi
 
-  if [ "${TARGET}" = 'server' ]; then
-    if [ "${ITEM}" = 'books' ] || [ "${ITEM}" = 'videos' ]; then
-      exit_error "Cannot backup ${ITEM} on ${TARGET}"
+    if [ "${TARGET}" = 'server' ]; then
+      if [ "${ITEM}" = 'books' ] || [ "${ITEM}" = 'videos' ]; then
+        exit_error "Cannot backup ${ITEM} from ${SOURCE} to ${TARGET}"
+      fi
     fi
   fi
 }
@@ -77,7 +89,7 @@ exit_error() {
   exit 1
 } >&2
 
-backup_hdd_bookmarks() {
+backup_laptop_hdd_bookmarks() {
   rsync -az \
     --backup-dir="${HDD_BACKUP_DIR}/Bookmarks" \
     "${LOCAL_BROWSER_DIR}/bookmarks/urls" \
@@ -88,34 +100,34 @@ backup_hdd_bookmarks() {
     "${HDD_BOOKMARKS_DIR}/quickmarks"
 }
 
-backup_hdd_books() {
+backup_laptop_hdd_books() {
   rsync -az --delete \
     --backup-dir="${HDD_BACKUP_DIR}/Books" \
     "${LOCAL_BOOKS_DIR}/" \
     "${HDD_BOOKS_DIR}"
 }
 
-backup_hdd_contacts() {
+backup_laptop_hdd_contacts() {
   rsync -az --delete --exclude=".*" \
     --backup-dir="${HDD_BACKUP_DIR}/Contacts" \
     "${LOCAL_CONTACTS_DIR}/" \
     "${HDD_CONTACTS_DIR}"
 }
 
-backup_hdd_notes() {
+backup_laptop_hdd_notes() {
   rsync -az --delete --exclude=".*" \
     --backup-dir="${HDD_BACKUP_DIR}/Notes" \
     "${LOCAL_NOTES_DIR}/" \
     "${HDD_NOTES_DIR}"
 }
 
-backup_hdd_videos() {
+backup_laptop_hdd_videos() {
   rsync -az \
     "${LOCAL_VIDEOS_DIR}/" \
     "${HDD_VIDEOS_DIR}"
 }
 
-backup_server_bookmarks() {
+backup_laptop_server_bookmarks() {
   rsync -azb \
     "${LOCAL_BROWSER_DIR}/bookmarks/urls" \
     "${SERVER_HOST}:${SERVER_BOOKMARKS_DIR}/urls"
@@ -125,19 +137,19 @@ backup_server_bookmarks() {
     "${SERVER_HOST}:${SERVER_BOOKMARKS_DIR}/quickmarks"
 }
 
-backup_server_contacts() {
+backup_laptop_server_contacts() {
   rsync -azb --delete --exclude=".*" \
     "${LOCAL_CONTACTS_DIR}/" \
     "${SERVER_HOST}:${SERVER_CONTACTS_DIR}"
 }
 
-backup_server_notes() {
+backup_laptop_server_notes() {
   rsync -azb --delete --exclude=".*" \
     "${LOCAL_NOTES_DIR}/" \
     "${SERVER_HOST}:${SERVER_NOTES_DIR}"
 }
 
-backup_server_time_tracker_logs() {
+backup_laptop_server_time_tracker_logs() {
   rsync -azb --delete --exclude=".*" \
     "${LOCAL_TIME_TRACKER_LOGS_DIR}/" \
     "${SERVER_HOST}:${SERVER_TIME_TRACKER_LOGS_DIR}"
@@ -151,4 +163,4 @@ if [ "${TARGET}" = 'hdd' ] && [ ! -f "${HDD_BASE_DIR}/.hdd" ]; then
   exit_error "HDD is not connected"
 fi
 
-"backup_${TARGET}_${ITEM}"
+"backup_${SOURCE}_${TARGET}_${ITEM}"

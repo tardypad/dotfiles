@@ -1,5 +1,13 @@
 #compdef backup
 
+_sources() {
+  local sources=(
+    laptop
+  )
+
+  compadd "$@" $sources
+}
+
 _targets() {
   local targets=(
     hdd
@@ -10,26 +18,39 @@ _targets() {
 }
 
 _items() {
-  if [ $words[CURRENT-1] = 'hdd' ]; then
-    local items=(
-      bookmarks
-      books
-      contacts
-      notes
-      videos
-    )
-  elif [ $words[CURRENT-1] = 'server' ]; then
-    local items=(
-      bookmarks
-      contacts
-      notes
-      time_tracker_logs
-    )
+  local source='laptop' target='hdd' items=()
+
+  for (( i = 1; i <= $#words - 1; i++ )); do
+    if [ $words[$i] = '-s' ]; then
+      source=$words[$((i+1))]
+    elif [ $words[$i] = '-t' ]; then
+      target=$words[$((i+1))]
+    fi
+  done
+
+  if [ $source = 'laptop' ]; then
+    if [ $target = 'hdd' ]; then
+      items=(
+        bookmarks
+        books
+        contacts
+        notes
+        videos
+      )
+    elif [ $target = 'server' ]; then
+      items=(
+        bookmarks
+        contacts
+        notes
+        time_tracker_logs
+      )
+    fi
   fi
 
   compadd "$@" $items
 }
 
 _arguments \
-  '1:target:_targets' \
-  '2:item:_items'
+  '-s[source]:source:_sources' \
+  '-t[target]:target:_targets' \
+  '1:item:_items'

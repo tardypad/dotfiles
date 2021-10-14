@@ -6,7 +6,7 @@ backup - backup utility
 
 # SYNOPSIS
 
-backup _target_ _item_
+backup [-s _source_] [-t _target_] _item_
 
 # DESCRIPTION
 
@@ -14,15 +14,18 @@ Backup some items on a target
 
 # OPTIONS
 
-None
+*-s* _source_
+	Source of the backup++
+valid sources:
+	- laptop (default)
 
-# OPERANDS
-
-_target_
+*-t* _target_
 	Target of the backup++
 valid targets:
-	- hdd
+	- hdd (default)
 	- server
+
+# OPERANDS
 
 _item_
 	Item to backup++
@@ -34,11 +37,11 @@ valid items:
 	- time_tracker_logs
 	- videos
 
-# TARGET ITEMS
+# SOURCE TARGET ITEMS
 
-Valid items per target
+Valid items per source and target
 
-[[
+[[ *laptop*
 :- hdd
 :- server
 |  bookmarks
