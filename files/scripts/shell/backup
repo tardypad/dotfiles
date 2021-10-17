@@ -96,6 +96,7 @@ backup_laptop_hdd_bookmarks() {
     "${HDD_BOOKMARKS_DIR}/urls"
 
   rsync -az \
+    --backup-dir="${HDD_BACKUP_DIR}/Bookmarks" \
     "${LOCAL_BROWSER_DIR}/quickmarks" \
     "${HDD_BOOKMARKS_DIR}/quickmarks"
 }
