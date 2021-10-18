@@ -18,6 +18,7 @@ init_variables() {
   HDD_CONTACTS_DIR="${HDD_BASE_DIR}/Contacts"
   HDD_NOTES_DIR="${HDD_BASE_DIR}/Notes"
   HDD_VIDEOS_DIR="${HDD_BASE_DIR}/Videos"
+  HDD_PACKAGES_DIR="${HDD_BASE_DIR}/Packages"
 
   SERVER_HOST='surg'
   SERVER_BASE_DIR="backup/$( uname -n )"
@@ -26,6 +27,7 @@ init_variables() {
   SERVER_CONTACTS_DIR="${SERVER_BASE_DIR}/contacts"
   SERVER_NOTES_DIR="${SERVER_BASE_DIR}/notes"
   SERVER_TIME_TRACKER_LOGS_DIR="${SERVER_BASE_DIR}/time_tracker_logs"
+  SERVER_PACKAGES_DIR="/usr/local/www/pkgs"
 
   SOURCE='laptop'
   TARGET='hdd'
@@ -47,7 +49,8 @@ parse_command_line() {
 }
 
 validate_command_line() {
-  if [ "${SOURCE}" != 'laptop' ]; then
+  if [ "${SOURCE}" != 'laptop' ] \
+     && [ "${SOURCE}" != 'server' ]; then
     exit_error "Invalid source '${SOURCE}'"
   fi
 
@@ -64,6 +67,7 @@ validate_command_line() {
      && [ "${ITEM}" != 'books' ] \
      && [ "${ITEM}" != 'contacts' ] \
      && [ "${ITEM}" != 'notes' ] \
+     && [ "${ITEM}" != 'packages' ] \
      && [ "${ITEM}" != 'time_tracker_logs' ] \
      && [ "${ITEM}" != 'videos' ]; then
     exit_error "Invalid item '${ITEM}'"
@@ -71,15 +75,31 @@ validate_command_line() {
 
   if [ "${SOURCE}" = 'laptop' ]; then
     if [ "${TARGET}" = 'hdd' ]; then
-      if [ "${ITEM}" = 'time_tracker_logs' ]; then
+      if [ "${ITEM}" != 'bookmarks' ] \
+         && [ "${ITEM}" != 'books' ] \
+         && [ "${ITEM}" != 'contacts' ] \
+         && [ "${ITEM}" != 'notes' ] \
+         && [ "${ITEM}" != 'videos' ]; then
         exit_error "Cannot backup ${ITEM} from ${SOURCE} to ${TARGET}"
       fi
     fi
 
     if [ "${TARGET}" = 'server' ]; then
-      if [ "${ITEM}" = 'books' ] || [ "${ITEM}" = 'videos' ]; then
+      if [ "${ITEM}" != 'bookmarks' ] \
+         && [ "${ITEM}" != 'contacts' ] \
+         && [ "${ITEM}" != 'notes' ] \
+         && [ "${ITEM}" != 'time_tracker_logs' ]; then
         exit_error "Cannot backup ${ITEM} from ${SOURCE} to ${TARGET}"
       fi
+    fi
+  elif [ "${SOURCE}" = 'server' ]; then
+    if [ "${TARGET}" = 'hdd' ]; then
+      if [ "${ITEM}" != 'packages' ]; then
+        exit_error "Cannot backup ${ITEM} from ${SOURCE} to ${TARGET}"
+      fi
+    fi
+    if [ "${TARGET}" = 'server' ]; then
+        exit_error "Cannot backup to itself"
     fi
   fi
 }
@@ -154,6 +174,12 @@ backup_laptop_server_time_tracker_logs() {
   rsync -azb --delete --exclude=".*" \
     "${LOCAL_TIME_TRACKER_LOGS_DIR}/" \
     "${SERVER_HOST}:${SERVER_TIME_TRACKER_LOGS_DIR}"
+}
+
+backup_server_hdd_packages() {
+  rsync -az --delete \
+    "${SERVER_HOST}:${SERVER_PACKAGES_DIR}/" \
+    "${HDD_PACKAGES_DIR}"
 }
 
 init_variables

@@ -3,6 +3,7 @@
 _sources() {
   local sources=(
     laptop
+    server
   )
 
   compadd "$@" $sources
@@ -43,6 +44,12 @@ _items() {
         contacts
         notes
         time_tracker_logs
+      )
+    fi
+  elif [ $source = 'server' ]; then
+    if [ $target = 'hdd' ]; then
+      items=(
+        packages
       )
     fi
   fi
