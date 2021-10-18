@@ -19,6 +19,7 @@ init_variables() {
   HDD_NOTES_DIR="${HDD_BASE_DIR}/Notes"
   HDD_VIDEOS_DIR="${HDD_BASE_DIR}/Videos"
   HDD_PACKAGES_DIR="${HDD_BASE_DIR}/Packages"
+  HDD_REPOSITORIES_DIR="${HDD_BASE_DIR}/Repositories"
 
   SERVER_HOST='surg'
   SERVER_BASE_DIR="backup/$( uname -n )"
@@ -28,6 +29,7 @@ init_variables() {
   SERVER_NOTES_DIR="${SERVER_BASE_DIR}/notes"
   SERVER_TIME_TRACKER_LOGS_DIR="${SERVER_BASE_DIR}/time_tracker_logs"
   SERVER_PACKAGES_DIR="/usr/local/www/pkgs"
+  SERVER_REPOSITORIES_DIR="damien.git"
 
   SOURCE='laptop'
   TARGET='hdd'
@@ -68,6 +70,7 @@ validate_command_line() {
      && [ "${ITEM}" != 'contacts' ] \
      && [ "${ITEM}" != 'notes' ] \
      && [ "${ITEM}" != 'packages' ] \
+     && [ "${ITEM}" != 'repositories' ] \
      && [ "${ITEM}" != 'time_tracker_logs' ] \
      && [ "${ITEM}" != 'videos' ]; then
     exit_error "Invalid item '${ITEM}'"
@@ -94,7 +97,8 @@ validate_command_line() {
     fi
   elif [ "${SOURCE}" = 'server' ]; then
     if [ "${TARGET}" = 'hdd' ]; then
-      if [ "${ITEM}" != 'packages' ]; then
+      if [ "${ITEM}" != 'packages' ] \
+         && [ "${ITEM}" != 'repositories' ]; then
         exit_error "Cannot backup ${ITEM} from ${SOURCE} to ${TARGET}"
       fi
     fi
@@ -180,6 +184,12 @@ backup_server_hdd_packages() {
   rsync -az --delete \
     "${SERVER_HOST}:${SERVER_PACKAGES_DIR}/" \
     "${HDD_PACKAGES_DIR}"
+}
+
+backup_server_hdd_repositories() {
+  rsync -az --delete \
+    "${SERVER_HOST}:${SERVER_REPOSITORIES_DIR}/" \
+    "${HDD_REPOSITORIES_DIR}"
 }
 
 init_variables

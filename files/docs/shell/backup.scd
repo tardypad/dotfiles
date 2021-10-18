@@ -36,6 +36,7 @@ valid items:
 	- contacts
 	- notes
 	- packages
+	- repositories
 	- time_tracker_logs
 	- videos
 
@@ -64,6 +65,10 @@ Valid items per source and target
 :- \*
 : 
 |  packages
+: 
+: 
+:- \*
+|  repositories
 : 
 : 
 :- \*

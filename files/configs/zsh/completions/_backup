@@ -50,6 +50,7 @@ _items() {
     if [ $target = 'hdd' ]; then
       items=(
         packages
+        repositories
       )
     fi
   fi
