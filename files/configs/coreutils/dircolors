@@ -71,6 +71,7 @@ EXEC           1;{color/base0C/fg}                   # executable
 .svgz {color/base0B/fg}
 .tif  {color/base0B/fg}
 .tiff {color/base0B/fg}
+.webp {color/base0B/fg}
 .xcf  {color/base0B/fg}
 
 # Audio
