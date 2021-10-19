@@ -29,7 +29,7 @@ init_variables() {
   SERVER_NOTES_DIR="${SERVER_BASE_DIR}/notes"
   SERVER_TIME_TRACKER_LOGS_DIR="${SERVER_BASE_DIR}/time_tracker_logs"
   SERVER_PACKAGES_DIR="/usr/local/www/pkgs"
-  SERVER_REPOSITORIES_DIR="damien.git"
+  SERVER_REPOSITORIES_DIR="repos"
 
   SOURCE='laptop'
   TARGET='hdd'
