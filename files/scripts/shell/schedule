@@ -32,11 +32,11 @@ schedule_today() {
 }
 
 schedule_week() {
-  rem -cu+1
+  rem -cu+1 -b1 -m
 }
 
 schedule_month() {
-  rem -cu1
+  rem -cu1 -b1 -m
 }
 
 init_variables
