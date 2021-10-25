@@ -118,17 +118,11 @@ bindkey -M visual {key/S}        add-surround
 
 # edit command line in editor
 
-edit-command-line-custom () {
-  local EDITOR='vim -c "%s/ \(-\{1,2\}\)/ \\\\\r  \1/eg" -c "%s/|/ \\\\\r| /eg" +w +noh'
-  edit-command-line
-}
-
 autoload -U edit-command-line
 zle -N edit-command-line
-zle -N edit-command-line-custom
-bindkey -M vicmd   '^{key/edit/low}' edit-command-line-custom
-bindkey -M viins   '^{key/edit/low}' edit-command-line-custom
-bindkey -M isearch '^{key/edit/low}' edit-command-line-custom
+bindkey -M vicmd   '^{key/edit/low}' edit-command-line
+bindkey -M viins   '^{key/edit/low}' edit-command-line
+bindkey -M isearch '^{key/edit/low}' edit-command-line
 
 
 ## autosuggestions
