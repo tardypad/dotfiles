@@ -172,4 +172,4 @@ c.statusbar.position = 'bottom'
 c.downloads.position = 'bottom'
 c.tabs.position      = 'top'
 
-c.tabs.max_width = 1000
+c.tabs.max_width = 300
