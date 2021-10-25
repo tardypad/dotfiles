@@ -1,11 +1,3 @@
-Host *
-    PubkeyAcceptedAlgorithms +ssh-rsa
-    HashKnownHosts no
-    EscapeChar {key/%}
-    ForwardAgent no
-    AddKeysToAgent yes
-    IdentitiesOnly yes
-
 Host github
     Hostname github.com
     User git
@@ -24,3 +16,11 @@ Host surg tardypad
     Port 11235
     IdentityFile ~/.ssh/id_yubikey.pub
     IdentityFile ~/.ssh/id_surg
+
+Host *
+    PubkeyAcceptedAlgorithms +ssh-rsa
+    HashKnownHosts no
+    EscapeChar {key/%}
+    ForwardAgent no
+    AddKeysToAgent yes
+    IdentitiesOnly yes
