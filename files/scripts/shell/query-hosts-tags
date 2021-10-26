@@ -68,6 +68,7 @@ query_tags() {
   )
 
   echo "${TAGS_VALUES}" \
+    | grep -v '^host' \
     | sed 's/=/\t/' \
     | expand -t "$(( MAX_TAG_LENGTH + 2 ))"
 }
@@ -97,11 +98,13 @@ process_file() {
   # frontend.example.com
   # project=website
   # environment=test
+  # host=frontend.example.com
   #
   # backend.example.com
   # project=website
   # environment=test
   # purpose=backend
+  # host=backend.example.com
 
   # shellcheck disable=SC2086
   sed \
@@ -109,6 +112,8 @@ process_file() {
     -e 's/^  //' \
     -e 's/: /=/' \
     ${HOSTS_TAGS_FILES} \
+    | awk \
+      'BEGIN { FS="\n"; OFS="\n"; RS=""; ORS="\n\n" } { print $0, "host="$1 }' \
     | awk \
       'BEGIN { FS="\n"; OFS="\n"; RS=""; ORS="\n\n" } !visited[$1]++' \
     | awk \

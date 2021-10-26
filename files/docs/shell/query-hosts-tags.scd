@@ -33,7 +33,8 @@ _host_
 	Host to display tags of
 
 _tag_=_value_
-	Couple _tag_/_value_ to filter the hosts to display
+	Couple _tag_/_value_ to filter the hosts to display++
+"host" is an artificial tag with the value of the host added for scripting convenience
 
 # ENVIRONMENT VARIABLES
 
