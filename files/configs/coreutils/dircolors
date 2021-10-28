@@ -38,9 +38,11 @@ EXEC           1;{color/base0C/fg}                   # executable
 .pl     {color/base0B/fg}
 .py     {color/base0B/fg}
 .rb     {color/base0B/fg}
+.scss   {color/base0B/fg}
 .sh     {color/base0B/fg}
 .sql    {color/base0B/fg}
 .tex    {color/base0B/fg}
+.ts     {color/base0B/fg}
 .txt    {color/base0B/fg}
 .vim    {color/base0B/fg}
 .xhtml  {color/base0B/fg}
