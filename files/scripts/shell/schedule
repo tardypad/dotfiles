@@ -27,8 +27,11 @@ schedule_today() {
   rem -s -b1 \
     | grep "$( date +%Y/%m/%d )" \
     | cut -d' ' -f6- \
-    | sed -e 's/\(.*\) (.*)$/\1/' -e 's/ /\t/' \
-    | column -t -s '	'
+    | sed -e 's/\(.*\) (.*)$/\1/' \
+          -e '/^[0-9]/s/ /\t/' \
+          -e '/^[^0-9]/s/^/\t/' \
+    | column -t -s '	' \
+    | sed 's/^ *//'
 }
 
 schedule_week() {
