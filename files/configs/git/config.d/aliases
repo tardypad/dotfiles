@@ -30,7 +30,11 @@
     bwc = "! f() { git browse -t commit -c $( git argument $1 ); }; f"
     bwi = "! f() { git browse -t issue -c $( git argument $1 ); }; f"
     bwr = "! f() { git browse -t review -c $( git argument $1 ); }; f"
-    ci = "! f() { EDITOR=\"vim -c 'startinsert!'\" git commit \"$@\"; }; f"
+    ci = "! \
+        f() { \
+          [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\"; \
+          EDITOR=\"vim -c 'startinsert!'\" git commit \"$@\"; \
+        }; f"
     cia = ci -a
     cl = clone
     co = checkout
