@@ -81,6 +81,7 @@ read_feed() {
           --with-nth 2 \
           --info hidden \
           --header "${FEED_HEADER}" \
+          --header-first \
           --preview "printf '%s\n%s\n\n' {1} {5}; echo {4} | ${VIEW_SCRIPT} -dump" \
           --preview-window 'down:60%:border-top' \
           --bind "{key/return/return}:execute(echo {4} | ${VIEW_SCRIPT})" \
