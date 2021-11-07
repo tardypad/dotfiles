@@ -11,6 +11,7 @@
   - [Junegunn Choi dotfiles](https://github.com/junegunn/dotfiles)
   - [Tom Ryder dotfiles](https://sanctum.geek.nz/cgit/dotfiles.git/tree/)
   - [Maxim Baz dotfiles](https://github.com/maximbaz/dotfiles)
+  - [Drew DeVault dotfiles](https://git.sr.ht/~sircmpwn/dotfiles)
   - [John Kerl scripts](https://github.com/johnkerl/scripts)
   - [dhohdan structured text tools](https://github.com/dbohdan/structured-text-tools)
   - [neeasade color spaces notes](https://notes.neeasade.net/color-spaces.html)
