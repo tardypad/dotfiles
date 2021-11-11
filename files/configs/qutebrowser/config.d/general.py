@@ -1,6 +1,3 @@
-# restore previous session on opening
-c.auto_save.session = True
-
 # only show logs starting from warning level
 c.logging.level.console = 'warning'
 
