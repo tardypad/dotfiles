@@ -71,14 +71,14 @@ dnd_enable() {
   fi
 
   # shellcheck disable=SC2029
-  ssh surg bin/set-status busy "${STATUS_TEXT}" 2> /dev/null &
+  ssh chestnut bin/set-status busy "${STATUS_TEXT}" 2> /dev/null &
 
   touch "${FILE_PATH}" \
     && update_i3blocks
 }
 
 dnd_disable() {
-  ssh surg bin/set-status available 2> /dev/null &
+  ssh chestnut bin/set-status available 2> /dev/null &
 
   rm -f "${FILE_PATH}" \
     && update_i3blocks

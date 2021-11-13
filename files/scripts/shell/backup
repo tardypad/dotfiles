@@ -21,7 +21,7 @@ init_variables() {
   HDD_PACKAGES_DIR="${HDD_BASE_DIR}/Packages"
   HDD_REPOSITORIES_DIR="${HDD_BASE_DIR}/Repositories"
 
-  SERVER_HOST='surg'
+  SERVER_HOST='chestnut'
   SERVER_BASE_DIR="backup/$( uname -n )"
 
   SERVER_BOOKMARKS_DIR="${SERVER_BASE_DIR}/bookmarks"

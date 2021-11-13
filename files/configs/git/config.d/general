@@ -13,10 +13,8 @@
     smtpserverport = 587
 [credential "smtp://damien%40tardypad.me@smtp.migadu.com%3a587"]
     helper = !pass perso/git/migadu
-[url "surg:~/repos/"]
+[url "chestnut:~/repos/"]
     insteadOf = perso:
-[url "surg:~/repos/"]
-    insteadOf = surg:
 [url "sourcehut:~"]
     insteadOf = sh:
 [url "sourcehut:~tardypad/"]
