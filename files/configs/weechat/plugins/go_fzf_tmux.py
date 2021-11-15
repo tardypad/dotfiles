@@ -23,15 +23,25 @@ SETTINGS = {
         'Options for fzf command'),
 }
 
+FZF_MAIN_OPTIONS = "--with-nth 2.."
+
 def get_buffers():
     buffers = []
     infolist = weechat.infolist_get('buffer', '', '')
     if infolist:
         while weechat.infolist_next(infolist):
+            number = weechat.infolist_integer(infolist, 'number')
             name = weechat.infolist_string(infolist, 'short_name')
-            buffers.append(name)
+            buffers.append({"number": number, "name": name})
         weechat.infolist_free(infolist)
     return buffers
+
+
+def get_buffers_input():
+    lines = []
+    for buffer in get_buffers():
+        lines.append('{} {}'.format(buffer["number"], buffer["name"]))
+    return "\n".join(lines)
 
 
 def process_fzf_result(data, command, rc, out, err):
@@ -42,13 +52,15 @@ def process_fzf_result(data, command, rc, out, err):
 
 def switch_to_buffer(out):
     selected = out.strip('\n')
-    weechat.command('', '/buffer {}'.format(selected))
+    number = selected.split(' ')[0]
+    weechat.command('', '/buffer *{}'.format(number))
 
 
 def run_within_tmux():
-    command = 'echo "{}" | fzf-tmux {}'.format(
-            '\n'.join(get_buffers()),
-            weechat.config_get_plugin('fzf_options'))
+    command = 'echo "{}" | fzf-tmux {} {}'.format(
+            get_buffers_input(),
+            weechat.config_get_plugin('fzf_options'),
+            FZF_MAIN_OPTIONS)
 
     if not weechat.hook_process_hashtable(
         'sh', {'arg1': '-c', 'arg2': command},
@@ -58,14 +70,15 @@ def run_within_tmux():
 
 
 def run_blocking():
-    echo_command = 'echo "{}"'.format('\n'.join(get_buffers()))
+    echo_command = 'echo "{}"'.format(get_buffers_input())
     echo_process = subprocess.Popen(
                     shlex.split(echo_command),
                     stdout=subprocess.PIPE)
 
     try:
-        fzf_command = 'fzf {}'.format(
-            weechat.config_get_plugin('fzf_options'))
+        fzf_command = 'fzf {} {}'.format(
+            weechat.config_get_plugin('fzf_options'),
+            FZF_MAIN_OPTIONS)
         out = subprocess.check_output(
                 shlex.split(fzf_command),
                 stdin=echo_process.stdout)
