@@ -17,6 +17,12 @@ Host chestnut
     IdentityFile ~/.ssh/id_yubikey.pub
     IdentityFile ~/.ssh/id_chestnut
 
+Host pistachio
+    Hostname pi.hole
+    User pi
+    IdentityFile ~/.ssh/id_yubikey.pub
+    IdentityFile ~/.ssh/id_pistachio
+
 Host *
     PubkeyAcceptedAlgorithms +ssh-rsa
     HashKnownHosts no
