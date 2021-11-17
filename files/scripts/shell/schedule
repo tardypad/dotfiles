@@ -31,7 +31,8 @@ schedule_today() {
           -e '/^[0-9]/s/ /\t/' \
           -e '/^[^0-9]/s/^/\t/' \
     | column -t -s '	' \
-    | sed 's/^ *//'
+    | sed 's/^ *//' \
+    | awk '!found && /^[^0-9]/ { print ""; found=1 } 1'
 }
 
 schedule_week() {
