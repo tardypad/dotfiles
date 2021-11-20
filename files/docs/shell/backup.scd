@@ -23,7 +23,8 @@ valid sources:
 *-t* _target_
 	Target of the backup++
 valid targets:
-	- hdd (default)
+	- hdd1 (default)
+	- hdd2
 	- server
 
 # OPERANDS

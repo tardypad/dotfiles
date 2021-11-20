@@ -10,16 +10,8 @@ init_variables() {
   LOCAL_TIME_TRACKER_LOGS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/time-tracker/logs"
   LOCAL_VIDEOS_DIR="${XDG_VIDEOS_DIR:-$HOME/Videos}"
 
-  HDD_BASE_DIR='/mnt/lacie_data'
-  HDD_BACKUP_DIR="${HDD_BASE_DIR}/Backup"
-
-  HDD_BOOKMARKS_DIR="${HDD_BASE_DIR}/Bookmarks"
-  HDD_BOOKS_DIR="${HDD_BASE_DIR}/Books"
-  HDD_CONTACTS_DIR="${HDD_BASE_DIR}/Contacts"
-  HDD_NOTES_DIR="${HDD_BASE_DIR}/Notes"
-  HDD_VIDEOS_DIR="${HDD_BASE_DIR}/Videos"
-  HDD_PACKAGES_DIR="${HDD_BASE_DIR}/Packages"
-  HDD_REPOSITORIES_DIR="${HDD_BASE_DIR}/Repositories"
+  HDD1_BASE_DIR='/mnt/toshiba'
+  HDD2_BASE_DIR='/mnt/lacie_data'
 
   SERVER_HOST='chestnut'
   SERVER_BASE_DIR="backup/$( uname -n )"
@@ -32,9 +24,22 @@ init_variables() {
   SERVER_REPOSITORIES_DIR="repos"
 
   SOURCE='laptop'
-  TARGET='hdd'
+  TARGET='hdd1'
   ITEM=
 }
+
+init_hdd_variables() {
+  HDD_BACKUP_DIR="${HDD_BASE_DIR}/Backup"
+
+  HDD_BOOKMARKS_DIR="${HDD_BASE_DIR}/Bookmarks"
+  HDD_BOOKS_DIR="${HDD_BASE_DIR}/Books"
+  HDD_CONTACTS_DIR="${HDD_BASE_DIR}/Contacts"
+  HDD_NOTES_DIR="${HDD_BASE_DIR}/Notes"
+  HDD_VIDEOS_DIR="${HDD_BASE_DIR}/Videos"
+  HDD_PACKAGES_DIR="${HDD_BASE_DIR}/Packages"
+  HDD_REPOSITORIES_DIR="${HDD_BASE_DIR}/Repositories"
+}
+
 
 parse_command_line() {
   while getopts s:t: OPT; do
@@ -56,7 +61,8 @@ validate_command_line() {
     exit_error "Invalid source '${SOURCE}'"
   fi
 
-  if [ "${TARGET}" != 'hdd' ] \
+  if [ "${TARGET}" != 'hdd1' ] \
+     && [ "${TARGET}" != 'hdd2' ] \
      && [ "${TARGET}" != 'server' ]; then
     exit_error "Invalid target '${TARGET}'"
   fi
@@ -77,7 +83,7 @@ validate_command_line() {
   fi
 
   if [ "${SOURCE}" = 'laptop' ]; then
-    if [ "${TARGET}" = 'hdd' ]; then
+    if [ "${TARGET}" = 'hdd1' ] || [ "${TARGET}" = 'hdd2' ]; then
       if [ "${ITEM}" != 'bookmarks' ] \
          && [ "${ITEM}" != 'books' ] \
          && [ "${ITEM}" != 'contacts' ] \
@@ -96,7 +102,7 @@ validate_command_line() {
       fi
     fi
   elif [ "${SOURCE}" = 'server' ]; then
-    if [ "${TARGET}" = 'hdd' ]; then
+    if [ "${TARGET}" = 'hdd1' ] || [ "${TARGET}" = 'hdd2' ]; then
       if [ "${ITEM}" != 'packages' ] \
          && [ "${ITEM}" != 'repositories' ]; then
         exit_error "Cannot backup ${ITEM} from ${SOURCE} to ${TARGET}"
@@ -196,8 +202,25 @@ init_variables
 parse_command_line "$@"
 validate_command_line
 
-if [ "${TARGET}" = 'hdd' ] && [ ! -f "${HDD_BASE_DIR}/.hdd" ]; then
-  exit_error "HDD is not connected"
+if [ "${TARGET}" = 'hdd1' ] && [ ! -f "${HDD1_BASE_DIR}/.hdd" ]; then
+  exit_error "HDD1 is not connected"
 fi
+
+if [ "${TARGET}" = 'hdd2' ] && [ ! -f "${HDD2_BASE_DIR}/.hdd" ]; then
+  exit_error "HDD2 is not connected"
+fi
+
+case "${TARGET}" in
+  hdd1)
+    HDD_BASE_DIR="${HDD1_BASE_DIR}"
+    init_hdd_variables
+    TARGET='hdd'
+    ;;
+  hdd2)
+    HDD_BASE_DIR="${HDD2_BASE_DIR}"
+    init_hdd_variables
+    TARGET='hdd'
+    ;;
+esac
 
 "backup_${SOURCE}_${TARGET}_${ITEM}"

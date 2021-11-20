@@ -11,7 +11,8 @@ _sources() {
 
 _targets() {
   local targets=(
-    hdd
+    hdd1
+    hdd2
     server
   )
 
@@ -19,7 +20,7 @@ _targets() {
 }
 
 _items() {
-  local source='laptop' target='hdd' items=()
+  local source='laptop' target='hdd1' items=()
 
   for (( i = 1; i <= $#words - 1; i++ )); do
     if [ $words[$i] = '-s' ]; then
@@ -30,7 +31,7 @@ _items() {
   done
 
   if [ $source = 'laptop' ]; then
-    if [ $target = 'hdd' ]; then
+    if [[ $target = hdd* ]]; then
       items=(
         bookmarks
         books
@@ -47,7 +48,7 @@ _items() {
       )
     fi
   elif [ $source = 'server' ]; then
-    if [ $target = 'hdd' ]; then
+    if [[ $target = hdd* ]]; then
       items=(
         packages
         repositories
