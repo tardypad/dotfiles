@@ -8,6 +8,7 @@ init_variables() {
   LACIE_SHARE_UUID='B66F-3C89'
   TDK_DATA_UUID='e087a822-7b11-42eb-9b6d-e2ec13724073'
   TDK_SECRET_UUID='0bd24e2d-cb0a-4c5b-accd-e428de86c1f0'
+  TOSHIBA_UUID='fe36b1e1-8f91-4d1c-a0af-4327ecb1bd27'
 
   DEVICE_ID=
   UNMOUNT=false
@@ -35,7 +36,8 @@ validate_command_line() {
      && [ "${DEVICE_ID}" != 'lacie_secret' ] \
      && [ "${DEVICE_ID}" != 'lacie_share' ] \
      && [ "${DEVICE_ID}" != 'tdk_data' ] \
-     && [ "${DEVICE_ID}" != 'tdk_secret' ]; then
+     && [ "${DEVICE_ID}" != 'tdk_secret' ] \
+     && [ "${DEVICE_ID}" != 'toshiba' ]; then
     exit_error "Invalid device id '${DEVICE_ID}'"
   fi
 }
@@ -74,12 +76,14 @@ mount_device_lacie_secret() { mount_crypt  "${LACIE_SECRET_UUID}" lacie_secret ;
 mount_device_lacie_share()  { mount_simple "${LACIE_SHARE_UUID}"  lacie_share  ; }
 mount_device_tdk_data()     { mount_simple "${TDK_DATA_UUID}"     tdk_data     ; }
 mount_device_tdk_secret()   { mount_crypt  "${TDK_SECRET_UUID}"   tdk_secret   ; }
+mount_device_toshiba()      { mount_crypt  "${TOSHIBA_UUID}"      toshiba      ; }
 
 unmount_device_lacie_data()   { unmount_crypt  lacie_data   ; }
 unmount_device_lacie_secret() { unmount_crypt  lacie_secret ; }
 unmount_device_lacie_share()  { unmount_simple lacie_share  ; }
 unmount_device_tdk_data()     { unmount_simple tdk_data     ; }
 unmount_device_tdk_secret()   { unmount_crypt  tdk_secret   ; }
+unmount_device_toshiba()      { unmount_crypt  toshiba      ; }
 
 init_variables
 parse_command_line "$@"

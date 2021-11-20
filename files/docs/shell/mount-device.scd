@@ -27,6 +27,7 @@ Valid identifiers:
 - lacie_share
 - tdk_data
 - tdk_secret
+- toshiba
 
 # ENVIRONMENT VARIABLES
 

@@ -7,6 +7,7 @@ _ids() {
     lacie_share
     tdk_data
     tdk_secret
+    toshiba
   )
 
   compadd "$@" $ids
