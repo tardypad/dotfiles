@@ -1,5 +1,5 @@
-# update all systems on first Monday of each month
-REM Mon 1 MSG Update all systems
-
 # make backups on external drives each Tuesday
 REM Tue MSG Make backups
+
+# update all systems on first Wednesday of each month
+REM Wed 1 MSG Update all systems
