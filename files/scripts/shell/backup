@@ -10,8 +10,8 @@ init_variables() {
   LOCAL_TIME_TRACKER_LOGS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/time-tracker/logs"
   LOCAL_VIDEOS_DIR="${XDG_VIDEOS_DIR:-$HOME/Videos}"
 
-  HDD1_BASE_DIR='/mnt/toshiba'
-  HDD2_BASE_DIR='/mnt/lacie_data'
+  HDD1_UUID='e89b95fd-8520-43c1-bebf-610c92176955'
+  HDD2_UUID='dbcc4803-f9f5-49fe-b997-5c949c53d2ef'
 
   SERVER_HOST='chestnut'
   SERVER_BASE_DIR="backup/$( uname -n )"
@@ -39,7 +39,6 @@ init_hdd_variables() {
   HDD_PACKAGES_DIR="${HDD_BASE_DIR}/Packages"
   HDD_REPOSITORIES_DIR="${HDD_BASE_DIR}/Repositories"
 }
-
 
 parse_command_line() {
   while getopts s:t: OPT; do
@@ -198,29 +197,29 @@ backup_server_hdd_repositories() {
     "${HDD_REPOSITORIES_DIR}"
 }
 
+init_hdd() {
+  HDD_BASE_DIR="$(
+    lsblk -n -o UUID,MOUNTPOINT \
+      | grep "^$1 " \
+      | awk '{ print $2 }'
+  )"
+
+  if [ -z "${HDD_BASE_DIR}" ]; then
+    exit_error "HDD is not connected"
+  fi
+
+  init_hdd_variables
+  TARGET='hdd'
+}
+
 init_variables
 parse_command_line "$@"
 validate_command_line
 
-if [ "${TARGET}" = 'hdd1' ] && [ ! -f "${HDD1_BASE_DIR}/.hdd" ]; then
-  exit_error "HDD1 is not connected"
+if [ "${TARGET}" = 'hdd1' ]; then
+  init_hdd "${HDD1_UUID}"
+elif [ "${TARGET}" = 'hdd2' ]; then
+  init_hdd "${HDD2_UUID}"
 fi
-
-if [ "${TARGET}" = 'hdd2' ] && [ ! -f "${HDD2_BASE_DIR}/.hdd" ]; then
-  exit_error "HDD2 is not connected"
-fi
-
-case "${TARGET}" in
-  hdd1)
-    HDD_BASE_DIR="${HDD1_BASE_DIR}"
-    init_hdd_variables
-    TARGET='hdd'
-    ;;
-  hdd2)
-    HDD_BASE_DIR="${HDD2_BASE_DIR}"
-    init_hdd_variables
-    TARGET='hdd'
-    ;;
-esac
 
 "backup_${SOURCE}_${TARGET}_${ITEM}"

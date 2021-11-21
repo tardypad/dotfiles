@@ -133,4 +133,5 @@ _$XDG_VIDEOS_DIR_
 
 # DEPENDENCIES
 
+- lsblk
 - rsync
