@@ -11,7 +11,7 @@ init_variables() {
   LOCAL_VIDEOS_DIR="${XDG_VIDEOS_DIR:-$HOME/Videos}"
 
   HDD1_UUID='e89b95fd-8520-43c1-bebf-610c92176955'
-  HDD2_UUID='dbcc4803-f9f5-49fe-b997-5c949c53d2ef'
+  HDD2_UUID='204b2ecc-e3c3-497c-aa4a-c0421a2ddb4f'
 
   SERVER_HOST='chestnut'
   SERVER_BASE_DIR="backup/$( uname -n )"

@@ -3,9 +3,7 @@
 init_variables() {
   COMMAND=${0##*/}
 
-  LACIE_DATA_UUID='74ad1023-7c4c-4767-93ea-d3c3f3b61391'
-  LACIE_SECRET_UUID='4002349b-b89c-43fe-8b2f-a53422b604e0'
-  LACIE_SHARE_UUID='B66F-3C89'
+  LACIE_UUID='957ed774-d551-43de-a233-9815013f7498'
   TDK_DATA_UUID='e087a822-7b11-42eb-9b6d-e2ec13724073'
   TDK_SECRET_UUID='0bd24e2d-cb0a-4c5b-accd-e428de86c1f0'
   TOSHIBA_UUID='fe36b1e1-8f91-4d1c-a0af-4327ecb1bd27'
@@ -32,9 +30,7 @@ validate_command_line() {
     exit_error 'missing operand'
   fi
 
-  if [ "${DEVICE_ID}" != 'lacie_data' ] \
-     && [ "${DEVICE_ID}" != 'lacie_secret' ] \
-     && [ "${DEVICE_ID}" != 'lacie_share' ] \
+  if [ "${DEVICE_ID}" != 'lacie' ] \
      && [ "${DEVICE_ID}" != 'tdk_data' ] \
      && [ "${DEVICE_ID}" != 'tdk_secret' ] \
      && [ "${DEVICE_ID}" != 'toshiba' ]; then
@@ -71,19 +67,15 @@ unmount_crypt() {
   && printf 'unmounted /mnt/%s\n' "$1"
 }
 
-mount_device_lacie_data()   { mount_crypt  "${LACIE_DATA_UUID}"   lacie_data   ; }
-mount_device_lacie_secret() { mount_crypt  "${LACIE_SECRET_UUID}" lacie_secret ; }
-mount_device_lacie_share()  { mount_simple "${LACIE_SHARE_UUID}"  lacie_share  ; }
-mount_device_tdk_data()     { mount_simple "${TDK_DATA_UUID}"     tdk_data     ; }
-mount_device_tdk_secret()   { mount_crypt  "${TDK_SECRET_UUID}"   tdk_secret   ; }
-mount_device_toshiba()      { mount_crypt  "${TOSHIBA_UUID}"      toshiba      ; }
+mount_device_lacie()      { mount_crypt  "${LACIE_UUID}"      lacie      ; }
+mount_device_tdk_data()   { mount_simple "${TDK_DATA_UUID}"   tdk_data   ; }
+mount_device_tdk_secret() { mount_crypt  "${TDK_SECRET_UUID}" tdk_secret ; }
+mount_device_toshiba()    { mount_crypt  "${TOSHIBA_UUID}"    toshiba    ; }
 
-unmount_device_lacie_data()   { unmount_crypt  lacie_data   ; }
-unmount_device_lacie_secret() { unmount_crypt  lacie_secret ; }
-unmount_device_lacie_share()  { unmount_simple lacie_share  ; }
-unmount_device_tdk_data()     { unmount_simple tdk_data     ; }
-unmount_device_tdk_secret()   { unmount_crypt  tdk_secret   ; }
-unmount_device_toshiba()      { unmount_crypt  toshiba      ; }
+unmount_device_lacie()      { unmount_crypt  lacie      ; }
+unmount_device_tdk_data()   { unmount_simple tdk_data   ; }
+unmount_device_tdk_secret() { unmount_crypt  tdk_secret ; }
+unmount_device_toshiba()    { unmount_crypt  toshiba    ; }
 
 init_variables
 parse_command_line "$@"

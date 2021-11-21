@@ -2,9 +2,7 @@
 
 _ids() {
   local ids=(
-    lacie_data
-    lacie_secret
-    lacie_share
+    lacie
     tdk_data
     tdk_secret
     toshiba
