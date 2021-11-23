@@ -73,6 +73,7 @@ config.set('content.javascript.enabled', True, '*.ovh.com')
 config.set('content.javascript.enabled', True, '*.migadu.com')
 config.set('content.javascript.enabled', True, '*.gandi.net')
 config.set('content.javascript.enabled', True, 'online-go.com')
+config.set('content.javascript.enabled', True, 'www.duolingo.com')
 
 # prefer webpage to follow overall color scheme
 c.colors.webpage.preferred_color_scheme = '{color/theme}'
