@@ -36,7 +36,7 @@ alias g='git'
 
 alias pg='pass git'
 
-alias st='ssh-tags'
+alias ssht='ssh-tags'
 alias qht='query-hosts-tags'
 
 alias pj='goto-project repo'
