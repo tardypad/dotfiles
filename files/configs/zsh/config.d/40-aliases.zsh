@@ -99,6 +99,12 @@ alias fzf='fzf --reverse'
 # most remote hosts don't have the tmux terminfo we use within tmux
 alias ssh='TERM=xterm-256color ssh'
 
+# temporary ssh usage for when connecting to rescue mode or such
+# - don't limit the identities tried for authentication
+# - don't check hash against known hosts
+# - don't store hash in normal known hosts file
+alias ssh-tmp='TERM=xterm-256color ssh -o "IdentitiesOnly no" -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null"'
+
 # switch to root
 alias root='sudo -sE'
 
