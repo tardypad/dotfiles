@@ -2,6 +2,7 @@
 
 _ids() {
   local ids=(
+    kobo
     lacie
     tdk_data
     tdk_secret

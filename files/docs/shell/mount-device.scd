@@ -22,6 +22,7 @@ Mount or unmount personal external devices.
 _id_
 	Identifier of the device and partition to mount or unmount++
 Valid identifiers:
+- kobo
 - lacie
 - tdk_data
 - tdk_secret

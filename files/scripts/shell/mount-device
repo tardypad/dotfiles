@@ -3,6 +3,7 @@
 init_variables() {
   COMMAND=${0##*/}
 
+  KOBO_UUID='5BBA-D173'
   LACIE_UUID='957ed774-d551-43de-a233-9815013f7498'
   TDK_DATA_UUID='e087a822-7b11-42eb-9b6d-e2ec13724073'
   TDK_SECRET_UUID='0bd24e2d-cb0a-4c5b-accd-e428de86c1f0'
@@ -30,7 +31,8 @@ validate_command_line() {
     exit_error 'missing operand'
   fi
 
-  if [ "${DEVICE_ID}" != 'lacie' ] \
+  if [ "${DEVICE_ID}" != 'kobo' ] \
+     && [ "${DEVICE_ID}" != 'lacie' ] \
      && [ "${DEVICE_ID}" != 'tdk_data' ] \
      && [ "${DEVICE_ID}" != 'tdk_secret' ] \
      && [ "${DEVICE_ID}" != 'toshiba' ]; then
@@ -67,11 +69,13 @@ unmount_crypt() {
   && printf 'unmounted /mnt/%s\n' "$1"
 }
 
+mount_device_kobo()       { mount_simple "${KOBO_UUID}"       kobo       ; }
 mount_device_lacie()      { mount_crypt  "${LACIE_UUID}"      lacie      ; }
 mount_device_tdk_data()   { mount_simple "${TDK_DATA_UUID}"   tdk_data   ; }
 mount_device_tdk_secret() { mount_crypt  "${TDK_SECRET_UUID}" tdk_secret ; }
 mount_device_toshiba()    { mount_crypt  "${TOSHIBA_UUID}"    toshiba    ; }
 
+unmount_device_kobo()       { unmount_simple kobo       ; }
 unmount_device_lacie()      { unmount_crypt  lacie      ; }
 unmount_device_tdk_data()   { unmount_simple tdk_data   ; }
 unmount_device_tdk_secret() { unmount_crypt  tdk_secret ; }
