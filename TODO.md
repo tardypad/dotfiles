@@ -1,12 +1,6 @@
 # TODO
 
 ## Periodic
-  - upgrade packages, plugins, extensions,...
-  - remove unused plugins, aliases, functions,...
-  - replace unnecessary dependencies with own simpler config, scripts,...
-  - review packages and plugins to find newer better alternatives
-  - check that packages versions are up to date with the `report-versions` utility script
-  - check if some code tags can be fixed with the `report-tags` utility script
 
 ## Cleaning
 
