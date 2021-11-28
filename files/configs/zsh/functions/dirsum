@@ -1,0 +1,16 @@
+# commands used:
+# - md5sum
+# - tar
+#
+# calculate a checksum for a directory
+# taking into account the content, filename and metadata
+
+(
+  cd "$1" || return 1
+
+  find . \
+    | LC_ALL=C sort \
+    | tar --no-recursion -cf - -T - \
+    | md5sum \
+    | cut -d' ' -f1
+)
