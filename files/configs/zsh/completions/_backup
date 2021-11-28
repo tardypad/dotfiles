@@ -37,6 +37,7 @@ _items() {
         books
         contacts
         notes
+        todo
         videos
       )
     elif [ $target = 'server' ]; then
@@ -44,6 +45,7 @@ _items() {
         bookmarks
         notes
         time_tracker_logs
+        todo
       )
     fi
   elif [ $source = 'server' ]; then
@@ -53,6 +55,7 @@ _items() {
         notes
         packages
         repositories
+        todo
       )
     fi
   fi

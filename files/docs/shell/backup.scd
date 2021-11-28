@@ -39,6 +39,7 @@ valid items:
 	- packages
 	- repositories
 	- time_tracker_logs
+	- todo
 	- videos
 
 # SOURCE TARGET ITEMS
@@ -77,6 +78,10 @@ Valid items per source and target
 : 
 :- \*
 : 
+|  todo
+:- \*
+:- \*
+:- \*
 |  videos
 :- \*
 : 

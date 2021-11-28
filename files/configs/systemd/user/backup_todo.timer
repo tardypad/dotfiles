@@ -1,0 +1,9 @@
+[Unit]
+Description=Backup TODO files
+
+[Timer]
+OnStartupSec=2H
+OnUnitActiveSec=2H
+
+[Install]
+WantedBy=timers.target
