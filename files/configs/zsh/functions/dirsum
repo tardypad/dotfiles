@@ -1,5 +1,6 @@
 # commands used:
 # - md5sum
+# - pv
 # - tar
 #
 # calculate a checksum for a directory
@@ -8,9 +9,12 @@
 (
   cd "$1" || return 1
 
+  local total_size="$( du -sb . | cut -f1 )"
+
   find . \
     | LC_ALL=C sort \
     | tar --no-recursion -cf - -T - \
+    | pv -s "${total_size}" -D3 -eb \
     | md5sum \
     | cut -d' ' -f1
 )
