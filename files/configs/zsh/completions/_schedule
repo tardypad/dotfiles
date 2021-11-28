@@ -4,7 +4,9 @@ _periods() {
   local periods=(
     today
     week
+    week_next
     month
+    month_next
   )
 
   compadd "$@" $periods

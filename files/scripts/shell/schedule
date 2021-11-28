@@ -13,7 +13,9 @@ parse_command_line() {
 validate_command_line() {
   if [ "${PERIOD}" != 'today' ] \
      && [ "${PERIOD}" != 'week' ] \
-     && [ "${PERIOD}" != 'month' ]; then
+     && [ "${PERIOD}" != 'week_next' ] \
+     && [ "${PERIOD}" != 'month' ] \
+     && [ "${PERIOD}" != 'month_next' ]; then
     exit_error "Invalid period '${PERIOD}'"
   fi
 }
@@ -39,8 +41,18 @@ schedule_week() {
   rem -cu+1 -b1 -m
 }
 
+schedule_week_next() {
+  rem -cu+2 -b1 -m -w"$( tput cols )" \
+    | awk '/^├/ {p+=1} p!=1'
+}
+
 schedule_month() {
   rem -cu1 -b1 -m
+}
+
+schedule_month_next() {
+  rem -cu2 -b1 -m -w"$( tput cols )" \
+    | awk '// {p=1; print substr($1,2); next} p'
 }
 
 init_variables

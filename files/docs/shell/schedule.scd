@@ -23,7 +23,9 @@ _period_
 valid periods:
 	- today
 	- week
+	- week_next
 	- month
+	- month_next
 
 # ENVIRONMENT VARIABLES
 
