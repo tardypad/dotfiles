@@ -3,6 +3,8 @@
 init_variables() {
   COMMAND=${0##*/}
 
+  LOCAL_HOST="$( uname -n )"
+
   LOCAL_BROWSER_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/qutebrowser"
   LOCAL_BOOKS_DIR="${XDG_BOOKS_DIR:-$HOME/Books}"
   LOCAL_CONTACTS_DIR="${XDG_CONTACTS_DIR:-$HOME/Contacts}"
@@ -14,11 +16,11 @@ init_variables() {
   HDD2_UUID='204b2ecc-e3c3-497c-aa4a-c0421a2ddb4f'
 
   SERVER_HOST='chestnut'
-  SERVER_BASE_DIR="backup/$( uname -n )"
+  SERVER_BASE_DIR='backup'
 
-  SERVER_BOOKMARKS_DIR="${SERVER_BASE_DIR}/bookmarks"
-  SERVER_NOTES_DIR="${SERVER_BASE_DIR}/notes"
-  SERVER_TIME_TRACKER_LOGS_DIR="${SERVER_BASE_DIR}/time_tracker_logs"
+  SERVER_BOOKMARKS_DIR="${SERVER_BASE_DIR}/bookmarks/${LOCAL_HOST}"
+  SERVER_NOTES_DIR="${SERVER_BASE_DIR}/notes/${LOCAL_HOST}"
+  SERVER_TIME_TRACKER_LOGS_DIR="${SERVER_BASE_DIR}/time_tracker_logs/${LOCAL_HOST}"
   SERVER_PACKAGES_DIR="/usr/local/www/pkgs"
   SERVER_REPOSITORIES_DIR="repos"
 
