@@ -139,7 +139,7 @@ backup_laptop_hdd_bookmarks() {
 }
 
 backup_laptop_hdd_books() {
-  rsync -az --delete \
+  rsync -azh --delete --info=progress2 \
     --backup-dir="${HDD_BACKUP_DIR}/Books" \
     "${LOCAL_BOOKS_DIR}/" \
     "${HDD_BOOKS_DIR}"
@@ -171,7 +171,7 @@ backup_laptop_hdd_todo() {
 }
 
 backup_laptop_hdd_videos() {
-  rsync -az \
+  rsync -azh --info=progress2 \
     "${LOCAL_VIDEOS_DIR}/" \
     "${HDD_VIDEOS_DIR}"
 }
@@ -221,7 +221,7 @@ backup_server_hdd_notes() {
 }
 
 backup_server_hdd_packages() {
-  rsync -az --delete \
+  rsync -azh --delete --info=progress2 \
     "${SERVER_HOST}:${SERVER_PACKAGES_DIR}/" \
     "${HDD_PACKAGES_DIR}"
 }
@@ -233,7 +233,7 @@ backup_server_hdd_todo() {
 }
 
 backup_server_hdd_repositories() {
-  rsync -az --delete \
+  rsync -azh --delete --info=progress2 \
     "${SERVER_HOST}:${SERVER_REPOSITORIES_DIR}/" \
     "${HDD_REPOSITORIES_DIR}"
 }
