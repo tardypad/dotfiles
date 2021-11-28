@@ -17,7 +17,6 @@ init_variables() {
   SERVER_BASE_DIR="backup/$( uname -n )"
 
   SERVER_BOOKMARKS_DIR="${SERVER_BASE_DIR}/bookmarks"
-  SERVER_CONTACTS_DIR="${SERVER_BASE_DIR}/contacts"
   SERVER_NOTES_DIR="${SERVER_BASE_DIR}/notes"
   SERVER_TIME_TRACKER_LOGS_DIR="${SERVER_BASE_DIR}/time_tracker_logs"
   SERVER_PACKAGES_DIR="/usr/local/www/pkgs"
@@ -94,7 +93,6 @@ validate_command_line() {
 
     if [ "${TARGET}" = 'server' ]; then
       if [ "${ITEM}" != 'bookmarks' ] \
-         && [ "${ITEM}" != 'contacts' ] \
          && [ "${ITEM}" != 'notes' ] \
          && [ "${ITEM}" != 'time_tracker_logs' ]; then
         exit_error "Cannot backup ${ITEM} from ${SOURCE} to ${TARGET}"
@@ -165,12 +163,6 @@ backup_laptop_server_bookmarks() {
   rsync -azb \
     "${LOCAL_BROWSER_DIR}/quickmarks" \
     "${SERVER_HOST}:${SERVER_BOOKMARKS_DIR}/quickmarks"
-}
-
-backup_laptop_server_contacts() {
-  rsync -azb --delete --exclude=".*" \
-    "${LOCAL_CONTACTS_DIR}/" \
-    "${SERVER_HOST}:${SERVER_CONTACTS_DIR}"
 }
 
 backup_laptop_server_notes() {

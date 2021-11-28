@@ -42,7 +42,6 @@ _items() {
     elif [ $target = 'server' ]; then
       items=(
         bookmarks
-        contacts
         notes
         time_tracker_logs
       )

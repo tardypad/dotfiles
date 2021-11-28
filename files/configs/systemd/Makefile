@@ -7,8 +7,6 @@ systemd-configs:
 
 	$(setup_file)/configs/systemd/user/backup_bookmarks.path              > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_bookmarks.path
 	$(setup_file)/configs/systemd/user/backup_bookmarks.service           > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_bookmarks.service
-	$(setup_file)/configs/systemd/user/backup_contacts.path               > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_contacts.path
-	$(setup_file)/configs/systemd/user/backup_contacts.service            > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_contacts.service
 	$(setup_file)/configs/systemd/user/backup_notes.path                  > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_notes.path
 	$(setup_file)/configs/systemd/user/backup_notes.service               > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_notes.service
 	$(setup_file)/configs/systemd/user/backup_time_tracker_logs.path      > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_time_tracker_logs.path
@@ -24,7 +22,6 @@ systemd-configs:
 
 	# enable paths, timers and services
 	ln -sf ../backup_bookmarks.path              $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants/backup_bookmarks.path
-	ln -sf ../backup_contacts.path               $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants/backup_contacts.path
 	ln -sf ../backup_notes.path                  $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants/backup_notes.path
 	ln -sf ../backup_time_tracker_logs.path      $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants/backup_time_tracker_logs.path
 	ln -sf ../documentation_build_cache.timer    $(DESTDIR)$(CONFIG_DIR)/systemd/user/timers.target.wants/documentation_build_cache.timer

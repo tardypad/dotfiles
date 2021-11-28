@@ -59,7 +59,7 @@ Valid items per source and target
 : 
 |  contacts
 :- \*
-:- \*
+: 
 : 
 |  notes
 :- \*
