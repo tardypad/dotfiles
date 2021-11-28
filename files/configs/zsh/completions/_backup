@@ -49,6 +49,8 @@ _items() {
   elif [ $source = 'server' ]; then
     if [[ $target = hdd* ]]; then
       items=(
+        bookmarks
+        notes
         packages
         repositories
       )

@@ -18,9 +18,9 @@ init_variables() {
   SERVER_HOST='chestnut'
   SERVER_BASE_DIR='backup'
 
-  SERVER_BOOKMARKS_DIR="${SERVER_BASE_DIR}/bookmarks/${LOCAL_HOST}"
-  SERVER_NOTES_DIR="${SERVER_BASE_DIR}/notes/${LOCAL_HOST}"
-  SERVER_TIME_TRACKER_LOGS_DIR="${SERVER_BASE_DIR}/time_tracker_logs/${LOCAL_HOST}"
+  SERVER_BOOKMARKS_DIR="${SERVER_BASE_DIR}/bookmarks"
+  SERVER_NOTES_DIR="${SERVER_BASE_DIR}/notes"
+  SERVER_TIME_TRACKER_LOGS_DIR="${SERVER_BASE_DIR}/time_tracker_logs"
   SERVER_PACKAGES_DIR="/usr/local/www/pkgs"
   SERVER_REPOSITORIES_DIR="repos"
 
@@ -102,7 +102,9 @@ validate_command_line() {
     fi
   elif [ "${SOURCE}" = 'server' ]; then
     if [ "${TARGET}" = 'hdd1' ] || [ "${TARGET}" = 'hdd2' ]; then
-      if [ "${ITEM}" != 'packages' ] \
+      if [ "${ITEM}" != 'bookmarks' ] \
+         && [ "${ITEM}" != 'notes' ] \
+         && [ "${ITEM}" != 'packages' ] \
          && [ "${ITEM}" != 'repositories' ]; then
         exit_error "Cannot backup ${ITEM} from ${SOURCE} to ${TARGET}"
       fi
@@ -122,12 +124,12 @@ backup_laptop_hdd_bookmarks() {
   rsync -az \
     --backup-dir="${HDD_BACKUP_DIR}/Bookmarks" \
     "${LOCAL_BROWSER_DIR}/bookmarks/urls" \
-    "${HDD_BOOKMARKS_DIR}/urls"
+    "${HDD_BOOKMARKS_DIR}/${LOCAL_HOST}/urls"
 
   rsync -az \
     --backup-dir="${HDD_BACKUP_DIR}/Bookmarks" \
     "${LOCAL_BROWSER_DIR}/quickmarks" \
-    "${HDD_BOOKMARKS_DIR}/quickmarks"
+    "${HDD_BOOKMARKS_DIR}/${LOCAL_HOST}/quickmarks"
 }
 
 backup_laptop_hdd_books() {
@@ -148,7 +150,7 @@ backup_laptop_hdd_notes() {
   rsync -az --delete --exclude=".*" \
     --backup-dir="${HDD_BACKUP_DIR}/Notes" \
     "${LOCAL_NOTES_DIR}/" \
-    "${HDD_NOTES_DIR}"
+    "${HDD_NOTES_DIR}/${LOCAL_HOST}"
 }
 
 backup_laptop_hdd_videos() {
@@ -160,23 +162,35 @@ backup_laptop_hdd_videos() {
 backup_laptop_server_bookmarks() {
   rsync -azb \
     "${LOCAL_BROWSER_DIR}/bookmarks/urls" \
-    "${SERVER_HOST}:${SERVER_BOOKMARKS_DIR}/urls"
+    "${SERVER_HOST}:${SERVER_BOOKMARKS_DIR}/${LOCAL_HOST}/urls"
 
   rsync -azb \
     "${LOCAL_BROWSER_DIR}/quickmarks" \
-    "${SERVER_HOST}:${SERVER_BOOKMARKS_DIR}/quickmarks"
+    "${SERVER_HOST}:${SERVER_BOOKMARKS_DIR}/${LOCAL_HOST}/quickmarks"
 }
 
 backup_laptop_server_notes() {
   rsync -azb --delete --exclude=".*" \
     "${LOCAL_NOTES_DIR}/" \
-    "${SERVER_HOST}:${SERVER_NOTES_DIR}"
+    "${SERVER_HOST}:${SERVER_NOTES_DIR}/${LOCAL_HOST}"
 }
 
 backup_laptop_server_time_tracker_logs() {
   rsync -azb --delete --exclude=".*" \
     "${LOCAL_TIME_TRACKER_LOGS_DIR}/" \
-    "${SERVER_HOST}:${SERVER_TIME_TRACKER_LOGS_DIR}"
+    "${SERVER_HOST}:${SERVER_TIME_TRACKER_LOGS_DIR}/${LOCAL_HOST}"
+}
+
+backup_server_hdd_bookmarks() {
+  rsync -az --delete --exclude="*~" \
+    "${SERVER_HOST}:${SERVER_BOOKMARKS_DIR}/" \
+    "${HDD_BOOKMARKS_DIR}"
+}
+
+backup_server_hdd_notes() {
+  rsync -az --delete --exclude="*~" \
+    "${SERVER_HOST}:${SERVER_NOTES_DIR}/" \
+    "${HDD_NOTES_DIR}"
 }
 
 backup_server_hdd_packages() {

@@ -52,7 +52,7 @@ Valid items per source and target
 |  bookmarks
 :- \*
 :- \*
-: 
+:- \*
 |  books
 :- \*
 : 
@@ -64,7 +64,7 @@ Valid items per source and target
 |  notes
 :- \*
 :- \*
-: 
+:- \*
 |  packages
 : 
 : 
