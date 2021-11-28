@@ -36,6 +36,9 @@ alias g='git'
 
 alias pg='pass git'
 
+# get the definition of a word
+alias def='trans -d'
+
 alias ssht='ssh-tags'
 alias qht='query-hosts-tags'
 
