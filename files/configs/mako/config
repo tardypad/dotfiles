@@ -38,3 +38,6 @@ format=<span foreground='#{color/alert/hex}' weight='bold'> %s</span>\n%b
 
 [mode=presentation]
 invisible=1
+
+[summary="Pomodoro end"]
+anchor=center
