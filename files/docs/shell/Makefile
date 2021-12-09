@@ -9,6 +9,7 @@ shell-docs:
 	$(setup_file)/docs/shell/bluetooth.scd                | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/bluetooth.1perso
 	$(setup_file)/docs/shell/calculate.scd                | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/calculate.1perso
 	$(setup_file)/docs/shell/check-notify-low-battery.scd | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/check-notify-low-battery.1perso
+	$(setup_file)/docs/shell/clock.scd                    | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/clock.1perso
 	$(setup_file)/docs/shell/color-picker.scd             | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/color-picker.1perso
 	$(setup_file)/docs/shell/copy-otp.scd                 | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/copy-otp.1perso
 	$(setup_file)/docs/shell/copy-password.scd            | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/copy-password.1perso

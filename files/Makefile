@@ -16,6 +16,7 @@ khard: khard-configs
 less: less-configs
 libqalculate: libqalculate-configs
 mako: mako-configs
+misc: misc-configs
 mpd: mpd-configs
 openssh: openssh-configs
 pulsemixer: pulsemixer-configs

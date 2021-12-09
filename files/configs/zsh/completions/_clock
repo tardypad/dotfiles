@@ -1,0 +1,11 @@
+#compdef clock
+
+local data_file="${XDG_CONFIG_HOME:-$HOME/.config}/misc/locations_timezone.tsv"
+
+_locations() {
+  local locations=( "${(@f)$( cut -f1 "${data_file}" )}" )
+  compadd "$@" $locations
+}
+
+_arguments \
+  '1:location:_locations'

@@ -30,6 +30,7 @@ include files/configs/khard/Makefile
 include files/configs/less/Makefile
 include files/configs/libqalculate/Makefile
 include files/configs/mako/Makefile
+include files/configs/misc/Makefile
 include files/configs/mpd/Makefile
 include files/configs/openssh/Makefile
 include files/configs/pulsemixer/Makefile

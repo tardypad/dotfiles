@@ -1,0 +1,45 @@
+#!/bin/sh
+
+init_variables() {
+  COMMAND=${0##*/}
+
+  DATA_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/misc/locations_timezone.tsv"
+
+  LOCATION=
+}
+
+parse_command_line() {
+  LOCATION="$1"
+}
+
+validate_command_line() {
+  if [ -n "${LOCATION}" ] && ! grep -q "^${LOCATION}	" "${DATA_FILE}"; then
+    exit_error "invalid location '${LOCATION}'"
+  fi
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+display_clock() {
+  if [ -n "${LOCATION}" ]; then
+    grep "^${LOCATION}	" "${DATA_FILE}"
+  else
+    cat "${DATA_FILE}"
+  fi \
+   | while read -r LINE; do
+       LOC="$( echo "${LINE}" | cut -f1 )"
+       TMZ="$( echo "${LINE}" | cut -f2 )"
+
+       printf '%s\t%s\n' "${LOC}" "$( TZ="${TMZ}" date '+%a %d %b %H:%M')"
+     done \
+       | column -s '	' -t
+}
+
+init_variables
+parse_command_line "$@"
+validate_command_line
+
+display_clock
