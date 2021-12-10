@@ -2,8 +2,8 @@
 Description=Backup TODO files
 
 [Timer]
-OnStartupSec=2H
-OnUnitActiveSec=2H
+OnStartupSec=2h
+OnUnitActiveSec=2h
 
 [Install]
 WantedBy=timers.target
