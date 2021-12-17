@@ -23,4 +23,4 @@ SELECTED_HOST=$(
 
 [ -n "${SELECTED_HOST}" ] || exit
 
-TERM=xterm-256color ssh "${SELECTED_HOST}"
+ssh "${SELECTED_HOST}"

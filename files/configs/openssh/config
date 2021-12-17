@@ -36,3 +36,4 @@ Host *
     ForwardAgent no
     AddKeysToAgent yes
     IdentitiesOnly yes
+    SetEnv TERM=xterm-256color
