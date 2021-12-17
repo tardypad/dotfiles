@@ -16,7 +16,10 @@ _hosts_tags() {
   done
 
   compadd -qS= $(
-    sed -n 's/^  \(.*\): .*/\1/p' ${hosts_tags_files} \
+    {
+      sed -n 's/^  \(.*\): .*/\1/p' ${hosts_tags_files};
+      echo 'host';
+    } \
       | sort -u \
       | grep -vE "'${ignore_tags}'"
   )
@@ -25,9 +28,21 @@ _hosts_tags() {
 _tag_values() {
   local tag="$1"
 
+  if [ "${tag}" = 'host' ]; then
+    _hosts
+    return;
+  fi
+
   compadd $(
     sed -n "s/^  ${tag}: \(.*\)/\1/p" ${hosts_tags_files} \
       | sort -u
+  )
+}
+
+_hosts() {
+  compadd $(
+    sed -n '/^[^ ]/s/\(.*\):/\1/p' ${hosts_tags_files} \
+      | sort
   )
 }
 
