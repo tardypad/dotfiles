@@ -5,6 +5,9 @@ c.logging.level.console = 'warning'
 c.url.start_pages = 'about:blank'
 c.url.default_page = 'about:blank'
 
+# Without name argument save session to 'default' instead of the last opened one
+c.session.default_name = 'default'
+
 # search engines
 c.url.searchengines = {
     "DEFAULT": "https://duckduckgo.com/?q={}",
