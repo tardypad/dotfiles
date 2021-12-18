@@ -10,7 +10,7 @@ swaymsg -q exec "alacritty  -t \"projects environment\" -e tmux -L projects atta
 
 swaymsg -q workspace '2:web'
 # shellcheck disable=SC1083
-swaymsg -q exec {app/web_browser}
+swaymsg -q exec '{app/web_browser} -r default'
 
 swaymsg -q workspace '1:projects'
 
