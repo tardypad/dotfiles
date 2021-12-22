@@ -142,10 +142,8 @@ config.bind('{key/right/low}',                   'scroll right',       mode='nor
 # history navigation
 config.bind('{key/left/upp}',        'back',                          mode='normal')
 config.bind('{key/right/upp}',       'forward',                       mode='normal')
-config.bind('{key/undo}',            'undo',                          mode='normal')
 config.bind('<Alt-{key/left/upp}>',  'set-cmd-text --space :back',    mode='normal')
 config.bind('<Alt-{key/right/upp}>', 'set-cmd-text --space :forward', mode='normal')
-config.bind('<Alt-{key/undo/upp}>',  'set-cmd-text --space :undo',    mode='normal')
 
 # search
 config.bind('{key/search_forward}',        'set-cmd-text /', mode='normal')
@@ -191,8 +189,10 @@ config.bind('{key/tab}{key/bookmark/low}',    'set-cmd-text --space :bookmark-lo
 config.bind('{key/tab}{key/bookmark/upp}',    'set-cmd-text --space :quickmark-load --tab',           mode='normal')
 config.bind('{key/tab}{key/left/upp}',        'back --tab',                                           mode='normal')
 config.bind('{key/tab}{key/right/upp}',       'forward --tab',                                        mode='normal')
+config.bind('{key/tab}{key/undo}',            'undo',                                                 mode='normal')
 config.bind('{key/tab}<Alt-{key/left/upp}>',  'set-cmd-text --space :back --tab',                     mode='normal')
 config.bind('{key/tab}<Alt-{key/right/upp}>', 'set-cmd-text --space :forward --tab',                  mode='normal')
+config.bind('{key/tab}<Alt-{key/undo/upp}>',  'set-cmd-text --space :undo',                           mode='normal')
 config.bind('{key/tab}{key/open}',            'set-cmd-text --space :open --tab',                     mode='normal')
 config.bind('{key/tab}{key/window}',          'tab-give',                                             mode='normal')
 config.bind('{key/tab}{key/f}',               'hint all tab-fg',                                      mode='normal')
