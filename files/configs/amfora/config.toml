@@ -18,8 +18,14 @@ bind_edit   = "{key/edit}"
 bind_back    = "{key/left/upp}"
 bind_forward = "{key/right/upp}"
 
-bind_pgup   = [ "Ctrl-{key/scroll_page_up/upp}", "Ctrl-{key/scroll_up/upp}" ]
-bind_pgdn   = [ "Ctrl-{key/scroll_page_down/upp}", "Ctrl-{key/scroll_down/upp}" ]
+bind_pgup      = [ "Ctrl-{key/scroll_page_up/upp}", "Ctrl-{key/scroll_up/upp}" ]
+bind_pgdn      = [ "Ctrl-{key/scroll_page_down/upp}", "Ctrl-{key/scroll_down/upp}" ]
+bind_beginning = "{key/goto_top}"
+bind_end       = "{key/goto_bottom}"
+bind_moveleft  = "{key/left}"
+bind_movedown  = "{key/down}"
+bind_moveup    = "{key/up}"
+bind_moveright = "{key/right}"
 
 bind_new_tab   = "Ctrl-{key/tab/upp}"
 bind_close_tab = "Ctrl-{key/close/upp}"
