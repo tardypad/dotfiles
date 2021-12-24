@@ -1,4 +1,0 @@
-import:
-  - {dir/config}/alacritty/config.d/general.yml
-  - {dir/config}/alacritty/config.d/bindings.yml
-  - {dir/config}/alacritty/config.d/style.yml
