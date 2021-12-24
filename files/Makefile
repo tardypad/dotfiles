@@ -5,6 +5,7 @@ aria2: aria2-configs
 coreutils: coreutils-configs
 ctags: ctags-configs
 fontconfig: fontconfig-configs
+foot: foot-configs
 gammastep: gammastep-configs
 git: git-configs git-docs git-scripts
 gnupg: gnupg-configs

@@ -19,6 +19,7 @@ include files/configs/aria2/Makefile
 include files/configs/coreutils/Makefile
 include files/configs/ctags/Makefile
 include files/configs/fontconfig/Makefile
+include files/configs/foot/Makefile
 include files/configs/gammastep/Makefile
 include files/configs/git/Makefile
 include files/configs/gnupg/Makefile
