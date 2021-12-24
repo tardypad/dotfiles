@@ -80,7 +80,7 @@ mode "-- Commands --" {
     bindsym {key/t} mode "default", exec sway-quick-command pick-task
     bindsym {key/w} mode "default", exec {app/web_browser}
 
-    bindsym Shift+{key/e} mode "default", exec alacritty
+    bindsym Shift+{key/e} mode "default", exec foot
 
     bindsym Ctrl+{key/p} mode "default", exec {app/presentation}
 

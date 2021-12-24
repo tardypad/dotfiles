@@ -27,6 +27,6 @@ swaymsg -q "[title=\"${TITLE}\"]" focus && exit
 sway-create-workspace "${ENV}"
 
 swaymsg -q exec \
-  "alacritty \
-   -t \"${TITLE}\" \
-   -e tmux-env ${ENV} ${SESSION}"
+  "foot \
+   -T \"${TITLE}\" -o locked-title=yes \
+   tmux-env ${ENV} ${SESSION}"

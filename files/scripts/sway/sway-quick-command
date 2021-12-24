@@ -10,8 +10,8 @@ swaymsg -q fullscreen disable
 
 if [ -n "${COMMAND}" ]; then
   #shellcheck disable=SC2086
-  alacritty -t "${TITLE}" -e ${COMMAND}
+  foot -T "${TITLE}" -o locked-title=yes ${COMMAND}
 else
-  alacritty -t "${TITLE}"
+  foot -T "${TITLE}" -o locked-title=yes
 fi
 

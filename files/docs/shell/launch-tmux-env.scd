@@ -35,8 +35,8 @@ _$XDG_DATA_HOME/env/tmux/\*.sh_
 
 # DEPENDENCIES
 
-- alacritty
 - bemenu
+- foot
 - sway-create-workspace
 - swaymsg
 - tmux-env

@@ -6,7 +6,7 @@ trap 'rm -f "${TMP_FILE}"' EXIT
 swaymsg -q rename workspace to '1:projects'
 tmux-env -b projects arch_system
 tmux-env -b projects dotfiles
-swaymsg -q exec "alacritty  -t \"projects environment\" -e tmux -L projects attach-session -t arch_system"
+swaymsg -q exec "foot  -T \"projects environment\" -o locked-title=yes tmux -L projects attach-session -t arch_system"
 
 swaymsg -q workspace '2:web'
 # shellcheck disable=SC1083

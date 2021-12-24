@@ -12,7 +12,7 @@ Some features of the key bindings:
 
 The general organization is:
 - sway uses the "Super" key as mod
-- alacritty uses "Ctrl+Shift" as mod
+- foot uses "Ctrl+Shift" as mod
 - tmux uses "Ctrl+Space" as prefix
 - vim uses "Space" as leader
 

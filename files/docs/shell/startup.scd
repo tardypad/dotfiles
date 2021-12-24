@@ -34,7 +34,7 @@ _$XDG_NOTES_DIR/todo.md_
 # DEPENDENCIES
 
 - {app/web_browser}
-- alacritty
+- foot
 - mktemp
 - schedule
 - sway-quick-command

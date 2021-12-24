@@ -35,5 +35,5 @@ None
 
 # DEPENDENCIES
 
-- alacritty
+- foot
 - swaymsg
