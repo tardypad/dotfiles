@@ -19,15 +19,19 @@ init_variables() {
 
 parse_command_line() {
   ENV_ID="$1"
-  shift 2> /dev/null
+
+  [ $# -eq 0 ] && return
+  shift
 
   while [ "$#" -gt 0 ] && [ "$1" != '--' ]; do
     QUERY="${QUERY} $1"
     shift
   done
 
-  shift 2> /dev/null
-  MYSQL_OPTIONS="${MYSQL_OPTIONS} $*"
+  if [ "$1" = '--' ]; then
+    shift
+    MYSQL_OPTIONS="${MYSQL_OPTIONS} $*"
+  fi
 }
 
 validate_command_line() {

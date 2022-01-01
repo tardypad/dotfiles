@@ -25,9 +25,11 @@ init_variables() {
 }
 
 parse_command_line() {
-  QUERY_TYPE="$1"
-  shift 2> /dev/null
-  QUERY_ARGUMENTS=$*
+  if [ $# -gt 0 ]; then
+    QUERY_TYPE="$1"
+    shift
+    QUERY_ARGUMENTS=$*
+  fi
 }
 
 validate_command_line() {

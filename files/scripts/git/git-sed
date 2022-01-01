@@ -11,9 +11,11 @@ init_variables() {
 }
 
 parse_command_line() {
-  SCRIPT="$1"
-  shift 2> /dev/null
-  PATHS="$*"
+  if [ $# -gt 0 ]; then
+    SCRIPT="$1"
+    shift
+    PATHS="$*"
+  fi
 }
 
 validate_command_line() {

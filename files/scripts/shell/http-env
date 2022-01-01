@@ -18,15 +18,19 @@ parse_command_line() {
   ENV_ID="$1"
   REQUEST_METHOD="$2"
   REQUEST_PATH="$3"
-  shift 3 2> /dev/null
+
+  [ $# -lt 3 ] && return
+  shift 3
 
   while [ "$#" -gt 0 ] && [ "$1" != '--' ]; do
     REQUEST_ITEMS="${REQUEST_ITEMS} '$1'"
     shift
   done
 
-  shift 2> /dev/null
-  HTTP_OPTIONS="$*"
+  if [ "$1" = '--' ]; then
+    shift
+    HTTP_OPTIONS="$*"
+  fi
 }
 
 validate_command_line() {

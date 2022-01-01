@@ -19,9 +19,11 @@ parse_command_line() {
 
   shift $(( OPTIND - 1 ))
 
-  REV_RANGE="$1"
-  shift 2> /dev/null
-  RUN_COMMAND="$*"
+  if [ $# -gt 0 ]; then
+    REV_RANGE="$1"
+    shift
+    RUN_COMMAND="$*"
+  fi
 }
 
 validate_command_line() {
