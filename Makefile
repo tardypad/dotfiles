@@ -1,5 +1,6 @@
 .POSIX:
-.DEFAULT: all
+
+all:
 
 THEME = light
 
