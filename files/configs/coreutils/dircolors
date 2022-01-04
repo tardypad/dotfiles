@@ -1,6 +1,5 @@
 TERM foot
 TERM tmux-256color
-TERM xterm-256color
 
 NORMAL                           0                   # global default
 FILE                             0                   # normal file

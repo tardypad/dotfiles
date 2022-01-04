@@ -39,7 +39,7 @@ set-option -g default-command "exec /bin/zsh"
 set-option -g default-shell "/bin/zsh"
 
 # add truecolor support
-set-option -ga terminal-overrides ",xterm-256color:Tc,foot:Tc"
+set-option -ga terminal-overrides ",foot:Tc"
 
 # update sway socket environment variable
 # for when we reattach a session after a logout (new sway instance)
