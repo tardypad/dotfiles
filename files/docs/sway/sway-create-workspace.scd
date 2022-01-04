@@ -1,4 +1,4 @@
-sway-create-workspace(1perso)
+SWAY-CREATE-WORKSPACE(1perso)
 
 # NAME
 

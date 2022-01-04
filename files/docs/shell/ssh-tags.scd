@@ -1,4 +1,4 @@
-ssh-tags(1perso)
+SSH-TAGS(1perso)
 
 # NAME
 

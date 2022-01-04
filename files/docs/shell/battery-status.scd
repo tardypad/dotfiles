@@ -1,4 +1,4 @@
-battery-status(1perso)
+BATTERY-STATUS(1perso)
 
 # NAME
 

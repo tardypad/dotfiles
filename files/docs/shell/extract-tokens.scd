@@ -1,4 +1,4 @@
-extract-tokens(1perso)
+EXTRACT-TOKENS(1perso)
 
 # NAME
 

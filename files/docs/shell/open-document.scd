@@ -1,4 +1,4 @@
-open-document(1perso)
+OPEN-DOCUMENT(1perso)
 
 # NAME
 

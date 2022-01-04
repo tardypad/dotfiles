@@ -1,4 +1,4 @@
-time-tracker(1perso)
+TIME-TRACKER(1perso)
 
 # NAME
 

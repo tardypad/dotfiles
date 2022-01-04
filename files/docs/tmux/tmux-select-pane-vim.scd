@@ -1,4 +1,4 @@
-tmux-select-pane-vim(1perso)
+TMUX-SELECT-PANE-VIM(1perso)
 
 # NAME
 

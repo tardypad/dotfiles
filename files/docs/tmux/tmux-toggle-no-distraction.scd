@@ -1,4 +1,4 @@
-tmux-toggle-no-distraction(1perso)
+TMUX-TOGGLE-NO-DISTRACTION(1perso)
 
 # NAME
 

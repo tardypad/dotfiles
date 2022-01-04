@@ -1,4 +1,4 @@
-query-hosts-tags(1perso)
+QUERY-HOSTS-TAGS(1perso)
 
 # NAME
 

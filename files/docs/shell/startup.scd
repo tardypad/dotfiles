@@ -1,4 +1,4 @@
-startup(1perso)
+STARTUP(1perso)
 
 # NAME
 

@@ -1,4 +1,4 @@
-pick-task(1perso)
+PICK-TASK(1perso)
 
 # NAME
 

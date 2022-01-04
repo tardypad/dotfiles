@@ -1,4 +1,4 @@
-calculate(1perso)
+CALCULATE(1perso)
 
 # NAME
 

@@ -1,4 +1,4 @@
-do-not-disturb(1perso)
+DO-NOT-DISTURB(1perso)
 
 # NAME
 

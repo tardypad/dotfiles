@@ -1,4 +1,4 @@
-git-run-command(1perso)
+GIT-RUN-COMMAND(1perso)
 
 # NAME
 

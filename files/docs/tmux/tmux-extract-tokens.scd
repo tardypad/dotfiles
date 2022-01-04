@@ -1,4 +1,4 @@
-tmux-extract-tokens(1perso)
+TMUX-EXTRACT-TOKENS(1perso)
 
 # NAME
 

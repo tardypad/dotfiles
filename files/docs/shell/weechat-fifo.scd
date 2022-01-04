@@ -1,4 +1,4 @@
-weechat-fifo(1perso)
+WEECHAT-FIFO(1perso)
 
 # NAME
 

@@ -1,4 +1,4 @@
-loop(1perso)
+LOOP(1perso)
 
 # NAME
 

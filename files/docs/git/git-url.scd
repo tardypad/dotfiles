@@ -1,4 +1,4 @@
-git-url(1perso)
+GIT-URL(1perso)
 
 # NAME
 

@@ -1,4 +1,4 @@
-sway-move-workspace-index(1perso)
+SWAY-MOVE-WORKSPACE-INDEX(1perso)
 
 # NAME
 

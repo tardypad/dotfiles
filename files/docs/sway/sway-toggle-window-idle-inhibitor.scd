@@ -1,4 +1,4 @@
-sway-toggle-window-idle-inhibitor(1perso)
+SWAY-TOGGLE-WINDOW-IDLE-INHIBITOR(1perso)
 
 # NAME
 

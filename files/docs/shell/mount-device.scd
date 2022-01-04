@@ -1,4 +1,4 @@
-mount-device(1perso)
+MOUNT-DEVICE(1perso)
 
 # NAME
 

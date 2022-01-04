@@ -1,4 +1,4 @@
-launch-tmux-env(1perso)
+LAUNCH-TMUX-ENV(1perso)
 
 # NAME
 

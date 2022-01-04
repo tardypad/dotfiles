@@ -1,4 +1,4 @@
-sway-subscribe-events-run(1perso)
+SWAY-SUBSCRIBE-EVENTS-RUN(1perso)
 
 # NAME
 

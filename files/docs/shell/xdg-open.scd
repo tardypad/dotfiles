@@ -1,4 +1,4 @@
-xdg-open(1perso)
+XDG-OPEN(1perso)
 
 # NAME
 

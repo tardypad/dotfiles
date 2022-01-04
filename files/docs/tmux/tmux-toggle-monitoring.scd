@@ -1,4 +1,4 @@
-tmux-toggle-monitoring(1perso)
+TMUX-TOGGLE-MONITORING(1perso)
 
 # NAME
 

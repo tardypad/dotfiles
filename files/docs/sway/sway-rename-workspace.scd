@@ -1,4 +1,4 @@
-sway-rename-workspace(1perso)
+SWAY-RENAME-WORKSPACE(1perso)
 
 # NAME
 

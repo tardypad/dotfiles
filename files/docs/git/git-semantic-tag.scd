@@ -1,4 +1,4 @@
-git-semantic-tag(1perso)
+GIT-SEMANTIC-TAG(1perso)
 
 # NAME
 

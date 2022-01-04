@@ -1,4 +1,4 @@
-copy-password(1perso)
+COPY-PASSWORD(1perso)
 
 # NAME
 

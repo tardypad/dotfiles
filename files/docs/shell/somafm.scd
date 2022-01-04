@@ -1,4 +1,4 @@
-somafm(1perso)
+SOMAFM(1perso)
 
 # NAME
 

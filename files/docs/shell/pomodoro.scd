@@ -1,4 +1,4 @@
-pomodoro(1perso)
+POMODORO(1perso)
 
 # NAME
 

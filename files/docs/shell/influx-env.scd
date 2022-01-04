@@ -1,4 +1,4 @@
-influx-env(1perso)
+INFLUX-ENV(1perso)
 
 # NAME
 

@@ -1,4 +1,4 @@
-screenshot(1perso)
+SCREENSHOT(1perso)
 
 # NAME
 

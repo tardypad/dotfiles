@@ -1,4 +1,4 @@
-git-sed(1perso)
+GIT-SED(1perso)
 
 # NAME
 

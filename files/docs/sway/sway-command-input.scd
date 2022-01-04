@@ -1,4 +1,4 @@
-sway-command-input(1perso)
+SWAY-COMMAND-INPUT(1perso)
 
 # NAME
 

@@ -1,4 +1,4 @@
-notify(1perso)
+NOTIFY(1perso)
 
 # NAME
 

@@ -1,4 +1,4 @@
-night-mode(1perso)
+NIGHT-MODE(1perso)
 
 # NAME
 

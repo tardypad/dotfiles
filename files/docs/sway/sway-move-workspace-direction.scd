@@ -1,4 +1,4 @@
-sway-move-workspace-direction(1perso)
+SWAY-MOVE-WORKSPACE-DIRECTION(1perso)
 
 # NAME
 

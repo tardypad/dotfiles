@@ -1,4 +1,4 @@
-clock(1perso)
+CLOCK(1perso)
 
 # NAME
 

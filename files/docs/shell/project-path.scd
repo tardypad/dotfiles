@@ -1,4 +1,4 @@
-project-path(1perso)
+PROJECT-PATH(1perso)
 
 # NAME
 

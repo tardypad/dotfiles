@@ -1,4 +1,4 @@
-presentation-mode(1perso)
+PRESENTATION-MODE(1perso)
 
 # NAME
 

@@ -1,4 +1,4 @@
-mysql-env(1perso)
+MYSQL-ENV(1perso)
 
 # NAME
 

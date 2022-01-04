@@ -1,4 +1,4 @@
-copy-otp(1perso)
+COPY-OTP(1perso)
 
 # NAME
 

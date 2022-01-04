@@ -1,4 +1,4 @@
-tmux-move-window-index(1perso)
+TMUX-MOVE-WINDOW-INDEX(1perso)
 
 # NAME
 

@@ -1,4 +1,4 @@
-play-somafm(1perso)
+PLAY-SOMAFM(1perso)
 
 # NAME
 

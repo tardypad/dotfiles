@@ -1,4 +1,4 @@
-sway-renumber-workspaces(1perso)
+SWAY-RENUMBER-WORKSPACES(1perso)
 
 # NAME
 

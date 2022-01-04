@@ -1,4 +1,4 @@
-schedule(1perso)
+SCHEDULE(1perso)
 
 # NAME
 

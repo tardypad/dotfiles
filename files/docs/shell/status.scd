@@ -1,4 +1,4 @@
-status(1perso)
+STATUS(1perso)
 
 # NAME
 

@@ -1,4 +1,4 @@
-bluetooth(1perso)
+BLUETOOTH(1perso)
 
 # NAME
 

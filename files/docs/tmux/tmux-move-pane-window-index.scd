@@ -1,4 +1,4 @@
-tmux-move-pane-window-index(1perso)
+TMUX-MOVE-PANE-WINDOW-INDEX(1perso)
 
 # NAME
 

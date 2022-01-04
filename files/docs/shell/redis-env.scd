@@ -1,4 +1,4 @@
-redis-env(1perso)
+REDIS-ENV(1perso)
 
 # NAME
 
