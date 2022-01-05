@@ -35,7 +35,8 @@ record_start() {
 
   wf-recorder -g "${REGION}" -f "${RECORD_FILE_PATH}" &
 
-  echo $! > "${PID_FILE_PATH}"
+  echo $! > "${PID_FILE_PATH}" \
+    && update_i3blocks
 }
 
 record_status() {
@@ -53,7 +54,8 @@ record_stop() {
   fi
 
   pkill -INT -F "${PID_FILE_PATH}" \
-    && rm -f "${PID_FILE_PATH}"
+    && rm -f "${PID_FILE_PATH}" \
+    && update_i3blocks
 }
 
 record_toggle() {
@@ -62,6 +64,10 @@ record_toggle() {
   else
     record_start
   fi
+}
+
+update_i3blocks() {
+  pkill -x -RTMIN+7 i3blocks
 }
 
 is_record_started() {

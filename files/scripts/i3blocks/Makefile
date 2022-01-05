@@ -14,6 +14,7 @@ i3blocks-scripts:
 	$(setup_file)/scripts/i3blocks/i3blocks-pomodoro          > $(DESTDIR)$(BIN_DIR)/i3blocks-pomodoro
 	$(setup_file)/scripts/i3blocks/i3blocks-power             > $(DESTDIR)$(BIN_DIR)/i3blocks-power
 	$(setup_file)/scripts/i3blocks/i3blocks-presentation-mode > $(DESTDIR)$(BIN_DIR)/i3blocks-presentation-mode
+	$(setup_file)/scripts/i3blocks/i3blocks-screencast        > $(DESTDIR)$(BIN_DIR)/i3blocks-screencast
 	$(setup_file)/scripts/i3blocks/i3blocks-task              > $(DESTDIR)$(BIN_DIR)/i3blocks-task
 	$(setup_file)/scripts/i3blocks/i3blocks-volume            > $(DESTDIR)$(BIN_DIR)/i3blocks-volume
 	$(setup_file)/scripts/i3blocks/i3blocks-vpn               > $(DESTDIR)$(BIN_DIR)/i3blocks-vpn
@@ -30,6 +31,7 @@ i3blocks-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-pomodoro
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-power
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-presentation-mode
+	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-screencast
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-task
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-volume
 	chmod +x $(DESTDIR)$(BIN_DIR)/i3blocks-vpn

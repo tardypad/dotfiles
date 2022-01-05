@@ -33,6 +33,9 @@ bindsym $mod+Ctrl+{key/escape/Escape} exec task drop
 # select region and grab screenshot
 bindsym $mod+{key/g} exec screenshot
 
+# toggle screencast
+bindsym $mod+Shift+{key/g} exec screencast toggle
+
 # toggle bar status mode
 bindsym $mod+{key/tabulation/Tab} exec i3blocks-mode toggle
 
