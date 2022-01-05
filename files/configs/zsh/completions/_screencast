@@ -1,0 +1,15 @@
+#compdef screencast
+
+_actions() {
+  local actions=(
+    start
+    stop
+    status
+    toggle
+  )
+
+  compadd "$@" $actions
+}
+
+_arguments \
+  '1:action:_actions'

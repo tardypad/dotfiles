@@ -1,0 +1,75 @@
+#!/bin/sh
+
+init_variables() {
+  COMMAND=${0##*/}
+
+  PID_FILE_PATH="${XDG_RUNTIME_DIR:-/tmp}/screencast"
+
+  RECORD_FILE_PATH="${XDG_DESKTOP_DIR:-$HOME/Desktop}/screencast_$(date +'%Y%m%d%H%M%S').mp4"
+
+  ACTION='status'
+}
+
+parse_command_line() {
+  [ -z "$1" ] || ACTION="$1"
+}
+
+validate_command_line() {
+  if [ "${ACTION}" != 'start' ] \
+     && [ "${ACTION}" != 'stop' ] \
+     && [ "${ACTION}" != 'toggle' ] \
+     && [ "${ACTION}" != 'status' ]; then
+    exit_error "Invalid action '${ACTION}'"
+  fi
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+record_start() {
+  REGION=$( slurp 2> /dev/null )
+
+  [ -z "${REGION}" ] && return 1
+
+  wf-recorder -g "${REGION}" -f "${RECORD_FILE_PATH}" &
+
+  echo $! > "${PID_FILE_PATH}"
+}
+
+record_status() {
+  if is_record_started; then
+    echo 'recording'
+  else
+    echo 'not recording'
+  fi
+}
+
+record_stop() {
+  if ! is_record_started; then
+    echo 'Not currently recording' >&2
+    return 1
+  fi
+
+  pkill -INT -F "${PID_FILE_PATH}" \
+    && rm -f "${PID_FILE_PATH}"
+}
+
+record_toggle() {
+  if is_record_started; then
+    record_stop
+  else
+    record_start
+  fi
+}
+
+is_record_started() {
+  [ -f "${PID_FILE_PATH}" ]
+}
+
+init_variables
+parse_command_line "$@"
+validate_command_line
+
+"record_${ACTION}"
