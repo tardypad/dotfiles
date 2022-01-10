@@ -25,6 +25,8 @@ init_variables() {
   SERVER_PACKAGES_DIR="/usr/local/www/pkgs"
   SERVER_REPOSITORIES_DIR="repos"
 
+  RSYNC='rsync -azh --info=progress2'
+
   SOURCE='laptop'
   TARGET='hdd1'
   ITEM=
@@ -128,33 +130,33 @@ exit_error() {
 } >&2
 
 backup_laptop_hdd_bookmarks() {
-  rsync -az \
+  ${RSYNC} \
     --backup-dir="${HDD_BACKUP_DIR}/Bookmarks" \
     "${LOCAL_BROWSER_DIR}/bookmarks/urls" \
     "${HDD_BOOKMARKS_DIR}/${LOCAL_HOST}/urls"
 
-  rsync -az \
+  ${RSYNC} \
     --backup-dir="${HDD_BACKUP_DIR}/Bookmarks" \
     "${LOCAL_BROWSER_DIR}/quickmarks" \
     "${HDD_BOOKMARKS_DIR}/${LOCAL_HOST}/quickmarks"
 }
 
 backup_laptop_hdd_books() {
-  rsync -azh --delete --info=progress2 \
+  ${RSYNC} --delete \
     --backup-dir="${HDD_BACKUP_DIR}/Books" \
     "${LOCAL_BOOKS_DIR}/" \
     "${HDD_BOOKS_DIR}"
 }
 
 backup_laptop_hdd_contacts() {
-  rsync -az --delete --exclude=".*" \
+  ${RSYNC} --delete --exclude=".*" \
     --backup-dir="${HDD_BACKUP_DIR}/Contacts" \
     "${LOCAL_CONTACTS_DIR}/" \
     "${HDD_CONTACTS_DIR}"
 }
 
 backup_laptop_hdd_notes() {
-  rsync -az --delete --exclude=".*" \
+  ${RSYNC} --delete --exclude=".*" \
     --backup-dir="${HDD_BACKUP_DIR}/Notes" \
     "${LOCAL_NOTES_DIR}/" \
     "${HDD_NOTES_DIR}/${LOCAL_HOST}"
@@ -164,7 +166,7 @@ backup_laptop_hdd_todo() {
   find "${HOME}" -name TODO.md -exec dirname {} \; 2> /dev/null \
     | while read -r DIR; do
         FILENAME="$( basename "${DIR}" )"
-        rsync -az \
+        ${RSYNC} \
           --backup-dir="${HDD_BACKUP_DIR}/Todo" \
           "${DIR}/TODO.md" \
           "${HDD_TODO_DIR}/${LOCAL_HOST}/${FILENAME}"
@@ -172,23 +174,23 @@ backup_laptop_hdd_todo() {
 }
 
 backup_laptop_hdd_videos() {
-  rsync -azh --info=progress2 \
+  ${RSYNC} \
     "${LOCAL_VIDEOS_DIR}/" \
     "${HDD_VIDEOS_DIR}"
 }
 
 backup_laptop_server_bookmarks() {
-  rsync -azb \
+  ${RSYNC} -b \
     "${LOCAL_BROWSER_DIR}/bookmarks/urls" \
     "${SERVER_HOST}:${SERVER_BOOKMARKS_DIR}/${LOCAL_HOST}/urls"
 
-  rsync -azb \
+  ${RSYNC} -b \
     "${LOCAL_BROWSER_DIR}/quickmarks" \
     "${SERVER_HOST}:${SERVER_BOOKMARKS_DIR}/${LOCAL_HOST}/quickmarks"
 }
 
 backup_laptop_server_notes() {
-  rsync -azb --delete --exclude=".*" \
+  ${RSYNC} -b --delete --exclude=".*" \
     "${LOCAL_NOTES_DIR}/" \
     "${SERVER_HOST}:${SERVER_NOTES_DIR}/${LOCAL_HOST}"
 }
@@ -197,44 +199,44 @@ backup_laptop_server_todo() {
   find "${HOME}" -name TODO.md -exec dirname {} \; 2> /dev/null \
     | while read -r DIR; do
         FILENAME="$( basename "${DIR}" )"
-        rsync -azb \
+        ${RSYNC} -b \
           "${DIR}/TODO.md" \
           "${SERVER_HOST}:${SERVER_TODO_DIR}/${LOCAL_HOST}/${FILENAME}"
       done
 }
 
 backup_laptop_server_time_tracker_logs() {
-  rsync -azb --delete --exclude=".*" \
+  ${RSYNC} -b --delete --exclude=".*" \
     "${LOCAL_TIME_TRACKER_LOGS_DIR}/" \
     "${SERVER_HOST}:${SERVER_TIME_TRACKER_LOGS_DIR}/${LOCAL_HOST}"
 }
 
 backup_server_hdd_bookmarks() {
-  rsync -az --delete --exclude="*~" \
+  ${RSYNC} --delete --exclude="*~" \
     "${SERVER_HOST}:${SERVER_BOOKMARKS_DIR}/" \
     "${HDD_BOOKMARKS_DIR}"
 }
 
 backup_server_hdd_notes() {
-  rsync -az --delete --exclude="*~" \
+  ${RSYNC} --delete --exclude="*~" \
     "${SERVER_HOST}:${SERVER_NOTES_DIR}/" \
     "${HDD_NOTES_DIR}"
 }
 
 backup_server_hdd_packages() {
-  rsync -azh --delete --info=progress2 \
+  ${RSYNC} --delete \
     "${SERVER_HOST}:${SERVER_PACKAGES_DIR}/" \
     "${HDD_PACKAGES_DIR}"
 }
 
 backup_server_hdd_todo() {
-  rsync -az --delete --exclude="*~" \
+  ${RSYNC} --delete --exclude="*~" \
     "${SERVER_HOST}:${SERVER_TODO_DIR}/" \
     "${HDD_TODO_DIR}"
 }
 
 backup_server_hdd_repositories() {
-  rsync -azh --delete --info=progress2 \
+  ${RSYNC} --delete \
     "${SERVER_HOST}:${SERVER_REPOSITORIES_DIR}/" \
     "${HDD_REPOSITORIES_DIR}"
 }
