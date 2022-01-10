@@ -161,7 +161,7 @@ backup_laptop_hdd_notes() {
 }
 
 backup_laptop_hdd_todo() {
-  find "${HOME}" -name TODO.md -exec dirname {} \; \
+  find "${HOME}" -name TODO.md -exec dirname {} \; 2> /dev/null \
     | while read -r DIR; do
         FILENAME="$( basename "${DIR}" )"
         rsync -az \
@@ -194,7 +194,7 @@ backup_laptop_server_notes() {
 }
 
 backup_laptop_server_todo() {
-  find "${HOME}" -name TODO.md -exec dirname {} \; \
+  find "${HOME}" -name TODO.md -exec dirname {} \; 2> /dev/null \
     | while read -r DIR; do
         FILENAME="$( basename "${DIR}" )"
         rsync -azb \
