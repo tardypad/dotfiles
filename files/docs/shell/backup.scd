@@ -6,7 +6,7 @@ backup - backup utility
 
 # SYNOPSIS
 
-backup [-s _source_] [-t _target_] _item_
+backup [-s _source_] [-t _target_] [_item_]
 
 # DESCRIPTION
 
@@ -31,6 +31,7 @@ valid targets:
 
 _item_
 	Item to backup++
+If no item is provided, all the valid ones for the source and target are done++
 valid items:
 	- bookmarks
 	- books

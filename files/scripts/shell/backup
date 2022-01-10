@@ -69,8 +69,12 @@ validate_command_line() {
     exit_error "Invalid target '${TARGET}'"
   fi
 
+  if [ "${SOURCE}" = 'server' ] && [ "${TARGET}" = 'server' ]; then
+    exit_error "Cannot backup to itself"
+  fi
+
   if [ -z "${ITEM}" ]; then
-    exit_error 'missing item'
+    return
   fi
 
   if [ "${ITEM}" != 'bookmarks' ] \
@@ -114,9 +118,6 @@ validate_command_line() {
          && [ "${ITEM}" != 'todo' ]; then
         exit_error "Cannot backup ${ITEM} from ${SOURCE} to ${TARGET}"
       fi
-    fi
-    if [ "${TARGET}" = 'server' ]; then
-        exit_error "Cannot backup to itself"
     fi
   fi
 }
@@ -253,6 +254,27 @@ init_hdd() {
   TARGET='hdd'
 }
 
+backup_laptop_hdd() {
+  for i in bookmarks books contacts notes todo videos; do
+    printf 'laptop -> hdd: %s\n' "$i"
+    "backup_laptop_hdd_$i"
+  done
+}
+
+backup_laptop_server() {
+  for i in bookmarks notes time_tracker_logs todo; do
+    printf 'laptop -> server: %s\n' "$i"
+    "backup_laptop_server_$i"
+  done
+}
+
+backup_server_hdd() {
+  for i in bookmarks notes packages repositories todo; do
+    printf 'server -> hdd: %s\n' "$i"
+    "backup_server_hdd_$i"
+  done
+}
+
 init_variables
 parse_command_line "$@"
 validate_command_line
@@ -263,4 +285,8 @@ elif [ "${TARGET}" = 'hdd2' ]; then
   init_hdd "${HDD2_UUID}"
 fi
 
-"backup_${SOURCE}_${TARGET}_${ITEM}"
+if [ -n "${ITEM}" ]; then
+  "backup_${SOURCE}_${TARGET}_${ITEM}"
+else
+  "backup_${SOURCE}_${TARGET}"
+fi
