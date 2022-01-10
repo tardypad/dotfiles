@@ -132,6 +132,10 @@ alias qalc='noglob qalc'
 # flush all .log files recursively in the current dir
 alias flush-logs="find . -type f -name '*.log' -exec /bin/sh -c \"printf '' > '{}'\" \;"
 
+# backup
+alias bkp_hdd1='mnt toshiba && backup -s server -t hdd1 && backup -s laptop -t hdd1 && mnt -u toshiba'
+alias bkp_hdd2='mnt lacie && backup -s server -t hdd2 && backup -s laptop -t hdd2 && mnt -u lacie'
+
 # tests
 alias test-micro='parecord /tmp/test-micro.ogg && paplay /tmp/test-micro.ogg && rm -f /tmp/test-micro.ogg'
 alias test-sound='paplay "${XDG_DATA_HOME:-$HOME/.local/share}/sounds/end_pomodoro.ogg"'
