@@ -6,13 +6,16 @@ backup - backup utility
 
 # SYNOPSIS
 
-backup [-s _source_] [-t _target_] [_item_]
+backup [-c] [-s _source_] [-t _target_] [_item_]
 
 # DESCRIPTION
 
 Backup some items on a target
 
 # OPTIONS
+
+*-c*
+	Only check the differences via checksum (dry-run)
 
 *-s* _source_
 	Source of the backup++

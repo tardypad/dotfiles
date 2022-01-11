@@ -27,6 +27,7 @@ init_variables() {
 
   RSYNC='rsync -azh --info=progress2'
 
+  CHECK=false
   SOURCE='laptop'
   TARGET='hdd1'
   ITEM=
@@ -46,8 +47,9 @@ init_hdd_variables() {
 }
 
 parse_command_line() {
-  while getopts s:t: OPT; do
+  while getopts cs:t: OPT; do
     case "${OPT}" in
+      c) CHECK=true ;;
       s) SOURCE="${OPTARG}" ;;
       t) TARGET="${OPTARG}" ;;
       ?) exit_error ;;
@@ -285,6 +287,10 @@ if [ "${TARGET}" = 'hdd1' ]; then
   init_hdd "${HDD1_UUID}"
 elif [ "${TARGET}" = 'hdd2' ]; then
   init_hdd "${HDD2_UUID}"
+fi
+
+if [ "${CHECK}" = 'true' ]; then
+  RSYNC="${RSYNC} --dry-run --info=NONE --checksum --itemize-changes"
 fi
 
 if [ -n "${ITEM}" ]; then

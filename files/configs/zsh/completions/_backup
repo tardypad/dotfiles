@@ -64,6 +64,7 @@ _items() {
 }
 
 _arguments \
+  '-c[only check differences]:()' \
   '-s[source]:source:_sources' \
   '-t[target]:target:_targets' \
   '1:item:_items'
