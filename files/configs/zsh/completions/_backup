@@ -3,6 +3,7 @@
 _sources() {
   local sources=(
     laptop
+    phone
     server
   )
 
@@ -48,6 +49,12 @@ _items() {
         todo
       )
     fi
+  elif [ $source = 'phone' ]; then
+      items=(
+        messages
+        pictures
+        videos
+      )
   elif [ $source = 'server' ]; then
     if [[ $target = hdd* ]]; then
       items=(

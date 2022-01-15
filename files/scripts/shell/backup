@@ -12,6 +12,12 @@ init_variables() {
   LOCAL_TIME_TRACKER_LOGS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/time-tracker/logs"
   LOCAL_VIDEOS_DIR="${XDG_VIDEOS_DIR:-$HOME/Videos}"
 
+  PHONE_HOST='hazelnut'
+  PHONE_PICTURES_DIR='/home/nemo/Pictures/Camera'
+  PHONE_VIDEOS_DIR='/home/nemo/Videos/Camera'
+  PHONE_SIGNAL_DIR='/home/nemo/android_storage/Signal'
+  PHONE_WHATSAPP_DIR='/home/nemo/android_storage/WhatsApp'
+
   HDD1_UUID='e89b95fd-8520-43c1-bebf-610c92176955'
   HDD2_UUID='204b2ecc-e3c3-497c-aa4a-c0421a2ddb4f'
 
@@ -39,7 +45,9 @@ init_hdd_variables() {
   HDD_BOOKMARKS_DIR="${HDD_BASE_DIR}/Bookmarks"
   HDD_BOOKS_DIR="${HDD_BASE_DIR}/Books"
   HDD_CONTACTS_DIR="${HDD_BASE_DIR}/Contacts"
+  HDD_MESSAGES_DIR="${HDD_BASE_DIR}/Messages"
   HDD_NOTES_DIR="${HDD_BASE_DIR}/Notes"
+  HDD_PICTURES_DIR="${HDD_BASE_DIR}/Pictures"
   HDD_VIDEOS_DIR="${HDD_BASE_DIR}/Videos"
   HDD_PACKAGES_DIR="${HDD_BASE_DIR}/Packages"
   HDD_REPOSITORIES_DIR="${HDD_BASE_DIR}/Repositories"
@@ -63,6 +71,7 @@ parse_command_line() {
 
 validate_command_line() {
   if [ "${SOURCE}" != 'laptop' ] \
+     && [ "${SOURCE}" != 'phone' ] \
      && [ "${SOURCE}" != 'server' ]; then
     exit_error "Invalid source '${SOURCE}'"
   fi
@@ -77,6 +86,10 @@ validate_command_line() {
     exit_error "Cannot backup to itself"
   fi
 
+  if [ "${SOURCE}" = 'phone' ] && [ "${TARGET}" = 'server' ]; then
+    exit_error "Cannot backup from ${SOURCE} to ${TARGET}"
+  fi
+
   if [ -z "${ITEM}" ]; then
     return
   fi
@@ -84,8 +97,10 @@ validate_command_line() {
   if [ "${ITEM}" != 'bookmarks' ] \
      && [ "${ITEM}" != 'books' ] \
      && [ "${ITEM}" != 'contacts' ] \
+     && [ "${ITEM}" != 'messages' ] \
      && [ "${ITEM}" != 'notes' ] \
      && [ "${ITEM}" != 'packages' ] \
+     && [ "${ITEM}" != 'pictures' ] \
      && [ "${ITEM}" != 'repositories' ] \
      && [ "${ITEM}" != 'time_tracker_logs' ] \
      && [ "${ITEM}" != 'todo' ] \
@@ -113,6 +128,12 @@ validate_command_line() {
         exit_error "Cannot backup ${ITEM} from ${SOURCE} to ${TARGET}"
       fi
     fi
+  elif [ "${SOURCE}" = 'phone' ]; then
+      if [ "${ITEM}" != 'messages' ] \
+         && [ "${ITEM}" != 'pictures' ] \
+         && [ "${ITEM}" != 'videos' ]; then
+        exit_error "Cannot backup ${ITEM} from ${SOURCE} to ${TARGET}"
+      fi
   elif [ "${SOURCE}" = 'server' ]; then
     if [ "${TARGET}" = 'hdd1' ] || [ "${TARGET}" = 'hdd2' ]; then
       if [ "${ITEM}" != 'bookmarks' ] \
@@ -213,6 +234,28 @@ backup_laptop_server_time_tracker_logs() {
     "${SERVER_HOST}:${SERVER_TIME_TRACKER_LOGS_DIR}/${LOCAL_HOST}"
 }
 
+backup_phone_hdd_messages() {
+  ${RSYNC} --delete \
+    "${PHONE_HOST}:${PHONE_SIGNAL_DIR}/" \
+    "${HDD_MESSAGES_DIR}/Signal"
+
+  ${RSYNC} --delete \
+    "${PHONE_HOST}:${PHONE_WHATSAPP_DIR}/" \
+    "${HDD_MESSAGES_DIR}/WhatsApp"
+}
+
+backup_phone_hdd_pictures() {
+  ${RSYNC} --delete \
+    "${PHONE_HOST}:${PHONE_PICTURES_DIR}/" \
+    "${HDD_PICTURES_DIR}/Camera"
+}
+
+backup_phone_hdd_videos() {
+  ${RSYNC} --delete \
+    "${PHONE_HOST}:${PHONE_VIDEOS_DIR}/" \
+    "${HDD_VIDEOS_DIR}/Camera"
+}
+
 backup_server_hdd_bookmarks() {
   ${RSYNC} --delete --exclude="*~" \
     "${SERVER_HOST}:${SERVER_BOOKMARKS_DIR}/" \
@@ -269,6 +312,13 @@ backup_laptop_server() {
   for i in bookmarks notes time_tracker_logs todo; do
     printf 'laptop -> server: %s\n' "$i"
     "backup_laptop_server_$i"
+  done
+}
+
+backup_phone_hdd() {
+  for i in messages pictures videos; do
+    printf 'phone -> hdd: %s\n' "$i"
+    "backup_phone_hdd_$i"
   done
 }
 

@@ -21,6 +21,7 @@ Backup some items on a target
 	Source of the backup++
 valid sources:
 	- laptop (default)
+	- phone
 	- server
 
 *-t* _target_
@@ -39,8 +40,10 @@ valid items:
 	- bookmarks
 	- books
 	- contacts
+	- messages
 	- notes
 	- packages
+	- pictures
 	- repositories
 	- time_tracker_logs
 	- todo
@@ -53,28 +56,45 @@ Valid items per source and target
 [[
 :- laptop -> hdd
 :- laptop -> server
+:- phone -> hdd
 :- server -> hdd
 |  bookmarks
 :- \*
 :- \*
+: 
 :- \*
 |  books
 :- \*
+: 
 : 
 : 
 |  contacts
 :- \*
 : 
 : 
+: 
+|  messages
+: 
+: 
+:- \*
+: 
 |  notes
 :- \*
 :- \*
+: 
 :- \*
 |  packages
 : 
 : 
+: 
 :- \*
+|  pictures
+: 
+: 
+:- \*
+: 
 |  repositories
+: 
 : 
 : 
 :- \*
@@ -82,13 +102,16 @@ Valid items per source and target
 : 
 :- \*
 : 
+: 
 |  todo
 :- \*
 :- \*
+: 
 :- \*
 |  videos
 :- \*
 : 
+:- \*
 : 
 
 # ENVIRONMENT VARIABLES
