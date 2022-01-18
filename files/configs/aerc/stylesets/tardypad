@@ -11,6 +11,7 @@ title.bold  = true
 header.bold = true
 
 border.bg  = default
+border.fg  = #{color/base03/hex}
 spinner.fg = #{color/base03/hex}
 
 statusline_default.bg = #{color/status_line_background/hex}
