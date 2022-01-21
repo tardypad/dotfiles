@@ -51,9 +51,10 @@ print_line_by_line() {
       printf '%s' "${TEXT}"
     fi
 
+    # shellcheck disable=SC2034
     {
         stty -echo
-        read -r
+        read -r UNUSED
         stty echo
     } < /dev/tty
     printf '\n'
