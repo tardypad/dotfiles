@@ -1,0 +1,48 @@
+#!/bin/sh
+
+init_variables() {
+  COMMAND=${0##*/}
+
+  TMP_FILE_ORIG="$( mktemp )"
+  TMP_FILE_DEST="$( mktemp )"
+  trap 'rm -f "${TMP_FILE_ORIG}" "${TMP_FILE_DEST}"' EXIT
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+init_files() {
+  ls > "${TMP_FILE_ORIG}"
+  cp "${TMP_FILE_ORIG}" "${TMP_FILE_DEST}"
+}
+
+edit() {
+  "${EDITOR:-vi}" "${TMP_FILE_DEST}"
+}
+
+validate_files() {
+  ORIG_COUNT="$( wc -l "${TMP_FILE_ORIG}" | cut -d' ' -f1 )"
+  DEST_COUNT="$( wc -l "${TMP_FILE_DEST}" | cut -d' ' -f1 )"
+
+  if [ "${ORIG_COUNT}" -ne "${DEST_COUNT}" ]; then
+    exit_error 'Lines count mismatch'
+  fi
+}
+
+rename() {
+  paste "${TMP_FILE_ORIG}" "${TMP_FILE_DEST}" \
+    | while read -r LINE; do
+        FILE_ORIG="$(echo "${LINE}" | cut -f1 )"
+        FILE_DEST="$(echo "${LINE}" | cut -f2 )"
+        mv "${FILE_ORIG}" "${FILE_DEST}"
+      done
+}
+
+init_variables
+
+init_files
+edit
+validate_files
+rename

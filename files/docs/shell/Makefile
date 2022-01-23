@@ -38,6 +38,7 @@ shell-docs:
 	$(setup_file)/docs/shell/query-hosts-tags.scd         | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/query-hosts-tags.1perso
 	$(setup_file)/docs/shell/read-news.scd                | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/read-news.1perso
 	$(setup_file)/docs/shell/redis-env.scd                | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/redis-env.1perso
+	$(setup_file)/docs/shell/rename-edit.scd              | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/rename-edit.1perso
 	$(setup_file)/docs/shell/schedule.scd                 | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/schedule.1perso
 	$(setup_file)/docs/shell/screencast.scd               | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/screencast.1perso
 	$(setup_file)/docs/shell/screenshot.scd               | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/screenshot.1perso

@@ -38,6 +38,7 @@ shell-scripts:
 	$(setup_file)/scripts/shell/query-hosts-tags             > $(DESTDIR)$(BIN_DIR)/query-hosts-tags
 	$(setup_file)/scripts/shell/read-news                    > $(DESTDIR)$(BIN_DIR)/read-news
 	$(setup_file)/scripts/shell/redis-env                    > $(DESTDIR)$(BIN_DIR)/redis-env
+	$(setup_file)/scripts/shell/rename-edit                  > $(DESTDIR)$(BIN_DIR)/rename-edit
 	$(setup_file)/scripts/shell/schedule                     > $(DESTDIR)$(BIN_DIR)/schedule
 	$(setup_file)/scripts/shell/screencast                   > $(DESTDIR)$(BIN_DIR)/screencast
 	$(setup_file)/scripts/shell/screenshot                   > $(DESTDIR)$(BIN_DIR)/screenshot
@@ -88,6 +89,7 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/query-hosts-tags
 	chmod +x $(DESTDIR)$(BIN_DIR)/read-news
 	chmod +x $(DESTDIR)$(BIN_DIR)/redis-env
+	chmod +x $(DESTDIR)$(BIN_DIR)/rename-edit
 	chmod +x $(DESTDIR)$(BIN_DIR)/schedule
 	chmod +x $(DESTDIR)$(BIN_DIR)/screencast
 	chmod +x $(DESTDIR)$(BIN_DIR)/screenshot
