@@ -48,7 +48,7 @@ alias PJ='goto-project main'
 alias max='calculate maximum'
 alias min='calculate minimum'
 alias mean='calculate mean'
-alias sum='calculate sum'
+alias total='calculate sum'
 
 alias b102='base 10 2'
 alias b210='base 2 10'
