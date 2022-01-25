@@ -1,5 +1,5 @@
 # commands used:
-# - sum
+# - calculate
 # - time-tracker
 
 # display sum of tracked hours reported for a day
@@ -13,7 +13,7 @@ local total
 total=$(
   time-tracker -t -d "$day" overview \
     | cut -f 2 \
-    | sum
+    | calculate sum
 )
 
 [ "$?" -ne 0 ] && return 1
