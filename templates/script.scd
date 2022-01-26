@@ -1,4 +1,4 @@
-script(1perso)
+SCRIPT(1perso)
 
 # NAME
 
