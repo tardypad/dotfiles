@@ -42,6 +42,7 @@ shell-scripts:
 	$(setup_file)/scripts/shell/schedule                     > $(DESTDIR)$(BIN_DIR)/schedule
 	$(setup_file)/scripts/shell/screencast                   > $(DESTDIR)$(BIN_DIR)/screencast
 	$(setup_file)/scripts/shell/screenshot                   > $(DESTDIR)$(BIN_DIR)/screenshot
+	$(setup_file)/scripts/shell/show-clipboard-qrcode        > $(DESTDIR)$(BIN_DIR)/show-clipboard-qrcode
 	$(setup_file)/scripts/shell/somafm                       > $(DESTDIR)$(BIN_DIR)/somafm
 	$(setup_file)/scripts/shell/ssh-tags                     > $(DESTDIR)$(BIN_DIR)/ssh-tags
 	$(setup_file)/scripts/shell/startup                      > $(DESTDIR)$(BIN_DIR)/startup
@@ -93,6 +94,7 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/schedule
 	chmod +x $(DESTDIR)$(BIN_DIR)/screencast
 	chmod +x $(DESTDIR)$(BIN_DIR)/screenshot
+	chmod +x $(DESTDIR)$(BIN_DIR)/show-clipboard-qrcode
 	chmod +x $(DESTDIR)$(BIN_DIR)/somafm
 	chmod +x $(DESTDIR)$(BIN_DIR)/ssh-tags
 	chmod +x $(DESTDIR)$(BIN_DIR)/startup

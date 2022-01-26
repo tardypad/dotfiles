@@ -42,6 +42,7 @@ shell-docs:
 	$(setup_file)/docs/shell/schedule.scd                 | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/schedule.1perso
 	$(setup_file)/docs/shell/screencast.scd               | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/screencast.1perso
 	$(setup_file)/docs/shell/screenshot.scd               | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/screenshot.1perso
+	$(setup_file)/docs/shell/show-clipboard-qrcode.scd    | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/show-clipboard-qrcode.1perso
 	$(setup_file)/docs/shell/somafm.scd                   | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/somafm.1perso
 	$(setup_file)/docs/shell/ssh-tags.scd                 | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/ssh-tags.1perso
 	$(setup_file)/docs/shell/startup.scd                  | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/startup.1perso

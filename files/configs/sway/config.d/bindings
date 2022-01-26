@@ -30,6 +30,9 @@ bindsym $mod+Shift+{key/escape/Escape} exec pomodoro toggle
 # drop current task
 bindsym $mod+Ctrl+{key/escape/Escape} exec task drop
 
+# display QR code of clipboard content
+bindsym $mod+Shift+{key/q} exec show-clipboard-qrcode
+
 # select region and grab screenshot
 bindsym $mod+{key/g} exec screenshot
 
