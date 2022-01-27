@@ -40,5 +40,4 @@ None
 
 - cryptsetup
 - mount
-- sudo
 - umount

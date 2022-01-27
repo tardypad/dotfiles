@@ -45,27 +45,31 @@ exit_error() {
   exit 1
 } >&2
 
+check_root_user() {
+  [ "$( id -u )" -ne 0 ] && exit_error 'The script must be run as root'
+}
+
 mount_simple() {
-  sudo mkdir -p "/mnt/$2" \
-  && sudo mount "/dev/disk/by-uuid/$1" "/mnt/$2" \
+  mkdir -p "/mnt/$2" \
+  && mount "/dev/disk/by-uuid/$1" "/mnt/$2" \
   && printf 'mounted in /mnt/%s\n' "$2"
 }
 
 mount_crypt() {
-  sudo cryptsetup open "/dev/disk/by-uuid/$1" "$2" \
-  && sudo mkdir -p "/mnt/$2" \
-  && sudo mount "/dev/mapper/$2" "/mnt/$2" \
+  cryptsetup open "/dev/disk/by-uuid/$1" "$2" \
+  && mkdir -p "/mnt/$2" \
+  && mount "/dev/mapper/$2" "/mnt/$2" \
   && printf 'mounted in /mnt/%s\n' "$2"
 }
 
 unmount_simple() {
-  sudo umount "/mnt/$1" \
+  umount "/mnt/$1" \
   && printf 'unmounted /mnt/%s\n' "$1"
 }
 
 unmount_crypt() {
-  sudo umount "/mnt/$1" \
-  && sudo cryptsetup close "$1" \
+  umount "/mnt/$1" \
+  && cryptsetup close "$1" \
   && printf 'unmounted /mnt/%s\n' "$1"
 }
 
@@ -84,6 +88,8 @@ unmount_device_toshiba()    { unmount_crypt  toshiba    ; }
 init_variables
 parse_command_line "$@"
 validate_command_line
+
+check_root_user
 
 if [ "${UNMOUNT}" = 'false' ]; then
   mount_device_"${DEVICE_ID}"
