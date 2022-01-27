@@ -110,6 +110,9 @@ alias ssh-tmp='ssh -o "IdentitiesOnly no" -o "StrictHostKeyChecking no" -o "User
 # switch to root
 alias root='sudo -sE'
 
+# allow sudo with aliases
+alias sudo='sudo '
+
 # reload shell
 alias reload='source "${HOME}/.zshrc"'
 
