@@ -34,17 +34,17 @@ bindkey -M viins   '^{key/command_delete_all}' kill-buffer
 bindkey -M vicmd   '^{key/command_delete_all}' kill-buffer
 bindkey -M isearch '^{key/command_delete_all}' kill-buffer
 
-# run command with sudo
-run-with-sudo() {
-  if [[ $BUFFER != "sudo "* ]]; then
-    BUFFER="sudo $BUFFER"
+# run command as root user
+run-as-root() {
+  if [[ $BUFFER != "doas "* ]]; then
+    BUFFER="doas $BUFFER"
     zle accept-line
   fi
 }
-zle -N run-with-sudo
-bindkey -M viins   '^{key/x}{key/s}' run-with-sudo
-bindkey -M vicmd   '^{key/x}{key/s}' run-with-sudo
-bindkey -M isearch '^{key/x}{key/s}' run-with-sudo
+zle -N run-as-root
+bindkey -M viins   '^{key/x}{key/r}' run-as-root
+bindkey -M vicmd   '^{key/x}{key/r}' run-as-root
+bindkey -M isearch '^{key/x}{key/r}' run-as-root
 
 
 # append a command after a pipe and run
