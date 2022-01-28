@@ -108,10 +108,10 @@ alias fzf='fzf --reverse'
 alias ssh-tmp='ssh -o "IdentitiesOnly no" -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null"'
 
 # switch to root
-alias root='sudo -sE'
+alias root='doas -s'
 
-# allow sudo with aliases
-alias sudo='sudo '
+# allow doas with aliases
+alias doas='doas '
 
 # reload shell
 alias reload='source "${HOME}/.zshrc"'
