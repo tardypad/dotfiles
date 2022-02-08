@@ -30,20 +30,14 @@ pres_enable() {
   swaymsg -q bar mode invisible
   makoctl set-mode presentation
 
-  touch "${FILE_PATH}" \
-    && update_i3blocks
+  touch "${FILE_PATH}"
 }
 
 pres_disable() {
   swaymsg -q bar mode dock
   makoctl set-mode default
 
-  rm -f "${FILE_PATH}" \
-    && update_i3blocks
-}
-
-update_i3blocks() {
-  pkill -x -RTMIN+10 i3blocks
+  rm -f "${FILE_PATH}"
 }
 
 pres_status() {
