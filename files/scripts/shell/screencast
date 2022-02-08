@@ -67,7 +67,7 @@ record_toggle() {
 }
 
 update_i3blocks() {
-  pkill -x -RTMIN+7 i3blocks
+  pkill -x -RTMIN+10 i3blocks
 }
 
 is_record_started() {

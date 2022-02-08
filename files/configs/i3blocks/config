@@ -29,7 +29,7 @@ signal=7
 [webcam]
 
 [screencast]
-signal=7
+signal=10
 
 [volume]
 signal=2
