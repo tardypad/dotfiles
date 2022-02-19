@@ -6,7 +6,7 @@ backup - backup utility
 
 # SYNOPSIS
 
-backup [-c] [-s _source_] [-t _target_] [_item_]
+backup [-c] _source_ _target_ [_item_]
 
 # DESCRIPTION
 
@@ -17,21 +17,21 @@ Backup some items on a target
 *-c*
 	Only check the differences via checksum (dry-run)
 
-*-s* _source_
+# OPERANDS
+
+_source_
 	Source of the backup++
 valid sources:
-	- laptop (default)
+	- laptop
 	- phone
 	- server
 
-*-t* _target_
+_target_
 	Target of the backup++
 valid targets:
-	- hdd1 (default)
+	- hdd1
 	- hdd2
 	- server
-
-# OPERANDS
 
 _item_
 	Item to backup++

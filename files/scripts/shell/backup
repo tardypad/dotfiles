@@ -34,8 +34,8 @@ init_variables() {
   RSYNC='rsync -azh --info=progress2'
 
   CHECK=false
-  SOURCE='laptop'
-  TARGET='hdd1'
+  SOURCE=
+  TARGET=
   ITEM=
 }
 
@@ -55,21 +55,29 @@ init_hdd_variables() {
 }
 
 parse_command_line() {
-  while getopts cs:t: OPT; do
+  while getopts c OPT; do
     case "${OPT}" in
       c) CHECK=true ;;
-      s) SOURCE="${OPTARG}" ;;
-      t) TARGET="${OPTARG}" ;;
       ?) exit_error ;;
     esac
   done
 
   shift $(( OPTIND - 1 ))
 
-  ITEM="$1"
+  SOURCE="$1"
+  TARGET="$2"
+  ITEM="$3"
 }
 
 validate_command_line() {
+  if [ -z "${SOURCE}" ]; then
+      exit_error "Missing source"
+  fi
+
+  if [ -z "${TARGET}" ]; then
+      exit_error "Missing target"
+  fi
+
   if [ "${SOURCE}" != 'laptop' ] \
      && [ "${SOURCE}" != 'phone' ] \
      && [ "${SOURCE}" != 'server' ]; then

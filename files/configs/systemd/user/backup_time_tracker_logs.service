@@ -3,4 +3,4 @@ Description=Backup time tracker logs
 
 [Service]
 Environment=SSH_AUTH_SOCK=%t/gnupg/S.gpg-agent.ssh
-ExecStart={dir/bin}/backup -t server time_tracker_logs
+ExecStart={dir/bin}/backup laptop server time_tracker_logs
