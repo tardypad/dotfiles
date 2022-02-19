@@ -1,4 +1,4 @@
 #compdef line-by-line
 
 _arguments \
-  '-o[display only one line in screen]:()'
+  '-o[display only one line in screen]'
