@@ -1,26 +1,79 @@
 #compdef backup
 
+_is_restore() {
+  for (( i = 1; i <= $#words - 1; i++ )); do
+    if [ $words[$i] = '-r' ]; then
+      return 0
+    fi
+  done
+
+  return 1
+}
+
 _sources() {
-  local sources=(
-    laptop
-    phone
-    server
-  )
+  local sources=()
+
+  if _is_restore; then
+    sources=(
+      hdd1
+      hdd2
+    )
+  else
+    sources=(
+      laptop
+      phone
+      server
+    )
+  fi
 
   compadd "$@" $sources
 }
 
 _targets() {
-  local targets=(
-    hdd1
-    hdd2
-    server
-  )
+  local targets=()
+
+  if _is_restore; then
+    targets=(
+      server
+    )
+  else
+    targets=(
+      hdd1
+      hdd2
+      server
+    )
+  fi
 
   compadd "$@" $targets
 }
 
 _items() {
+  if _is_restore; then
+    _items_restore
+  else
+    _items_backup
+  fi
+}
+
+_items_restore() {
+  local source=$words[CURRENT-2] target=$words[CURRENT-1] items=()
+
+  if [[ $source = hdd* ]]; then
+    if [ $target = 'server' ]; then
+      items=(
+        bookmarks
+        notes
+        packages
+        repositories
+        todo
+      )
+    fi
+  fi
+
+  compadd "$@" $items
+}
+
+_items_backup() {
   local source=$words[CURRENT-2] target=$words[CURRENT-1] items=()
 
   if [ $source = 'laptop' ]; then
@@ -64,6 +117,7 @@ _items() {
 
 _arguments \
   '-c[only check differences]' \
+  '-r[restore]' \
   '1:source:_sources' \
   '2:target:_targets' \
   '3:item:_items'

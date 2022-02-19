@@ -6,28 +6,33 @@ backup - backup utility
 
 # SYNOPSIS
 
-backup [-c] _source_ _target_ [_item_]
+backup [-cr] _source_ _target_ [_item_]
 
 # DESCRIPTION
 
-Backup some items on a target
+Backup or restore some items
 
 # OPTIONS
 
 *-c*
 	Only check the differences via checksum (dry-run)
 
+*-r*
+	Restore a backup
+
 # OPERANDS
 
 _source_
-	Source of the backup++
+	Source of the backup or restore++
 valid sources:
+	- hdd1
+	- hdd2
 	- laptop
 	- phone
 	- server
 
 _target_
-	Target of the backup++
+	Target of the backup or restore++
 valid targets:
 	- hdd1
 	- hdd2
@@ -49,6 +54,46 @@ valid items:
 	- todo
 	- videos
 
+# SOURCES
+
+Valid sources per action
+
+[[
+:- backup 
+:- restore
+|  hdd1
+:-
+:- \* 
+|  hdd2
+:- 
+:- \*
+|  laptop 
+:- \*
+:- 
+|  phone
+:- \*
+:- 
+|  server 
+:- \*
+:- 
+
+# TARGETS
+
+Valid targets per action
+
+[[
+:- backup
+:- restore
+|  hdd1
+:- \*
+:- 
+|  hdd2
+:- \*
+:- 
+|  server
+:- \*
+:- \*
+
 # SOURCE TARGET ITEMS
 
 Valid items per source and target
@@ -57,7 +102,7 @@ Valid items per source and target
 :- laptop -> hdd
 :- laptop -> server
 :- phone -> hdd
-:- server -> hdd
+:- server <-> hdd
 |  bookmarks
 :- \*
 :- \*

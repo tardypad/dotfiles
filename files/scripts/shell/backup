@@ -33,6 +33,7 @@ init_variables() {
 
   RSYNC='rsync -azh --info=progress2'
 
+  ACTION='backup'
   CHECK=false
   SOURCE=
   TARGET=
@@ -55,9 +56,10 @@ init_hdd_variables() {
 }
 
 parse_command_line() {
-  while getopts c OPT; do
+  while getopts cr OPT; do
     case "${OPT}" in
       c) CHECK=true ;;
+      r) ACTION='restore' ;;
       ?) exit_error ;;
     esac
   done
@@ -78,24 +80,10 @@ validate_command_line() {
       exit_error "Missing target"
   fi
 
-  if [ "${SOURCE}" != 'laptop' ] \
-     && [ "${SOURCE}" != 'phone' ] \
-     && [ "${SOURCE}" != 'server' ]; then
-    exit_error "Invalid source '${SOURCE}'"
-  fi
-
-  if [ "${TARGET}" != 'hdd1' ] \
-     && [ "${TARGET}" != 'hdd2' ] \
-     && [ "${TARGET}" != 'server' ]; then
-    exit_error "Invalid target '${TARGET}'"
-  fi
-
-  if [ "${SOURCE}" = 'server' ] && [ "${TARGET}" = 'server' ]; then
-    exit_error "Cannot backup to itself"
-  fi
-
-  if [ "${SOURCE}" = 'phone' ] && [ "${TARGET}" = 'server' ]; then
-    exit_error "Cannot backup from ${SOURCE} to ${TARGET}"
+  if [ "${ACTION}" = 'backup' ]; then
+    validate_command_line_backup_source_target
+  else
+    validate_command_line_restore_source_target
   fi
 
   if [ -z "${ITEM}" ]; then
@@ -116,6 +104,36 @@ validate_command_line() {
     exit_error "Invalid item '${ITEM}'"
   fi
 
+  if [ "${ACTION}" = 'backup' ]; then
+    validate_command_line_backup_item
+  else
+    validate_command_line_restore_item
+  fi
+}
+
+validate_command_line_backup_source_target() {
+  if [ "${SOURCE}" != 'laptop' ] \
+     && [ "${SOURCE}" != 'phone' ] \
+     && [ "${SOURCE}" != 'server' ]; then
+    exit_error "Invalid backup source '${SOURCE}'"
+  fi
+
+  if [ "${TARGET}" != 'hdd1' ] \
+     && [ "${TARGET}" != 'hdd2' ] \
+     && [ "${TARGET}" != 'server' ]; then
+    exit_error "Invalid backup target '${TARGET}'"
+  fi
+
+  if [ "${SOURCE}" = 'server' ] && [ "${TARGET}" = 'server' ]; then
+    exit_error "Cannot backup to itself"
+  fi
+
+  if [ "${SOURCE}" = 'phone' ] && [ "${TARGET}" = 'server' ]; then
+    exit_error "Cannot backup from ${SOURCE} to ${TARGET}"
+  fi
+}
+
+validate_command_line_backup_item() {
   if [ "${SOURCE}" = 'laptop' ]; then
     if [ "${TARGET}" = 'hdd1' ] || [ "${TARGET}" = 'hdd2' ]; then
       if [ "${ITEM}" != 'bookmarks' ] \
@@ -152,6 +170,27 @@ validate_command_line() {
         exit_error "Cannot backup ${ITEM} from ${SOURCE} to ${TARGET}"
       fi
     fi
+  fi
+}
+
+validate_command_line_restore_source_target() {
+  if [ "${SOURCE}" != 'hdd1' ] \
+     && [ "${SOURCE}" != 'hdd2' ]; then
+    exit_error "Invalid restore source '${SOURCE}'"
+  fi
+
+  if [ "${TARGET}" != 'server' ]; then
+    exit_error "Invalid restore target '${TARGET}'"
+  fi
+}
+
+validate_command_line_restore_item() {
+  if [ "${ITEM}" != 'bookmarks' ] \
+     && [ "${ITEM}" != 'notes' ] \
+     && [ "${ITEM}" != 'packages' ] \
+     && [ "${ITEM}" != 'repositories' ] \
+     && [ "${ITEM}" != 'todo' ]; then
+    exit_error "Cannot restore ${ITEM} from ${SOURCE} to ${TARGET}"
   fi
 }
 
@@ -294,6 +333,36 @@ backup_server_hdd_repositories() {
     "${HDD_REPOSITORIES_DIR}"
 }
 
+restore_hdd_server_bookmarks() {
+  ${RSYNC} \
+    "${HDD_BOOKMARKS_DIR}/" \
+    "${SERVER_HOST}:${SERVER_BOOKMARKS_DIR}"
+}
+
+restore_hdd_server_notes() {
+  ${RSYNC} \
+    "${HDD_NOTES_DIR}/" \
+    "${SERVER_HOST}:${SERVER_NOTES_DIR}"
+}
+
+restore_hdd_server_packages() {
+  ${RSYNC} \
+    "${HDD_PACKAGES_DIR}/" \
+    "${SERVER_HOST}:${SERVER_PACKAGES_DIR}"
+}
+
+restore_hdd_server_repositories() {
+  ${RSYNC} \
+    "${HDD_REPOSITORIES_DIR}/" \
+    "${SERVER_HOST}:${SERVER_REPOSITORIES_DIR}"
+}
+
+restore_hdd_server_todo() {
+  ${RSYNC} \
+    "${HDD_TODO_DIR}/" \
+    "${SERVER_HOST}:${SERVER_TODO_DIR}"
+}
+
 init_hdd() {
   HDD_BASE_DIR="$(
     lsblk -n -o UUID,MOUNTPOINT \
@@ -306,7 +375,6 @@ init_hdd() {
   fi
 
   init_hdd_variables
-  TARGET='hdd'
 }
 
 backup_laptop_hdd() {
@@ -337,14 +405,29 @@ backup_server_hdd() {
   done
 }
 
+restore_hdd_server() {
+  for i in bookmarks notes packages repositories todo; do
+    printf 'hdd -> server: %s\n' "$i"
+    "restore_hdd_server_$i"
+  done
+}
+
 init_variables
 parse_command_line "$@"
 validate_command_line
 
 if [ "${TARGET}" = 'hdd1' ]; then
   init_hdd "${HDD1_UUID}"
+  TARGET='hdd'
 elif [ "${TARGET}" = 'hdd2' ]; then
   init_hdd "${HDD2_UUID}"
+  TARGET='hdd'
+elif [ "${SOURCE}" = 'hdd1' ]; then
+  init_hdd "${HDD1_UUID}"
+  SOURCE='hdd'
+elif [ "${SOURCE}" = 'hdd2' ]; then
+  init_hdd "${HDD2_UUID}"
+  SOURCE='hdd'
 fi
 
 if [ "${CHECK}" = 'true' ]; then
@@ -352,7 +435,7 @@ if [ "${CHECK}" = 'true' ]; then
 fi
 
 if [ -n "${ITEM}" ]; then
-  "backup_${SOURCE}_${TARGET}_${ITEM}"
+  "${ACTION}_${SOURCE}_${TARGET}_${ITEM}"
 else
-  "backup_${SOURCE}_${TARGET}"
+  "${ACTION}_${SOURCE}_${TARGET}"
 fi
