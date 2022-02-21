@@ -63,11 +63,13 @@ semantic_tag() {
   PROJECT_NAME="$( basename "$( pwd )" )"
   LAST_TAG="$( git describe --abbrev=0 )"
   NEXT_TAG="$( get_next_tag "${LAST_TAG}" )"
+  LOG="$( git shortlog --no-merges "${LAST_TAG}..HEAD" )"
 
-  {
-    printf '%s %s\n\n' "${PROJECT_NAME}" "${NEXT_TAG}"
-    git shortlog --no-merges "${LAST_TAG}..HEAD"
-  } > "${TMP_FILE}"
+  if [ -z "${LOG}" ]; then
+    exit_error "No change since last tag"
+  fi
+
+  printf '%s %s\n\n%s' "${PROJECT_NAME}" "${NEXT_TAG}" "${LOG}" > "${TMP_FILE}"
 
   # shellcheck disable=SC2086
   git tag -a "${NEXT_TAG}" -F "${TMP_FILE}" ${EXTRA_OPTIONS}
