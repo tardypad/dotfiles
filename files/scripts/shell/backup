@@ -28,7 +28,7 @@ init_variables() {
   SERVER_NOTES_DIR="${SERVER_BASE_DIR}/notes"
   SERVER_TIME_TRACKER_LOGS_DIR="${SERVER_BASE_DIR}/time_tracker_logs"
   SERVER_TODO_DIR="${SERVER_BASE_DIR}/todo"
-  SERVER_PACKAGES_DIR="/srv/pkgs"
+  SERVER_PACKAGES_DIR="/srv/http/pkgs"
   SERVER_REPOSITORIES_DIR="repos"
 
   RSYNC='rsync -azh --info=progress2'
