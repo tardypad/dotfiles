@@ -5,7 +5,7 @@ init_variables() {
 
   KOBO_UUID='5BBA-D173'
   LACIE_UUID='957ed774-d551-43de-a233-9815013f7498'
-  TDK_DATA_UUID='e087a822-7b11-42eb-9b6d-e2ec13724073'
+  TDK_DATA_UUID='AFE8-B122'
   TDK_SECRET_UUID='0bd24e2d-cb0a-4c5b-accd-e428de86c1f0'
   TOSHIBA_UUID='fe36b1e1-8f91-4d1c-a0af-4327ecb1bd27'
 
@@ -55,6 +55,12 @@ mount_simple() {
   && printf 'mounted in /mnt/%s\n' "$2"
 }
 
+mount_simple_fat() {
+  mkdir -p "/mnt/$2" \
+  && mount -o umask=0 "/dev/disk/by-uuid/$1" "/mnt/$2" \
+  && printf 'mounted in /mnt/%s\n' "$2"
+}
+
 mount_crypt() {
   cryptsetup open "/dev/disk/by-uuid/$1" "$2" \
   && mkdir -p "/mnt/$2" \
@@ -73,11 +79,11 @@ unmount_crypt() {
   && printf 'unmounted /mnt/%s\n' "$1"
 }
 
-mount_device_kobo()       { mount_simple "${KOBO_UUID}"       kobo       ; }
-mount_device_lacie()      { mount_crypt  "${LACIE_UUID}"      lacie      ; }
-mount_device_tdk_data()   { mount_simple "${TDK_DATA_UUID}"   tdk_data   ; }
-mount_device_tdk_secret() { mount_crypt  "${TDK_SECRET_UUID}" tdk_secret ; }
-mount_device_toshiba()    { mount_crypt  "${TOSHIBA_UUID}"    toshiba    ; }
+mount_device_kobo()       { mount_simple     "${KOBO_UUID}"       kobo       ; }
+mount_device_lacie()      { mount_crypt      "${LACIE_UUID}"      lacie      ; }
+mount_device_tdk_data()   { mount_simple_fat "${TDK_DATA_UUID}"   tdk_data   ; }
+mount_device_tdk_secret() { mount_crypt      "${TDK_SECRET_UUID}" tdk_secret ; }
+mount_device_toshiba()    { mount_crypt      "${TOSHIBA_UUID}"    toshiba    ; }
 
 unmount_device_kobo()       { unmount_simple kobo       ; }
 unmount_device_lacie()      { unmount_crypt  lacie      ; }
