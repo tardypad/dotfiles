@@ -31,7 +31,7 @@ init_variables() {
   SERVER_PACKAGES_DIR="/srv/http/pkgs"
   SERVER_REPOSITORIES_DIR="repos"
 
-  RSYNC='rsync -azh --info=progress2'
+  RSYNC='rsync -azh --mkpath --info=progress2'
 
   ACTION='backup'
   CHECK=false
