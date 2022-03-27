@@ -45,26 +45,14 @@ exit_error() {
   exit 1
 } >&2
 
-check_root_user() {
-  [ "$( id -u )" -ne 0 ] && exit_error 'The script must be run as root'
-}
-
 mount_simple() {
-  mkdir -p "/mnt/$2" \
-  && mount "/dev/disk/by-uuid/$1" "/mnt/$2" \
-  && printf 'mounted in /mnt/%s\n' "$2"
-}
-
-mount_simple_fat() {
-  mkdir -p "/mnt/$2" \
-  && mount -o umask=0 "/dev/disk/by-uuid/$1" "/mnt/$2" \
+  mount "/mnt/$2" \
   && printf 'mounted in /mnt/%s\n' "$2"
 }
 
 mount_crypt() {
-  cryptsetup open "/dev/disk/by-uuid/$1" "$2" \
-  && mkdir -p "/mnt/$2" \
-  && mount "/dev/mapper/$2" "/mnt/$2" \
+  doas cryptsetup open "/dev/disk/by-uuid/$1" "$2" \
+  && mount "/mnt/$2" \
   && printf 'mounted in /mnt/%s\n' "$2"
 }
 
@@ -75,15 +63,15 @@ unmount_simple() {
 
 unmount_crypt() {
   umount "/mnt/$1" \
-  && cryptsetup close "$1" \
+  && doas cryptsetup close "$1" \
   && printf 'unmounted /mnt/%s\n' "$1"
 }
 
-mount_device_kobo()       { mount_simple     "${KOBO_UUID}"       kobo       ; }
-mount_device_lacie()      { mount_crypt      "${LACIE_UUID}"      lacie      ; }
-mount_device_tdk_data()   { mount_simple_fat "${TDK_DATA_UUID}"   tdk_data   ; }
-mount_device_tdk_secret() { mount_crypt      "${TDK_SECRET_UUID}" tdk_secret ; }
-mount_device_toshiba()    { mount_crypt      "${TOSHIBA_UUID}"    toshiba    ; }
+mount_device_kobo()       { mount_simple "${KOBO_UUID}"       kobo       ; }
+mount_device_lacie()      { mount_crypt  "${LACIE_UUID}"      lacie      ; }
+mount_device_tdk_data()   { mount_simple "${TDK_DATA_UUID}"   tdk_data   ; }
+mount_device_tdk_secret() { mount_crypt  "${TDK_SECRET_UUID}" tdk_secret ; }
+mount_device_toshiba()    { mount_crypt  "${TOSHIBA_UUID}"    toshiba    ; }
 
 unmount_device_kobo()       { unmount_simple kobo       ; }
 unmount_device_lacie()      { unmount_crypt  lacie      ; }
@@ -94,8 +82,6 @@ unmount_device_toshiba()    { unmount_crypt  toshiba    ; }
 init_variables
 parse_command_line "$@"
 validate_command_line
-
-check_root_user
 
 if [ "${UNMOUNT}" = 'false' ]; then
   mount_device_"${DEVICE_ID}"

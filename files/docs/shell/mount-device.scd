@@ -39,5 +39,6 @@ None
 # DEPENDENCIES
 
 - cryptsetup
+- doas
 - mount
 - umount
