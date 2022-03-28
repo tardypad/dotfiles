@@ -69,8 +69,6 @@ alias lbl='line-by-line'
 alias mnt='mount-device'
 alias pmx='pulsemixer'
 
-alias init-todo="printf '# %s\n\n' Periodic Cleaning Bugs Testing Improvements Features Research > TODO.md"
-
 # smart cut on spaces
 alias scut="tr -s ' ' '\t' | cut"
 

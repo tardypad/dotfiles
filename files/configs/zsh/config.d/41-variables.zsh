@@ -6,6 +6,7 @@ export XDG_DOCUMENTS_DIR="${HOME}/Documents"
 export XDG_DOWNLOAD_DIR="${HOME}/Downloads"
 export XDG_NOTES_DIR="${HOME}/Notes"
 export XDG_PROJECTS_DIR="${HOME}/Projects"
+export XDG_TODO_DIR="${HOME}/Todo"
 export XDG_VIDEOS_DIR="${HOME}/Videos"
 
 # defaults but less needs to have it set to use it..

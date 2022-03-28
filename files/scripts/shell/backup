@@ -10,6 +10,7 @@ init_variables() {
   LOCAL_CONTACTS_DIR="${XDG_CONTACTS_DIR:-$HOME/Contacts}"
   LOCAL_NOTES_DIR="${XDG_NOTES_DIR:-$HOME/Notes}"
   LOCAL_TIME_TRACKER_LOGS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/time-tracker/logs"
+  LOCAL_TODO_DIR="${XDG_TODO_DIR:-$HOME/Todo}"
   LOCAL_VIDEOS_DIR="${XDG_VIDEOS_DIR:-$HOME/Videos}"
 
   PHONE_HOST='hazelnut'
@@ -233,14 +234,10 @@ backup_laptop_hdd_notes() {
 }
 
 backup_laptop_hdd_todo() {
-  find "${HOME}" -name TODO.md -exec dirname {} \; 2> /dev/null \
-    | while read -r DIR; do
-        FILENAME="$( basename "${DIR}" )"
-        ${RSYNC} \
-          --backup-dir="${HDD_BACKUP_DIR}/Todo" \
-          "${DIR}/TODO.md" \
-          "${HDD_TODO_DIR}/${LOCAL_HOST}/${FILENAME}"
-      done
+  ${RSYNC} --delete --exclude=".*" \
+    --backup-dir="${HDD_BACKUP_DIR}/Todo" \
+    "${LOCAL_TODO_DIR}/" \
+    "${HDD_TODO_DIR}/${LOCAL_HOST}"
 }
 
 backup_laptop_hdd_videos() {
@@ -266,13 +263,9 @@ backup_laptop_server_notes() {
 }
 
 backup_laptop_server_todo() {
-  find "${HOME}" -name TODO.md -exec dirname {} \; 2> /dev/null \
-    | while read -r DIR; do
-        FILENAME="$( basename "${DIR}" )"
-        ${RSYNC} -b \
-          "${DIR}/TODO.md" \
-          "${SERVER_HOST}:${SERVER_TODO_DIR}/${LOCAL_HOST}/${FILENAME}"
-      done
+  ${RSYNC} -b --delete --exclude=".*" \
+    "${LOCAL_TODO_DIR}/" \
+    "${SERVER_HOST}:${SERVER_TODO_DIR}/${LOCAL_HOST}"
 }
 
 backup_laptop_server_time_tracker_logs() {

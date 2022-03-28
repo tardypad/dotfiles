@@ -57,6 +57,7 @@ zsh-configs:
 	$(setup_file)/configs/zsh/completions/git/_git-url                                               > $(DESTDIR)$(HOME)/.zsh/completions/git/_git-url
 	$(setup_file)/configs/zsh/functions/dirsum                                                       > $(DESTDIR)$(HOME)/.zsh/functions/dirsum
 	$(setup_file)/configs/zsh/functions/goto-project                                                 > $(DESTDIR)$(HOME)/.zsh/functions/goto-project
+	$(setup_file)/configs/zsh/functions/init-todo                                                    > $(DESTDIR)$(HOME)/.zsh/functions/init-todo
 	$(setup_file)/configs/zsh/functions/mkcd                                                         > $(DESTDIR)$(HOME)/.zsh/functions/mkcd
 	$(setup_file)/configs/zsh/functions/task-log                                                     > $(DESTDIR)$(HOME)/.zsh/functions/task-log
 	$(setup_file)/configs/zsh/functions/time-tracker-overview                                        > $(DESTDIR)$(HOME)/.zsh/functions/time-tracker-overview
