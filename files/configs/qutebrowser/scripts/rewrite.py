@@ -2,7 +2,10 @@ from qutebrowser.api import interceptor
 
 def redirect(request: interceptor.Request, host: str):
     request.request_url.setHost(host)
-    request.redirect(request.request_url)
+    try:
+        request.redirect(request.request_url)
+    except interceptor.interceptors.RedirectException:
+        pass
 
 def rewrite(request: interceptor.Request):
     host = request.request_url.host()
