@@ -29,8 +29,8 @@ alias bts='bluetooth send'
 # source directory aliases
 alias .a='cat .aliases 2> /dev/null && . ./.aliases'
 
-alias todo='${EDITOR} "${XDG_NOTES_DIR:-$HOME/Notes}/todo.md"'
-alias today='schedule today'
+alias td='${EDITOR} "${XDG_NOTES_DIR:-$HOME/Notes}/todo.md"'
+alias tdy='schedule today'
 
 alias g='git'
 
