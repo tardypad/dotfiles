@@ -81,7 +81,6 @@ _items_backup() {
       items=(
         bookmarks
         books
-        contacts
         notes
         todo
         videos
@@ -104,6 +103,7 @@ _items_backup() {
     if [[ $target = hdd* ]]; then
       items=(
         bookmarks
+        contacts
         notes
         packages
         repositories

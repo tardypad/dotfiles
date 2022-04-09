@@ -114,10 +114,10 @@ Valid items per source and target
 : 
 : 
 |  contacts
+: 
+: 
+: 
 :- \*
-: 
-: 
-: 
 |  messages
 : 
 : 
@@ -169,10 +169,6 @@ _XDG_CONFIG_HOME_
 	Path to user-specific base directory to store configuration files++
 If unset, defaults to $HOME/.config
 
-_XDG_CONTACTS_DIR_
-	Path to user-specific contacts directory++
-If unset, defaults to $HOME/Contacts
-
 _XDG_DATA_HOME_
 	Path to user-specific base directory to store data files++
 If unset, defaults to $HOME/.local/share
@@ -195,9 +191,6 @@ _$XDG_CONFIG_HOME/qutebrowser/bookmarks/urls_
 
 _$XDG_CONFIG_HOME/qutebrowser/quickmarks_
 	File containing browser quickmarks
-
-_$XDG_CONTACTS_DIR_
-	Directory containing the contacts
 
 _$XDG_DATA_HOME/time-tracker/logs_
 	Directory containing time tracker logs

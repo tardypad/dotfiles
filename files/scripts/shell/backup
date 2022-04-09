@@ -7,7 +7,6 @@ init_variables() {
 
   LOCAL_BROWSER_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/qutebrowser"
   LOCAL_BOOKS_DIR="${XDG_BOOKS_DIR:-$HOME/Books}"
-  LOCAL_CONTACTS_DIR="${XDG_CONTACTS_DIR:-$HOME/Contacts}"
   LOCAL_NOTES_DIR="${XDG_NOTES_DIR:-$HOME/Notes}"
   LOCAL_TIME_TRACKER_LOGS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/time-tracker/logs"
   LOCAL_TODO_DIR="${XDG_TODO_DIR:-$HOME/Todo}"
@@ -26,6 +25,7 @@ init_variables() {
   SERVER_BASE_DIR='backup'
 
   SERVER_BOOKMARKS_DIR="${SERVER_BASE_DIR}/bookmarks"
+  SERVER_CONTACTS_DIR="/var/lib/radicale/collections/collection-root/damien/"
   SERVER_NOTES_DIR="${SERVER_BASE_DIR}/notes"
   SERVER_TIME_TRACKER_LOGS_DIR="${SERVER_BASE_DIR}/time_tracker_logs"
   SERVER_TODO_DIR="${SERVER_BASE_DIR}/todo"
@@ -139,7 +139,6 @@ validate_command_line_backup_item() {
     if [ "${TARGET}" = 'hdd1' ] || [ "${TARGET}" = 'hdd2' ]; then
       if [ "${ITEM}" != 'bookmarks' ] \
          && [ "${ITEM}" != 'books' ] \
-         && [ "${ITEM}" != 'contacts' ] \
          && [ "${ITEM}" != 'notes' ] \
          && [ "${ITEM}" != 'todo' ] \
          && [ "${ITEM}" != 'videos' ]; then
@@ -164,6 +163,7 @@ validate_command_line_backup_item() {
   elif [ "${SOURCE}" = 'server' ]; then
     if [ "${TARGET}" = 'hdd1' ] || [ "${TARGET}" = 'hdd2' ]; then
       if [ "${ITEM}" != 'bookmarks' ] \
+         && [ "${ITEM}" != 'contacts' ] \
          && [ "${ITEM}" != 'notes' ] \
          && [ "${ITEM}" != 'packages' ] \
          && [ "${ITEM}" != 'repositories' ] \
@@ -217,13 +217,6 @@ backup_laptop_hdd_books() {
     --backup-dir="${HDD_BACKUP_DIR}/Books" \
     "${LOCAL_BOOKS_DIR}/" \
     "${HDD_BOOKS_DIR}"
-}
-
-backup_laptop_hdd_contacts() {
-  ${RSYNC} --delete --exclude=".*" \
-    --backup-dir="${HDD_BACKUP_DIR}/Contacts" \
-    "${LOCAL_CONTACTS_DIR}/" \
-    "${HDD_CONTACTS_DIR}"
 }
 
 backup_laptop_hdd_notes() {
@@ -302,6 +295,12 @@ backup_server_hdd_bookmarks() {
     "${HDD_BOOKMARKS_DIR}"
 }
 
+backup_server_hdd_contacts() {
+  ${RSYNC} --delete \
+    "${SERVER_HOST}:${SERVER_CONTACTS_DIR}/" \
+    "${HDD_CONTACTS_DIR}"
+}
+
 backup_server_hdd_notes() {
   ${RSYNC} --delete --exclude="*~" \
     "${SERVER_HOST}:${SERVER_NOTES_DIR}/" \
@@ -371,7 +370,7 @@ init_hdd() {
 }
 
 backup_laptop_hdd() {
-  for i in bookmarks books contacts notes todo videos; do
+  for i in bookmarks books notes todo videos; do
     printf 'laptop -> hdd: %s\n' "$i"
     "backup_laptop_hdd_$i"
   done
@@ -392,7 +391,7 @@ backup_phone_hdd() {
 }
 
 backup_server_hdd() {
-  for i in bookmarks notes packages repositories todo; do
+  for i in bookmarks contacts notes packages repositories todo; do
     printf 'server -> hdd: %s\n' "$i"
     "backup_server_hdd_$i"
   done
