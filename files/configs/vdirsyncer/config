@@ -1,0 +1,18 @@
+[general]
+status_path = "{dir/config}/vdirsyncer/status/"
+
+[pair contacts]
+a = "contacts_local"
+b = "contacts_remote"
+collections = ["from a", "from b"]
+
+[storage contacts_local]
+type = "filesystem"
+path = "~/Contacts/"
+fileext = ".vcf"
+
+[storage contacts_remote]
+type = "carddav"
+url = "https://carl.tardypad.me/"
+username = "damien"
+password.fetch = ["command", "pass", "perso/vdirsyncer"]
