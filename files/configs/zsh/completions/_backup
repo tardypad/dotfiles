@@ -62,6 +62,7 @@ _items_restore() {
     if [ $target = 'server' ]; then
       items=(
         bookmarks
+        contacts
         notes
         packages
         repositories

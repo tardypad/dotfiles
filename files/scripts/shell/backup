@@ -331,6 +331,12 @@ restore_hdd_server_bookmarks() {
     "${SERVER_HOST}:${SERVER_BOOKMARKS_DIR}"
 }
 
+restore_hdd_server_contacts() {
+  ${RSYNC} \
+    "${HDD_CONTACTS_DIR}/" \
+    "${SERVER_HOST}:${SERVER_CONTACTS_DIR}"
+}
+
 restore_hdd_server_notes() {
   ${RSYNC} \
     "${HDD_NOTES_DIR}/" \
@@ -398,7 +404,7 @@ backup_server_hdd() {
 }
 
 restore_hdd_server() {
-  for i in bookmarks notes packages repositories todo; do
+  for i in bookmarks contacts notes packages repositories todo; do
     printf 'hdd -> server: %s\n' "$i"
     "restore_hdd_server_$i"
   done
