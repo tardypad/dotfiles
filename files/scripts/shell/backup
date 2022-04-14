@@ -25,7 +25,7 @@ init_variables() {
   SERVER_BASE_DIR='backup'
 
   SERVER_BOOKMARKS_DIR="${SERVER_BASE_DIR}/bookmarks"
-  SERVER_CONTACTS_DIR="/var/lib/radicale/collections/collection-root/damien/"
+  SERVER_CONTACTS_DIR="radicale/collection-root/damien"
   SERVER_NOTES_DIR="${SERVER_BASE_DIR}/notes"
   SERVER_TIME_TRACKER_LOGS_DIR="${SERVER_BASE_DIR}/time_tracker_logs"
   SERVER_TODO_DIR="${SERVER_BASE_DIR}/todo"
