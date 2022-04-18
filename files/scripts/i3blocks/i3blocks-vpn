@@ -1,11 +1,37 @@
 #!/bin/sh
 # commands used:
+# - i3blocks-mode
+# - nmcli
 # - pidof
 
-if ! pidof openconnect > /dev/null; then
+MODE="$( i3blocks-mode )"
+
+if pidof openconnect > /dev/null; then
+  PROFILE='OpenConnect'
+fi
+
+NETWORK_INFO=$(
+  nmcli -f type,state,connection device status \
+    | tr -s ' '
+)
+
+if echo "${NETWORK_INFO}" \
+     | grep -q 'wireguard connected'; then
+  PROFILE=$(
+    echo "${NETWORK_INFO}" \
+      | grep 'wireguard connected' \
+      | cut -d ' ' -f 3-
+  )
+fi
+
+if [ -z "${PROFILE}" ]; then
   exit 0
 fi
 
-TEXT=''
+if [ "${MODE}" = 'full' ]; then
+  TEXT="  ${PROFILE}"
+else
+  TEXT=''
+fi
 
 printf '%s\n\n%s\n' "${TEXT}" "${COLOR}"
