@@ -151,3 +151,6 @@
         && git commit -m WIP \
         && git push -f origin HEAD:wip-$(git current-branch) \
         && git reset HEAD~"
+    wip-apply = "! \
+        git cherry-pick origin/wip-$(git current-branch) \
+        && git reset --soft HEAD~"
