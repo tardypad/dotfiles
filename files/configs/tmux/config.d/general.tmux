@@ -112,3 +112,4 @@ set-hook -g client-detached "run \"[ '#{session_name}' = 'chat' ] && echo '/buff
 # aliases
 set-option -g command-alias[1] sync='set synchronize-panes on'
 set-option -g command-alias[2] nosync='set synchronize-panes off'
+set-option -g command-alias[3] copy-full-pane='run "tmux capture-pane -p -S- -E- | wl-copy"'
