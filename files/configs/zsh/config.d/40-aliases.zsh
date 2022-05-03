@@ -103,8 +103,8 @@ alias fzf='fzf --reverse'
 # - don't limit the identities tried for authentication
 # - don't check hash against known hosts
 # - don't store hash in normal known hosts file
-alias ssh-tmp='ssh -o "IdentitiesOnly no" -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null"'
-alias scp-tmp='scp -o "IdentitiesOnly no" -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null"'
+alias ssh-tmp='ssh -o "IdentitiesOnly no" -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null" -q'
+alias scp-tmp='scp -o "IdentitiesOnly no" -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null" -q'
 
 # switch to root
 alias root='doas -s'
