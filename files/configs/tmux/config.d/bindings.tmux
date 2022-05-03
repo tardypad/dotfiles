@@ -195,7 +195,7 @@ bind -T root -N 'extract token from window' C-{key/tabulation/Tab} display-menu 
 
 bind -T root -N 'extract token from pane' C-S-{key/tabulation/Tab} display-menu -x P -y P -T 'Extract' \
 'hash' {key/h} 'run -b "tmux-extract-tokens pane hash"'  \
-'ip'   {key/h} 'run -b "tmux-extract-tokens pane ip"'    \
+'ip'   {key/i} 'run -b "tmux-extract-tokens pane ip"'    \
 'line' {key/l} 'run -b "tmux-extract-tokens pane line"'  \
 'path' {key/p} 'run -b "tmux-extract-tokens pane path"'  \
 'url'  {key/u} 'run -b "tmux-extract-tokens pane url"'   \
