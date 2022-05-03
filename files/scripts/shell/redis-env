@@ -5,7 +5,7 @@ init_variables() {
 
   ENV_DIR_PATH="${XDG_DATA_HOME:-$HOME/.local/share}/env/redis"
 
-  REDIS_OPTIONS=
+  REDIS_OPTIONS='-e'
   ENV_ID=
   QUERY=
 
@@ -25,7 +25,7 @@ parse_command_line() {
 
   if [ "$1" = '--' ]; then
     shift
-    REDIS_OPTIONS="$*"
+    REDIS_OPTIONS="${REDIS_OPTIONS} $*"
   fi
 }
 
