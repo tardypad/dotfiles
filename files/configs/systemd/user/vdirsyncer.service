@@ -1,0 +1,6 @@
+[Unit]
+Description=Synchronize calendars and contacts
+
+[Service]
+ExecStart=/usr/bin/vdirsyncer sync
+RuntimeMaxSec=3m

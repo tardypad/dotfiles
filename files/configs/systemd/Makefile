@@ -21,6 +21,7 @@ systemd-configs:
 	$(setup_file)/configs/systemd/user/notify_low_battery.timer           > $(DESTDIR)$(CONFIG_DIR)/systemd/user/notify_low_battery.timer
 	$(setup_file)/configs/systemd/user/qutebrowser_update_adblock.service > $(DESTDIR)$(CONFIG_DIR)/systemd/user/qutebrowser_update_adblock.service
 	$(setup_file)/configs/systemd/user/qutebrowser_update_adblock.timer   > $(DESTDIR)$(CONFIG_DIR)/systemd/user/qutebrowser_update_adblock.timer
+	$(setup_file)/configs/systemd/user/vdirsyncer.service                 > $(DESTDIR)$(CONFIG_DIR)/systemd/user/vdirsyncer.service
 	$(setup_file)/configs/systemd/user/vdirsyncer.timer                   > $(DESTDIR)$(CONFIG_DIR)/systemd/user/vdirsyncer.timer
 
 	# enable paths, timers and services
