@@ -38,6 +38,7 @@ zsh-configs:
 	$(setup_file)/configs/zsh/completions/_redis-env                                                 > $(DESTDIR)$(HOME)/.zsh/completions/_redis-env
 	$(setup_file)/configs/zsh/completions/_schedule                                                  > $(DESTDIR)$(HOME)/.zsh/completions/_schedule
 	$(setup_file)/configs/zsh/completions/_screencast                                                > $(DESTDIR)$(HOME)/.zsh/completions/_screencast
+	$(setup_file)/configs/zsh/completions/_screenshot                                                > $(DESTDIR)$(HOME)/.zsh/completions/_screenshot
 	$(setup_file)/configs/zsh/completions/_somafm                                                    > $(DESTDIR)$(HOME)/.zsh/completions/_somafm
 	$(setup_file)/configs/zsh/completions/_ssh-tags                                                  > $(DESTDIR)$(HOME)/.zsh/completions/_ssh-tags
 	$(setup_file)/configs/zsh/completions/_task                                                      > $(DESTDIR)$(HOME)/.zsh/completions/_task

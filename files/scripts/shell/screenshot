@@ -1,9 +1,47 @@
 #!/bin/sh
 
-REGION=$( slurp 2> /dev/null )
+init_variables() {
+  COMMAND=${0##*/}
 
-[ -z "${REGION}" ] && exit 1
+  FILE_PATH="${XDG_DESKTOP_DIR:-$HOME/Desktop}/screenshot_$(date +'%Y%m%d%H%M%S').png"
 
-FILE_PATH="${XDG_DESKTOP_DIR:-$HOME/Desktop}/screenshot_$(date +'%Y%m%d%H%M%S').png"
+  DELAY=0
+}
 
-grim -g "${REGION}" "${FILE_PATH}"
+parse_command_line() {
+  while getopts d: OPT; do
+    case "${OPT}" in
+      d) DELAY="${OPTARG}" ;;
+      ?) exit_error ;;
+    esac
+  done
+
+  shift $(( OPTIND - 1 ))
+}
+
+validate_command_line() {
+  case "${DELAY}" in
+    *[!0-9.]*) exit_error 'delay must be an number' ;;
+  esac
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+take_screenshot() {
+  REGION=$( slurp 2> /dev/null )
+
+  [ -z "${REGION}" ] && return 1
+
+  sleep "${DELAY}"
+
+  grim -g "${REGION}" "${FILE_PATH}"
+}
+
+init_variables
+parse_command_line "$@"
+validate_command_line
+
+take_screenshot

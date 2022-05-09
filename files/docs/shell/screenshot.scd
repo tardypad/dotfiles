@@ -6,7 +6,7 @@ screenshot - Take a screenshot of a region
 
 # SYNOPSIS
 
-screenshot
+screenshot [-d _delay_]
 
 # DESCRIPTION
 
@@ -15,7 +15,9 @@ Desktop folder.
 
 # OPTIONS
 
-None
+*-d* _delay_
+	wait _delay_ seconds the region selection and the screenshot to allow for
+	extra preparations.
 
 # OPERANDS
 
