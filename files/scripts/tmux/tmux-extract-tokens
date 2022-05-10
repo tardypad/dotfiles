@@ -5,7 +5,7 @@
 TARGET="$1"
 TOKEN_TYPE="$2"
 
-SPLIT_HEIGHT=20
+LAYOUT='-w 30% -h 30%'
 
 capture_text() {
   if [ "${TARGET}" = 'pane' ]; then
@@ -37,9 +37,12 @@ ITEM=$(
   capture_text \
     | extract-tokens "${TOKEN_TYPE}" \
     | sort -u \
-    | fzf-tmux -d "${SPLIT_HEIGHT}" -- \
-        --prompt "${TOKEN_TYPE}> " \
-        --expect={key/return/return},ctrl-{key/open/low},ctrl-{key/search/low},ctrl-{key/yank/low} \
+    | fzf-tmux "${LAYOUT}" -- \
+        --header "$( printf 'Extract %s from %s\n ' "${TOKEN_TYPE}" "${TARGET}" )" \
+        --header-first \
+        --info hidden \
+        --reverse \
+        --expect={key/return/return},ctrl-{key/open/low},ctrl-{key/search/low},ctrl-{key/yank/low}
 )
 
 [ -n "${ITEM}" ] || exit 0
