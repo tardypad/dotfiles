@@ -41,7 +41,7 @@ bind -N 'close session'  C-{key/close/low}  confirm-before -p 'kill-session "#{s
 
 # select
 
-bind -N 'select session to switch to' C-{key/session/low}   run "tmux-switch-session -w 50 -h 15"
+bind -N 'select session to switch to' C-{key/session/low}   run "tmux-switch-session -w 40 -h 10 -x 0 -y S"
 bind -N 'switch to alternate session' C-{key/alternate/low} switch-client -l
 bind -N 'switch to next session'      C-{key/next/low}      switch-client -n
 bind -N 'switch to next session'      C-{key/down/low}      switch-client -n
