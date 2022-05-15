@@ -8,7 +8,7 @@ COUNT_FILE_PATH="${XDG_RUNTIME_DIR:-/tmp}/chat_count"
 MODE="$( i3blocks-mode )"
 
 # don't show anything if weechat is not running
-pidof weechat > /dev/null || exit 0
+pidof -q weechat || exit 0
 
 if [ ! -f "${COUNT_FILE_PATH}" ]; then
   # show 0 notification if there is no file

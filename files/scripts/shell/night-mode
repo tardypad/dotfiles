@@ -58,7 +58,7 @@ update_i3blocks() {
 }
 
 is_night_enabled() {
-  pidof gammastep > /dev/null
+  pidof -q gammastep
 }
 
 init_variables

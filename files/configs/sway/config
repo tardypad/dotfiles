@@ -31,7 +31,7 @@ exec systemctl --user import-environment DISPLAY SWAYSOCK WAYLAND_DISPLAY XDG_CU
 exec mako
 
 # start reminder daemon
-exec pidof remind || remind -z -k'notify -c notice -s {dir/data}/sounds/reminder.ogg Reminder %s' {dir/config}/remind/notifications.rem
+exec pidof -q remind || remind -z -k'notify -c notice -s {dir/data}/sounds/reminder.ogg Reminder %s' {dir/config}/remind/notifications.rem
 
 # idle management
 exec swayidle -w

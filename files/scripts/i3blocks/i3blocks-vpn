@@ -6,7 +6,7 @@
 
 MODE="$( i3blocks-mode )"
 
-if pidof openconnect > /dev/null; then
+if pidof -q openconnect; then
   PROFILE='OpenConnect'
 fi
 
