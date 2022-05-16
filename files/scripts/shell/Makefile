@@ -49,6 +49,7 @@ shell-scripts:
 	$(setup_file)/scripts/shell/status                       > $(DESTDIR)$(BIN_DIR)/status
 	$(setup_file)/scripts/shell/system-menu                  > $(DESTDIR)$(BIN_DIR)/system-menu
 	$(setup_file)/scripts/shell/task                         > $(DESTDIR)$(BIN_DIR)/task
+	$(setup_file)/scripts/shell/theme                        > $(DESTDIR)$(BIN_DIR)/theme
 	$(setup_file)/scripts/shell/time-tracker                 > $(DESTDIR)$(BIN_DIR)/time-tracker
 	$(setup_file)/scripts/shell/tmux-env                     > $(DESTDIR)$(BIN_DIR)/tmux-env
 	$(setup_file)/scripts/shell/url                          > $(DESTDIR)$(BIN_DIR)/url
@@ -101,6 +102,7 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/status
 	chmod +x $(DESTDIR)$(BIN_DIR)/system-menu
 	chmod +x $(DESTDIR)$(BIN_DIR)/task
+	chmod +x $(DESTDIR)$(BIN_DIR)/theme
 	chmod +x $(DESTDIR)$(BIN_DIR)/time-tracker
 	chmod +x $(DESTDIR)$(BIN_DIR)/tmux-env
 	chmod +x $(DESTDIR)$(BIN_DIR)/url

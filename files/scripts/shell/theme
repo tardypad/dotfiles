@@ -1,0 +1,73 @@
+#!/bin/sh
+
+init_variables() {
+  COMMAND=${0##*/}
+
+  THEME=
+}
+
+parse_command_line() {
+  THEME="$1"
+}
+
+validate_command_line() {
+  if [ -z "${THEME}" ]; then
+    exit_error 'missing theme'
+  fi
+
+  if [ "${THEME}" != 'dark' ] && [ "${THEME}" != 'light' ]; then
+    exit_error "invalid theme ${THEME}"
+  fi
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+configure_theme() (
+  cd "$( project-path repo dotfiles )" || return 1
+
+  # only use targets which contain some color configuration
+  make THEME="${THEME}" \
+    aerc-configs \
+    amfora-configs \
+    coreutils-configs \
+    foot-configs \
+    git-configs \
+    i3blocks-configs \
+    imv-configs \
+    less-configs \
+    mako-configs \
+    qutebrowser-configs \
+    ripgrep-configs \
+    sway-configs \
+    swaylock-configs \
+    tmux-configs \
+    vim-configs \
+    w3m-configs \
+    weechat-configs \
+    zathura-configs \
+    zsh-configs \
+    images \
+    i3blocks-scripts \
+    shell-scripts
+)
+
+reload_system() {
+  pgrep -x sway > /dev/null && swaymsg reload
+
+  pgrep -x mako > /dev/null && makoctl reload
+
+  for s in "/tmp/tmux-$( id -u )"/*; do
+    tmux -S "$s" source-file {dir/config}/tmux/tmux.conf
+  done
+
+  pgrep qutebrowser > /dev/null && qutebrowser :config-source
+}
+
+init_variables
+parse_command_line "$@"
+validate_command_line
+
+configure_theme && reload_system

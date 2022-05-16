@@ -1,0 +1,12 @@
+#compdef theme
+
+_themes() {
+  local themes=(
+    dark
+    light
+  )
+
+  compadd "$@" $themes
+}
+_arguments \
+  '1:theme:_themes' \

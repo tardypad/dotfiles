@@ -42,6 +42,7 @@ zsh-configs:
 	$(setup_file)/configs/zsh/completions/_somafm                                                    > $(DESTDIR)$(HOME)/.zsh/completions/_somafm
 	$(setup_file)/configs/zsh/completions/_ssh-tags                                                  > $(DESTDIR)$(HOME)/.zsh/completions/_ssh-tags
 	$(setup_file)/configs/zsh/completions/_task                                                      > $(DESTDIR)$(HOME)/.zsh/completions/_task
+	$(setup_file)/configs/zsh/completions/_theme                                                     > $(DESTDIR)$(HOME)/.zsh/completions/_theme
 	$(setup_file)/configs/zsh/completions/_time-tracker                                              > $(DESTDIR)$(HOME)/.zsh/completions/_time-tracker
 	$(setup_file)/configs/zsh/completions/_time-tracker-day                                          > $(DESTDIR)$(HOME)/.zsh/completions/_time-tracker-day
 	$(setup_file)/configs/zsh/completions/_tmux-env                                                  > $(DESTDIR)$(HOME)/.zsh/completions/_tmux-env

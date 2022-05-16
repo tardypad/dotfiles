@@ -49,6 +49,7 @@ shell-docs:
 	$(setup_file)/docs/shell/status.scd                   | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/status.1perso
 	$(setup_file)/docs/shell/system-menu.scd              | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/system-menu.1perso
 	$(setup_file)/docs/shell/task.scd                     | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/task.1perso
+	$(setup_file)/docs/shell/theme.scd                    | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/theme.1perso
 	$(setup_file)/docs/shell/time-tracker.scd             | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/time-tracker.1perso
 	$(setup_file)/docs/shell/tmux-env.scd                 | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/tmux-env.1perso
 	$(setup_file)/docs/shell/url.scd                      | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/url.1perso
