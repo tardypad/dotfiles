@@ -6,6 +6,7 @@ shell-docs:
 	$(setup_file)/docs/shell/backup.scd                   | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/backup.1perso
 	$(setup_file)/docs/shell/base.scd                     | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/base.1perso
 	$(setup_file)/docs/shell/battery-status.scd           | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/battery-status.1perso
+	$(setup_file)/docs/shell/bemenu.scd                   | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/bemenu.1perso
 	$(setup_file)/docs/shell/bluetooth.scd                | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/bluetooth.1perso
 	$(setup_file)/docs/shell/calculate.scd                | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/calculate.1perso
 	$(setup_file)/docs/shell/check-notify-low-battery.scd | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/check-notify-low-battery.1perso

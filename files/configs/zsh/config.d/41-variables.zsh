@@ -120,21 +120,6 @@ export FZF_DEFAULT_OPTS
 # fzf default find command
 export FZF_DEFAULT_COMMAND='rg --files'
 
-# bemenu default options
-BEMENU_OPTS='-i -l 10'
-BEMENU_OPTS="${BEMENU_OPTS} --fn 'Source Sans Pro 11'"
-BEMENU_OPTS="${BEMENU_OPTS} --tb '#{color/base09/hex}'"
-BEMENU_OPTS="${BEMENU_OPTS} --tf '#{color/base00/hex}'"
-BEMENU_OPTS="${BEMENU_OPTS} --fb '#{color/base09/hex}'"
-BEMENU_OPTS="${BEMENU_OPTS} --ff '#{color/base00/hex}'"
-BEMENU_OPTS="${BEMENU_OPTS} --nb '#{color/popup_background/hex}'"
-BEMENU_OPTS="${BEMENU_OPTS} --nf '#{color/popup_foreground/hex}'"
-BEMENU_OPTS="${BEMENU_OPTS} --hb '#{color/current_item/hex}'"
-BEMENU_OPTS="${BEMENU_OPTS} --hf '#{color/base00/hex}'"
-BEMENU_OPTS="${BEMENU_OPTS} --sb '#{color/selected_item/hex}'"
-BEMENU_OPTS="${BEMENU_OPTS} --sf '#{color/base00/hex}'"
-export BEMENU_OPTS
-
 # remove color overwritten in tmux-xpanes
 export TMUX_XPANES_PANE_BORDER_FORMAT=' #{pane_title} '
 export TMUX_XPANES_PANE_DEAD_MESSAGE='\nPane is dead: Press [Enter] to exit...'
