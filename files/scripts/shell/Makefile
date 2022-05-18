@@ -7,6 +7,7 @@ shell-scripts:
 	$(setup_file)/scripts/shell/base                         > $(DESTDIR)$(BIN_DIR)/base
 	$(setup_file)/scripts/shell/battery-status               > $(DESTDIR)$(BIN_DIR)/battery-status
 	$(setup_file)/scripts/shell/bemenu                       > $(DESTDIR)$(BIN_DIR)/bemenu
+	$(setup_file)/scripts/shell/bemenu-run                   > $(DESTDIR)$(BIN_DIR)/bemenu-run
 	$(setup_file)/scripts/shell/bluetooth                    > $(DESTDIR)$(BIN_DIR)/bluetooth
 	$(setup_file)/scripts/shell/calculate                    > $(DESTDIR)$(BIN_DIR)/calculate
 	$(setup_file)/scripts/shell/check-notify-low-battery     > $(DESTDIR)$(BIN_DIR)/check-notify-low-battery
@@ -62,6 +63,7 @@ shell-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/base
 	chmod +x $(DESTDIR)$(BIN_DIR)/battery-status
 	chmod +x $(DESTDIR)$(BIN_DIR)/bemenu
+	chmod +x $(DESTDIR)$(BIN_DIR)/bemenu-run
 	chmod +x $(DESTDIR)$(BIN_DIR)/bluetooth
 	chmod +x $(DESTDIR)$(BIN_DIR)/calculate
 	chmod +x $(DESTDIR)$(BIN_DIR)/check-notify-low-battery
