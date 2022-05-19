@@ -4,16 +4,14 @@ init_variables() {
   COMMAND=${0##*/}
 
   TEST_TEXT='Abc!'
-  HEX_COLORS=
+  THEME=
 }
 
 show_usage() {
   cat <<- EOF
-	usage: ${COMMAND} <color1> <color2> ...
+	usage: ${COMMAND} <theme>
 
-	Test the base colors contrast to each other
-
-	Colors need to be specified in the hexadecimal format without # prefix
+	Test the theme colors contrast to each other
 
 	Options:
 	  -h     show this message only
@@ -30,13 +28,16 @@ parse_command_line() {
 
   shift $(( OPTIND - 1 ))
 
-  HEX_COLORS="$*"
+  THEME="$1"
+}
 
-  # read hex values from stdin if no argument specified
-  if [ -z "${HEX_COLORS}" ]; then
-    while read -r HEX_COLOR; do
-      HEX_COLORS="${HEX_COLORS} ${HEX_COLOR}"
-    done
+validate_command_line() {
+  if [ -z "${THEME}" ]; then
+    exit_error 'missing theme'
+  fi
+
+  if [ ! -f "config/colors/base_${THEME}" ]; then
+    exit_error "invalid theme '${THEME}'"
   fi
 }
 
@@ -69,6 +70,8 @@ hex_to_rgb() {
 }
 
 test_contrast() {
+  HEX_COLORS="$( sed -n 's/| base0[[:alnum:]] | #\([[:alnum:]]\+\) |.*/\1/p' "config/colors/base_${THEME}" )"
+
   for HEX1 in ${HEX_COLORS}; do
     for HEX2 in ${HEX_COLORS}; do
       RGB1=$( hex_to_rgb "${HEX1}" )
@@ -81,5 +84,6 @@ test_contrast() {
 
 init_variables
 parse_command_line "$@"
+validate_command_line
 
 test_contrast
