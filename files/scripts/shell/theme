@@ -26,10 +26,12 @@ exit_error() {
 } >&2
 
 configure_theme() (
+  echo 'Configuring theme...' >&2
+
   cd "$( project-path repo dotfiles )" || return 1
 
   # only use targets which contain some color configuration
-  make THEME="${THEME}" \
+  make -s THEME="${THEME}" \
     aerc-configs \
     amfora-configs \
     coreutils-configs \
@@ -55,6 +57,8 @@ configure_theme() (
 )
 
 reload_system() {
+  echo 'Reloading system...' >&2
+
   pgrep -x sway > /dev/null && swaymsg reload
 
   pgrep -x mako > /dev/null && makoctl reload
@@ -72,7 +76,7 @@ reload_system() {
     } > "$( tmux -S "$s" display-message -p '#{client_tty}' )"
   done 2> /dev/null
 
-  pgrep qutebrowser > /dev/null && qutebrowser :config-source
+  pgrep qutebrowser > /dev/null && qutebrowser -l error :config-source
 }
 
 init_variables
