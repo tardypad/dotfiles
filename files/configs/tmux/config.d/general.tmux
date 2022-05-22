@@ -38,8 +38,8 @@ set-option -g default-terminal "tmux-256color"
 set-option -g default-command "exec /bin/zsh"
 set-option -g default-shell "/bin/zsh"
 
-# add truecolor support
-set-option -ga terminal-features ",foot:RGB"
+# add truecolor and synchronized update support for foot
+set-option -ga terminal-features ",foot:RGB:sync"
 
 # update sway socket environment variable
 # for when we reattach a session after a logout (new sway instance)
