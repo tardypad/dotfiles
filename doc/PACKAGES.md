@@ -59,6 +59,7 @@ Note that it is not an exact match as extra patches might be added by the distro
 | sfeed                  | RSS and Atom parser                  | [Codemadness](https://codemadness.org/git/sfeed)                                       | [1.4](https://git.codemadness.org/sfeed/commit/7225f6f9274173e65d002c886789c0f24d2045a6.html)                                               |
 | slurp                  | region selection                     | [GitHub](https://github.com/emersion/slurp)                                            | [1.3.2](https://github.com/emersion/slurp/releases/tag/v1.3.2)                                                                              |
 | sway                   | window manager                       | [GitHub](https://github.com/swaywm/sway)                                               | [1:1.7](https://github.com/swaywm/sway/releases/tag/1.7)                                                                                    |
+| swaybg                 | desktop wallpaper                    | [GitHub](https://github.com/swaywm/swaybg)                                             | [1:1.1](https://github.com/swaywm/swaybg/releases/tag/v1.1.1)                                                                               |
 | swayidle               | idle management daemon               | [GitHub](https://github.com/swaywm/swayidle)                                           | [1.7.1](https://github.com/swaywm/swayidle/releases/tag/1.7.1)                                                                              |
 | swaylock               | screen locker                        | [GitHub](https://github.com/swaywm/swaylock)                                           | [1.6](https://github.com/swaywm/swaylock/releases/tag/1.6)                                                                                  |
 | systemd                | system and service manager           | [GitHub](https://github.com/systemd/systemd)                                           | [250.5](https://github.com/systemd/systemd-stable/releases/tag/v250.5)                                                                      |
@@ -80,7 +81,7 @@ Note that it is not an exact match as extra patches might be added by the distro
 Some of the packages don't have their own dotfiles config for diversion reasons:
 - configuration is only system wide (e.g., networkmanager)
 - none is needed, use defaults (e.g., curl)
-- config is part of another package (e.g., fzf, variables part of shell config)
+- config is part of another package (e.g., swaybg, needed for sway outputs style config)
 
 Unless they have their own dotfiles config, the list doesn't include the following kind of required packages:
 - POSIX utilities (e.g., sed)
