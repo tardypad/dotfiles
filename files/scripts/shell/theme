@@ -78,6 +78,12 @@ reload_system() {
 
   pkill -x -USR1 vim
 
+  if [ "${THEME}" = 'light' ]; then
+    pkill -x -USR1 zsh
+  else
+    pkill -x -USR2 zsh
+  fi
+
   pgrep qutebrowser > /dev/null && qutebrowser -l error :config-source
 }
 

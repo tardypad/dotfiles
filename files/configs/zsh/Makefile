@@ -16,6 +16,7 @@ zsh-configs:
 	$(setup_file)/configs/zsh/config.d/30-bindings.zsh                                               > $(DESTDIR)$(HOME)/.zsh/config.d/30-bindings.zsh
 	$(setup_file)/configs/zsh/config.d/40-aliases.zsh                                                > $(DESTDIR)$(HOME)/.zsh/config.d/40-aliases.zsh
 	$(setup_file)/configs/zsh/config.d/41-variables.zsh                                              > $(DESTDIR)$(HOME)/.zsh/config.d/41-variables.zsh
+	$(setup_file)/configs/zsh/config.d/50-theme.zsh                                                  > $(DESTDIR)$(HOME)/.zsh/config.d/50-theme.zsh
 	$(setup_file)/configs/zsh/config.d/90-plugins.zsh                                                > $(DESTDIR)$(HOME)/.zsh/config.d/90-plugins.zsh
 	$(setup_file)/configs/zsh/completions/_backup                                                    > $(DESTDIR)$(HOME)/.zsh/completions/_backup
 	$(setup_file)/configs/zsh/completions/_bluetooth                                                 > $(DESTDIR)$(HOME)/.zsh/completions/_bluetooth
