@@ -129,3 +129,6 @@ command Cdf cd %:p:h
 " aliases to type in French and revert to English if needed
 command FR set spelllang=fr | set digraph
 command EN set spelllang=en | set nodigraph
+
+" reload config on USR1 signal
+autocmd SigUSR1 * :source $MYVIMRC

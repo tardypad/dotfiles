@@ -76,6 +76,8 @@ reload_system() {
     } > "$( tmux -S "$s" display-message -p '#{client_tty}' )"
   done 2> /dev/null
 
+  pkill -x -USR1 vim
+
   pgrep qutebrowser > /dev/null && qutebrowser -l error :config-source
 }
 

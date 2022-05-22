@@ -36,6 +36,7 @@ None
 
 - makoctl
 - pgrep
+- pkill
 - project-path
 - qutebrowser
 - swaymsg
