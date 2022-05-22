@@ -3,7 +3,6 @@
 init_variables() {
   COMMAND=${0##*/}
 
-  TEST_TEXT='Abc!'
   THEME=
 }
 
@@ -11,7 +10,8 @@ show_usage() {
   cat <<- EOF
 	usage: ${COMMAND} <theme>
 
-	Test the theme colors contrast to each other
+	Test the theme colors contrast to each other.
+	Only the most meaningful combinations are tested.
 
 	Options:
 	  -h     show this message only
@@ -49,14 +49,17 @@ exit_error() {
 } >&2
 
 print_contrast() {
-  RGB1="$1"
-  RGB2="$2"
+  printf '\033[0m'                               # reset
+  printf '\033[38;2;%sm' "$( base_to_rgb "$1" )" # foreground
+  printf '\033[48;2;%sm' "$( base_to_rgb "$2" )" # background
+  printf '  %s  ' "$1"                           # base 1
+  printf '\033[7m'                               # invert background/foreground
+  printf '  %s  ' "$2"                           # base 2
+  printf '\n\033[0m'                             # reset with newline
+}
 
-  printf '\033[0m'                   # reset
-  printf '\033[38;2;%sm' "${RGB1}"   # use rgb1 for foreground
-  printf '\033[48;2;%sm' "${RGB2}"   # use rgb2 for background
-  printf '  %s  ' "${TEST_TEXT}"     # spacing
-  printf '\033[0m'                   # reset
+base_to_hex() {
+  sed -n "s/^| $1 | #\([[:alnum:]]\+\) |.*/\1/p" "config/colors/base_${THEME}"
 }
 
 hex_to_rgb() {
@@ -69,17 +72,40 @@ hex_to_rgb() {
   printf "%d;%d;%d\n" "0x${HEX_R}" "0x${HEX_G}" "0x${HEX_B}"
 }
 
-test_contrast() {
-  HEX_COLORS="$( sed -n 's/| base0[[:alnum:]] | #\([[:alnum:]]\+\) |.*/\1/p' "config/colors/base_${THEME}" )"
+base_to_rgb() { hex_to_rgb "$( base_to_hex "$1" )"; }
 
-  for HEX1 in ${HEX_COLORS}; do
-    for HEX2 in ${HEX_COLORS}; do
-      RGB1=$( hex_to_rgb "${HEX1}" )
-      RGB2=$( hex_to_rgb "${HEX2}" )
-      print_contrast "${RGB1}" "${RGB2}"
-    done
-    printf '\n'
-  done
+test_contrast() {
+  print_contrast base04 base00
+  print_contrast base05 base01
+  print_contrast base04 base02
+
+  printf '\n'
+  print_contrast base03 base00
+  print_contrast base04 base00
+  print_contrast base05 base00
+  print_contrast base06 base00
+  print_contrast base07 base00
+  print_contrast base08 base00
+  print_contrast base09 base00
+  print_contrast base0A base00
+  print_contrast base0B base00
+  print_contrast base0C base00
+  print_contrast base0D base00
+  print_contrast base0E base00
+
+  printf '\n'
+  print_contrast base03 base01
+  print_contrast base04 base01
+  print_contrast base05 base01
+  print_contrast base06 base01
+  print_contrast base07 base01
+  print_contrast base08 base01
+  print_contrast base09 base01
+  print_contrast base0A base01
+  print_contrast base0B base01
+  print_contrast base0C base01
+  print_contrast base0D base01
+  print_contrast base0E base01
 }
 
 init_variables
