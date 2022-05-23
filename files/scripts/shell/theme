@@ -54,6 +54,8 @@ configure_theme() (
     images \
     i3blocks-scripts \
     shell-scripts
+
+    echo "THEME=${THEME}" > "${XDG_DATA_HOME:-$HOME/.local/share}/theme"
 )
 
 reload_system() {

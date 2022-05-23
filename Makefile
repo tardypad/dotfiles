@@ -1,6 +1,7 @@
 .POSIX:
 
 all:
+	echo "THEME=$(THEME)" > $(DESTDIR)$(DATA_DIR)/theme
 
 THEME = light
 
@@ -9,7 +10,7 @@ CACHE_DIR  = $(HOME)/.cache
 CONFIG_DIR = $(HOME)/.config
 DATA_DIR   = $(HOME)/.local/share
 
--include .env
+-include $(DATA_DIR)/theme
 
 setup_file = { setup/substitute-apps | setup/substitute-colors $(THEME) | setup/substitute-dirs | setup/substitute-keys; } < files
 

@@ -26,11 +26,14 @@ valid themes:
 
 # ENVIRONMENT VARIABLES
 
-None
+_XDG_DATA_HOME_
+	Path to user-specific base directory to store data files++
+If unset, defaults to $HOME/.local/share
 
 # FILES
 
-None
+_$XDG_DATA_HOME/theme_
+	File defining the current theme
 
 # DEPENDENCIES
 
