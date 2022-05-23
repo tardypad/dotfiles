@@ -6,7 +6,7 @@ theme - Change system theme
 
 # SYNOPSIS
 
-theme _theme_
+theme [-s] _theme_
 
 # DESCRIPTION
 
@@ -14,7 +14,8 @@ Change the overall theme of the system
 
 # OPTIONS
 
-None
+*-s*
+	only send OSC theme sequences to output
 
 # OPERANDS
 
