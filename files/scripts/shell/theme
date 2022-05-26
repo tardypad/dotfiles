@@ -78,14 +78,8 @@ reload_system() {
   for s in "/tmp/tmux-$( id -u )"/*; do
     tmux -S "$s" source-file {dir/config}/tmux/tmux.conf
 
-    # update background color of terminal underlying tmux
-    {
-      if [ "${THEME}" = 'light' ]; then
-        printf '\x1b]11;#edf1fa'
-      else
-        printf '\x1b]11;#29313f'
-      fi
-    } > "$( tmux -S "$s" display-message -p '#{client_tty}' )"
+    # update colors of terminal underlying tmux
+    "send_osc_sequence_${THEME}" > "$( tmux -S "$s" display-message -p '#{client_tty}' )"
   done 2> /dev/null
 
   pkill -x -USR1 vim
