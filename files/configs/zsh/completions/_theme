@@ -1,5 +1,15 @@
 #compdef theme
 
+_actions() {
+  local actions=(
+    set
+    status
+    toggle
+  )
+
+  compadd "$@" $actions
+}
+
 _themes() {
   local themes=(
     dark
@@ -8,5 +18,14 @@ _themes() {
 
   compadd "$@" $themes
 }
+
+_operands() {
+  if [ $words[CURRENT-1] = 'set' ]; then
+    _themes
+  fi
+}
+
 _arguments \
-  '1:theme:_themes' \
+  '-s[only send current theme OSC sequences]' \
+  '1:action:_actions' \
+  '2:operand:_operands'

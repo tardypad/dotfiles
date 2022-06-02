@@ -28,3 +28,8 @@ if [ "$?" -eq 2 ]; then
   fi
 fi
 unset SSH_AGENT_FILE
+
+# send current theme OSC sequences on USR1 signal
+TRAPUSR1() {
+  theme -s
+}

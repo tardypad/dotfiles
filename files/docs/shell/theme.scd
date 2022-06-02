@@ -2,22 +2,34 @@ THEME(1perso)
 
 # NAME
 
-theme - Change system theme
+theme - Manage system theme
 
 # SYNOPSIS
 
-theme [-s] _theme_
+theme *set* _theme_
+
+theme [-s] [ *status* | *toggle* ]
 
 # DESCRIPTION
 
-Change the overall theme of the system
+Manage the overall theme of the system
 
 # OPTIONS
 
 *-s*
-	only send OSC theme sequences to output
+	only send OSC sequences for the current theme to output
 
 # OPERANDS
+
+*set*
+	Set system theme
+
+*status*
+	Display current theme name++
+This is the default action if none is specified
+
+*toggle*
+	Toggle between dark and light theme
 
 _theme_
 	Name of the theme++

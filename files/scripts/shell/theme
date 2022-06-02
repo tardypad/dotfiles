@@ -3,6 +3,9 @@
 init_variables() {
   COMMAND=${0##*/}
 
+  THEME_FILE="${XDG_DATA_HOME:-$HOME/.local/share}/theme"
+
+  ACTION='status'
   ONLY_SEND_OSC_SEQUENCES=false
   THEME=
 }
@@ -17,16 +20,25 @@ parse_command_line() {
 
   shift $(( OPTIND - 1 ))
 
-  THEME="$1"
+  [ -z "$1" ] || ACTION="$1"
+  [ -z "$2" ] || THEME="$2"
 }
 
 validate_command_line() {
-  if [ -z "${THEME}" ]; then
-    exit_error 'missing theme'
+  if [ "${ACTION}" != 'set' ] \
+     && [ "${ACTION}" != 'status' ] \
+     && [ "${ACTION}" != 'toggle' ]; then
+    exit_error "Invalid action '${ACTION}'"
   fi
 
-  if [ "${THEME}" != 'dark' ] && [ "${THEME}" != 'light' ]; then
-    exit_error "invalid theme ${THEME}"
+  if [ "${ACTION}" = 'set' ]; then
+    if [ -z "${THEME}" ]; then
+      exit_error 'missing theme'
+    fi
+
+    if [ "${THEME}" != 'dark' ] && [ "${THEME}" != 'light' ]; then
+      exit_error "invalid theme ${THEME}"
+    fi
   fi
 }
 
@@ -35,7 +47,16 @@ exit_error() {
   exit 1
 } >&2
 
-configure_theme() (
+status_theme() {
+  if [ -z "${THEME_FILE}" ]; then
+    echo 'light'
+    return
+  fi
+
+  sed 's/^THEME=\(.*\)$/\1/' "${THEME_FILE}"
+}
+
+set_theme() (
   echo 'Configuring theme...' >&2
 
   cd "$( project-path repo dotfiles )" || return 1
@@ -65,8 +86,18 @@ configure_theme() (
     i3blocks-scripts \
     shell-scripts
 
-    echo "THEME=${THEME}" > "${XDG_DATA_HOME:-$HOME/.local/share}/theme"
+    echo "THEME=${THEME}" > "${THEME_FILE}"
 )
+
+toggle_theme() {
+  if [ "$( status_theme )" = 'light' ]; then
+    THEME='dark'
+  else
+    THEME='light'
+  fi
+
+  set_theme
+}
 
 reload_system() {
   echo 'Reloading system...' >&2
@@ -84,11 +115,7 @@ reload_system() {
 
   pkill -x -USR1 vim
 
-  if [ "${THEME}" = 'light' ]; then
-    pkill -x -USR1 zsh
-  else
-    pkill -x -USR2 zsh
-  fi
+  pkill -x -USR1 zsh
 
   pgrep qutebrowser > /dev/null && qutebrowser -l error :config-source
 }
@@ -150,7 +177,12 @@ parse_command_line "$@"
 validate_command_line
 
 if [ "${ONLY_SEND_OSC_SEQUENCES}" = 'true' ]; then
-  "send_osc_sequence_${THEME}"
-else
-  configure_theme && reload_system
+  "send_osc_sequence_$( status_theme )"
+  exit
+fi
+
+"${ACTION}_theme"
+
+if [ "${ACTION}" = 'set' ] || [ "${ACTION}" = 'toggle' ]; then
+  reload_system
 fi
