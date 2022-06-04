@@ -1,7 +1,7 @@
 feeds() {
   feed 'Le Monde.fr'                          'https://www.lemonde.fr/rss/une.xml'
   feed 'Reflets.info'                         'https://reflets.info/feeds/public'
-  feed 'DutchNews.nl'                         'https://www.dutchnews.nl/feed/?news'
+  feed 'Spain in English'                     'https://www.spainenglish.com/feed/'
   feed 'Arch Linux news'                      'https://archlinux.org/feeds/news/'
   feed 'Hacker News'                          'https://news.ycombinator.com/rss'
   feed 'Jolla blog'                           'https://blog.jolla.com/feed/'
