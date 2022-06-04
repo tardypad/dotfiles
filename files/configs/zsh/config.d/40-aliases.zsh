@@ -58,6 +58,7 @@ alias b162='base 16 2'
 alias b216='base 2 16'
 
 alias rn='read-news'
+alias tht='theme toggle'
 alias tk='task'
 alias tkl='task-log'
 alias tt='time-tracker'
