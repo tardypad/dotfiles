@@ -8,6 +8,7 @@ tmux-scripts:
 	$(setup_file)/scripts/tmux/tmux-move-window-index       > $(DESTDIR)$(BIN_DIR)/tmux-move-window-index
 	$(setup_file)/scripts/tmux/tmux-notify-alert            > $(DESTDIR)$(BIN_DIR)/tmux-notify-alert
 	$(setup_file)/scripts/tmux/tmux-select-pane-vim         > $(DESTDIR)$(BIN_DIR)/tmux-select-pane-vim
+	$(setup_file)/scripts/tmux/tmux-send-vim                > $(DESTDIR)$(BIN_DIR)/tmux-send-vim
 	$(setup_file)/scripts/tmux/tmux-switch-session          > $(DESTDIR)$(BIN_DIR)/tmux-switch-session
 	$(setup_file)/scripts/tmux/tmux-toggle-monitoring       > $(DESTDIR)$(BIN_DIR)/tmux-toggle-monitoring
 	$(setup_file)/scripts/tmux/tmux-toggle-no-distraction   > $(DESTDIR)$(BIN_DIR)/tmux-toggle-no-distraction
@@ -17,6 +18,7 @@ tmux-scripts:
 	chmod +x $(DESTDIR)$(BIN_DIR)/tmux-move-window-index
 	chmod +x $(DESTDIR)$(BIN_DIR)/tmux-notify-alert
 	chmod +x $(DESTDIR)$(BIN_DIR)/tmux-select-pane-vim
+	chmod +x $(DESTDIR)$(BIN_DIR)/tmux-send-vim
 	chmod +x $(DESTDIR)$(BIN_DIR)/tmux-switch-session
 	chmod +x $(DESTDIR)$(BIN_DIR)/tmux-toggle-monitoring
 	chmod +x $(DESTDIR)$(BIN_DIR)/tmux-toggle-no-distraction
