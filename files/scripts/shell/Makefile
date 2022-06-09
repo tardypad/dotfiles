@@ -3,61 +3,61 @@ all: shell-scripts
 shell-scripts:
 	mkdir -p $(DESTDIR)$(BIN_DIR)
 
-	$(setup_file)/scripts/shell/backup                       > $(DESTDIR)$(BIN_DIR)/backup
-	$(setup_file)/scripts/shell/base                         > $(DESTDIR)$(BIN_DIR)/base
-	$(setup_file)/scripts/shell/battery-status               > $(DESTDIR)$(BIN_DIR)/battery-status
-	$(setup_file)/scripts/shell/bemenu                       > $(DESTDIR)$(BIN_DIR)/bemenu
-	$(setup_file)/scripts/shell/bemenu-run                   > $(DESTDIR)$(BIN_DIR)/bemenu-run
-	$(setup_file)/scripts/shell/bluetooth                    > $(DESTDIR)$(BIN_DIR)/bluetooth
-	$(setup_file)/scripts/shell/calculate                    > $(DESTDIR)$(BIN_DIR)/calculate
-	$(setup_file)/scripts/shell/check-notify-low-battery     > $(DESTDIR)$(BIN_DIR)/check-notify-low-battery
-	$(setup_file)/scripts/shell/clock                        > $(DESTDIR)$(BIN_DIR)/clock
-	$(setup_file)/scripts/shell/color-picker                 > $(DESTDIR)$(BIN_DIR)/color-picker
-	$(setup_file)/scripts/shell/copy-otp                     > $(DESTDIR)$(BIN_DIR)/copy-otp
-	$(setup_file)/scripts/shell/copy-password                > $(DESTDIR)$(BIN_DIR)/copy-password
-	$(setup_file)/scripts/shell/do-not-disturb               > $(DESTDIR)$(BIN_DIR)/do-not-disturb
-	$(setup_file)/scripts/shell/documentation                > $(DESTDIR)$(BIN_DIR)/documentation
-	$(setup_file)/scripts/shell/documentation-all            > $(DESTDIR)$(BIN_DIR)/documentation-all
-	$(setup_file)/scripts/shell/extract-tokens               > $(DESTDIR)$(BIN_DIR)/extract-tokens
-	$(setup_file)/scripts/shell/fzf                          > $(DESTDIR)$(BIN_DIR)/fzf
-	$(setup_file)/scripts/shell/http-env                     > $(DESTDIR)$(BIN_DIR)/http-env
-	$(setup_file)/scripts/shell/http-stats                   > $(DESTDIR)$(BIN_DIR)/http-stats
-	$(setup_file)/scripts/shell/i3blocks-mode                > $(DESTDIR)$(BIN_DIR)/i3blocks-mode
-	$(setup_file)/scripts/shell/influx-env                   > $(DESTDIR)$(BIN_DIR)/influx-env
-	$(setup_file)/scripts/shell/launch-tmux-env              > $(DESTDIR)$(BIN_DIR)/launch-tmux-env
-	$(setup_file)/scripts/shell/line-by-line                 > $(DESTDIR)$(BIN_DIR)/line-by-line
-	$(setup_file)/scripts/shell/loop                         > $(DESTDIR)$(BIN_DIR)/loop
-	$(setup_file)/scripts/shell/man                          > $(DESTDIR)$(BIN_DIR)/man
-	$(setup_file)/scripts/shell/mount-device                 > $(DESTDIR)$(BIN_DIR)/mount-device
-	$(setup_file)/scripts/shell/mysql-env                    > $(DESTDIR)$(BIN_DIR)/mysql-env
-	$(setup_file)/scripts/shell/night-mode                   > $(DESTDIR)$(BIN_DIR)/night-mode
-	$(setup_file)/scripts/shell/notify                       > $(DESTDIR)$(BIN_DIR)/notify
-	$(setup_file)/scripts/shell/open-document                > $(DESTDIR)$(BIN_DIR)/open-document
-	$(setup_file)/scripts/shell/pick-task                    > $(DESTDIR)$(BIN_DIR)/pick-task
-	$(setup_file)/scripts/shell/play-somafm                  > $(DESTDIR)$(BIN_DIR)/play-somafm
-	$(setup_file)/scripts/shell/pomodoro                     > $(DESTDIR)$(BIN_DIR)/pomodoro
-	$(setup_file)/scripts/shell/presentation-mode            > $(DESTDIR)$(BIN_DIR)/presentation-mode
-	$(setup_file)/scripts/shell/project-path                 > $(DESTDIR)$(BIN_DIR)/project-path
-	$(setup_file)/scripts/shell/query-hosts-tags             > $(DESTDIR)$(BIN_DIR)/query-hosts-tags
-	$(setup_file)/scripts/shell/read-news                    > $(DESTDIR)$(BIN_DIR)/read-news
-	$(setup_file)/scripts/shell/redis-env                    > $(DESTDIR)$(BIN_DIR)/redis-env
-	$(setup_file)/scripts/shell/rename-edit                  > $(DESTDIR)$(BIN_DIR)/rename-edit
-	$(setup_file)/scripts/shell/schedule                     > $(DESTDIR)$(BIN_DIR)/schedule
-	$(setup_file)/scripts/shell/screencast                   > $(DESTDIR)$(BIN_DIR)/screencast
-	$(setup_file)/scripts/shell/screenshot                   > $(DESTDIR)$(BIN_DIR)/screenshot
-	$(setup_file)/scripts/shell/show-clipboard-qrcode        > $(DESTDIR)$(BIN_DIR)/show-clipboard-qrcode
-	$(setup_file)/scripts/shell/somafm                       > $(DESTDIR)$(BIN_DIR)/somafm
-	$(setup_file)/scripts/shell/ssh-tags                     > $(DESTDIR)$(BIN_DIR)/ssh-tags
-	$(setup_file)/scripts/shell/startup                      > $(DESTDIR)$(BIN_DIR)/startup
-	$(setup_file)/scripts/shell/status                       > $(DESTDIR)$(BIN_DIR)/status
-	$(setup_file)/scripts/shell/system-menu                  > $(DESTDIR)$(BIN_DIR)/system-menu
-	$(setup_file)/scripts/shell/task                         > $(DESTDIR)$(BIN_DIR)/task
-	$(setup_file)/scripts/shell/theme                        > $(DESTDIR)$(BIN_DIR)/theme
-	$(setup_file)/scripts/shell/time-tracker                 > $(DESTDIR)$(BIN_DIR)/time-tracker
-	$(setup_file)/scripts/shell/tmux-env                     > $(DESTDIR)$(BIN_DIR)/tmux-env
-	$(setup_file)/scripts/shell/url                          > $(DESTDIR)$(BIN_DIR)/url
-	$(setup_file)/scripts/shell/weechat-fifo                 > $(DESTDIR)$(BIN_DIR)/weechat-fifo
-	$(setup_file)/scripts/shell/xdg-open                     > $(DESTDIR)$(BIN_DIR)/xdg-open
+	THEME=$(THEME) setup/setup-file scripts/shell/backup                       > $(DESTDIR)$(BIN_DIR)/backup
+	THEME=$(THEME) setup/setup-file scripts/shell/base                         > $(DESTDIR)$(BIN_DIR)/base
+	THEME=$(THEME) setup/setup-file scripts/shell/battery-status               > $(DESTDIR)$(BIN_DIR)/battery-status
+	THEME=$(THEME) setup/setup-file scripts/shell/bemenu                       > $(DESTDIR)$(BIN_DIR)/bemenu
+	THEME=$(THEME) setup/setup-file scripts/shell/bemenu-run                   > $(DESTDIR)$(BIN_DIR)/bemenu-run
+	THEME=$(THEME) setup/setup-file scripts/shell/bluetooth                    > $(DESTDIR)$(BIN_DIR)/bluetooth
+	THEME=$(THEME) setup/setup-file scripts/shell/calculate                    > $(DESTDIR)$(BIN_DIR)/calculate
+	THEME=$(THEME) setup/setup-file scripts/shell/check-notify-low-battery     > $(DESTDIR)$(BIN_DIR)/check-notify-low-battery
+	THEME=$(THEME) setup/setup-file scripts/shell/clock                        > $(DESTDIR)$(BIN_DIR)/clock
+	THEME=$(THEME) setup/setup-file scripts/shell/color-picker                 > $(DESTDIR)$(BIN_DIR)/color-picker
+	THEME=$(THEME) setup/setup-file scripts/shell/copy-otp                     > $(DESTDIR)$(BIN_DIR)/copy-otp
+	THEME=$(THEME) setup/setup-file scripts/shell/copy-password                > $(DESTDIR)$(BIN_DIR)/copy-password
+	THEME=$(THEME) setup/setup-file scripts/shell/do-not-disturb               > $(DESTDIR)$(BIN_DIR)/do-not-disturb
+	THEME=$(THEME) setup/setup-file scripts/shell/documentation                > $(DESTDIR)$(BIN_DIR)/documentation
+	THEME=$(THEME) setup/setup-file scripts/shell/documentation-all            > $(DESTDIR)$(BIN_DIR)/documentation-all
+	THEME=$(THEME) setup/setup-file scripts/shell/extract-tokens               > $(DESTDIR)$(BIN_DIR)/extract-tokens
+	THEME=$(THEME) setup/setup-file scripts/shell/fzf                          > $(DESTDIR)$(BIN_DIR)/fzf
+	THEME=$(THEME) setup/setup-file scripts/shell/http-env                     > $(DESTDIR)$(BIN_DIR)/http-env
+	THEME=$(THEME) setup/setup-file scripts/shell/http-stats                   > $(DESTDIR)$(BIN_DIR)/http-stats
+	THEME=$(THEME) setup/setup-file scripts/shell/i3blocks-mode                > $(DESTDIR)$(BIN_DIR)/i3blocks-mode
+	THEME=$(THEME) setup/setup-file scripts/shell/influx-env                   > $(DESTDIR)$(BIN_DIR)/influx-env
+	THEME=$(THEME) setup/setup-file scripts/shell/launch-tmux-env              > $(DESTDIR)$(BIN_DIR)/launch-tmux-env
+	THEME=$(THEME) setup/setup-file scripts/shell/line-by-line                 > $(DESTDIR)$(BIN_DIR)/line-by-line
+	THEME=$(THEME) setup/setup-file scripts/shell/loop                         > $(DESTDIR)$(BIN_DIR)/loop
+	THEME=$(THEME) setup/setup-file scripts/shell/man                          > $(DESTDIR)$(BIN_DIR)/man
+	THEME=$(THEME) setup/setup-file scripts/shell/mount-device                 > $(DESTDIR)$(BIN_DIR)/mount-device
+	THEME=$(THEME) setup/setup-file scripts/shell/mysql-env                    > $(DESTDIR)$(BIN_DIR)/mysql-env
+	THEME=$(THEME) setup/setup-file scripts/shell/night-mode                   > $(DESTDIR)$(BIN_DIR)/night-mode
+	THEME=$(THEME) setup/setup-file scripts/shell/notify                       > $(DESTDIR)$(BIN_DIR)/notify
+	THEME=$(THEME) setup/setup-file scripts/shell/open-document                > $(DESTDIR)$(BIN_DIR)/open-document
+	THEME=$(THEME) setup/setup-file scripts/shell/pick-task                    > $(DESTDIR)$(BIN_DIR)/pick-task
+	THEME=$(THEME) setup/setup-file scripts/shell/play-somafm                  > $(DESTDIR)$(BIN_DIR)/play-somafm
+	THEME=$(THEME) setup/setup-file scripts/shell/pomodoro                     > $(DESTDIR)$(BIN_DIR)/pomodoro
+	THEME=$(THEME) setup/setup-file scripts/shell/presentation-mode            > $(DESTDIR)$(BIN_DIR)/presentation-mode
+	THEME=$(THEME) setup/setup-file scripts/shell/project-path                 > $(DESTDIR)$(BIN_DIR)/project-path
+	THEME=$(THEME) setup/setup-file scripts/shell/query-hosts-tags             > $(DESTDIR)$(BIN_DIR)/query-hosts-tags
+	THEME=$(THEME) setup/setup-file scripts/shell/read-news                    > $(DESTDIR)$(BIN_DIR)/read-news
+	THEME=$(THEME) setup/setup-file scripts/shell/redis-env                    > $(DESTDIR)$(BIN_DIR)/redis-env
+	THEME=$(THEME) setup/setup-file scripts/shell/rename-edit                  > $(DESTDIR)$(BIN_DIR)/rename-edit
+	THEME=$(THEME) setup/setup-file scripts/shell/schedule                     > $(DESTDIR)$(BIN_DIR)/schedule
+	THEME=$(THEME) setup/setup-file scripts/shell/screencast                   > $(DESTDIR)$(BIN_DIR)/screencast
+	THEME=$(THEME) setup/setup-file scripts/shell/screenshot                   > $(DESTDIR)$(BIN_DIR)/screenshot
+	THEME=$(THEME) setup/setup-file scripts/shell/show-clipboard-qrcode        > $(DESTDIR)$(BIN_DIR)/show-clipboard-qrcode
+	THEME=$(THEME) setup/setup-file scripts/shell/somafm                       > $(DESTDIR)$(BIN_DIR)/somafm
+	THEME=$(THEME) setup/setup-file scripts/shell/ssh-tags                     > $(DESTDIR)$(BIN_DIR)/ssh-tags
+	THEME=$(THEME) setup/setup-file scripts/shell/startup                      > $(DESTDIR)$(BIN_DIR)/startup
+	THEME=$(THEME) setup/setup-file scripts/shell/status                       > $(DESTDIR)$(BIN_DIR)/status
+	THEME=$(THEME) setup/setup-file scripts/shell/system-menu                  > $(DESTDIR)$(BIN_DIR)/system-menu
+	THEME=$(THEME) setup/setup-file scripts/shell/task                         > $(DESTDIR)$(BIN_DIR)/task
+	THEME=$(THEME) setup/setup-file scripts/shell/theme                        > $(DESTDIR)$(BIN_DIR)/theme
+	THEME=$(THEME) setup/setup-file scripts/shell/time-tracker                 > $(DESTDIR)$(BIN_DIR)/time-tracker
+	THEME=$(THEME) setup/setup-file scripts/shell/tmux-env                     > $(DESTDIR)$(BIN_DIR)/tmux-env
+	THEME=$(THEME) setup/setup-file scripts/shell/url                          > $(DESTDIR)$(BIN_DIR)/url
+	THEME=$(THEME) setup/setup-file scripts/shell/weechat-fifo                 > $(DESTDIR)$(BIN_DIR)/weechat-fifo
+	THEME=$(THEME) setup/setup-file scripts/shell/xdg-open                     > $(DESTDIR)$(BIN_DIR)/xdg-open
 
 	chmod +x $(DESTDIR)$(BIN_DIR)/backup
 	chmod +x $(DESTDIR)$(BIN_DIR)/base

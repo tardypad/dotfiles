@@ -12,8 +12,6 @@ DATA_DIR   = $(HOME)/.local/share
 
 -include $(DATA_DIR)/theme
 
-setup_file = { setup/substitute-apps | setup/substitute-colors $(THEME) | setup/substitute-dirs | setup/substitute-keys; } < files
-
 include files/configs/aerc/Makefile
 include files/configs/amfora/Makefile
 include files/configs/aria2/Makefile

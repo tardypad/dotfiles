@@ -3,4 +3,4 @@ all: less-configs
 less-configs:
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)
 
-	$(setup_file)/configs/less/lesskey > $(DESTDIR)$(CONFIG_DIR)/lesskey
+	THEME=$(THEME) setup/setup-file configs/less/lesskey > $(DESTDIR)$(CONFIG_DIR)/lesskey

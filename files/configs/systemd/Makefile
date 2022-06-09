@@ -5,24 +5,24 @@ systemd-configs:
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/systemd/user/timers.target.wants
 
-	$(setup_file)/configs/systemd/user/backup_bookmarks.path              > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_bookmarks.path
-	$(setup_file)/configs/systemd/user/backup_bookmarks.service           > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_bookmarks.service
-	$(setup_file)/configs/systemd/user/backup_notes.path                  > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_notes.path
-	$(setup_file)/configs/systemd/user/backup_notes.service               > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_notes.service
-	$(setup_file)/configs/systemd/user/backup_time_tracker_logs.path      > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_time_tracker_logs.path
-	$(setup_file)/configs/systemd/user/backup_time_tracker_logs.service   > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_time_tracker_logs.service
-	$(setup_file)/configs/systemd/user/backup_todo.service                > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_todo.service
-	$(setup_file)/configs/systemd/user/backup_todo.path                   > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_todo.path
-	$(setup_file)/configs/systemd/user/documentation_build_cache.service  > $(DESTDIR)$(CONFIG_DIR)/systemd/user/documentation_build_cache.service
-	$(setup_file)/configs/systemd/user/documentation_build_cache.timer    > $(DESTDIR)$(CONFIG_DIR)/systemd/user/documentation_build_cache.timer
-	$(setup_file)/configs/systemd/user/documents_build_cache.service      > $(DESTDIR)$(CONFIG_DIR)/systemd/user/documents_build_cache.service
-	$(setup_file)/configs/systemd/user/documents_build_cache.timer        > $(DESTDIR)$(CONFIG_DIR)/systemd/user/documents_build_cache.timer
-	$(setup_file)/configs/systemd/user/notify_low_battery.service         > $(DESTDIR)$(CONFIG_DIR)/systemd/user/notify_low_battery.service
-	$(setup_file)/configs/systemd/user/notify_low_battery.timer           > $(DESTDIR)$(CONFIG_DIR)/systemd/user/notify_low_battery.timer
-	$(setup_file)/configs/systemd/user/qutebrowser_update_adblock.service > $(DESTDIR)$(CONFIG_DIR)/systemd/user/qutebrowser_update_adblock.service
-	$(setup_file)/configs/systemd/user/qutebrowser_update_adblock.timer   > $(DESTDIR)$(CONFIG_DIR)/systemd/user/qutebrowser_update_adblock.timer
-	$(setup_file)/configs/systemd/user/vdirsyncer.service                 > $(DESTDIR)$(CONFIG_DIR)/systemd/user/vdirsyncer.service
-	$(setup_file)/configs/systemd/user/vdirsyncer.timer                   > $(DESTDIR)$(CONFIG_DIR)/systemd/user/vdirsyncer.timer
+	THEME=$(THEME) setup/setup-file configs/systemd/user/backup_bookmarks.path              > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_bookmarks.path
+	THEME=$(THEME) setup/setup-file configs/systemd/user/backup_bookmarks.service           > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_bookmarks.service
+	THEME=$(THEME) setup/setup-file configs/systemd/user/backup_notes.path                  > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_notes.path
+	THEME=$(THEME) setup/setup-file configs/systemd/user/backup_notes.service               > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_notes.service
+	THEME=$(THEME) setup/setup-file configs/systemd/user/backup_time_tracker_logs.path      > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_time_tracker_logs.path
+	THEME=$(THEME) setup/setup-file configs/systemd/user/backup_time_tracker_logs.service   > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_time_tracker_logs.service
+	THEME=$(THEME) setup/setup-file configs/systemd/user/backup_todo.service                > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_todo.service
+	THEME=$(THEME) setup/setup-file configs/systemd/user/backup_todo.path                   > $(DESTDIR)$(CONFIG_DIR)/systemd/user/backup_todo.path
+	THEME=$(THEME) setup/setup-file configs/systemd/user/documentation_build_cache.service  > $(DESTDIR)$(CONFIG_DIR)/systemd/user/documentation_build_cache.service
+	THEME=$(THEME) setup/setup-file configs/systemd/user/documentation_build_cache.timer    > $(DESTDIR)$(CONFIG_DIR)/systemd/user/documentation_build_cache.timer
+	THEME=$(THEME) setup/setup-file configs/systemd/user/documents_build_cache.service      > $(DESTDIR)$(CONFIG_DIR)/systemd/user/documents_build_cache.service
+	THEME=$(THEME) setup/setup-file configs/systemd/user/documents_build_cache.timer        > $(DESTDIR)$(CONFIG_DIR)/systemd/user/documents_build_cache.timer
+	THEME=$(THEME) setup/setup-file configs/systemd/user/notify_low_battery.service         > $(DESTDIR)$(CONFIG_DIR)/systemd/user/notify_low_battery.service
+	THEME=$(THEME) setup/setup-file configs/systemd/user/notify_low_battery.timer           > $(DESTDIR)$(CONFIG_DIR)/systemd/user/notify_low_battery.timer
+	THEME=$(THEME) setup/setup-file configs/systemd/user/qutebrowser_update_adblock.service > $(DESTDIR)$(CONFIG_DIR)/systemd/user/qutebrowser_update_adblock.service
+	THEME=$(THEME) setup/setup-file configs/systemd/user/qutebrowser_update_adblock.timer   > $(DESTDIR)$(CONFIG_DIR)/systemd/user/qutebrowser_update_adblock.timer
+	THEME=$(THEME) setup/setup-file configs/systemd/user/vdirsyncer.service                 > $(DESTDIR)$(CONFIG_DIR)/systemd/user/vdirsyncer.service
+	THEME=$(THEME) setup/setup-file configs/systemd/user/vdirsyncer.timer                   > $(DESTDIR)$(CONFIG_DIR)/systemd/user/vdirsyncer.timer
 
 	# enable paths, timers and services
 	ln -sf ../backup_bookmarks.path               $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants/backup_bookmarks.path

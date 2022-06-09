@@ -1,0 +1,7 @@
+#!/bin/sh
+
+{ setup/substitute-apps \
+  | setup/substitute-colors "${THEME}" \
+  | setup/substitute-dirs \
+  | setup/substitute-keys; } \
+  < "files/$1"
