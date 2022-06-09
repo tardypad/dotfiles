@@ -12,6 +12,9 @@ DATA_DIR   = $(HOME)/.local/share
 
 -include $(DATA_DIR)/theme
 
+export DESTDIR
+export THEME
+
 include files/configs/aerc/Makefile
 include files/configs/amfora/Makefile
 include files/configs/aria2/Makefile

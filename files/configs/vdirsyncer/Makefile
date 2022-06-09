@@ -3,7 +3,7 @@ all: vdirsyncer-configs
 vdirsyncer-configs:
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/vdirsyncer
 
-	THEME=$(THEME) setup/setup-file configs/vdirsyncer/config > $(DESTDIR)$(CONFIG_DIR)/vdirsyncer/config
+	setup/setup-file configs/vdirsyncer/config > $(DESTDIR)$(CONFIG_DIR)/vdirsyncer/config
 
 	# discover and sync
 	if [ -z $(DESTDIR) ] ; then \

@@ -1,58 +1,58 @@
 all: shell-docs
 
 shell-docs:
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/backup
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/base
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/battery-status
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/bemenu
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/bemenu-run
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/bluetooth
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/calculate
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/check-notify-low-battery
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/clock
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/color-picker
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/copy-otp
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/copy-password
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/do-not-disturb
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/documentation-all
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/documentation
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/extract-tokens
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/fzf
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/http-env
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/http-stats
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/i3blocks-mode
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/influx-env
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/launch-tmux-env
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/line-by-line
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/loop
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/man
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/mount-device
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/mysql-env
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/night-mode
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/notify
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/open-document
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/pick-task
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/play-somafm
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/pomodoro
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/presentation-mode
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/project-path
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/query-hosts-tags
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/read-news
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/redis-env
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/rename-edit
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/schedule
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/screencast
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/screenshot
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/show-clipboard-qrcode
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/somafm
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/ssh-tags
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/startup
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/status
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/system-menu
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/task
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/theme
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/time-tracker
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/tmux-env
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/url
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/weechat-fifo
-	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/xdg-open
+	setup/setup-doc shell/backup
+	setup/setup-doc shell/base
+	setup/setup-doc shell/battery-status
+	setup/setup-doc shell/bemenu
+	setup/setup-doc shell/bemenu-run
+	setup/setup-doc shell/bluetooth
+	setup/setup-doc shell/calculate
+	setup/setup-doc shell/check-notify-low-battery
+	setup/setup-doc shell/clock
+	setup/setup-doc shell/color-picker
+	setup/setup-doc shell/copy-otp
+	setup/setup-doc shell/copy-password
+	setup/setup-doc shell/do-not-disturb
+	setup/setup-doc shell/documentation-all
+	setup/setup-doc shell/documentation
+	setup/setup-doc shell/extract-tokens
+	setup/setup-doc shell/fzf
+	setup/setup-doc shell/http-env
+	setup/setup-doc shell/http-stats
+	setup/setup-doc shell/i3blocks-mode
+	setup/setup-doc shell/influx-env
+	setup/setup-doc shell/launch-tmux-env
+	setup/setup-doc shell/line-by-line
+	setup/setup-doc shell/loop
+	setup/setup-doc shell/man
+	setup/setup-doc shell/mount-device
+	setup/setup-doc shell/mysql-env
+	setup/setup-doc shell/night-mode
+	setup/setup-doc shell/notify
+	setup/setup-doc shell/open-document
+	setup/setup-doc shell/pick-task
+	setup/setup-doc shell/play-somafm
+	setup/setup-doc shell/pomodoro
+	setup/setup-doc shell/presentation-mode
+	setup/setup-doc shell/project-path
+	setup/setup-doc shell/query-hosts-tags
+	setup/setup-doc shell/read-news
+	setup/setup-doc shell/redis-env
+	setup/setup-doc shell/rename-edit
+	setup/setup-doc shell/schedule
+	setup/setup-doc shell/screencast
+	setup/setup-doc shell/screenshot
+	setup/setup-doc shell/show-clipboard-qrcode
+	setup/setup-doc shell/somafm
+	setup/setup-doc shell/ssh-tags
+	setup/setup-doc shell/startup
+	setup/setup-doc shell/status
+	setup/setup-doc shell/system-menu
+	setup/setup-doc shell/task
+	setup/setup-doc shell/theme
+	setup/setup-doc shell/time-tracker
+	setup/setup-doc shell/tmux-env
+	setup/setup-doc shell/url
+	setup/setup-doc shell/weechat-fifo
+	setup/setup-doc shell/xdg-open

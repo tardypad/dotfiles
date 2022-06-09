@@ -3,4 +3,4 @@ all: i3blocks-configs
 i3blocks-configs:
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/i3blocks
 
-	THEME=$(THEME) setup/setup-file configs/i3blocks/config > $(DESTDIR)$(CONFIG_DIR)/i3blocks/config
+	setup/setup-file configs/i3blocks/config > $(DESTDIR)$(CONFIG_DIR)/i3blocks/config

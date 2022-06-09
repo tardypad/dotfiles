@@ -3,7 +3,7 @@ all: fontconfig-configs
 fontconfig-configs:
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/fontconfig
 
-	THEME=$(THEME) setup/setup-file configs/fontconfig/fonts.conf > $(DESTDIR)$(CONFIG_DIR)/fontconfig/fonts.conf
+	setup/setup-file configs/fontconfig/fonts.conf > $(DESTDIR)$(CONFIG_DIR)/fontconfig/fonts.conf
 
 	# rebuild fonts cache
 	if [ -z $(DESTDIR) ] ; then \

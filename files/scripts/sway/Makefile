@@ -3,16 +3,16 @@ all: sway-scripts
 sway-scripts:
 	mkdir -p $(DESTDIR)$(BIN_DIR)
 
-	THEME=$(THEME) setup/setup-file scripts/sway/sway-command-input                > $(DESTDIR)$(BIN_DIR)/sway-command-input
-	THEME=$(THEME) setup/setup-file scripts/sway/sway-create-workspace             > $(DESTDIR)$(BIN_DIR)/sway-create-workspace
-	THEME=$(THEME) setup/setup-file scripts/sway/sway-move-window-new-workspace    > $(DESTDIR)$(BIN_DIR)/sway-move-window-new-workspace
-	THEME=$(THEME) setup/setup-file scripts/sway/sway-move-workspace-direction     > $(DESTDIR)$(BIN_DIR)/sway-move-workspace-direction
-	THEME=$(THEME) setup/setup-file scripts/sway/sway-move-workspace-index         > $(DESTDIR)$(BIN_DIR)/sway-move-workspace-index
-	THEME=$(THEME) setup/setup-file scripts/sway/sway-quick-command                > $(DESTDIR)$(BIN_DIR)/sway-quick-command
-	THEME=$(THEME) setup/setup-file scripts/sway/sway-rename-workspace             > $(DESTDIR)$(BIN_DIR)/sway-rename-workspace
-	THEME=$(THEME) setup/setup-file scripts/sway/sway-renumber-workspaces          > $(DESTDIR)$(BIN_DIR)/sway-renumber-workspaces
-	THEME=$(THEME) setup/setup-file scripts/sway/sway-subscribe-events-run         > $(DESTDIR)$(BIN_DIR)/sway-subscribe-events-run
-	THEME=$(THEME) setup/setup-file scripts/sway/sway-toggle-window-idle-inhibitor > $(DESTDIR)$(BIN_DIR)/sway-toggle-window-idle-inhibitor
+	setup/setup-file scripts/sway/sway-command-input                > $(DESTDIR)$(BIN_DIR)/sway-command-input
+	setup/setup-file scripts/sway/sway-create-workspace             > $(DESTDIR)$(BIN_DIR)/sway-create-workspace
+	setup/setup-file scripts/sway/sway-move-window-new-workspace    > $(DESTDIR)$(BIN_DIR)/sway-move-window-new-workspace
+	setup/setup-file scripts/sway/sway-move-workspace-direction     > $(DESTDIR)$(BIN_DIR)/sway-move-workspace-direction
+	setup/setup-file scripts/sway/sway-move-workspace-index         > $(DESTDIR)$(BIN_DIR)/sway-move-workspace-index
+	setup/setup-file scripts/sway/sway-quick-command                > $(DESTDIR)$(BIN_DIR)/sway-quick-command
+	setup/setup-file scripts/sway/sway-rename-workspace             > $(DESTDIR)$(BIN_DIR)/sway-rename-workspace
+	setup/setup-file scripts/sway/sway-renumber-workspaces          > $(DESTDIR)$(BIN_DIR)/sway-renumber-workspaces
+	setup/setup-file scripts/sway/sway-subscribe-events-run         > $(DESTDIR)$(BIN_DIR)/sway-subscribe-events-run
+	setup/setup-file scripts/sway/sway-toggle-window-idle-inhibitor > $(DESTDIR)$(BIN_DIR)/sway-toggle-window-idle-inhibitor
 
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-command-input
 	chmod +x $(DESTDIR)$(BIN_DIR)/sway-create-workspace
