@@ -1,60 +1,58 @@
 all: shell-docs
 
 shell-docs:
-	mkdir -p $(DESTDIR)$(DATA_DIR)/man/man1
-
-	THEME=$(THEME) setup/setup-file docs/shell/backup.scd                   | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/backup.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/base.scd                     | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/base.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/battery-status.scd           | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/battery-status.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/bemenu.scd                   | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/bemenu.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/bemenu-run.scd               | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/bemenu-run.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/bluetooth.scd                | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/bluetooth.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/calculate.scd                | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/calculate.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/check-notify-low-battery.scd | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/check-notify-low-battery.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/clock.scd                    | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/clock.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/color-picker.scd             | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/color-picker.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/copy-otp.scd                 | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/copy-otp.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/copy-password.scd            | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/copy-password.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/do-not-disturb.scd           | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/do-not-disturb.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/documentation-all.scd        | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/documentation-all.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/documentation.scd            | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/documentation.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/extract-tokens.scd           | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/extract-tokens.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/fzf.scd                      | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/fzf.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/http-env.scd                 | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/http-env.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/http-stats.scd               | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/http-stats.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/i3blocks-mode.scd            | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/i3blocks-mode.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/influx-env.scd               | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/influx-env.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/launch-tmux-env.scd          | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/launch-tmux-env.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/line-by-line.scd             | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/line-by-line.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/loop.scd                     | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/loop.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/man.scd                      | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/man.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/mount-device.scd             | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/mount-device.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/mysql-env.scd                | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/mysql-env.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/night-mode.scd               | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/night-mode.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/notify.scd                   | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/notify.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/open-document.scd            | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/open-document.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/pick-task.scd                | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/pick-task.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/play-somafm.scd              | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/play-somafm.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/pomodoro.scd                 | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/pomodoro.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/presentation-mode.scd        | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/presentation-mode.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/project-path.scd             | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/project-path.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/query-hosts-tags.scd         | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/query-hosts-tags.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/read-news.scd                | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/read-news.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/redis-env.scd                | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/redis-env.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/rename-edit.scd              | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/rename-edit.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/schedule.scd                 | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/schedule.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/screencast.scd               | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/screencast.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/screenshot.scd               | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/screenshot.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/show-clipboard-qrcode.scd    | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/show-clipboard-qrcode.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/somafm.scd                   | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/somafm.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/ssh-tags.scd                 | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/ssh-tags.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/startup.scd                  | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/startup.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/status.scd                   | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/status.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/system-menu.scd              | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/system-menu.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/task.scd                     | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/task.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/theme.scd                    | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/theme.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/time-tracker.scd             | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/time-tracker.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/tmux-env.scd                 | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/tmux-env.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/url.scd                      | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/url.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/weechat-fifo.scd             | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/weechat-fifo.1perso
-	THEME=$(THEME) setup/setup-file docs/shell/xdg-open.scd                 | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/xdg-open.1perso
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/backup
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/base
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/battery-status
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/bemenu
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/bemenu-run
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/bluetooth
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/calculate
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/check-notify-low-battery
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/clock
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/color-picker
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/copy-otp
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/copy-password
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/do-not-disturb
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/documentation-all
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/documentation
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/extract-tokens
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/fzf
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/http-env
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/http-stats
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/i3blocks-mode
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/influx-env
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/launch-tmux-env
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/line-by-line
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/loop
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/man
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/mount-device
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/mysql-env
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/night-mode
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/notify
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/open-document
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/pick-task
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/play-somafm
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/pomodoro
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/presentation-mode
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/project-path
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/query-hosts-tags
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/read-news
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/redis-env
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/rename-edit
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/schedule
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/screencast
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/screenshot
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/show-clipboard-qrcode
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/somafm
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/ssh-tags
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/startup
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/status
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/system-menu
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/task
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/theme
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/time-tracker
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/tmux-env
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/url
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/weechat-fifo
+	DESTDIR=$(DESTDIR) THEME=$(THEME) setup/setup-doc shell/xdg-open
