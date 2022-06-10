@@ -1,0 +1,11 @@
+#!/bin/sh
+
+BIN_DIR="${DESTDIR}${HOME}/.local/bin"
+SCRIPT_NAME="$( basename "$1" )"
+
+mkdir -p "${BIN_DIR}"
+
+setup/setup-file "scripts/$1" \
+  > "${BIN_DIR}/${SCRIPT_NAME}"
+
+chmod +x "${BIN_DIR}/${SCRIPT_NAME}"
