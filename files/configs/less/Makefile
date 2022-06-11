@@ -1,6 +1,4 @@
 all: less-configs
 
 less-configs:
-	mkdir -p $(DESTDIR)$(CONFIG_DIR)
-
-	setup/setup-file configs/less/lesskey > $(DESTDIR)$(CONFIG_DIR)/lesskey
+	setup/setup-config less/lesskey $(CONFIG_DIR)/lesskey

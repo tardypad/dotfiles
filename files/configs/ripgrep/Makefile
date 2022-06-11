@@ -1,6 +1,4 @@
 all: ripgrep-configs
 
 ripgrep-configs:
-	mkdir -p $(DESTDIR)$(CONFIG_DIR)/ripgrep
-
-	setup/setup-file configs/ripgrep/config > $(DESTDIR)$(CONFIG_DIR)/ripgrep/config
+	setup/setup-config ripgrep/config $(CONFIG_DIR)/ripgrep/config

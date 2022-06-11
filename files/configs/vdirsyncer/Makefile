@@ -1,9 +1,7 @@
 all: vdirsyncer-configs
 
 vdirsyncer-configs:
-	mkdir -p $(DESTDIR)$(CONFIG_DIR)/vdirsyncer
-
-	setup/setup-file configs/vdirsyncer/config > $(DESTDIR)$(CONFIG_DIR)/vdirsyncer/config
+	setup/setup-config vdirsyncer/config $(CONFIG_DIR)/vdirsyncer/config
 
 	# discover and sync
 	if [ -z $(DESTDIR) ] ; then \

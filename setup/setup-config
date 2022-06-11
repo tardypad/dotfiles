@@ -1,0 +1,6 @@
+#!/bin/sh
+
+mkdir -p "${DESTDIR}$( dirname "$2" )"
+
+setup/setup-file "configs/$1" \
+  > "${DESTDIR}$2"

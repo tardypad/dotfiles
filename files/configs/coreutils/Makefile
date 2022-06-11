@@ -1,6 +1,4 @@
 all: coreutils-configs
 
 coreutils-configs:
-	mkdir -p $(DESTDIR)$(HOME)
-
-	setup/setup-file configs/coreutils/dircolors > $(DESTDIR)$(HOME)/.dircolors
+	setup/setup-config coreutils/dircolors $(HOME)/.dircolors
