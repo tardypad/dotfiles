@@ -1,13 +1,16 @@
 #!/bin/sh
 
-tmux list-sessions -F '#{session_id} #{session_name}' \
-  | fzf-tmux "$@" --\
-      --with-nth 2 \
-      --prompt 'Switch to ' \
-      --header "$( printf '\n' )" \
-      --info hidden \
-      --reverse \
-  | cut -d' ' -f1 \
-  | xargs tmux switch-client -t 2> /dev/null
+SESSION=$(
+  tmux list-sessions -F '#{session_id} #{session_name}' \
+    | fzf-tmux "$@" -- \
+        --with-nth 2 \
+        --prompt 'Switch to ' \
+        --header "$( printf '\n' )" \
+        --info hidden \
+        --reverse \
+    | cut -d' ' -f1 \
+)
 
-exit 0
+[ -n "${SESSION}" ] || exit 0
+
+tmux switch-client -t "${SESSION}"
