@@ -23,7 +23,7 @@ weechat-configs:
 	# keep secure data configured
 	-awk '/^\[data\]$$/ { p=1 } p' $(DESTDIR)$(CONFIG_DIR)/weechat/sec.conf > build/weechat_sec_data
 	{ \
-		setup/setup-file configs/weechat/config.d/sec.conf; \
+		setup/process-file configs/weechat/config.d/sec.conf; \
 		cat build/weechat_sec_data; \
 	} > $(DESTDIR)$(CONFIG_DIR)/weechat/sec.conf
 
