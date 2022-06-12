@@ -3,4 +3,7 @@ all: images
 images:
 	mkdir -p $(DESTDIR)$(DATA_DIR)/images
 
-	setup/substitute-colors $(THEME) < files/data/images/lock.svg > $(DESTDIR)$(DATA_DIR)/images/lock.svg
+	setup/substitute-colors dark < files/data/images/lock.svg > $(DESTDIR)$(DATA_DIR)/images/lock.svg-dark
+	setup/substitute-colors light < files/data/images/lock.svg > $(DESTDIR)$(DATA_DIR)/images/lock.svg-light
+	ln -sf $(DESTDIR)$(DATA_DIR)/images/lock.svg-$(THEME) $(DESTDIR)$(DATA_DIR)/images/lock.svg
+
