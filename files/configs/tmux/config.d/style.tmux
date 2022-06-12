@@ -5,6 +5,8 @@ set-option -g mode-style "bg=#{color/base03/hex},fg=#{color/base00/hex}"
 set-option -g display-panes-colour "#{color/base09/hex}"
 set-option -g display-panes-active-colour "#{color/base0A/hex}"
 
+set-option -g popup-border-style "fg=#{color/base0A/hex}"
+
 set-option -g status-justify left
 
 set-option -g status on
