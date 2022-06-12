@@ -109,7 +109,8 @@ Good portability is mainly achieved through
 
 ### Make
 
-The Makefiles used for the setup are POSIX compliant.
+The Makefiles used for the setup are POSIX compliant except for the usage of
+variables export.
 
 ### Scripts
 

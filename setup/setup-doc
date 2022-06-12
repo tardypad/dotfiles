@@ -1,0 +1,10 @@
+#!/bin/sh
+
+MAN_DIR="${DESTDIR}${XDG_DATA_HOME:-$HOME/.local/share}/man/man1"
+DOC_NAME="$( basename "$1" )"
+
+mkdir -p "${MAN_DIR}"
+
+setup/process-file "docs/$1.scd" \
+  | scdoc \
+  > "${MAN_DIR}/${DOC_NAME}.1perso"

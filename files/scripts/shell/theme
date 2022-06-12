@@ -4,6 +4,7 @@ init_variables() {
   COMMAND=${0##*/}
 
   THEME_FILE="${XDG_DATA_HOME:-$HOME/.local/share}/theme"
+  THEME_FILES="${XDG_DATA_HOME:-$HOME/.local/share}/theme_files"
 
   ACTION='status'
   ONLY_SEND_OSC_SEQUENCES=false
@@ -59,34 +60,11 @@ status_theme() {
 set_theme() (
   echo 'Configuring theme...' >&2
 
-  cd "$( project-path repo dotfiles )" || return 1
+  while read -r FILE; do
+    ln -sf "$( basename "${FILE}" )-${THEME}" "${FILE}"
+  done < "${THEME_FILES}"
 
-  # only use targets which contain some color configuration
-  make -s THEME="${THEME}" \
-    aerc-configs \
-    amfora-configs \
-    coreutils-configs \
-    foot-configs \
-    git-configs \
-    i3blocks-configs \
-    imv-configs \
-    less-configs \
-    mako-configs \
-    qutebrowser-configs \
-    ripgrep-configs \
-    sway-configs \
-    swaylock-configs \
-    tmux-configs \
-    vim-configs \
-    w3m-configs \
-    weechat-configs \
-    zathura-configs \
-    zsh-configs \
-    images \
-    i3blocks-scripts \
-    shell-scripts
-
-    echo "THEME=${THEME}" > "${THEME_FILE}"
+  echo "THEME=${THEME}" > "${THEME_FILE}"
 )
 
 toggle_theme() {

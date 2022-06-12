@@ -1,12 +1,9 @@
 all: git-configs
 
 git-configs:
-	mkdir -p $(DESTDIR)$(CONFIG_DIR)/git/config.d
-	mkdir -p $(DESTDIR)$(CONFIG_DIR)/git/template/info
-
-	$(setup_file)/configs/git/config                > $(DESTDIR)$(CONFIG_DIR)/git/config
-	$(setup_file)/configs/git/ignore                > $(DESTDIR)$(CONFIG_DIR)/git/ignore
-	$(setup_file)/configs/git/config.d/aliases      > $(DESTDIR)$(CONFIG_DIR)/git/config.d/aliases
-	$(setup_file)/configs/git/config.d/general      > $(DESTDIR)$(CONFIG_DIR)/git/config.d/general
-	$(setup_file)/configs/git/config.d/style        > $(DESTDIR)$(CONFIG_DIR)/git/config.d/style
-	$(setup_file)/configs/git/template/info/exclude > $(DESTDIR)$(CONFIG_DIR)/git/template/info/exclude
+	setup/setup-config git/config                $(CONFIG_DIR)/git/config
+	setup/setup-config git/ignore                $(CONFIG_DIR)/git/ignore
+	setup/setup-config git/config.d/aliases      $(CONFIG_DIR)/git/config.d/aliases
+	setup/setup-config git/config.d/general      $(CONFIG_DIR)/git/config.d/general
+	setup/setup-config git/config.d/style        $(CONFIG_DIR)/git/config.d/style
+	setup/setup-config git/template/info/exclude $(CONFIG_DIR)/git/template/info/exclude

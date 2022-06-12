@@ -1,14 +1,12 @@
 all: tmux-docs
 
 tmux-docs:
-	mkdir -p $(DESTDIR)$(DATA_DIR)/man/man1
-
-	$(setup_file)/docs/tmux/tmux-extract-tokens.scd          | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/tmux-extract-tokens.1perso
-	$(setup_file)/docs/tmux/tmux-move-pane-window-index.scd  | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/tmux-move-pane-window-index.1perso
-	$(setup_file)/docs/tmux/tmux-move-window-index.scd       | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/tmux-move-window-index.1perso
-	$(setup_file)/docs/tmux/tmux-notify-alert.scd            | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/tmux-notify-alert.1perso
-	$(setup_file)/docs/tmux/tmux-select-pane-vim.scd         | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/tmux-select-pane-vim.1perso
-	$(setup_file)/docs/tmux/tmux-send-vim.scd                | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/tmux-send-vim.1perso
-	$(setup_file)/docs/tmux/tmux-switch-session.scd          | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/tmux-switch-session.1perso
-	$(setup_file)/docs/tmux/tmux-toggle-monitoring.scd       | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/tmux-toggle-monitoring.1perso
-	$(setup_file)/docs/tmux/tmux-toggle-no-distraction.scd   | scdoc > $(DESTDIR)$(DATA_DIR)/man/man1/tmux-toggle-no-distraction.1perso
+	setup/setup-doc tmux/tmux-extract-tokens
+	setup/setup-doc tmux/tmux-move-pane-window-index
+	setup/setup-doc tmux/tmux-move-window-index
+	setup/setup-doc tmux/tmux-notify-alert
+	setup/setup-doc tmux/tmux-select-pane-vim
+	setup/setup-doc tmux/tmux-send-vim
+	setup/setup-doc tmux/tmux-switch-session
+	setup/setup-doc tmux/tmux-toggle-monitoring
+	setup/setup-doc tmux/tmux-toggle-no-distraction

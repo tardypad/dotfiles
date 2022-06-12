@@ -5,14 +5,15 @@ all:
 
 THEME = light
 
-BIN_DIR    = $(HOME)/.local/bin
 CACHE_DIR  = $(HOME)/.cache
 CONFIG_DIR = $(HOME)/.config
 DATA_DIR   = $(HOME)/.local/share
 
 -include $(DATA_DIR)/theme
 
-setup_file = { setup/substitute-apps | setup/substitute-colors $(THEME) | setup/substitute-dirs | setup/substitute-keys; } < files
+export DESTDIR
+export THEME
+export THEME_FILES = $(DESTDIR)$(DATA_DIR)/theme_files
 
 include files/configs/aerc/Makefile
 include files/configs/amfora/Makefile
