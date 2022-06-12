@@ -5,7 +5,13 @@ SCRIPT_NAME="$( basename "$1" )"
 
 mkdir -p "${BIN_DIR}"
 
-setup/setup-file "scripts/$1" \
-  > "${BIN_DIR}/${SCRIPT_NAME}"
-
-chmod +x "${BIN_DIR}/${SCRIPT_NAME}"
+if grep -q '{color/' "files/scripts/$1"; then
+  THEME=dark setup/setup-file "scripts/$1" > "${BIN_DIR}/${SCRIPT_NAME}-dark"
+  chmod +x "${BIN_DIR}/${SCRIPT_NAME}-dark"
+  THEME=light setup/setup-file "scripts/$1" > "${BIN_DIR}/${SCRIPT_NAME}-light"
+  chmod +x "${BIN_DIR}/${SCRIPT_NAME}-light"
+  ln -sf "${BIN_DIR}/${SCRIPT_NAME}-${THEME}" "${BIN_DIR}/${SCRIPT_NAME}"
+else
+  setup/setup-file "scripts/$1" > "${BIN_DIR}/${SCRIPT_NAME}"
+  chmod +x "${BIN_DIR}/${SCRIPT_NAME}"
+fi
