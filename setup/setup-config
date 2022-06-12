@@ -6,6 +6,10 @@ if grep -q '{color/' "files/configs/$1"; then
   THEME=dark setup/process-file "configs/$1" > "${DESTDIR}$2-dark"
   THEME=light setup/process-file "configs/$1" > "${DESTDIR}$2-light"
   ln -sf "$( basename "$2" )-${THEME}" "${DESTDIR}$2"
+
+  if ! grep -qsxF "$2" "${THEME_FILES}"; then
+    echo "$2" >> "${THEME_FILES}"
+  fi
 else
   setup/process-file "configs/$1" > "${DESTDIR}$2"
 fi

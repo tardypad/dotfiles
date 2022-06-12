@@ -13,6 +13,7 @@ DATA_DIR   = $(HOME)/.local/share
 
 export DESTDIR
 export THEME
+export THEME_FILES = $(DESTDIR)$(DATA_DIR)/theme_files
 
 include files/configs/aerc/Makefile
 include files/configs/amfora/Makefile
