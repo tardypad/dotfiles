@@ -51,9 +51,6 @@ set-option -g status-format[0] \
 #{T;=/#{status-right-length}:status-right}\
 #[norange default]"
 
-set-option -w -g window-style "bg=#{color/background/hex}"
-set-option -w -g window-active-style "bg=#{color/background/hex}"
-
 set-option -w -g pane-border-style "bg=#{color/background/hex},fg=#{color/base03/hex}"
 set-option -w -g pane-active-border-style "bg=#{color/background/hex},fg=#{color/base0A/hex}"
 
