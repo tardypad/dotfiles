@@ -48,12 +48,14 @@ If unset, defaults to $HOME/.local/share
 _$XDG_DATA_HOME/theme_
 	File defining the current theme
 
+_$XDG_DATA_HOME/theme_files_
+	File containing the list of theme specific files
+
 # DEPENDENCIES
 
 - makoctl
 - pgrep
 - pkill
-- project-path
 - qutebrowser
 - swaymsg
 - tmux
