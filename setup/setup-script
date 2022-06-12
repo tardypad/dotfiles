@@ -10,7 +10,7 @@ if grep -q '{color/' "files/scripts/$1"; then
   chmod +x "${BIN_DIR}/${SCRIPT_NAME}-dark"
   THEME=light setup/process-file "scripts/$1" > "${BIN_DIR}/${SCRIPT_NAME}-light"
   chmod +x "${BIN_DIR}/${SCRIPT_NAME}-light"
-  ln -sf "${BIN_DIR}/${SCRIPT_NAME}-${THEME}" "${BIN_DIR}/${SCRIPT_NAME}"
+  ln -sf "${SCRIPT_NAME}-${THEME}" "${BIN_DIR}/${SCRIPT_NAME}"
 else
   setup/process-file "scripts/$1" > "${BIN_DIR}/${SCRIPT_NAME}"
   chmod +x "${BIN_DIR}/${SCRIPT_NAME}"

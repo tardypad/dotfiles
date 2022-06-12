@@ -5,7 +5,7 @@ mkdir -p "${DESTDIR}$( dirname "$2" )"
 if grep -q '{color/' "files/configs/$1"; then
   THEME=dark setup/process-file "configs/$1" > "${DESTDIR}$2-dark"
   THEME=light setup/process-file "configs/$1" > "${DESTDIR}$2-light"
-  ln -sf "${DESTDIR}$2-${THEME}" "${DESTDIR}$2"
+  ln -sf "$( basename "$2" )-${THEME}" "${DESTDIR}$2"
 else
   setup/process-file "configs/$1" > "${DESTDIR}$2"
 fi
