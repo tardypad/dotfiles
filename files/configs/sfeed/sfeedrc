@@ -17,7 +17,7 @@ feeds() {
   feed 'Henrik Kniberg'                       'https://blog.crisp.se/author/henrikkniberg/feed'
   feed 'Robert C. Martin'                     'https://blog.cleancoder.com/atom.xml'
   feed 'Tom Ryder'                            'https://blog.sanctum.geek.nz/feed/'
-  feed 'Mary Poppendieck'                     'http://www.leanessays.com/feeds/posts/default'
+  feed 'Mary Poppendieck'                     'https://www.leanessays.com/feeds/posts/default'
   feed 'Rachel by the bay'                    'https://rachelbythebay.com/w/atom.xml'
   feed 'Martin Tournoij'                      'https://www.arp242.net/feed.xml'
   feed 'Mr. Money Mustache'                   'http://feeds.feedburner.com/MrMoneyMustache?format=xml'
