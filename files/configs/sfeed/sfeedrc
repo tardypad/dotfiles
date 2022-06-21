@@ -3,6 +3,7 @@ feeds() {
   feed 'Reflets.info'                         'https://reflets.info/feeds/public'
   feed 'Spain in English'                     'https://www.spainenglish.com/feed/'
   feed 'Arch Linux news'                      'https://archlinux.org/feeds/news/'
+  feed 'Alpine Linux news'                    'https://www.alpinelinux.org/atom.xml'
   feed 'Hacker News'                          'https://news.ycombinator.com/rss'
   feed 'Jolla blog'                           'https://blog.jolla.com/feed/'
   feed 'Sourcehut blog'                       'https://sourcehut.org/blog/index.xml'
