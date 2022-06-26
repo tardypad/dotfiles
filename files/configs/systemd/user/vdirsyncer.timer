@@ -2,8 +2,7 @@
 Description=Synchronize vdirs
 
 [Timer]
-OnCalendar=daily
-Persistent=true
+OnStartupSec=1h
 
 [Install]
 WantedBy=timers.target
