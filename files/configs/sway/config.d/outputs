@@ -7,7 +7,7 @@ set $external_monitor HDMI-A-2
 
 # position and resolution
 output $laptop_monitor pos 0,0 res 2560x1440
-output $external_monitor pos 2560,0 res 1920x1080
+output $external_monitor pos 2560,0 res 2560x1440
 
 # all main workspaces on main output
 workspace 1  output $external_monitor
