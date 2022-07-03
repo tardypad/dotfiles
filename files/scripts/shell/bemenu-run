@@ -2,7 +2,7 @@
 
 exec /usr/bin/bemenu-run \
   -i -l 10 \
-  --fn 'Source Sans Pro 11' \
+  --fn 'Source Sans Pro 14' \
   --tb '#{color/base09/hex}' \
   --tf '#{color/base00/hex}' \
   --fb '#{color/base09/hex}' \

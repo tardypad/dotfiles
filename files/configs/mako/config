@@ -1,6 +1,6 @@
 layer=overlay
 
-font=Source Sans Pro, Font Awesome 5 Free Solid 11
+font=Source Sans Pro, Font Awesome 5 Free Solid 14
 
 background-color=#{color/background/hex}
 text-color=#{color/foreground/hex}
