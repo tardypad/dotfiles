@@ -21,15 +21,21 @@ systemd-configs:
 	setup/setup-config systemd/user/vdirsyncer.timer                   $(CONFIG_DIR)/systemd/user/vdirsyncer.timer
 
 	# enable paths, timers and services
+
+	mkdir -p $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants
 	ln -sf ../backup_bookmarks.path               $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants/backup_bookmarks.path
 	ln -sf ../backup_notes.path                   $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants/backup_notes.path
 	ln -sf ../backup_time_tracker_logs.path       $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants/backup_time_tracker_logs.path
 	ln -sf ../backup_todo.path                    $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants/backup_todo.path
+
+	mkdir -p $(DESTDIR)$(CONFIG_DIR)/systemd/user/timers.target.wants
 	ln -sf ../documentation_build_cache.timer     $(DESTDIR)$(CONFIG_DIR)/systemd/user/timers.target.wants/documentation_build_cache.timer
 	ln -sf ../documents_build_cache.timer         $(DESTDIR)$(CONFIG_DIR)/systemd/user/timers.target.wants/documents_build_cache.timer
 	ln -sf ../notify_low_battery.timer            $(DESTDIR)$(CONFIG_DIR)/systemd/user/timers.target.wants/notify_low_battery.timer
 	ln -sf ../qutebrowser_update_adblock.timer    $(DESTDIR)$(CONFIG_DIR)/systemd/user/timers.target.wants/qutebrowser_update_adblock.timer
 	ln -sf ../vdirsyncer.timer                    $(DESTDIR)$(CONFIG_DIR)/systemd/user/timers.target.wants/vdirsyncer.timer
+
+	mkdir -p $(DESTDIR)$(CONFIG_DIR)/systemd/user/default.target.wants
 	ln -sf /usr/lib/systemd/user/mpd.service      $(DESTDIR)$(CONFIG_DIR)/systemd/user/default.target.wants/mpd.service
 	ln -sf /usr/lib/systemd/user/ydotool.service  $(DESTDIR)$(CONFIG_DIR)/systemd/user/default.target.wants/ydotool.service
 
