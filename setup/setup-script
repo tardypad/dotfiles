@@ -13,6 +13,7 @@ if grep -q '{color/' "files/scripts/$1"; then
   ln -sf "${SCRIPT_NAME}-${THEME}" "${DESTDIR}${BIN_DIR}/${SCRIPT_NAME}"
 
   if ! grep -qsxF "$2" "${THEME_FILES}"; then
+    mkdir -p "$( dirname "${THEME_FILES}" )"
     echo "${BIN_DIR}/${SCRIPT_NAME}" >> "${THEME_FILES}"
   fi
 else
