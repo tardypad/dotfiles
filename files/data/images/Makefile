@@ -8,6 +8,6 @@ images:
 	ln -sf lock.svg-$(THEME) $(DESTDIR)$(DATA_DIR)/images/lock.svg
 
 	if ! grep -qsxF $(DATA_DIR)/images/lock.svg "${THEME_FILES}"; then \
-		mkdir -p "$( dirname "${THEME_FILES}" )"; \
+		mkdir -p "$$( dirname "${THEME_FILES}" )"; \
 		echo $(DATA_DIR)/images/lock.svg >> "${THEME_FILES}"; \
 	fi
