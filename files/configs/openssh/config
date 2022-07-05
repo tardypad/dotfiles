@@ -37,6 +37,7 @@ Host hazelnut
 Host *
     PubkeyAcceptedAlgorithms +ssh-rsa
     HashKnownHosts no
+    UserKnownHostsFile ~/.ssh/known_hosts ~/.ssh/managed_known_hosts
     EscapeChar {key/%}
     ForwardAgent no
     AddKeysToAgent yes
