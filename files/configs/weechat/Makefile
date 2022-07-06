@@ -34,5 +34,5 @@ weechat-configs:
 	ln -fs ../go_fzf_tmux.py                    $(DESTDIR)$(DATA_DIR)/weechat/python/autoload/go_fzf_tmux.py
 
 	# autoload external plugins
-	ln -fs /usr/lib/weechat/python/vimode.py $(DESTDIR)$(DATA_DIR)/weechat/python/autoload/vimode.py
-	ln -fs /usr/lib/weechat/python/wee_most.py $(DESTDIR)$(DATA_DIR)/weechat/python/autoload/wee_most.py
+	ln -fs /usr/share/weechat/python/vimode.py $(DESTDIR)$(DATA_DIR)/weechat/python/autoload/vimode.py
+	ln -fs /usr/share/weechat/python/wee_most.py $(DESTDIR)$(DATA_DIR)/weechat/python/autoload/wee_most.py
