@@ -21,6 +21,7 @@ time-tracker -d "${day}" -t overview \
 
       task_name="$(
         echo "${tasks}" \
+          | grep -v ' \[alias\]$' \
           | sed -n "s/^${task_id}	\(.*\)/\1/p" \
           | sed 1q
       )"
