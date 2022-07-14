@@ -9,8 +9,9 @@ swaymsg -q "[title=\"${TITLE}\"]" focus && exit
 swaymsg -q fullscreen disable
 
 if [ -n "${COMMAND}" ]; then
-  #shellcheck disable=SC2086
-  foot -T "${TITLE}" -o locked-title=yes ${COMMAND}
+  # need to wait a bit before executing the command for the terminal geometry to be set by sway
+  # so that interactive tools like fzf get displayed properly
+  foot -T "${TITLE}" -o locked-title=yes sh -c "sleep 0.01 && ${COMMAND}"
 else
   foot -T "${TITLE}" -o locked-title=yes
 fi
