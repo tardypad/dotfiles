@@ -13,4 +13,6 @@ exec /usr/bin/bemenu-run \
   --hf '#{color/base00/hex}' \
   --sb '#{color/selected_item/hex}' \
   --sf '#{color/base00/hex}' \
+  --ab '#{color/popup_background/hex}' \
+  --af '#{color/popup_foreground/hex}' \
   "$@"
