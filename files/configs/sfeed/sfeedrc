@@ -31,7 +31,4 @@ feeds() {
   feed 'Reddit programming'                   'https://www.reddit.com/r/programming/.rss'
   feed 'Gary Bernhardt (Twitter)'             'https://nitter.fdn.fr/garybernhardt/rss'
   feed 'Evan Czaplicki (Twitter)'             'https://nitter.fdn.fr/evancz/rss'
-  feed 'Last Week Tonight (YouTube)'          'https://www.youtube.com/feeds/videos.xml?channel_id=UC3XTzVzaHQEd30rQbuvCtTQ'
-  feed 'Living Big in a Tiny House (YouTube)' 'https://www.youtube.com/feeds/videos.xml?channel_id=UCoNTMWgGuXtGPLv9UeJZwBw'
-  feed 'Nick Sibicky (YouTube)'               'https://www.youtube.com/feeds/videos.xml?channel_id=UC_msctwlIh2cwM8yAtaju1A'
 }
