@@ -35,6 +35,7 @@ shell-docs:
 	setup/setup-doc shell/play-somafm
 	setup/setup-doc shell/pomodoro
 	setup/setup-doc shell/presentation-mode
+	setup/setup-doc shell/proxy
 	setup/setup-doc shell/project-path
 	setup/setup-doc shell/query-hosts-tags
 	setup/setup-doc shell/read-news

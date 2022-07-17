@@ -29,6 +29,7 @@ zsh-configs:
 	setup/setup-config zsh/completions/_notify                                                    $(HOME)/.zsh/completions/_notify
 	setup/setup-config zsh/completions/_pomodoro                                                  $(HOME)/.zsh/completions/_pomodoro
 	setup/setup-config zsh/completions/_project-path                                              $(HOME)/.zsh/completions/_project-path
+	setup/setup-config zsh/completions/_proxy                                                     $(HOME)/.zsh/completions/_proxy
 	setup/setup-config zsh/completions/_query-hosts-tags                                          $(HOME)/.zsh/completions/_query-hosts-tags
 	setup/setup-config zsh/completions/_read-news                                                 $(HOME)/.zsh/completions/_read-news
 	setup/setup-config zsh/completions/_redis-env                                                 $(HOME)/.zsh/completions/_redis-env

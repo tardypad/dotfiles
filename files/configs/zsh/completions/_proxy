@@ -1,0 +1,15 @@
+#compdef proxy
+
+_frontends() {
+  local frontends=(
+    cli
+    tui
+    web
+  )
+
+  compadd "$@" $frontends
+}
+
+_arguments \
+  '-f[frontend to use]:frontend:_frontends' \
+  '-t[use transparent mode]'

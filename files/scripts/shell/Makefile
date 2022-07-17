@@ -35,6 +35,7 @@ shell-scripts:
 	setup/setup-script shell/play-somafm
 	setup/setup-script shell/pomodoro
 	setup/setup-script shell/presentation-mode
+	setup/setup-script shell/proxy
 	setup/setup-script shell/project-path
 	setup/setup-script shell/query-hosts-tags
 	setup/setup-script shell/read-news
