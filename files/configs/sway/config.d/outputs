@@ -6,8 +6,8 @@ set $laptop_monitor eDP-1
 set $external_monitor HDMI-A-2
 
 # position / resolution / scaling
-output $laptop_monitor pos 0,0 res 2560x1440 scale 1
-output $external_monitor pos 2560,0 res 2560x1440 scale 1
+output $laptop_monitor pos 2560,0 res 2560x1440 scale 1
+output $external_monitor pos 0,0 res 2560x1440 scale 1
 
 # all main workspaces on main output
 workspace 1  output $external_monitor
