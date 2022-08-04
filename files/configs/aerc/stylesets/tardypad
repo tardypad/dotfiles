@@ -38,3 +38,6 @@ msglist_unread.fg   = #{color/unread_item/hex}
 msglist_deleted.fg  = #{color/delete/hex}
 msglist_marked.bg   = #{color/selected_item/hex}
 msglist_marked.fg   = #{color/base00/hex}
+
+dirlist_unread.bold = true
+dirlist_unread.fg   = #{color/unread_item/hex}
