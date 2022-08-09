@@ -6,7 +6,7 @@
 MODE="$( i3blocks-mode )"
 
 CONNECTED_DEVICES=$(
-  bluetoothctl paired-devices \
+  bluetoothctl devices Paired \
     | cut -d' ' -f2 \
     | xargs -I{} bluetoothctl info {} \
     | sed -n -e 's/.*Alias: \(.*\)/\1/p' -e 's/.*Connected: \(.*\)/\1/p' \
