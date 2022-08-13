@@ -13,7 +13,7 @@ _actions() {
 
 _device_aliases() {
   if [ $words[CURRENT-1] != 'receive' ]; then
-    local device_aliases=( "${(@f)$( bluetoothctl paired-devices | cut -d' ' -f3 )}" )
+    local device_aliases=( "${(@f)$( bluetoothctl devices Paired | cut -d' ' -f3 )}" )
     compadd "$@" $device_aliases
   fi
 }

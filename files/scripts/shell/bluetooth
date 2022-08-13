@@ -44,7 +44,7 @@ exit_error() {
 } >&2
 
 device_mac() {
-  bluetoothctl paired-devices \
+  bluetoothctl devices Paired \
     | grep "$1$" \
     | cut -d' ' -f2
 }
