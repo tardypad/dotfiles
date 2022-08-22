@@ -23,7 +23,7 @@ export READNULLCMD=less
 export PAGER=less
 
 # update gpg tty for pinentry use
-export GPG_TTY="$(tty)"
+export GPG_TTY="$( tty )"
 
 # change grep output colors
 GREP_COLORS='ms=1;{color/search_match/fg}'
@@ -70,5 +70,5 @@ eval $( tmux show-environment -s SWAYSOCK 2> /dev/null )
 # tell ssh to use gpg agent
 unset SSH_AGENT_PID
 if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
-  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+  export SSH_AUTH_SOCK="$( gpgconf --list-dirs agent-ssh-socket )"
 fi

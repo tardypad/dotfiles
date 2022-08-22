@@ -20,8 +20,8 @@ capture_text() {
 capture_pane() {
   PANE_ID="$1"
 
-  HEIGHT=$( tmux display -t ":.${PANE_ID}" -p -F '#{pane_height}')
-  SCROLL_POSITION=$( tmux display -t ":.${PANE_ID}" -p -F '#{scroll_position}')
+  HEIGHT=$( tmux display -t ":.${PANE_ID}" -p -F '#{pane_height}' )
+  SCROLL_POSITION=$( tmux display -t ":.${PANE_ID}" -p -F '#{scroll_position}' )
 
   if [ -z "${SCROLL_POSITION}" ]; then
     SCROLL_POSITION=0

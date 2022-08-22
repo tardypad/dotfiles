@@ -6,12 +6,12 @@ print_item() {
 
   printf "%s\n" "${HEADER}"
   # shellcheck disable=SC1083
-  printf "$(tput setaf {color/base09/number} )%s$(tput sgr0)\n" "${VALUE}"
+  printf "$( tput setaf {color/base09/number} )%s$( tput sgr0 )\n" "${VALUE}"
 }
 
 {
   print_item 'User' "${LOGNAME}"
-  print_item 'Host' "$(cat /proc/sys/kernel/hostname )"
+  print_item 'Host' "$( cat /proc/sys/kernel/hostname )"
   print_item 'Dir' "${PWD}"
 
   if git rev-parse --git-dir > /dev/null 2>&1; then

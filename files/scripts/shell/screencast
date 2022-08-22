@@ -5,7 +5,7 @@ init_variables() {
 
   PID_FILE_PATH="${XDG_RUNTIME_DIR:-/tmp}/screencast"
 
-  RECORD_FILE_PATH="${XDG_DESKTOP_DIR:-$HOME/Desktop}/screencast_$(date +'%Y%m%d%H%M%S').mp4"
+  RECORD_FILE_PATH="${XDG_DESKTOP_DIR:-$HOME/Desktop}/screencast_$( date +'%Y%m%d%H%M%S' ).mp4"
 
   ACTION='status'
 }

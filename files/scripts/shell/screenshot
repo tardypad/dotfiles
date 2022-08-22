@@ -3,7 +3,7 @@
 init_variables() {
   COMMAND=${0##*/}
 
-  FILE_PATH="${XDG_DESKTOP_DIR:-$HOME/Desktop}/screenshot_$(date +'%Y%m%d%H%M%S').png"
+  FILE_PATH="${XDG_DESKTOP_DIR:-$HOME/Desktop}/screenshot_$( date +'%Y%m%d%H%M%S' ).png"
 
   DELAY=0
 }

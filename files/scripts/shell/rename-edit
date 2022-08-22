@@ -34,8 +34,8 @@ validate_files() {
 rename() {
   paste "${TMP_FILE_ORIG}" "${TMP_FILE_DEST}" \
     | while read -r LINE; do
-        FILE_ORIG="$(echo "${LINE}" | cut -f1 )"
-        FILE_DEST="$(echo "${LINE}" | cut -f2 )"
+        FILE_ORIG="$( echo "${LINE}" | cut -f1 )"
+        FILE_DEST="$( echo "${LINE}" | cut -f2 )"
         mv "${FILE_ORIG}" "${FILE_DEST}"
       done
 }

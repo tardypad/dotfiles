@@ -63,9 +63,9 @@ base_to_hex() {
 }
 
 hex_to_rgb() {
-  HEX_R=$(echo "$1" | cut -c 1-2)
-  HEX_G=$(echo "$1" | cut -c 3-4)
-  HEX_B=$(echo "$1" | cut -c 5-6)
+  HEX_R=$( echo "$1" | cut -c 1-2 )
+  HEX_G=$( echo "$1" | cut -c 3-4 )
+  HEX_B=$( echo "$1" | cut -c 5-6 )
 
   # use ; as a delimiter between the RGB components
   # to be able to directly use the full value inside ANSI escape sequences

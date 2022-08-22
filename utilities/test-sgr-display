@@ -403,7 +403,7 @@ print_8bit_block() {
     RGB_CODE="${BACKGROUND_RGB}"
   fi
 
-  for i in $(seq "${START}" "${END}"); do
+  for i in $( seq "${START}" "${END}" ); do
     TEXT_8BIT=$( printf ' %3s' "$i" )
     print_8bit_text "${RGB_CODE}" "${RGB_8BIT}" "$i"
   done

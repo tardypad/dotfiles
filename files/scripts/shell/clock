@@ -33,7 +33,7 @@ display_clock() {
        LOC="$( echo "${LINE}" | cut -f1 )"
        TMZ="$( echo "${LINE}" | cut -f2 )"
 
-       printf '%s\t%s\n' "${LOC}" "$( TZ="${TMZ}" date '+%a %d %b %H:%M')"
+       printf '%s\t%s\n' "${LOC}" "$( TZ="${TMZ}" date '+%a %d %b %H:%M' )"
      done \
        | column -s '	' -t
 }

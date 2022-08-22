@@ -41,17 +41,17 @@
     commit-description = "! \
         f() { \
           git log -1 $( git argument $1 ) --pretty=%b \
-          | grep -vE \"$(git config --get-regexp 'trailer.*.key' | cut -d ' ' -f2- | tr '\n' '|')^$\"; \
+          | grep -vE \"$( git config --get-regexp 'trailer.*.key' | cut -d ' ' -f2- | tr '\n' '|' )^$\"; \
         }; f"
     commit-issue-id = "! \
         f() { \
           git log -1 $( git argument $1 ) \
-            --pretty=\"%(trailers:key=$(git config trailer.issue.key),valueonly)\"; \
+            --pretty=\"%(trailers:key=$( git config trailer.issue.key),valueonly )\"; \
         }; f"
     commit-review-id = "! \
         f() { \
           git log -1 $( git argument $1 ) \
-            --pretty=\"%(trailers:key=$(git config trailer.review.key),valueonly)\" \
+            --pretty=\"%(trailers:key=$( git config trailer.review.key),valueonly )\" \
           | sed -e 's%/$%%' -e 's%.*/%%'; \
         }; f"
     commit-subject = "! \
@@ -100,9 +100,9 @@
         f() { \
           remote=\"$1\"; \
           if [ \"${remote}\" = 'origin' ]; then \
-            git push origin -u HEAD:$(git current-branch); \
+            git push origin -u HEAD:$( git current-branch ); \
           else \
-            git push \"${remote}\" HEAD:$(git current-branch); \
+            git push \"${remote}\" HEAD:$( git current-branch ); \
           fi \
         }; f"
     rb = rebase
@@ -112,7 +112,7 @@
     rbm = rebase -i master
     recent = "! \
         git for-each-ref --count=5 --sort=-committerdate --color \
-        --format \"%(HEAD) %(color:$(git config color.recent.refname))%(refname:short)%(color:reset) | %(color:$(git config color.recent.committerdate))%(committerdate:human)%(color:reset) | %(subject)\" refs/heads \
+        --format \"%(HEAD) %(color:$( git config color.recent.refname ))%(refname:short)%(color:reset) | %(color:$( git config color.recent.committerdate ))%(committerdate:human)%(color:reset) | %(subject)\" refs/heads \
         | column -t -s '|'"
     reset-upstream = reset --hard @{upstream}
     reword = commit --amend -o
@@ -141,7 +141,7 @@
     sw = switch
     tag-list = "! \
         git tag --color \
-        --format \"%(color:$(git config color.tag-list.refname))%(refname:short)%(color:reset) | %(taggerdate:iso) | %(taggeremail) | %(subject)\" \
+        --format \"%(color:$( git config color.tag-list.refname ))%(refname:short)%(color:reset) | %(taggerdate:iso) | %(taggeremail) | %(subject)\" \
         | column -t -s '|'"
     urlc = "! f() { git url -t commit -c $( git argument $1 ); }; f"
     urli = "! f() { git url -t issue -c $( git argument $1 ); }; f"
@@ -149,8 +149,8 @@
     wip = "! \
         git add -A \
         && git commit -m WIP \
-        && git push -f origin HEAD:wip-$(git current-branch) \
+        && git push -f origin HEAD:wip-$( git current-branch ) \
         && git reset HEAD~"
     wip-apply = "! \
-        git cherry-pick origin/wip-$(git current-branch) \
+        git cherry-pick origin/wip-$( git current-branch ) \
         && git reset --soft HEAD~"

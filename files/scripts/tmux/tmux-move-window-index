@@ -11,12 +11,12 @@ CURRENT_INDEX=$(
 
   if [ "${TARGET_INDEX}" -gt "${CURRENT_INDEX}" ]; then
     while [ "${INDEX}" -lt "${TARGET_INDEX}" ]; do
-      tmux swap-window -d -s :="${INDEX}" -t :=$((INDEX+1))
+      tmux swap-window -d -s :="${INDEX}" -t :=$(( INDEX + 1 ))
       INDEX=$(( INDEX + 1 ))
     done
   else
     while [ "${INDEX}" -gt "${TARGET_INDEX}" ]; do
-      tmux swap-window -d -s :="${INDEX}" -t :=$((INDEX-1))
+      tmux swap-window -d -s :="${INDEX}" -t :=$(( INDEX - 1 ))
       INDEX=$(( INDEX - 1 ))
     done
   fi
