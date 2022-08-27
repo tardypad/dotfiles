@@ -7,7 +7,6 @@ feeds() {
   feed 'Hacker News'                          'https://news.ycombinator.com/rss'
   feed 'Jolla blog'                           'https://blog.jolla.com/feed/'
   feed 'Sourcehut blog'                       'https://sourcehut.org/blog/index.xml'
-  feed 'Destroy All Software Screencasts'     'https://www.destroyallsoftware.com/screencasts/feed'
   feed 'TED Talks'                            'https://feeds.feedburner.com/tedtalks_video'
   feed 'Cory Doctorow'                        'https://pluralistic.net/feed/'
   feed 'Golang'                               'https://go.dev/blog/feed.atom'
