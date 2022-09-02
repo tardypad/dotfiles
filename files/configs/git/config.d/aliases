@@ -138,7 +138,15 @@
         }; f"
     sti = stamp issue
     str = stamp review
-    sw = switch
+    sw = "! \
+        f() {  \
+          BRANCH=\"$1\";\
+          if [ -z \"${BRANCH}\" ]; then \
+            BRANCH=\"$( git branch --format \"%(refname:lstrip=2)\" \
+                      | fzf --reverse --bind \"alt-{key/r}:change-prompt(remote> )+reload(git branch -r --format \\\"%(refname:lstrip=3)\\\" | grep -v HEAD | sort -u)\" )\"; \
+          fi; \
+          [ -n \"${BRANCH}\" ] && git switch \"${BRANCH}\"; \
+        }; f"
     tag-list = "! \
         git tag --color \
         --format \"%(color:$( git config color.tag-list.refname ))%(refname:short)%(color:reset) | %(taggerdate:iso) | %(taggeremail) | %(subject)\" \
