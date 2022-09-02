@@ -19,6 +19,7 @@
 ## git
   - [git-tips](https://github.com/git-tips/tips)
   - [git-extras](https://github.com/tj/git-extras)
+  - [forgit](https://github.com/wfxr/forgit)
 
 ## i3blocks
   - [Anachron i3blocks](https://github.com/Anachron/i3blocks)
