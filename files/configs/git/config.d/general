@@ -55,6 +55,8 @@
     templatedir = {dir/config}/git/template
 [pull]
     rebase = true
+[rebase]
+    autoStash = true
 [push]
     default = upstream
 [log]
@@ -68,6 +70,7 @@
 [difftool]
     prompt = false
 [merge]
+    autoStash = true
     tool = vimdiff
     conflictStyle = zdiff3
 [mergetool]
