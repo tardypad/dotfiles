@@ -28,5 +28,11 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-z}={A-Za-z}'
 zstyle -e ':completion:*:*:(scp|ssh):*:*' hosts 'reply=()'
 zstyle -e ':completion:*:*:(scp|ssh):*:*' known-hosts-files 'reply=()'
 
+# fzf-tab config
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+zstyle ':fzf-tab:*' fzf-flags '--info=hidden' '--color=hl:{color/base0A/number}:bold'
+zstyle ':fzf-tab:*' default-color ''
+zstyle ':fzf-tab:*' accept-line 'ctrl-{key/o}'
+
 # same completions
 compdef goto-project=project-path

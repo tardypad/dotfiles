@@ -1,4 +1,6 @@
 # order of plugins sourcing is important:
+# - fzf-tab before autosuggestions
+#   as mentioned in their doc
 # - syntax highlighting at the end
 #   because it needs all widgets to be already created
 # - history substring search after syntax highlighting
@@ -6,6 +8,10 @@
 #
 # plugin variables need to be defined after sourcing
 # because otherwise some get overwritten...
+
+## fzf-tab
+
+source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.zsh
 
 ## autosuggestions
 
