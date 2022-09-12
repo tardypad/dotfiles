@@ -1,7 +1,7 @@
 #!/bin/sh
 
 exec /usr/bin/fzf \
-  --height=20 --no-bold --marker="*" \
+  --no-bold --marker="*" \
   --color="bg:{color/background/number}" \
   --color="fg:{color/foreground/number}" \
   --color="hl:{color/base0A/number}:bold" \
