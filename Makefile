@@ -16,7 +16,6 @@ export THEME
 export THEME_FILES = $(DESTDIR)$(DATA_DIR)/theme_files
 
 include files/configs/aerc/Makefile
-include files/configs/amfora/Makefile
 include files/configs/aria2/Makefile
 include files/configs/coreutils/Makefile
 include files/configs/ctags/Makefile

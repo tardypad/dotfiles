@@ -1,5 +1,4 @@
 aerc: aerc-configs
-amfora: amfora-configs
 aria2: aria2-configs
 coreutils: coreutils-configs
 ctags: ctags-configs
