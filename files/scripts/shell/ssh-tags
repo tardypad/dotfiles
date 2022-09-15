@@ -9,10 +9,10 @@ while [ "$#" -gt 0 ]; do
   shift
 done
 
-SELECTED_HOST=$(
+SELECTED_HOSTS=$(
   query-hosts-tags hosts "${TAGS}" \
     | fzf \
-      --no-multi \
+      --multi \
       --exit-0 \
       --select-1 \
       --height=10 \
@@ -21,6 +21,11 @@ SELECTED_HOST=$(
       --preview-window='right:60%:border-left'
 )
 
-[ -n "${SELECTED_HOST}" ] || exit
+[ -n "${SELECTED_HOSTS}" ] || exit
 
-ssh "${SELECTED_HOST}"
+if [ "$( echo "${SELECTED_HOSTS}" | wc -l )" -eq 1 ]; then
+  ssh "${SELECTED_HOSTS}"
+else
+  echo "${SELECTED_HOSTS}" | xpanes -t -s -c "ssh {}"
+fi
+

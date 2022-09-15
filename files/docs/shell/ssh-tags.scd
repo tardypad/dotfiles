@@ -34,3 +34,4 @@ None
 - fzf
 - query-hosts-tags
 - ssh
+- xpanes
