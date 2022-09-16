@@ -41,6 +41,7 @@ ITEM=$(
         --header "$( printf 'Extract %s from %s\n ' "${TOKEN_TYPE}" "${TARGET}" )" \
         --header-first \
         --info hidden \
+        --border sharp \
         --reverse \
         --expect={key/return/return},ctrl-{key/open/low},ctrl-{key/search/low},ctrl-{key/yank/low}
 )

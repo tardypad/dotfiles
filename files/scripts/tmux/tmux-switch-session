@@ -7,6 +7,7 @@ SESSION=$(
         --prompt 'Switch to ' \
         --header "$( printf '\n' )" \
         --info hidden \
+        --border sharp \
         --reverse \
     | cut -d' ' -f1 \
 )
