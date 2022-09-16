@@ -143,7 +143,7 @@
           BRANCH=\"$1\";\
           if [ -z \"${BRANCH}\" ]; then \
             BRANCH=\"$( git branch --format \"%(refname:lstrip=2)\" \
-                      | fzf --reverse --bind \"alt-{key/r}:change-prompt(remote> )+reload(git branch -r --format \\\"%(refname:lstrip=3)\\\" | grep -v HEAD | sort -u)\" )\"; \
+                      | fzf --reverse --height 10 --bind \"alt-{key/r}:change-prompt(remote> )+reload(git branch -r --format \\\"%(refname:lstrip=3)\\\" | grep -v HEAD | sort -u)\" )\"; \
           fi; \
           [ -n \"${BRANCH}\" ] && git switch \"${BRANCH}\"; \
         }; f"
