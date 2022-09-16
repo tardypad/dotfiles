@@ -33,7 +33,7 @@ function s:Run()
   return fzf#run(fzf#wrap(s:history_file, {
   \ 'source': s:Snippets(),
   \ 'sink': function('s:InjectSnippet'),
-  \ 'options': [ '--prompt', s:prompt ]
+  \ 'options': [ '--prompt', s:prompt, '--layout', 'default' ]
   \}))
 endfunction
 

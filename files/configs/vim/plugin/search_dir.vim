@@ -47,7 +47,7 @@ function s:Run(word)
   \ 'source':  s:default_command . ' -- ' . a:word,
   \ 'sink*': function('s:OpenFile'),
   \ 'options': [ '-m', '-d', ':', '--with-nth', '1,4..', '--prompt', s:default_prompt,
-  \              '--ansi', '--expect', actions,
+  \              '--layout', 'default', '--ansi', '--expect', actions,
   \              '--bind', s:restricted_key . ':change-prompt(' . s:restricted_prompt . ')+reload(' . s:restricted_command . ' -- ' . a:word . ')',
   \              '--bind', s:unrestricted_key . ':change-prompt(' . s:unrestricted_prompt . ')+reload(' . s:unrestricted_command . ' -- ' . a:word . ')',
   \              '--preview', 'awk -v line={2} "{ if (NR == line) { printf(\"\x1b[{color/base01/bg}m%s\x1b[m\n\", \$0); } else printf(\"%s\n\", \$0); }" {1}',

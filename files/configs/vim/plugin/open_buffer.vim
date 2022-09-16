@@ -44,7 +44,7 @@ function s:Run()
   \ 'source': map(s:Buffers(), 's:FormatBuffer(v:val)'),
   \ 'sink*': function('s:OpenBuffer'),
   \ 'options': [ '-d', '\t', '--with-nth', '2', '--prompt', s:prompt,
-  \              '--expect', actions ]
+  \              '--layout', 'default', '--expect', actions ]
   \}))
 endfunction
 

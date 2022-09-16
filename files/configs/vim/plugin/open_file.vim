@@ -22,7 +22,7 @@ let s:unrestricted_key = 'alt-{key/u}'
 function s:Run()
   return fzf#run(fzf#wrap(s:history_file, {
   \ 'source':  s:default_command,
-  \ 'options': [ '-m', '--prompt', s:default_prompt,
+  \ 'options': [ '-m', '--prompt', s:default_prompt, '--layout', 'default',
   \              '--bind', s:restricted_key . ':change-prompt(' . s:restricted_prompt . ')+reload(' . s:restricted_command . ')',
   \              '--bind', s:unrestricted_key . ':change-prompt(' . s:unrestricted_prompt . ')+reload(' . s:unrestricted_command . ')' ]
   \}))

@@ -94,12 +94,6 @@ alias cal='cal --monday -3'
 # disable status output on completion of some commands
 alias mpc='mpc -q'
 
-# reverse fzf when used in a terminal
-# not included in FZF_DEFAULT_OPTS
-# because we don't want this when used within vim
-# (and there is no --noreverse option currently to overwrite it there)
-alias fzf='fzf --reverse'
-
 # temporary ssh usage for when connecting to rescue mode or such
 # - don't limit the identities tried for authentication
 # - don't check hash against known hosts
