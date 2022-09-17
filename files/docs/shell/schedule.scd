@@ -6,7 +6,7 @@ schedule - Print schedule
 
 # SYNOPSIS
 
-schedule [_period_]
+schedule [-d|-m|-w] [_date_]
 
 # DESCRIPTION
 
@@ -14,18 +14,23 @@ Display the schedule of a period
 
 # OPTIONS
 
-None
+*-d*
+	Display a day (default)
+
+*-m*
+	Display a month
+
+*-w*
+	Display a week
 
 # OPERANDS
 
-_period_
-	Period to display++
-valid periods:
+_date_
+	Date to define the period to display++
+examples:
 	- today
-	- week
-	- week_next
-	- month
-	- month_next
+	- +1 (implies "+1 day/week/month" depending on options)
+	- jan / feb / ... /dec
 
 # ENVIRONMENT VARIABLES
 
@@ -38,4 +43,5 @@ None
 # DEPENDENCIES
 
 - column
+- date with -d option #FIXME: This script is not POSIX compliant
 - rem

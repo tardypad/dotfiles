@@ -3,20 +3,45 @@
 init_variables() {
   COMMAND=${0##*/}
 
-  PERIOD='today'
+  PERIOD='day'
+  DATE=
+  FINAL_DATE=
 }
 
 parse_command_line() {
-  [ -z "$1" ] || PERIOD="$1"
+  while getopts dmw OPT; do
+    case "${OPT}" in
+      d) PERIOD='day' ;;
+      m) PERIOD='month' ;;
+      w) PERIOD='week' ;;
+      ?) exit_error ;;
+    esac
+  done
+
+  shift $(( OPTIND - 1 ))
+
+  [ -z "$1" ] || DATE="$1"
 }
 
 validate_command_line() {
-  if [ "${PERIOD}" != 'today' ] \
-     && [ "${PERIOD}" != 'week' ] \
-     && [ "${PERIOD}" != 'week_next' ] \
-     && [ "${PERIOD}" != 'month' ] \
-     && [ "${PERIOD}" != 'month_next' ]; then
-    exit_error "Invalid period '${PERIOD}'"
+  # shellcheck disable=SC2221 disable=SC2222
+  case "$( echo "${DATE}" | tr '[:upper:]' '[:lower:]' )" in
+    [+-][0-9]*)
+      FINAL_DATE="$( date '+%Y/%m/%d' -d "${DATE} ${PERIOD}" )"
+      ;;
+    jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)
+      FINAL_DATE="$( date '+%Y/%m/%d' -d "01 ${DATE}" )"
+      ;;
+    january|february|march|april|may|june|july|august|september|october|november|december)
+      FINAL_DATE="$( date '+%Y/%m/%d' -d "01 ${DATE}" )"
+      ;;
+    *)
+      FINAL_DATE="$( date '+%Y/%m/%d' -d "${DATE}" )"
+      ;;
+  esac 2> /dev/null
+
+  if [ -z "${FINAL_DATE}" ]; then
+    exit_error "Invalid date '${DATE}'"
   fi
 }
 
@@ -25,9 +50,9 @@ exit_error() {
   exit 1
 } >&2
 
-schedule_today() {
-  rem -s -b1 \
-    | grep "$( date +%Y/%m/%d )" \
+schedule_day() {
+  rem -s -b1 "${FINAL_DATE}" \
+    | grep "${FINAL_DATE}" \
     | cut -d' ' -f6- \
     | sed -e 's/\(.*\) (.*)$/\1/' \
           -e '/^[0-9]/s/ /\t/' \
@@ -38,21 +63,11 @@ schedule_today() {
 }
 
 schedule_week() {
-  rem -cu+1 -b1 -m
-}
-
-schedule_week_next() {
-  rem -cu+2 -b1 -m -w"$( tput cols )" \
-    | awk '/^├/ {p+=1} p!=1'
+  rem -cu+1 -b1 -m "${FINAL_DATE}"
 }
 
 schedule_month() {
-  rem -cu1 -b1 -m
-}
-
-schedule_month_next() {
-  rem -cu2 -b1 -m -w"$( tput cols )" \
-    | awk '// {p=1; print substr($1,2); next} p'
+  rem -cu1 -b1 -m "${FINAL_DATE}"
 }
 
 init_variables

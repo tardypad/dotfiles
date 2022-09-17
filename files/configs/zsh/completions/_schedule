@@ -1,16 +1,30 @@
 #compdef schedule
 
-_periods() {
-  local periods=(
+_dates() {
+  local dates=(
     today
-    week
-    week_next
-    month
-    month_next
+    +1
+    +2
+    +3
+    january
+    february
+    march
+    april
+    may
+    june
+    july
+    august
+    september
+    october
+    november
+    december
   )
 
-  compadd "$@" $periods
+  compadd "$@" $dates
 }
 
 _arguments \
-  '1:period:_periods'
+  '-d[display a day]' \
+  '-m[display a month]' \
+  '-w[display a week]' \
+  '1:date:_dates'
