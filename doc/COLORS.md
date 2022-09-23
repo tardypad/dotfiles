@@ -4,8 +4,9 @@ See base colors for [dark](../config/colors/base_dark)
 and [light](../config/colors/base_light) schemes
 and also [aliases](../config/colors/aliases) common to both.
 
-For the base colors, only the first 4 columns are used during the
-substitution process. The other fields are only extra information.
+For the base colors, only the BASE, HEX, 16, ANSI NAME and RGB
+columns are used during the substitution process. The other
+fields are only extra information.
 
 Colors were chosen initially from HCL values
 (in GIMP which is using D50 reference point)
@@ -45,5 +46,6 @@ FORMAT is one of:
 - "fg" (ANSI foreground code)
 - "bg" (ANSI background code)
 - "number" (ANSI 16 colors number)
+- "rgb" (red green blue)
 
 "{color/theme}" is also used to output the current theme name.

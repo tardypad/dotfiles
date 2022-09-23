@@ -44,6 +44,14 @@ mkdir -p build
     echo "s|{color/base0${INDEX}/hex}|${BASE_HEX}|g"
   done
 
+  # rgb final conversion
+  for i in $( seq 0 15 )
+  do
+    INDEX=$( printf '%X' "$i" )
+    RGB=$( sed -n "s/| base0${INDEX} | #[[:alnum:]]* | *[[:digit:]]* | [[:alpha:]]* *| [^|]* | \([^|]*\) | .*/\1/p" "${BASE_COLORS_FILE}" )
+    echo "s|{color/base0${INDEX}/rgb}|${RGB}|g"
+  done
+
   # fixed intermediate conversion
   # for color name via 16 color number
   echo 's|{color/base0\([[:alnum:]]\)/name}|{color/number_{color/base0\1/number}/name}|g'
