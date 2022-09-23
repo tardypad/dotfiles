@@ -1,8 +1,8 @@
 # make backups on external drives each Tuesday
-REM Tue MSG Make backups
+REM Tue SPECIAL COLOR {color/notice/rgb} Make backups
 
 # update all systems on first Wednesday of each month
-REM Wed 1 MSG Update all systems
+REM Wed 1 SPECIAL COLOR {color/notice/rgb} Update all systems
 
 # declare and settle expenses from previous month on the 1st of each month
-REM 1 MSG Declare and settle expenses
+REM 1 SPECIAL COLOR {color/warning/rgb} Declare and settle expenses
