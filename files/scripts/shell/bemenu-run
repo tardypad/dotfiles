@@ -7,6 +7,8 @@ exec /usr/bin/bemenu-run \
   --tf '#{color/base00/hex}' \
   --fb '#{color/base09/hex}' \
   --ff '#{color/base00/hex}' \
+  --cb '#{color/base09/hex}' \
+  --cf '#{color/base00/hex}' \
   --nb '#{color/popup_background/hex}' \
   --nf '#{color/popup_foreground/hex}' \
   --hb '#{color/current_item/hex}' \
