@@ -53,6 +53,7 @@ exit_error() {
 schedule_day() {
   rem -s -b1 "${FINAL_DATE}" \
     | grep "${FINAL_DATE}" \
+    | sed 's/COLOR .* [0-9]\{1,3\} [0-9]\{1,3\} [0-9]\{1,3\} /* * * * /' \
     | cut -d' ' -f6- \
     | sed -e 's/\(.*\) (.*)$/\1/' \
           -e '/^[0-9]/s/ /\t/' \
@@ -63,11 +64,11 @@ schedule_day() {
 }
 
 schedule_week() {
-  rem -cu+1 -b1 -m "${FINAL_DATE}"
+  rem -cu+1 -@2 -b1 -m "${FINAL_DATE}"
 }
 
 schedule_month() {
-  rem -cu1 -b1 -m "${FINAL_DATE}"
+  rem -cu1 -@2 -b1 -m "${FINAL_DATE}"
 }
 
 init_variables
