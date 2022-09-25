@@ -1,3 +1,4 @@
 BANNER %
 
 INCLUDE {dir/config}/remind/
+INCLUDE {dir/config}/remind/notifications/
