@@ -98,6 +98,12 @@ alias cal='cal --monday -3'
 # disable status output on completion of some commands
 alias mpc='mpc -q'
 
+# delta features
+alias dlt="export DELTA_FEATURES='+'"
+alias dlt-ln="export DELTA_FEATURES='+line-numbers'"
+alias dlt-sbs="export DELTA_FEATURES='+side-by-side'"
+alias dlt-sbs-ln="export DELTA_FEATURES='+side-by-side-line-numbers'"
+
 # temporary ssh usage for when connecting to rescue mode or such
 # - don't limit the identities tried for authentication
 # - don't check hash against known hosts
