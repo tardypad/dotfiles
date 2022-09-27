@@ -62,7 +62,7 @@
 [log]
     decorate = false
 [core]
-    pager = /usr/share/git/diff-highlight/diff-highlight | less -FX -x4
+    pager = delta
 [tag]
     sort = version:refname
 [diff]
@@ -75,3 +75,42 @@
     conflictStyle = zdiff3
 [mergetool]
     prompt = false
+[delta]
+    {color/theme} = true
+    blame-code-style = ""
+    blame-separator-format = "┆{n:^4}"
+    blame-separator-style = {color/base03/number}
+    file-decoration-style = ol
+    file-modified-label = "modified:"
+    hunk-header-decoration-style = ""
+    hunk-header-style = {color/base0A/number}
+    hunk-label= "---"
+    keep-plus-minus-markers = true
+    line-numbers-left-style = {color/base03/number}
+    line-numbers-minus-style = {color/delete/number}
+    line-numbers-plus-style = {color/add/number}
+    line-numbers-right-style = {color/base03/number}
+    line-numbers-zero-style = {color/base03/number}
+    minus-emph-style = {color/delete/number} ul
+    minus-non-emph-style = normal
+    minus-style = {color/delete/number}
+    navigate = true
+    pager = less -FX
+    plus-emph-style = {color/add/number} ul
+    plus-non-emph-style = normal
+    plus-style = {color/add/number}
+    width = variable
+    zero-style = normal
+[delta "line-numbers"]
+    line-numbers = true
+    line-numbers-left-format = "{nm:^4}⋮"
+    line-numbers-right-format = "{np:^4}┆"
+[delta "side-by-side"]
+    side-by-side = true
+    line-numbers = true
+    line-numbers-left-format = ""
+    line-numbers-right-format = "┆"
+[delta "side-by-side-line-numbers"]
+    side-by-side = true
+    line-numbers-left-format = "{nm:^4}┆"
+    line-numbers-right-format = "{np:^4}┆"
