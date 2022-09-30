@@ -1,5 +1,6 @@
 aerc: aerc-configs
 aria2: aria2-configs
+bat: bat-configs
 coreutils: coreutils-configs
 ctags: ctags-configs
 fontconfig: fontconfig-configs
