@@ -37,11 +37,11 @@ nnoremap          <Leader>{key/buffer}{key/rename}    :write<Space>
 let g:tmux_navigator_no_mappings = 1
 
 " use same tmux custom mappings with the Alt key
-nnoremap <silent> {key/left}      :TmuxNavigateLeft<cr>
-nnoremap <silent> {key/down}      :TmuxNavigateDown<cr>
-nnoremap <silent> {key/up}        :TmuxNavigateUp<cr>
-nnoremap <silent> {key/right}     :TmuxNavigateRight<cr>
-nnoremap <silent> {key/alternate} :TmuxNavigatePrevious<cr>
+noremap <silent> {key/left}      :<c-u>TmuxNavigateLeft<cr>
+noremap <silent> {key/down}      :<c-u>TmuxNavigateDown<cr>
+noremap <silent> {key/up}        :<c-u>TmuxNavigateUp<cr>
+noremap <silent> {key/right}     :<c-u>TmuxNavigateRight<cr>
+noremap <silent> {key/alternate} :<c-u>TmuxNavigatePrevious<cr>
 
 tnoremap <silent> {key/left}      <c-\><c-n>:TmuxNavigateLeft<cr>
 tnoremap <silent> {key/down}      <c-\><c-n>:TmuxNavigateDown<cr>
