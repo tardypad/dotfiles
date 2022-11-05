@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# shellcheck disable=SC2009
+if ps -A -o args | grep -q '^/usr/bin/bemenu'; then
+  exit 1
+fi
+
 exec /usr/bin/bemenu-run \
   -i -l 10 -CT \
   --fn 'Source Sans Pro 14' \
