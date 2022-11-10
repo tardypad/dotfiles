@@ -25,7 +25,9 @@ validate_command_line() {
     exit_error "Invalid action '${ACTION}'"
   fi
 
-  if [ "${ACTION}" = 'connect' ] || [ "${ACTION}" = 'send' ]; then
+  if [ "${ACTION}" = 'connect' ] \
+     || [ "${ACTION}" = 'disconnect' ] \
+     || [ "${ACTION}" = 'send' ]; then
     if [ -z "${DEVICE_ALIAS}" ]; then
       exit_error "Missing device alias"
     fi
@@ -55,12 +57,7 @@ bluetooth_connect() {
 }
 
 bluetooth_disconnect() {
-  if [ -n "${DEVICE_ALIAS}" ]; then
-    bluetoothctl disconnect "$( device_mac "${DEVICE_ALIAS}" )"
-  else
-    bluetoothctl disconnect
-  fi
-
+  bluetoothctl disconnect "$( device_mac "${DEVICE_ALIAS}" )"
   update_i3blocks
 }
 

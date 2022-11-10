@@ -8,7 +8,7 @@ bluetooth - Bluetooth commands
 
 bluetooth *connect* _device_alias_
 
-bluetooth *disconnect* [ _device_alias_ ]
+bluetooth *disconnect* _device_alias_
 
 bluetooth *receive*
 
