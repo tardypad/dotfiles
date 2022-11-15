@@ -31,7 +31,7 @@ def get_buffers():
     if infolist:
         while weechat.infolist_next(infolist):
             number = weechat.infolist_integer(infolist, "number")
-            name = weechat.infolist_string(infolist, "short_name")
+            name = weechat.string_remove_color(weechat.infolist_string(infolist, "short_name"), "")
             buffers.append({"number": number, "name": name})
         weechat.infolist_free(infolist)
     return buffers
