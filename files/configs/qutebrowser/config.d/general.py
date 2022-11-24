@@ -39,6 +39,9 @@ c.search.wrap = False
 # only show history items and filesystem in "open" completion
 c.completion.open_categories = [ "history", "filesystem" ]
 
+# Disable videos automatic play
+c.content.autoplay = False
+
 # Disable some websites requests, don't even ask for it
 c.content.notifications.enabled = False
 c.content.geolocation           = False
