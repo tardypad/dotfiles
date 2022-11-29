@@ -15,7 +15,7 @@ tmux -L "${SOCKET}" \
 tmux -L "${SOCKET}" \
   split-window -dh \
   -c "${WEE_MOST_PATH}" \
-  "find -type f -name '*.py' | entr make"
+  "echo wee_most.py | entr make"
 
 tmux -L "${SOCKET}" \
   new-window \
@@ -23,8 +23,7 @@ tmux -L "${SOCKET}" \
   -c "${WEE_MOST_PATH}" \
   "vim \
     -c 'TabooRename TODO' \
-    -c 'tabnew' \
-    -- TODO.md"
+    -p TODO.md wee_most.py"
 
 tmux -L "${SOCKET}" \
   new-window \
