@@ -58,8 +58,6 @@ status_theme() {
 }
 
 set_theme() (
-  echo 'Configuring theme...' >&2
-
   while read -r FILE; do
     ln -sf "$( basename "${FILE}" )-${THEME}" "${FILE}"
   done < "${THEME_FILES}"
@@ -78,8 +76,6 @@ toggle_theme() {
 }
 
 reload_system() {
-  echo 'Reloading system...' >&2
-
   pgrep -x sway > /dev/null && swaymsg reload
 
   pgrep -x mako > /dev/null && makoctl reload
