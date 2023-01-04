@@ -1,6 +1,9 @@
 # ring bell
 alias bell="printf '\a'"
 
+# disable leaky writes in current shell
+alias noleak="unset HISTFILE"
+
 # Prompt before overwrite/removal
 alias mv='mv -i'
 alias cp='cp -i'
