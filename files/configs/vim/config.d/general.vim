@@ -130,5 +130,8 @@ command Cdf cd %:p:h
 command FR set spelllang=fr | set digraph
 command EN set spelllang=en | set nodigraph
 
+" alias to disable any write in extra files
+command NOLEAK set nobackup | set nowritebackup | set noswapfile | set viminfo= | set noundofile
+
 " reload config on USR1 signal
 autocmd SigUSR1 * :source $MYVIMRC
