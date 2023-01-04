@@ -58,6 +58,7 @@ include files/data/env/Makefile
 include files/data/images/Makefile
 include files/data/keywords/Makefile
 include files/data/sounds/Makefile
+include files/data/tasks/Makefile
 
 include files/docs/git/Makefile
 include files/docs/shell/Makefile
