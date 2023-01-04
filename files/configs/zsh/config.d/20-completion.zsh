@@ -33,6 +33,7 @@ zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 zstyle ':fzf-tab:*' fzf-flags '--info=hidden' '--color=hl:{color/base0A/number}:bold'
 zstyle ':fzf-tab:*' default-color ''
 zstyle ':fzf-tab:*' accept-line 'ctrl-{key/o}'
+zstyle ':fzf-tab:*' popup-smart-tab false
 
 # same completions
 compdef goto-project=project-path
