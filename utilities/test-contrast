@@ -92,6 +92,7 @@ test_contrast() {
   print_contrast base0C base00
   print_contrast base0D base00
   print_contrast base0E base00
+  print_contrast base0F base00
 
   printf '\n'
   print_contrast base03 base01
@@ -106,6 +107,7 @@ test_contrast() {
   print_contrast base0C base01
   print_contrast base0D base01
   print_contrast base0E base01
+  print_contrast base0F base01
 }
 
 init_variables
