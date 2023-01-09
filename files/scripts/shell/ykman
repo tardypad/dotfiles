@@ -1,0 +1,42 @@
+#!/bin/sh
+
+# seems that only one oath command can be launched at a time
+# the second one would fail with an exception
+# so we don't need to support multiple status files
+OATH_FILE_PATH="${XDG_RUNTIME_DIR:-/tmp}/yubikey_oath"
+
+OATH_CODE_NAME=
+
+start_oath_touch() {
+  echo "${OATH_CODE_NAME}" > "${OATH_FILE_PATH}"
+}
+
+end_oath_touch() {
+  rm -f "${OATH_FILE_PATH}"
+}
+
+status_oath_touch() {
+  if ! [ -f "${OATH_FILE_PATH}" ]; then
+    echo 'not waiting'
+  else
+    cat "${OATH_FILE_PATH}"
+  fi
+}
+
+if [ "$1" = 'oath' ] && [ "$2" = 'touch' ]; then
+  status_oath_touch
+  exit
+fi
+
+case "$@" in
+  # only support the exact command we use internally
+  oath\ accounts\ code\ -s\ *)
+    OATH_CODE_NAME="$5"
+    ;;
+esac
+
+[ -n "${OATH_CODE_NAME}" ] && start_oath_touch
+
+/usr/bin/ykman "$@"
+
+[ -n "${OATH_CODE_NAME}" ] && end_oath_touch

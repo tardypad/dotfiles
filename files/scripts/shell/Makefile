@@ -57,3 +57,4 @@ shell-scripts:
 	setup/setup-script shell/url
 	setup/setup-script shell/weechat-fifo
 	setup/setup-script shell/xdg-open
+	setup/setup-script shell/ykman
