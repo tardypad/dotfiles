@@ -1,0 +1,21 @@
+#!/bin/sh
+# commands used:
+# - i3blocks-mode
+# - ykman (wrapper)
+
+MODE="$( i3blocks-mode )"
+
+OATH_TOUCH_STATUS="$( ykman oath touch )"
+
+[ "${OATH_TOUCH_STATUS}" = 'not waiting' ] && exit 0
+
+if [ "${MODE}" = 'full' ]; then
+  TEXT=" ${OATH_TOUCH_STATUS}"
+else
+  TEXT=''
+fi
+
+COLOR_FG='#{color/base00/hex}'
+COLOR_BG='#{color/alert/hex}'
+
+printf '%s\n\n%s\n%s\n' " ${TEXT} " "${COLOR_FG}" "${COLOR_BG}"

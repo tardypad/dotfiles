@@ -16,3 +16,4 @@ i3blocks-scripts:
 	setup/setup-script i3blocks/i3blocks-volume
 	setup/setup-script i3blocks/i3blocks-vpn
 	setup/setup-script i3blocks/i3blocks-webcam
+	setup/setup-script i3blocks/i3blocks-yubikey

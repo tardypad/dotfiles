@@ -7,6 +7,15 @@ separator_block_width=20
 
 COLOR=#{color/base09/hex}
 
+[yubikey]
+interval=0
+signal=10
+
+[separator]
+command=
+full_text=​
+separator_block_width=50
+
 [task]
 signal=6
 

@@ -8,11 +8,13 @@ OATH_FILE_PATH="${XDG_RUNTIME_DIR:-/tmp}/yubikey_oath"
 OATH_CODE_NAME=
 
 start_oath_touch() {
-  echo "${OATH_CODE_NAME}" > "${OATH_FILE_PATH}"
+  echo "${OATH_CODE_NAME}" > "${OATH_FILE_PATH}" \
+    && update_i3blocks
 }
 
 end_oath_touch() {
-  rm -f "${OATH_FILE_PATH}"
+  rm -f "${OATH_FILE_PATH}" \
+    && update_i3blocks
 }
 
 status_oath_touch() {
@@ -21,6 +23,10 @@ status_oath_touch() {
   else
     cat "${OATH_FILE_PATH}"
   fi
+}
+
+update_i3blocks() {
+  pkill -x -RTMIN+10 i3blocks
 }
 
 if [ "$1" = 'oath' ] && [ "$2" = 'touch' ]; then
