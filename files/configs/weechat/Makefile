@@ -14,6 +14,7 @@ weechat-configs:
 	setup/setup-config weechat/config.d/relay.conf                       $(CONFIG_DIR)/weechat/relay.conf
 	setup/setup-config weechat/config.d/script.conf                      $(CONFIG_DIR)/weechat/script.conf
 	setup/setup-config weechat/config.d/trigger.conf                     $(CONFIG_DIR)/weechat/trigger.conf
+	setup/setup-config weechat/config.d/typing.conf                      $(CONFIG_DIR)/weechat/typing.conf
 	setup/setup-config weechat/config.d/weechat.conf                     $(CONFIG_DIR)/weechat/weechat.conf
 	setup/setup-config weechat/config.d/xfer.conf                        $(CONFIG_DIR)/weechat/xfer.conf
 	setup/setup-config weechat/plugins/edit_vim_tmux.py                  $(DATA_DIR)/weechat/python/edit_vim_tmux.py
