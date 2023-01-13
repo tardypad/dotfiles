@@ -15,4 +15,4 @@ fileext = ".vcf"
 type = "carddav"
 url = "https://carl.tardypad.me/"
 username = "damien"
-password.fetch = ["shell", "pass perso/tardypad.me/carl | sed 1q"]
+password.fetch = ["shell", "pass show perso/tardypad.me/carl | sed 1q"]

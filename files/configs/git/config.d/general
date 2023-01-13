@@ -12,7 +12,7 @@
     smtpencryption = tls
     smtpserverport = 587
 [credential "smtp://damien%40tardypad.me@smtp.migadu.com%3a587"]
-    helper = !pass perso/git/migadu
+    helper = !pass show perso/git/migadu
 [url "chestnut:~/repos/"]
     insteadOf = perso:
 [url "sourcehut:~"]

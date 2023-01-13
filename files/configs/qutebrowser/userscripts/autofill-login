@@ -42,7 +42,7 @@ if [ -z "${PASS_ID}" ]; then
   exit_warning "No existing credentials for ${QUTE_URL}"
 fi
 
-SECRETS="$( pass "${PASS_ID}" )"
+SECRETS="$( pass show "${PASS_ID}" )"
 
 if [ -z "${SECRETS}" ]; then
   exit_error "Invalid pass identifier ${PASS_ID} for ${QUTE_URL}"
