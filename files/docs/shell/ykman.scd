@@ -34,4 +34,4 @@ _$XDG_RUNTIME_DIR/yubikey_oath_
 
 # DEPENDENCIES
 
-None
+- pkill
