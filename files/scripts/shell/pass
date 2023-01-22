@@ -1,0 +1,46 @@
+#!/bin/sh
+
+PGP_FILE_PATH="${XDG_RUNTIME_DIR:-/tmp}/yubikey_pgp"
+
+TMP_FILE="$( mktemp )"
+trap 'rm -f "${TMP_FILE}"' EXIT
+
+PGP_CODE_NAME=
+
+start_pgp_touch() {
+  echo "${PGP_CODE_NAME}" >> "${PGP_FILE_PATH}"
+}
+
+end_pgp_touch() {
+  # remove only one occurence of the pass name
+  PGP_CODE_NAME_ESC="$( echo "${PGP_CODE_NAME}" | sed 's#/#\\/#g' )"
+  awk "!/${PGP_CODE_NAME_ESC}/ || f++" "${PGP_FILE_PATH}" > "${TMP_FILE}" \
+    && cp "${TMP_FILE}" "${PGP_FILE_PATH}"
+}
+
+status_pgp_touch() {
+  if ! [ -f "${PGP_FILE_PATH}" ] || ! [ -s "${PGP_FILE_PATH}" ] ; then
+    echo 'not waiting'
+  else
+    cat "${PGP_FILE_PATH}"
+  fi
+}
+
+case "$@" in
+  touch)
+    status_pgp_touch
+    exit
+    ;;
+  show\ -c\ *)
+    PGP_CODE_NAME="$3"
+    ;;
+  show\ *)
+    PGP_CODE_NAME="$2"
+    ;;
+esac
+
+[ -n "${PGP_CODE_NAME}" ] && start_pgp_touch
+
+/usr/bin/pass "$@"
+
+[ -n "${PGP_CODE_NAME}" ] && end_pgp_touch
