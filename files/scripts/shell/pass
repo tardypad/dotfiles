@@ -8,14 +8,16 @@ trap 'rm -f "${TMP_FILE}"' EXIT
 PGP_CODE_NAME=
 
 start_pgp_touch() {
-  echo "${PGP_CODE_NAME}" >> "${PGP_FILE_PATH}"
+  echo "${PGP_CODE_NAME}" >> "${PGP_FILE_PATH}" \
+    && update_i3blocks
 }
 
 end_pgp_touch() {
   # remove only one occurence of the pass name
   PGP_CODE_NAME_ESC="$( echo "${PGP_CODE_NAME}" | sed 's#/#\\/#g' )"
   awk "!/${PGP_CODE_NAME_ESC}/ || f++" "${PGP_FILE_PATH}" > "${TMP_FILE}" \
-    && cp "${TMP_FILE}" "${PGP_FILE_PATH}"
+    && cp "${TMP_FILE}" "${PGP_FILE_PATH}" \
+    && update_i3blocks
 }
 
 status_pgp_touch() {
@@ -24,6 +26,10 @@ status_pgp_touch() {
   else
     cat "${PGP_FILE_PATH}"
   fi
+}
+
+update_i3blocks() {
+  pkill -x -RTMIN+10 i3blocks
 }
 
 case "$@" in

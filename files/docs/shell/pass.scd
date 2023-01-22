@@ -39,3 +39,4 @@ _$XDG_RUNTIME_DIR/yubikey_gpg_
 # DEPENDENCIES
 
 - mktemp
+- pkill

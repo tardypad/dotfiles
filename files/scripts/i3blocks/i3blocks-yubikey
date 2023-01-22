@@ -1,16 +1,27 @@
 #!/bin/sh
 # commands used:
 # - i3blocks-mode
+# - pass (wrapper)
 # - ykman (wrapper)
 
 MODE="$( i3blocks-mode )"
 
 OATH_TOUCH_STATUS="$( ykman oath touch )"
+PGP_TOUCH_STATUS="$( pass touch )"
 
-[ "${OATH_TOUCH_STATUS}" = 'not waiting' ] && exit 0
+# it's currently not possible for both OATH and PGP to be waiting for touch
+if [ "${OATH_TOUCH_STATUS}" = 'not waiting' ]; then
+  if [ "${PGP_TOUCH_STATUS}" = 'not waiting' ]; then
+    exit 0
+  else
+    TOUCH_STATUS="PGP: $( echo "${PGP_TOUCH_STATUS}" | paste -sd, )"
+  fi
+else
+  TOUCH_STATUS="OATH: ${OATH_TOUCH_STATUS}"
+fi
 
 if [ "${MODE}" = 'full' ]; then
-  TEXT=" ${OATH_TOUCH_STATUS}"
+  TEXT=" ${TOUCH_STATUS}"
 else
   TEXT=''
 fi
