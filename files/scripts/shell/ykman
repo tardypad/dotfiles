@@ -35,7 +35,6 @@ if [ "$1" = 'oath' ] && [ "$2" = 'touch' ]; then
 fi
 
 case "$@" in
-  # only support the exact command we use internally
   oath\ accounts\ code\ -s\ *)
     OATH_CODE_NAME="$5"
     ;;

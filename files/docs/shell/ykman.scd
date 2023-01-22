@@ -12,6 +12,8 @@ see *ykman --help*
 
 Yubikey manager wrapper for OATH touch notifications
 
+Only supports the exact commands used internally.
+
 # OPTIONS
 
 No change
