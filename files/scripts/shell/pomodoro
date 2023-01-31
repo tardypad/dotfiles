@@ -105,7 +105,6 @@ session_end() {
 
 notify_end_pomodoro() {
   notify \
-    -t 60 \
     -c 'notice' \
     -s "${XDG_DATA_HOME:-$HOME/.local/share}/sounds/end_pomodoro.ogg" \
     'Pomodoro end' \
