@@ -25,17 +25,19 @@ exit_error() {
   exit 1
 } >&2
 
-build_cache() {
-  find "${HOME}" \
-    ! -path "${HOME}/\.*" \
+find_docs() {
+  find "$1" \
+    ! -path "$1/\.*" \
     -type f \( \
        -name '*.pdf'  \
     -o -name '*.docx' \
     -o -name '*.pptx' \
     -o -name '*.xlsx' \
-    \) \
-    | sort \
-    > "${CACHE_DOCS_PATH}"
+    \)
+} 2> /dev/null
+
+build_cache() {
+  find_docs "${HOME}" > "${CACHE_DOCS_PATH}"
 }
 
 init_variables
@@ -49,7 +51,11 @@ fi
 [ -f "${CACHE_DOCS_PATH}" ] || build_cache
 
 DOC_PATH=$(
-  bemenu -p 'Open document' < "${CACHE_DOCS_PATH}"
+  {
+    cat "${CACHE_DOCS_PATH}";
+    find_docs "${XDG_DOWNLOAD_DIR:-$HOME/Downloads}";
+  } | sort \
+    | bemenu -p 'Open document'
 )
 
 [ -n "${DOC_PATH}" ] || exit
