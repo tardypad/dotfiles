@@ -4,6 +4,7 @@ exec /usr/bin/fzf \
   --no-bold --marker="*" \
   --layout=reverse \
   --no-separator \
+  --no-scrollbar \
   --color="bg:{color/background/number}" \
   --color="fg:{color/foreground/number}" \
   --color="hl:{color/base0A/number}:bold" \
