@@ -6,7 +6,7 @@ if exists('g:loaded_remove_trailing_spaces')
 endif
 let g:loaded_remove_trailing_spaces = 1
 
-let s:excluded_filetypes = [ 'markdown' ]
+let s:excluded_filetypes = [ 'markdown', 'mail' ]
 
 function s:StripTrailingWhitespace()
   if &ft =~ join(s:excluded_filetypes, '\|')
