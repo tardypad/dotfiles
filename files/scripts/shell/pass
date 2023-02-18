@@ -43,6 +43,9 @@ case "$@" in
   show\ *)
     PGP_CODE_NAME="$2"
     ;;
+  edit\ *)
+    PGP_CODE_NAME="$2"
+    ;;
 esac
 
 [ -n "${PGP_CODE_NAME}" ] && start_pgp_touch
