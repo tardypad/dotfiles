@@ -12,6 +12,7 @@ feeds() {
   feed 'Golang'                               'https://go.dev/blog/feed.atom'
   feed 'Drew DeVault'                         'https://drewdevault.com/blog/index.xml'
   feed 'Simon Ser'                            'https://emersion.fr/blog/rss.xml'
+  feed 'Hugo Barrera'                         'https://whynothugo.nl/posts.xml'
   feed 'Nikita Prokopov'                      'https://tonsky.me/blog/atom.xml'
   feed 'Martin Fowler'                        'https://martinfowler.com/feed.atom'
   feed 'Henrik Kniberg'                       'https://blog.crisp.se/author/henrikkniberg/feed'
