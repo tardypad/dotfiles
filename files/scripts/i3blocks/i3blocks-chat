@@ -1,5 +1,6 @@
 #!/bin/sh
 # commands used:
+# - do-not-disturb
 # - i3blocks-mode
 # - pidof
 
@@ -19,7 +20,10 @@ else
 fi
 
 if [ "${COUNT}" -gt 0 ]; then
-  COLOR='#{color/notice/hex}'
+  # do not set notice color if we are busy not to get tempted to check chat
+  if [ "$( do-not-disturb status )" = 'disabled' ]; then
+    COLOR='#{color/notice/hex}'
+  fi
 fi
 
 if [ "${MODE}" = 'full' ]; then
