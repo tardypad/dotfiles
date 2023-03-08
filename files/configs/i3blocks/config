@@ -16,6 +16,9 @@ command=
 full_text=​
 separator_block_width=50
 
+[do-not-disturb]
+signal=3
+
 [task]
 signal=6
 
@@ -57,9 +60,6 @@ signal=8
 
 [night-mode]
 signal=9
-
-[do-not-disturb]
-signal=3
 
 [datetime]
 command=date +"%a %e %b %H:%M"
