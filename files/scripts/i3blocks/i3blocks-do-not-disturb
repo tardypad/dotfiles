@@ -2,12 +2,11 @@
 # commands used:
 # - do-not-disturb
 
-if [ "$( do-not-disturb status )" = 'enabled' ]; then
-  COLOR='#{color/notice/hex}'
-  TEXT=''
-else
-  COLOR='#{color/base0C/hex}'
-  TEXT=''
+if [ "$( do-not-disturb status )" = 'disabled' ]; then
+  exit 0
 fi
+
+COLOR='#{color/notice/hex}'
+TEXT=''
 
 printf '%s\n\n%s\n' "${TEXT}" "${COLOR}"
