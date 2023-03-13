@@ -54,7 +54,7 @@ DOC_PATH=$(
   {
     cat "${CACHE_DOCS_PATH}";
     find_docs "${XDG_DOWNLOAD_DIR:-$HOME/Downloads}";
-  } | sort \
+  } | sort -u \
     | bemenu -p 'Open document'
 )
 
