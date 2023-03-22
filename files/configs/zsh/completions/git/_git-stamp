@@ -1,0 +1,17 @@
+#compdef git-stamp
+#description stamp the last commit with a trailer
+
+_trailers() {
+  local trailers=(
+    close
+    fix
+    implement
+    reference
+    review
+  )
+
+  compadd "$@" $trailers
+}
+
+_arguments \
+  '1:trailer:_trailers'

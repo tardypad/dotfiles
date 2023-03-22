@@ -53,6 +53,7 @@ zsh-configs:
 	setup/setup-config zsh/completions/git/_git-run-command                                       $(HOME)/.zsh/completions/git/_git-run-command
 	setup/setup-config zsh/completions/git/_git-sed                                               $(HOME)/.zsh/completions/git/_git-sed
 	setup/setup-config zsh/completions/git/_git-semantic-tag                                      $(HOME)/.zsh/completions/git/_git-semantic-tag
+	setup/setup-config zsh/completions/git/_git-stamp                                             $(HOME)/.zsh/completions/git/_git-stamp
 	setup/setup-config zsh/completions/git/_git-url                                               $(HOME)/.zsh/completions/git/_git-url
 	setup/setup-config zsh/functions/dirsum                                                       $(HOME)/.zsh/functions/dirsum
 	setup/setup-config zsh/functions/goto-project                                                 $(HOME)/.zsh/functions/goto-project
