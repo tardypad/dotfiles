@@ -42,14 +42,20 @@
     commitUrl = https://www.github.com/{repo_path}/commit/{commit_id}
     issueUrl = https://www.github.com/{repo_path}/issues/{issue_id}
 [trailer]
-	separators = ":#"
-	where = after
-	ifexists = addIfDifferent
-[trailer "issue"]
-	key = "Issue #"
+    separators = ":#"
+    where = after
+    ifexists = addIfDifferent
+[trailer "close"]
+    key = Closes
+[trailer "fix"]
+    key = Fixes
+[trailer "implement"]
+    key = Implements
+[trailer "reference"]
+    key = References
 [trailer "review"]
-	key = Reviewed-at
-	ifexists = replace
+    key = Reviewed-at
+    ifexists = replace
 [init]
     defaultBranch = master
     templatedir = {dir/config}/git/template

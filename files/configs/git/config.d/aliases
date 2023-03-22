@@ -136,8 +136,6 @@
           git commit --amend --no-edit -o --trailer \"$1=$2\" > /dev/null; \
           git log -1 --pretty=%B; \
         }; f"
-    sti = stamp issue
-    str = stamp review
     sw = "! \
         f() {  \
           BRANCH=\"$1\";\
