@@ -17,7 +17,7 @@ let g:ale_sign_style_warning = '!'
 
 "" oscyank
 
-autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | OSCYankReg " | endif
+autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankRegister "' | endif
 
 " silent copy
 let g:oscyank_silent = v:true
