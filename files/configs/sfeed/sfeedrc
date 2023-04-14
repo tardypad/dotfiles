@@ -30,5 +30,4 @@ feeds() {
   feed 'Reddit golang'                        'https://www.reddit.com/r/golang/.rss'
   feed 'Reddit programming'                   'https://www.reddit.com/r/programming/.rss'
   feed 'Gary Bernhardt (Twitter)'             'https://nitter.fdn.fr/garybernhardt/rss'
-  feed 'Evan Czaplicki (Twitter)'             'https://nitter.fdn.fr/evancz/rss'
 }
