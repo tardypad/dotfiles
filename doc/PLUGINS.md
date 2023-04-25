@@ -24,6 +24,7 @@
 | vim-tmux-navigator              | tmux panes navigator                         | [GitHub](https://github.com/christoomey/vim-tmux-navigator)                                       | [r83.cdd66d6](https://github.com/christoomey/vim-tmux-navigator/commit/cdd66d6a37d991bba7997d593586fc51a5b37aa8)       |
 | vim-ultisnips                   | snippets engine                              | [GitHub](https://github.com/SirVer/ultisnips)                                                     | [3.2](https://github.com/SirVer/ultisnips/releases/tag/3.2)                                                            |
 | vim-undotree                    | undo history visualizer                      | [GitHub](https://github.com/mbbill/undotree)                                                      | [6.1](https://github.com/mbbill/undotree/releases/tag/rel_6.1)                                                         |
+| vim-unicode                     | Unicode glyph completion                     | [GitHub](https://github.com/chrisbra/unicode.vim)                                                 | [20.r163.gc8aa12b](https://github.com/chrisbra/unicode.vim/commit/c8aa12b1e2e1b6254885b12bdb239ce6c885fdb1)            |
 
 
 ## weechat

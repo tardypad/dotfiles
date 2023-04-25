@@ -122,3 +122,9 @@ let g:undotree_WindowLayout = 3
 
 " hide help line
 let g:undotree_HelpLine = 0
+
+
+"" unicode
+
+" disable all default bindings
+let g:Unicode_no_default_mappings = v:true
