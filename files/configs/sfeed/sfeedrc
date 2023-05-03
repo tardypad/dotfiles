@@ -1,7 +1,7 @@
 feeds() {
   feed 'Le Monde.fr'                          'https://www.lemonde.fr/rss/une.xml'
   feed 'Reflets.info'                         'https://reflets.info/feeds/public'
-  feed 'Spain in English'                     'https://www.spainenglish.com/feed/'
+  feed 'El Pais'                              'https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada'
   feed 'Arch Linux news'                      'https://archlinux.org/feeds/news/'
   feed 'Alpine Linux news'                    'https://www.alpinelinux.org/atom.xml'
   feed 'Hacker News'                          'https://news.ycombinator.com/rss'
