@@ -1,0 +1,22 @@
+MaildirStore perso-local
+Path ~/Mail/Perso/
+Inbox ~/Mail/Perso/INBOX
+SubFolders Verbatim
+
+IMAPAccount migadu
+Host imap.migadu.com
+User damien@tardypad.me
+SSLType IMAPS
+PassCmd "pass show perso/mail/migadu_laptop | sed 1q"
+
+ImapStore perso-remote
+Account migadu
+
+Channel perso
+Far :perso-remote:
+Near :perso-local:
+SyncState *
+Patterns *
+Create Near
+Remove Near
+Expunge Both
