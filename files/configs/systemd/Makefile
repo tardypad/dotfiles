@@ -17,6 +17,8 @@ systemd-configs:
 	setup/setup-config systemd/user/notify_low_battery.timer           $(CONFIG_DIR)/systemd/user/notify_low_battery.timer
 	setup/setup-config systemd/user/qutebrowser_update_adblock.service $(CONFIG_DIR)/systemd/user/qutebrowser_update_adblock.service
 	setup/setup-config systemd/user/qutebrowser_update_adblock.timer   $(CONFIG_DIR)/systemd/user/qutebrowser_update_adblock.timer
+	setup/setup-config systemd/user/sync_mails.service                 $(CONFIG_DIR)/systemd/user/sync_mails.service
+	setup/setup-config systemd/user/sync_mails.timer                   $(CONFIG_DIR)/systemd/user/sync_mails.timer
 	setup/setup-config systemd/user/vdirsyncer.service                 $(CONFIG_DIR)/systemd/user/vdirsyncer.service
 	setup/setup-config systemd/user/vdirsyncer.timer                   $(CONFIG_DIR)/systemd/user/vdirsyncer.timer
 
@@ -33,6 +35,7 @@ systemd-configs:
 	ln -sf ../documents_build_cache.timer         $(DESTDIR)$(CONFIG_DIR)/systemd/user/timers.target.wants/documents_build_cache.timer
 	ln -sf ../notify_low_battery.timer            $(DESTDIR)$(CONFIG_DIR)/systemd/user/timers.target.wants/notify_low_battery.timer
 	ln -sf ../qutebrowser_update_adblock.timer    $(DESTDIR)$(CONFIG_DIR)/systemd/user/timers.target.wants/qutebrowser_update_adblock.timer
+	ln -sf ../sync_mails.timer                    $(DESTDIR)$(CONFIG_DIR)/systemd/user/timers.target.wants/sync_mails.timer
 	ln -sf ../vdirsyncer.timer                    $(DESTDIR)$(CONFIG_DIR)/systemd/user/timers.target.wants/vdirsyncer.timer
 
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/systemd/user/default.target.wants
