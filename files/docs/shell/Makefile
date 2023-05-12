@@ -31,7 +31,6 @@ shell-docs:
 	setup/setup-doc shell/night-mode
 	setup/setup-doc shell/notify
 	setup/setup-doc shell/open-document
-	setup/setup-doc shell/pass
 	setup/setup-doc shell/pick-task
 	setup/setup-doc shell/play-somafm
 	setup/setup-doc shell/pomodoro

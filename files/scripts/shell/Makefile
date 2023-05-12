@@ -31,7 +31,6 @@ shell-scripts:
 	setup/setup-script shell/night-mode
 	setup/setup-script shell/notify
 	setup/setup-script shell/open-document
-	setup/setup-script shell/pass
 	setup/setup-script shell/pick-task
 	setup/setup-script shell/play-somafm
 	setup/setup-script shell/pomodoro
