@@ -5,6 +5,7 @@ i3blocks-scripts:
 	setup/setup-script i3blocks/i3blocks-chat
 	setup/setup-script i3blocks/i3blocks-do-not-disturb
 	setup/setup-script i3blocks/i3blocks-idle-inhibitor
+	setup/setup-script i3blocks/i3blocks-mail
 	setup/setup-script i3blocks/i3blocks-microphone
 	setup/setup-script i3blocks/i3blocks-music
 	setup/setup-script i3blocks/i3blocks-network

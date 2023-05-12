@@ -1,0 +1,23 @@
+#!/bin/sh
+# commands used:
+# - do-not-disturb
+# - i3blocks-mode
+
+MODE="$( i3blocks-mode )"
+
+COUNT="$( find "${HOME}/Mail" -path '*/new/*' -type f | wc -l )"
+
+if [ "${COUNT}" -gt 0 ]; then
+  # do not set notice color if we are busy not to get tempted to check chat
+  if [ "$( do-not-disturb status )" = 'disabled' ]; then
+    COLOR='#{color/notice/hex}'
+  fi
+fi
+
+if [ "${MODE}" = 'full' ]; then
+  TEXT="  ${COUNT}"
+else
+  TEXT=''
+fi
+
+printf '%s\n\n%s\n' "${TEXT}" "${COLOR}"
