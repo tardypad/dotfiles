@@ -1,5 +1,5 @@
 [Unit]
-Description=Synchronize vdirs
+Description=Synchronize calendars and contacts
 
 [Timer]
 OnStartupSec=1h
