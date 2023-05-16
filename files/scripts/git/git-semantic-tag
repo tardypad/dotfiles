@@ -61,7 +61,7 @@ get_next_tag() {
 
 semantic_tag() {
   PROJECT_NAME="$( basename "$( pwd )" )"
-  LAST_TAG="$( git describe --abbrev=0 )"
+  LAST_TAG="$( git describe --abbrev=0 --tags )"
   NEXT_TAG="$( get_next_tag "${LAST_TAG}" )"
   LOG="$( git shortlog --no-merges "${LAST_TAG}..HEAD" )"
 
