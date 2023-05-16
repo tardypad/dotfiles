@@ -52,6 +52,10 @@ vim-configs:
 	setup/setup-config vim/snips/zsh.snippets                $(HOME)/.vim/snips/zsh.snippets
 	setup/setup-config vim/spell/en.utf-8.add                $(HOME)/.vim/spell/en.utf-8.add
 
+	# disable tags generation from gutentags plugin on home folder
+	# where vim is often opened by default by some apps for the user
+	touch $(DESTDIR)$(HOME)/.notags
+
 	# generate spell file
 	if [ -z $(DESTDIR) ] ; then \
 		vim --clean -c "mkspell! $(HOME)/.vim/spell/en.utf-8.add.spl $(HOME)/.vim/spell/en.utf-8.add" +qall \
