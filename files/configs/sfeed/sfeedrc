@@ -1,3 +1,9 @@
+fetch() {
+  # define user agent to unblock Reddit feeds
+  curl -L --max-redirs 0 -H "User-Agent: sfeed" -f -s -m 15 \
+    "$2" 2>/dev/null
+}
+
 feeds() {
   feed 'Le Monde.fr'                          'https://www.lemonde.fr/rss/une.xml'
   feed 'Reflets.info'                         'https://reflets.info/feeds/public'
