@@ -46,6 +46,7 @@ valid items:
 	- books
 	- contacts
 	- messages
+	- mail
 	- notes
 	- packages
 	- pictures
@@ -123,6 +124,11 @@ Valid items per source and target
 : 
 :- \*
 : 
+|  mail
+:- \*
+: 
+: 
+: 
 |  notes
 :- \*
 :- \*
@@ -173,6 +179,10 @@ _XDG_DATA_HOME_
 	Path to user-specific base directory to store data files++
 If unset, defaults to $HOME/.local/share
 
+_XDG_MAIL_DIR_
+	Path to user-specific mail directory++
+If unset, defaults to $HOME/Mail
+
 _XDG_NOTES_DIR_
 	Path to user-specific notes directory++
 If unset, defaults to $HOME/Notes
@@ -194,6 +204,9 @@ _$XDG_CONFIG_HOME/qutebrowser/quickmarks_
 
 _$XDG_DATA_HOME/time-tracker/logs_
 	Directory containing time tracker logs
+
+_$XDG_MAIL_DIR_
+	Directory containing the mail
 
 _$XDG_NOTES_DIR_
 	Directory containing the notes

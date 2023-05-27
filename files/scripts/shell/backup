@@ -7,6 +7,7 @@ init_variables() {
 
   LOCAL_BROWSER_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/qutebrowser"
   LOCAL_BOOKS_DIR="${XDG_BOOKS_DIR:-$HOME/Books}"
+  LOCAL_MAIL_DIR="${XDG_MAIL_DIR:-$HOME/Mail}"
   LOCAL_NOTES_DIR="${XDG_NOTES_DIR:-$HOME/Notes}"
   LOCAL_TIME_TRACKER_LOGS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/time-tracker/logs"
   LOCAL_TODO_DIR="${XDG_TODO_DIR:-$HOME/Todo}"
@@ -48,6 +49,7 @@ init_hdd_variables() {
   HDD_BOOKS_DIR="${HDD_BASE_DIR}/Books"
   HDD_CONTACTS_DIR="${HDD_BASE_DIR}/Contacts"
   HDD_MESSAGES_DIR="${HDD_BASE_DIR}/Messages"
+  HDD_MAIL_DIR="${HDD_BASE_DIR}/Mail"
   HDD_NOTES_DIR="${HDD_BASE_DIR}/Notes"
   HDD_PICTURES_DIR="${HDD_BASE_DIR}/Pictures"
   HDD_VIDEOS_DIR="${HDD_BASE_DIR}/Videos"
@@ -95,6 +97,7 @@ validate_command_line() {
      && [ "${ITEM}" != 'books' ] \
      && [ "${ITEM}" != 'contacts' ] \
      && [ "${ITEM}" != 'messages' ] \
+     && [ "${ITEM}" != 'mail' ] \
      && [ "${ITEM}" != 'notes' ] \
      && [ "${ITEM}" != 'packages' ] \
      && [ "${ITEM}" != 'pictures' ] \
@@ -139,6 +142,7 @@ validate_command_line_backup_item() {
     if [ "${TARGET}" = 'hdd1' ] || [ "${TARGET}" = 'hdd2' ]; then
       if [ "${ITEM}" != 'bookmarks' ] \
          && [ "${ITEM}" != 'books' ] \
+         && [ "${ITEM}" != 'mail' ] \
          && [ "${ITEM}" != 'notes' ] \
          && [ "${ITEM}" != 'todo' ] \
          && [ "${ITEM}" != 'videos' ]; then
@@ -224,6 +228,12 @@ backup_laptop_hdd_notes() {
     --backup-dir="${HDD_BACKUP_DIR}/Notes" \
     "${LOCAL_NOTES_DIR}/" \
     "${HDD_NOTES_DIR}/${LOCAL_HOST}"
+}
+
+backup_laptop_hdd_mail() {
+  ${RSYNC} --delete \
+    "${LOCAL_MAIL_DIR}/" \
+    "${HDD_MAIL_DIR}"
 }
 
 backup_laptop_hdd_todo() {
@@ -376,7 +386,7 @@ init_hdd() {
 }
 
 backup_laptop_hdd() {
-  for i in bookmarks books notes todo videos; do
+  for i in bookmarks books mail notes todo videos; do
     printf 'laptop -> hdd: %s\n' "$i"
     "backup_laptop_hdd_$i"
   done
