@@ -80,6 +80,8 @@ config.set('content.javascript.enabled', True, '*.leaseweb.com')
 config.set('content.javascript.enabled', True, '*.migadu.com')
 config.set('content.javascript.enabled', True, '*.gandi.net')
 config.set('content.javascript.enabled', True, 'github.com')
+config.set('content.javascript.enabled', True, 'gitlab.archlinux.org')
+config.set('content.javascript.enabled', True, 'gitlab.com')
 config.set('content.javascript.enabled', True, 'online-go.com')
 config.set('content.javascript.enabled', True, 'www.duolingo.com')
 
