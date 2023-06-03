@@ -133,5 +133,8 @@ command EN set spelllang=en | set nodigraph
 " alias to disable any write in extra files
 command NOLEAK set nobackup | set nowritebackup | set noswapfile | set viminfo= | set noundofile
 
+" alias to search and insert an Unicode character
+command! -nargs=1 UC :UnicodeSearch! <args>
+
 " reload config on USR1 signal
 autocmd SigUSR1 * :source $MYVIMRC
