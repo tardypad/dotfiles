@@ -20,6 +20,10 @@ CHANNEL_ID=$(
 
 CHANNEL_URL=$( somafm direct_url "${CHANNEL_ID}" )
 
+if [ -z "${CHANNEL_URL}" ]; then
+  exit 1
+fi
+
 mpc -q clear
 mpc -q add "${CHANNEL_URL}"
 mpc -q play
