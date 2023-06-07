@@ -14,7 +14,7 @@ CHANNEL_NAME=$(
 CHANNEL_ID=$(
   echo "${CHANNELS}" \
     | cut -f1,2 \
-    | grep "${CHANNEL_NAME}" \
+    | grep "${CHANNEL_NAME}$" \
     | cut -f1
 )
 
