@@ -126,9 +126,10 @@ let g:netrw_fastbrowse = 0 " don't reuse directory listing
 " alias to change current working directory to the current file one
 command Cdf cd %:p:h
 
-" aliases to type in French and revert to English if needed
+" aliases to type in other languages and revert to English if needed
 command FR set spelllang=fr | set digraph
 command EN set spelllang=en | set nodigraph
+command ES set spelllang=es | set digraph
 
 " alias to disable any write in extra files
 command NOLEAK set nobackup | set nowritebackup | set noswapfile | set viminfo= | set noundofile
