@@ -4,7 +4,7 @@
 
 | Name                            | Purpose                                      | Source                                                                                            | Version                                                                                                                |
 |---------------------------------|----------------------------------------------|---------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
-| git-delta                       | Diff pager                                   | [GitHub](https://github.com/dandavison/delta)                                                     | [0.15.1](https://github.com/dandavison/delta/releases/tag/0.15.1)                                                      |
+| git-delta                       | Diff pager                                   | [GitHub](https://github.com/dandavison/delta)                                                     | [0.16.5](https://github.com/dandavison/delta/releases/tag/0.16.5)                                                      |
 
 ## vim
 
@@ -15,7 +15,7 @@
 | vim-goyo                        | distraction free writing                     | [GitHub](https://github.com/junegunn/goyo.vim)                                                    | [1.6.0.r41.gfa0263d](https://github.com/junegunn/goyo.vim/commit/fa0263d456dd43f5926484d1c4c7022dfcb21ba9)             |
 | vim-gutentags                   | tag management                               | [GitHub](https://github.com/ludovicchabant/vim-gutentags)                                         | [1.0.0.r77.g1337b18](https://github.com/ludovicchabant/vim-gutentags/commit/1337b1891b9d98d6f4881982f27aa22b02c80084)  |
 | vim-nerdcommenter               | code commenter                               | [GitHub](https://github.com/preservim/nerdcommenter)                                              | [2.7.0](https://github.com/preservim/nerdcommenter/releases/tag/2.7.0)                                                 |
-| vim-oscyank                     | copy text to system clipboard                | [GitHub](https://github.com/ojroques/vim-oscyank)                                                 | [r75.ce025bd](https://github.com/ojroques/vim-oscyank/commit/ce025bd8237a6228beabb04b66d29566b2453f7b)                 |
+| vim-oscyank                     | copy text to system clipboard                | [GitHub](https://github.com/ojroques/vim-oscyank)                                                 | [r77.5947a6c](https://github.com/ojroques/vim-oscyank/commit/5947a6c6727841b989ac41758f99af154fa5d801)                 |
 | vim-repeat                      | improve repeat command                       | [GitHub](https://github.com/tpope/vim-repeat)                                                     | [1.2](https://github.com/tpope/vim-repeat/releases/tag/v1.2)                                                           |
 | vim-sayonara                    | sane buffer/window deletion                  | [GitHub](https://github.com/mhinz/vim-sayonara)                                                   | [r51.75c73f3](https://github.com/mhinz/vim-sayonara/commit/75c73f3cf3e96f8c09db5291970243699aadc02c)                   |
 | vim-surround                    | surroundings editor                          | [GitHub](https://github.com/tpope/vim-surround)                                                   | [2.2](https://github.com/tpope/vim-surround/releases/tag/v2.2)                                                         |
@@ -32,7 +32,7 @@
 | Name                            | Purpose                                      | Source                                                                                            | Version                                                                                                                |
 |---------------------------------|----------------------------------------------|---------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
 | weechat-vimode                  | vim-like mode and keybindings                | [GitHub](https://github.com/GermainZ/weechat-vimode)                                              | [r202.897a33b](https://github.com/GermainZ/weechat-vimode/commit/95661a27f92dc3f3286cf1539ab112a81ad15639)             |
-| weechat-wee-most                | Mattermost integration                       | [Sourcehut](https://git.sr.ht/~tardypad/wee-most)                                                 | [r590.d2c5a3c](https://git.sr.ht/~tardypad/wee-most/commit/d2c5a3c7890c4a8a7bbe4bd796f0277b301ea0a9)                   |
+| weechat-wee-most                | Mattermost integration                       | [Sourcehut](https://git.sr.ht/~tardypad/wee-most)                                                 | [r592.28caa0b](https://git.sr.ht/~tardypad/wee-most/commit/28caa0b01cd7700334186f53256d1ac145ea549a)                   |
 
 
 ## zsh
