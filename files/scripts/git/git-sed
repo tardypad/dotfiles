@@ -33,9 +33,9 @@ run_sed() {
   # exclude symlinks and binary files
   # shellcheck disable=SC2086
   git grep -I -l '' -- ${PATHS} \
-    | xargs -I {} \
-      sh -c "sed \"${SCRIPT}\" {} > \"${TMP_FILE}\" \
-             && cp \"${TMP_FILE}\" {}"
+    | xargs -I @@ \
+      sh -c "sed \"${SCRIPT}\" @@ > \"${TMP_FILE}\" \
+             && cp \"${TMP_FILE}\" @@"
 }
 
 init_variables
