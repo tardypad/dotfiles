@@ -232,8 +232,8 @@ backup_laptop_hdd_notes() {
 
 backup_laptop_hdd_mail() {
   ${RSYNC} --delete \
-    "${LOCAL_MAIL_DIR}/" \
-    "${HDD_MAIL_DIR}"
+    "${LOCAL_MAIL_DIR}/Perso/" \
+    "${HDD_MAIL_DIR}/Perso"
 }
 
 backup_laptop_hdd_todo() {

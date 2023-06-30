@@ -205,8 +205,8 @@ _$XDG_CONFIG_HOME/qutebrowser/quickmarks_
 _$XDG_DATA_HOME/time-tracker/logs_
 	Directory containing time tracker logs
 
-_$XDG_MAIL_DIR_
-	Directory containing the mail
+_$XDG_MAIL_DIR/Perso_
+	Directory containing the personal  mail
 
 _$XDG_NOTES_DIR_
 	Directory containing the notes
