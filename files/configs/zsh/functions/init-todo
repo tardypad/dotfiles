@@ -9,11 +9,10 @@ local todo_dir="${XDG_TODO_DIR:-$HOME/Todo}"
 local name="$( basename "$( pwd )" )"
 
 if [ -f "${todo_dir}/${name}.md" ]; then
-  echo "There is already a ${name}.md file in the ${todo_dir} directory" >&2
-  return 1
+  echo "There is already a ${name}.md file in the ${todo_dir} directory, linking to it" >&2
+else
+  printf '# %s\n\n' Periodic Cleaning Bugs Testing Improvements Features Research \
+    > "${todo_dir}/${name}.md"
 fi
-
-printf '# %s\n\n' Periodic Cleaning Bugs Testing Improvements Features Research \
-  > "${todo_dir}/${name}.md"
 
 ln -s "${todo_dir}/${name}.md" TODO.md
