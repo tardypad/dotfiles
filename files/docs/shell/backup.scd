@@ -36,6 +36,7 @@ _target_
 valid targets:
 	- hdd1
 	- hdd2
+	- laptop
 	- server
 
 _item_
@@ -91,6 +92,9 @@ Valid targets per action
 |  hdd2
 :- \*
 :- 
+|  laptop
+:- 
+:- \*
 |  server
 :- \*
 :- \*
@@ -101,10 +105,12 @@ Valid items per source and target
 
 [[
 :- laptop -> hdd
+:- hdd -> laptop
 :- laptop -> server
 :- phone -> hdd
 :- server <-> hdd
 |  bookmarks
+:- \*
 :- \*
 :- \*
 : 
@@ -114,12 +120,15 @@ Valid items per source and target
 : 
 : 
 : 
+: 
 |  contacts
+: 
 : 
 : 
 : 
 :- \*
 |  messages
+: 
 : 
 : 
 :- \*
@@ -129,7 +138,9 @@ Valid items per source and target
 : 
 : 
 : 
+: 
 |  notes
+:- \*
 :- \*
 :- \*
 : 
@@ -138,8 +149,10 @@ Valid items per source and target
 : 
 : 
 : 
+: 
 :- \*
 |  pictures
+: 
 : 
 : 
 :- \*
@@ -148,8 +161,10 @@ Valid items per source and target
 : 
 : 
 : 
+: 
 :- \*
 |  time_tracker_logs
+: 
 : 
 :- \*
 : 
@@ -157,10 +172,12 @@ Valid items per source and target
 |  todo
 :- \*
 :- \*
+:- \*
 : 
 :- \*
 |  videos
 :- \*
+: 
 : 
 :- \*
 : 

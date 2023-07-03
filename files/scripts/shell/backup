@@ -184,18 +184,27 @@ validate_command_line_restore_source_target() {
     exit_error "Invalid restore source '${SOURCE}'"
   fi
 
-  if [ "${TARGET}" != 'server' ]; then
+  if [ "${TARGET}" != 'server' ] \
+     && [ "${TARGET}" != 'laptop' ]; then
     exit_error "Invalid restore target '${TARGET}'"
   fi
 }
 
 validate_command_line_restore_item() {
-  if [ "${ITEM}" != 'bookmarks' ] \
-     && [ "${ITEM}" != 'notes' ] \
-     && [ "${ITEM}" != 'packages' ] \
-     && [ "${ITEM}" != 'repositories' ] \
-     && [ "${ITEM}" != 'todo' ]; then
-    exit_error "Cannot restore ${ITEM} from ${SOURCE} to ${TARGET}"
+  if [ "${TARGET}" = 'server' ]; then
+    if [ "${ITEM}" != 'bookmarks' ] \
+       && [ "${ITEM}" != 'notes' ] \
+       && [ "${ITEM}" != 'packages' ] \
+       && [ "${ITEM}" != 'repositories' ] \
+       && [ "${ITEM}" != 'todo' ]; then
+      exit_error "Cannot restore ${ITEM} from ${SOURCE} to ${TARGET}"
+    fi
+  elif [ "${TARGET}" = 'laptop' ]; then
+    if [ "${ITEM}" != 'bookmarks' ] \
+       && [ "${ITEM}" != 'notes' ] \
+       && [ "${ITEM}" != 'todo' ]; then
+      exit_error "Cannot restore ${ITEM} from ${SOURCE} to ${TARGET}"
+    fi
   fi
 }
 
@@ -371,6 +380,30 @@ restore_hdd_server_todo() {
     "${SERVER_HOST}:${SERVER_TODO_DIR}"
 }
 
+restore_hdd_laptop_bookmarks() {
+  ${RSYNC} \
+    "${HDD_BOOKMARKS_DIR}/${LOCAL_HOST}/urls" \
+    "${LOCAL_BROWSER_DIR}/bookmarks/urls"
+
+  ${RSYNC} \
+    "${HDD_BOOKMARKS_DIR}/${LOCAL_HOST}/quickmarks" \
+    "${LOCAL_BROWSER_DIR}/quickmarks"
+}
+
+restore_hdd_laptop_notes() {
+  ${RSYNC} \
+    --exclude '*.md~' \
+    "${HDD_NOTES_DIR}/${LOCAL_HOST}/" \
+    "${LOCAL_NOTES_DIR}"
+}
+
+restore_hdd_laptop_todo() {
+  ${RSYNC} \
+    --exclude '*.md~' \
+    "${HDD_TODO_DIR}/${LOCAL_HOST}/" \
+    "${LOCAL_TODO_DIR}"
+}
+
 init_hdd() {
   HDD_BASE_DIR="$(
     lsblk -n -o UUID,MOUNTPOINT \
@@ -417,6 +450,13 @@ restore_hdd_server() {
   for i in bookmarks contacts notes packages repositories todo; do
     printf 'hdd -> server: %s\n' "$i"
     "restore_hdd_server_$i"
+  done
+}
+
+restore_hdd_laptop() {
+  for i in bookmarks notes todo; do
+    printf 'hdd -> laptop: %s\n' "$i"
+    "restore_hdd_laptop_$i"
   done
 }
 
