@@ -117,7 +117,7 @@ Valid items per source and target
 :- \*
 |  books
 :- \*
-: 
+:- \*
 : 
 : 
 : 

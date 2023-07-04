@@ -201,6 +201,7 @@ validate_command_line_restore_item() {
     fi
   elif [ "${TARGET}" = 'laptop' ]; then
     if [ "${ITEM}" != 'bookmarks' ] \
+       && [ "${ITEM}" != 'books' ] \
        && [ "${ITEM}" != 'notes' ] \
        && [ "${ITEM}" != 'todo' ]; then
       exit_error "Cannot restore ${ITEM} from ${SOURCE} to ${TARGET}"
@@ -390,6 +391,12 @@ restore_hdd_laptop_bookmarks() {
     "${LOCAL_BROWSER_DIR}/quickmarks"
 }
 
+restore_hdd_laptop_books() {
+  ${RSYNC} \
+    "${HDD_BOOKS_DIR}/" \
+    "${LOCAL_BOOKS_DIR}"
+}
+
 restore_hdd_laptop_notes() {
   ${RSYNC} \
     --exclude '*.md~' \
@@ -454,7 +461,7 @@ restore_hdd_server() {
 }
 
 restore_hdd_laptop() {
-  for i in bookmarks notes todo; do
+  for i in bookmarks books notes todo; do
     printf 'hdd -> laptop: %s\n' "$i"
     "restore_hdd_laptop_$i"
   done
