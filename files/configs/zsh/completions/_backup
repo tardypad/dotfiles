@@ -34,6 +34,7 @@ _targets() {
 
   if _is_restore; then
     targets=(
+      laptop
       server
     )
   else
@@ -66,6 +67,13 @@ _items_restore() {
         notes
         packages
         repositories
+        todo
+      )
+    elif [ $target = 'laptop' ]; then
+      items=(
+        bookmarks
+        books
+        notes
         todo
       )
     fi
