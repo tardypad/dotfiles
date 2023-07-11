@@ -7,4 +7,3 @@ system_monitor    foot -T sway_monitor -o locked-title=yes -e tmux new-session -
 terminal_emulator foot tmux new-session
 text_editor       foot vim
 web_browser       qutebrowser
-presentation      foot -T=sway_presentation -o locked-title=yes -o colors.background={color/base01/hex} -o colors.foreground={color/base05/hex} -o font=monospace:size=32

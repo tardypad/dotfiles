@@ -6,10 +6,6 @@ for_window [title="sway_monitor"] floating enable, \
 for_window [title="sway_quick_command"] floating enable, \
                                         resize set width 40 ppt height 40 ppt
 
-# display presentation as floating window
-for_window [title="sway_presentation"] floating enable, \
-                                       resize set width 30 ppt height 30 ppt
-
 # display media apps as floating window
 for_window [app_id="imv"] floating enable, border pixel 2
 for_window [app_id="mpv"] floating enable
