@@ -272,8 +272,9 @@ config.bind('<Ctrl-{key/open/upp}>{key/f}', 'spawn --detach firefox {url}', mode
 config.bind('<Ctrl-{key/tabulation/Tab}>', 'devtools window', mode='normal')
 config.bind('<Ctrl-{key/tabulation/Tab}>', 'devtools window', mode='insert')
 
-# Javascript temporary toggling  on current domain
+# Javascript temporary toggling
 config.bind('<Ctrl-{key/J}>', 'config-cycle --print --temp --pattern={url:host} content.javascript.enabled ;; reload', mode='normal')
+config.bind('<Ctrl-Shift-{key/J}>', 'config-cycle --print --temp content.javascript.enabled ;; reload', mode='normal')
 
 # Toggle no distraction mode
 config.bind('<Alt-{key/space/Space}>', 'fullscreen ;; config-cycle --temp statusbar.show never always ;; config-cycle --temp tabs.show never always', mode='normal')
