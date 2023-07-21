@@ -19,6 +19,9 @@ export COLORTERM='truecolor'
 # Add custom man pages location to man path
 export MANPATH="${XDG_DATA_HOME:-$HOME/.local/share}/man:/usr/share/man"
 
+# fix color usage in man output
+export MANROFFOPT="-P -c"
+
 # disable flow control within apps
 stty -ixon 2> /dev/null
 
