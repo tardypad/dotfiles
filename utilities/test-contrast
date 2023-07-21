@@ -55,7 +55,7 @@ print_contrast() {
   printf '  %s  ' "$1"                           # base 1
   printf '\033[7m'                               # invert background/foreground
   printf '  %s  ' "$2"                           # base 2
-  printf '\n\033[0m'                             # reset with newline
+  printf '\033[0m\n'                             # reset with newline
 }
 
 base_to_hex() {
