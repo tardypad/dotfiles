@@ -40,7 +40,7 @@ valid targets:
 	- server
 
 _item_
-	Item to backup++
+	Item to backup or restore++
 If no item is provided, all the valid ones for the source and target are done++
 valid items:
 	- bookmarks
