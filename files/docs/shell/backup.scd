@@ -51,6 +51,7 @@ valid items:
 	- notes
 	- packages
 	- pictures
+	- projects
 	- repositories
 	- time_tracker_logs
 	- todo
@@ -157,6 +158,12 @@ Valid items per source and target
 : 
 :- \*
 : 
+|  projects
+:- \*
+:- \*
+: 
+: 
+: 
 |  repositories
 : 
 : 
@@ -204,6 +211,10 @@ _XDG_NOTES_DIR_
 	Path to user-specific notes directory++
 If unset, defaults to $HOME/Notes
 
+_XDG_PROJECTS_DIR_
+	Path to user-specific projects directory++
+If unset, defaults to $HOME/Projects
+
 _XDG_VIDEOS_DIR_
 	Path to user-specific videos directory++
 If unset, defaults to $HOME/Videos
@@ -227,6 +238,9 @@ _$XDG_MAIL_DIR/Perso_
 
 _$XDG_NOTES_DIR_
 	Directory containing the notes
+
+_$XDG_PROJECTS_DIR_
+	Directory containing the projects
 
 _$XDG_VIDEOS_DIR_
 	Directory containing the videos

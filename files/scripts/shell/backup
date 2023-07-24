@@ -9,6 +9,7 @@ init_variables() {
   LOCAL_BOOKS_DIR="${XDG_BOOKS_DIR:-$HOME/Books}"
   LOCAL_MAIL_DIR="${XDG_MAIL_DIR:-$HOME/Mail}"
   LOCAL_NOTES_DIR="${XDG_NOTES_DIR:-$HOME/Notes}"
+  LOCAL_PROJECTS_DIR="${XDG_PROJECTS_DIR:-$HOME/Projects}"
   LOCAL_TIME_TRACKER_LOGS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/time-tracker/logs"
   LOCAL_TODO_DIR="${XDG_TODO_DIR:-$HOME/Todo}"
   LOCAL_VIDEOS_DIR="${XDG_VIDEOS_DIR:-$HOME/Videos}"
@@ -52,6 +53,7 @@ init_hdd_variables() {
   HDD_MAIL_DIR="${HDD_BASE_DIR}/Mail"
   HDD_NOTES_DIR="${HDD_BASE_DIR}/Notes"
   HDD_PICTURES_DIR="${HDD_BASE_DIR}/Pictures"
+  HDD_PROJECTS_DIR="${HDD_BASE_DIR}/Projects/current"
   HDD_VIDEOS_DIR="${HDD_BASE_DIR}/Videos"
   HDD_PACKAGES_DIR="${HDD_BASE_DIR}/Packages"
   HDD_REPOSITORIES_DIR="${HDD_BASE_DIR}/Repositories"
@@ -101,6 +103,7 @@ validate_command_line() {
      && [ "${ITEM}" != 'notes' ] \
      && [ "${ITEM}" != 'packages' ] \
      && [ "${ITEM}" != 'pictures' ] \
+     && [ "${ITEM}" != 'projects' ] \
      && [ "${ITEM}" != 'repositories' ] \
      && [ "${ITEM}" != 'time_tracker_logs' ] \
      && [ "${ITEM}" != 'todo' ] \
@@ -144,6 +147,7 @@ validate_command_line_backup_item() {
          && [ "${ITEM}" != 'books' ] \
          && [ "${ITEM}" != 'mail' ] \
          && [ "${ITEM}" != 'notes' ] \
+         && [ "${ITEM}" != 'projects' ] \
          && [ "${ITEM}" != 'todo' ] \
          && [ "${ITEM}" != 'videos' ]; then
         exit_error "Cannot backup ${ITEM} from ${SOURCE} to ${TARGET}"
@@ -203,6 +207,7 @@ validate_command_line_restore_item() {
     if [ "${ITEM}" != 'bookmarks' ] \
        && [ "${ITEM}" != 'books' ] \
        && [ "${ITEM}" != 'notes' ] \
+       && [ "${ITEM}" != 'projects' ] \
        && [ "${ITEM}" != 'todo' ]; then
       exit_error "Cannot restore ${ITEM} from ${SOURCE} to ${TARGET}"
     fi
@@ -238,6 +243,12 @@ backup_laptop_hdd_notes() {
     --backup-dir="${HDD_BACKUP_DIR}/Notes" \
     "${LOCAL_NOTES_DIR}/" \
     "${HDD_NOTES_DIR}/${LOCAL_HOST}"
+}
+
+backup_laptop_hdd_projects() {
+  ${RSYNC} --delete \
+    "${LOCAL_PROJECTS_DIR}/" \
+    "${HDD_PROJECTS_DIR}"
 }
 
 backup_laptop_hdd_mail() {
@@ -404,6 +415,12 @@ restore_hdd_laptop_notes() {
     "${LOCAL_NOTES_DIR}"
 }
 
+restore_hdd_laptop_projects() {
+  ${RSYNC} \
+    "${HDD_PROJECTS_DIR}/" \
+    "${LOCAL_PROJECTS_DIR}"
+}
+
 restore_hdd_laptop_todo() {
   ${RSYNC} \
     --exclude '*.md~' \
@@ -426,7 +443,7 @@ init_hdd() {
 }
 
 backup_laptop_hdd() {
-  for i in bookmarks books mail notes todo videos; do
+  for i in bookmarks books mail notes projects todo videos; do
     printf 'laptop -> hdd: %s\n' "$i"
     "backup_laptop_hdd_$i"
   done
@@ -461,7 +478,7 @@ restore_hdd_server() {
 }
 
 restore_hdd_laptop() {
-  for i in bookmarks books notes todo; do
+  for i in bookmarks books notes projects todo; do
     printf 'hdd -> laptop: %s\n' "$i"
     "restore_hdd_laptop_$i"
   done

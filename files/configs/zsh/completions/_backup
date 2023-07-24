@@ -74,6 +74,7 @@ _items_restore() {
         bookmarks
         books
         notes
+        projects
         todo
       )
     fi
@@ -91,6 +92,7 @@ _items_backup() {
         bookmarks
         books
         notes
+        projects
         todo
         videos
       )
