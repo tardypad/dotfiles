@@ -10,9 +10,6 @@ def redirect(request: interceptor.Request, host: str):
 def rewrite(request: interceptor.Request):
     host = request.request_url.host()
 
-    if host in ['reddit.com', 'www.reddit.com', 'old.reddit.com']:
-        redirect(request, 'teddit.net');
-
     if host in ['twitter.com', 'www.twitter.com', 'mobile.twitter.com']:
         redirect(request, 'nitter.net');
 
