@@ -60,31 +60,6 @@ config.set('content.media.video_capture', True, '*.zoom.us')
 config.set('content.media.audio_video_capture', True, '*.zoom.us')
 config.set('content.desktop_capture', True, '*.zoom.us')
 
-
-# disable Javascript everywhere by default
-# and only whitelist some regularly used patterns
-# which are trusted or don't work well without it
-c.content.javascript.enabled = False
-config.set('content.javascript.enabled', True, 'localhost')
-config.set('content.javascript.enabled', True, '127.0.0.1')
-config.set('content.javascript.enabled', True, 'file:///*')
-config.set('content.javascript.enabled', True, '*.local')
-config.set('content.javascript.enabled', True, '*.youtube.com')
-config.set('content.javascript.enabled', True, 'www.google.com/maps*')
-config.set('content.javascript.enabled', True, 'genius.com')
-config.set('content.javascript.enabled', True, 'whereby.com')
-config.set('content.javascript.enabled', True, 'zoom.us')
-config.set('content.javascript.enabled', True, '*.zoom.us')
-config.set('content.javascript.enabled', True, '*.ovh.com')
-config.set('content.javascript.enabled', True, '*.leaseweb.com')
-config.set('content.javascript.enabled', True, '*.migadu.com')
-config.set('content.javascript.enabled', True, '*.gandi.net')
-config.set('content.javascript.enabled', True, 'github.com')
-config.set('content.javascript.enabled', True, 'gitlab.archlinux.org')
-config.set('content.javascript.enabled', True, 'gitlab.com')
-config.set('content.javascript.enabled', True, 'online-go.com')
-config.set('content.javascript.enabled', True, 'www.duolingo.com')
-
 # prefer webpage to follow overall color scheme
 c.colors.webpage.preferred_color_scheme = '{color/theme}'
 
