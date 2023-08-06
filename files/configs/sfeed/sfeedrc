@@ -33,7 +33,6 @@ feeds() {
   feed 'Dan Luu'                              'https://danluu.com/atom.xml'
   feed 'Julia Evans'                          'https://jvns.ca/atom.xml'
   feed 'Reddit command line'                  'https://www.reddit.com/r/commandline/.rss'
-  feed 'Reddit golang'                        'https://www.reddit.com/r/golang/.rss'
   feed 'Reddit programming'                   'https://www.reddit.com/r/programming/.rss'
   feed 'Gary Bernhardt (Twitter)'             'https://nitter.fdn.fr/garybernhardt/rss'
 }
