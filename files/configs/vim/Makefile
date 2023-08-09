@@ -21,9 +21,7 @@ vim-configs:
 	setup/setup-config vim/config.d/plugins.vim              $(HOME)/.vim/config.d/plugins.vim
 	setup/setup-config vim/ftdetect/dircolors.vim            $(HOME)/.vim/ftdetect/dircolors.vim
 	setup/setup-config vim/ftdetect/gitconfig.vim            $(HOME)/.vim/ftdetect/gitconfig.vim
-	setup/setup-config vim/ftdetect/icinga2.vim              $(HOME)/.vim/ftdetect/icinga2.vim
 	setup/setup-config vim/ftdetect/markdown.vim             $(HOME)/.vim/ftdetect/markdown.vim
-	setup/setup-config vim/ftdetect/nginx.vim                $(HOME)/.vim/ftdetect/nginx.vim
 	setup/setup-config vim/ftdetect/sh.vim                   $(HOME)/.vim/ftdetect/sh.vim
 	setup/setup-config vim/ftdetect/sshconfig.vim            $(HOME)/.vim/ftdetect/sshconfig.vim
 	setup/setup-config vim/ftdetect/tmux.vim                 $(HOME)/.vim/ftdetect/tmux.vim
