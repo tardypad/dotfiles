@@ -1,7 +1,6 @@
 all: git-scripts
 
 git-scripts:
-	setup/setup-script git/git-reauthor
 	setup/setup-script git/git-run-command
 	setup/setup-script git/git-sed
 	setup/setup-script git/git-semantic-tag

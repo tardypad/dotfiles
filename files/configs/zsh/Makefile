@@ -49,7 +49,6 @@ zsh-configs:
 	setup/setup-config zsh/completions/git/_git-hist                                              $(HOME)/.zsh/completions/git/_git-hist
 	setup/setup-config zsh/completions/git/_git-mgrbma                                            $(HOME)/.zsh/completions/git/_git-mgrbma
 	setup/setup-config zsh/completions/git/_git-push-current-branch                               $(HOME)/.zsh/completions/git/_git-push-current-branch
-	setup/setup-config zsh/completions/git/_git-reauthor                                          $(HOME)/.zsh/completions/git/_git-reauthor
 	setup/setup-config zsh/completions/git/_git-run-command                                       $(HOME)/.zsh/completions/git/_git-run-command
 	setup/setup-config zsh/completions/git/_git-sed                                               $(HOME)/.zsh/completions/git/_git-sed
 	setup/setup-config zsh/completions/git/_git-semantic-tag                                      $(HOME)/.zsh/completions/git/_git-semantic-tag
