@@ -24,7 +24,6 @@ zsh-configs:
 	setup/setup-config zsh/completions/_line-by-line                                              $(HOME)/.zsh/completions/_line-by-line
 	setup/setup-config zsh/completions/_loop                                                      $(HOME)/.zsh/completions/_loop
 	setup/setup-config zsh/completions/_mount-device                                              $(HOME)/.zsh/completions/_mount-device
-	setup/setup-config zsh/completions/_mysql-env                                                 $(HOME)/.zsh/completions/_mysql-env
 	setup/setup-config zsh/completions/_notify                                                    $(HOME)/.zsh/completions/_notify
 	setup/setup-config zsh/completions/_pomodoro                                                  $(HOME)/.zsh/completions/_pomodoro
 	setup/setup-config zsh/completions/_project-path                                              $(HOME)/.zsh/completions/_project-path
@@ -63,8 +62,6 @@ zsh-configs:
 	setup/setup-config zsh/functions/highlighters/_zsh_highlight_add_positional_params_highlights $(HOME)/.zsh/functions/_zsh_highlight_add_positional_params_highlights
 	setup/setup-config zsh/functions/highlighters/_zsh_highlight_highlighter_http_env_paint       $(HOME)/.zsh/functions/_zsh_highlight_highlighter_http_env_paint
 	setup/setup-config zsh/functions/highlighters/_zsh_highlight_highlighter_http_env_predicate   $(HOME)/.zsh/functions/_zsh_highlight_highlighter_http_env_predicate
-	setup/setup-config zsh/functions/highlighters/_zsh_highlight_highlighter_mysql_env_paint      $(HOME)/.zsh/functions/_zsh_highlight_highlighter_mysql_env_paint
-	setup/setup-config zsh/functions/highlighters/_zsh_highlight_highlighter_mysql_env_predicate  $(HOME)/.zsh/functions/_zsh_highlight_highlighter_mysql_env_predicate
 
 	# same git completions
 	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-bwc

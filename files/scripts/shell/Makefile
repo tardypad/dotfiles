@@ -26,7 +26,6 @@ shell-scripts:
 	setup/setup-script shell/loop
 	setup/setup-script shell/man
 	setup/setup-script shell/mount-device
-	setup/setup-script shell/mysql-env
 	setup/setup-script shell/night-mode
 	setup/setup-script shell/notify
 	setup/setup-script shell/open-document

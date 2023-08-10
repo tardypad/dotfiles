@@ -29,7 +29,6 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(
   brackets
   pattern
   http_env
-  mysql_env
 )
 
 # highlight potentially dangerous commands that requires extra attention
@@ -51,8 +50,6 @@ ZSH_HIGHLIGHT_STYLES[http_env:2]='fg={color/blue/number},bold'
 ZSH_HIGHLIGHT_STYLES[http_env:3]='fg={color/yellow/number}'
 ZSH_HIGHLIGHT_STYLES[http_env:4]='fg={color/magenta/number}'
 ZSH_HIGHLIGHT_STYLES[http_env:keywords]='bold'
-ZSH_HIGHLIGHT_STYLES[mysql_env:1]='fg={color/blue/number},bold'
-ZSH_HIGHLIGHT_STYLES[mysql_env:keywords]='bold'
 
 
 ## substring history navigation

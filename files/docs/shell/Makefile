@@ -26,7 +26,6 @@ shell-docs:
 	setup/setup-doc shell/loop
 	setup/setup-doc shell/man
 	setup/setup-doc shell/mount-device
-	setup/setup-doc shell/mysql-env
 	setup/setup-doc shell/night-mode
 	setup/setup-doc shell/notify
 	setup/setup-doc shell/open-document
