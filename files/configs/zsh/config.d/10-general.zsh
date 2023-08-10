@@ -7,6 +7,9 @@ setopt no_flow_control
 # enable extended globbing features
 setopt extended_glob
 
+# allow comments in interactive mode
+setopt interactivecomments
+
 # no bell
 unsetopt beep
 
