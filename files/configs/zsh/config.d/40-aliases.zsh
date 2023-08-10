@@ -136,7 +136,6 @@ alias xml-lint='xmllint --format -'
 # allow usage of * in queries without need for escaping
 alias mysql-env='noglob mysql-env'
 alias redis-env='noglob redis-env'
-alias influx-env='noglob influx-env'
 alias qalc='noglob qalc'
 
 # flush all .log files recursively in the current dir

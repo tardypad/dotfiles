@@ -21,7 +21,6 @@ shell-docs:
 	setup/setup-doc shell/http-env
 	setup/setup-doc shell/http-stats
 	setup/setup-doc shell/i3blocks-mode
-	setup/setup-doc shell/influx-env
 	setup/setup-doc shell/launch-tmux-env
 	setup/setup-doc shell/line-by-line
 	setup/setup-doc shell/loop

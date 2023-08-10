@@ -21,7 +21,6 @@ zsh-configs:
 	setup/setup-config zsh/completions/_extract-tokens                                            $(HOME)/.zsh/completions/_extract-tokens
 	setup/setup-config zsh/completions/_http-env                                                  $(HOME)/.zsh/completions/_http-env
 	setup/setup-config zsh/completions/_http-stats                                                $(HOME)/.zsh/completions/_http-stats
-	setup/setup-config zsh/completions/_influx-env                                                $(HOME)/.zsh/completions/_influx-env
 	setup/setup-config zsh/completions/_line-by-line                                              $(HOME)/.zsh/completions/_line-by-line
 	setup/setup-config zsh/completions/_loop                                                      $(HOME)/.zsh/completions/_loop
 	setup/setup-config zsh/completions/_mount-device                                              $(HOME)/.zsh/completions/_mount-device
@@ -65,8 +64,6 @@ zsh-configs:
 	setup/setup-config zsh/functions/highlighters/_zsh_highlight_add_positional_params_highlights $(HOME)/.zsh/functions/_zsh_highlight_add_positional_params_highlights
 	setup/setup-config zsh/functions/highlighters/_zsh_highlight_highlighter_http_env_paint       $(HOME)/.zsh/functions/_zsh_highlight_highlighter_http_env_paint
 	setup/setup-config zsh/functions/highlighters/_zsh_highlight_highlighter_http_env_predicate   $(HOME)/.zsh/functions/_zsh_highlight_highlighter_http_env_predicate
-	setup/setup-config zsh/functions/highlighters/_zsh_highlight_highlighter_influx_env_paint     $(HOME)/.zsh/functions/_zsh_highlight_highlighter_influx_env_paint
-	setup/setup-config zsh/functions/highlighters/_zsh_highlight_highlighter_influx_env_predicate $(HOME)/.zsh/functions/_zsh_highlight_highlighter_influx_env_predicate
 	setup/setup-config zsh/functions/highlighters/_zsh_highlight_highlighter_mysql_env_paint      $(HOME)/.zsh/functions/_zsh_highlight_highlighter_mysql_env_paint
 	setup/setup-config zsh/functions/highlighters/_zsh_highlight_highlighter_mysql_env_predicate  $(HOME)/.zsh/functions/_zsh_highlight_highlighter_mysql_env_predicate
 	setup/setup-config zsh/functions/highlighters/_zsh_highlight_highlighter_redis_env_paint      $(HOME)/.zsh/functions/_zsh_highlight_highlighter_redis_env_paint

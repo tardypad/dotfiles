@@ -21,7 +21,6 @@ shell-scripts:
 	setup/setup-script shell/http-env
 	setup/setup-script shell/http-stats
 	setup/setup-script shell/i3blocks-mode
-	setup/setup-script shell/influx-env
 	setup/setup-script shell/launch-tmux-env
 	setup/setup-script shell/line-by-line
 	setup/setup-script shell/loop
