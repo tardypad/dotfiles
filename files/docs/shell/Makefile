@@ -38,7 +38,6 @@ shell-docs:
 	setup/setup-doc shell/project-path
 	setup/setup-doc shell/query-hosts-tags
 	setup/setup-doc shell/read-news
-	setup/setup-doc shell/redis-env
 	setup/setup-doc shell/rename-edit
 	setup/setup-doc shell/schedule
 	setup/setup-doc shell/screencast

@@ -38,7 +38,6 @@ shell-scripts:
 	setup/setup-script shell/project-path
 	setup/setup-script shell/query-hosts-tags
 	setup/setup-script shell/read-news
-	setup/setup-script shell/redis-env
 	setup/setup-script shell/rename-edit
 	setup/setup-script shell/schedule
 	setup/setup-script shell/screencast

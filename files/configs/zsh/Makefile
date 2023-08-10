@@ -31,7 +31,6 @@ zsh-configs:
 	setup/setup-config zsh/completions/_proxy                                                     $(HOME)/.zsh/completions/_proxy
 	setup/setup-config zsh/completions/_query-hosts-tags                                          $(HOME)/.zsh/completions/_query-hosts-tags
 	setup/setup-config zsh/completions/_read-news                                                 $(HOME)/.zsh/completions/_read-news
-	setup/setup-config zsh/completions/_redis-env                                                 $(HOME)/.zsh/completions/_redis-env
 	setup/setup-config zsh/completions/_schedule                                                  $(HOME)/.zsh/completions/_schedule
 	setup/setup-config zsh/completions/_screencast                                                $(HOME)/.zsh/completions/_screencast
 	setup/setup-config zsh/completions/_screenshot                                                $(HOME)/.zsh/completions/_screenshot
@@ -66,8 +65,6 @@ zsh-configs:
 	setup/setup-config zsh/functions/highlighters/_zsh_highlight_highlighter_http_env_predicate   $(HOME)/.zsh/functions/_zsh_highlight_highlighter_http_env_predicate
 	setup/setup-config zsh/functions/highlighters/_zsh_highlight_highlighter_mysql_env_paint      $(HOME)/.zsh/functions/_zsh_highlight_highlighter_mysql_env_paint
 	setup/setup-config zsh/functions/highlighters/_zsh_highlight_highlighter_mysql_env_predicate  $(HOME)/.zsh/functions/_zsh_highlight_highlighter_mysql_env_predicate
-	setup/setup-config zsh/functions/highlighters/_zsh_highlight_highlighter_redis_env_paint      $(HOME)/.zsh/functions/_zsh_highlight_highlighter_redis_env_paint
-	setup/setup-config zsh/functions/highlighters/_zsh_highlight_highlighter_redis_env_predicate  $(HOME)/.zsh/functions/_zsh_highlight_highlighter_redis_env_predicate
 
 	# same git completions
 	ln -sf _git-argument $(DESTDIR)$(HOME)/.zsh/completions/git/_git-bwc
