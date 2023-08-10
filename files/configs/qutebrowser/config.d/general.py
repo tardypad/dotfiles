@@ -51,14 +51,6 @@ config.set('content.media.audio_capture', True, 'whereby.com')
 config.set('content.media.video_capture', True, 'whereby.com')
 config.set('content.media.audio_video_capture', True, 'whereby.com')
 config.set('content.desktop_capture', True, 'whereby.com')
-config.set('content.media.audio_capture', True, 'zoom.us')
-config.set('content.media.video_capture', True, 'zoom.us')
-config.set('content.media.audio_video_capture', True, 'zoom.us')
-config.set('content.desktop_capture', True, 'zoom.us')
-config.set('content.media.audio_capture', True, '*.zoom.us')
-config.set('content.media.video_capture', True, '*.zoom.us')
-config.set('content.media.audio_video_capture', True, '*.zoom.us')
-config.set('content.desktop_capture', True, '*.zoom.us')
 
 # prefer webpage to follow overall color scheme
 c.colors.webpage.preferred_color_scheme = '{color/theme}'
