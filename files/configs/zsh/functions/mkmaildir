@@ -1,0 +1,4 @@
+# create a single maildir within the ~/Mail/Perso/INBOX dir
+# supports a nested dir
+
+mkdir -p "${XDG_MAIL_DIR:-$HOME/Mail}/Perso/INBOX/$1/"{cur,new,tmp}

@@ -55,6 +55,7 @@ zsh-configs:
 	setup/setup-config zsh/functions/goto-project                                                 $(HOME)/.zsh/functions/goto-project
 	setup/setup-config zsh/functions/init-todo                                                    $(HOME)/.zsh/functions/init-todo
 	setup/setup-config zsh/functions/mkcd                                                         $(HOME)/.zsh/functions/mkcd
+	setup/setup-config zsh/functions/mkmaildir                                                    $(HOME)/.zsh/functions/mkmaildir
 	setup/setup-config zsh/functions/task-log                                                     $(HOME)/.zsh/functions/task-log
 	setup/setup-config zsh/functions/time-tracker-overview                                        $(HOME)/.zsh/functions/time-tracker-overview
 	setup/setup-config zsh/functions/time-tracker-sum                                             $(HOME)/.zsh/functions/time-tracker-sum
