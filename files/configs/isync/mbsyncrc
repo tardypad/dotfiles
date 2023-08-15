@@ -17,6 +17,6 @@ Far :perso-remote:
 Near :perso-local:
 SyncState *
 Patterns *
-Create Near
+Create Both
 Remove Near
 Expunge Both
