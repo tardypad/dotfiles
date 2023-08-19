@@ -15,6 +15,7 @@ c.fonts.prompts                   = "12pt Source Sans Pro"
 c.fonts.statusbar                 = "12pt monospace"
 c.fonts.tabs.selected             = "12pt Source Sans Pro"
 c.fonts.tabs.unselected           = "12pt Source Sans Pro"
+c.fonts.tooltip                   = "12pt Source Sans Pro"
 c.fonts.web.family.cursive        = ""
 c.fonts.web.family.fantasy        = ""
 c.fonts.web.family.fixed          = "Source Code Pro"
@@ -162,6 +163,9 @@ c.colors.tabs.selected.even.bg                  = colors['base0A']
 c.colors.tabs.selected.even.fg                  = colors['base00']
 c.colors.tabs.selected.odd.bg                   = colors['base0A']
 c.colors.tabs.selected.odd.fg                   = colors['base00']
+
+c.colors.tooltip.bg                             = colors['base01']
+c.colors.tooltip.fg                             = colors['base05']
 
 # many websites base their design
 # on the assumption that the background is always white...
