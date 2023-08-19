@@ -61,3 +61,6 @@ c.downloads.remove_finished = 3000
 
 # external edit
 c.editor.command = [ "sway-quick-command", "vim", "{file}" ]
+
+# minimal status bar
+c.statusbar.widgets = [ 'keypress', 'url', 'scroll', 'progress' ]
