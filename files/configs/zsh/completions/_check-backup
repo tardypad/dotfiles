@@ -1,0 +1,13 @@
+#compdef check-backup
+
+_hdds() {
+  local hdds=(
+    hdd1
+    hdd2
+  )
+
+  compadd "$@" $hdds
+}
+
+_arguments \
+  '1:hdd:_hdds'

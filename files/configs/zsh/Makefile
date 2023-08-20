@@ -15,6 +15,7 @@ zsh-configs:
 	setup/setup-config zsh/config.d/90-plugins.zsh                                                $(HOME)/.zsh/config.d/90-plugins.zsh
 	setup/setup-config zsh/completions/_backup                                                    $(HOME)/.zsh/completions/_backup
 	setup/setup-config zsh/completions/_bluetooth                                                 $(HOME)/.zsh/completions/_bluetooth
+	setup/setup-config zsh/completions/_check-backup                                              $(HOME)/.zsh/completions/_check-backup
 	setup/setup-config zsh/completions/_clock                                                     $(HOME)/.zsh/completions/_clock
 	setup/setup-config zsh/completions/_do-not-disturb                                            $(HOME)/.zsh/completions/_do-not-disturb
 	setup/setup-config zsh/completions/_documentation                                             $(HOME)/.zsh/completions/_documentation

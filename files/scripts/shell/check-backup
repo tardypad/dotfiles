@@ -1,0 +1,79 @@
+#!/bin/sh
+
+init_variables() {
+  COMMAND=${0##*/}
+
+  HDD1_UUID='e89b95fd-8520-43c1-bebf-610c92176955'
+  HDD2_UUID='204b2ecc-e3c3-497c-aa4a-c0421a2ddb4f'
+}
+
+parse_command_line() {
+  HDD="$1"
+}
+
+validate_command_line() {
+  if [ -z "${HDD}" ]; then
+      exit_error 'Missing HDD'
+  fi
+
+  if [ "${HDD}" != 'hdd1' ] \
+     && [ "${HDD}" != 'hdd2' ]; then
+    exit_error "Invalid HDD '${HDD}'"
+  fi
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+init_hdd() {
+  HDD_BASE_DIR="$(
+    lsblk -n -o UUID,MOUNTPOINT \
+      | grep "^$1 " \
+      | awk '{ print $2 }'
+  )"
+
+  if [ -z "${HDD_BASE_DIR}" ]; then
+    exit_error "HDD is not connected"
+  fi
+}
+
+dirsum() (
+  cd "$1" || return 1
+
+  local total_size="$( du -sb . | cut -f1 )"
+
+  find . \
+    | LC_ALL=C sort \
+    | tar --no-recursion -cf - -T - \
+    | pv -s "${total_size}" -eb \
+    | md5sum \
+    | cut -d' ' -f1
+)
+
+check_dir() {
+  printf "%s  %s\n" "$1" "$( dirsum "${HDD_BASE_DIR}/$1" )"
+}
+
+init_variables
+parse_command_line "$@"
+validate_command_line
+
+if [ "${HDD}" = 'hdd1' ]; then
+  init_hdd "${HDD1_UUID}"
+elif [ "${HDD}" = 'hdd2' ]; then
+  init_hdd "${HDD2_UUID}"
+fi
+
+check_dir Bookmarks
+check_dir Books
+check_dir Contacts
+check_dir Documents
+check_dir Infra
+check_dir Mail
+check_dir Messages
+check_dir Notes
+check_dir Pictures
+check_dir Projects
+check_dir Todo

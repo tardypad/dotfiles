@@ -8,6 +8,7 @@ shell-docs:
 	setup/setup-doc shell/bemenu-run
 	setup/setup-doc shell/bluetooth
 	setup/setup-doc shell/calculate
+	setup/setup-doc shell/check-backup
 	setup/setup-doc shell/check-notify-low-battery
 	setup/setup-doc shell/clock
 	setup/setup-doc shell/color-picker
