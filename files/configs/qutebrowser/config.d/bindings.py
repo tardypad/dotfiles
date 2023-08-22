@@ -269,8 +269,8 @@ config.bind('<Ctrl-{key/open/upp}>{key/c}', 'spawn --detach chromium {url}', mod
 config.bind('<Ctrl-{key/open/upp}>{key/f}', 'spawn --detach firefox {url}', mode='normal')
 
 # dev tools
-config.bind('<Ctrl-{key/tabulation/Tab}>', 'devtools window', mode='normal')
-config.bind('<Ctrl-{key/tabulation/Tab}>', 'devtools window', mode='insert')
+config.bind('<Ctrl-{key/tabulation/Tab}>', 'devtools right', mode='normal')
+config.bind('<Ctrl-{key/tabulation/Tab}>', 'devtools right', mode='insert')
 
 # Toggle no distraction mode
 config.bind('<Alt-{key/space/Space}>', 'fullscreen ;; config-cycle --temp statusbar.show never always ;; config-cycle --temp tabs.show never always', mode='normal')
