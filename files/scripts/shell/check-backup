@@ -5,9 +5,20 @@ init_variables() {
 
   HDD1_UUID='e89b95fd-8520-43c1-bebf-610c92176955'
   HDD2_UUID='204b2ecc-e3c3-497c-aa4a-c0421a2ddb4f'
+
+  ALL=false
 }
 
 parse_command_line() {
+  while getopts a OPT; do
+    case "${OPT}" in
+      a) ALL=true ;;
+      ?) exit_error ;;
+    esac
+  done
+
+  shift $(( OPTIND - 1 ))
+
   HDD="$1"
 }
 
@@ -77,3 +88,12 @@ check_dir Notes
 check_dir Pictures
 check_dir Projects
 check_dir Todo
+
+if [ "${ALL}" = 'true' ]; then
+  check-dir Desktop
+  check-dir Music
+  check-dir Packages
+  check-dir Repositories
+  check-dir Videos
+  check-dir Work
+fi

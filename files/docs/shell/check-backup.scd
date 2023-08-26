@@ -6,7 +6,7 @@ check-backup - display backup checksums
 
 # SYNOPSIS
 
-check-backup _hdd_
+check-backup [-a] _hdd_
 
 # DESCRIPTION
 
@@ -14,7 +14,8 @@ Display the checksums of most important backed up folders in a HDD
 
 # OPTIONS
 
-None
+*-a*
+	Check all backed up folders
 
 # OPERANDS
 

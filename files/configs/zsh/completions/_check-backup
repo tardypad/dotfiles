@@ -10,4 +10,5 @@ _hdds() {
 }
 
 _arguments \
+  '-a[check all folders]' \
   '1:hdd:_hdds'
