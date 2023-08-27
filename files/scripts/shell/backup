@@ -3,6 +3,9 @@
 init_variables() {
   COMMAND=${0##*/}
 
+  TMP_DIR="$( mktemp -d )"
+  trap 'rm -rf "${TMP_DIR}"' EXIT
+
   LOCAL_HOST="$( uname -n )"
 
   LOCAL_BROWSER_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/qutebrowser"
@@ -28,11 +31,15 @@ init_variables() {
 
   SERVER_BOOKMARKS_DIR="${SERVER_BASE_DIR}/bookmarks"
   SERVER_CONTACTS_DIR="radicale/collection-root/damien"
+  SERVER_HDD_DIR="${SERVER_BASE_DIR}/hdd"
   SERVER_NOTES_DIR="${SERVER_BASE_DIR}/notes"
   SERVER_TIME_TRACKER_LOGS_DIR="${SERVER_BASE_DIR}/time_tracker_logs"
   SERVER_TODO_DIR="${SERVER_BASE_DIR}/todo"
   SERVER_PACKAGES_DIR="/srv/http/pkgs"
   SERVER_REPOSITORIES_DIR="repos"
+
+  PASSPHRASE_1=
+  PASSPHRASE_2=
 
   RSYNC='rsync -azh --mkpath --info=progress2'
 
@@ -119,7 +126,9 @@ validate_command_line() {
 }
 
 validate_command_line_backup_source_target() {
-  if [ "${SOURCE}" != 'laptop' ] \
+  if [ "${SOURCE}" != 'hdd1' ] \
+     && [ "${SOURCE}" != 'hdd2' ] \
+     && [ "${SOURCE}" != 'laptop' ] \
      && [ "${SOURCE}" != 'phone' ] \
      && [ "${SOURCE}" != 'server' ]; then
     exit_error "Invalid backup source '${SOURCE}'"
@@ -133,6 +142,11 @@ validate_command_line_backup_source_target() {
 
   if [ "${SOURCE}" = 'server' ] && [ "${TARGET}" = 'server' ]; then
     exit_error "Cannot backup to itself"
+  fi
+
+  if ([ "${SOURCE}" = 'hdd1' ] || [ "${SOURCE}" = 'hdd2' ]) \
+    && [ "${TARGET}" != 'server' ]; then
+    exit_error "Cannot backup from ${SOURCE} to ${TARGET}"
   fi
 
   if [ "${SOURCE}" = 'phone' ] && [ "${TARGET}" = 'server' ]; then
@@ -178,6 +192,10 @@ validate_command_line_backup_item() {
          && [ "${ITEM}" != 'todo' ]; then
         exit_error "Cannot backup ${ITEM} from ${SOURCE} to ${TARGET}"
       fi
+    fi
+  elif [ "${SOURCE}" = 'hdd1' ] || [ "${SOURCE}" = 'hdd2' ]; then
+    if [ -n "${ITEM}" ]; then
+      exit_error "No item is allowed to backup from ${SOURCE} to ${TARGET}"
     fi
   fi
 }
@@ -356,6 +374,17 @@ backup_server_hdd_repositories() {
     "${HDD_REPOSITORIES_DIR}"
 }
 
+backup_hdd_server_dir() {
+  ENCRYPTED_FILE="${TMP_DIR}/$( echo "$1" | tr '/' '-' ).tgz.gpg"
+
+  tar czf - -C "${HDD_BASE_DIR}/$( dirname "$1" )" "$( basename $1 )" \
+    | gpg -c -o "${ENCRYPTED_FILE}" \
+        --batch --passphrase "${PASSPHRASE_1}" \
+        --s2k-mode 3 --s2k-count 65011712 --s2k-digest-algo SHA512 --s2k-cipher-algo AES256
+
+  ${RSYNC} "${ENCRYPTED_FILE}" "${SERVER_HOST}:${SERVER_HDD_DIR}/"
+}
+
 restore_hdd_server_bookmarks() {
   ${RSYNC} \
     "${HDD_BOOKMARKS_DIR}/" \
@@ -467,6 +496,25 @@ backup_server_hdd() {
   for i in bookmarks contacts notes packages repositories todo; do
     printf 'server -> hdd: %s\n' "$i"
     "backup_server_hdd_$i"
+  done
+}
+
+backup_hdd_server() {
+  stty -echo
+  printf 'Enter passphrase: '
+  read -r PASSPHRASE_1
+  printf '\nConfirm passphrase: '
+  read -r PASSPHRASE_2
+  printf '\n'
+  stty echo
+
+  if [ "${PASSPHRASE_1}" != "${PASSPHRASE_2}" ]; then
+    exit_error "Passphrases do not match"
+  fi
+
+  for i in Documents/Finance Documents/Papers Infra Mail/Backups; do
+    printf 'hdd -> server: %s\n' "$i"
+    backup_hdd_server_dir "$i"
   done
 }
 

@@ -20,6 +20,8 @@ _sources() {
     )
   else
     sources=(
+      hdd1
+      hdd2
       laptop
       phone
       server
@@ -38,11 +40,17 @@ _targets() {
       server
     )
   else
-    targets=(
-      hdd1
-      hdd2
-      server
-    )
+    if [ $source = hdd* ]; then
+      targets=(
+        server
+      )
+    else
+      targets=(
+        hdd1
+        hdd2
+        server
+      )
+    fi
   fi
 
   compadd "$@" $targets

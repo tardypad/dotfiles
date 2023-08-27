@@ -65,10 +65,10 @@ Valid sources per action
 :- backup 
 :- restore
 |  hdd1
-:-
+:- \* 
 :- \* 
 |  hdd2
-:- 
+:- \* 
 :- \*
 |  laptop 
 :- \*
@@ -189,6 +189,8 @@ Valid items per source and target
 :- \*
 : 
 
+For hdd -> server, no item is allowed, the list is fixed.
+
 # ENVIRONMENT VARIABLES
 
 _XDG_BOOKS_DIR_
@@ -247,5 +249,8 @@ _$XDG_VIDEOS_DIR_
 
 # DEPENDENCIES
 
+- gpg
 - lsblk
+- mktemp
 - rsync
+- tar
