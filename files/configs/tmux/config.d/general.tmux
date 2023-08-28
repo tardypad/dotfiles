@@ -81,6 +81,9 @@ set-option -g escape-time 100
 # decrease the binding keys repeat time
 set-option -g repeat-time 300
 
+# enable mouse
+set-option -g mouse on
+
 # do not monitor activity/bell/silence by default
 set-option -w -g monitor-activity off
 set-option -w -g monitor-bell off

@@ -275,3 +275,9 @@ bind -T copy-mode-vi -N 'repeat 6'                               {key/6}        
 bind -T copy-mode-vi -N 'repeat 7'                               {key/7}                         command-prompt -N -I 7 -p (repeat) "send -N \"%%%\""
 bind -T copy-mode-vi -N 'repeat 8'                               {key/8}                         command-prompt -N -I 8 -p (repeat) "send -N \"%%%\""
 bind -T copy-mode-vi -N 'repeat 9'                               {key/9}                         command-prompt -N -I 9 -p (repeat) "send -N \"%%%\""
+
+
+# mouse
+bind-key -T root -N 'select pane and forward event' MouseDown1Pane   select-pane -t '{mouse}' \; send-keys -M
+bind-key -T root -N 'select window'                 MouseDown1Status select-window -t '{mouse}'
+bind-key -T root -N 'resize pane'                   MouseDrag1Border resize-pane -M
