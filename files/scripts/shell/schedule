@@ -27,7 +27,12 @@ validate_command_line() {
   # shellcheck disable=SC2221 disable=SC2222
   case "$( echo "${DATE}" | tr '[:upper:]' '[:lower:]' )" in
     [+-][0-9]*)
-      FINAL_DATE="$( date '+%Y/%m/%d' -d "${DATE} ${PERIOD}" )"
+      # months length are not regular: 31 Aug + 1 month should be September, not October
+      if [ "${PERIOD}" = 'month' ]; then
+        FINAL_DATE="$( date '+%Y/%m/%d' -d "$( date '+%Y/%m/01' ) ${DATE} ${PERIOD}" )"
+      else
+        FINAL_DATE="$( date '+%Y/%m/%d' -d "${DATE} ${PERIOD}" )"
+      fi
       ;;
     jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)
       FINAL_DATE="$( date '+%Y/%m/%d' -d "01 ${DATE}" )"
