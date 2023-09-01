@@ -64,3 +64,6 @@ c.editor.command = [ "sway-quick-command", "vim", "{file}" ]
 
 # minimal status bar
 c.statusbar.widgets = [ 'keypress', 'url', 'scroll', 'progress' ]
+
+#HACK: Fix some rendering issue on Intel graphics
+c.qt.args = [ "disable-accelerated-2d-canvas" ]
