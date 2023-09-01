@@ -15,6 +15,10 @@ set timeoutlen=300 ttimeoutlen=10
 " show keys typed in status line
 set showcmd
 
+" enable mouse usage
+set mouse=a
+set ttymouse=sgr
+
 " display
 set title                 " Update the title of your window or your terminal
 set relativenumber        " Display relative line numbers
