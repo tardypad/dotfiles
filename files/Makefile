@@ -19,6 +19,7 @@ libqalculate: libqalculate-configs
 mako: mako-configs
 misc: misc-configs
 mpd: mpd-configs
+neovim: neovim-configs
 openssh: openssh-configs
 pulsemixer: pulsemixer-configs
 qutebrowser: qutebrowser-configs

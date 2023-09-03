@@ -36,6 +36,7 @@ include files/configs/libqalculate/Makefile
 include files/configs/mako/Makefile
 include files/configs/misc/Makefile
 include files/configs/mpd/Makefile
+include files/configs/neovim/Makefile
 include files/configs/openssh/Makefile
 include files/configs/pulsemixer/Makefile
 include files/configs/qutebrowser/Makefile
