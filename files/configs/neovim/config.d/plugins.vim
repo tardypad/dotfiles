@@ -58,7 +58,10 @@ let g:goyo_width = '70%'
 "" gutentags
 
 " use current working directory as project root
-let g:gutentags_project_root_finder = 'getcwd'
+function ForceCWD(path)
+  return getcwd()
+endfunction
+let g:gutentags_project_root_finder = 'ForceCWD'
 
 " Define name of tags file in the root folder
 let g:gutentags_ctags_tagfile = '.tags'
