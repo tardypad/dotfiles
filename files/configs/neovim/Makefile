@@ -1,12 +1,6 @@
 all: neovim-configs
 
 neovim-configs:
-	# create necessary runtime directories
-	mkdir -p $(DESTDIR)$(HOME)/.vim/backup
-	mkdir -p $(DESTDIR)$(HOME)/.vim/sessions
-	mkdir -p $(DESTDIR)$(HOME)/.vim/swap
-	mkdir -p $(DESTDIR)$(HOME)/.vim/undo
-
 	# backup locally added new spelling words
 	if [ -z $(DESTDIR) ] ; then \
 		if ! diff files/configs/neovim/spell/en.utf-8.add $(DESTDIR)$(CONFIG_DIR)/nvim/spell/en.utf-8.add > /dev/null 2>&1; then \

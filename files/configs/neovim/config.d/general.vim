@@ -72,14 +72,11 @@ set iskeyword=@,48-57,_,192-255
 
 " enable swap / backup / undo files for buffers
 " and store them preferably separately from the edited file location
-" ^= means prepend to the default directories list
 " // means use the full file path as name (prevent name collisions)
 set swapfile
 set backup
 set undofile
-set directory^=~/.vim/swap//
-set backupdir^=~/.vim/backup//
-set undodir^=~/.vim/undo//
+let &backupdir=stdpath('state') . '/backup//'
 
 " keep the same file inode when writing
 set backupcopy=yes

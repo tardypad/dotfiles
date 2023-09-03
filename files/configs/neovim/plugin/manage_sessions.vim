@@ -5,7 +5,11 @@ if exists('g:loaded_manage_sessions')
 endif
 let g:loaded_manage_sessions = 1
 
-let s:sessions_directory = '~/.vim/sessions'
+let s:sessions_directory = stdpath('data') . '/sessions'
+
+if !isdirectory(s:sessions_directory)
+  call mkdir(s:sessions_directory, 'p')
+endif
 
 function s:GetSessionPath(name)
   return expand(s:sessions_directory . '/' . a:name . '.vim')

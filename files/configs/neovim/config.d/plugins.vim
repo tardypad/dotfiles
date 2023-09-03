@@ -131,5 +131,5 @@ let g:Unicode_no_default_mappings = v:true
 
 " define user cache and data directories
 " otherwise by default it would try on non writable package directories
-let g:Unicode_data_directory = $XDG_DATA_HOME . "/vim/unicode/"
-let g:Unicode_cache_directory = $XDG_CACHE_HOME . "/vim/unicode/"
+let g:Unicode_data_directory = stdpath('data') . "/unicode/"
+let g:Unicode_cache_directory = stdpath('cache') . "/unicode/"
