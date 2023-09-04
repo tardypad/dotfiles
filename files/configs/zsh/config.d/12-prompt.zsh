@@ -5,12 +5,14 @@ VI_CMD_MODE_SYMBOL='<'
 # define initial mode
 VI_MODE_SYMBOL="${VI_INS_MODE_SYMBOL}"
 
-# on keymap change, define the mode and redraw prompt
+# on keymap change, define the mode, change the cursor shape and redraw prompt
 zle-keymap-select() {
   if [ "${KEYMAP}" = 'vicmd' ]; then
     VI_MODE_SYMBOL="${VI_CMD_MODE_SYMBOL}"
+    printf '\x1b[2 q' # cursor steady block
   else
     VI_MODE_SYMBOL="${VI_INS_MODE_SYMBOL}"
+    printf '\x1b[6 q' # cursor steady I-beam
   fi
   zle reset-prompt
 }
@@ -39,6 +41,8 @@ prompt_preexec() {
 }
 
 prompt_precmd() {
+  # cursor steady I-beam by default
+  printf '\x1b[6 q'
   # spacer between last command result and new prompt
   echo
 }
