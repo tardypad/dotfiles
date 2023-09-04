@@ -40,6 +40,7 @@ alias sdw='schedule -w --'
 alias sdm='schedule -m --'
 
 alias g='git'
+alias e='$EDITOR'
 
 alias pg='pass git'
 
