@@ -15,7 +15,7 @@ tmux -L "${SOCKET}" \
   new-window \
   -n 'code' \
   -c "${ALPINE_SYSTEM_PATH}" \
-  "vim \
+  "nvim \
     -c 'TabooRename TODO' \
     -c 'tabnew' \
     -- TODO.md"

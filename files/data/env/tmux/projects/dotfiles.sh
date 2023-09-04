@@ -15,7 +15,7 @@ tmux -L "${SOCKET}" \
   new-window \
   -n 'code' \
   -c "${DOTFILES_PATH}" \
-  "vim \
+  "nvim \
     -c 'TabooRename TODO' \
     -c 'tabnew' \
     -- TODO.md"

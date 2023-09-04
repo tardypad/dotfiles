@@ -15,7 +15,7 @@ tmux -L "${SOCKET}" \
 tmux -L "${SOCKET}" \
   split-window -dh \
   -c "${PLOTT_PATH}" \
-  "vim \
+  "nvim \
     -c 'TabooRename TODO' \
     -c 'tabnew' \
     -- TODO.md"
@@ -28,7 +28,7 @@ tmux -L "${SOCKET}" \
 tmux -L "${SOCKET}" \
   split-window -dh \
   -c "${JP_PATH}" \
-  vim
+  nvim
 
 tmux -L "${SOCKET}" \
   select-window \

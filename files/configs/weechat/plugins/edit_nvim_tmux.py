@@ -1,9 +1,9 @@
-SCRIPT_NAME    = "edit_vim_tmux"
+SCRIPT_NAME    = "edit_nvim_tmux"
 SCRIPT_AUTHOR  = "Damien Tardy-Panis <damien.dev@tardypad.me>"
 SCRIPT_VERSION = "0.1.0"
 SCRIPT_LICENSE = "MIT"
-SCRIPT_DESC    = "Compose message in vim within a tmux pane"
-SCRIPT_COMMAND = "edit_vim_tmux"
+SCRIPT_DESC    = "Compose message in neovim within a tmux pane"
+SCRIPT_COMMAND = "edit_nvim_tmux"
 
 IMPORT_OK = True
 
@@ -24,9 +24,9 @@ SETTINGS = {
     "tmux_split_options": (
         "-v -l 20",
         "Options for tmux split window command"),
-    "vim_options": (
+    "nvim_options": (
         "+startinsert",
-        "Options for vim command"),
+        "Options for nvim command"),
 }
 
 def send_message():
@@ -44,7 +44,7 @@ def cleanup():
     except (OSError, IOError):
         pass
 
-def process_vim_result(data, command, rc, out, err):
+def process_nvim_result(data, command, rc, out, err):
     if rc == 0:
         send_message()
     cleanup()
@@ -53,19 +53,19 @@ def process_vim_result(data, command, rc, out, err):
 def run_within_tmux():
     command = ( "tmux split-window {} ".format(
                     weechat.config_get_plugin("tmux_split_options")) +
-                '"vim {} -- {}; {}" '.format(
-                    weechat.config_get_plugin("vim_options"),
+                '"nvim {} -- {}; {}" '.format(
+                    weechat.config_get_plugin("nvim_options"),
                     MESSAGE_FILE_PATH,
-                   "tmux wait-for -S edit_vim_tmux" ) +
-                "\; wait-for edit_vim_tmux" )
+                   "tmux wait-for -S edit_nvim_tmux" ) +
+                "\; wait-for edit_nvim_tmux" )
 
-    if not weechat.hook_process(command, 0, "process_vim_result", ""):
+    if not weechat.hook_process(command, 0, "process_nvim_result", ""):
         return weechat.WEECHAT_RC_ERROR
     return weechat.WEECHAT_RC_OK
 
 def run_blocking():
-    command = "vim {} -- {}".format(
-                weechat.config_get_plugin("vim_options"),
+    command = "nvim {} -- {}".format(
+                weechat.config_get_plugin("nvim_options"),
                 MESSAGE_FILE_PATH)
     code = subprocess.Popen(shlex.split(command)).wait()
 
@@ -77,19 +77,19 @@ def run_blocking():
 
     return weechat.WEECHAT_RC_OK
 
-def edit_vim_tmux_cmd(data, buf, args):
+def edit_nvim_tmux_cmd(data, buf, args):
     if os.environ.get("TMUX"):
         return run_within_tmux()
     else:
         return run_blocking()
 
-def edit_vim_tmux_main():
+def edit_nvim_tmux_main():
     if not weechat.register(SCRIPT_NAME, SCRIPT_AUTHOR, SCRIPT_VERSION,
                             SCRIPT_LICENSE, SCRIPT_DESC, "", ""):
         return
     weechat.hook_command(
         SCRIPT_COMMAND, SCRIPT_DESC,
-        "", "", "", "edit_vim_tmux_cmd", "")
+        "", "", "", "edit_nvim_tmux_cmd", "")
 
     for option, value in SETTINGS.items():
         if not weechat.config_is_set_plugin(option):
@@ -98,4 +98,4 @@ def edit_vim_tmux_main():
                 option, '%s (default: "%s")' % (value[1], value[0]))
 
 if __name__ == "__main__" and IMPORT_OK:
-    edit_vim_tmux_main()
+    edit_nvim_tmux_main()

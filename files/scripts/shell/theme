@@ -80,7 +80,7 @@ reload_system() {
 
   pgrep -x mako > /dev/null && makoctl reload
 
-  pkill -x -USR1 vim
+  pkill -x -USR1 nvim
 
   for s in "/tmp/tmux-$( id -u )"/*; do
     tmux -S "$s" source-file {dir/config}/tmux/tmux.conf
@@ -88,8 +88,8 @@ reload_system() {
     # update colors of terminal underlying tmux
     "send_osc_sequence_${THEME}" > "$( tmux -S "$s" display-message -p '#{client_tty}' )"
 
-    # send key to all vim instances to make the reload callback run
-    tmux -S "$s" run "tmux-send-vim escape"
+    # send key to all nvim instances to make the reload callback run
+    tmux -S "$s" run "tmux-send-nvim escape"
   done 2> /dev/null
 
   pkill -x -USR1 zsh

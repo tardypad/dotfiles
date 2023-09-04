@@ -70,7 +70,7 @@ Some targets additionally require extra tools:
   reload a service, clear the cache,...:
   * fontconfig
   * systemd
-  * vim
+  * nvim
 
 ```shell
 # setup config files of a single package
@@ -86,7 +86,7 @@ make git-scripts
 make git
 
 # setup all files of a selection of packages
-make git tmux vim zsh
+make git tmux nvim zsh
 
 # setup everything
 make

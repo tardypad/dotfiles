@@ -131,11 +131,11 @@ bind -N 'switch to down pane'      {key/down/upp}      select-pane -t ':.{down-o
 bind -N 'switch to up pane'        {key/up/upp}        select-pane -t ':.{up-of}'
 bind -N 'switch to right pane'     {key/right/upp}     select-pane -t ':.{right-of}'
 
-bind -T root -N 'switch to alternate pane' M-{key/alternate/low} run "tmux-select-pane-vim a"
-bind -T root -N 'switch to left pane'      M-{key/left/low}      run "tmux-select-pane-vim h"
-bind -T root -N 'switch to down pane'      M-{key/down/low}      run "tmux-select-pane-vim j"
-bind -T root -N 'switch to up pane'        M-{key/up/low}        run "tmux-select-pane-vim k"
-bind -T root -N 'switch to right pane'     M-{key/right/low}     run "tmux-select-pane-vim l"
+bind -T root -N 'switch to alternate pane' M-{key/alternate/low} run "tmux-select-pane-nvim a"
+bind -T root -N 'switch to left pane'      M-{key/left/low}      run "tmux-select-pane-nvim h"
+bind -T root -N 'switch to down pane'      M-{key/down/low}      run "tmux-select-pane-nvim j"
+bind -T root -N 'switch to up pane'        M-{key/up/low}        run "tmux-select-pane-nvim k"
+bind -T root -N 'switch to right pane'     M-{key/right/low}     run "tmux-select-pane-nvim l"
 
 # respawn
 bind -N 'respawn pane'            {key/backspace/BSpace} respawn-pane

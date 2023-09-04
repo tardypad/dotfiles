@@ -72,12 +72,12 @@
 [tag]
     sort = version:refname
 [diff]
-    tool = vimdiff
+    tool = nvimdiff
 [difftool]
     prompt = false
 [merge]
     autoStash = true
-    tool = vimdiff
+    tool = nvimdiff
     conflictStyle = zdiff3
 [mergetool]
     prompt = false

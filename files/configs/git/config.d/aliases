@@ -33,7 +33,7 @@
     ci = "! \
         f() { \
           [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\"; \
-          EDITOR=\"vim -c 'startinsert!'\" git commit \"$@\"; \
+          EDITOR=\"nvim -c 'startinsert!'\" git commit \"$@\"; \
         }; f"
     cia = ci -a
     cl = clone

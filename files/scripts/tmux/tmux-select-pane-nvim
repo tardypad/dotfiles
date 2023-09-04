@@ -6,7 +6,7 @@ PANE_CURRENT_COMMAND=$(
   tmux display -p '#{pane_current_command}'
 )
 
-if [ "${PANE_CURRENT_COMMAND}" = 'vim' ]; then
+if [ "${PANE_CURRENT_COMMAND}" = 'nvim' ]; then
   tmux send-keys "${KEY}"
   exit
 fi

@@ -13,8 +13,8 @@ export XDG_VIDEOS_DIR="${HOME}/Videos"
 export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_DATA_HOME="${HOME}/.local/share"
 
-# Make vim the default editor everywhere
-export EDITOR=vim
+# Make nvim the default editor everywhere
+export EDITOR=nvim
 
 # define replacement for redirections with no command
 export NULLCMD=:

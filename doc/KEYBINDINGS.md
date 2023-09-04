@@ -14,7 +14,7 @@ The general organization is:
 - sway uses the "Super" key as mod
 - foot uses "Ctrl+Shift" as mod
 - tmux uses "Ctrl+Space" as prefix
-- vim uses "Space" as leader
+- nvim uses "Space" as leader
 
 The local organization is:
 - use lowercase keys for sway workspace and tmux windows

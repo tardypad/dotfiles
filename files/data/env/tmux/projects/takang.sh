@@ -17,7 +17,7 @@ tmux -L "${SOCKET}" \
 tmux -L "${SOCKET}" \
   split-window -dh \
   -c "${TAKANG_PATH}" \
-  "vim \
+  "nvim \
     -c 'TabooRename TODO' \
     -c 'tabnew' \
     -- TODO.md"
@@ -30,7 +30,7 @@ tmux -L "${SOCKET}" \
 tmux -L "${SOCKET}" \
   split-window -dh \
   -c "${IMV_PATH}" \
-  vim
+  nvim
 
 tmux -L "${SOCKET}" \
   new-window \
@@ -40,7 +40,7 @@ tmux -L "${SOCKET}" \
 tmux -L "${SOCKET}" \
   split-window -dh \
   -c "${MAKO_PATH}" \
-  vim
+  nvim
 
 tmux -L "${SOCKET}" \
   new-window \
@@ -50,7 +50,7 @@ tmux -L "${SOCKET}" \
 tmux -L "${SOCKET}" \
   split-window -dh \
   -c "${WSHOWKEYS_PATH}" \
-  vim
+  nvim
 
 tmux -L "${SOCKET}" \
   select-window \

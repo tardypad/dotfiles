@@ -5,5 +5,5 @@ mail_client       foot tmux new-session -A -s mail "aerc"
 mail_composer     foot aerc
 system_monitor    foot -T sway_monitor -o locked-title=yes -e tmux new-session -A -s monitor "htop"
 terminal_emulator foot tmux new-session
-text_editor       foot vim
+text_editor       foot nvim
 web_browser       qutebrowser
