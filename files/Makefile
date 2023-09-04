@@ -33,7 +33,6 @@ systemd: systemd-configs
 tmux: tmux-configs tmux-docs tmux-scripts
 translate-shell: translate-shell-configs
 vdirsyncer: vdirsyncer-configs
-vim: vim-configs
 w3m: w3m-configs
 weechat: weechat-configs
 zathura: zathura-configs

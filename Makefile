@@ -50,7 +50,6 @@ include files/configs/systemd/Makefile
 include files/configs/tmux/Makefile
 include files/configs/translate-shell/Makefile
 include files/configs/vdirsyncer/Makefile
-include files/configs/vim/Makefile
 include files/configs/w3m/Makefile
 include files/configs/weechat/Makefile
 include files/configs/zathura/Makefile
