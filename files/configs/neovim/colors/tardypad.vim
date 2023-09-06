@@ -111,13 +111,17 @@ call s:highlight("NonText",      "foreground", "base02",     "")
 call s:highlight("Normal",       "foreground", "",           "")
 call s:highlight("SignColumn",   "base02",     "",           "")
 call s:highlight("SpecialKey",   "base02",     "",           "bold")
-call s:highlight("Terminal",     "foreground", "background", "")
 call s:highlight("Title",        "base09",     "",           "bold")
 call s:highlight("Visual",       "base00",     "base03",     "")
+call s:highlight("Whitespace",   "base02",     "",           "")
+highlight! link CursorLineSign SignColumn
+highlight! link NormalNC Normal
 
 " line number
 call s:highlight("CursorLineNr", "base04", "",       "")
 call s:highlight("LineNr",       "base03", "",       "")
+highlight! link LineNrAbove LineNr
+highlight! link LineNrBelow LineNr
 
 " cursor
 call s:highlight("Cursor",       "background", "foreground", "")
@@ -135,15 +139,31 @@ call s:highlight("DiffChange",   "base00", "base08", "")
 call s:highlight("DiffDelete",   "base00", "delete", "")
 call s:highlight("DiffText",     "base00", "base08", "bold")
 
+" terminal
+call s:highlight("Terminal",     "foreground", "background", "")
+call s:highlight("TermCursor",   "",           "",           "reverse")
+call s:highlight("TermCursorNC", "",           "",           "")
+
 " folds
 call s:highlight("FoldColumn",   "base03", "",       "")
 call s:highlight("Folded",       "base04", "",       "italic")
+highlight! link CursorLineFold FoldColumn
 
-" pop up menu
+" pop up and wild menu
 call s:highlight("Pmenu",        "popup_foreground", "popup_background", "")
 call s:highlight("PmenuSbar",    "",                 "popup_background", "")
 call s:highlight("PmenuSel",     "base00",           "current_item",     "")
 call s:highlight("PmenuThumb",   "",                 "popup_foreground", "")
+call s:highlight("WildMenu",     "base00",           "current_item",     "")
+highlight! link PmenuKind     Pmenu
+highlight! link PmenuKindSel  PmenuSel
+highlight! link PmenuExtra    Pmenu
+highlight! link PmenuExtraSel PmenuSel
+
+" floating window
+call s:highlight("NormalFloat", "popup_foreground", "popup_background", "")
+call s:highlight("FloatBorder", "foreground",       "background",       "")
+call s:highlight("FloatTitle",  "foreground",       "background",       "")
 
 " spelling
 call s:highlight("SpellBad",     "warning", "", "underline")
@@ -158,18 +178,25 @@ call s:highlight("MoreMsg",      "notice",  "",       "")
 call s:highlight("Question",     "base0A",  "",       "")
 call s:highlight("WarningMsg",   "base00", "warning", "")
 
-" status line and splits
+" messages
+call s:highlight("MsgArea", "foreground", "background", "")
+highlight! link MsgSeparator StatusLine
+
+" status line
 call s:highlight("StatusLine",   "base0A",                 "base03",                 "")
 call s:highlight("StatusLineNC", "status_line_foreground", "status_line_background", "")
-call s:highlight("VertSplit",    "status_line_background", "",                       "")
-call s:highlight("WildMenu",     "base00",                 "current_item",           "")
-highlight! link StatusLineTerm   StatusLine
-highlight! link StatusLineTermNC StatusLineNC
 
 " search
 call s:highlight("IncSearch",    "base00", "base09", "")
 call s:highlight("Search",       "base00", "search_match", "")
+call s:highlight("CurSearch",    "base00", "base09", "")
 highlight! link QuickFixLine Search
+highlight! link Substitute   Search
+
+" windows
+call s:highlight("WinBar",       "base0A",                 "base03",                 "")
+call s:highlight("WinBarNC",     "status_line_foreground", "status_line_background", "")
+call s:highlight("WinSeparator", "status_line_background", "",                       "")
 
 " tabs
 call s:highlight("TabLine",      "status_line_foreground", "status_line_background", "")
@@ -259,6 +286,10 @@ highlight! link ALEVirtualTextWarning      ALEWarning
 highlight! link ALEVirtualTextInfo         ALEInfo
 highlight! link ALEVirtualTextStyleError   ALEVirtualTextError
 highlight! link ALEVirtualTextStyleWarning ALEVirtualTextWarning
+
+" Taboo plugin
+highlight! link TabModified         TabLine
+highlight! link TabModifiedSelected TabLineSel
 
 " Tagbar plugin
 call s:highlight("TagbarFoldIcon",            "base0A", "", "")
