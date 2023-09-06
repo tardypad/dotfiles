@@ -3,7 +3,7 @@
 let mapleader = "\<{key/space/Space}>"
 
 " binding to reload config
-nnoremap {key/reload_config/low} :source $MYVIMRC<CR>
+nnoremap <A-{key/reload_config/low}> :source $MYVIMRC<CR>
 
 " Disable space moves cursor in non editing mode
 noremap  <{key/space/Space}> <nop>
@@ -37,17 +37,17 @@ nnoremap          <Leader>{key/buffer}{key/rename}    :write<Space>
 let g:tmux_navigator_no_mappings = 1
 
 " use same tmux custom mappings with the Alt key
-noremap <silent> {key/left}      <Cmd>TmuxNavigateLeft<cr>
-noremap <silent> {key/down}      <Cmd>TmuxNavigateDown<cr>
-noremap <silent> {key/up}        <Cmd>TmuxNavigateUp<cr>
-noremap <silent> {key/right}     <Cmd>TmuxNavigateRight<cr>
-noremap <silent> {key/alternate} <Cmd>TmuxNavigatePrevious<cr>
+noremap <silent> <A-{key/left}>      <Cmd>TmuxNavigateLeft<cr>
+noremap <silent> <A-{key/down}>      <Cmd>TmuxNavigateDown<cr>
+noremap <silent> <A-{key/up}>        <Cmd>TmuxNavigateUp<cr>
+noremap <silent> <A-{key/right}>     <Cmd>TmuxNavigateRight<cr>
+noremap <silent> <A-{key/alternate}> <Cmd>TmuxNavigatePrevious<cr>
 
-tnoremap <silent> {key/left}      <c-\><c-n>:TmuxNavigateLeft<cr>
-tnoremap <silent> {key/down}      <c-\><c-n>:TmuxNavigateDown<cr>
-tnoremap <silent> {key/up}        <c-\><c-n>:TmuxNavigateUp<cr>
-tnoremap <silent> {key/right}     <c-\><c-n>:TmuxNavigateRight<cr>
-tnoremap <silent> {key/alternate} <c-\><c-n>:TmuxNavigatePrevious<cr>
+tnoremap <silent> <A-{key/left}>      <c-\><c-n>:TmuxNavigateLeft<cr>
+tnoremap <silent> <A-{key/down}>      <c-\><c-n>:TmuxNavigateDown<cr>
+tnoremap <silent> <A-{key/up}>        <c-\><c-n>:TmuxNavigateUp<cr>
+tnoremap <silent> <A-{key/right}>     <c-\><c-n>:TmuxNavigateRight<cr>
+tnoremap <silent> <A-{key/alternate}> <c-\><c-n>:TmuxNavigatePrevious<cr>
 
 " delete the current buffer and close the current window
 nnoremap <silent> <Leader>{key/close/low} :Sayonara<CR>
@@ -125,7 +125,7 @@ nnoremap <silent> <Leader>{key/edit}{key/file}   :Files<CR>
 nnoremap <silent> <Leader>{key/edit}{key/buffer} :Buffers<CR>
 
 " open file picker at current working directory
-nnoremap <silent> {key/file} :execute ':Ntree' getcwd()<CR>
+nnoremap <silent> <A-{key/file}> :execute ':Ntree' getcwd()<CR>
 
 
 " Goyo
@@ -155,7 +155,7 @@ nnoremap <silent> <Leader>{key/undo}{key/quit} :UndotreeHide<CR>
 "" snippets
 
 " trigger insertion
-inoremap <silent> {key/snippet} <C-R>=UltiSnips#ExpandSnippet()<CR>
+inoremap <silent> <A-{key/snippet}> <C-R>=UltiSnips#ExpandSnippet()<CR>
 
 " insertion of snippet from list selection
 nnoremap <silent> <Leader>{key/insert}{key/snippet} :Snippets<CR>
