@@ -81,4 +81,4 @@ set-option -w -g main-pane-height 70%
 set-option -w -g copy-mode-mark-style "bg=#{color/base01/hex}"
 
 set-option -w -g copy-mode-match-style "bg=#{color/search_match/hex},fg=#{color/base00/hex}"
-set-option -w -g copy-mode-current-match-style "bg=#{color/base09/hex},fg=#{color/base00/hex}"
+set-option -w -g copy-mode-current-match-style "bg=#{color/search_match_current/hex},fg=#{color/base00/hex}"

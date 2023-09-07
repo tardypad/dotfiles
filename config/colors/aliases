@@ -15,6 +15,7 @@
 | info                       | base0A |
 | success                    | base0C |
 | search_match               | base07 |
+| search_match_current       | base09 |
 | current_item               | base0B |
 | selected_item              | base07 |
 | unread_item                | base07 |

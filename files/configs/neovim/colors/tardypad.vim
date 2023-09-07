@@ -44,6 +44,7 @@ let s:status_line_foreground_gui = "#{color/status_line_foreground/hex}"
 let s:popup_background_gui       = "#{color/popup_background/hex}"
 let s:popup_foreground_gui       = "#{color/popup_foreground/hex}"
 let s:search_match_gui           = "#{color/search_match/hex}"
+let s:search_match_current_gui   = "#{color/search_match_current/hex}"
 let s:current_item_gui           = "#{color/current_item/hex}"
 let s:delete_gui                 = "#{color/delete/hex}"
 let s:add_gui                    = "#{color/add/hex}"
@@ -76,6 +77,7 @@ let s:status_line_foreground_term = "{color/status_line_foreground/number}"
 let s:popup_background_term       = "{color/popup_background/number}"
 let s:popup_foreground_term       = "{color/popup_foreground/number}"
 let s:search_match_term           = "{color/search_match/number}"
+let s:search_match_current_term   = "{color/search_match_current/number}"
 let s:current_item_term           = "{color/current_item/number}"
 let s:delete_term                 = "{color/delete/number}"
 let s:add_term                    = "{color/add/number}"
@@ -187,9 +189,9 @@ call s:highlight("StatusLine",   "base0A",                 "base03",            
 call s:highlight("StatusLineNC", "status_line_foreground", "status_line_background", "")
 
 " search
-call s:highlight("IncSearch",    "base00", "base09", "")
-call s:highlight("Search",       "base00", "search_match", "")
-call s:highlight("CurSearch",    "base00", "base09", "")
+call s:highlight("IncSearch",    "base00", "search_match_current", "")
+call s:highlight("Search",       "base00", "search_match",         "")
+call s:highlight("CurSearch",    "base00", "search_match_current", "")
 highlight! link QuickFixLine Search
 highlight! link Substitute   Search
 
