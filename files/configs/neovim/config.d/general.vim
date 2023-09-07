@@ -92,3 +92,6 @@ command! -nargs=1 UC :UnicodeSearch! <args>
 
 " reload config on USR1 signal
 autocmd Signal SIGUSR1 :source $MYVIMRC
+
+" highlight yanked selection
+au TextYankPost * silent! lua vim.highlight.on_yank()
