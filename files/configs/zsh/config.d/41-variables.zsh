@@ -45,6 +45,7 @@ JQ_COLORS="${JQ_COLORS}:0;{color/base0B/fg}"
 JQ_COLORS="${JQ_COLORS}:0;{color/base0B/fg}"
 JQ_COLORS="${JQ_COLORS}:0;{color/base0C/fg}"
 JQ_COLORS="${JQ_COLORS}:0;{color/base0C/fg}"
+JQ_COLORS="${JQ_COLORS}:1;{color/base0B/fg}"
 export JQ_COLORS
 
 # define ripgrep config path
