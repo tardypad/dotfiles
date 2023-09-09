@@ -94,4 +94,4 @@
 #stop
 
 #env
-LESS = -inQRS --incsearch --use-color -DB{color/base03/number}$DC{color/base03/number}$DE{color/status_line_foreground/number}.{color/status_line_background/number}$DM{color/base00/number}.{color/base09/number}$DN{color/base03/number}$DP{color/status_line_foreground/number}.{color/status_line_background/number}$DR{color/foreground/number}.{color/base02/number}$DS{color/base00/number}.{color/search_match/number}
+LESS = -inQRS --no-vbell --incsearch --use-color -DB{color/base03/number}$DC{color/base03/number}$DE{color/status_line_foreground/number}.{color/status_line_background/number}$DM{color/base00/number}.{color/base09/number}$DN{color/base03/number}$DP{color/status_line_foreground/number}.{color/status_line_background/number}$DR{color/foreground/number}.{color/base02/number}$DS{color/base00/number}.{color/search_match/number}
