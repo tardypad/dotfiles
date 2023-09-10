@@ -57,19 +57,19 @@ set nowrapscan " search stops at the end of file
 
 " build status line
 set statusline=
-set statusline+=%h                                                   " Help buffer flag
-set statusline+=%q                                                   " Quickfix/Location list
-set statusline+=%w                                                   " Preview window flag
-set statusline+=%f                                                   " file relative path
-set statusline+=%m                                                   " modified flag
-set statusline+=%r                                                   " readonly flag
-set statusline+=%=                                                   " left/right separator
-set statusline+=%#StatusLineLinterError#%{LinterErrorsCount()}%*     " linter errors
-set statusline+=%#StatusLineLinterWarning#%{LinterWarningsCount()}%* " linter warnings
-set statusline+=%#StatusLineLinterInfo#%{LinterInfosCount()}%*       " linter infos
-set statusline+=\ %y                                                 " filetype
-set statusline+=\ %p%%                                               " line percentage
-set statusline+=\ %l:%v                                              " line and virtual column number
+set statusline+=%h                                                                   " Help buffer flag
+set statusline+=%q                                                                   " Quickfix/Location list
+set statusline+=%w                                                                   " Preview window flag
+set statusline+=%f                                                                   " file relative path
+set statusline+=%m                                                                   " modified flag
+set statusline+=%r                                                                   " readonly flag
+set statusline+=%=                                                                   " left/right separator
+set statusline+=%#StatusLineDiagnosticsError#%{v:lua.DiagnosticsErrorsCount()}%*     " diagnostics errors
+set statusline+=%#StatusLineDiagnosticsWarning#%{v:lua.DiagnosticsWarningsCount()}%* " diagnostics warnings
+set statusline+=%#StatusLineDiagnosticsInfo#%{v:lua.DiagnosticsInfosCount()}%*       " diagnostics infos
+set statusline+=\ %y                                                                 " filetype
+set statusline+=\ %p%%                                                               " line percentage
+set statusline+=\ %l:%v                                                              " line and virtual column number
 
 " netrw
 let g:netrw_liststyle = 0  " simple list
@@ -95,3 +95,12 @@ autocmd Signal SIGUSR1 :source $MYVIMRC
 
 " highlight yanked selection
 au TextYankPost * silent! lua vim.highlight.on_yank()
+
+" disable diagnostics virtual text
+lua vim.diagnostic.config({ virtual_text = false })
+
+" diagnostics signs
+sign define DiagnosticSignError text=x texthl=DiagnosticSignError
+sign define DiagnosticSignWarn  text=! texthl=DiagnosticSignWarn
+sign define DiagnosticSignInfo  text=- texthl=DiagnosticSignInfo
+sign define DiagnosticSignHint  text=~ texthl=DiagnosticSignHint

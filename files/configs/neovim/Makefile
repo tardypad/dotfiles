@@ -30,7 +30,7 @@ neovim-configs:
 	setup/setup-config neovim/plugin/alternate_tab.vim          $(CONFIG_DIR)/nvim/plugin/alternate_tab.vim
 	setup/setup-config neovim/plugin/highlight_long_lines.vim   $(CONFIG_DIR)/nvim/plugin/highlight_long_lines.vim
 	setup/setup-config neovim/plugin/insert_snippet.vim         $(CONFIG_DIR)/nvim/plugin/insert_snippet.vim
-	setup/setup-config neovim/plugin/linter_counts.vim          $(CONFIG_DIR)/nvim/plugin/linter_counts.vim
+	setup/setup-config neovim/plugin/diagnostics_counts.lua     $(CONFIG_DIR)/nvim/plugin/diagnostics_counts.lua
 	setup/setup-config neovim/plugin/manage_sessions.vim        $(CONFIG_DIR)/nvim/plugin/manage_sessions.vim
 	setup/setup-config neovim/plugin/open_buffer.vim            $(CONFIG_DIR)/nvim/plugin/open_buffer.vim
 	setup/setup-config neovim/plugin/open_file.vim              $(CONFIG_DIR)/nvim/plugin/open_file.vim

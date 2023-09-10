@@ -37,6 +37,7 @@ let s:error_gui                  = "#{color/error/hex}"
 let s:warning_gui                = "#{color/warning/hex}"
 let s:notice_gui                 = "#{color/notice/hex}"
 let s:info_gui                   = "#{color/info/hex}"
+let s:success_gui                = "#{color/success/hex}"
 let s:background_gui             = "#{color/background/hex}"
 let s:foreground_gui             = "#{color/foreground/hex}"
 let s:status_line_background_gui = "#{color/status_line_background/hex}"
@@ -70,6 +71,7 @@ let s:error_term                  = "{color/error/number}"
 let s:warning_term                = "{color/warning/number}"
 let s:notice_term                 = "{color/notice/number}"
 let s:info_term                   = "{color/info/number}"
+let s:success_term                = "{color/success/number}"
 let s:background_term             = "{color/background/number}"
 let s:foreground_term             = "{color/foreground/number}"
 let s:status_line_background_term = "{color/status_line_background/number}"
@@ -242,6 +244,35 @@ highlight! link Delimiter        Special
 highlight! link SpecialComment   Special
 highlight! link Debug            Special
 
+" diagnostics
+call s:highlight("DiagnosticError",          "error",   "", "")
+call s:highlight("DiagnosticWarn",           "warning", "", "")
+call s:highlight("DiagnosticInfo",           "info",    "", "")
+call s:highlight("DiagnosticHint",           "info",    "", "")
+call s:highlight("DiagnosticOk",             "success", "", "")
+call s:highlight("DiagnosticUnderlineError", "error",   "", "underline")
+call s:highlight("DiagnosticUnderlineWarn",  "warning", "", "underline")
+call s:highlight("DiagnosticUnderlineInfo",  "info",    "", "underline")
+call s:highlight("DiagnosticUnderlineHint",  "info",    "", "underline")
+call s:highlight("DiagnosticUnderlineOk",    "success", "", "underline")
+call s:highlight("DiagnosticDeprecated",     "error",   "", "strikethrough")
+call s:highlight("DiagnosticUnnecessary",    "base03",  "", "")
+highlight! link DiagnosticVirtualTextError DiagnosticError
+highlight! link DiagnosticVirtualTextWarn  DiagnosticWarn
+highlight! link DiagnosticVirtualTextInfo  DiagnosticInfo
+highlight! link DiagnosticVirtualTextHint  DiagnosticHint
+highlight! link DiagnosticVirtualTextOk    DiagnosticOk
+highlight! link DiagnosticFloatingError    DiagnosticError
+highlight! link DiagnosticFloatingWarn     DiagnosticWarn
+highlight! link DiagnosticFloatingInfo     DiagnosticInfo
+highlight! link DiagnosticFloatingHint     DiagnosticHint
+highlight! link DiagnosticFloatingOk       DiagnosticOk
+highlight! link DiagnosticSignError        DiagnosticError
+highlight! link DiagnosticSignWarn         DiagnosticWarn
+highlight! link DiagnosticSignInfo         DiagnosticInfo
+highlight! link DiagnosticSignHint         DiagnosticHint
+highlight! link DiagnosticSignOk           DiagnosticOk
+
 " terminal
 let g:terminal_ansi_colors = [
     \ '#{color/black/hex}',
@@ -263,31 +294,9 @@ let g:terminal_ansi_colors = [
   \ ]
 
 " Custom highlights
-call s:highlight("StatusLineLinterError",   "base00", "error",   "bold")
-call s:highlight("StatusLineLinterWarning", "base00", "warning", "bold")
-call s:highlight("StatusLineLinterInfo",    "base00", "info",    "bold")
-
-" ALE plugin
-call s:highlight("ALEError",   "error",   "", "")
-call s:highlight("ALEWarning", "warning", "", "")
-call s:highlight("ALEInfo",    "info",    "", "")
-highlight! link ALEStyleError              ALEError
-highlight! link ALEStyleWarning            ALEWarning
-highlight! link ALEErrorLine               ALEError
-highlight! link ALEWarningLine             ALEWarning
-highlight! link ALEInfoLine                ALEInfo
-highlight! link ALEErrorSign               ALEError
-highlight! link ALEWarningSign             ALEWarning
-highlight! link ALEInfoSign                ALEInfo
-highlight! link ALEStyleErrorSign          ALEErrorSign
-highlight! link ALEStyleWarningSign        ALEWarningSign
-highlight! link ALESignColumnWithErrors    ALEError
-highlight! link ALESignColumnWithoutErrors SignColumn
-highlight! link ALEVirtualTextError        ALEError
-highlight! link ALEVirtualTextWarning      ALEWarning
-highlight! link ALEVirtualTextInfo         ALEInfo
-highlight! link ALEVirtualTextStyleError   ALEVirtualTextError
-highlight! link ALEVirtualTextStyleWarning ALEVirtualTextWarning
+call s:highlight("StatusLineDiagnosticsError",   "base00", "error",   "bold")
+call s:highlight("StatusLineDiagnosticsWarning", "base00", "warning", "bold")
+call s:highlight("StatusLineDiagnosticsInfo",    "base00", "info",    "bold")
 
 " Taboo plugin
 highlight! link TabModified         TabLine

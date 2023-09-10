@@ -106,6 +106,12 @@ nnoremap {key/session}{key/delete} :SessionDelete <C-R>=GetCurrentSessionName()<
 nnoremap {key/session}{key/open}   :SessionOpen<space>
 
 
+"" diagnostics
+
+nnoremap <silent> <Leader>{key/d}{key/previous} :lua vim.diagnostic.goto_prev({wrap = false})<CR>
+nnoremap <silent> <Leader>{key/d}{key/next}     :lua vim.diagnostic.goto_next({wrap = false})<CR>
+
+
 "" search management
 
 " clear last search highlighting
@@ -131,13 +137,6 @@ nnoremap <silent> <A-{key/file}> :execute ':Ntree' getcwd()<CR>
 " Goyo
 
 nnoremap <silent> <Leader><{key/space/Space}> :Goyo<CR>
-
-
-" ALE
-
-nnoremap <silent> <Leader>{key/l}{key/previous} :ALEPreviousWrap<CR>
-nnoremap <silent> <Leader>{key/l}{key/next}     :ALENextWrap<CR>
-nnoremap <silent> <Leader>{key/l}{key/t}        :ALEToggleBuffer<CR>
 
 
 "" tagbar
