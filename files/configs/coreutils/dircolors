@@ -30,6 +30,7 @@ EXEC           1;{color/base0C/fg}                   # executable
 .java   {color/base0B/fg}
 .js     {color/base0B/fg}
 .json   {color/base0B/fg}
+.lua    {color/base0B/fg}
 .man    {color/base0B/fg}
 .md     {color/base0B/fg}
 .mkd    {color/base0B/fg}
