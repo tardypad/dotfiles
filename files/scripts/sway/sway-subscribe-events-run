@@ -18,7 +18,11 @@
 
 {
   swaymsg -t subscribe -m '[ "window" ]' |
-  while read -r EVENT; do
+  jq --unbuffered 'select(.change == "focus").container.id' |
+  while read CURRENT_WINDOW; do
     pkill -x -RTMIN+8 i3blocks
+
+    swaymsg "[con_id=${PREV_WINDOW}] mark --add _prev" > /dev/null
+    PREV_WINDOW="${CURRENT_WINDOW}"
   done
 }&

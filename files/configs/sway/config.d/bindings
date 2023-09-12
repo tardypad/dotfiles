@@ -169,12 +169,13 @@ bindsym $mod+Shift+{key/close/low}  kill
 bindsym $mod+Shift+{key/zoom/low}   fullscreen
 
 # select
-bindsym $mod+Shift+{key/next/low}     focus next
-bindsym $mod+Shift+{key/previous/low} focus prev
-bindsym $mod+Shift+{key/left/low}     focus left
-bindsym $mod+Shift+{key/down/low}     focus down
-bindsym $mod+Shift+{key/up/low}       focus up
-bindsym $mod+Shift+{key/right/low}    focus right
+bindsym $mod+Shift+{key/alternate/low} [con_mark=_prev] focus
+bindsym $mod+Shift+{key/next/low}      focus next
+bindsym $mod+Shift+{key/previous/low}  focus prev
+bindsym $mod+Shift+{key/left/low}      focus left
+bindsym $mod+Shift+{key/down/low}      focus down
+bindsym $mod+Shift+{key/up/low}        focus up
+bindsym $mod+Shift+{key/right/low}     focus right
 
 # move mode
 mode "-- MOVE --" {
