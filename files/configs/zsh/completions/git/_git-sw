@@ -1,0 +1,3 @@
+#compdef git-sw
+
+_git-branch
