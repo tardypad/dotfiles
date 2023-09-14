@@ -9,7 +9,6 @@ shell-scripts:
 	setup/setup-script shell/bluetooth
 	setup/setup-script shell/calculate
 	setup/setup-script shell/check-backup
-	setup/setup-script shell/check-notify-low-battery
 	setup/setup-script shell/clock
 	setup/setup-script shell/color-picker
 	setup/setup-script shell/copy-otp

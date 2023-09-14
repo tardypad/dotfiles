@@ -1,6 +1,0 @@
-[Unit]
-Description=Notify about low battery
-
-[Service]
-Type=oneshot
-ExecStart={dir/bin}/check-notify-low-battery
