@@ -36,6 +36,21 @@ format=<span foreground='#{color/error/hex}' weight='bold'> %s</span>\n%b
 border-color=#{color/alert/hex}
 format=<span foreground='#{color/alert/hex}' weight='bold'> %s</span>\n%b
 
+[category="power.low"]
+border-color=#{color/warning/hex}
+format=<span foreground='#{color/warning/hex}' weight='bold'> %s</span>\n%b
+
+[category="power.critical"]
+border-color=#{color/alert/hex}
+format=<span foreground='#{color/alert/hex}' weight='bold'> %s</span>\n%b
+on-notify=exec paplay {dir/data}/sounds/low_battery.ogg
+
+[category="power.update"]
+invisible=1
+
+[category="power.cleared"]
+invisible=1
+
 [mode=presentation]
 invisible=1
 
