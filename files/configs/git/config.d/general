@@ -105,6 +105,7 @@
     plus-emph-style = {color/add/number} ul
     plus-non-emph-style = normal
     plus-style = {color/add/number}
+    tabs = 4
     width = variable
     zero-style = normal
 [delta "line-numbers"]
