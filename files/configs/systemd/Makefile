@@ -15,6 +15,7 @@ systemd-configs:
 	setup/setup-config systemd/user/documents_build_cache.timer        $(CONFIG_DIR)/systemd/user/documents_build_cache.timer
 	setup/setup-config systemd/user/notify_low_battery.service         $(CONFIG_DIR)/systemd/user/notify_low_battery.service
 	setup/setup-config systemd/user/notify_low_battery.timer           $(CONFIG_DIR)/systemd/user/notify_low_battery.timer
+	setup/setup-config systemd/user/poweralertd.service                $(CONFIG_DIR)/systemd/user/poweralertd.service
 	setup/setup-config systemd/user/qutebrowser_update_adblock.service $(CONFIG_DIR)/systemd/user/qutebrowser_update_adblock.service
 	setup/setup-config systemd/user/qutebrowser_update_adblock.timer   $(CONFIG_DIR)/systemd/user/qutebrowser_update_adblock.timer
 	setup/setup-config systemd/user/sync_mails.service                 $(CONFIG_DIR)/systemd/user/sync_mails.service
@@ -41,6 +42,7 @@ systemd-configs:
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/systemd/user/default.target.wants
 	ln -sf /usr/lib/systemd/user/mpd.service      $(DESTDIR)$(CONFIG_DIR)/systemd/user/default.target.wants/mpd.service
 	ln -sf /usr/lib/systemd/user/ydotool.service  $(DESTDIR)$(CONFIG_DIR)/systemd/user/default.target.wants/ydotool.service
+	ln -sf ../poweralertd.service                 $(DESTDIR)$(CONFIG_DIR)/systemd/user/default.target.wants/poweralertd.service
 
 	# reload daemon
 	if [ -z $(DESTDIR) ] ; then \
