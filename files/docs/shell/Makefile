@@ -3,7 +3,6 @@ all: shell-docs
 shell-docs:
 	setup/setup-doc shell/backup
 	setup/setup-doc shell/base
-	setup/setup-doc shell/battery-status
 	setup/setup-doc shell/bemenu
 	setup/setup-doc shell/bemenu-run
 	setup/setup-doc shell/bluetooth
