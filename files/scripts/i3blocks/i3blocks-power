@@ -1,23 +1,43 @@
 #!/bin/sh
 # commands used:
-# - battery-status
 # - i3blocks-mode
+# - upower
 
 MODE="$( i3blocks-mode )"
 
-BATTERY_STATUS=$( battery-status )
+IS_ADAPTER_ON="$(
+  upower -i /org/freedesktop/UPower/devices/line_power_AC \
+    | sed -n 's/ *online: *\([a-z]*\)$/\1/p'
+)"
 
-ADAPTER_STATUS=$(
-  echo "${BATTERY_STATUS}" \
-    | sed -n 's/^Adapter: \(.*\)$/\1/p'
-)
-IS_ANY_BATTERY_CHARGING=$(
-  echo "${BATTERY_STATUS}" \
-    | sed -n 's/^Charging: \(.*\)$/\1/p'
-)
+IS_ANY_BATTERY_CHARGING='no'
+TOTAL_ENERGY_NOW=0
+TOTAL_ENERGY_FULL=0
+
+for BAT_PATH in $( upower -e | grep BAT ); do
+  BAT_INFO="$( upower -i "${BAT_PATH}" )"
+
+  if echo "${BAT_INFO}" | grep -qE 'state: *charging$'; then
+    IS_ANY_BATTERY_CHARGING='yes'
+  fi
+
+  BAT_ENERGY_NOW="$(
+    echo "${BAT_INFO}" \
+      | sed -n 's/ *energy: *\([[0-9\.]*\) Wh$/\1/p'
+  )"
+  BAT_ENERGY_FULL="$(
+    echo "${BAT_INFO}" \
+      | sed -n 's/ *energy-full: *\([[0-9\.]*\) Wh$/\1/p'
+  )"
+  TOTAL_ENERGY_NOW="$( echo "${TOTAL_ENERGY_NOW} + ${BAT_ENERGY_NOW}" | bc -l )"
+  TOTAL_ENERGY_FULL="$( echo "${TOTAL_ENERGY_FULL} + ${BAT_ENERGY_FULL}" | bc -l )"
+done
+
 TOTAL_ENERGY_PERCENT=$(
-  echo "${BATTERY_STATUS}" \
-    | sed -n 's/^Charge: \(.*\)%$/\1/p'
+  printf %.0f "$(
+    echo "( ${TOTAL_ENERGY_NOW} / ${TOTAL_ENERGY_FULL} ) * 100" \
+      | bc -l
+  )"
 )
 
 if [ "${TOTAL_ENERGY_PERCENT}" -lt 10 ]; then
@@ -32,7 +52,7 @@ else
   BATTERY_ICON=''
 fi
 
-if [ "${ADAPTER_STATUS}" = 'on' ]; then
+if [ "${IS_ADAPTER_ON}" = 'yes' ]; then
   if [ "${IS_ANY_BATTERY_CHARGING}" = 'yes' ]; then
     if [ "${MODE}" = 'full' ]; then
       TEXT=" ${BATTERY_ICON}  ${TOTAL_ENERGY_PERCENT}%"
