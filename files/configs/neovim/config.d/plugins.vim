@@ -119,3 +119,13 @@ let g:Unicode_no_default_mappings = v:true
 " otherwise by default it would try on non writable package directories
 let g:Unicode_data_directory = stdpath('data') . "/unicode/"
 let g:Unicode_cache_directory = stdpath('cache') . "/unicode/"
+
+
+"" lint / formatter
+
+" order: save -> format -> lint
+augroup format_lint
+  autocmd!
+  autocmd BufWritePost * FormatWrite
+  autocmd User FormatterPost lua require('lint').try_lint()
+augroup END
