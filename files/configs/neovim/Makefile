@@ -13,6 +13,7 @@ neovim-configs:
 	setup/setup-config neovim/config.d/bindings.vim             $(CONFIG_DIR)/nvim/config.d/bindings.vim
 	setup/setup-config neovim/config.d/general.vim              $(CONFIG_DIR)/nvim/config.d/general.vim
 	setup/setup-config neovim/config.d/lsp.lua                  $(CONFIG_DIR)/nvim/config.d/lsp.lua
+	setup/setup-config neovim/config.d/plugins.lua              $(CONFIG_DIR)/nvim/config.d/plugins.lua
 	setup/setup-config neovim/config.d/plugins.vim              $(CONFIG_DIR)/nvim/config.d/plugins.vim
 	setup/setup-config neovim/ftdetect/dircolors.vim            $(CONFIG_DIR)/nvim/ftdetect/dircolors.vim
 	setup/setup-config neovim/ftdetect/gitconfig.vim            $(CONFIG_DIR)/nvim/ftdetect/gitconfig.vim
