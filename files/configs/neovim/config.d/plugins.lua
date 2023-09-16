@@ -9,6 +9,17 @@ require('lint').linters_by_ft = {
 
 require("formatter").setup {
   filetype = {
-    go = {require("formatter.filetypes.go").gofmt}
+    go = {require("formatter.filetypes.go").gofmt},
+
+    ["*"] = {
+      function()
+        local ft = vim.bo.filetype
+        if (ft == 'markdown' or ft == 'mail') then
+          return nil
+        end
+
+        return require("formatter.filetypes.any").remove_trailing_whitespace()
+      end
+    }
   }
 }

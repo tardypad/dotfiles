@@ -36,7 +36,6 @@ neovim-configs:
 	setup/setup-config neovim/plugin/manage_sessions.vim        $(CONFIG_DIR)/nvim/plugin/manage_sessions.vim
 	setup/setup-config neovim/plugin/open_buffer.vim            $(CONFIG_DIR)/nvim/plugin/open_buffer.vim
 	setup/setup-config neovim/plugin/open_file.vim              $(CONFIG_DIR)/nvim/plugin/open_file.vim
-	setup/setup-config neovim/plugin/remove_trailing_spaces.vim $(CONFIG_DIR)/nvim/plugin/remove_trailing_spaces.vim
 	setup/setup-config neovim/plugin/scroll_search.vim          $(CONFIG_DIR)/nvim/plugin/scroll_search.vim
 	setup/setup-config neovim/plugin/search_dir.vim             $(CONFIG_DIR)/nvim/plugin/search_dir.vim
 	setup/setup-config neovim/plugin/tab_key.vim                $(CONFIG_DIR)/nvim/plugin/tab_key.vim
