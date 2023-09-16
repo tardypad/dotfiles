@@ -1,2 +1,2 @@
 " load all individual configs
-runtime! config.d/**/*.vim
+runtime! config.d/**/*.vim config.d/**/*.lua

@@ -12,6 +12,7 @@ neovim-configs:
 	setup/setup-config neovim/colors/tardypad.vim               $(CONFIG_DIR)/nvim/colors/tardypad.vim
 	setup/setup-config neovim/config.d/bindings.vim             $(CONFIG_DIR)/nvim/config.d/bindings.vim
 	setup/setup-config neovim/config.d/general.vim              $(CONFIG_DIR)/nvim/config.d/general.vim
+	setup/setup-config neovim/config.d/lsp.lua                  $(CONFIG_DIR)/nvim/config.d/lsp.lua
 	setup/setup-config neovim/config.d/plugins.vim              $(CONFIG_DIR)/nvim/config.d/plugins.vim
 	setup/setup-config neovim/ftdetect/dircolors.vim            $(CONFIG_DIR)/nvim/ftdetect/dircolors.vim
 	setup/setup-config neovim/ftdetect/gitconfig.vim            $(CONFIG_DIR)/nvim/ftdetect/gitconfig.vim
@@ -28,9 +29,9 @@ neovim-configs:
 	setup/setup-config neovim/indent/sh.vim                     $(CONFIG_DIR)/nvim/indent/sh.vim
 	setup/setup-config neovim/plugin/align.vim                  $(CONFIG_DIR)/nvim/plugin/align.vim
 	setup/setup-config neovim/plugin/alternate_tab.vim          $(CONFIG_DIR)/nvim/plugin/alternate_tab.vim
+	setup/setup-config neovim/plugin/diagnostics_counts.lua     $(CONFIG_DIR)/nvim/plugin/diagnostics_counts.lua
 	setup/setup-config neovim/plugin/highlight_long_lines.vim   $(CONFIG_DIR)/nvim/plugin/highlight_long_lines.vim
 	setup/setup-config neovim/plugin/insert_snippet.vim         $(CONFIG_DIR)/nvim/plugin/insert_snippet.vim
-	setup/setup-config neovim/plugin/diagnostics_counts.lua     $(CONFIG_DIR)/nvim/plugin/diagnostics_counts.lua
 	setup/setup-config neovim/plugin/manage_sessions.vim        $(CONFIG_DIR)/nvim/plugin/manage_sessions.vim
 	setup/setup-config neovim/plugin/open_buffer.vim            $(CONFIG_DIR)/nvim/plugin/open_buffer.vim
 	setup/setup-config neovim/plugin/open_file.vim              $(CONFIG_DIR)/nvim/plugin/open_file.vim
