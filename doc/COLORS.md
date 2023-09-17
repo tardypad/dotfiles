@@ -30,6 +30,9 @@ red by default, not to suddenly be displayed white and get unnoticed.
 The 8 last colors follow the ANSI meaning as best as possible
 given the remaining colors available in the scheme.
 
+*Warning*: Do not forget to update the "theme" script when updating the
+           colors in dark and light themes
+
 ## Placeholders structure
 
 The placeholders follow the structure "{color/ID/FORMAT}" where ID is used to
