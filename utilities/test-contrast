@@ -49,13 +49,19 @@ exit_error() {
 } >&2
 
 print_contrast() {
-  printf '\033[0m'                               # reset
-  printf '\033[38;2;%sm' "$( base_to_rgb "$1" )" # foreground
-  printf '\033[48;2;%sm' "$( base_to_rgb "$2" )" # background
-  printf '  %s  ' "$1"                           # base 1
-  printf '\033[7m'                               # invert background/foreground
-  printf '  %s  ' "$2"                           # base 2
-  printf '\033[0m\n'                             # reset with newline
+  RGB1=$( base_to_rgb "$1" )
+  RGB2=$( base_to_rgb "$2" )
+  CONTRAST=$( contrast_ratio "${RGB1}" "${RGB2}" )
+
+  printf '\033[0m'                 # reset
+  printf '\033[38;2;%sm' "${RGB1}" # foreground
+  printf '\033[48;2;%sm' "${RGB2}" # background
+  printf '  %s  ' "$1"             # base 1
+  printf '\033[7m'                 # invert background/foreground
+  printf '  %s  ' "$2"             # base 2
+  printf '\033[0m'                 # reset
+  printf '  %4.1f' "${CONTRAST}"   # contrast
+  printf '\n'                      # newline
 }
 
 base_to_hex() {
@@ -73,6 +79,57 @@ hex_to_rgb() {
 }
 
 base_to_rgb() { hex_to_rgb "$( base_to_hex "$1" )"; }
+
+relative_luminance() {
+  R="$1"
+  G="$2"
+  B="$3"
+
+  tmp_value() {
+    VALUE="$1"
+
+    DEC_VALUE=$( echo "${VALUE} / 255" | bc -l )
+
+    if [ "$( echo "${DEC_VALUE} <= 0.03928" | bc -l )" -eq 1 ]; then
+      echo "${DEC_VALUE} / 12.92" | bc -l
+    else
+      # bc doesn't support fractional exponent so we replace it with exp/ln usage
+      echo "e(2.4 * l( ( ${DEC_VALUE} + 0.055 ) / 1.055 ) )" | bc -l
+    fi
+  }
+
+  R=$( tmp_value "${R}" )
+  G=$( tmp_value "${G}" )
+  B=$( tmp_value "${B}" )
+
+  echo "( 0.2126 * ${R} + 0.7152 * ${G} + 0.0722 * ${B} )" | bc -l
+}
+
+contrast_ratio() {
+  COLOR_1="$1"
+  COLOR_2="$2"
+
+  R1=$( echo "${COLOR_1}" | cut -f 1 -d ';' )
+  G1=$( echo "${COLOR_1}" | cut -f 2 -d ';' )
+  B1=$( echo "${COLOR_1}" | cut -f 3 -d ';' )
+
+  R2=$( echo "${COLOR_2}" | cut -f 1 -d ';' )
+  G2=$( echo "${COLOR_2}" | cut -f 2 -d ';' )
+  B2=$( echo "${COLOR_2}" | cut -f 3 -d ';' )
+
+  L1=$( relative_luminance "${R1}" "${G1}" "${B1}" )
+  L2=$( relative_luminance "${R2}" "${G2}" "${B2}" )
+
+  if [ "$( echo "${L1} < ${L2}" | bc -l )" -eq 1 ]; then
+    L_HIGH="${L2}"
+    L_LOW="${L1}"
+  else
+    L_HIGH="${L1}"
+    L_LOW="${L2}"
+  fi
+
+  echo "( ${L_HIGH} + 0.05 ) / ( ${L_LOW} + 0.05 )" | bc -l
+}
 
 test_contrast() {
   print_contrast base04 base00
