@@ -32,6 +32,7 @@ feeds() {
   feed 'Jan Schaumann'                        'https://www.netmeister.org/blog/rss.xml'
   feed 'Dan Luu'                              'https://danluu.com/atom.xml'
   feed 'Julia Evans'                          'https://jvns.ca/atom.xml'
+  feed 'Josh W. Comeau'                       'https://www.joshwcomeau.com/rss.xml'
   feed 'Reddit command line'                  'https://www.reddit.com/r/commandline/.rss'
   feed 'Reddit programming'                   'https://www.reddit.com/r/programming/.rss'
   feed 'Gary Bernhardt (Twitter)'             'https://nitter.fdn.fr/garybernhardt/rss'
