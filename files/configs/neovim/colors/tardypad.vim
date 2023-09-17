@@ -187,7 +187,7 @@ call s:highlight("MsgArea", "foreground", "background", "")
 highlight! link MsgSeparator StatusLine
 
 " status line
-call s:highlight("StatusLine",   "base0A",                 "base03",                 "")
+call s:highlight("StatusLine",   "base05",                 "base02",                 "")
 call s:highlight("StatusLineNC", "status_line_foreground", "status_line_background", "")
 
 " search
@@ -198,14 +198,14 @@ highlight! link QuickFixLine Search
 highlight! link Substitute   Search
 
 " windows
-call s:highlight("WinBar",       "base0A",                 "base03",                 "")
+call s:highlight("WinBar",       "base05",                 "base02",                 "")
 call s:highlight("WinBarNC",     "status_line_foreground", "status_line_background", "")
 call s:highlight("WinSeparator", "status_line_background", "",                       "")
 
 " tabs
 call s:highlight("TabLine",      "status_line_foreground", "status_line_background", "")
 call s:highlight("TabLineFill",  "status_line_foreground", "status_line_background", "")
-call s:highlight("TabLineSel",   "base0A",                 "base03",                 "")
+call s:highlight("TabLineSel",   "base05",                 "base02",                 "")
 
 " languages
 call s:highlight("Comment",      "base03", "",       "italic")
