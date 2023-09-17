@@ -133,8 +133,13 @@ contrast_ratio() {
 
 test_contrast() {
   print_contrast base04 base00
-  print_contrast base05 base01
+  print_contrast base04 base01
   print_contrast base04 base02
+
+  printf '\n'
+  print_contrast base05 base01
+  print_contrast base05 base02
+  print_contrast base05 base03
 
   printf '\n'
   print_contrast base03 base00
