@@ -149,12 +149,3 @@ nnoremap <silent> <Leader>{key/tag}{key/quit} :TagbarClose<CR>
 
 nnoremap <silent> <Leader>{key/undo}{key/undo} :UndotreeShow<CR>
 nnoremap <silent> <Leader>{key/undo}{key/quit} :UndotreeHide<CR>
-
-
-"" snippets
-
-" trigger insertion
-inoremap <silent> <A-{key/snippet}> <C-R>=UltiSnips#ExpandSnippet()<CR>
-
-" insertion of snippet from list selection
-nnoremap <silent> <Leader>{key/insert}{key/snippet} :Snippets<CR>

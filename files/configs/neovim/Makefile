@@ -32,7 +32,6 @@ neovim-configs:
 	setup/setup-config neovim/plugin/alternate_tab.vim          $(CONFIG_DIR)/nvim/plugin/alternate_tab.vim
 	setup/setup-config neovim/plugin/diagnostics_counts.lua     $(CONFIG_DIR)/nvim/plugin/diagnostics_counts.lua
 	setup/setup-config neovim/plugin/highlight_long_lines.vim   $(CONFIG_DIR)/nvim/plugin/highlight_long_lines.vim
-	setup/setup-config neovim/plugin/insert_snippet.vim         $(CONFIG_DIR)/nvim/plugin/insert_snippet.vim
 	setup/setup-config neovim/plugin/manage_sessions.vim        $(CONFIG_DIR)/nvim/plugin/manage_sessions.vim
 	setup/setup-config neovim/plugin/open_buffer.vim            $(CONFIG_DIR)/nvim/plugin/open_buffer.vim
 	setup/setup-config neovim/plugin/open_file.vim              $(CONFIG_DIR)/nvim/plugin/open_file.vim
@@ -40,9 +39,6 @@ neovim-configs:
 	setup/setup-config neovim/plugin/search_dir.vim             $(CONFIG_DIR)/nvim/plugin/search_dir.vim
 	setup/setup-config neovim/plugin/tab_key.vim                $(CONFIG_DIR)/nvim/plugin/tab_key.vim
 	setup/setup-config neovim/plugin/zoom_window.vim            $(CONFIG_DIR)/nvim/plugin/zoom_window.vim
-	setup/setup-config neovim/snips/all.snippets                $(CONFIG_DIR)/nvim/snips/all.snippets
-	setup/setup-config neovim/snips/sh.snippets                 $(CONFIG_DIR)/nvim/snips/sh.snippets
-	setup/setup-config neovim/snips/zsh.snippets                $(CONFIG_DIR)/nvim/snips/zsh.snippets
 	setup/setup-config neovim/spell/en.utf-8.add                $(CONFIG_DIR)/nvim/spell/en.utf-8.add
 
 	# disable tags generation from gutentags plugin on home folder

@@ -52,7 +52,6 @@ buffer   b
 download d
 file     f
 session  s
-snippet  s
 tab      t
 tag      t
 window   w
