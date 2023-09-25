@@ -37,7 +37,6 @@ neovim-configs:
 	setup/setup-config neovim/plugin/open_file.vim              $(CONFIG_DIR)/nvim/plugin/open_file.vim
 	setup/setup-config neovim/plugin/scroll_search.vim          $(CONFIG_DIR)/nvim/plugin/scroll_search.vim
 	setup/setup-config neovim/plugin/search_dir.vim             $(CONFIG_DIR)/nvim/plugin/search_dir.vim
-	setup/setup-config neovim/plugin/tab_key.vim                $(CONFIG_DIR)/nvim/plugin/tab_key.vim
 	setup/setup-config neovim/plugin/zoom_window.vim            $(CONFIG_DIR)/nvim/plugin/zoom_window.vim
 	setup/setup-config neovim/spell/en.utf-8.add                $(CONFIG_DIR)/nvim/spell/en.utf-8.add
 
