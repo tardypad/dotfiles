@@ -1,0 +1,43 @@
+# Control structures
+
+snippet if "Shell 'if' control structure"
+        if ${2:[ ${1:condition} ]}; then
+          ${VISUAL}${0}
+        fi
+
+snippet elif "Shell 'elif' control structure"
+        elif ${2:[ ${1:condition} ]}; then
+          ${VISUAL}${0}
+
+snippet else "Shell 'else' control structure"
+        else
+          ${VISUAL}${0}
+
+snippet while "Shell 'while' control structure"
+        while ${2:[ ${1:condition} ]}; do
+          ${VISUAL}${0}
+        done
+
+snippet until "Shell 'until' control structure"
+        until ${2:[ ${1:condition} ]}; do
+          ${VISUAL}${0}
+        done
+
+snippet for_in "Shell 'for' control structure"
+        for ${1:i} in ${2:words}; do
+          ${VISUAL}${0}
+        done
+
+snippet case "Shell 'case' control structure"
+        case ${1:word} in
+          ${2:pattern})
+            $0
+            ;;
+        esac
+
+# Functions
+
+snippet function "Shell function"
+        ${1:name}() {
+          ${VISUAL}${0}
+        }

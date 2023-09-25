@@ -149,3 +149,11 @@ nnoremap <silent> <Leader>{key/tag}{key/quit} :TagbarClose<CR>
 
 nnoremap <silent> <Leader>{key/undo}{key/undo} :UndotreeShow<CR>
 nnoremap <silent> <Leader>{key/undo}{key/quit} :UndotreeHide<CR>
+
+
+"" luasnip
+
+imap     <silent> <expr> <{key/complete/Tab}>   luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<{key/complete/Tab}>'
+inoremap <silent>        <S-{key/complete/Tab}> <cmd>lua require('luasnip').jump(-1)<CR>
+snoremap <silent>        <{key/complete/Tab}>   <cmd>lua require('luasnip').jump(1)<CR>
+snoremap <silent>        <S-{key/complete/Tab}> <cmd>lua require('luasnip').jump(-1)<CR>
