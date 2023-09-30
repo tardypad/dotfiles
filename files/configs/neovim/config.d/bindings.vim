@@ -157,3 +157,6 @@ imap     <silent> <expr> <{key/complete/Tab}>   luasnip#expand_or_jumpable() ? '
 inoremap <silent>        <S-{key/complete/Tab}> <cmd>lua require('luasnip').jump(-1)<CR>
 snoremap <silent>        <{key/complete/Tab}>   <cmd>lua require('luasnip').jump(1)<CR>
 snoremap <silent>        <S-{key/complete/Tab}> <cmd>lua require('luasnip').jump(-1)<CR>
+
+" insertion of snippet from list selection
+nnoremap <silent> <Leader>{key/insert}{key/s} :Snippets<CR>
