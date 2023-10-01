@@ -1,5 +1,13 @@
 local lspconfig = require('lspconfig')
-lspconfig.gopls.setup {}
+
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+local servers = {'gopls'}
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    capabilities = capabilities,
+  }
+end
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
