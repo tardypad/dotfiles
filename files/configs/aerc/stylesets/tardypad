@@ -1,4 +1,5 @@
 *.default = true
+*.normal = true
 
 *.selected.bg = #{color/current_item/hex}
 *.selected.fg = #{color/base00/hex}
