@@ -5,17 +5,23 @@
 
 MODE="$( i3blocks-mode )"
 
-COUNT="$( find "${HOME}/Mail" -path '*/new/*' -type f | wc -l )"
+COUNTS=$(
+  cd "${HOME}/Mail" || return
+  find ./* -type d -prune \
+    | xargs -I{} sh -c "printf '{}:'; find {} -path '*/new/*' -type f | wc -l" \
+    | paste -sd' ' \
+    | sed 's#\./##g'
+)
 
-if [ "${COUNT}" -gt 0 ]; then
-  # do not set notice color if we are busy not to get tempted to check chat
+if echo "${COUNTS}" | grep -q ':[1-9]'; then
+  # do not set notice color if we are busy not to get tempted to check mail
   if [ "$( do-not-disturb status )" = 'disabled' ]; then
     COLOR='#{color/notice/hex}'
   fi
 fi
 
 if [ "${MODE}" = 'full' ]; then
-  TEXT="  ${COUNT}"
+  TEXT="  ${COUNTS}"
 else
   TEXT=''
 fi
