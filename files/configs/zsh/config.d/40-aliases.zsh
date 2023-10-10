@@ -78,6 +78,9 @@ alias lbl='line-by-line'
 alias mnt='mount-device'
 alias pmx='pulsemixer'
 
+# edit reminders for ad-hoc meetings
+alias meet='${EDITOR} "${XDG_CONFIG_HOME:-$HOME/.config}/remind/notifications/meetings.rem"'
+
 # smart cut on spaces
 alias scut="tr -s ' ' '\t' | cut"
 
