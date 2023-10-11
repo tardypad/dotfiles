@@ -91,11 +91,13 @@ config.bind('<{key/escape/Escape}>',      'mode-leave', mode='register')
 config.bind('<Ctrl-{key/interrupt/upp}>', 'mode-leave', mode='register')
 
 # yesno mode
-config.bind('<{key/escape/Escape}>',      'mode-leave',        mode='yesno')
-config.bind('<Ctrl-{key/interrupt/upp}>', 'mode-leave',        mode='yesno')
-config.bind('<{key/return/Return}>',      'prompt-accept',     mode='yesno')
-config.bind('{key/y}',                    'prompt-accept yes', mode='yesno')
-config.bind('{key/n}',                    'prompt-accept no',  mode='yesno')
+config.bind('<{key/escape/Escape}>',      'mode-leave',               mode='yesno')
+config.bind('<Ctrl-{key/interrupt/upp}>', 'mode-leave',               mode='yesno')
+config.bind('<{key/return/Return}>',      'prompt-accept',            mode='yesno')
+config.bind('{key/y}',                    'prompt-accept yes',        mode='yesno')
+config.bind('{key/Y}',                    'prompt-accept --save yes', mode='yesno')
+config.bind('{key/n}',                    'prompt-accept no',         mode='yesno')
+config.bind('{key/N}',                    'prompt-accept --save no',  mode='yesno')
 
 
 # normal mode
