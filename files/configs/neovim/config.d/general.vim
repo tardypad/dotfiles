@@ -71,6 +71,9 @@ set statusline+=\ %y                                                            
 set statusline+=\ %p%%                                                               " line percentage
 set statusline+=\ %l:%v                                                              " line and virtual column number
 
+" limit number of items in popup menu
+set pumheight=10
+
 " netrw
 let g:netrw_liststyle = 0  " simple list
 let g:netrw_banner = 0     " hide banner
