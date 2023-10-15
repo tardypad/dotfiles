@@ -9,7 +9,6 @@ init_variables() {
   IDENTIFIER=
   EXPIRE_TIME=0
   REPLACE_ID=0
-  SOUND_FILE=
 }
 
 parse_command_line() {
@@ -17,7 +16,6 @@ parse_command_line() {
     case "${OPT}" in
       c) CATEGORY="${OPTARG}" ;;
       i) IDENTIFIER="${OPTARG}" ;;
-      s) SOUND_FILE="${OPTARG}" ;;
       t) EXPIRE_TIME="${OPTARG}" ;;
       ?) exit_error ;;
     esac
@@ -36,10 +34,6 @@ validate_command_line() {
 
   if ! echo "${EXPIRE_TIME}" | grep -E -q '^[0-9]*$'; then
     exit_error 'expire time must be a number'
-  fi
-
-  if [ -n "${SOUND_FILE}" ] && [ ! -f "${SOUND_FILE}" ] ; then
-    exit_error 'sound file does not exist'
   fi
 }
 
@@ -75,7 +69,3 @@ parse_command_line "$@"
 validate_command_line
 
 send_notification
-
-if [ -n "${SOUND_FILE}" ]; then
-  paplay "${SOUND_FILE}" 2> /dev/null
-fi

@@ -32,7 +32,7 @@ exec dbus-update-activation-environment --systemd DISPLAY
 exec mako
 
 # start reminder daemon
-exec pidof -q remind || remind -z -k'notify -c notice -s {dir/data}/sounds/reminder.ogg Reminder %s' {dir/config}/remind/notifications/
+exec pidof -q remind || remind -z -k'notify -c reminder Reminder %s' {dir/config}/remind/notifications/
 
 # idle management
 exec swayidle -w

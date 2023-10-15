@@ -36,6 +36,16 @@ format=<span foreground='#{color/error/hex}' weight='bold'> %s</span>\n%b
 border-color=#{color/alert/hex}
 format=<span foreground='#{color/alert/hex}' weight='bold'> %s</span>\n%b
 
+[category="reminder"]
+border-color=#{color/notice/hex}
+format=<span foreground='#{color/notice/hex}' weight='bold'> %s</span>\n%b
+on-notify=exec paplay {dir/data}/sounds/reminder.ogg
+
+[category="pomodoro.end"]
+border-color=#{color/notice/hex}
+format=<span foreground='#{color/notice/hex}' weight='bold'> %s</span>\n%b
+on-notify=exec paplay {dir/data}/sounds/end_pomodoro.ogg
+
 [category="power.low"]
 border-color=#{color/warning/hex}
 format=<span foreground='#{color/warning/hex}' weight='bold'> %s</span>\n%b

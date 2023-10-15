@@ -3,5 +3,4 @@
 _arguments \
   '-c[notification category]:()' \
   '-i[notification identifier, replace similar notification if any]:()' \
-  '-s[sound to play]:file path:_path_files' \
   '-t[timeout in seconds]:()'
