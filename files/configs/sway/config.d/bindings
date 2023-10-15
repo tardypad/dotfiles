@@ -224,16 +224,16 @@ bindsym $mod+Shift+{key/resize/low} mode "-- RESIZE --"
 ## XF86 keys
 
 # Volume keys
-bindsym --locked {key/XF86AudioMute}        exec pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -x -RTMIN+2 i3blocks
-bindsym --locked $mod+{key/F1}              exec pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -x -RTMIN+2 i3blocks
-bindsym --locked {key/XF86AudioLowerVolume} exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -x -RTMIN+2 i3blocks
-bindsym --locked $mod+{key/F2}              exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -x -RTMIN+2 i3blocks
-bindsym --locked {key/XF86AudioRaiseVolume} exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -x -RTMIN+2 i3blocks
-bindsym --locked $mod+{key/F3}              exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -x -RTMIN+2 i3blocks
+bindsym --locked {key/XF86AudioMute}        exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && pkill -x -RTMIN+2 i3blocks
+bindsym --locked $mod+{key/F1}              exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && pkill -x -RTMIN+2 i3blocks
+bindsym --locked {key/XF86AudioLowerVolume} exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && pkill -x -RTMIN+2 i3blocks
+bindsym --locked $mod+{key/F2}              exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && pkill -x -RTMIN+2 i3blocks
+bindsym --locked {key/XF86AudioRaiseVolume} exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && pkill -x -RTMIN+2 i3blocks
+bindsym --locked $mod+{key/F3}              exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && pkill -x -RTMIN+2 i3blocks
 
 # Microphone key
-bindsym --locked {key/XF86AudioMicMute} exec pactl set-source-mute @DEFAULT_SOURCE@ toggle && pkill -x -RTMIN+7 i3blocks
-bindsym --locked $mod+{key/F4}          exec pactl set-source-mute @DEFAULT_SOURCE@ toggle && pkill -x -RTMIN+7 i3blocks
+bindsym --locked {key/XF86AudioMicMute} exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && pkill -x -RTMIN+7 i3blocks
+bindsym --locked $mod+{key/F4}          exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && pkill -x -RTMIN+7 i3blocks
 
 # Backlight keys
 bindsym --locked {key/XF86MonBrightnessDown} exec light -U 5

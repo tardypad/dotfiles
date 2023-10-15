@@ -144,6 +144,6 @@ alias qalc='noglob qalc'
 alias flush-logs="find . -type f -name '*.log' -exec /bin/sh -c \"printf '' > '{}'\" \;"
 
 # tests
-alias test-micro='parecord /tmp/test-micro.ogg && paplay /tmp/test-micro.ogg && rm -f /tmp/test-micro.ogg'
-alias test-sound='paplay "${XDG_DATA_HOME:-$HOME/.local/share}/sounds/end_pomodoro.ogg"'
+alias test-micro='{timeout 3s pw-record /tmp/test-micro.ogg || true } && pw-play /tmp/test-micro.ogg && rm -f /tmp/test-micro.ogg'
+alias test-sound='pw-play "${XDG_DATA_HOME:-$HOME/.local/share}/sounds/end_pomodoro.ogg"'
 alias test-webcam='mpv av://v4l2:/dev/video0'

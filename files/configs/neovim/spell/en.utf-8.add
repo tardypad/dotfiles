@@ -53,7 +53,6 @@ mako
 swaylock
 libxml2
 libnotify
-libpulse
 bluez
 otf
 contrib
@@ -95,3 +94,5 @@ isync
 neovim
 poweralertd
 upower
+wireplumber
+pipewire

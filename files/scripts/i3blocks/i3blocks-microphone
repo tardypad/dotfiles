@@ -1,19 +1,22 @@
 #!/bin/sh
 # commands used:
 # - i3blocks-mode
-# - pactl
+# - wpctl
 
 MODE="$( i3blocks-mode )"
 
-if pactl get-source-mute @DEFAULT_SOURCE@ | grep -q ' yes$'; then
+VOLUME="$( wpctl get-volume @DEFAULT_AUDIO_SOURCE@ )"
+
+if echo "${VOLUME}" | grep -q 'MUTED'; then
   exit 0
 fi
 
 COLOR='#{color/notice/hex}'
 
 VOLUME_PERCENT=$(
-  pactl get-source-volume @DEFAULT_SOURCE@ \
-    | sed -n 's/.* \([0-9]\{1,3\}\)% .*/\1/p'
+  echo "${VOLUME}" \
+    | sed 's/Volume: \([0-9\.]*\).*/\1/' \
+    | sed -e 's/^0//' -e 's/\.//'
 )
 
 if [ "${MODE}" = 'full' ]; then
