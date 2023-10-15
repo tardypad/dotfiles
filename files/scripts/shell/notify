@@ -6,16 +6,10 @@ init_variables() {
   SUMMARY=
   BODY=
   CATEGORY=
-  EXPIRE_TIME=0
-  HINTS='{}'
   IDENTIFIER=
-  SOUND_FILE=
-
-  # unused as parameters
-  APP_NAME=
+  EXPIRE_TIME=0
   REPLACE_ID=0
-  ICON=
-  ACTIONS='[]'
+  SOUND_FILE=
 }
 
 parse_command_line() {
@@ -55,10 +49,6 @@ exit_error() {
 } >&2
 
 send_notification() {
-  if [ -n "${CATEGORY}" ]; then
-    HINTS="{\"category\":<string \"${CATEGORY}\">}"
-  fi
-
   if [ -n "${IDENTIFIER}" ]; then
     NOTIFICATION_FILE="${XDG_RUNTIME_DIR:-/tmp}/notification_${IDENTIFIER}"
     if [ -f "${NOTIFICATION_FILE}" ]; then
@@ -67,20 +57,12 @@ send_notification() {
   fi
 
   NOTIFICATION_ID=$(
-    gdbus call \
-      --session \
-      --dest org.freedesktop.Notifications \
-      --object-path /org/freedesktop/Notifications \
-      --method org.freedesktop.Notifications.Notify \
-      "${APP_NAME}" \
-      "${REPLACE_ID}" \
-      "${ICON}" \
+    notify-send --print-id \
+      --replace-id "${REPLACE_ID}" \
+      --category "${CATEGORY}" \
+      --expire-time "$(( EXPIRE_TIME * 1000 ))" \
       "${SUMMARY}" \
-      "${BODY}" \
-      "${ACTIONS}" \
-      "${HINTS}" \
-      "int32 $(( EXPIRE_TIME * 1000 ))" \
-    | sed 's/(uint32 \([0-9]*\),)/\1/'
+      "${BODY}"
   )
 
   if [ -n "${IDENTIFIER}" ]; then
