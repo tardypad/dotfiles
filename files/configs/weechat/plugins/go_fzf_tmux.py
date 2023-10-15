@@ -53,7 +53,7 @@ def switch_to_buffer(out):
     weechat.command("", "/buffer *{}".format(number))
 
 def run_within_tmux():
-    command = 'echo "{}" | fzf-tmux {} {}'.format(
+    command = "echo '{}' | fzf-tmux {} {}".format(
             get_buffers_input(),
             weechat.config_get_plugin("fzf_options"),
             FZF_MAIN_OPTIONS)
