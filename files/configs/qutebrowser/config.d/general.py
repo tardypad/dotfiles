@@ -43,8 +43,9 @@ c.completion.open_categories = [ "history", "filesystem" ]
 c.content.autoplay = False
 
 # Disable some websites requests, don't even ask for it
-c.content.notifications.enabled = False
-c.content.geolocation           = False
+c.content.notifications.enabled     = False
+c.content.geolocation               = False
+c.content.register_protocol_handler = False
 
 # Enable audio, micro and screen sharing on some chat websites
 config.set('content.media.audio_capture', True, 'whereby.com')
