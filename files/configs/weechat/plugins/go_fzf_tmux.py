@@ -39,7 +39,9 @@ def get_buffers():
 def get_buffers_input():
     lines = []
     for buffer in get_buffers():
-        lines.append("{} {}".format(buffer["number"], buffer["name"]))
+        # escape single quotes for shell command usage later
+        name = buffer["name"].replace("'", "'\\''")
+        lines.append("{} {}".format(buffer["number"], name))
     return "\n".join(lines)
 
 def process_fzf_result(data, command, rc, out, err):
@@ -65,7 +67,7 @@ def run_within_tmux():
     return weechat.WEECHAT_RC_OK
 
 def run_blocking():
-    echo_command = 'echo "{}"'.format(get_buffers_input())
+    echo_command = "echo '{}'".format(get_buffers_input())
     echo_process = subprocess.Popen(
                     shlex.split(echo_command),
                     stdout=subprocess.PIPE)
