@@ -198,6 +198,7 @@ config.bind('{key/tab}<Alt-{key/undo/upp}>',  'cmd-set-text --space :undo',     
 config.bind('{key/tab}{key/open}',            'cmd-set-text --space :open --tab',                     mode='normal')
 config.bind('{key/tab}{key/window}',          'tab-give',                                             mode='normal')
 config.bind('{key/tab}{key/f}',               'hint all tab-fg',                                      mode='normal')
+config.bind('{key/tab}{key/P}',               'tab-pin',                                              mode='normal')
 
 # windows management
 config.bind('{key/window}{key/create}',          'open --window about:blank',                     mode='normal')
