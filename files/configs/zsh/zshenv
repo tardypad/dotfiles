@@ -24,6 +24,3 @@ export MANROFFOPT="-P -c"
 
 # disable flow control within apps
 stty -ixon 2> /dev/null
-
-# define desktop environment
-export XDG_CURRENT_DESKTOP=sway
