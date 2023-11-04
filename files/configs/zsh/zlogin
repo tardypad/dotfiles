@@ -1,6 +1,6 @@
 if [ "$( tty )" = /dev/tty1 ]; then
   # Automatically start sway after login on tty 1
   if [ -z "${DISPLAY}" ]; then
-    exec sway >> /var/log/sway/sway.log 2>&1
+    exec systemd-cat --identifier=sway sway
   fi
 fi
