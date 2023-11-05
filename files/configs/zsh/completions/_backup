@@ -32,7 +32,7 @@ _sources() {
 }
 
 _targets() {
-  local targets=()
+  local source=$words[CURRENT-1] targets=()
 
   if _is_restore; then
     targets=(
@@ -40,7 +40,7 @@ _targets() {
       server
     )
   else
-    if [ $source = hdd* ]; then
+    if [[ $source = hdd* ]]; then
       targets=(
         server
       )
