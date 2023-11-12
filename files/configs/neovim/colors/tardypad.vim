@@ -150,7 +150,7 @@ call s:highlight("TermCursorNC", "",           "",           "")
 
 " folds
 call s:highlight("FoldColumn",   "base03", "",       "")
-call s:highlight("Folded",       "base04", "",       "italic")
+call s:highlight("Folded",       "base09", "",       "italic")
 highlight! link CursorLineFold FoldColumn
 
 " pop up and wild menu

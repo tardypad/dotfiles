@@ -83,6 +83,9 @@ let g:tagbar_autoshowtag = 1
 " decrease size of fold icons
 let g:tagbar_iconchars = ['▸', '▾']
 
+" start with folds closed
+let g:tagbar_foldlevel = 0
+
 
 "" undotree
 

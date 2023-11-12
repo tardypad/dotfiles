@@ -50,6 +50,22 @@ set list
 " save global variables (used mainly for Taboo tab names)
 set sessionoptions+=globals
 
+" folding
+set foldmethod=syntax " use syntax by default
+set foldlevelstart=99 " do not fold when opening file
+
+set foldtext=MyFoldText()
+function MyFoldText()
+  let line = getline(v:foldstart)
+  " keep the same alignment for tabs as when there is no fold
+  return substitute(line, '\t', repeat(' ', &tabstop), 'g')
+endfunction
+
+" enable folding for some syntax
+let g:sh_fold_enabled=5
+let g:php_folding = 1
+let g:zsh_fold_enable = 1
+
 " search
 set ignorecase " ignore case when searching
 set smartcase  " search sensitive if there is an uppercase in the search term
