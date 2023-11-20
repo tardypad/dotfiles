@@ -38,6 +38,12 @@ take_screenshot() {
   sleep "${DELAY}"
 
   grim -g "${REGION}" "${FILE_PATH}"
+
+  # shellcheck disable=SC2016
+  imv \
+    -c 'bind d exec rm "$imv_current_file"; quit' \
+    -c 'bind e exec gimp "$imv_current_file"&; quit' \
+    "${FILE_PATH}"
 }
 
 init_variables

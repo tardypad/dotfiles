@@ -13,6 +13,10 @@ screenshot [-d _delay_]
 Open screen overlay to select a region to screenshot. The image is saved in the
 Desktop folder.
 
+After the screenshot is taken, it is displayed in imv with some extra bindings:
+- delete (_{key/delete}_)
+- edit (_{key/edit}_)
+
 # OPTIONS
 
 *-d* _delay_
@@ -36,5 +40,7 @@ _$XDG_DESKTOP_DIR_
 
 # DEPENDENCIES
 
+- gimp
 - grim
+- imv
 - slurp
