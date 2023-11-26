@@ -7,6 +7,7 @@ TAKANG_PATH=$( project-path repo takang )
 IMV_PATH=$( project-path repo imv )
 MAKO_PATH=$( project-path repo mako )
 WSHOWKEYS_PATH=$( project-path repo wshowkeys )
+SCDOC_PATH=$( project-path repo scdoc )
 
 tmux -L "${SOCKET}" \
   new-session -d \
@@ -50,6 +51,16 @@ tmux -L "${SOCKET}" \
 tmux -L "${SOCKET}" \
   split-window -dh \
   -c "${WSHOWKEYS_PATH}" \
+  nvim
+
+tmux -L "${SOCKET}" \
+  new-window \
+  -n 'scdoc' \
+  -c "${SCDOC_PATH}"
+
+tmux -L "${SOCKET}" \
+  split-window -dh \
+  -c "${SCDOC_PATH}" \
   nvim
 
 tmux -L "${SOCKET}" \
