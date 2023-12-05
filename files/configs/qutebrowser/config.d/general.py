@@ -42,6 +42,9 @@ c.completion.open_categories = [ "history", "filesystem" ]
 # Disable videos automatic play
 c.content.autoplay = False
 
+# Prefers less animations
+c.content.prefers_reduced_motion = True;
+
 # Disable some websites requests, don't even ask for it
 c.content.notifications.enabled     = False
 c.content.geolocation               = False
