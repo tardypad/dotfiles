@@ -1,2 +1,3 @@
 # prevent late activities on night before working days
-REM Sun Mon Tue Wed Thu AT 20:30 MSG Time off
+REM Sun Mon Tue Wed Thu AT 20:30 \
+  SPECIAL COLOR {color/base03/rgb} Time off
