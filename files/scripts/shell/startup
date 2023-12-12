@@ -3,6 +3,10 @@
 TMP_FILE="$( mktemp )"
 trap 'rm -f "${TMP_FILE}"' EXIT
 
+swaymsg -q exec 'foot -T TODO -o locked-title=yes ${EDITOR} "${XDG_NOTES_DIR:-$HOME/Notes}/todo.md"'
+sleep 0.1
+swaymsg move window to scratchpad
+
 swaymsg -q rename workspace to '1:projects'
 tmux-env -b projects arch_system
 tmux-env -b projects dotfiles
