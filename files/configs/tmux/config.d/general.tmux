@@ -1,15 +1,10 @@
 # define prefix
 set-option -g prefix C-Space
 
-# don't let programs rename windows when inside a tmux env
-%if #{TMUX_ENV}
-set-option -w -g allow-rename off
-set-option -w -g automatic-rename off
-%else
+# let programs rename windows
 set-option -w -g allow-rename on
 set-option -w -g automatic-rename on
 set-option -w -g automatic-rename-format '#{pane_current_command}'
-%endif
 
 # store OSC 52 content as buffer and to terminal clipboard
 set-option -g set-clipboard on
@@ -18,13 +13,8 @@ set-option -g set-clipboard on
 set-option -g set-titles on
 set-option -g set-titles-string '#{session_name} / #{window_name}'
 
-# don't detach the client when killing a session
-# only inside a tmux env
-%if #{TMUX_ENV}
-set-option -g detach-on-destroy off
-%else
+# detach the client when killing a session
 set-option -g detach-on-destroy on
-%endif
 
 # close windows/panes when initial command exits
 set-option -w -g remain-on-exit off

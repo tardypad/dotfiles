@@ -58,14 +58,19 @@ start_tmux_env() {
   if [ -n "${SESSION}" ]; then
     if ! is_session_present; then
       SCRIPT_PATH="${ENV_DIR_PATH}/${ENV_ID}/${SESSION}.sh"
-      TMUX_ENV=yes "${SCRIPT_PATH}" "${ENV_ID}" "${SESSION}"
+      "${SCRIPT_PATH}" "${ENV_ID}" "${SESSION}"
     fi
   else
     SESSION='new'
     if ! is_session_present; then
-      TMUX_ENV=yes tmux -L "${ENV_ID}" new-session -d -s "${SESSION}"
+      tmux -L "${ENV_ID}" new-session -d -s "${SESSION}"
     fi
   fi
+
+  tmux -L "${ENV_ID}" \
+    set-option -g detach-on-destroy off \; \
+    set-option -w -g allow-rename off \; \
+    set-option -w -g automatic-rename off
 
   if [ "${BACKGROUND}" = 'false' ]; then
     tmux -L "${ENV_ID}" attach-session -t "${SESSION}" > /dev/null 2>&1
