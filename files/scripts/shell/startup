@@ -1,9 +1,6 @@
 #!/bin/sh
 
-TMP_FILE="$( mktemp )"
-trap 'rm -f "${TMP_FILE}"' EXIT
-
-swaymsg -q exec 'foot -T TODO -o locked-title=yes ${EDITOR} "${XDG_NOTES_DIR:-$HOME/Notes}/todo.md"'
+swaymsg -q exec 'foot -T dashboard -o locked-title=yes tmux-env general dashboard'
 sleep 0.1
 swaymsg move window to scratchpad
 
@@ -17,15 +14,5 @@ swaymsg -q workspace '2:web'
 swaymsg -q exec '{app/web_browser} -r default'
 
 swaymsg -q workspace '1:projects'
-
 sleep 0.1
-
-{
-  printf "$( tput bold )%s\n\n" 'TODAY';
-  schedule today;
-
-  printf "\n$( tput bold )%s\n\n" 'TODO'
-  cat "${XDG_NOTES_DIR:-$HOME/Notes}/todo.md";
-} > "${TMP_FILE}"
-
-sway-quick-command "${PAGER}" "${TMP_FILE}"
+swaymsg scratchpad show
