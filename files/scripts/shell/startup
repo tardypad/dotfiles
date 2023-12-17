@@ -1,6 +1,6 @@
 #!/bin/sh
 
-swaymsg -q exec 'foot -T dashboard -o locked-title=yes tmux-env general dashboard'
+swaymsg -q exec 'foot -T sway_dashboard -o locked-title=yes tmux-env general dashboard'
 sleep 0.1
 swaymsg move window to scratchpad
 

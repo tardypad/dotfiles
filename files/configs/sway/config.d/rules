@@ -7,8 +7,8 @@ for_window [title="sway_quick_command"] floating enable, \
                                         resize set width 40 ppt height 40 ppt
 
 # display dashboard as floating window
-for_window [title="dashboard"] floating enable, \
-                               resize set width 50 ppt height 40 ppt
+for_window [title="sway_dashboard"] floating enable, \
+                                    resize set width 50 ppt height 40 ppt
 
 # display media apps as floating window
 for_window [app_id="imv"] floating enable, border pixel 2
