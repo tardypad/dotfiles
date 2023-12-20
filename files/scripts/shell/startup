@@ -2,6 +2,9 @@
 
 swaymsg -q exec 'foot -T sway_dashboard -o locked-title=yes tmux-env general dashboard'
 sleep 0.1
+# respawn for correct Goyo width and height display
+# after the window is initialized and still being displayed
+tmux -L general respawn-pane -k
 swaymsg move window to scratchpad
 
 swaymsg -q rename workspace to '1:projects'

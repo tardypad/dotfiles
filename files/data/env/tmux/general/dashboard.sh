@@ -18,8 +18,3 @@ tmux -L "${SOCKET}" \
   set-option -w -g remain-on-exit on \; \
   set-option -g status off \; \
   select-pane -t ':.{left-of}'
-
-# respawn for correct Goyo width and height display
-sleep 0.5;
-tmux -L "${SOCKET}" \
-  respawn-pane -k
