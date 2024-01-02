@@ -45,6 +45,9 @@ c.content.autoplay = False
 # Prefers less animations
 c.content.prefers_reduced_motion = True;
 
+# Allow websites to paste content to clipboard
+c.content.javascript.clipboard = "access-paste";
+
 # Disable some websites requests, don't even ask for it
 c.content.notifications.enabled     = False
 c.content.geolocation               = False
