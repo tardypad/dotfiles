@@ -19,6 +19,7 @@ feeds() {
   feed 'Drew DeVault'                         'https://drewdevault.com/blog/index.xml'
   feed 'Simon Ser'                            'https://emersion.fr/blog/rss.xml'
   feed 'Hugo Barrera'                         'https://whynothugo.nl/posts.xml'
+  feed 'Rob Pike'                             'https://commandcenter.blogspot.com/feeds/posts/default'
   feed 'Nikita Prokopov'                      'https://tonsky.me/atom.xml'
   feed 'Martin Fowler'                        'https://martinfowler.com/feed.atom'
   feed 'Henrik Kniberg'                       'https://blog.crisp.se/author/henrikkniberg/feed'
