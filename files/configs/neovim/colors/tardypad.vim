@@ -17,72 +17,74 @@ if $DISPLAY != ""
 endif
 
 " define hex colors for GUI
-let s:base00_gui                 = "#{color/base00/hex}"
-let s:base01_gui                 = "#{color/base01/hex}"
-let s:base02_gui                 = "#{color/base02/hex}"
-let s:base03_gui                 = "#{color/base03/hex}"
-let s:base04_gui                 = "#{color/base04/hex}"
-let s:base05_gui                 = "#{color/base05/hex}"
-let s:base06_gui                 = "#{color/base06/hex}"
-let s:base07_gui                 = "#{color/base07/hex}"
-let s:base08_gui                 = "#{color/base08/hex}"
-let s:base09_gui                 = "#{color/base09/hex}"
-let s:base0A_gui                 = "#{color/base0A/hex}"
-let s:base0B_gui                 = "#{color/base0B/hex}"
-let s:base0C_gui                 = "#{color/base0C/hex}"
-let s:base0D_gui                 = "#{color/base0D/hex}"
-let s:base0E_gui                 = "#{color/base0E/hex}"
-let s:base0F_gui                 = "#{color/base0F/hex}"
-let s:error_gui                  = "#{color/error/hex}"
-let s:warning_gui                = "#{color/warning/hex}"
-let s:notice_gui                 = "#{color/notice/hex}"
-let s:info_gui                   = "#{color/info/hex}"
-let s:success_gui                = "#{color/success/hex}"
-let s:background_gui             = "#{color/background/hex}"
-let s:foreground_gui             = "#{color/foreground/hex}"
-let s:status_line_background_gui = "#{color/status_line_background/hex}"
-let s:status_line_foreground_gui = "#{color/status_line_foreground/hex}"
-let s:popup_background_gui       = "#{color/popup_background/hex}"
-let s:popup_foreground_gui       = "#{color/popup_foreground/hex}"
-let s:search_match_gui           = "#{color/search_match/hex}"
-let s:search_match_current_gui   = "#{color/search_match_current/hex}"
-let s:current_item_gui           = "#{color/current_item/hex}"
-let s:delete_gui                 = "#{color/delete/hex}"
-let s:add_gui                    = "#{color/add/hex}"
+let s:base00_gui                     = "#{color/base00/hex}"
+let s:base01_gui                     = "#{color/base01/hex}"
+let s:base02_gui                     = "#{color/base02/hex}"
+let s:base03_gui                     = "#{color/base03/hex}"
+let s:base04_gui                     = "#{color/base04/hex}"
+let s:base05_gui                     = "#{color/base05/hex}"
+let s:base06_gui                     = "#{color/base06/hex}"
+let s:base07_gui                     = "#{color/base07/hex}"
+let s:base08_gui                     = "#{color/base08/hex}"
+let s:base09_gui                     = "#{color/base09/hex}"
+let s:base0A_gui                     = "#{color/base0A/hex}"
+let s:base0B_gui                     = "#{color/base0B/hex}"
+let s:base0C_gui                     = "#{color/base0C/hex}"
+let s:base0D_gui                     = "#{color/base0D/hex}"
+let s:base0E_gui                     = "#{color/base0E/hex}"
+let s:base0F_gui                     = "#{color/base0F/hex}"
+let s:error_gui                      = "#{color/error/hex}"
+let s:warning_gui                    = "#{color/warning/hex}"
+let s:notice_gui                     = "#{color/notice/hex}"
+let s:info_gui                       = "#{color/info/hex}"
+let s:success_gui                    = "#{color/success/hex}"
+let s:background_gui                 = "#{color/background/hex}"
+let s:foreground_gui                 = "#{color/foreground/hex}"
+let s:status_line_background_gui     = "#{color/status_line_background/hex}"
+let s:status_line_foreground_gui     = "#{color/status_line_foreground/hex}"
+let s:popup_background_gui           = "#{color/popup_background/hex}"
+let s:popup_foreground_gui           = "#{color/popup_foreground/hex}"
+let s:search_match_gui               = "#{color/search_match/hex}"
+let s:search_match_current_gui       = "#{color/search_match_current/hex}"
+let s:current_item_gui               = "#{color/current_item/hex}"
+let s:delete_gui                     = "#{color/delete/hex}"
+let s:add_gui                        = "#{color/add/hex}"
+let s:inactive_window_background_gui = "#{color/inactive_window_background/hex}"
 
 " define number colors for terminal
-let s:base00_term                 = "{color/base00/number}"
-let s:base01_term                 = "{color/base01/number}"
-let s:base02_term                 = "{color/base02/number}"
-let s:base03_term                 = "{color/base03/number}"
-let s:base04_term                 = "{color/base04/number}"
-let s:base05_term                 = "{color/base05/number}"
-let s:base06_term                 = "{color/base06/number}"
-let s:base07_term                 = "{color/base07/number}"
-let s:base08_term                 = "{color/base08/number}"
-let s:base09_term                 = "{color/base09/number}"
-let s:base0A_term                 = "{color/base0A/number}"
-let s:base0B_term                 = "{color/base0B/number}"
-let s:base0C_term                 = "{color/base0C/number}"
-let s:base0D_term                 = "{color/base0D/number}"
-let s:base0E_term                 = "{color/base0E/number}"
-let s:base0F_term                 = "{color/base0F/number}"
-let s:error_term                  = "{color/error/number}"
-let s:warning_term                = "{color/warning/number}"
-let s:notice_term                 = "{color/notice/number}"
-let s:info_term                   = "{color/info/number}"
-let s:success_term                = "{color/success/number}"
-let s:background_term             = "{color/background/number}"
-let s:foreground_term             = "{color/foreground/number}"
-let s:status_line_background_term = "{color/status_line_background/number}"
-let s:status_line_foreground_term = "{color/status_line_foreground/number}"
-let s:popup_background_term       = "{color/popup_background/number}"
-let s:popup_foreground_term       = "{color/popup_foreground/number}"
-let s:search_match_term           = "{color/search_match/number}"
-let s:search_match_current_term   = "{color/search_match_current/number}"
-let s:current_item_term           = "{color/current_item/number}"
-let s:delete_term                 = "{color/delete/number}"
-let s:add_term                    = "{color/add/number}"
+let s:base00_term                     = "{color/base00/number}"
+let s:base01_term                     = "{color/base01/number}"
+let s:base02_term                     = "{color/base02/number}"
+let s:base03_term                     = "{color/base03/number}"
+let s:base04_term                     = "{color/base04/number}"
+let s:base05_term                     = "{color/base05/number}"
+let s:base06_term                     = "{color/base06/number}"
+let s:base07_term                     = "{color/base07/number}"
+let s:base08_term                     = "{color/base08/number}"
+let s:base09_term                     = "{color/base09/number}"
+let s:base0A_term                     = "{color/base0A/number}"
+let s:base0B_term                     = "{color/base0B/number}"
+let s:base0C_term                     = "{color/base0C/number}"
+let s:base0D_term                     = "{color/base0D/number}"
+let s:base0E_term                     = "{color/base0E/number}"
+let s:base0F_term                     = "{color/base0F/number}"
+let s:error_term                      = "{color/error/number}"
+let s:warning_term                    = "{color/warning/number}"
+let s:notice_term                     = "{color/notice/number}"
+let s:info_term                       = "{color/info/number}"
+let s:success_term                    = "{color/success/number}"
+let s:background_term                 = "{color/background/number}"
+let s:foreground_term                 = "{color/foreground/number}"
+let s:status_line_background_term     = "{color/status_line_background/number}"
+let s:status_line_foreground_term     = "{color/status_line_foreground/number}"
+let s:popup_background_term           = "{color/popup_background/number}"
+let s:popup_foreground_term           = "{color/popup_foreground/number}"
+let s:search_match_term               = "{color/search_match/number}"
+let s:search_match_current_term       = "{color/search_match_current/number}"
+let s:current_item_term               = "{color/current_item/number}"
+let s:delete_term                     = "{color/delete/number}"
+let s:add_term                        = "{color/add/number}"
+let s:inactive_window_background_term = "{color/background/number}"
 
 " helper function for highlight
 function! s:highlight(group, base_fg, base_bg, attr)
@@ -106,20 +108,20 @@ function! s:highlight(group, base_fg, base_bg, attr)
 endfunction
 
 " misc
-call s:highlight("ColorColumn",  ""      ,     "base01",     "")
-call s:highlight("Conceal",      "base0A",     "",           "")
-call s:highlight("Directory",    "base09",     "",           "bold")
-call s:highlight("EndOfBuffer",  "background", "",           "")
-call s:highlight("MatchParen",   "base0B",     "base03",     "bold")
-call s:highlight("NonText",      "foreground", "base02",     "")
-call s:highlight("Normal",       "foreground", "",           "")
-call s:highlight("SignColumn",   "base02",     "",           "")
-call s:highlight("SpecialKey",   "base02",     "",           "bold")
-call s:highlight("Title",        "base09",     "",           "bold")
-call s:highlight("Visual",       "base00",     "base03",     "")
-call s:highlight("Whitespace",   "base02",     "",           "")
+call s:highlight("ColorColumn",  ""      ,     "base01",                     "")
+call s:highlight("Conceal",      "base0A",     "",                           "")
+call s:highlight("Directory",    "base09",     "",                           "bold")
+call s:highlight("EndOfBuffer",  "background", "",                           "")
+call s:highlight("MatchParen",   "base0B",     "base03",                     "bold")
+call s:highlight("NonText",      "foreground", "base02",                     "")
+call s:highlight("Normal",       "foreground", "",                           "")
+call s:highlight("NormalNC",     "foreground", "inactive_window_background", "")
+call s:highlight("SignColumn",   "base02",     "",                           "")
+call s:highlight("SpecialKey",   "base02",     "",                           "bold")
+call s:highlight("Title",        "base09",     "",                           "bold")
+call s:highlight("Visual",       "base00",     "base03",                     "")
+call s:highlight("Whitespace",   "base02",     "",                           "")
 highlight! link CursorLineSign SignColumn
-highlight! link NormalNC Normal
 
 " line number
 call s:highlight("CursorLineNr", "base04", "",       "")
