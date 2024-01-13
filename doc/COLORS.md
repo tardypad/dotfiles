@@ -30,6 +30,9 @@ red by default, not to suddenly be displayed white and get unnoticed.
 The 8 last colors follow the ANSI meaning as best as possible
 given the remaining colors available in the scheme.
 
+Colors outside the first 16 ones are not part of the theme of many older tools
+which are limited to 16. As such they don't have any number value or ANSI name.
+
 *Warning*: Do not forget to update the "theme" script when updating the
            colors in dark and light themes
 

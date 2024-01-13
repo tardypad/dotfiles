@@ -24,7 +24,7 @@ mkdir -p build
   tail -n+3 "${ALIASES_COLORS_FILE}" \
     | while read -r LINE; do
         ALIAS=$( echo "${LINE}" | sed 's/| \([a-z_]*\) *|.*/\1/' )
-        BASE_COLOR=$( echo "${LINE}" | sed 's/.* \(base0[[:alnum:]]\) .*/\1/' )
+        BASE_COLOR=$( echo "${LINE}" | sed 's/.* \(base[[:alnum:]][[:alnum:]]\) .*/\1/' )
         echo "s|{color/${ALIAS}/\([[:alpha:]]*\)}|{color/${BASE_COLOR}/\1}|g"
       done
 
@@ -37,19 +37,19 @@ mkdir -p build
   done
 
   # hexadecimal final conversion
-  for i in $( seq 0 15 )
+  for i in $( seq 0 255 )
   do
-    INDEX=$( printf '%X' "$i" )
-    BASE_HEX=$( sed -n "s/| base0${INDEX} | #\([[:alnum:]]*\) |.*/\1/p" "${BASE_COLORS_FILE}" )
-    echo "s|{color/base0${INDEX}/hex}|${BASE_HEX}|g"
+    INDEX=$( printf '%.2X' "$i" )
+    BASE_HEX=$( sed -n "s/| base${INDEX} | #\([[:alnum:]]*\) |.*/\1/p" "${BASE_COLORS_FILE}" )
+    [ -n "${BASE_HEX}" ] && echo "s|{color/base${INDEX}/hex}|${BASE_HEX}|g"
   done
 
   # rgb final conversion
-  for i in $( seq 0 15 )
+  for i in $( seq 0 255 )
   do
-    INDEX=$( printf '%X' "$i" )
-    RGB=$( sed -n "s/| base0${INDEX} | #[[:alnum:]]* | *[[:digit:]]* | [[:alpha:]]* *| [^|]* | \([^|]*\) | .*/\1/p" "${BASE_COLORS_FILE}" )
-    echo "s|{color/base0${INDEX}/rgb}|${RGB}|g"
+    INDEX=$( printf '%.2X' "$i" )
+    RGB=$( sed -n "s/| base${INDEX} | #[[:alnum:]]* | *[[:digit:]]* | [[:alpha:]]* *| [^|]* | \([^|]*\) | .*/\1/p" "${BASE_COLORS_FILE}" )
+    [ -n "${RGB}" ] && echo "s|{color/base${INDEX}/rgb}|${RGB}|g"
   done
 
   # fixed intermediate conversion
