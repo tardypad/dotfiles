@@ -21,3 +21,4 @@
 | unread_item                | base07 |
 | delete                     | base06 |
 | add                        | base0C |
+| inactive_window_background | base10 |
