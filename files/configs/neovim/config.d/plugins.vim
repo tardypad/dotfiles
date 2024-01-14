@@ -37,6 +37,12 @@ let g:fzf_history_dir = '{dir/data}/fzf-history'
 
 let g:goyo_width = '70%'
 
+function! s:goyo_enter()
+  highlight! link NormalNC Normal
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+
 
 "" gutentags
 
