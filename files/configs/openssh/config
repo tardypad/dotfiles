@@ -35,7 +35,6 @@ Host hazelnut
     IdentityFile ~/.ssh/id_hazelnut
 
 Host *
-    PubkeyAcceptedAlgorithms +ssh-rsa
     HashKnownHosts no
     UserKnownHostsFile ~/.ssh/known_hosts ~/.ssh/managed_known_hosts
     EscapeChar {key/%}
