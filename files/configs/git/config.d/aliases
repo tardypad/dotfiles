@@ -46,12 +46,12 @@
     commit-issue-id = "! \
         f() { \
           git log -1 $( git argument $1 ) \
-            --pretty=\"%(trailers:key=$( git config trailer.issue.key),valueonly )\"; \
+            --pretty=\"%(trailers:key=$( git config trailer.issue.key ),valueonly)\"; \
         }; f"
     commit-review-id = "! \
         f() { \
           git log -1 $( git argument $1 ) \
-            --pretty=\"%(trailers:key=$( git config trailer.review.key),valueonly )\" \
+            --pretty=\"%(trailers:key=$( git config trailer.review.key ),valueonly)\" \
           | sed -e 's%/$%%' -e 's%.*/%%'; \
         }; f"
     commit-subject = "! \
