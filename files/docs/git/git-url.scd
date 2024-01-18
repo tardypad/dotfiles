@@ -6,7 +6,7 @@ git-url - Display an URL related to the repository or a commit
 
 # SYNOPSIS
 
-git url [-c _commit_] [-r _remote_] [-t _type_]
+git url [-c _commit_] [-r _remote_] [-t _type_] [_file_]
 
 # DESCRIPTION
 
@@ -32,10 +32,12 @@ valid types:
 	- commit: URL of the selected commit
 	- issue: URL of the issue related to selected commit
 	- review: URL of the review related to selected commit
+	- file: URL of the file passed as argument
 
 # OPERANDS
 
-None
+_file_
+	File to display the URL of
 
 # ENVIRONMENT VARIABLES
 

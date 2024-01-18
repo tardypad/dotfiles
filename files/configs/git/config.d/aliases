@@ -28,6 +28,7 @@
         }; f"
     bw = browse
     bwc = "! f() { git browse -t commit -c $( git argument $1 ); }; f"
+    bwf = browse -t file
     bwi = "! f() { git browse -t issue -c $( git argument $1 ); }; f"
     bwr = "! f() { git browse -t review -c $( git argument $1 ); }; f"
     ci = "! \
@@ -150,6 +151,7 @@
         --format \"%(color:$( git config color.tag-list.refname ))%(refname:short)%(color:reset) | %(taggerdate:iso) | %(taggeremail) | %(subject)\" \
         | column -t -s '|'"
     urlc = "! f() { git url -t commit -c $( git argument $1 ); }; f"
+    urlf = url -t file
     urli = "! f() { git url -t issue -c $( git argument $1 ); }; f"
     urlr = "! f() { git url -t review -c $( git argument $1 ); }; f"
     wip = "! \

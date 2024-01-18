@@ -27,20 +27,24 @@
     repoPathSed = "s|.*:\\(.*\\)|~\\1|"
     repoUrl = https://git.sr.ht/{repo_path}
     commitUrl = https://git.sr.ht/{repo_path}/commit/{commit_id}
+    fileUrl = https://git.sr.ht/{repo_path}/tree/master/item/{file}
 [browse "sh_perso"]
     repoPathSed = "s|.*:\\(.*\\)|~tardypad/\\1|"
     repoUrl = https://git.sr.ht/{repo_path}
     commitUrl = https://git.sr.ht/{repo_path}/commit/{commit_id}
+    fileUrl = https://git.sr.ht/{repo_path}/tree/master/item/{file}
 [browse "gh"]
     repoPathSed = "s|.*:\\(.*\\)|\\1|"
     repoUrl = https://www.github.com/{repo_path}
     commitUrl = https://www.github.com/{repo_path}/commit/{commit_id}
     issueUrl = https://www.github.com/{repo_path}/issues/{issue_id}
+    fileUrl = https://www.github.com/{repo_path}/blob/master/{file}
 [browse "gh_perso"]
     repoPathSed = "s|.*:\\(.*\\)|tardypad/\\1|"
     repoUrl = https://www.github.com/{repo_path}
     commitUrl = https://www.github.com/{repo_path}/commit/{commit_id}
     issueUrl = https://www.github.com/{repo_path}/issues/{issue_id}
+    fileUrl = https://www.github.com/{repo_path}/blob/master/{file}
 [trailer]
     separators = ":#"
     where = after

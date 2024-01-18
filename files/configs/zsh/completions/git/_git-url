@@ -7,12 +7,30 @@ _types() {
     commit
     issue
     review
+    file
   )
 
   compadd "$@" $types
 }
 
+_is_file_type() {
+  for (( i = 1; i <= $#words - 1; i++ )); do
+    if [ $words[$i] = '-t' ] && [ $words[$((i+1))] = 'file' ]; then
+      return 0
+    fi
+  done
+
+  return 1
+}
+
+_files() {
+  if _is_file_type; then
+    _path_files
+  fi
+}
+
 _arguments \
   '-c[commit to show or get information from]:commit:__git_revisions' \
   '-r[remote to use]:remote:__git_remotes' \
-  '-t[type of information]:type:_types'
+  '-t[type of information]:type:_types' \
+  '1:file:_files'

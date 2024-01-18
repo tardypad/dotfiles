@@ -6,6 +6,7 @@ init_variables() {
   TYPE=repo
   COMMIT=HEAD
   REMOTE=$( git config --default origin browse.remote )
+  FILE=
 }
 
 parse_command_line() {
@@ -19,14 +20,21 @@ parse_command_line() {
   done
 
   shift $(( OPTIND - 1 ))
+
+  FILE="$1"
 }
 
 validate_command_line() {
   if [ "${TYPE}" != 'repo' ] \
      && [ "${TYPE}" != 'commit' ] \
      && [ "${TYPE}" != 'issue' ] \
+     && [ "${TYPE}" != 'file' ] \
      && [ "${TYPE}" != 'review' ]; then
     exit_error "invalid type argument '${TYPE}'"
+  fi
+
+  if [ "${TYPE}" = 'file' ] && [ -z "${FILE}" ]; then
+    exit_error 'missing file argument'
   fi
 
   if ! git rev-parse -q --verify "${COMMIT}^{commit}" > /dev/null; then
@@ -82,6 +90,9 @@ display_url() {
       REVIEW_ID=$( git commit-review-id "${COMMIT}" )
       [ -z "${REVIEW_ID}" ] &&  exit_error 'commit has no review id linked to it'
       echo "${URL}" | sed "s/{review_id}/${REVIEW_ID}/"
+      ;;
+    file)
+      echo "${URL}" | sed "s|{file}|${FILE}|"
       ;;
   esac
 }
