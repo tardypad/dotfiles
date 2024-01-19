@@ -23,6 +23,8 @@
     insteadOf = gh:
 [url "github:tardypad/"]
     insteadOf = gh_perso:
+[browse]
+    remote = sourcehut
 [browse "sh"]
     repoPathSed = "s|.*:\\(.*\\)|~\\1|"
     repoUrl = https://git.sr.ht/{repo_path}
