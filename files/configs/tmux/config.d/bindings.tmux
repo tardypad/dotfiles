@@ -216,7 +216,8 @@ bind -T copy-mode-vi -N 'select line'        {key/select_line}   send-keys -X se
 bind -T copy-mode-vi -N 'select region'    C-{key/select/low}    send-keys -X rectangle-toggle
 bind -T copy-mode-vi -N 'cancel selection'   {key/escape/Escape} send-keys -X clear-selection
 
-# selection actions
+# actions
+bind -T copy-mode-vi -N 'copy line'       {key/yank/upp}     send-keys -X copy-line-and-cancel
 bind -T copy-mode-vi -N 'paste selection' {key/return/Enter} send-keys -X copy-pipe-and-cancel "tmux paste-buffer"
 bind -T copy-mode-vi -N 'copy selection'  {key/yank/low}     send-keys -X copy-selection-and-cancel
 %if #{DISPLAY}
