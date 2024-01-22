@@ -33,6 +33,16 @@ function s:OpenSession(name)
   execute "source" s:GetSessionPath(a:name)
 endfunction
 
+function s:CloseSession()
+  " go to first tab (which is normally reserved for TODO file)
+  " delete all buffers
+  " edit the alternate file (TODO file)
+  " delete the [No Name] buffer that was created before
+  " create a new tab
+  silent execute "tabnext 1|%bdelete|edit#|bdelete#|tabnew"
+  let v:this_session = ''
+endfunction
+
 function s:CompleteSessionsName(arg, line, pos)
   let l:sessions_file_path = split(glob(s:sessions_directory . '/*'))
   let l:sessions_name = map(l:sessions_file_path, 's:GetSessionName(v:val)')
@@ -51,3 +61,4 @@ command -nargs=1 -complete=customlist,s:CompleteSessionsName
   \ SessionDelete call<SID>DeleteSession(<q-args>)
 command -nargs=1 -complete=customlist,s:CompleteSessionsName
   \ SessionOpen call<SID>OpenSession(<q-args>)
+command SessionClose call<SID>CloseSession()

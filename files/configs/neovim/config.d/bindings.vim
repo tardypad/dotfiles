@@ -104,6 +104,7 @@ nnoremap <silent> <Leader>{key/tab}{key/move}{key/next}     :tabmove +<CR>
 nnoremap {key/session}{key/save}   :SessionSave <C-R>=GetCurrentSessionName()<CR>
 nnoremap {key/session}{key/delete} :SessionDelete <C-R>=GetCurrentSessionName()<CR>
 nnoremap {key/session}{key/open}   :SessionOpen<space>
+nnoremap {key/session}{key/close}  :SessionClose<CR>
 
 
 "" diagnostics
