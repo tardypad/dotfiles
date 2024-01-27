@@ -53,5 +53,6 @@ shell-docs:
 	setup/setup-doc shell/url
 	setup/setup-doc shell/weechat-fifo
 	setup/setup-doc shell/wmenu
+	setup/setup-doc shell/wmenu-run
 	setup/setup-doc shell/xdg-open
 	setup/setup-doc shell/ykman
