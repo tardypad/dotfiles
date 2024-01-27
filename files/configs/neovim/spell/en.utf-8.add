@@ -68,7 +68,6 @@ stderr
 stdout
 rsync
 curl
-bemenu
 imv
 magick
 gammastep

@@ -3,8 +3,6 @@ all: shell-scripts
 shell-scripts:
 	setup/setup-script shell/backup
 	setup/setup-script shell/base
-	setup/setup-script shell/bemenu
-	setup/setup-script shell/bemenu-run
 	setup/setup-script shell/bluetooth
 	setup/setup-script shell/calculate
 	setup/setup-script shell/check-backup
