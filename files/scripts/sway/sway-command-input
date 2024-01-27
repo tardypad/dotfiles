@@ -28,7 +28,7 @@ exit_error() {
 
 run() {
   USER_INPUT=$(
-    echo '' | bemenu -l 0 -p "${PROMPT}"
+    echo '' | wmenu -l 0 -p "${PROMPT}"
   )
 
   # shellcheck disable=SC2181

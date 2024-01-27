@@ -9,7 +9,7 @@ SESSION=$(
       -type f -name '*.sh' -exec basename {} .sh \; \
       | sort
   } \
-  | bemenu -p "Open ${ENV}"
+  | wmenu -p "Open ${ENV}"
 )
 
 [ -n "${SESSION}" ] || exit

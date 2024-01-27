@@ -33,5 +33,5 @@ _$PASSWORD_STORE_DIR_
 
 # DEPENDENCIES
 
-- bemenu
 - pass
+- wmenu

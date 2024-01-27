@@ -6,7 +6,7 @@ CHANNEL_NAME=$(
   echo "${CHANNELS}" \
     | cut -f2 \
     | sort \
-    | bemenu -p 'Play SomaFM channel'
+    | wmenu -p 'Play SomaFM channel'
 )
 
 [ -n "${CHANNEL_NAME}" ] || exit

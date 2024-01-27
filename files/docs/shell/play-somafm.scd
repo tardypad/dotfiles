@@ -30,6 +30,6 @@ None
 
 # DEPENDENCIES
 
-- bemenu
 - mpc
 - somafm
+- wmenu

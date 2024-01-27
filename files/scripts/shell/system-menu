@@ -8,7 +8,7 @@ ACTION=$(
     echo 'Shut down';
     echo 'Reboot';
   } \
-    | bemenu -p 'Execute'
+    | wmenu -p 'Execute'
 )
 
 case "${ACTION}" in

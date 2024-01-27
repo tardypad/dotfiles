@@ -37,5 +37,5 @@ None
 
 # DEPENDENCIES
 
-- bemenu
 - swaymsg
+- wmenu

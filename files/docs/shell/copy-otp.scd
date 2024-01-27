@@ -30,6 +30,6 @@ None
 
 # DEPENDENCIES
 
-- bemenu
 - wl-copy
+- wmenu
 - ykman

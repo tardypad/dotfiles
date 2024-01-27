@@ -3,7 +3,7 @@
 NAME=$(
   ykman oath accounts list 2> /dev/null \
     | sort \
-    | bemenu -p 'Copy OTP'
+    | wmenu -p 'Copy OTP'
 )
 
 [ -n "${NAME}" ] || exit

@@ -30,7 +30,7 @@ None
 
 # DEPENDENCIES
 
-- bemenu
 - swaylock
 - swaymsg
 - systemctl
+- wmenu

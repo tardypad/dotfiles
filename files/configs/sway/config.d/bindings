@@ -65,7 +65,7 @@ bindsym --locked $mod+Ctrl+Shift+{key/close/low} exec makoctl dismiss --all
 ## Commands
 
 mode "-- Commands --" {
-    bindsym {key/space/Space}         mode "default", exec bemenu-run -p 'Run'
+    bindsym {key/space/Space}         mode "default", exec wmenu-run
     bindsym {key/backspace/Backspace} mode "default", exec system-menu
 
     bindsym {key/c} mode "default", exec {app/chat_client}
