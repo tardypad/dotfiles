@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# shellcheck disable=SC2009
+if ps -A -o args | grep -q '^/usr/bin/wmenu'; then
+  exit 1
+fi
+
+exec /usr/bin/wmenu \
+  -i -l 10 \
+  -f 'Source Sans Pro 14' \
+  -N '#{color/popup_background/hex}' \
+  -n '#{color/popup_foreground/hex}' \
+  -M '#{color/base09/hex}' \
+  -m '#{color/base00/hex}' \
+  -S '#{color/current_item/hex}' \
+  -s '#{color/base00/hex}' \
+  "$@"
