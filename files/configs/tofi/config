@@ -1,0 +1,2 @@
+include = {dir/config}/tofi/config.d/general
+include = {dir/config}/tofi/config.d/style

@@ -1,0 +1,21 @@
+font = "Source Sans Pro"
+font-size = 14
+
+prompt-color = #{color/popup_foreground/hex}
+prompt-background = #{color/popup_background/hex}
+placeholder-color = #{color/base03/hex}
+placeholder-background = #{color/popup_background/hex}
+input-color = #{color/popup_foreground/hex}
+input-background = #{color/popup_background/hex}
+default-result-color = #{color/popup_foreground/hex}
+default-result-background = #{color/popup_background/hex}
+selection-color = #{color/base00/hex}
+selection-background = #{color/current_item/hex}
+selection-match-color = #{color/base05/hex}
+
+background-color = #{color/popup_background/hex}
+outline-width = 0
+border-width = 2
+border-color = #{color/base09/hex}
+
+prompt-padding = 8
