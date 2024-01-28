@@ -32,6 +32,7 @@ run() {
       --prompt-text="${PROMPT}" \
       --require-match=false \
       --horizontal=true \
+      --anchor=top-left \
       --height=50 \
       --border-width=0 \
       --background-color='#{color/base09/hex}' \

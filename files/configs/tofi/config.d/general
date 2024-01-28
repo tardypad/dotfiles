@@ -8,6 +8,5 @@ history = false
 
 prompt-text = ""
 
-anchor = top-left
 width = 30%
 height = 30%
