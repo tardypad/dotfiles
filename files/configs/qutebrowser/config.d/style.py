@@ -97,9 +97,9 @@ c.colors.hints.fg                               = colors['base00']
 c.colors.hints.match.fg                         = colors['base05']
 c.hints.border                                  = "1px solid " + colors['base08']
 
-c.colors.keyhint.bg                             = colors['base09']
-c.colors.keyhint.fg                             = colors['base05']
-c.colors.keyhint.suffix.fg                      = colors['base00']
+c.colors.keyhint.bg                             = colors['popup_background']
+c.colors.keyhint.fg                             = colors['popup_foreground']
+c.colors.keyhint.suffix.fg                      = colors['base09']
 
 c.colors.messages.error.bg                      = colors['error']
 c.colors.messages.error.border                  = colors['error']
