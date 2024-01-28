@@ -6,7 +6,7 @@ CHANNEL_NAME=$(
   echo "${CHANNELS}" \
     | cut -f2 \
     | sort \
-    | wmenu -p 'Play SomaFM channel'
+    | tofi --prompt-text='Play SomaFM channel'
 )
 
 [ -n "${CHANNEL_NAME}" ] || exit

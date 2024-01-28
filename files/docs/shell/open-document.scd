@@ -50,5 +50,5 @@ _$XDG_CACHE_HOME/documents_
 
 # DEPENDENCIES
 
-- wmenu
+- tofi
 - xdg-open

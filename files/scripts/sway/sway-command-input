@@ -28,7 +28,17 @@ exit_error() {
 
 run() {
   USER_INPUT=$(
-    echo '' | wmenu -l 0 -p "${PROMPT}"
+    echo '' | tofi \
+      --prompt-text="${PROMPT}" \
+      --require-match=false \
+      --horizontal=true \
+      --height=50 \
+      --border-width=0 \
+      --background-color='#{color/base09/hex}' \
+      --prompt-color='#{color/base00/hex}' \
+      --prompt-background='#{color/base09/hex}' \
+      --input-color='#{color/base00/hex}' \
+      --input-background='#{color/base09/hex}'
   )
 
   # shellcheck disable=SC2181

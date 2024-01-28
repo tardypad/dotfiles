@@ -55,7 +55,7 @@ DOC_PATH=$(
     cat "${CACHE_DOCS_PATH}";
     find_docs "${XDG_DOWNLOAD_DIR:-$HOME/Downloads}";
   } | sort -u \
-    | wmenu -p 'Open document'
+    | tofi --prompt-text='Open document'
 )
 
 [ -n "${DOC_PATH}" ] || exit

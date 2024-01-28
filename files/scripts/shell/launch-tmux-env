@@ -9,7 +9,7 @@ SESSION=$(
       -type f -name '*.sh' -exec basename {} .sh \; \
       | sort
   } \
-  | wmenu -p "Open ${ENV}"
+  | tofi --prompt-text="Open ${ENV}"
 )
 
 [ -n "${SESSION}" ] || exit

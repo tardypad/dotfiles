@@ -33,4 +33,4 @@ None
 - swaylock
 - swaymsg
 - systemctl
-- wmenu
+- tofi

@@ -32,4 +32,4 @@ None
 
 - mpc
 - somafm
-- wmenu
+- tofi

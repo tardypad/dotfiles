@@ -8,7 +8,7 @@ ACTION=$(
     echo 'Shut down';
     echo 'Reboot';
   } \
-    | wmenu -p 'Execute'
+    | tofi --prompt-text='Execute'
 )
 
 case "${ACTION}" in

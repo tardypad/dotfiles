@@ -30,6 +30,6 @@ None
 
 # DEPENDENCIES
 
+- tofi
 - wl-copy
-- wmenu
 - ykman
