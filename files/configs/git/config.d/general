@@ -77,8 +77,6 @@
     pager = delta
 [tag]
     sort = version:refname
-[blame]
-    ignoreRevsFile = .ignore_revs
 [diff]
     tool = nvimdiff
 [difftool]
