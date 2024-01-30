@@ -19,3 +19,4 @@ border-width = 2
 border-color = #{color/base09/hex}
 
 prompt-padding = 8
+selection-background-padding = 0,8,0,8
