@@ -4,10 +4,6 @@ def rewrite(request: interceptor.Request):
     rewritten = False
     host = request.request_url.host()
 
-    if host in ['twitter.com', 'www.twitter.com', 'mobile.twitter.com']:
-        rewritten = True
-        request.request_url.setHost('nitter.net')
-
     if host in ['youtube.com', 'www.youtube.com']:
         rewritten = True
         request.request_url.setHost('yewtu.be')
