@@ -41,7 +41,12 @@ init_variables() {
   PASSPHRASE_1=
   PASSPHRASE_2=
 
-  RSYNC='rsync -azh --mkpath --info=progress2'
+  RSYNC='rsync -azh --mkpath'
+  if [ -t 1 ]; then
+    RSYNC="${RSYNC} --info=progress2"
+  else
+    RSYNC="${RSYNC} --itemize-changes"
+  fi
 
   ACTION='backup'
   CHECK=false
