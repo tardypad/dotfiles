@@ -41,6 +41,8 @@ prompt_preexec() {
 }
 
 prompt_precmd() {
+  # mark start of prompt (doesn't seem to work if put after the newline spacer...)
+  printf '\x1b]133;A\x7'
   # cursor steady I-beam by default
   printf '\x1b[6 q'
   # spacer between last command result and new prompt

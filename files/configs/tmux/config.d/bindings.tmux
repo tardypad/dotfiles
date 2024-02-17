@@ -232,6 +232,8 @@ bind -T copy-mode-vi -N 'scroll up'                            C-{key/scroll_up/
 bind -T copy-mode-vi -N 'scroll down'                          C-{key/scroll_down/low}           send-keys -X halfpage-down
 bind -T copy-mode-vi -N 'scroll one line up'                   C-{key/scroll_line_up/low}        send-keys -X scroll-up
 bind -T copy-mode-vi -N 'scroll one line down'                 C-{key/scroll_line_down/low}      send-keys -X scroll-down
+bind -T copy-mode-vi -N 'scroll to previous prompt'            C-{key/previous}                  send-keys -X previous-prompt
+bind -T copy-mode-vi -N 'scroll to next prompt'                C-{key/next}                      send-keys -X next-prompt
 bind -T copy-mode-vi -N 'cursor left'                            {key/left}                      send-keys -X cursor-left
 bind -T copy-mode-vi -N 'cursor down'                            {key/down}                      send-keys -X cursor-down
 bind -T copy-mode-vi -N 'cursor up'                              {key/up}                        send-keys -X cursor-up
