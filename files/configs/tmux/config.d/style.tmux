@@ -10,8 +10,6 @@ set-option -g menu-border-style "fg=#{color/base0A/hex}"
 
 set-option -g status-justify left
 
-set-option -g status on
-
 set-option -g status-style "bg=default,fg=#{color/foreground/hex}"
 set-option -g status-left-style "bg=#{color/base09/hex},fg=#{color/base00/hex}"
 set-option -g status-right-style "fg=#{color/base09/hex}"

@@ -74,6 +74,10 @@ set-option -g escape-time 100
 # decrease the binding keys repeat time
 set-option -g repeat-time 300
 
+# enable status line
+# not in style file for not overwriting it during dashboard theme reload
+set-option -g status on
+
 # enable mouse
 set-option -g mouse on
 

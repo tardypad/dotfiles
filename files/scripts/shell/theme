@@ -83,7 +83,7 @@ reload_system() {
   pkill -x -USR1 nvim
 
   for s in "/tmp/tmux-$( id -u )"/*; do
-    tmux -S "$s" source-file {dir/config}/tmux/tmux.conf
+    tmux -S "$s" source-file {dir/config}/tmux/config.d/style.tmux
 
     # update colors of terminal underlying tmux
     "send_osc_sequence_${THEME}" > "$( tmux -S "$s" display-message -p '#{client_tty}' )"
