@@ -6,7 +6,7 @@ Requires=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/poweralertd -s -i mouse -i 'line power'
+ExecStart=/usr/bin/poweralertd -s -i mouse
 Restart=on-failure
 
 [Install]

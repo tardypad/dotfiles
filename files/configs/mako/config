@@ -55,6 +55,12 @@ border-color=#{color/alert/hex}
 format=<span foreground='#{color/alert/hex}' weight='bold'> %s</span>\n%b
 on-notify=exec pw-play {dir/data}/sounds/low_battery.ogg
 
+[category="power.online"]
+default-timeout=3000
+
+[category="power.offline"]
+default-timeout=3000
+
 [category="power.update"]
 invisible=1
 
