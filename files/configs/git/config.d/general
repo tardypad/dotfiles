@@ -77,6 +77,8 @@
     pager = delta
 [tag]
     sort = version:refname
+[rerere]
+    enabled = true
 [diff]
     tool = nvimdiff
 [difftool]
