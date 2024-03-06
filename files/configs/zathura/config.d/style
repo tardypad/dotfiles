@@ -3,8 +3,6 @@ set guioptions 'cs'
 
 set font 'Source Code Pro 12'
 
-set highlight-transparency 0.4
-
 # paddings
 set statusbar-h-padding 2
 set statusbar-v-padding 0
@@ -29,9 +27,9 @@ set notification-warning-bg '#{color/warning/hex}'
 set notification-warning-fg '#{color/base00/hex}'
 set notification-error-bg '#{color/error/hex}'
 set notification-error-fg '#{color/base00/hex}'
-set highlight-color '#{color/search_match/hex}'
-set highlight-active-color '#{color/search_match_current/hex}'
-set highlight-fg '#{color/base0B/hex}'
+set highlight-color rgba({color/search_match/rgbc},0.4)
+set highlight-active-color rgba({color/search_match_current/rgbc},0.4)
+set highlight-fg rgba({color/base0B/rgbc},0.4)
 set render-loading-bg '#ffffff'
 set render-loading-fg '#{color/base00/hex}'
 set index-bg '#{color/background/hex}'
