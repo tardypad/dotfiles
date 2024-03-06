@@ -96,7 +96,13 @@
     ph = push
     phf = push -f
     pht = push --tags
-    pl = pull
+    pl = "! \
+        f() { \
+          old=$( git rev-parse HEAD ); \
+          git pull; \
+          new=$( git rev-parse HEAD ); \
+          git log --oneline ${old}..${new}; \
+        }; f"
     push-current-branch = "! \
         f() { \
           remote=\"$1\"; \
