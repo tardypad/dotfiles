@@ -53,5 +53,6 @@ FORMAT is one of:
 - "bg" (ANSI background code)
 - "number" (ANSI 16 colors number)
 - "rgb" (red green blue)
+- "rgbc" (red,green,blue)
 
 "{color/theme}" is also used to output the current theme name.
