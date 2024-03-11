@@ -5,4 +5,4 @@ TEXT="$( wl-paste 2> /dev/null )"
 [ -z "${TEXT}" ] && exit 1
 
 qrencode -t png -s 10 "${TEXT}" -o - \
-  | imv -
+  | imv -W 400 -H 400 -
