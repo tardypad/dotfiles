@@ -50,7 +50,8 @@ mkdir -p build
     INDEX=$( printf '%.2X' "$i" )
     RGB=$( sed -n "s/| base${INDEX} | #[[:alnum:]]* | *[[:digit:]]* | [[:alpha:]]* *| [^|]* | \([^|]*\) | .*/\1/p" "${BASE_COLORS_FILE}" )
     if [ -n "${RGB}" ]; then
-      RGBC=$( echo "${RGB}" | sed -e 's/^ *//' -e 's/ *$//' -e 's/ \{1,\}/,/g' )
+      RGB=$( echo "${RGB}" | sed -e 's/^ *//' -e 's/ *$//' -e 's/ \{1,\}/ /g' )
+      RGBC=$( echo "${RGB}" | sed -e 's/ /,/g' )
       echo "s|{color/base${INDEX}/rgb}|${RGB}|g"
       echo "s|{color/base${INDEX}/rgbc}|${RGBC}|g"
     fi
