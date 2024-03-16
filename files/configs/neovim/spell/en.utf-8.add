@@ -80,7 +80,6 @@ entr
 pulsemixer
 pv
 tmux-xpanes
-ydotool
 wl-clipboard
 util-linux
 wf-recorder

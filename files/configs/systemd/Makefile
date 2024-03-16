@@ -38,7 +38,6 @@ systemd-configs:
 
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/systemd/user/default.target.wants
 	ln -sf /usr/lib/systemd/user/mpd.service      $(DESTDIR)$(CONFIG_DIR)/systemd/user/default.target.wants/mpd.service
-	ln -sf /usr/lib/systemd/user/ydotool.service  $(DESTDIR)$(CONFIG_DIR)/systemd/user/default.target.wants/ydotool.service
 	ln -sf ../poweralertd.service                 $(DESTDIR)$(CONFIG_DIR)/systemd/user/default.target.wants/poweralertd.service
 
 	# reload daemon
