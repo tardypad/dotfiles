@@ -34,6 +34,7 @@ feeds() {
   feed 'Dan Luu'                              'https://danluu.com/atom.xml'
   feed 'Julia Evans'                          'https://jvns.ca/atom.xml'
   feed 'Josh W. Comeau'                       'https://www.joshwcomeau.com/rss.xml'
+  feed 'The Valuable Dev'                     'https://thevaluable.dev/index.xml'
   feed 'Reddit command line'                  'https://www.reddit.com/r/commandline/.rss'
   feed 'Reddit programming'                   'https://www.reddit.com/r/programming/.rss'
 }
