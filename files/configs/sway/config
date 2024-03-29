@@ -31,8 +31,9 @@ include /etc/sway/config.d/50-systemd-user.conf
 # start notification daemon
 exec mako
 
-# start reminder daemon
-exec pidof -q remind || remind -z -k'notify -c reminder Reminder %s' {dir/config}/remind/notifications/
+# start reminder daemons
+exec pgrep -f '^remind .*general.rem$' > /dev/null || exec remind -z -k'notify -c reminder Reminder %s' {dir/config}/remind/notifications/general.rem
+exec pgrep -f '^remind .*meetings.rem$' > /dev/null || exec remind -z -k'notify -c reminder Reminder %s' {dir/config}/remind/notifications/meetings.rem
 
 # idle management
 exec swayidle -w
