@@ -1,6 +1,6 @@
 #compdef notify
 
 _arguments \
-  '-c[notification category]:()' \
-  '-i[notification identifier, replace similar notification if any]:()' \
-  '-t[timeout in seconds]:()'
+  '-c[notification category]:' \
+  '-i[notification identifier, replace similar notification if any]:' \
+  '-t[timeout in seconds]:'

@@ -1,4 +1,4 @@
 #compdef screenshot
 
 _arguments \
-  '-d[wait DELAY seconds between the region selection and the screenshot]:()'
+  '-d[wait DELAY seconds between the region selection and the screenshot]:'

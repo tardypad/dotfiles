@@ -2,5 +2,5 @@
 #description apply a sed script over text files
 
 _arguments \
-  '1:script:()' \
+  '1:script:' \
   '*:paths:_path_files' \

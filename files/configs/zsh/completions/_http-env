@@ -29,5 +29,5 @@ _keywords() {
 _arguments \
   '1:env:_envs' \
   '2:method:_methods' \
-  '3:path:()' \
+  '3:path:' \
   '*:items:_keywords'
