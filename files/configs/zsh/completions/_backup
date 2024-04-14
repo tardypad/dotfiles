@@ -80,6 +80,7 @@ _items_restore() {
         notes
         packages
         repositories
+        social
         todo
       )
     elif [ $target = 'laptop' ]; then
@@ -131,6 +132,7 @@ _items_backup() {
         notes
         packages
         repositories
+        social
         todo
       )
     fi

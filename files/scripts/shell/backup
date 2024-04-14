@@ -37,6 +37,7 @@ init_variables() {
   SERVER_TODO_DIR="${SERVER_BASE_DIR}/todo"
   SERVER_PACKAGES_DIR="/srv/http/pkgs"
   SERVER_REPOSITORIES_DIR="repos"
+  SERVER_SOCIAL_DIR="gotosocial"
 
   PASSPHRASE_1=
   PASSPHRASE_2=
@@ -69,6 +70,7 @@ init_hdd_variables() {
   HDD_VIDEOS_DIR="${HDD_BASE_DIR}/Videos"
   HDD_PACKAGES_DIR="${HDD_BASE_DIR}/Packages"
   HDD_REPOSITORIES_DIR="${HDD_BASE_DIR}/Repositories"
+  HDD_SOCIAL_DIR="${HDD_BASE_DIR}/Social"
   HDD_TODO_DIR="${HDD_BASE_DIR}/Todo"
 }
 
@@ -117,6 +119,7 @@ validate_command_line() {
      && [ "${ITEM}" != 'pictures' ] \
      && [ "${ITEM}" != 'projects' ] \
      && [ "${ITEM}" != 'repositories' ] \
+     && [ "${ITEM}" != 'social' ] \
      && [ "${ITEM}" != 'time_tracker_logs' ] \
      && [ "${ITEM}" != 'todo' ] \
      && [ "${ITEM}" != 'videos' ]; then
@@ -194,6 +197,7 @@ validate_command_line_backup_item() {
          && [ "${ITEM}" != 'notes' ] \
          && [ "${ITEM}" != 'packages' ] \
          && [ "${ITEM}" != 'repositories' ] \
+         && [ "${ITEM}" != 'social' ] \
          && [ "${ITEM}" != 'todo' ]; then
         exit_error "Cannot backup ${ITEM} from ${SOURCE} to ${TARGET}"
       fi
@@ -224,6 +228,7 @@ validate_command_line_restore_item() {
        && [ "${ITEM}" != 'notes' ] \
        && [ "${ITEM}" != 'packages' ] \
        && [ "${ITEM}" != 'repositories' ] \
+       && [ "${ITEM}" != 'social' ] \
        && [ "${ITEM}" != 'todo' ]; then
       exit_error "Cannot restore ${ITEM} from ${SOURCE} to ${TARGET}"
     fi
@@ -368,16 +373,22 @@ backup_server_hdd_packages() {
     "${HDD_PACKAGES_DIR}"
 }
 
-backup_server_hdd_todo() {
-  ${RSYNC} --delete --exclude="*~" \
-    "${SERVER_HOST}:${SERVER_TODO_DIR}/" \
-    "${HDD_TODO_DIR}"
-}
-
 backup_server_hdd_repositories() {
   ${RSYNC} --delete \
     "${SERVER_HOST}:${SERVER_REPOSITORIES_DIR}/" \
     "${HDD_REPOSITORIES_DIR}"
+}
+
+backup_server_hdd_social() {
+  ${RSYNC} --delete \
+    "${SERVER_HOST}:${SERVER_SOCIAL_DIR}/" \
+    "${HDD_SOCIAL_DIR}"
+}
+
+backup_server_hdd_todo() {
+  ${RSYNC} --delete --exclude="*~" \
+    "${SERVER_HOST}:${SERVER_TODO_DIR}/" \
+    "${HDD_TODO_DIR}"
 }
 
 backup_hdd_server_dir() {
@@ -419,6 +430,12 @@ restore_hdd_server_repositories() {
   ${RSYNC} \
     "${HDD_REPOSITORIES_DIR}/" \
     "${SERVER_HOST}:${SERVER_REPOSITORIES_DIR}"
+}
+
+restore_hdd_server_social() {
+  ${RSYNC} \
+    "${HDD_SOCIAL_DIR}/" \
+    "${SERVER_HOST}:${SERVER_SOCIAL_DIR}"
 }
 
 restore_hdd_server_todo() {
@@ -499,7 +516,7 @@ backup_phone_hdd() {
 }
 
 backup_server_hdd() {
-  for i in bookmarks contacts notes packages repositories todo; do
+  for i in bookmarks contacts notes packages repositories social todo; do
     printf 'server -> hdd: %s\n' "$i"
     "backup_server_hdd_$i"
   done
@@ -525,7 +542,7 @@ backup_hdd_server() {
 }
 
 restore_hdd_server() {
-  for i in bookmarks contacts notes packages repositories todo; do
+  for i in bookmarks contacts notes packages repositories social todo; do
     printf 'hdd -> server: %s\n' "$i"
     "restore_hdd_server_$i"
   done

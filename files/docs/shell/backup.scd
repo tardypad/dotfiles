@@ -53,6 +53,7 @@ valid items:
 	- pictures
 	- projects
 	- repositories
+	- social
 	- time_tracker_logs
 	- todo
 	- videos
@@ -165,6 +166,12 @@ Valid items per source and target
 : 
 : 
 |  repositories
+: 
+: 
+: 
+: 
+:- \*
+|  social
 : 
 : 
 : 
