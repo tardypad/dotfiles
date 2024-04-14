@@ -220,6 +220,7 @@ validate_command_line_restore_source_target() {
 validate_command_line_restore_item() {
   if [ "${TARGET}" = 'server' ]; then
     if [ "${ITEM}" != 'bookmarks' ] \
+       && [ "${ITEM}" != 'contacts' ] \
        && [ "${ITEM}" != 'notes' ] \
        && [ "${ITEM}" != 'packages' ] \
        && [ "${ITEM}" != 'repositories' ] \
