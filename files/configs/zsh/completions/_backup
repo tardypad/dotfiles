@@ -44,16 +44,10 @@ _targets() {
       targets=(
         server
       )
-    elif [[ $source = 'phone' ]]; then
-      targets=(
-        hdd1
-        hdd2
-      )
     else
       targets=(
         hdd1
         hdd2
-        server
       )
     fi
   fi
