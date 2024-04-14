@@ -196,7 +196,7 @@ Valid items per source and target
 :- \*
 : 
 
-For hdd -> server, no item is allowed, the list is fixed.
+For hdd -> server backup, no item is allowed, the list is fixed.
 
 # ENVIRONMENT VARIABLES
 
