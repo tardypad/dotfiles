@@ -29,6 +29,7 @@ feeds() {
   feed 'Rachel by the bay'                    'https://rachelbythebay.com/w/atom.xml'
   feed 'Martin Tournoij'                      'https://www.arp242.net/feed.xml'
   feed 'Mr. Money Mustache'                   'https://feeds.feedburner.com/MrMoneyMustache'
+  feed 'Joan Westenberg'                      'https://joanwestenberg.com/blog?format=rss'
   feed 'RoyalSloth'                           'https://blog.royalsloth.eu/posts/index.xml'
   feed 'Jan Schaumann'                        'https://www.netmeister.org/blog/rss.xml'
   feed 'Dan Luu'                              'https://danluu.com/atom.xml'
