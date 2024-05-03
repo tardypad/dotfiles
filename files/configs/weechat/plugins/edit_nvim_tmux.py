@@ -57,7 +57,7 @@ def run_within_tmux():
                     weechat.config_get_plugin("nvim_options"),
                     MESSAGE_FILE_PATH,
                    "tmux wait-for -S edit_nvim_tmux" ) +
-                "\; wait-for edit_nvim_tmux" )
+                "\\; wait-for edit_nvim_tmux" )
 
     if not weechat.hook_process(command, 0, "process_nvim_result", ""):
         return weechat.WEECHAT_RC_ERROR
