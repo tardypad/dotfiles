@@ -133,6 +133,7 @@
     sapo = stash pop
     sapu = stash push
     sas = stash show
+    sasp = stash show -p
     semtag = semantic-tag
     sh = "! f() { git show $( git argument $1 ); }; f"
     sh0 = "! f() { git show -U0 $( git argument $1 ); }; f"
