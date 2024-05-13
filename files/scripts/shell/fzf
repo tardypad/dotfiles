@@ -14,7 +14,9 @@ exec /usr/bin/fzf \
   --color="info:{color/base0A/number}" \
   --color="prompt:{color/base0A/number}" \
   --color="pointer:{color/base00/number}" \
-  --color="marker:{color/selected_item/number}" \
+  --color="selected-bg:{color/selected_item/number}" \
+  --color="selected-fg:{color/base00/number}" \
+  --color="marker:{color/base00/number}" \
   --color="spinner:{color/base0A/number}" \
   --color="border:{color/base0A/number}" \
   --color="header:{color/base0A/number}" \
