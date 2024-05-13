@@ -28,14 +28,14 @@ exit_error() {
 
 pres_enable() {
   swaymsg -q bar mode invisible
-  makoctl set-mode presentation
+  makoctl mode -a presentation
 
   touch "${FILE_PATH}"
 }
 
 pres_disable() {
   swaymsg -q bar mode dock
-  makoctl set-mode default
+  makoctl mode -r presentation
 
   rm -f "${FILE_PATH}"
 }
