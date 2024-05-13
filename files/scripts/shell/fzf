@@ -8,9 +8,9 @@ exec /usr/bin/fzf \
   --color="bg:{color/background/number}" \
   --color="fg:{color/foreground/number}" \
   --color="hl:{color/base0A/number}:bold" \
-  --color="fg+:{color/base00/number}" \
-  --color="bg+:{color/current_item/number}" \
-  --color="hl+:{color/base00/number}:bold" \
+  --color="current-fg:{color/base00/number}" \
+  --color="current-bg:{color/current_item/number}" \
+  --color="current-hl:{color/base00/number}:bold" \
   --color="info:{color/base0A/number}" \
   --color="prompt:{color/base0A/number}" \
   --color="pointer:{color/base00/number}" \
