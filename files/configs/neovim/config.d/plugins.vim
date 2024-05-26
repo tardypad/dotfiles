@@ -1,15 +1,3 @@
-"" oscyank
-
-autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankRegister "' | endif
-
-" silent copy
-let g:oscyank_silent = v:true
-
-" do not use special tmux handling with custom escape sequence because tmux filters it out by default (see allow-passthrough option)
-" tmux already detects that our terminal supports OSC52 via Ms terminfo capability and let it through
-let g:oscyank_term = 'default'
-
-
 "" fzf
 
 " internal bindings

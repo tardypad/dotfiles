@@ -54,6 +54,9 @@ set sessionoptions+=globals
 set foldmethod=syntax " use syntax by default
 set foldlevelstart=99 " do not fold when opening file
 
+" always use clipboard for all operations
+set clipboard+=unnamedplus
+
 set foldtext=MyFoldText()
 function MyFoldText()
   let line = getline(v:foldstart)
