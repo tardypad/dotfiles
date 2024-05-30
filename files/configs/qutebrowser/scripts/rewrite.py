@@ -7,14 +7,13 @@ def rewrite(request: interceptor.Request):
     if host in ['youtube.com', 'www.youtube.com']:
         rewritten = True
         request.request_url.setHost('yewtu.be')
-        request.request_url.setQuery(request.request_url.query() + '&local=true')
 
     if host in ['youtu.be']:
         rewritten = True
         video_id = request.request_url.path()
         request.request_url.setHost('yewtu.be')
         request.request_url.setPath('/watch')
-        request.request_url.setQuery('v=' + video_id.lstrip('/') + '&local=true')
+        request.request_url.setQuery('v=' + video_id.lstrip('/'))
 
     if rewritten:
         try:
