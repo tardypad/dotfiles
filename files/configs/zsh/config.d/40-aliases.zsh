@@ -33,8 +33,10 @@ alias bts='bluetooth send'
 alias .a='cat .aliases 2> /dev/null && . ./.aliases'
 
 alias td='${EDITOR} "${XDG_NOTES_DIR:-$HOME/Notes}/todo.md"'
-alias tdy='schedule today'
+alias wt='${EDITOR} "${XDG_NOTES_DIR:-$HOME/Notes}/waiting.md"'
+alias lt='${EDITOR} "${XDG_NOTES_DIR:-$HOME/Notes}/later.md"'
 
+alias tdy='schedule today'
 alias sdd='schedule -d --'
 alias sdw='schedule -w --'
 alias sdm='schedule -m --'
