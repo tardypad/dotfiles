@@ -31,6 +31,7 @@ feeds() {
   feed 'Mr. Money Mustache'                   'https://feeds.feedburner.com/MrMoneyMustache'
   feed 'Joan Westenberg'                      'https://joanwestenberg.com/blog?format=rss'
   feed 'Lionel Dricot'                        'https://ploum.net/atom.xml'
+  feed 'Baldur Bjarnason'                     'https://feedpress.me/baldurbjarnason'
   feed 'RoyalSloth'                           'https://blog.royalsloth.eu/posts/index.xml'
   feed 'Jan Schaumann'                        'https://www.netmeister.org/blog/rss.xml'
   feed 'Dan Luu'                              'https://danluu.com/atom.xml'
