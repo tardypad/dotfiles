@@ -18,10 +18,10 @@ init_variables() {
   LOCAL_VIDEOS_DIR="${XDG_VIDEOS_DIR:-$HOME/Videos}"
 
   PHONE_HOST='hazelnut'
-  PHONE_PICTURES_DIR='/home/nemo/Pictures/Camera'
-  PHONE_VIDEOS_DIR='/home/nemo/Videos/Camera'
-  PHONE_SIGNAL_DIR='/home/nemo/android_storage/Signal'
-  PHONE_WHATSAPP_DIR='/home/nemo/android_storage/Android/media/com.whatsapp/WhatsApp'
+  PHONE_PICTURES_DIR='/home/defaultuser/Pictures/Camera'
+  PHONE_VIDEOS_DIR='/home/defaultuser/Videos/Camera'
+  PHONE_SIGNAL_DIR='/home/defaultuser/android_storage/Signal'
+  PHONE_WHATSAPP_DIR='/home/defaultuser/android_storage/Android/media/com.whatsapp/WhatsApp'
 
   HDD1_UUID='e89b95fd-8520-43c1-bebf-610c92176955'
   HDD2_UUID='204b2ecc-e3c3-497c-aa4a-c0421a2ddb4f'
