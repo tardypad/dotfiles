@@ -28,8 +28,14 @@ Host pistachio
     IdentityFile ~/.ssh/id_yubikey.pub
     IdentityFile ~/.ssh/id_pistachio
 
-Host hazelnut
+Host hazelnut-usb
     Hostname 192.168.2.15
+    User defaultuser
+    IdentityFile ~/.ssh/id_yubikey.pub
+    IdentityFile ~/.ssh/id_hazelnut
+
+Host hazelnut-wifi
+    Hostname 192.168.1.232
     User defaultuser
     IdentityFile ~/.ssh/id_yubikey.pub
     IdentityFile ~/.ssh/id_hazelnut
