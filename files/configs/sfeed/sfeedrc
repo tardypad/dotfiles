@@ -13,7 +13,6 @@ feeds() {
   feed 'Hacker News'                          'https://news.ycombinator.com/rss'
   feed 'Jolla blog'                           'https://blog.jolla.com/feed/'
   feed 'Sourcehut blog'                       'https://sourcehut.org/blog/index.xml'
-  feed 'TED Talks'                            'https://feeds.feedburner.com/tedtalks_video'
   feed 'Cory Doctorow'                        'https://pluralistic.net/feed/'
   feed 'Golang'                               'https://go.dev/blog/feed.atom'
   feed 'Drew DeVault'                         'https://drewdevault.com/blog/index.xml'
