@@ -17,7 +17,7 @@ init_variables() {
   LOCAL_TODO_DIR="${XDG_TODO_DIR:-$HOME/Todo}"
   LOCAL_VIDEOS_DIR="${XDG_VIDEOS_DIR:-$HOME/Videos}"
 
-  PHONE_HOST='hazelnut'
+  PHONE_HOST='hazelnut-usb'
   PHONE_PICTURES_DIR='/home/defaultuser/Pictures/Camera'
   PHONE_VIDEOS_DIR='/home/defaultuser/Videos/Camera'
   PHONE_SIGNAL_DIR='/home/defaultuser/android_storage/Signal'
