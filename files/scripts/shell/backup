@@ -20,7 +20,7 @@ init_variables() {
   PHONE_HOST='hazelnut-usb'
   PHONE_PICTURES_DIR='/home/defaultuser/Pictures/Camera'
   PHONE_VIDEOS_DIR='/home/defaultuser/Videos/Camera'
-  PHONE_SIGNAL_DIR='/home/defaultuser/android_storage/Signal'
+  PHONE_SIGNAL_DIR='/home/defaultuser/android_storage/Android/Signal'
   PHONE_WHATSAPP_DIR='/home/defaultuser/android_storage/Android/media/com.whatsapp/WhatsApp'
 
   HDD1_UUID='e89b95fd-8520-43c1-bebf-610c92176955'
