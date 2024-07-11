@@ -29,6 +29,7 @@ feeds() {
   feed 'Martin Tournoij'                      'https://www.arp242.net/feed.xml'
   feed 'Mr. Money Mustache'                   'https://feeds.feedburner.com/MrMoneyMustache'
   feed 'Joan Westenberg'                      'https://paragraph.xyz/api/blogs/rss/@Westenberg'
+  feed 'Ed Zitron'                            'https://www.wheresyoured.at/rss/'
   feed 'Lionel Dricot'                        'https://ploum.net/atom.xml'
   feed 'Baldur Bjarnason'                     'https://feedpress.me/baldurbjarnason'
   feed 'RoyalSloth'                           'https://blog.royalsloth.eu/posts/index.xml'
