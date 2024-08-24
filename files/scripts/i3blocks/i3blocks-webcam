@@ -1,20 +1,6 @@
 #!/bin/sh
 
-WEBCAM_PIDS_REGEX="$(
-  fuser /dev/video0 2> /dev/null \
-    | tr -s ' ' \
-    | sed -e 's/ / | /g' -e 's/^ |//' -e 's/$/ /'
-)"
-
-# we exclude pipewire and wireplumber which "use" the webcam at start
-WEBCAM_PROCESSES_COUNT="$(
-ps -A -o pid,args \
-  | grep -E "^ *(${WEBCAM_PIDS_REGEX})" \
-  | grep -vE '/usr/bin/pipewire|/usr/bin/wireplumber' \
-  | wc -l
-)"
-
-if [ "${WEBCAM_PROCESSES_COUNT}" -eq 0 ]; then
+if ! fuser /dev/video0 > /dev/null 2>&1; then
   exit 0
 fi
 
