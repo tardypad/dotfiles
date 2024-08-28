@@ -4,7 +4,7 @@
 
 | Name                            | Purpose                                      | Source                                                                                            | Version                                                                                                                |
 |---------------------------------|----------------------------------------------|---------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
-| git-delta                       | Diff pager                                   | [GitHub](https://github.com/dandavison/delta)                                                     | [0.18.0](https://github.com/dandavison/delta/releases/tag/0.18.0)                                                      |
+| git-delta                       | Diff pager                                   | [GitHub](https://github.com/dandavison/delta)                                                     | [0.18.1](https://github.com/dandavison/delta/releases/tag/0.18.1)                                                      |
 
 ## neovim
 
