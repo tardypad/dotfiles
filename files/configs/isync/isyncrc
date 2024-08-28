@@ -6,7 +6,7 @@ SubFolders Verbatim
 IMAPAccount migadu
 Host imap.migadu.com
 User damien@tardypad.me
-SSLType IMAPS
+TLSType IMAPS
 PassCmd "pass show perso/mail/migadu_laptop | sed 1q"
 
 ImapStore perso-remote
@@ -16,7 +16,7 @@ Channel perso
 Far :perso-remote:
 Near :perso-local:
 SyncState *
-Patterns *
+Patterns * INBOX/*
 Create Both
 Remove Near
 Expunge Both

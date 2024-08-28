@@ -1,4 +1,4 @@
 all: isync-configs
 
 isync-configs:
-	setup/setup-config isync/mbsyncrc $(HOME)/.mbsyncrc
+	setup/setup-config isync/isyncrc $(CONFIG_DIR)/isyncrc
