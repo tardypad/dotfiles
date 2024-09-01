@@ -17,6 +17,13 @@
           esac \
         }; h"
     bc = switch -c
+    bi = bisect
+    bib = bisect bad
+    big = bisect good
+    bin = bisect new
+    bio = bisect old
+    bir = bisect reset
+    bis = bisect start
     bl = blame --color-by-age --color-lines
     br = branch
     brd = branch -D
