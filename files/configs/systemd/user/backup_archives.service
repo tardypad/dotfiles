@@ -1,0 +1,6 @@
+[Unit]
+Description=Backup archives
+
+[Service]
+Environment=SSH_AUTH_SOCK=%t/gnupg/S.gpg-agent.ssh
+ExecStart={dir/bin}/backup laptop server archives

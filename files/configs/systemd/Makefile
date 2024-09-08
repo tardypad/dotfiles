@@ -1,6 +1,8 @@
 all: systemd-configs
 
 systemd-configs:
+	setup/setup-config systemd/user/backup_archives.path               $(CONFIG_DIR)/systemd/user/backup_archives.path
+	setup/setup-config systemd/user/backup_archives.service            $(CONFIG_DIR)/systemd/user/backup_archives.service
 	setup/setup-config systemd/user/backup_bookmarks.path              $(CONFIG_DIR)/systemd/user/backup_bookmarks.path
 	setup/setup-config systemd/user/backup_bookmarks.service           $(CONFIG_DIR)/systemd/user/backup_bookmarks.service
 	setup/setup-config systemd/user/backup_notes.path                  $(CONFIG_DIR)/systemd/user/backup_notes.path
@@ -24,6 +26,7 @@ systemd-configs:
 	# enable paths, timers and services
 
 	mkdir -p $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants
+	ln -sf ../backup_archives.path                $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants/backup_archives.path
 	ln -sf ../backup_bookmarks.path               $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants/backup_bookmarks.path
 	ln -sf ../backup_notes.path                   $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants/backup_notes.path
 	ln -sf ../backup_time_tracker_logs.path       $(DESTDIR)$(CONFIG_DIR)/systemd/user/paths.target.wants/backup_time_tracker_logs.path

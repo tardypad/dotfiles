@@ -1,0 +1,8 @@
+[Unit]
+Description=Backup archives
+
+[Path]
+PathChanged=%h/Archives
+
+[Install]
+WantedBy=paths.target
