@@ -44,6 +44,12 @@ _targets() {
       targets=(
         server
       )
+    elif [[ $source = 'laptop' ]]; then
+      targets=(
+        hdd1
+        hdd2
+        server
+      )
     else
       targets=(
         hdd1
