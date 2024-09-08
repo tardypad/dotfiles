@@ -21,6 +21,9 @@ c.url.searchengines = {
     "gus": "https://genius.com/search?q={}"
 }
 
+# archive current URL page
+c.aliases['archive'] = 'download --mhtml --dest ~/Archives'
+
 # hide tabs tooltips
 c.tabs.tooltips = False
 
