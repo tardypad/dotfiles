@@ -152,7 +152,7 @@ validate_command_line_backup_source_target() {
     exit_error "Cannot backup to itself"
   fi
 
-  if ([ "${SOURCE}" = 'hdd1' ] || [ "${SOURCE}" = 'hdd2' ]) \
+  if [ "${SOURCE}" = 'hdd1' ] || [ "${SOURCE}" = 'hdd2' ] \
     && [ "${TARGET}" != 'server' ]; then
     exit_error "Cannot backup from ${SOURCE} to ${TARGET}"
   fi
@@ -394,7 +394,7 @@ backup_server_hdd_todo() {
 backup_hdd_server_dir() {
   ENCRYPTED_FILE="${TMP_DIR}/$( echo "$1" | tr '/' '-' ).tgz.gpg"
 
-  tar czf - -C "${HDD_BASE_DIR}/$( dirname "$1" )" "$( basename $1 )" \
+  tar czf - -C "${HDD_BASE_DIR}/$( dirname "$1" )" "$( basename "$1" )" \
     | gpg -c -o "${ENCRYPTED_FILE}" \
         --batch --passphrase "${PASSPHRASE_1}" \
         --s2k-mode 3 --s2k-count 65011712 --s2k-digest-algo SHA512 --s2k-cipher-algo AES256
