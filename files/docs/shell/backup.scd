@@ -43,6 +43,7 @@ _item_
 	Item to backup or restore++
 If no item is provided, all the valid ones for the source and target are done++
 valid items:
+	- archives
 	- bookmarks
 	- books
 	- contacts
@@ -111,6 +112,12 @@ Valid items per source and target
 :- laptop -> server
 :- phone -> hdd
 :- server <-> hdd
+|  archives
+:- \*
+:- 
+:- \*
+: 
+:- \*
 |  bookmarks
 :- \*
 :- \*
@@ -200,6 +207,10 @@ For hdd -> server backup, no item is allowed, the list is fixed.
 
 # ENVIRONMENT VARIABLES
 
+_XDG_ARCHIVES_DIR_
+	Path to user-specific archives directory++
+If unset, defaults to $HOME/Archives
+
 _XDG_BOOKS_DIR_
 	Path to user-specific books directory++
 If unset, defaults to $HOME/Books
@@ -229,6 +240,9 @@ _XDG_VIDEOS_DIR_
 If unset, defaults to $HOME/Videos
 
 # FILES
+
+_$XDG_ARCHIVES_DIR_
+	Directory containing the archives
 
 _$XDG_BOOKS_DIR_
 	Directory containing the books

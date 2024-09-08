@@ -1,4 +1,5 @@
 # define common paths
+export XDG_ARCHIVES_DIR="${HOME}/Archives"
 export XDG_BOOKS_DIR="${HOME}/Books"
 export XDG_DESKTOP_DIR="${HOME}/Desktop"
 export XDG_DOCUMENTS_DIR="${HOME}/Documents"

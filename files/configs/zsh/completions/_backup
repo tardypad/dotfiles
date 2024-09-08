@@ -75,6 +75,7 @@ _items_restore() {
   if [[ $source = hdd* ]]; then
     if [ $target = 'server' ]; then
       items=(
+        archives
         bookmarks
         contacts
         notes
@@ -103,6 +104,7 @@ _items_backup() {
   if [ $source = 'laptop' ]; then
     if [[ $target = hdd* ]]; then
       items=(
+        archives
         bookmarks
         books
         notes
@@ -112,6 +114,7 @@ _items_backup() {
       )
     elif [ $target = 'server' ]; then
       items=(
+        archives
         bookmarks
         notes
         time_tracker_logs
@@ -127,6 +130,7 @@ _items_backup() {
   elif [ $source = 'server' ]; then
     if [[ $target = hdd* ]]; then
       items=(
+        archives
         bookmarks
         contacts
         notes

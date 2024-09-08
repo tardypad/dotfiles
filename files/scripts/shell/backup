@@ -8,6 +8,7 @@ init_variables() {
 
   LOCAL_HOST="$( uname -n )"
 
+  LOCAL_ARCHIVES_DIR="${XDG_ARCHIVES_DIR:-$HOME/Archives}"
   LOCAL_BROWSER_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/qutebrowser"
   LOCAL_BOOKS_DIR="${XDG_BOOKS_DIR:-$HOME/Books}"
   LOCAL_MAIL_DIR="${XDG_MAIL_DIR:-$HOME/Mail}"
@@ -29,6 +30,7 @@ init_variables() {
   SERVER_HOST='chestnut'
   SERVER_BASE_DIR='backup'
 
+  SERVER_ARCHIVES_DIR="${SERVER_BASE_DIR}/archives"
   SERVER_BOOKMARKS_DIR="${SERVER_BASE_DIR}/bookmarks"
   SERVER_CONTACTS_DIR="radicale/collection-root/damien"
   SERVER_HDD_DIR="${SERVER_BASE_DIR}/hdd"
@@ -59,6 +61,7 @@ init_variables() {
 init_hdd_variables() {
   HDD_BACKUP_DIR="${HDD_BASE_DIR}/Backup"
 
+  HDD_ARCHIVES_DIR="${HDD_BASE_DIR}/Archives"
   HDD_BOOKMARKS_DIR="${HDD_BASE_DIR}/Bookmarks"
   HDD_BOOKS_DIR="${HDD_BASE_DIR}/Books"
   HDD_CONTACTS_DIR="${HDD_BASE_DIR}/Contacts"
@@ -109,7 +112,8 @@ validate_command_line() {
     return
   fi
 
-  if [ "${ITEM}" != 'bookmarks' ] \
+  if [ "${ITEM}" != 'archives' ] \
+     && [ "${ITEM}" != 'bookmarks' ] \
      && [ "${ITEM}" != 'books' ] \
      && [ "${ITEM}" != 'contacts' ] \
      && [ "${ITEM}" != 'messages' ] \
@@ -165,7 +169,8 @@ validate_command_line_backup_source_target() {
 validate_command_line_backup_item() {
   if [ "${SOURCE}" = 'laptop' ]; then
     if [ "${TARGET}" = 'hdd1' ] || [ "${TARGET}" = 'hdd2' ]; then
-      if [ "${ITEM}" != 'bookmarks' ] \
+      if [ "${ITEM}" != 'archives' ] \
+         && [ "${ITEM}" != 'bookmarks' ] \
          && [ "${ITEM}" != 'books' ] \
          && [ "${ITEM}" != 'mail' ] \
          && [ "${ITEM}" != 'notes' ] \
@@ -177,7 +182,8 @@ validate_command_line_backup_item() {
     fi
 
     if [ "${TARGET}" = 'server' ]; then
-      if [ "${ITEM}" != 'bookmarks' ] \
+      if [ "${ITEM}" != 'archives' ] \
+         && [ "${ITEM}" != 'bookmarks' ] \
          && [ "${ITEM}" != 'notes' ] \
          && [ "${ITEM}" != 'time_tracker_logs' ] \
          && [ "${ITEM}" != 'todo' ]; then
@@ -192,7 +198,8 @@ validate_command_line_backup_item() {
       fi
   elif [ "${SOURCE}" = 'server' ]; then
     if [ "${TARGET}" = 'hdd1' ] || [ "${TARGET}" = 'hdd2' ]; then
-      if [ "${ITEM}" != 'bookmarks' ] \
+      if [ "${ITEM}" != 'archives' ] \
+         && [ "${ITEM}" != 'bookmarks' ] \
          && [ "${ITEM}" != 'contacts' ] \
          && [ "${ITEM}" != 'notes' ] \
          && [ "${ITEM}" != 'packages' ] \
@@ -223,7 +230,8 @@ validate_command_line_restore_source_target() {
 
 validate_command_line_restore_item() {
   if [ "${TARGET}" = 'server' ]; then
-    if [ "${ITEM}" != 'bookmarks' ] \
+    if [ "${ITEM}" != 'archives' ] \
+       && [ "${ITEM}" != 'bookmarks' ] \
        && [ "${ITEM}" != 'contacts' ] \
        && [ "${ITEM}" != 'notes' ] \
        && [ "${ITEM}" != 'packages' ] \
@@ -247,6 +255,12 @@ exit_error() {
   [ -z "$1" ] || echo "${COMMAND}: $1"
   exit 1
 } >&2
+
+backup_laptop_hdd_archives() {
+  ${RSYNC} \
+    "${LOCAL_ARCHIVES_DIR}/" \
+    "${HDD_ARCHIVES_DIR}"
+}
 
 backup_laptop_hdd_bookmarks() {
   ${RSYNC} \
@@ -299,6 +313,12 @@ backup_laptop_hdd_videos() {
     "${HDD_VIDEOS_DIR}"
 }
 
+backup_laptop_server_archives() {
+  ${RSYNC} \
+    "${LOCAL_ARCHIVES_DIR}/" \
+    "${SERVER_HOST}:${SERVER_ARCHIVES_DIR}"
+}
+
 backup_laptop_server_bookmarks() {
   ${RSYNC} -b \
     "${LOCAL_BROWSER_DIR}/bookmarks/urls" \
@@ -347,6 +367,12 @@ backup_phone_hdd_videos() {
   ${RSYNC} --delete \
     "${PHONE_HOST}:${PHONE_VIDEOS_DIR}/" \
     "${HDD_VIDEOS_DIR}/Camera"
+}
+
+backup_server_hdd_archives() {
+  ${RSYNC} \
+    "${SERVER_HOST}:${SERVER_ARCHIVES_DIR}/" \
+    "${HDD_ARCHIVES_DIR}"
 }
 
 backup_server_hdd_bookmarks() {
@@ -400,6 +426,12 @@ backup_hdd_server_dir() {
         --s2k-mode 3 --s2k-count 65011712 --s2k-digest-algo SHA512 --s2k-cipher-algo AES256
 
   ${RSYNC} "${ENCRYPTED_FILE}" "${SERVER_HOST}:${SERVER_HDD_DIR}/"
+}
+
+restore_hdd_server_archives() {
+  ${RSYNC} \
+    "${HDD_ARCHIVES_DIR}/" \
+    "${SERVER_HOST}:${SERVER_ARCHIVES_DIR}"
 }
 
 restore_hdd_server_bookmarks() {
@@ -495,14 +527,14 @@ init_hdd() {
 }
 
 backup_laptop_hdd() {
-  for i in bookmarks books mail notes projects todo videos; do
+  for i in archives bookmarks books mail notes projects todo videos; do
     printf 'laptop -> hdd: %s\n' "$i"
     "backup_laptop_hdd_$i"
   done
 }
 
 backup_laptop_server() {
-  for i in bookmarks notes time_tracker_logs todo; do
+  for i in archives bookmarks notes time_tracker_logs todo; do
     printf 'laptop -> server: %s\n' "$i"
     "backup_laptop_server_$i"
   done
@@ -516,7 +548,7 @@ backup_phone_hdd() {
 }
 
 backup_server_hdd() {
-  for i in bookmarks contacts notes packages repositories social todo; do
+  for i in archives bookmarks contacts notes packages repositories social todo; do
     printf 'server -> hdd: %s\n' "$i"
     "backup_server_hdd_$i"
   done
@@ -542,7 +574,7 @@ backup_hdd_server() {
 }
 
 restore_hdd_server() {
-  for i in bookmarks contacts notes packages repositories social todo; do
+  for i in archives bookmarks contacts notes packages repositories social todo; do
     printf 'hdd -> server: %s\n' "$i"
     "restore_hdd_server_$i"
   done
