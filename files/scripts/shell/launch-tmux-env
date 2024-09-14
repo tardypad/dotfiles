@@ -1,10 +1,21 @@
 #!/bin/sh
 
+USE_NEW=false
+
+while getopts n OPT; do
+  case "${OPT}" in
+    n) USE_NEW=true ;;
+    ?) exit 1 ;;
+  esac
+done
+
+shift $(( OPTIND - 1 ))
+
 ENV="$1"
 
 SESSION=$(
   {
-    echo New;
+    [ "${USE_NEW}" = 'true' ] && echo New;
     find "${XDG_DATA_HOME:-$HOME/.local/share}/env/tmux/${ENV}" \
       -type f -name '*.sh' -exec basename {} .sh \; \
       | sort

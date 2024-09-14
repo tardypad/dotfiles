@@ -75,7 +75,7 @@ mode "-- Commands --" {
     bindsym {key/d} mode "default", exec open-document
     bindsym {key/e} mode "default", exec {app/terminal_emulator}
     bindsym {key/h} mode "default", exec {app/system_monitor}
-    bindsym {key/j} mode "default", exec launch-tmux-env projects
+    bindsym {key/j} mode "default", exec launch-tmux-env -n projects
     bindsym {key/m} mode "default", exec {app/mail_client} -a Perso
     bindsym {key/o} mode "default", exec copy-otp
     bindsym {key/p} mode "default", exec copy-password

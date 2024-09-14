@@ -15,7 +15,8 @@ workspace. It focus current env window if it already exists.
 
 # OPTIONS
 
-None
+*-n*
+	Add a "New" option in the list to create a new session
 
 # OPERANDS
 
