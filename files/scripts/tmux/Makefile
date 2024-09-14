@@ -7,6 +7,6 @@ tmux-scripts:
 	setup/setup-script tmux/tmux-notify-alert
 	setup/setup-script tmux/tmux-select-pane-nvim
 	setup/setup-script tmux/tmux-send-nvim
-	setup/setup-script tmux/tmux-switch-session
+	setup/setup-script tmux/tmux-switch
 	setup/setup-script tmux/tmux-toggle-monitoring
 	setup/setup-script tmux/tmux-toggle-no-distraction

@@ -1,0 +1,33 @@
+#!/bin/sh
+
+TYPE="$1"
+
+if [ "${TYPE}" = 'session' ]; then
+  ITEMS=$( tmux list-sessions -F '#{session_id} #{session_name}' )
+elif [ "${TYPE}" = 'window' ]; then
+  ITEMS=$( tmux list-windows -F '#{window_id} #{window_name}' )
+else
+  exit 1
+fi
+
+shift
+
+ITEM_ID=$(
+  echo "${ITEMS}" \
+    | fzf-tmux "$@" -- \
+        --with-nth 2 \
+        --prompt 'Switch to ' \
+        --header "$( printf '\n' )" \
+        --info hidden \
+        --border sharp \
+        --reverse \
+    | cut -d' ' -f1 \
+)
+
+[ -n "${ITEM_ID}" ] || exit 0
+
+if [ "${TYPE}" = 'session' ]; then
+  tmux switch-client -t "${ITEM_ID}"
+elif [ "${TYPE}" = 'window' ]; then
+  tmux select-window -t "${ITEM_ID}"
+fi
