@@ -3,7 +3,7 @@
 SOCKET="$1"
 SESSION_NAME="$2"
 
-TAKANG_PATH=$( project-path repo takang )
+WEND_PATH=$( project-path repo wend )
 IMV_PATH=$( project-path repo imv )
 MAKO_PATH=$( project-path repo mako )
 WSHOWKEYS_PATH=$( project-path repo wshowkeys )
@@ -12,12 +12,12 @@ SCDOC_PATH=$( project-path repo scdoc )
 tmux -L "${SOCKET}" \
   new-session -d \
   -s "${SESSION_NAME}" \
-  -n 'takang' \
-  -c "${TAKANG_PATH}"
+  -n 'wend' \
+  -c "${WEND_PATH}"
 
 tmux -L "${SOCKET}" \
   split-window -dh \
-  -c "${TAKANG_PATH}" \
+  -c "${WEND_PATH}" \
   "nvim \
     -c 'TabooRename TODO' \
     -c 'tabnew' \
@@ -65,4 +65,4 @@ tmux -L "${SOCKET}" \
 
 tmux -L "${SOCKET}" \
   select-window \
-  -t ':takang'
+  -t ':wend'

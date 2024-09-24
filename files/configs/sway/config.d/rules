@@ -15,5 +15,5 @@ for_window [app_id="imv"] floating enable, border pixel 2
 for_window [app_id="mpv"] floating enable
 
 for_window [title="Adobe Digital Editions"] floating enable
-for_window [app_id="takang"] floating enable
+for_window [app_id="wend"] floating enable
 for_window [app_id="gcr-prompter"] border pixel 2
