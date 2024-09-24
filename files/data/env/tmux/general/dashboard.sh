@@ -7,7 +7,7 @@ NOTES_DIR="${XDG_NOTES_DIR:-$HOME/Notes}"
 
 NOTES_FILES="${NOTES_DIR}/todo.md"
 if grep -qvE '# Waiting|^$' "${NOTES_DIR}/waiting.md"; then
-  NOTES_FILES="${NOTES_FILES} ${NOTES_DIR}/waiting.md"
+  NOTES_FILES="${NOTES_DIR}/waiting.md ${NOTES_FILES}"
 fi
 
 tmux -L "${SOCKET}" \
