@@ -68,9 +68,6 @@ set-option -g focus-events on
 # use vlock to lock
 set-option -g lock-command vlock
 
-# decrease the input escape time
-set-option -g escape-time 100
-
 # decrease the binding keys repeat time
 set-option -g repeat-time 300
 
