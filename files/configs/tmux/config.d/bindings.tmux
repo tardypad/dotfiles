@@ -107,13 +107,15 @@ bind -T move -N 'move window to index 9'             {key/9}             switch-
 bind -T move -N 'move window to index 10'            {key/0}             switch-client -T move \; run "tmux-move-window-index 10"
 
 # layout mode
-bind           -N 'enter window layout mode'     {key/layout/low} switch-client -T layout
-bind -T layout -N 'list keys'                  M-{key/?}          list-keys -T layout -a -N
-bind -T layout -N 'use even horizontal layout'   {key/1}          switch-client -T layout \; select-layout even-horizontal
-bind -T layout -N 'use main vertical layout'     {key/2}          switch-client -T layout \; select-layout main-vertical
-bind -T layout -N 'use even vertical layout'     {key/3}          switch-client -T layout \; select-layout even-vertical
-bind -T layout -N 'use main horizontal layout'   {key/4}          switch-client -T layout \; select-layout main-horizontal
-bind -T layout -N 'use tiled layout'             {key/5}          switch-client -T layout \; select-layout tiled
+bind           -N 'enter window layout mode'            {key/layout/low} switch-client -T layout
+bind -T layout -N 'list keys'                         M-{key/?}          list-keys -T layout -a -N
+bind -T layout -N 'use even horizontal layout'          {key/1}          switch-client -T layout \; select-layout even-horizontal
+bind -T layout -N 'use main vertical layout'            {key/2}          switch-client -T layout \; select-layout main-vertical
+bind -T layout -N 'use main vertical mirrored layout'   {key/3}          switch-client -T layout \; select-layout main-vertical-mirrored
+bind -T layout -N 'use even vertical layout'            {key/4}          switch-client -T layout \; select-layout even-vertical
+bind -T layout -N 'use main horizontal layout'          {key/5}          switch-client -T layout \; select-layout main-horizontal
+bind -T layout -N 'use main horizontal mirrored layout' {key/6}          switch-client -T layout \; select-layout main-horizontal-mirrored
+bind -T layout -N 'use tiled layout'                    {key/7}          switch-client -T layout \; select-layout tiled
 
 
 ## panes management (uppercase)
