@@ -37,6 +37,7 @@ alias wt='${EDITOR} "${XDG_NOTES_DIR:-$HOME/Notes}/waiting.md"'
 alias lt='${EDITOR} "${XDG_NOTES_DIR:-$HOME/Notes}/later.md"'
 
 alias tdy='schedule today'
+alias tmw='schedule tomorrow'
 alias sdd='schedule -d --'
 alias sdw='schedule -w --'
 alias sdm='schedule -m --'
