@@ -15,6 +15,7 @@
   - [John Kerl scripts](https://github.com/johnkerl/scripts)
   - [dhohdan structured text tools](https://github.com/dbohdan/structured-text-tools)
   - [neeasade color spaces notes](https://notes.neeasade.net/color-spaces.html)
+  - [Ham Vocke color scheme blog post](https://hamvocke.com/blog/lets-create-a-terminal-color-scheme/)
 
 ## git
   - [git-tips](https://github.com/git-tips/tips)
