@@ -1,0 +1,27 @@
+#!/bin/sh
+# commands used:
+# - i3blocks-mode
+
+MODE="$( i3blocks-mode )"
+
+DESKTOP_COUNT="$( ls "${XDG_DESKTOP_DIR:-$HOME/Desktop}" | wc -l )"
+DOWNLOADS_COUNT="$( ls "${XDG_DOWNLOAD_DIR:-$HOME/Downloads}" | wc -l )"
+
+if [ "${DESKTOP_COUNT}" -eq 0 ] && [ "${DOWNLOADS_COUNT}" -eq 0 ]; then
+  exit 0
+fi
+
+TEXT=''
+if [ "${MODE}" = 'full' ]; then
+  TEXT="${TEXT}  "
+  if [ "${DESKTOP_COUNT}" -ne 0 ]; then
+    TEXT="${TEXT} Desktop:${DESKTOP_COUNT}"
+  fi
+  if [ "${DOWNLOADS_COUNT}" -ne 0 ]; then
+    TEXT="${TEXT} Downloads:${DOWNLOADS_COUNT}"
+  fi
+fi
+
+COLOR='#{color/info/hex}'
+
+printf '%s\n\n%s\n' "${TEXT}" "${COLOR}"

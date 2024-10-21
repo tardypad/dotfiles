@@ -10,6 +10,7 @@ i3blocks-scripts:
 	setup/setup-script i3blocks/i3blocks-music
 	setup/setup-script i3blocks/i3blocks-network
 	setup/setup-script i3blocks/i3blocks-night-mode
+	setup/setup-script i3blocks/i3blocks-ongoing
 	setup/setup-script i3blocks/i3blocks-pomodoro
 	setup/setup-script i3blocks/i3blocks-power
 	setup/setup-script i3blocks/i3blocks-screencast

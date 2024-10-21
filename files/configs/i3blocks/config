@@ -19,6 +19,8 @@ separator_block_width=50
 [do-not-disturb]
 signal=3
 
+[ongoing]
+
 [task]
 signal=6
 
