@@ -122,7 +122,8 @@ config.bind('{key/open}',                          'cmd-set-text --space :open',
 config.bind('{key/reload/low}',                    'reload',                                                                   mode='normal')
 config.bind('{key/reload/upp}',                    'reload --force',                                                           mode='normal')
 config.bind('{key/zoom/upp}',                      'fullscreen',                                                               mode='normal')
-config.bind('{key/f}',                             'hint all current',                                                         mode='normal')
+config.bind('{key/f}{key/i}',                      'hint inputs',                                                              mode='normal')
+config.bind('{key/f}{key/l}',                      'hint links current',                                                       mode='normal')
 config.bind('<Ctrl-{key/S}>',                      'view-source',                                                              mode='normal')
 config.bind('<Ctrl-Shift-{key/O}>',                'spawn --userscript autofill-otp',                                          mode='normal')
 config.bind('<Ctrl-Shift-{key/P}>',                'spawn --userscript autofill-login',                                        mode='normal')
@@ -197,7 +198,7 @@ config.bind('{key/tab}<Alt-{key/right/upp}>', 'cmd-set-text --space :forward --t
 config.bind('{key/tab}<Alt-{key/undo/upp}>',  'cmd-set-text --space :undo',                           mode='normal')
 config.bind('{key/tab}{key/open}',            'cmd-set-text --space :open --tab',                     mode='normal')
 config.bind('{key/tab}{key/window}',          'tab-give',                                             mode='normal')
-config.bind('{key/tab}{key/f}',               'hint all tab-fg',                                      mode='normal')
+config.bind('{key/tab}{key/f}{key/l}',        'hint links tab-fg',                                    mode='normal')
 config.bind('{key/tab}{key/P}',               'tab-pin',                                              mode='normal')
 
 # windows management
@@ -211,7 +212,7 @@ config.bind('{key/window}<Alt-{key/left/upp}>',  'cmd-set-text --space :back --w
 config.bind('{key/window}<Alt-{key/right/upp}>', 'cmd-set-text --space :forward --window',        mode='normal')
 config.bind('{key/window}{key/open}',            'cmd-set-text --space :open --window',           mode='normal')
 config.bind('{key/window}{key/p}',               'open --private about:blank',                    mode='normal')
-config.bind('{key/window}{key/f}',               'hint all window',                               mode='normal')
+config.bind('{key/window}{key/f}{key/l}',        'hint links window',                             mode='normal')
 config.bind('{key/window}{key/undo}',            'undo --window',                                 mode='normal')
 
 
