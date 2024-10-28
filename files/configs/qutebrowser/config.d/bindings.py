@@ -124,6 +124,7 @@ config.bind('{key/reload/upp}',                    'reload --force',            
 config.bind('{key/zoom/upp}',                      'fullscreen',                                                               mode='normal')
 config.bind('{key/f}{key/i}',                      'hint inputs',                                                              mode='normal')
 config.bind('{key/f}{key/l}',                      'hint links current',                                                       mode='normal')
+config.bind('{key/f}{key/v}',                      'hint links spawn --detach mpv {hint-url}',                                 mode='normal')
 config.bind('<Ctrl-{key/S}>',                      'view-source',                                                              mode='normal')
 config.bind('<Ctrl-Shift-{key/O}>',                'spawn --userscript autofill-otp',                                          mode='normal')
 config.bind('<Ctrl-Shift-{key/P}>',                'spawn --userscript autofill-login',                                        mode='normal')
@@ -268,9 +269,10 @@ config.bind('{key/Q}{key/c}'           , 'open --tab qute://help/commands.html',
 config.bind('{key/Q}{key/s}'           , 'open --tab qute://help/settings.html',   mode='normal')
 config.bind('{key/Q}{key/h}'           , 'open --tab qute://history',              mode='normal')
 
-# open page in other browsers
+# open current page in other applications
 config.bind('<Ctrl-{key/open/upp}>{key/c}', 'spawn --detach chromium {url}', mode='normal')
-config.bind('<Ctrl-{key/open/upp}>{key/f}', 'spawn --detach firefox {url}', mode='normal')
+config.bind('<Ctrl-{key/open/upp}>{key/f}', 'spawn --detach firefox {url}',  mode='normal')
+config.bind('<Ctrl-{key/open/upp}>{key/v}', 'spawn --detach mpv {url}',      mode='normal')
 
 # dev tools
 config.bind('<Ctrl-{key/tabulation/Tab}>', 'devtools right', mode='normal')
