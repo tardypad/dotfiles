@@ -28,7 +28,7 @@ feeds() {
   feed 'Rachel by the bay'                    'https://rachelbythebay.com/w/atom.xml'
   feed 'Martin Tournoij'                      'https://www.arp242.net/feed.xml'
   feed 'Mr. Money Mustache'                   'https://feeds.feedburner.com/MrMoneyMustache'
-  feed 'Joan Westenberg'                      'https://paragraph.xyz/api/blogs/rss/@Westenberg'
+  feed 'Joan Westenberg'                      'https://www.joanwestenberg.com/rss/'
   feed 'Ed Zitron'                            'https://www.wheresyoured.at/rss/'
   feed 'Lionel Dricot'                        'https://ploum.net/atom.xml'
   feed 'Baldur Bjarnason'                     'https://feedpress.me/baldurbjarnason'
