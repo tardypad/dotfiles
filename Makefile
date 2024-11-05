@@ -52,6 +52,7 @@ include files/configs/tofi/Makefile
 include files/configs/translate-shell/Makefile
 include files/configs/vdirsyncer/Makefile
 include files/configs/w3m/Makefile
+include files/configs/wayprompt/Makefile
 include files/configs/weechat/Makefile
 include files/configs/zathura/Makefile
 include files/configs/zsh/Makefile

@@ -35,6 +35,7 @@ tofi: tofi-configs
 translate-shell: translate-shell-configs
 vdirsyncer: vdirsyncer-configs
 w3m: w3m-configs
+wayprompt: wayprompt-configs
 weechat: weechat-configs
 zathura: zathura-configs
 zsh: zsh-configs shell-docs shell-scripts
