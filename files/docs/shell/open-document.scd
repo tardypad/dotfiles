@@ -18,7 +18,7 @@ Hidden root folders are excluded from the search.
 The full home search is not rerun again if the cached file is present.
 Only the search within the XDG_DOWNLOAD_DIR directory is done for every run.
 
-A document is defined as having any of the following extensions:
+A document is defined as having any of the following extensions (case insensitive):
 - docx
 - pdf
 - pptx

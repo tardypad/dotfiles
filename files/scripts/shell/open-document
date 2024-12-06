@@ -29,10 +29,10 @@ find_docs() {
   find "$1" \
     ! -path "$1/\.*" \
     -type f \( \
-       -name '*.pdf'  \
-    -o -name '*.docx' \
-    -o -name '*.pptx' \
-    -o -name '*.xlsx' \
+       -name '*.pdf'  -o -name '*.PDF'  \
+    -o -name '*.docx' -o -name '*.DOCX' \
+    -o -name '*.pptx' -o -name '*.PPTX' \
+    -o -name '*.xlsx' -o -name '*.XSLX' \
     \)
 } 2> /dev/null
 
