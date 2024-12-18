@@ -41,6 +41,7 @@ feeds() {
   feed 'Lea Verou'                            'https://lea.verou.me/feed.xml'
   feed 'Josh W. Comeau'                       'https://www.joshwcomeau.com/rss.xml'
   feed 'The Valuable Dev'                     'https://thevaluable.dev/index.xml'
+  feed 'Codemanship'                          'https://codemanship.wordpress.com/feed/'
   feed 'Reddit command line'                  'https://www.reddit.com/r/commandline/.rss'
   feed 'Reddit programming'                   'https://www.reddit.com/r/programming/.rss'
 }
