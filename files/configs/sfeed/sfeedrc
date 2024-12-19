@@ -39,6 +39,7 @@ feeds() {
   feed 'Sara Soueidan'                        'https://www.sarasoueidan.com/blog/index.xml'
   feed 'Chris Ferdinandi'                     'https://gomakethings.com/feed/index.xml'
   feed 'Lea Verou'                            'https://lea.verou.me/feed.xml'
+  feed 'Piccalilly'                           'https://piccalil.li/feed.xml'
   feed 'Josh W. Comeau'                       'https://www.joshwcomeau.com/rss.xml'
   feed 'The Valuable Dev'                     'https://thevaluable.dev/index.xml'
   feed 'Codemanship'                          'https://codemanship.wordpress.com/feed/'
