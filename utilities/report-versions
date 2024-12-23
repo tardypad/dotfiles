@@ -82,21 +82,19 @@ pacman_version() {
 }
 
 report_item() {
-  while read -r ITEM; do
-    VERSION_INSTALLED=$( pacman_version "${ITEM}" )
+  VERSION_INSTALLED=$( pacman_version "$1" )
 
-    VERSION_DOCS=$( docs_version "${ITEM}" )
+  VERSION_DOCS=$( docs_version "$1" )
 
-    if [ "${ONLY_DIFF}" -eq 1 ] \
-       && [ "${VERSION_INSTALLED}" = "${VERSION_DOCS}" ]; then
-      continue
-    fi
+  if [ "${ONLY_DIFF}" -eq 1 ] \
+     && [ "${VERSION_INSTALLED}" = "${VERSION_DOCS}" ]; then
+    return
+  fi
 
-    printf '%s %s %s\n' \
-      "${ITEM}" \
-      "${VERSION_DOCS}" \
-      "${VERSION_INSTALLED}"
-  done
+  printf '%s %s %s\n' \
+    "$1" \
+    "${VERSION_DOCS}" \
+    "${VERSION_INSTALLED}"
 }
 
 list_items() {
@@ -106,7 +104,10 @@ list_items() {
 report_all() {
   {
     for TYPE in PACKAGES PLUGINS; do
-      list_items | report_item
+      list_items \
+        | while read -r ITEM; do
+            report_item "${ITEM}"
+          done
     done
   } \
     | sort \
