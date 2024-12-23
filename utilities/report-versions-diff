@@ -6,8 +6,6 @@
 init_variables() {
   COMMAND=${0##*/}
 
-  ONLY_DIFF=0
-
   TYPE=
 }
 
@@ -15,12 +13,10 @@ show_usage() {
   cat <<- EOF
 	usage: ${COMMAND} [<options>]
 
-	Check and report packages versions:
-	- version installed on the system
-	- version listed in the docs
+  Report the packages and plugins with different versions between the one installed on the
+  system and the one listed in the docs
 
 	Options:
-	  -d    only list packages where versions are different
 	  -h    show this message only
 	EOF
 }
@@ -28,7 +24,6 @@ show_usage() {
 parse_command_line() {
   while getopts dh OPT; do
     case "${OPT}" in
-      d) ONLY_DIFF=1 ;;
       h) show_usage; exit 0 ;;
       ?) exit_error ;;
     esac
@@ -86,8 +81,7 @@ report_item() {
 
   VERSION_DOCS=$( docs_version "$1" )
 
-  if [ "${ONLY_DIFF}" -eq 1 ] \
-     && [ "${VERSION_INSTALLED}" = "${VERSION_DOCS}" ]; then
+  if [ "${VERSION_INSTALLED}" = "${VERSION_DOCS}" ]; then
     return
   fi
 
