@@ -33,6 +33,11 @@ keymap {key/search_repeat_reverse} SEARCH_PREV
 keymap {key/left/upp} BACK
 keymap {key/reload}   RELOAD
 
+keymap C-{key/next}     NEXT_LINK
+keymap C-{key/previous} PREVIOUS_LINK
+
+keymap C-{key/return}   GOTO_LINK
+keymap C-{key/enter}    GOTO_LINK
 keymap   {key/open}     EXTERN_LINK
 keymap C-{key/open/low} EXTERN
 
@@ -41,11 +46,7 @@ keymap C-{key/open/low} EXTERN
 keymap C-@    NULL
 keymap C-a    NULL
 keymap TAB    NULL
-keymap C-j    NULL
 keymap C-k    NULL
-keymap C-m    NULL
-keymap C-n    NULL
-keymap C-p    NULL
 keymap C-q    NULL
 keymap C-r    NULL
 keymap C-s    NULL
