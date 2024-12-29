@@ -40,6 +40,7 @@ neovim-configs:
 	setup/setup-config neovim/plugin/scroll_search.vim          $(CONFIG_DIR)/nvim/plugin/scroll_search.vim
 	setup/setup-config neovim/plugin/search_dir.vim             $(CONFIG_DIR)/nvim/plugin/search_dir.vim
 	setup/setup-config neovim/plugin/zoom_window.vim            $(CONFIG_DIR)/nvim/plugin/zoom_window.vim
+	setup/setup-config neovim/snippets/bash.snippets            $(CONFIG_DIR)/nvim/snippets/bash.snippets
 	setup/setup-config neovim/snippets/sh.snippets              $(CONFIG_DIR)/nvim/snippets/sh.snippets
 	setup/setup-config neovim/snippets/zsh.snippets             $(CONFIG_DIR)/nvim/snippets/zsh.snippets
 	setup/setup-config neovim/spell/en.utf-8.add                $(CONFIG_DIR)/nvim/spell/en.utf-8.add
