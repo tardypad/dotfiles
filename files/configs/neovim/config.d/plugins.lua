@@ -27,7 +27,11 @@ require("formatter").setup {
 
 -- luasnip
 
+local luasnip = require 'luasnip'
 require("luasnip.loaders.from_snipmate").lazy_load()
+luasnip.config.setup({
+  cut_selection_keys = "<Tab>",
+})
 
 
 -- cmp
@@ -39,7 +43,6 @@ local has_words_before = function()
 end
 
 local cmp = require 'cmp'
-local luasnip = require 'luasnip'
 cmp.setup {
   completion = {
     autocomplete = false,
