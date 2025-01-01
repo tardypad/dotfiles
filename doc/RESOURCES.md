@@ -39,6 +39,7 @@
   - [Janus distribution](https://github.com/carlhuda/janus)
   - [SpaceVim distribution](https://spacevim.org/)
   - [Steve Francia distribution](http://vim.spf13.com/)
+  - [Honza Pokorný snippets](https://github.com/honza/vim-snippets/)
 
 ## zsh
   - [Joe Block plugins list](https://github.com/unixorn/awesome-zsh-plugins)
