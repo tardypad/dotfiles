@@ -1,6 +1,6 @@
 extends sh
 
-snippet forc "Bash 'for count' control structure"
+snippet forc Bash for count
         for (( ${1:i} = 0; $1 < ${2:count}; $1++ )); do
           ${VISUAL}${0}
         done
