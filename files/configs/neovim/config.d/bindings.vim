@@ -154,10 +154,10 @@ nnoremap <silent> <Leader>{key/undo}{key/quit} :UndotreeHide<CR>
 
 "" luasnip
 
-imap     <silent> <expr> <{key/complete/Tab}>   luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<{key/complete/Tab}>'
-inoremap <silent>        <S-{key/complete/Tab}> <cmd>lua require('luasnip').jump(-1)<CR>
-snoremap <silent>        <{key/complete/Tab}>   <cmd>lua require('luasnip').jump(1)<CR>
-snoremap <silent>        <S-{key/complete/Tab}> <cmd>lua require('luasnip').jump(-1)<CR>
+inoremap <silent> <expr> <C-{key/down}> luasnip#jumpable(1) ? '<cmd>lua require("luasnip").jump(1)<CR>' : '<C-{key/down}>'
+snoremap <silent> <expr> <C-{key/down}> luasnip#jumpable(1) ? '<cmd>lua require("luasnip").jump(1)<CR>' : '<C-{key/down}>'
+inoremap <silent> <expr> <C-{key/up}>   luasnip#jumpable(-1) ? '<cmd>lua require("luasnip").jump(-1)<CR>' : '<C-{key/up}>'
+snoremap <silent> <expr> <C-{key/up}>   luasnip#jumpable(-1) ? '<cmd>lua require("luasnip").jump(-1)<CR>' : '<C-{key/up}>'
 
 " insertion of snippet from list selection
 nnoremap <silent> <Leader>{key/insert}{key/s} :Snippets<CR>
