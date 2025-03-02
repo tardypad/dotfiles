@@ -51,8 +51,8 @@ send_notification() {
   fi
 
   NOTIFICATION_ID=$(
-    notify-send --print-id \
-      --replace-id "${REPLACE_ID}" \
+    fyi --print-id \
+      --replaces "${REPLACE_ID}" \
       --category "${CATEGORY}" \
       --expire-time "$(( EXPIRE_TIME * 1000 ))" \
       "${SUMMARY}" \

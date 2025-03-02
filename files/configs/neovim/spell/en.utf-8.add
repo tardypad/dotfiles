@@ -52,7 +52,6 @@ tty
 mako
 swaylock
 libxml2
-libnotify
 bluez
 otf
 contrib
@@ -95,3 +94,4 @@ wireplumber
 pipewire
 tofi
 wayprompt
+fyi
