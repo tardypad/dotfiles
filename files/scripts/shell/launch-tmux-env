@@ -20,7 +20,7 @@ SESSION=$(
       -type f -name '*.sh' -exec basename {} .sh \; \
       | sort
   } \
-  | tofi --prompt-text="Open ${ENV}"
+  | fuzzel --dmenu --prompt="Open ${ENV} "
 )
 
 [ -n "${SESSION}" ] || exit

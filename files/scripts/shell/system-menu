@@ -8,11 +8,11 @@ ACTION=$(
     echo 'Shut down';
     echo 'Reboot';
   } \
-    | tofi \
-        --prompt-text='Execute' \
-        --anchor='top-right' \
-        --width='15%' \
-        --height='15%'
+    | fuzzel --dmenu \
+        --prompt='Execute ' \
+        --anchor='top' \
+        --width=10 \
+        --lines=5
 )
 
 case "${ACTION}" in

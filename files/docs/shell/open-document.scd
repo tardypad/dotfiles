@@ -54,5 +54,5 @@ _$XDG_CACHE_HOME/documents_
 
 # DEPENDENCIES
 
-- tofi
+- fuzzel
 - xdg-open

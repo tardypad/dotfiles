@@ -38,4 +38,4 @@ None
 # DEPENDENCIES
 
 - swaymsg
-- tofi
+- fuzzel

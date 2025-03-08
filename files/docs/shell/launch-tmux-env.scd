@@ -40,4 +40,4 @@ _$XDG_DATA_HOME/env/tmux/\*.sh_
 - sway-create-workspace
 - swaymsg
 - tmux-env
-- tofi
+- fuzzel

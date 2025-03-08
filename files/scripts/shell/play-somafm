@@ -6,7 +6,7 @@ CHANNEL_NAME=$(
   echo "${CHANNELS}" \
     | cut -f2 \
     | sort \
-    | tofi --prompt-text='Play SomaFM channel'
+    | fuzzel --dmenu --prompt='Play SomaFM '
 )
 
 [ -n "${CHANNEL_NAME}" ] || exit

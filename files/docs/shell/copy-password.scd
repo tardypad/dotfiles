@@ -34,4 +34,4 @@ _$PASSWORD_STORE_DIR_
 # DEPENDENCIES
 
 - pass
-- tofi
+- fuzzel

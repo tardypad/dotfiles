@@ -30,6 +30,6 @@ None
 
 # DEPENDENCIES
 
-- tofi
+- fuzzel
 - wl-copy
 - ykman

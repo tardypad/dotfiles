@@ -56,7 +56,7 @@ DOC_PATH=$(
     find_docs "${XDG_DESKTOP_DIR:-$HOME/Desktop}";
     find_docs "${XDG_DOWNLOAD_DIR:-$HOME/Downloads}";
   } | sort -u \
-    | tofi --prompt-text='Open document'
+    | fuzzel --dmenu --prompt='Open document '
 )
 
 [ -n "${DOC_PATH}" ] || exit

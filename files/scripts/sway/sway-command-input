@@ -3,7 +3,7 @@
 init_variables() {
   COMMAND=${0##*/}
 
-  PROMPT=':'
+  PROMPT=': '
   FORMAT='%s'
   USER_INPUT=
 }
@@ -28,18 +28,13 @@ exit_error() {
 
 run() {
   USER_INPUT=$(
-    echo '' | tofi \
-      --prompt-text="${PROMPT}" \
-      --require-match=false \
-      --horizontal=true \
-      --anchor=top-left \
-      --height=50 \
+    echo '' | fuzzel --dmenu \
+      --prompt-only="${PROMPT}" \
+      --anchor='top-left' \
       --border-width=0 \
-      --background-color='#{color/base09/hex}' \
-      --prompt-color='#{color/base00/hex}' \
-      --prompt-background='#{color/base09/hex}' \
-      --input-color='#{color/base00/hex}' \
-      --input-background='#{color/base09/hex}'
+      --background='#{color/base09/hex}ff' \
+      --prompt-color='#{color/base00/hex}ff' \
+      --input-color='#{color/base00/hex}ff'
   )
 
   # shellcheck disable=SC2181

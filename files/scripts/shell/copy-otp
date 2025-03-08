@@ -3,7 +3,7 @@
 NAME=$(
   ykman oath accounts list 2> /dev/null \
     | sort \
-    | tofi --prompt-text='Copy OTP'
+    | fuzzel --dmenu --prompt='Copy OTP '
 )
 
 [ -n "${NAME}" ] || exit
