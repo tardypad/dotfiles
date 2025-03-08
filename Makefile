@@ -49,7 +49,6 @@ include files/configs/swayidle/Makefile
 include files/configs/swaylock/Makefile
 include files/configs/systemd/Makefile
 include files/configs/tmux/Makefile
-include files/configs/tofi/Makefile
 include files/configs/translate-shell/Makefile
 include files/configs/vdirsyncer/Makefile
 include files/configs/w3m/Makefile

@@ -32,7 +32,6 @@ swayidle: swayidle-configs
 swaylock: swaylock-configs
 systemd: systemd-configs
 tmux: tmux-configs tmux-docs tmux-scripts
-tofi: tofi-configs
 translate-shell: translate-shell-configs
 vdirsyncer: vdirsyncer-configs
 w3m: w3m-configs
