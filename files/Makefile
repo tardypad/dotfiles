@@ -5,6 +5,7 @@ coreutils: coreutils-configs
 ctags: ctags-configs
 fontconfig: fontconfig-configs
 foot: foot-configs
+fuzzel: fuzzel-configs
 gammastep: gammastep-configs
 git: git-configs git-docs git-scripts
 gnupg: gnupg-configs
