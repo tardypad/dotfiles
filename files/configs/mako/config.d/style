@@ -1,0 +1,11 @@
+font=Source Sans Pro, Font Awesome 5 Free Solid 14
+background-color=#{color/background/hex}
+text-color=#{color/foreground/hex}
+width=300
+height=200
+margin=20
+padding=5
+border-size=3
+border-color=#{color/foreground/hex}
+icons=0
+format=<span foreground='#{color/foreground/hex}' weight='bold'>%s</span>\n%b
