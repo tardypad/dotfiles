@@ -34,7 +34,7 @@ keymap {key/left/upp} BACK
 keymap {key/reload}   RELOAD
 
 keymap C-{key/next}     NEXT_LINK
-keymap C-{key/previous} PREVIOUS_LINK
+keymap C-{key/previous} PREV_LINK
 
 keymap C-{key/return}   GOTO_LINK
 keymap C-{key/enter}    GOTO_LINK
