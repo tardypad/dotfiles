@@ -35,6 +35,7 @@ feeds() {
   feed 'Chris Ferdinandi'                     'https://gomakethings.com/feed/index.xml'
   feed 'Lea Verou'                            'https://lea.verou.me/feed.xml'
   feed 'Piccalilly'                           'https://piccalil.li/feed.xml'
+  feed 'Andy Bell'                            'https://bell.bz/feed.xml'
   feed 'Josh W. Comeau'                       'https://www.joshwcomeau.com/rss.xml'
   feed 'The Valuable Dev'                     'https://thevaluable.dev/index.xml'
   feed 'Codemanship'                          'https://codemanship.wordpress.com/feed/'
