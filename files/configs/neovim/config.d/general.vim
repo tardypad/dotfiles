@@ -17,6 +17,9 @@ set sidescroll=10         " horizontal scroll of columns
 set cursorline            " highlight the current line
 set scrolloff=3           " Display at least 3 lines around you cursor
 
+" disable cursor blinking in all modes
+set guicursor+=a:blinkon0
+
 " tabs
 set tabstop=4       " number of visual spaces per tab
 set softtabstop=4   " number of spaces in tab when editing
