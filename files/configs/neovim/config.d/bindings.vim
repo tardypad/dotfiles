@@ -116,7 +116,7 @@ nnoremap <silent> <Leader>{key/d}{key/next}     :lua vim.diagnostic.goto_next({w
 "" search management
 
 " clear last search highlighting
-nnoremap <silent> <{key/return/CR}> :noh<CR><Esc>
+nnoremap <silent> <C-{key/backspace}> :noh<CR><Esc>
 
 " Place a marker and search
 nmap <Leader>{key/search_forward} mA:SearchCWD<Space>

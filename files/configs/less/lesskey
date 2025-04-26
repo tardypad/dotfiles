@@ -51,7 +51,7 @@
 \e{key/search_repeat}         repeat-search-all
 \e{key/search_repeat_reverse} reverse-search-all
 {key/&}                       filter
-{key/return/\n}               undo-hilite
+^{key/backspace}              undo-hilite
 
 # files
 ^{key/next}     next-file
