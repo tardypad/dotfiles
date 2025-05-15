@@ -113,7 +113,7 @@ config.bind('{key/select_line}',          'mode-enter caret',       mode='normal
 # general
 config.bind('<Ctrl-{key/quit/upp}>',               'quit',                                                                     mode='normal')
 config.bind('<{key/escape/Escape}>',               'clear-keychain ;; stop ;; search ;; clear-messages ;; fullscreen --leave', mode='normal')
-config.bind('<{key/return/Return}>',               'search',                                                                   mode='normal')
+config.bind('<Ctrl-{key/backspace}>',              'search',                                                                   mode='normal')
 config.bind('<{key/space/Space}>',                 'nop',                                                                      mode='normal')
 config.bind('<Alt-Shift-{key/reload_config/upp}>', 'message-info "reloading config" ;; cmd-later 100 config-source',           mode='normal')
 config.bind('{key/command}',                       'cmd-set-text :',                                                           mode='normal')
