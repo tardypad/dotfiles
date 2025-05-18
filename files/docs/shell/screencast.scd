@@ -6,7 +6,9 @@ screencast - Take a screencast of a region
 
 # SYNOPSIS
 
-screencast [ *status* | *start* | *stop* | *toggle* ]
+screencast *start* [ _audio_device_ ]
+
+screencast [ *status* | *stop* | *toggle* ]
 
 # DESCRIPTION
 
@@ -23,8 +25,9 @@ None
 	Display whether the screencast is "recording" or "not recording"++
 This is the default action if none is specified
 
-*start*
-	Start screencast
+*start* [ _audio_device_ ]
+	Start screencast++
+If the audio device argument is set, also record the audio from it.
 
 *stop*
 	Stop screencast

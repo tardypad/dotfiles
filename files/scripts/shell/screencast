@@ -8,10 +8,12 @@ init_variables() {
   RECORD_FILE_PATH="${XDG_DESKTOP_DIR:-$HOME/Desktop}/screencast_$( date +'%Y%m%d%H%M%S' ).mp4"
 
   ACTION='status'
+  AUDIO_DEVICE=
 }
 
 parse_command_line() {
   [ -z "$1" ] || ACTION="$1"
+  [ -z "$2" ] || AUDIO_DEVICE="$2"
 }
 
 validate_command_line() {
@@ -33,7 +35,13 @@ record_start() {
 
   [ -z "${REGION}" ] && return 1
 
-  wf-recorder -g "${REGION}" -f "${RECORD_FILE_PATH}" &
+  EXTRA_OPTIONS=
+  if [ -n "${AUDIO_DEVICE}" ]; then
+    EXTRA_OPTIONS="--audio=${AUDIO_DEVICE}"
+  fi
+
+  # shellcheck disable=SC2086
+  wf-recorder -g "${REGION}" -f "${RECORD_FILE_PATH}" ${EXTRA_OPTIONS} &
 
   echo $! > "${PID_FILE_PATH}" \
     && update_i3blocks
