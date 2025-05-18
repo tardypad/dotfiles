@@ -8,7 +8,6 @@ SCRIPT_COMMAND = "edit_nvim_tmux"
 IMPORT_OK = True
 
 import os
-import os.path
 import shlex
 import subprocess
 

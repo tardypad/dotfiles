@@ -20,6 +20,7 @@ weechat-configs:
 	setup/setup-config weechat/plugins/edit_nvim_tmux.py                 $(DATA_DIR)/weechat/python/edit_nvim_tmux.py
 	setup/setup-config weechat/plugins/export_important_buffers_count.py $(DATA_DIR)/weechat/python/export_important_buffers_count.py
 	setup/setup-config weechat/plugins/go_fzf_tmux.py                    $(DATA_DIR)/weechat/python/go_fzf_tmux.py
+	setup/setup-config weechat/plugins/reply_later.py                    $(DATA_DIR)/weechat/python/reply_later.py
 
 	# keep secure data configured
 	-awk '/^\[data\]$$/ { p=1 } p' $(DESTDIR)$(CONFIG_DIR)/weechat/sec.conf > build/weechat_sec_data
@@ -33,6 +34,7 @@ weechat-configs:
 	ln -fs ../edit_nvim_tmux.py                 $(DESTDIR)$(DATA_DIR)/weechat/python/autoload/edit_nvim_tmux.py
 	ln -fs ../export_important_buffers_count.py $(DESTDIR)$(DATA_DIR)/weechat/python/autoload/export_important_buffers_count.py
 	ln -fs ../go_fzf_tmux.py                    $(DESTDIR)$(DATA_DIR)/weechat/python/autoload/go_fzf_tmux.py
+	ln -fs ../reply_later.py                    $(DESTDIR)$(DATA_DIR)/weechat/python/autoload/reply_later.py
 
 	# autoload external plugins
 	ln -fs /usr/share/weechat/python/vimode.py $(DESTDIR)$(DATA_DIR)/weechat/python/autoload/vimode.py
