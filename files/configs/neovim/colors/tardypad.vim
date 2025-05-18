@@ -148,7 +148,6 @@ call s:highlight("DiffText",     "base00", "base08", "bold")
 " terminal
 call s:highlight("Terminal",     "foreground", "background", "")
 call s:highlight("TermCursor",   "",           "",           "reverse")
-call s:highlight("TermCursorNC", "",           "",           "")
 
 " folds
 call s:highlight("FoldColumn",   "base03", "",       "")
