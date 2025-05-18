@@ -8,6 +8,7 @@ shell-docs:
 	setup/setup-doc shell/check-backup
 	setup/setup-doc shell/clock
 	setup/setup-doc shell/color-picker
+	setup/setup-doc shell/combined-audio
 	setup/setup-doc shell/copy-otp
 	setup/setup-doc shell/copy-password
 	setup/setup-doc shell/do-not-disturb

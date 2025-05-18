@@ -17,6 +17,7 @@ zsh-configs:
 	setup/setup-config zsh/completions/_bluetooth                                                 $(HOME)/.zsh/completions/_bluetooth
 	setup/setup-config zsh/completions/_check-backup                                              $(HOME)/.zsh/completions/_check-backup
 	setup/setup-config zsh/completions/_clock                                                     $(HOME)/.zsh/completions/_clock
+	setup/setup-config zsh/completions/_combined-audio                                            $(HOME)/.zsh/completions/_combined-audio
 	setup/setup-config zsh/completions/_do-not-disturb                                            $(HOME)/.zsh/completions/_do-not-disturb
 	setup/setup-config zsh/completions/_documentation                                             $(HOME)/.zsh/completions/_documentation
 	setup/setup-config zsh/completions/_extract-tokens                                            $(HOME)/.zsh/completions/_extract-tokens

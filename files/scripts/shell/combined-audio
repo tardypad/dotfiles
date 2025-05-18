@@ -1,0 +1,74 @@
+#!/bin/sh
+
+init_variables() {
+  COMMAND=${0##*/}
+  COMBINED_SINK_NAME='combined-default-sink-source'
+
+  ACTION='status'
+}
+
+parse_command_line() {
+  [ -z "$1" ] || ACTION="$1"
+}
+
+validate_command_line() {
+  if [ "${ACTION}" != 'create' ] \
+     && [ "${ACTION}" != 'status' ] \
+     && [ "${ACTION}" != 'delete' ]; then
+    exit_error "Invalid action '${ACTION}'"
+  fi
+}
+
+exit_error() {
+  [ -z "$1" ] || echo "${COMMAND}: $1"
+  exit 1
+} >&2
+
+combined_audio_create() {
+  # create new combined sink
+  pactl load-module module-null-sink \
+    media.class=Audio/Sink \
+    sink_name="${COMBINED_SINK_NAME}" \
+    channel_map=stereo \
+    > /dev/null
+
+  # link default sink
+  DEFAULT_SINK="$( pactl get-default-sink )"
+  pw-link "${DEFAULT_SINK}:monitor_FL" "${COMBINED_SINK_NAME}:playback_FL"
+  pw-link "${DEFAULT_SINK}:monitor_FR" "${COMBINED_SINK_NAME}:playback_FR"
+
+  # link default source
+  DEFAULT_SOURCE="$( pactl get-default-source )"
+  pw-link "${DEFAULT_SOURCE}:capture_FL" "${COMBINED_SINK_NAME}:playback_FL"
+  pw-link "${DEFAULT_SOURCE}:capture_FR" "${COMBINED_SINK_NAME}:playback_FR"
+}
+
+combined_audio_delete() {
+  MODULE_ID="$(
+    pactl list short modules \
+      | grep "sink_name=${COMBINED_SINK_NAME}" \
+      | cut -d'	' -f1
+  )"
+
+  if [ -z "${MODULE_ID}" ]; then
+    echo "No combined audio created" >&2
+    return 1
+  fi
+
+  pactl unload-module "${MODULE_ID}"
+}
+
+combined_audio_status() {
+  if ! pactl list sinks | grep -q "${COMBINED_SINK_NAME}" ; then
+    echo 'No combined audio' >&2
+    return 1
+  fi
+
+  echo "${COMBINED_SINK_NAME}"
+}
+
+init_variables
+parse_command_line "$@"
+validate_command_line
+
+"combined_audio_${ACTION}"

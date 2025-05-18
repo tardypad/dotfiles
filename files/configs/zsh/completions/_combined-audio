@@ -1,0 +1,14 @@
+#compdef combined-audio
+
+_actions() {
+  local actions=(
+    create
+    delete
+    status
+  )
+
+  compadd "$@" $actions
+}
+
+_arguments \
+  '1:action:_actions'

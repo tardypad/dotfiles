@@ -8,6 +8,7 @@ shell-scripts:
 	setup/setup-script shell/check-backup
 	setup/setup-script shell/clock
 	setup/setup-script shell/color-picker
+	setup/setup-script shell/combined-audio
 	setup/setup-script shell/copy-otp
 	setup/setup-script shell/copy-password
 	setup/setup-script shell/do-not-disturb
