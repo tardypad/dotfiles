@@ -27,6 +27,7 @@ feeds() {
   feed 'Ed Zitron'                            'https://www.wheresyoured.at/rss/'
   feed 'Lionel Dricot'                        'https://ploum.net/atom.xml'
   feed 'Baldur Bjarnason'                     'https://feedpress.me/baldurbjarnason'
+  feed 'Jeremy Keith'                         'https://adactio.com/journal/rss'
   feed 'RoyalSloth'                           'https://blog.royalsloth.eu/posts/index.xml'
   feed 'Jan Schaumann'                        'https://www.netmeister.org/blog/rss.xml'
   feed 'Dan Luu'                              'https://danluu.com/atom.xml'
