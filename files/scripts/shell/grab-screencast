@@ -1,0 +1,42 @@
+#!/bin/sh
+
+OPTION=$(
+  {
+    printf '%s\t%s\n' no_sound 'No sound';
+    printf '%s\t%s\n' no_sound_no_indicator 'No sound (no indicator)';
+    printf '%s\t%s\n' with_sound 'With sound';
+    printf '%s\t%s\n' with_sound_no_indicator 'With sound (no indicator)';
+  } \
+    | fuzzel --dmenu \
+        --prompt='Grab screencast ' \
+        --with-nth=2 \
+        --width=15 \
+        --lines=4
+)
+
+[ -n "${OPTION}" ] || exit
+
+create_combined_audio() {
+  if ! combined-audio > /dev/null 2>&1; then
+    combined-audio create
+  fi
+}
+
+OPTION_ID="$( echo "${OPTION}" | cut -f1 )"
+
+case "${OPTION_ID}" in
+  no_sound)
+    screencast start
+    ;;
+  no_sound_no_indicator)
+    screencast -q start
+    ;;
+  with_sound)
+    create_combined_audio
+    screencast start "$( combined-audio )".monitor
+    ;;
+  with_sound_no_indicator)
+    create_combined_audio
+    screencast -q start "$( combined-audio )".monitor
+    ;;
+esac

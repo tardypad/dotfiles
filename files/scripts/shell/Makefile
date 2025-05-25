@@ -16,6 +16,7 @@ shell-scripts:
 	setup/setup-script shell/documentation-all
 	setup/setup-script shell/extract-tokens
 	setup/setup-script shell/fzf
+	setup/setup-script shell/grab-screencast
 	setup/setup-script shell/http-env
 	setup/setup-script shell/http-stats
 	setup/setup-script shell/i3blocks-mode

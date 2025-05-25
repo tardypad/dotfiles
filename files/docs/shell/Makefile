@@ -16,6 +16,7 @@ shell-docs:
 	setup/setup-doc shell/documentation
 	setup/setup-doc shell/extract-tokens
 	setup/setup-doc shell/fzf
+	setup/setup-doc shell/grab-screencast
 	setup/setup-doc shell/http-env
 	setup/setup-doc shell/http-stats
 	setup/setup-doc shell/i3blocks-mode
