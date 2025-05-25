@@ -25,6 +25,11 @@ exit_error() {
 } >&2
 
 combined_audio_create() {
+  if combined_audio_status > /dev/null 2>&1; then
+    echo 'Combined audio already created' >&2
+    return 1
+  fi
+
   # create new combined sink
   pactl load-module module-null-sink \
     media.class=Audio/Sink \
