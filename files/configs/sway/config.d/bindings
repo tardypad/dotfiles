@@ -36,8 +36,8 @@ bindsym $mod+Shift+{key/q} exec show-clipboard-qrcode
 # select region and grab screenshot
 bindsym $mod+{key/g} exec screenshot
 
-# toggle screencast
-bindsym $mod+Shift+{key/g} exec screencast toggle
+# stop screencast
+bindsym $mod+Ctrl+{key/g} exec screencast stop
 
 # toggle bar status mode
 bindsym $mod+{key/tabulation/Tab} exec i3blocks-mode toggle
@@ -74,6 +74,7 @@ mode "-- Commands --" {
     bindsym {key/c} mode "default", exec {app/chat_client}
     bindsym {key/d} mode "default", exec open-document
     bindsym {key/e} mode "default", exec {app/terminal_emulator}
+    bindsym {key/g} mode "default", exec grab-screencast
     bindsym {key/h} mode "default", exec {app/system_monitor}
     bindsym {key/j} mode "default", exec launch-tmux-env -n projects
     bindsym {key/m} mode "default", exec {app/mail_client} -a Perso
