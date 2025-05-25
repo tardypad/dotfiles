@@ -6,7 +6,7 @@ screencast - Take a screencast of a region
 
 # SYNOPSIS
 
-screencast *start* [ _audio_device_ ]
+screencast [-q] *start* [ _audio_device_ ]
 
 screencast [ *status* | *stop* | *toggle* ]
 
@@ -17,7 +17,8 @@ Desktop folder.
 
 # OPTIONS
 
-None
+*-q*
+	Quiet mode (does not report status as recording)
 
 # OPERANDS
 
@@ -52,6 +53,9 @@ _$XDG_DESKTOP_DIR_
 
 _$XDG_RUNTIME_DIR/screencast_
 	Contains information about the current recording
+
+_$XDG_RUNTIME_DIR/screencast_quiet_
+	Contains information about the current quiet recording
 
 # DEPENDENCIES
 

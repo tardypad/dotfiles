@@ -4,14 +4,25 @@ init_variables() {
   COMMAND=${0##*/}
 
   PID_FILE_PATH="${XDG_RUNTIME_DIR:-/tmp}/screencast"
+  PID_FILE_PATH_QUIET="${PID_FILE_PATH}_quiet"
 
   RECORD_FILE_PATH="${XDG_DESKTOP_DIR:-$HOME/Desktop}/screencast_$( date +'%Y%m%d%H%M%S' ).mp4"
 
+  QUIET=false
   ACTION='status'
   AUDIO_DEVICE=
 }
 
 parse_command_line() {
+  while getopts q OPT; do
+    case "${OPT}" in
+      q) QUIET=true ;;
+      ?) exit_error ;;
+    esac
+  done
+
+  shift $(( OPTIND - 1 ))
+
   [ -z "$1" ] || ACTION="$1"
   [ -z "$2" ] || AUDIO_DEVICE="$2"
 }
@@ -43,12 +54,22 @@ record_start() {
   # shellcheck disable=SC2086
   wf-recorder -g "${REGION}" -f "${RECORD_FILE_PATH}" ${EXTRA_OPTIONS} &
 
-  echo $! > "${PID_FILE_PATH}" \
+  CUR_RECORD="${PID_FILE_PATH}"
+  if [ "${QUIET}" = 'true' ]; then
+    CUR_RECORD="${PID_FILE_PATH_QUIET}"
+  fi
+
+  echo $! > "${CUR_RECORD}" \
     && update_i3blocks
 }
 
 record_status() {
-  if is_record_started; then
+   if [ -f "${PID_FILE_PATH_QUIET}" ]; then
+    echo 'not recording'
+    return
+   fi
+
+  if [ -f "${PID_FILE_PATH}" ]; then
     echo 'recording'
   else
     echo 'not recording'
@@ -56,18 +77,20 @@ record_status() {
 }
 
 record_stop() {
-  if ! is_record_started; then
+  CUR_RECORD="$( current_record )"
+
+  if [ -z "${CUR_RECORD}" ]; then
     echo 'Not currently recording' >&2
     return 1
   fi
 
-  pkill -INT -F "${PID_FILE_PATH}" \
-    && rm -f "${PID_FILE_PATH}" \
+  pkill -INT -F "${CUR_RECORD}" \
+    && rm -f "${CUR_RECORD}" \
     && update_i3blocks
 }
 
 record_toggle() {
-  if is_record_started; then
+  if [ -n "$( current_record )" ]; then
     record_stop
   else
     record_start
@@ -78,8 +101,12 @@ update_i3blocks() {
   pkill -x -RTMIN+3 i3blocks
 }
 
-is_record_started() {
-  [ -f "${PID_FILE_PATH}" ]
+current_record() {
+  if [ -f "${PID_FILE_PATH_QUIET}" ]; then
+    echo "${PID_FILE_PATH_QUIET}"
+  elif [ -f "${PID_FILE_PATH}" ]; then
+    echo "${PID_FILE_PATH}"
+  fi
 }
 
 init_variables
