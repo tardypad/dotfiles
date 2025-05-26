@@ -19,12 +19,18 @@ SETTINGS = {
     "filepath": (
         "~/Desktop/reply_later",
         "File path where to store the buffers to reply to"),
+    "format": (
+        "Reply to {}",
+        "Format of reply later messages"),
+    "format_with_context": (
+        "Reply to {}: {}",
+        "Format of reply later messages with context provided"),
 }
 
 def append_buffer_to_file(filepath, text):
     try:
         with open(os.path.expanduser(filepath), "a") as f:
-            f.write("Reply to {}\n".format(text))
+            f.write(text + "\n")
             f.close()
     except (OSError, IOError):
         return False
@@ -33,8 +39,11 @@ def append_buffer_to_file(filepath, text):
 def reply_later_cmd(data, buf, args):
     buffer_name = weechat.buffer_get_string(buf, "short_name")
 
-    text = "{}: {}".format(buffer_name, args)
-    text = text.strip(': ')
+    if args:
+        text = weechat.config_get_plugin("format_with_context").format(buffer_name, args)
+    else:
+        text = weechat.config_get_plugin("format").format(buffer_name)
+    text = text.replace("\\n", "\n")
 
     result = append_buffer_to_file(
         weechat.config_get_plugin("filepath"),
