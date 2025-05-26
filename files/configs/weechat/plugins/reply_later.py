@@ -21,21 +21,24 @@ SETTINGS = {
         "File path where to store the buffers to reply to"),
 }
 
-def append_buffer_to_file(filepath, name):
+def append_buffer_to_file(filepath, text):
     try:
         with open(os.path.expanduser(filepath), "a") as f:
-            f.write("Reply to {}\n".format(name))
+            f.write("Reply to {}\n".format(text))
             f.close()
     except (OSError, IOError):
         return False
     return True
 
 def reply_later_cmd(data, buf, args):
-    buffer_name = weechat.buffer_get_string(buf, "name")
+    buffer_name = weechat.buffer_get_string(buf, "short_name")
+
+    text = "{}: {}".format(buffer_name, args)
+    text = text.strip(': ')
 
     result = append_buffer_to_file(
         weechat.config_get_plugin("filepath"),
-        buffer_name
+        text
     )
 
     if not result:
