@@ -11,7 +11,6 @@ neovim-configs:
 	setup/setup-config neovim/init.vim                          $(CONFIG_DIR)/nvim/init.vim
 	setup/setup-config neovim/colors/tardypad.vim               $(CONFIG_DIR)/nvim/colors/tardypad.vim
 	setup/setup-config neovim/config.d/bindings.vim             $(CONFIG_DIR)/nvim/config.d/bindings.vim
-	setup/setup-config neovim/config.d/general.lua              $(CONFIG_DIR)/nvim/config.d/general.lua
 	setup/setup-config neovim/config.d/general.vim              $(CONFIG_DIR)/nvim/config.d/general.vim
 	setup/setup-config neovim/config.d/lsp.lua                  $(CONFIG_DIR)/nvim/config.d/lsp.lua
 	setup/setup-config neovim/config.d/plugins.lua              $(CONFIG_DIR)/nvim/config.d/plugins.lua
