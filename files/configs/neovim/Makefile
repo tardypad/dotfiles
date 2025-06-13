@@ -28,6 +28,7 @@ neovim-configs:
 	setup/setup-config neovim/ftplugin/mail.vim                 $(CONFIG_DIR)/nvim/ftplugin/mail.vim
 	setup/setup-config neovim/ftplugin/markdown.vim             $(CONFIG_DIR)/nvim/ftplugin/markdown.vim
 	setup/setup-config neovim/indent/sh.vim                     $(CONFIG_DIR)/nvim/indent/sh.vim
+	setup/setup-config neovim/lsp/gopls.lua                     $(CONFIG_DIR)/nvim/lsp/gopls.lua
 	setup/setup-config neovim/plugin/align.vim                  $(CONFIG_DIR)/nvim/plugin/align.vim
 	setup/setup-config neovim/plugin/alternate_tab.vim          $(CONFIG_DIR)/nvim/plugin/alternate_tab.vim
 	setup/setup-config neovim/plugin/diagnostics_counts.lua     $(CONFIG_DIR)/nvim/plugin/diagnostics_counts.lua
