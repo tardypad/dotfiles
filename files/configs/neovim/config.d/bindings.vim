@@ -107,12 +107,6 @@ nnoremap {key/session}{key/open}   :SessionOpen<space>
 nnoremap {key/session}{key/close}  :SessionClose<CR>
 
 
-"" diagnostics
-
-nnoremap <silent> <Leader>{key/d}{key/previous} :lua vim.diagnostic.goto_prev({wrap = false})<CR>
-nnoremap <silent> <Leader>{key/d}{key/next}     :lua vim.diagnostic.goto_next({wrap = false})<CR>
-
-
 "" search management
 
 " clear last search highlighting
