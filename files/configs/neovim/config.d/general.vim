@@ -121,9 +121,6 @@ autocmd Signal SIGUSR1 :source $MYVIMRC
 " highlight yanked selection
 au TextYankPost * silent! lua vim.highlight.on_yank()
 
-" disable diagnostics virtual text
-lua vim.diagnostic.config({ virtual_text = false })
-
 " diagnostics signs
 sign define DiagnosticSignError text=x texthl=DiagnosticSignError
 sign define DiagnosticSignWarn  text=! texthl=DiagnosticSignWarn
