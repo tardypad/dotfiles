@@ -120,9 +120,3 @@ autocmd Signal SIGUSR1 :source $MYVIMRC
 
 " highlight yanked selection
 au TextYankPost * silent! lua vim.hl.on_yank()
-
-" diagnostics signs
-sign define DiagnosticSignError text=x texthl=DiagnosticSignError
-sign define DiagnosticSignWarn  text=! texthl=DiagnosticSignWarn
-sign define DiagnosticSignInfo  text=- texthl=DiagnosticSignInfo
-sign define DiagnosticSignHint  text=~ texthl=DiagnosticSignHint
