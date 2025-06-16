@@ -119,7 +119,7 @@ command! -nargs=1 UC :UnicodeSearch! <args>
 autocmd Signal SIGUSR1 :source $MYVIMRC
 
 " highlight yanked selection
-au TextYankPost * silent! lua vim.highlight.on_yank()
+au TextYankPost * silent! lua vim.hl.on_yank()
 
 " diagnostics signs
 sign define DiagnosticSignError text=x texthl=DiagnosticSignError
