@@ -253,3 +253,4 @@ bindsym --locked {key/XF86AudioPause} exec mpc -q toggle && pkill -x -RTMIN+4 i3
 bindsym --locked $mod+{key/F8}        exec mpc -q toggle && pkill -x -RTMIN+4 i3blocks
 bindsym --locked {key/XF86AudioNext}  exec mpc -q next && pkill -x -RTMIN+4 i3blocks
 bindsym --locked $mod+{key/F9}        exec mpc -q next && pkill -x -RTMIN+4 i3blocks
+bindsym --locked $mod+{key/F10}       exec mpc -q clear && pkill -x -RTMIN+4 i3blocks
