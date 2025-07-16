@@ -66,7 +66,7 @@ config.set('content.desktop_capture', True, 'whereby.com')
 c.colors.webpage.preferred_color_scheme = '{color/theme}'
 
 # downloads
-c.downloads.location.directory = '~/Downloads'
+c.downloads.location.directory = '~/Desktop'
 c.downloads.location.prompt = False
 c.downloads.location.remember = False
 c.downloads.remove_finished = 3000
