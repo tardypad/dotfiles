@@ -1,9 +1,9 @@
-chat_client       foot tmux new-session -A -s chat weechat
+chat_client       foot tmux new-session -c ~/Desktop -A -s chat weechat
 document_viewer   zathura
 image_viewer      imv
-mail_client       foot tmux new-session -A -s mail "aerc"
+mail_client       foot tmux new-session -c ~/Desktop -A -s mail "aerc"
 mail_composer     foot aerc
-system_monitor    foot -T sway_monitor -o locked-title=yes -e tmux new-session -A -s monitor "htop"
-terminal_emulator foot tmux new-session
+system_monitor    foot -T sway_monitor -o locked-title=yes -e tmux new-session -c ~/Desktop -A -s monitor "htop"
+terminal_emulator foot tmux new-session -c ~/Desktop
 text_editor       foot nvim
 web_browser       qutebrowser

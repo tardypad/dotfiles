@@ -35,7 +35,7 @@ bind -N 'paste buffer'    {key/return/Enter} paste-buffer
 
 ## sessions management (Ctrl)
 
-bind -N 'create session' C-{key/create/low} new-session -c "${HOME}"
+bind -N 'create session' C-{key/create/low} new-session -c "${HOME}/Desktop"
 bind -N 'rename session' C-{key/rename/low} command-prompt "rename-session '%%'"
 bind -N 'close session'  C-{key/close/low}  confirm-before -p 'kill-session "#{session_name}"? (y/n)' kill-session
 
@@ -61,7 +61,7 @@ bind -N 'switch to session 10'        C-{key/0}             switch-client -t $9
 
 ## windows management (lowercase)
 
-bind -N 'create window' {key/create/low} new-window -c "${HOME}"
+bind -N 'create window' {key/create/low} new-window -c "${HOME}/Desktop"
 bind -N 'rename window' {key/rename/low} command-prompt "rename-window '%%'"
 bind -N 'close window'  {key/close/low}  confirm-before -p 'kill-window "#{window_name}"? (y/n)' kill-window
 

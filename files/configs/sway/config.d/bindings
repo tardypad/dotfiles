@@ -84,7 +84,7 @@ mode "-- Commands --" {
     bindsym {key/t} mode "default", exec sway-quick-command pick-task
     bindsym {key/w} mode "default", exec {app/web_browser}
 
-    bindsym Shift+{key/e} mode "default", exec foot
+    bindsym Shift+{key/e} mode "default", exec foot -D ~/Desktop
     bindsym Shift+{key/m} mode "default", exec {app/mail_client} -a Backup
 
     bindsym {key/return/Return} mode "default"
