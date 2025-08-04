@@ -239,11 +239,17 @@ bindsym --locked $mod+{key/F3}              exec wpctl set-volume @DEFAULT_AUDIO
 bindsym --locked {key/XF86AudioMicMute} exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && pkill -x -RTMIN+7 i3blocks
 bindsym --locked $mod+{key/F4}          exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && pkill -x -RTMIN+7 i3blocks
 
-# Backlight keys
+# Backlight keys for laptop
 bindsym --locked {key/XF86MonBrightnessDown} exec light -U 5
 bindsym --locked $mod+{key/F5}               exec light -U 5
 bindsym --locked {key/XF86MonBrightnessUp}   exec light -A 5
 bindsym --locked $mod+{key/F6}               exec light -A 5
+
+# Backlight keys for external monitor
+bindsym --locked Shift+{key/XF86MonBrightnessDown} exec ddcutil setvcp 10 - 5
+bindsym --locked Shift+$mod+{key/F5}               exec ddcutil setvcp 10 - 5
+bindsym --locked Shift+{key/XF86MonBrightnessUp}   exec ddcutil setvcp 10 + 5
+bindsym --locked Shift+$mod+{key/F6}               exec ddcutil setvcp 10 + 5
 
 # Media keys
 bindsym --locked {key/XF86AudioPrev}  exec mpc -q prev && pkill -x -RTMIN+4 i3blocks
