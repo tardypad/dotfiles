@@ -53,12 +53,12 @@ init_hdd() {
 dirsum() (
   cd "$1" || return 1
 
-  local total_size="$( du -sb . | cut -f1 )"
+  TOTAL_SIZE="$( du -sb . | cut -f1 )"
 
   find . \
     | LC_ALL=C sort \
     | tar --no-recursion -cf - -T - \
-    | pv -s "${total_size}" -eb \
+    | pv -s "${TOTAL_SIZE}" -eb \
     | md5sum \
     | cut -d' ' -f1
 )
