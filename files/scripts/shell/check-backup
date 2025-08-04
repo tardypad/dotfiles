@@ -90,10 +90,10 @@ check_dir Projects
 check_dir Todo
 
 if [ "${ALL}" = 'true' ]; then
-  check-dir Desktop
-  check-dir Music
-  check-dir Packages
-  check-dir Repositories
-  check-dir Videos
-  check-dir Work
+  check_dir Desktop
+  check_dir Music
+  check_dir Packages
+  check_dir Repositories
+  check_dir Videos
+  check_dir Work
 fi
